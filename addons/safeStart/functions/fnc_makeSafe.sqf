@@ -1,3 +1,5 @@
+//potato_safeStart_fnc_makeSafe
+
 #include "script_component.hpp"
 
 if (!isServer) exitWith {};
