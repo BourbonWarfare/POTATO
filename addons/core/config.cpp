@@ -16,7 +16,7 @@ class CfgMods {
     class PREFIX {
         dir = "@BourbonMods";
         name = "Bourbon Mods";
-        picture = QUOTE(PATHTOF(pabst_logo.paa));
+        picture = QUOTE(PATHTOF(potato_icon_ca.paa));
         hidePicture = "false";
         hideName = "false";
         actionName = "Website";

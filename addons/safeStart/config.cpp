@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"pabst_core"};
+        requiredAddons[] = {"potato_core"};
         author[] = {"PabstMirror"};
         authorUrl = "https://github.com/PabstMirror";
         VERSION_CONFIG;
