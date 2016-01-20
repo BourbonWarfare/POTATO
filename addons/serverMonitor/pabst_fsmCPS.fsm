@@ -1,0 +1,68 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, FSM-Benchmark">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-57.111763,-657.130432,32.888245,-607.130005,0.000000,"Start"};
+item1[] = {"Count_CPS",2,250,-57.779861,-517.321655,32.220154,-467.321655,0.000000,"Count CPS"};
+item2[] = {"dummy",4,4314,-57.779770,-444.847626,32.220863,-394.847961,0.000000,"dummy"};
+item3[] = {"init",4,218,-57.265427,-586.198181,32.734848,-536.198181,0.000000,"init"};
+link0[] = {0,3};
+link1[] = {1,2};
+link2[] = {2,1};
+link3[] = {3,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,13,6316128,1,-222.550217,212.204605,-240.802795,-699.738647,859,1240,1};
+window[] = {2,-1,-1,-1,-1,796,30,1052,30,3,881};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "FSM-Benchmark";
+  class States
+  {
+    /*%FSM<STATE "Start">*/
+    class Start
+    {
+      name = "Start";
+      init = /*%FSM<STATEINIT""">*/"potato_serverMonitor_fsmNo = 0;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "init">*/
+        class init
+        {
+          priority = 0.000000;
+          to="Count_CPS";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Count_CPS">*/
+    class Count_CPS
+    {
+      name = "Count_CPS";
+      init = /*%FSM<STATEINIT""">*/"diag_log text format [""[POTATO] Starting CPS count @ %1"", time];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/"potato_serverMonitor_fsmNo = potato_serverMonitor_fsmNo + 1;"/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "dummy">*/
+        class dummy
+        {
+          priority = 0.000000;
+          to="Count_CPS";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"false"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Start";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/
