@@ -86,70 +86,30 @@ class POTATO_EscapeButton_Base2: RscShortcutButton {
     h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
     action = QUOTE((findDisplay 49) closeDisplay 0; [] spawn FUNC(openRespawn););
 };
-class POTATO_adMSG_Back: RscPicture {
-    idc = -1;
-    text = "#(argb,8,8,3)color(0,0,0,0.7)";
-    x = "1 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX";
-    y = "3.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
-    w = "15 * (((safezoneW / safezoneH) min 1.2) / 40)";
-    h = "1.2 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-};
-class POTATO_adMSG_TextInput: RscEdit {
-    idc = 840430;
-    x = "1.1 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX";
-    y = "3.6 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
-    w = "14.8 * (((safezoneW / safezoneH) min 1.2) / 40)";
-    h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-    sizeEx = "0.7 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-    colorBackground[] = {0,0,0,0};
-    colorText[] = {0.95, 0.95, 0.95, 1};
-    font = "EtelkaMonospacePro";
-};
-class POTATO_adMSG_Button: RscButtonMenu {
-    text = "MSG Admins";
-    tooltip = "Send message to all admins (for teleport, something broke, or mission conditions changed)";
-    x = "8.5 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX";
-    y = "4.9 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
-    w = "7.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
-    h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-    action = QUOTE((findDisplay 49) closeDisplay 0; [] spawn FUNC(messageSystem););
-};
 
 class RscStandardDisplay;
 class RscDisplayMPInterrupt: RscStandardDisplay {
     class controls {
         class POTATO_EscapeButton1: POTATO_EscapeButton_Base1{};
         class POTATO_EscapeButton2: POTATO_EscapeButton_Base2{};
-        class POTATO_adMSG_Back: POTATO_adMSG_Back{};
-        class POTATO_adMSG_TextInput: POTATO_adMSG_TextInput{};
-        class POTATO_adMSG_Button: POTATO_adMSG_Button{};
     };
 };
 class RscDisplayInterrupt: RscStandardDisplay {
     class controls {
         class POTATO_EscapeButton1: POTATO_EscapeButton_Base1{};
         class POTATO_EscapeButton2: POTATO_EscapeButton_Base2{};
-        class POTATO_adMSG_Back: POTATO_adMSG_Back{};
-        class POTATO_adMSG_TextInput: POTATO_adMSG_TextInput{};
-        class POTATO_adMSG_Button: POTATO_adMSG_Button{};
     };
 };
 class RscDisplayInterruptEditor3D: RscStandardDisplay {
     class controls {
         class POTATO_EscapeButton1: POTATO_EscapeButton_Base1{};
         class POTATO_EscapeButton2: POTATO_EscapeButton_Base2{};
-        class POTATO_adMSG_Back: POTATO_adMSG_Back{};
-        class POTATO_adMSG_TextInput: POTATO_adMSG_TextInput{};
-        class POTATO_adMSG_Button: POTATO_adMSG_Button{};
     };
 };
 class RscDisplayInterruptEditorPreview: RscStandardDisplay {
     class controls {
         class POTATO_EscapeButton1: POTATO_EscapeButton_Base1{};
         class POTATO_EscapeButton2: POTATO_EscapeButton_Base2{};
-        class POTATO_adMSG_Back: POTATO_adMSG_Back{};
-        class POTATO_adMSG_TextInput: POTATO_adMSG_TextInput{};
-        class POTATO_adMSG_Button: POTATO_adMSG_Button{};
     };
 };
 

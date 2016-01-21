@@ -5,7 +5,6 @@ ADDON = false;
 PREP(checkMods);
 PREP(checkModsWriteDiary);
 PREP(endMission);
-PREP(isAuthorized);
 PREP(openAdminMenu);
 
 PREP(uihook_checkMods);

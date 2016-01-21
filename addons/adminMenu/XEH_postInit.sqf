@@ -6,9 +6,9 @@ GVAR(openEndMission) = false;
 
 if (isServer) then {
     TRACE_1("Setting up Server EHs", time);
-
-    GVAR(playerIsAuthorized) = true;
     GVAR(zeusCenter) = createCenter sideLogic;
+
+    // GVAR(playerIsAuthorized) = true;
 
     // ["pabstOnPlayerConnect", "onPlayerConnected", {
         // GVAR(playerDataHash) params ["_dataUIDS", "_dataArray"];
@@ -53,13 +53,6 @@ if (hasInterface) then {
         if (GVAR(playerStartingSide) isEqualTo sideUnknown) then {
             TRACE_1("Setting start playerside",playerSide);
             GVAR(playerStartingSide) = playerSide;
-        };
-    }] call ace_common_fnc_addEventHandler;
-
-    ["potato_adminMsg", {
-        params ["_msg", ["_from", "?"], ["_forceShow", false]];
-        if (_forceShow || {(GVAR(showNotifcations)) && {[] call FUNC(isAuthorized)}}) then {
-            systemChat format ["POTATO [%1]: %2", _from, _msg];
         };
     }] call ace_common_fnc_addEventHandler;
 };

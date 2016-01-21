@@ -7,6 +7,6 @@ if (!GVAR(openEndMission)) exitWith {TRACE_1("locked", GVAR(openEndMission));};
 
 _debugMsg = format ["Ending mission for winning side %1", _side];
 
-["potato_adminMsg", [_debugMsg, profileName, true]] call ACEFUNC(common,globalEvent);
+["potato_adminMsg", [_debugMsg, profileName, "#ALL"]] call ACEFUNC(common,globalEvent);
 
 [_side] remoteExecCall [QFUNC(endMission), 0];

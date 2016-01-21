@@ -5,7 +5,7 @@ TRACE_1("params",_this);
 
 disableSerialization;
 
-if (!([] call FUNC(isAuthorized))) exitWith {
+if (!([] call EFUNC(core,isAuthorized))) exitWith {
     systemChat "Not Authorized";
 };
 
