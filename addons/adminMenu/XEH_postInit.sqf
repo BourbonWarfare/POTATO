@@ -51,16 +51,15 @@ if (hasInterface) then {
     ["playerChanged", {
         if (isNull ace_player) exitWith {};
         if (GVAR(playerStartingSide) isEqualTo sideUnknown) then {
-            TRACE_1("Setting playerside",playerSide);
+            TRACE_1("Setting start playerside",playerSide);
             GVAR(playerStartingSide) = playerSide;
         };
     }] call ace_common_fnc_addEventHandler;
 
     ["potato_adminMsg", {
-        params ["_msg", ["_forceShow", false]];
-        if (!GVAR(showNotifcations)) exitWith {};
-        if (_forceShow || {(GVAR(showNotifcations)) && {missionNameSpace getVariable [QGVAR(playerIsAuthorized), false]}}) then {
-            systemChat format ["POTATO: %1", _msg];
+        params ["_msg", ["_from", "POTATO"], ["_forceShow", false]];
+        if (_forceShow || {(GVAR(showNotifcations)) && {[] call FUNC(isAuthorized)}}) then {
+            systemChat format ["[%1]: %1", _from, _msg];
         };
     }] call ace_common_fnc_addEventHandler;
 };

@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+TRACE_1("params",_this);
+
 _selectedPersonIndex = lbCurSel UI_TAB_TELEPORT_PERSON;
 if ((_selectedPersonIndex < 0) || (_selectedPersonIndex >= (count PABST_ADMIN_ui_teleportPersons))) exitWith {};
 

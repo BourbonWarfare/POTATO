@@ -17,7 +17,8 @@ class CfgPatches {
 
 class ACE_Settings {
     class GVAR(showTimer) {
-        displayName = "AdminMenu: Show Timer";
+        category = QUOTE(PREFIX);
+        displayName = "Potato: Show SafeStart Timer";
         description = "Show the safe start timer";
         typeName = "BOOL";
         value = 1;

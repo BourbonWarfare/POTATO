@@ -153,8 +153,6 @@ class RscDisplayInterruptEditorPreview: RscStandardDisplay {
     };
 };
 
-
-
 //define the main gui
 class GVAR(adminMenuDialog) {
     idd = 6969;
@@ -185,12 +183,12 @@ class GVAR(adminMenuDialog) {
         class RscText_1000: RscText {
             idc = -1;
             style = 2;
-            text = "POTATO Admin (from BourbonWarfare)"; //--- ToDo: Localize;
+            text = "POTATO (from BourbonWarfare)"; //--- ToDo: Localize;
             x = 0.2 * safezoneW + safezoneX;
             y = 0.78 * safezoneH + safezoneY;
-            w = 0.7 * safezoneW;
+            w = 0.13 * safezoneW;
             h = 0.02 * safezoneH;
-            sizeEx = 0.015 * safezoneH;
+            sizeEx = 0.01 * safezoneH;
         };
         class ServerMonitor: RscStructuredText {
             idc = 1102;
@@ -322,12 +320,12 @@ class GVAR(adminMenuDialog) {
                 };
                 class RscButton_1xxx60055: RscButton {
                     idc = -1;
-                    text = "Spawn In"; //--- ToDo: Localize;
+                    text = "Spawn Supplies"; //--- ToDo: Localize;
                     x = 0.255 * safezoneW;
                     y = 0.52 * safezoneH;
                     w = 0.26 * safezoneW;
                     h = 0.05 * safezoneH;
-                    action = QUOTE(_this call FUNC(uihook_teleportButton));
+                    action = QUOTE(_this call FUNC(uihook_supplySpawn));
                 };
             };
         };
@@ -377,7 +375,7 @@ class GVAR(adminMenuDialog) {
                     text = "Turn ON (Make Safe)"; //--- ToDo: Localize;
                     x = 0.01 * safezoneW;
                     y = 0.01 * safezoneH;
-                    w = 0.30 * safezoneW;
+                    w = 0.52 * safezoneW;
                     h = 0.05 * safezoneH;
                     action = QUOTE([true] call FUNC(uihook_safeStart));
                 };
@@ -386,7 +384,7 @@ class GVAR(adminMenuDialog) {
                     text = "Turn OFF (Start Mission)"; //--- ToDo: Localize;
                     x = 0.01 * safezoneW;
                     y = 0.08 * safezoneH;
-                    w = 0.30 * safezoneW;
+                    w = 0.52 * safezoneW;
                     h = 0.05 * safezoneH;
                     action = QUOTE([false] call FUNC(uihook_safeStart));
                 };
@@ -402,18 +400,18 @@ class GVAR(adminMenuDialog) {
                 class RscButton_1605412: RscButton {
                     idc = -1;
                     text = "Verify Mods (experimental, might lag)"; //--- ToDo: Localize;
-                    x = 0.02 * safezoneW;
+                    x = 0.01 * safezoneW;
                     y = 0.01 * safezoneH;
-                    w = 0.5 * safezoneW;
+                    w = 0.52 * safezoneW;
                     h = 0.05 * safezoneH;
                     action = QUOTE([] call FUNC(uihook_checkMods););
                 };
                 class RscButton_160055444: RscButton {
                     idc = -1;
                     text = "Weapons Test"; //--- ToDo: Localize;
-                    x = 0.02 * safezoneW;
-                    y = 0.11 * safezoneH;
-                    w = 0.5 * safezoneW;
+                    x = 0.01 * safezoneW;
+                    y = 0.08 * safezoneH;
+                    w = 0.52 * safezoneW;
                     h = 0.05 * safezoneH;
                     action = QUOTE(_this call FUNC(uihook_weaponTest));
                 };

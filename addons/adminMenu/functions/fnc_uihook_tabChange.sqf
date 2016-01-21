@@ -34,18 +34,23 @@ case (0): {
 case (1): {
         TRACE_1("showing supplies tab", _sel);
         lbClear UI_TAB_SUPPLIES_TYPE;
-        PABST_ADMIN_ui_supplyClassNames = [];
+        GVAR(supplyClassNames) = [];
         {
-            _x params ["_className", ["_description", ""]];
+            private _className = configName _x;
             if (isClass (configFile >> "CfgVehicles" >> _className)) then {
-                PABST_ADMIN_ui_supplyClassNames pushBack _className;
-                if (_description == "") then {
-                    _description = getText (configFile >> "CfgVehicles" >> _className >> "displayName")
+                TRACE_2("veh exists in modset",_x,_className);
+                GVAR(supplyClassNames) pushBack _className;
+                _description = if (isText (_x >> "displayName")) then {
+                    getText (_x >> "displayName"); //use custom name
+                } else {
+                    getText (configFile >> "CfgVehicles" >> _className >> "displayName"); // use veh name
                 };
                 _index = UI_TAB_SUPPLIES_TYPE lbAdd format ["%1", _description];
                 UI_TAB_SUPPLIES_TYPE lbSetTooltip [_index, _className];
+            } else {
+                TRACE_2("veh missing from modset",_x,_className);
             };
-        } forEach SUPPLIES_ARRAY;
+        } forEach (configProperties [configFile >> QGVAR(supplies)]);
         UI_TAB_SUPPLIES_TYPE lbSetCurSel 0;
 
         lbClear UI_TAB_SUPPLIES_GROUP;
@@ -53,10 +58,11 @@ case (1): {
         {
             if ( ({(isPlayer _x)&&{alive _x}} count (units _x)) > 0) then {
                 GVAR(groupsArray) pushBack _x;
-                _txt = format ["%1 [", _x];
-                {_txt = _txt + format ["%1, ", (name _x)];} forEach (units _x);
-                _txt = _txt + "]";
-                UI_TAB_SUPPLIES_GROUP lbAdd _txt;
+                private _grpMembers = "";
+                {_grpMembers = _grpMembers + format ["%1, ", (name _x)];} forEach (units _x);
+                _txt = format ["%1 [%2]", _x, _grpMembers];
+                private _index = UI_TAB_SUPPLIES_GROUP lbAdd _txt;
+                UI_TAB_SUPPLIES_GROUP lbSetTooltip [_index, _grpMembers];
             };
         } forEach allGroups;
         UI_TAB_SUPPLIES_GROUP lbSetCurSel 0;
@@ -99,12 +105,11 @@ case (3): {
         {
             if ( ({(isPlayer _x)&&(alive _x)} count (units _x)) != 0) then {
                 GVAR(groupsArray) pushBack _x;
-                _txt = format ["%1 [", _x];
-                {
-                    _txt = _txt + format ["%1,", (name _x)];
-                } forEach (units _x);
-                _txt = _txt + "]";
-                UI_TAB_TELEPORT_GROUP lbAdd _txt;
+                private _grpMembers = "";
+                {_grpMembers = _grpMembers + format ["%1, ", (name _x)];} forEach (units _x);
+                _txt = format ["%1 [%2]", _x, _grpMembers];
+                private _index = UI_TAB_TELEPORT_GROUP lbAdd _txt;
+                UI_TAB_TELEPORT_GROUP lbSetTooltip [_index, _grpMembers];
             };
         } forEach allGroups;
         UI_TAB_TELEPORT_GROUP lbSetCurSel 0;

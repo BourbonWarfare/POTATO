@@ -5,9 +5,7 @@ TRACE_1("params",_this);
 
 disableSerialization;
 
-_authorized = missionNamespace getVariable [QGVAR(playerIsAuthorized), false];
-TRACE_2("tryingToOpen",_authorized,serverCommandAvailable "#kick");
-if (!(_authorized || {serverCommandAvailable "#kick"})) exitWith {
+if (!([] call FUNC(isAuthorized))) exitWith {
     systemChat "Not Authorized";
 };
 

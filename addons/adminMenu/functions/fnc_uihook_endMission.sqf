@@ -1,8 +1,12 @@
 #include "script_component.hpp"
 
 params ["_side"];
-_debugMsg = format ["%1 ending mission for winning side %2", (profileName), _side];
+TRACE_1("params",_side);
 
-["potato_adminMsg", [_debugMsg, true]] call ACEFUNC(common,globalEvent);
+if (!GVAR(openEndMission)) exitWith {TRACE_1("locked", GVAR(openEndMission));};
+
+_debugMsg = format ["Ending mission for winning side %2", _side];
+
+["potato_adminMsg", [_debugMsg, profileName, true]] call ACEFUNC(common,globalEvent);
 
 [_side] remoteExecCall [QFUNC(endMission), 0];
