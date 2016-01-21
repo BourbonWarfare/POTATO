@@ -3,9 +3,9 @@
 TRACE_1("params",_this);
 
 _selectedPersonIndex = lbCurSel UI_TAB_TELEPORT_PERSON;
-if ((_selectedPersonIndex < 0) || (_selectedPersonIndex >= (count PABST_ADMIN_ui_teleportPersons))) exitWith {};
+if ((_selectedPersonIndex < 0) || (_selectedPersonIndex >= (count GVAR(teleportPersonList)))) exitWith {};
 
-_selectedPerson = PABST_ADMIN_ui_teleportPersons select _selectedPersonIndex;
+_selectedPerson = GVAR(teleportPersonList) select _selectedPersonIndex;
 if (isNull _selectedPerson) exitWith {};
 
 _selectedGroupIndex = lbCurSel UI_TAB_TELEPORT_GROUP;

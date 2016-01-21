@@ -86,16 +86,16 @@ case (2): {
 case (3): {
         TRACE_1("showing teleport tab", _sel);
         lbClear UI_TAB_TELEPORT_PERSON;
-        PABST_ADMIN_ui_teleportPersons = [];
+        GVAR(teleportPersonList) = [];
         {
             if ((isPlayer _x) && {alive _x} && {_x getVariable [QGVAR(didJip), false]}) then {
-                PABST_ADMIN_ui_teleportPersons pushBack _x;
+                GVAR(teleportPersonList) pushBack _x;
                 UI_TAB_TELEPORT_PERSON lbAdd format ["JIP: %1", (name _x)];
             };
         } forEach allUnits;
         {
             if ((isPlayer _x) && {alive _x} && {!(_x getVariable [QGVAR(didJip), false])}) then {
-                PABST_ADMIN_ui_teleportPersons pushBack _x;
+                GVAR(teleportPersonList) pushBack _x;
                 UI_TAB_TELEPORT_PERSON lbAdd format ["%1", (name _x)];
             };
         } forEach allUnits;
