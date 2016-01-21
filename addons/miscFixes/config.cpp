@@ -17,7 +17,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = 0.1;
-        requiredAddons[] = {"rhs_c_heavyweapons"};
+        requiredAddons[] = {};
     };
     class alive_sys_data {
         units[] = {};
