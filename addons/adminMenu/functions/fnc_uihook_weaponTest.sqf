@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
-_debugMsg = format ["%1 is doing Weapon Test", profileName];
-["potato_adminMsg", [_debugMsg]] call ACEFUNC(common,globalEvent);
+_debugMsg = format ["Doing Weapon Test"];
+["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);
 
 if ((isNull player) || {!alive player}) exitWith {};
 

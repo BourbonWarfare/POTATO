@@ -11,5 +11,6 @@ if ((_selectedGroupIndex < 0) || (_selectedGroupIndex >= (count GVAR(groupsArray
 
 _selectedGroup = GVAR(groupsArray) select _selectedGroupIndex;
 _spawnedSupport = createVehicle [_selectedClass,(getPos leader _selectedGroup), [], 0, "NONE"];
-_debugMsg = format ["PABST_ADMIN: %1 is supply dropping %2", (profileName), _selectedClass];
-["potato_adminMsg", [_debugMsg]] call ACEFUNC(common,globalEvent);
+
+_debugMsg = format ["Supply dropping %1 to %2", _selectedClass, _selectedGroup];
+["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);

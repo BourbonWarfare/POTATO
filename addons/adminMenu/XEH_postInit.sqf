@@ -57,9 +57,9 @@ if (hasInterface) then {
     }] call ace_common_fnc_addEventHandler;
 
     ["potato_adminMsg", {
-        params ["_msg", ["_from", "POTATO"], ["_forceShow", false]];
+        params ["_msg", ["_from", "?"], ["_forceShow", false]];
         if (_forceShow || {(GVAR(showNotifcations)) && {[] call FUNC(isAuthorized)}}) then {
-            systemChat format ["[%1]: %1", _from, _msg];
+            systemChat format ["POTATO [%1]: %2", _from, _msg];
         };
     }] call ace_common_fnc_addEventHandler;
 };

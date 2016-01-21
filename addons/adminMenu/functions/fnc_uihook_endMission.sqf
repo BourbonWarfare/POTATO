@@ -5,7 +5,7 @@ TRACE_1("params",_side);
 
 if (!GVAR(openEndMission)) exitWith {TRACE_1("locked", GVAR(openEndMission));};
 
-_debugMsg = format ["Ending mission for winning side %2", _side];
+_debugMsg = format ["Ending mission for winning side %1", _side];
 
 ["potato_adminMsg", [_debugMsg, profileName, true]] call ACEFUNC(common,globalEvent);
 
