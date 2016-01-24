@@ -2,6 +2,7 @@
 
 ADDON = false;
 
+PREP(createLocalMarker);
 PREP(sideMarker);
 
 ADDON = true;
