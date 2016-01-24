@@ -62,8 +62,8 @@ for "_groupsIndex" from 0 to ((count _groupsPath) - 1) do {
 // Extract units
 private _unitsPath = _configrationPath >> QUOTE(Units);
 
-for "_groupsIndex" from 0 to ((count _groupsPath) - 1) do {
-    private _unit = _groupsPath select _groupsIndex;
+for "_unitIndex" from 0 to ((count _groupsPath) - 1) do {
+    private _unit = _groupsPath select _unitIndex;
     private _unitName = configName _group;
     private _unitData = [_unit] call _fnc_getMarkerSettingsFromClass;
 

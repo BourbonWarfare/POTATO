@@ -2,7 +2,9 @@
 
 ADDON = false;
 
+PREP(drawMap);
 PREP(loadFromConfigFile);
+PREP(updateMarkerDrawCache);
 
 GVAR(enabled) = false;
 GVAR(updateInterval) = 5;
