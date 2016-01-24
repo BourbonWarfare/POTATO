@@ -17,6 +17,7 @@ private _mapScale = ctrlMapScale _mapControl;
 
 {
     _x params [
+        "_position",
         ["_icon", "\A3\ui_f\data\map\markers\nato\b_unknown.paa", [""]],
         ["_color", [1, 1, 1, 1], [[]]],
         ["_size", [24, 24], [[]]],
@@ -32,4 +33,5 @@ private _mapScale = ctrlMapScale _mapControl;
     if (_textLeft != "" && _textRight != "") then {
         _mapControl drawIcon ["#(argb,8,8,3)color(0,0,0,0)", _color, _position, _width, _height, 0, _textRight, 1, _textSize, "TahomaB", "right"];
     };
+    nil
 } count GVAR(drawCache);
