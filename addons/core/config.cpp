@@ -13,6 +13,7 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgFactionClasses.hpp"
 
 class CfgMods {
     class PREFIX {
