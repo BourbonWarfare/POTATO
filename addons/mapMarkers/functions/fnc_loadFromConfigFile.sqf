@@ -5,9 +5,8 @@
  * 0: Configuration File (default: missionConfigFile) <CONFIG>
  *
  * Return Value:
- * Nothing
+ * None
  */
-
 #include "script_component.hpp"
 
 params [["_configFile", missionConfigFile]];
@@ -21,6 +20,7 @@ if (!isClass _configrationPath) exitWith {};
 GVAR(enabled) = [_configrationPath >> "enabled"] call BIS_fnc_getCfgDataBool;
 private _updateRate = [_configrationPath >> "updateRate"] call BIS_fnc_getCfgData;
 GVAR(updateRate) = if (isNil "_updateRate") then {GVAR(updateRate)} else {_updateRate};
+GVAR(drawOnlyDefinedGroups) = [_configrationPath >> "drawOnlyDefinedGroups"] call BIS_fnc_getCfgDataBool;
 
 // Extract visibility
 private _visibilityPath = _configrationPath >> QUOTE(Visibility);
@@ -30,7 +30,7 @@ for "_visibilityIndex" from 0 to ((count _visibilityPath) - 1) do {
     private _sideName = configName _visibilitySide;
     private _visibleForSide = [];
     for "_sideIndex" from 0 to ((count _visibilitySide) - 1) do {
-        _visibleForSide pushBack (configName (_visibilitySide select _sideIndex));
+        _visibleForSide pushBack (toLower configName (_visibilitySide select _sideIndex));
     };
 
     [GVAR(factionVisibilitySettings), _sideName, _visibleForSide] call EFUNC(datastructures,map_put);
@@ -43,7 +43,8 @@ private _fnc_getMarkerSettingsFromClass = {
         [_config >> "icon"] call BIS_fnc_getCfgData,
         [_config >> "color"] call BIS_fnc_getCfgData,
         [_config >> "size"] call BIS_fnc_getCfgData,
-        [_config >> "displayText"] call BIS_fnc_getCfgDataBool
+        [_config >> "textRight"] call BIS_fnc_getCfgData,
+        [_config >> "textLeft"] call BIS_fnc_getCfgData
     ]
 };
 
