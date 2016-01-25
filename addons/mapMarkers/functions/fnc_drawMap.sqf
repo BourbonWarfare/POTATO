@@ -35,3 +35,21 @@ private _mapScale = ctrlMapScale _mapControl;
     };
     nil
 } count GVAR(drawCache);
+
+{
+    _x params [
+        "_position",
+        ["_icon", "\A3\ui_f\data\map\markers\military\start_CA.paa", [""]],
+        ["_color", [1, 1, 1, 1], [[]]],
+        ["_size", [12, 12], [[]]],
+        ["_direction", 0, [0]],
+        ["_textLeft", "", [""]]
+    ];
+    _size params ["_width", "_height"];
+    _width = _width * _sizeFactor;
+    _height = _height * _sizeFactor;
+    private _textSize = if ((_mapScale * _mapSize) >= 0.005) then {0} else {0.02 * _sizeFactor};
+
+    _mapControl drawIcon [_icon, _color, _position, _width, _height, _direction, _textLeft, 1, _textSize, "TahomaB", "left"];
+    nil
+} count GVAR(groupMemberDrawCache);

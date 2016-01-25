@@ -43,8 +43,8 @@ private _fnc_getMarkerSettingsFromClass = {
         [_config >> "icon"] call BIS_fnc_getCfgData,
         [_config >> "color"] call BIS_fnc_getCfgData,
         [_config >> "size"] call BIS_fnc_getCfgData,
-        [_config >> "textRight"] call BIS_fnc_getCfgData,
-        [_config >> "textLeft"] call BIS_fnc_getCfgData
+        [_config >> "textLeft"] call BIS_fnc_getCfgData,
+        [_config >> "textRight"] call BIS_fnc_getCfgData
     ]
 };
 
@@ -64,7 +64,7 @@ private _unitsPath = _configrationPath >> QUOTE(Units);
 
 for "_unitIndex" from 0 to ((count _unitsPath) - 1) do {
     private _unit = _unitsPath select _unitIndex;
-    private _unitName = configName _group;
+    private _unitName = configName _unit;
     private _unitData = [_unit] call _fnc_getMarkerSettingsFromClass;
 
     [GVAR(unitMarkerSettings), _unitName, _unitData] call EFUNC(datastructures,map_put);
