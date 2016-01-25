@@ -1,71 +1,146 @@
 #include "script_component.hpp"
 
+TRACE_1("params",_this);
+
 _debugMsg = format ["Doing Weapon Test"];
 ["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);
 
+//Needs a player to add to breifing:
 if ((isNull player) || {!alive player}) exitWith {};
 
-_diaryHyperlinkedText = format ["Weapon Report at %1 minutes:", (floor (time/60))];
-_lowAmmo = false;
+private _westClasses = [];
+private _eastClasses = [];
+private _indClasses = [];
+private _civClasses = [];
+
+private _handledClasses = [];
+
+private _fncGetWeaponInfo = {
+    params ["_weaponClassname"];
+    if (_weaponClassname == "") exitWith {};
+    if (_weaponClassname == "throw") then {
+        _unitText = _unitText + "[Thrown: ";
+    };
+    _config = configfile >> "CfgWeapons" >> _weaponClassname;
+    _muzzles = getArray (_config >> "muzzles");
+    {
+        _muzzleConfig = if (_x == "this") then {
+            _config;
+        } else {
+            _config >> _x
+        };
+        private _weaponName = getText (_muzzleConfig >> "displayName");
+        private _mags = getArray (_muzzleConfig >> "magazines");
+        private _weaponPic = getText (_muzzleConfig >> "picture");
+        private _muzzleText = if (_weaponClassname == "throw") then {
+            format [""];
+        } else {
+            format ["[<img image='%1' width='40' height='20'/>", _weaponPic];
+        };
+        if (_x == "this") then {
+            private _weaponAttachments = _unit weaponAccessories _weaponClassname;
+            private _scope = _weaponAttachments select 2;
+            if (_scope != "") then {
+                _scopeConfig = configFile >> "CfgWeapons" >> _scope;
+                private _minZoom = 999; //FOV, so smaller is more zoomed in
+                {
+                    if (isNumber (_x >> "opticsZoomMin")) then {_minZoom = _minZoom min (getNumber (_x >> "opticsZoomMin"));};
+                    if (isText (_x >> "opticsZoomMin")) then {_minZoom = _minZoom min (call compile getText (_x >> "opticsZoomMin"));};
+                    nil
+                } count configProperties [_scopeConfig >> "ItemInfo" >> "OpticsModes"];
+                _scopeImage = getText (_scopeConfig >> "picture");
+                _muzzleText = _muzzleText + format ["(<img image='%1' width='20' height='20'/>:%2x) ", _scopeImage, ((floor (2.5 / _minZoom))/10)];
+            };
+        };
+        private _hasMags = false;
+        {
+            private _magazineClassname = _x;
+            private _count = 0;
+            {
+                if ((_x select 0) == _magazineClassname) then {
+                    _hasMags = true;
+                    _usedAmmo pushBack _magazineClassname;
+                    _count = _count + (_x select 1);
+                };
+            } forEach (magazinesAmmoFull _unit);
+            if (_count > 0) then {
+                private _magPic = getText (configFile >> "CfgMagazines" >> _magazineClassname >> "picture");
+                _muzzleText = _muzzleText + format ["<img image='%1' width='16' height='16'/>:%2 ", _magPic, _count];
+            };
+        } forEach _mags;
+        if (_weaponClassname == "throw") then {
+            if (_hasMags) then {
+                _unitText = _unitText + _muzzleText;
+            };
+        } else {
+            _unitText = _unitText + _muzzleText + "]<br/>";
+        };
+    } forEach _muzzles;
+    if (_weaponClassname == "throw") then {
+        _unitText = _unitText + "]<br/>";
+    };
+};
 
 {
-    _color = switch (side _x) do {
-    case (west): {"#0088EE"};//0,0.45,0.9,1
-    case (east): {"#DD0000"};//[0.75,0,0,1]
-    case (resistance): {"#00DD00"};//[0,0.75,0,1]
-    case (civilian): {"#880099"};//[0.6,0,0.75,1]
-        default {"#FFFFFF"};
-    };
-    _playable = (({(_x in playableUnits) || (_x in switchableUnits)} count (units _x)) > 0);
-    _playableText = if (_playable) then {"Playable"} else {"Non-Playable"};
-    _diaryHyperlinkedText = _diaryHyperlinkedText + format ["<br/><font color='%1' size='16'>%2 - %3</font><br/>", _color, (groupID _x), _playableText];
-    {
-        _pText = if ((primaryWeapon _x) == "") then {
-            "[No Weapon!-<font color='#FF0000'>0</font>]"
-        } else {
-            _config = configfile >> "CfgWeapons" >> (primaryWeapon _x);
-            _mags = getArray (_config >> "magazines");
-            _count = 0;
-            {
-                if ((_x select 0) in _mags) then {
-                    _count = _count + (_x select 1);
-                };
-            } forEach (magazinesAmmoFull _x);
-            if (_count <= 100) then {
-                _lowAmmo = true;
-                _count = if (_count == 0) then {
-                    format ["<font color='#FF0000'>%1</font>", _count];
-                } else {
-                    format ["<font color='#FFFF00'>%1</font>", _count];
-                };
+    private _unit = _x;
+    private _classname = typeOf _unit;
+
+    if (!(_classname in _handledClasses)) then {
+        _handledClasses pushBack _classname;
+
+        private _displayName = getText (configfile >> "CfgVehicles" >> _classname >> "displayName");
+        private _xIcon = gettext (configfile >> "CfgVehicles" >> _classname >> "icon");
+        private _image = gettext (configfile >> "CfgVehicleIcons" >> _xIcon);
+        private _color = "";
+        private _sideArray = [];
+
+        switch (side _x) do {
+        case (west): {
+                _color = "#0088EE"; //0,0.45,0.9,1
+                _sideArray = _westClasses;
             };
-            format ["[<img image='%1' width='40' height='20'/>-%2]", (getText (_config >> "picture")), _count];
+        case (east): {
+                _color = "#DD0000"; //0,0.45,0.9,1
+                _sideArray = _eastClasses;
+            };
+        case (resistance): {
+                _color = "#00DD00"; //0,0.45,0.9,1
+                _sideArray = _indClasses;
+            };
+            default {
+                _color = "#880099"; //0,0.45,0.9,1
+                _sideArray = _civClasses;
+            };
         };
-        _sText = if ((secondaryWeapon _x) == "") then {
-            "[No Tube-<font color='#FF0000'>0</font>]"
-        } else {
-            _config = configfile >> "CfgWeapons" >> (secondaryWeapon _x);
-            _mags = getArray (_config >> "magazines");
-            _count = 0;
+        private _unitText = format ["<font color='%1' size='12'>%2</font> - %3<br/>", _color, _displayName, _classname];
+        private _usedAmmo = [];
+        [primaryWeapon _unit] call _fncGetWeaponInfo;
+        [secondaryWeapon _unit] call _fncGetWeaponInfo;
+        [handgunWeapon _unit] call _fncGetWeaponInfo;
+        ["throw"] call _fncGetWeaponInfo;
+
+        private _extraAmmo = (magazines _unit) - _usedAmmo;
+        if ((count _extraAmmo) > 0) then {
+            _unitText = _unitText + "[Extra: ";
             {
-                if ((_x select 0) in _mags) then {
-                    _count = _count + (_x select 1);
-                };
-            } forEach (magazinesAmmoFull _x);
-            format ["[<img image='%1' width='40' height='20'/>-%2]", (getText (_config >> "picture")), _count];
+                private _magPic = getText (configFile >> "CfgMagazines" >> _x >> "picture");
+                _unitText = _unitText + format ["<img image='%1' width='16' height='16'/> ", _magPic];
+            } forEach _extraAmmo;
+            _unitText = _unitText + "]<br/>";
         };
+        _sideArray pushBack _unitText;
+    };
+} forEach allUnits;
 
 
-        _xIcon = gettext (configfile >> "CfgVehicles" >> typeOf (vehicle _x) >> "icon");
-        _image = gettext (configfile >> "CfgVehicleIcons" >> _xIcon);
-        _name = if (isPlayer _x) then {
-            format ["%1-%2", (vehicleVarName _x), (name _x)];
-        } else {
-            format ["%1-AI", (vehicleVarName _x), (name _x)];
-        };
+private _textArray = [[(format ["Weapon Report at %1 minutes:", (floor (time/60))])]];
 
-        _diaryHyperlinkedText = _diaryHyperlinkedText + format ["<img image='%1' width='16' height='16'/><font size='14'>%2 - %3 - %4</font><br/>", _image, _name, _pText, _sText];
-    } forEach (units _x);
-} forEach allGroups;
+_textArray append _westClasses;
+_textArray append _eastClasses;
+_textArray append _indClasses;
+_textArray append _civClasses;
 
-player createDiaryRecord ["Admin Menu", ["Weapon Report", _diaryHyperlinkedText]];
+if (!(player diarySubjectExists "POTATO")) then {
+    player createDiarySubject ["POTATO", "POTATO"];
+};
+player createDiaryRecord ["POTATO", ["Weapon Report", (_textArray joinString "<br/>")]];
