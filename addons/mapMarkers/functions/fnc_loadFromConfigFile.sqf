@@ -54,9 +54,12 @@ private _groupsPath = _configrationPath >> QUOTE(Groups);
 for "_groupsIndex" from 0 to ((count _groupsPath) - 1) do {
     private _group = _groupsPath select _groupsIndex;
     private _groupName = configName _group;
-    private _groupData = [_group] call _fnc_getMarkerSettingsFromClass;
 
-    [GVAR(groupMarkerSettings), _groupName, _groupData] call EFUNC(datastructures,map_put);
+    if ((_groupName find "Base_") != 0) then {
+        private _groupData = [_group] call _fnc_getMarkerSettingsFromClass;
+
+        [GVAR(groupMarkerSettings), _groupName, _groupData] call EFUNC(datastructures,map_put);
+    };
 };
 
 // Extract units
@@ -65,7 +68,10 @@ private _unitsPath = _configrationPath >> QUOTE(Units);
 for "_unitIndex" from 0 to ((count _unitsPath) - 1) do {
     private _unit = _unitsPath select _unitIndex;
     private _unitName = configName _unit;
-    private _unitData = [_unit] call _fnc_getMarkerSettingsFromClass;
 
-    [GVAR(unitMarkerSettings), _unitName, _unitData] call EFUNC(datastructures,map_put);
+    if ((_unitName find "Base_") != 0) then {
+        private _unitData = [_unit] call _fnc_getMarkerSettingsFromClass;
+
+        [GVAR(unitMarkerSettings), _unitName, _unitData] call EFUNC(datastructures,map_put);
+    };
 };
