@@ -31,8 +31,8 @@ private _fnc_generateDrawCacheElement = {
         _icon,
         _color,
         _size,
-        _textLeft,
-        _textRight
+        format [_textLeft, groupId group _unit],
+        format [_textRight, groupId group _unit]
     ]
 };
 
