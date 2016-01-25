@@ -47,6 +47,7 @@ private _fnc_generateDrawCacheElement = {
         } else {
             if (!GVAR(drawOnlyDefinedGroups)) then {
                 _newDrawCache pushBack ([_groupLeader, [nil, nil, nil, nil, _groupName]] call _fnc_generateDrawCacheElement);
+                _unitsProcessed pushBack _groupLeader;
             }
         };
     };
