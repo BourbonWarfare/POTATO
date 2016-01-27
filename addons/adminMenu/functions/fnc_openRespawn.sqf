@@ -9,7 +9,7 @@ if (!([] call EFUNC(core,isAuthorized))) exitWith {
     systemChat "Not Authorized";
 };
 
-_debugMsg = format ["Opens Respawn"];
+private _debugMsg = format ["Opens Respawn"];
 ["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);
 
 createDialog "respawnMenuDialog";

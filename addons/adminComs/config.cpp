@@ -7,7 +7,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
         author[] = {"PabstMirror"};
-        authorUrl = "https://github.com/PabstMirror";
+        authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
 };

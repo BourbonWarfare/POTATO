@@ -5,11 +5,11 @@ params ["_unit", "_giveZeus"];
 if (!isServer) exitWith {};
 if (isNull _unit) exitWith {};
 
-_zeusModule = getAssignedCuratorLogic _unit;
+private _zeusModule = getAssignedCuratorLogic _unit;
 
 if (_giveZeus) then {
     if (isNull _zeusModule) then {
-        _moduleGroup = createGroup GVAR(zeusCenter);
+        private _moduleGroup = createGroup GVAR(zeusCenter);
         _zeusModule = _moduleGroup createUnit ["ModuleCurator_F",[0,0,0],[],0,"NONE"];
         _zeusModule setVariable ["Owner", "-1"];
         _zeusModule setVariable ["Name", ""];

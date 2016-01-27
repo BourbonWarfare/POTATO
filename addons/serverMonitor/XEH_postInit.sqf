@@ -34,13 +34,13 @@ if (isServer) then {
     params ["_args"];
     _args params ["_lastTime", "_lastFrame", "_lastFSM"];
     _delta = diag_tickTime - _lastTime;
-    _fps = (diag_frameno - _lastFrame) / _delta;
-    _cps = (GVAR(fsmNo) - _lastFSM) / _delta;
+    private _fps = (diag_frameno - _lastFrame) / _delta;
+    private _cps = (GVAR(fsmNo) - _lastFSM) / _delta;
     _args set [0, diag_tickTime];
     _args set [1, diag_frameno];
     _args set [2, GVAR(fsmNo)];
 
-    _localUnits = {local _x} count allUnits;
+    private _localUnits = {local _x} count allUnits;
     TRACE_3("tick",_localUnits,_fps,_cps);
 
     missionNameSpace setVariable [(format [QGVAR(%1), GVAR(dataIndex)]), [_localUnits, _fps, _cps], true];

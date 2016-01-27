@@ -8,7 +8,7 @@ GVAR(timerRunning) = true;
     disableSerialization;
 
     if (hasInterface) then {
-        _display = uiNamespace getVariable [QGVAR(safeStartRscTitle), displayNull];
+        private _display = uiNamespace getVariable [QGVAR(safeStartRscTitle), displayNull];
         if (GVAR(showTimer) && {isNull _display}) then {
             TRACE_1("Creating display",GVAR(showTimer));
             (QGVAR(safeStartRscTitle) call BIS_fnc_rscLayer) cutRsc [QGVAR(safeStartRscTitle), "PLAIN", 1, false];
@@ -19,13 +19,13 @@ GVAR(timerRunning) = true;
         };
     };
 
-    _display = uiNamespace getVariable [QGVAR(safeStartRscTitle), displayNull];
-    _serverStartTimePV = missionNamespace getVariable [QGVAR(startTime_PV), -1];
+    private _display = uiNamespace getVariable [QGVAR(safeStartRscTitle), displayNull];
+    private _serverStartTimePV = missionNamespace getVariable [QGVAR(startTime_PV), -1];
 
     if (_serverStartTimePV != -1) then {
         if (!isNull _display) then {
-            _picture = "<img image='\A3\UI_F\data\IGUI\Cfg\Actions\settimer_ca.paa'/>";
-            _timeStr = [dayTime - _serverStartTimePV] call BIS_fnc_timeToString;
+            private _picture = "<img image='\A3\UI_F\data\IGUI\Cfg\Actions\settimer_ca.paa'/>";
+            private _timeStr = [dayTime - _serverStartTimePV] call BIS_fnc_timeToString;
             (_display displayCtrl 1100) ctrlSetStructuredText parseText format ["<t align='center'>Safe Start Enabled<br/>%1 %2</t>", _picture, _timeStr];
         };
     } else {

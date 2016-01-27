@@ -2,7 +2,7 @@
 
 TRACE_1("params",_this);
 
-_debugMsg = format ["Doing Weapon Test"];
+private _debugMsg = format ["Doing Weapon Test"];
 ["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);
 
 //Needs a player to add to breifing:
@@ -21,8 +21,8 @@ private _fncGetWeaponInfo = {
     if (_weaponClassname == "throw") then {
         _unitText = _unitText + "[Thrown: ";
     };
-    _config = configfile >> "CfgWeapons" >> _weaponClassname;
-    _muzzles = getArray (_config >> "muzzles");
+    private _config = configfile >> "CfgWeapons" >> _weaponClassname;
+    private _muzzles = getArray (_config >> "muzzles");
     {
         _muzzleConfig = if (_x == "this") then {
             _config;
@@ -41,14 +41,14 @@ private _fncGetWeaponInfo = {
             private _weaponAttachments = _unit weaponAccessories _weaponClassname;
             private _scope = _weaponAttachments select 2;
             if (_scope != "") then {
-                _scopeConfig = configFile >> "CfgWeapons" >> _scope;
+                private _scopeConfig = configFile >> "CfgWeapons" >> _scope;
                 private _minZoom = 999; //FOV, so smaller is more zoomed in
                 {
                     if (isNumber (_x >> "opticsZoomMin")) then {_minZoom = _minZoom min (getNumber (_x >> "opticsZoomMin"));};
                     if (isText (_x >> "opticsZoomMin")) then {_minZoom = _minZoom min (call compile getText (_x >> "opticsZoomMin"));};
                     nil
                 } count configProperties [_scopeConfig >> "ItemInfo" >> "OpticsModes"];
-                _scopeImage = getText (_scopeConfig >> "picture");
+                private _scopeImage = getText (_scopeConfig >> "picture");
                 _muzzleText = _muzzleText + format ["(<img image='%1' width='20' height='20'/>:%2x) ", _scopeImage, ((floor (2.5 / _minZoom))/10)];
             };
         };

@@ -6,25 +6,25 @@ disableSerialization;
 
 if (!([] call EFUNC(core,isAuthorized))) exitWith {};
 
-_textBox = (findDisplay 49) displayCtrl 840430;
-_chatList = (findDisplay 49) displayCtrl 840431;
-_replyButton = (findDisplay 49) displayCtrl 840432;
+private _textBox = (findDisplay 49) displayCtrl 840430;
+private _chatList = (findDisplay 49) displayCtrl 840431;
+private _replyButton = (findDisplay 49) displayCtrl 840432;
 
 if (!ctrlShown _chatList) exitWith {};
 
-_text = ctrlText _textBox;
+private _text = ctrlText _textBox;
 _textBox ctrlSetText ""; //Best line ever written, thanks mike!
 
-_index = lbCurSel _chatList;
+private _index = lbCurSel _chatList;
 if (_index < 0) exitWith {};
-_lbText = _chatList lbText _index;
+private _lbText = _chatList lbText _index;
 
 TRACE_2("",_index,_lbText);
 
 if (_lbText == "") exitWith {};
 if (_index >= (count GVAR(logs))) exitWith {};
 
-_msgUser = (GVAR(logs) select _index) select 2;
+private _msgUser = (GVAR(logs) select _index) select 2;
 
 TRACE_1("user", _msgUser);
 

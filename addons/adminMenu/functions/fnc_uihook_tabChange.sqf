@@ -40,7 +40,7 @@ case (1): {
             if (isClass (configFile >> "CfgVehicles" >> _className)) then {
                 TRACE_2("veh exists in modset",_x,_className);
                 GVAR(supplyClassNames) pushBack _className;
-                _description = if (isText (_x >> "displayName")) then {
+                private _description = if (isText (_x >> "displayName")) then {
                     getText (_x >> "displayName"); //use custom name
                 } else {
                     getText (configFile >> "CfgVehicles" >> _className >> "displayName"); // use veh name

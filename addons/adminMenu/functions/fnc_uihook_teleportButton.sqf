@@ -2,16 +2,16 @@
 
 TRACE_1("params",_this);
 
-_selectedPersonIndex = lbCurSel UI_TAB_TELEPORT_PERSON;
+private _selectedPersonIndex = lbCurSel UI_TAB_TELEPORT_PERSON;
 if ((_selectedPersonIndex < 0) || (_selectedPersonIndex >= (count GVAR(teleportPersonList)))) exitWith {};
 
-_selectedPerson = GVAR(teleportPersonList) select _selectedPersonIndex;
+private _selectedPerson = GVAR(teleportPersonList) select _selectedPersonIndex;
 if (isNull _selectedPerson) exitWith {};
 
-_selectedGroupIndex = lbCurSel UI_TAB_TELEPORT_GROUP;
+private _selectedGroupIndex = lbCurSel UI_TAB_TELEPORT_GROUP;
 if ((_selectedGroupIndex < 0) || (_selectedGroupIndex >= (count GVAR(groupsArray)))) exitWith {};
 
-_selectedGroup = GVAR(groupsArray) select _selectedGroupIndex;
+private _selectedGroup = GVAR(groupsArray) select _selectedGroupIndex;
 
 private _leader = leader _selectedGroup;
 if (!alive _leader) exitWith { TRACE_1("dead leader",_leader); };
@@ -32,5 +32,5 @@ if ((vehicle _leader) == _leader) then {
 };
 
 _selectedPerson setPos (getPos leader _selectedGroup);
-_debugMsg = format ["Teleporting %1 to group %2 [%3]", (name _selectedPerson), _selectedGroup, _return];
+private _debugMsg = format ["Teleporting %1 to group %2 [%3]", (name _selectedPerson), _selectedGroup, _return];
 ["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);

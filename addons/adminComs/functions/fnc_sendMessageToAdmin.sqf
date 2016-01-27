@@ -5,9 +5,9 @@ TRACE_1("params",_this);
 
 disableSerialization;
 
-_textBox = (findDisplay 49) displayCtrl 840430;
+private _textBox = (findDisplay 49) displayCtrl 840430;
 
-_text = ctrlText _textBox;
+private _text = ctrlText _textBox;
 _textBox ctrlSetText ""; //Best line ever written, thanks mike!
 
 if (_text == "") exitWith {systemChat "Input your msg";};

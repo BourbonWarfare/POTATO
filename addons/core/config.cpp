@@ -7,7 +7,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"ACE_COMMON"};
         author[] = {"PabstMirror"};
-        authorUrl = "https://github.com/PabstMirror";
+        authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
 };

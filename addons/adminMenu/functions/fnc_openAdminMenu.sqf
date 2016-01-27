@@ -25,8 +25,7 @@ createDialog QGVAR(adminMenuDialog);
         [_this select 1] call CBA_fnc_removePerFrameHandler;
     };
 
-    //[_cps, diag_fps, _localUnits];
-    _monitorTextAry = ["<t size='0.9'>"];
+    private _monitorTextAry = ["<t size='0.9'>"];
     _monitorTextAry pushBack format ["Elapsed: %1<br/>", ([(time / 3600)] call BIS_fnc_timeToString)];
     _monitorTextAry pushBack format ["Client FPS: %1<br/>", floor diag_fps];
 
