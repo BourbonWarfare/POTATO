@@ -377,6 +377,47 @@ class GVAR(adminMenuDialog) {
                 };
             };
         };
+        class CONTROL_MISSIONHINT: RscControlsGroup {
+            idc = 2307;
+            x = 0.35 * safezoneW + safezoneX;
+            y = 0.205 * safezoneH + safezoneY;
+            w = 0.54 * safezoneW;
+            h = 0.58 * safezoneH;
+            class controls {
+                class RscCombo_side: RscListbox {
+                    idc = 23071;
+                    x = 0.01 * safezoneW;
+                    y = 0.01 * safezoneH;
+                    w = 0.3 * safezoneW;
+                    h = 0.2 * safezoneH;
+                    sizeEx = 0.02 * safezoneH;
+                };
+                class RscCombo_rank: RscListbox {
+                    idc = 23072;
+                    x = 0.32 * safezoneW;
+                    y = 0.01 * safezoneH;
+                    w = 0.21 * safezoneW;
+                    h = 0.2 * safezoneH;
+                    sizeEx = 0.02 * safezoneH;
+                };
+                class RscEdit_textInput: RscEdit {
+                    idc = 23073;
+                    x = 0.01 * safezoneW;
+                    y = 0.22 * safezoneH;
+                    w = 0.52 * safezoneW;
+                    h = 0.29 * safezoneH;
+                    sizeEx = 0.02 * safezoneH;
+                };
+                class RscButton_1605412: RscButton {
+                    idc = -1;
+                    text = "Send Hint";
+                    x = 0.01 * safezoneW;
+                    y = 0.52 * safezoneH;
+                    w = 0.52 * safezoneW;
+                    h = 0.05 * safezoneH;
+                    action = QUOTE([] call FUNC(uihook_missionHint););
+                };
+            };
+        };
     };
 };
-
