@@ -114,4 +114,29 @@ case (3): {
         } forEach allGroups;
         UI_TAB_TELEPORT_GROUP lbSetCurSel 0;
     };
+case (6): {
+        TRACE_1("showing mission hint tab", _sel);
+        lbClear UI_TAB_MISSIONHINT_SIDE;
+        lbClear UI_TAB_MISSIONHINT_RANK;
+        {
+            private _sideText = if (_x isEqualType 0) then {
+                ["Dead", "All Players"] select _x;
+            } else {
+                str _x;
+            };
+            UI_TAB_MISSIONHINT_SIDE lbAdd _sideText;
+        } forEach MISSION_HINT_SIDES;
+        UI_TAB_MISSIONHINT_SIDE lbSetCurSel 0;
+        {
+            private _rankText = switch (_x) do {
+            case (0): {"Private or higher"};
+            case (1): {"Corporal or higher"};
+            case (2): {"Sergeant or higher"};
+            case (3): {"Lieutenant or higher"};
+                default {"All Ranks"};
+            };
+            UI_TAB_MISSIONHINT_RANK lbAdd _rankText;
+        } forEach MISSION_HINT_RANKS;
+        UI_TAB_MISSIONHINT_RANK lbSetCurSel 0;
+    };
 };

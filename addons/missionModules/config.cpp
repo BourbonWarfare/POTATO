@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {};
+        units[] = {QGVAR(zeus_missionHint), QGVAR(sideMarker)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
@@ -14,3 +14,4 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
+#include "UI_RscAttributes.hpp"

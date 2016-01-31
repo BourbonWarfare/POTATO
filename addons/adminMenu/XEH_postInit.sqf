@@ -1,7 +1,6 @@
 #include "script_component.hpp"
 
-GVAR(playerStartingSide) = sideUnknown;
-GVAR(playerDataHash) = [[],[]];
+// GVAR(playerDataHash) = [[],[]];
 GVAR(openEndMission) = false;
 
 if (isServer) then {
@@ -45,14 +44,4 @@ if (isServer) then {
             // (_dataArray select _index) set [4, [_group, _unitClassname]];
         // };
     // }];
-};
-
-if (hasInterface) then {
-    ["playerChanged", {
-        if (isNull ace_player) exitWith {};
-        if (GVAR(playerStartingSide) isEqualTo sideUnknown) then {
-            TRACE_1("Setting start playerside",playerSide);
-            GVAR(playerStartingSide) = playerSide;
-        };
-    }] call ace_common_fnc_addEventHandler;
 };

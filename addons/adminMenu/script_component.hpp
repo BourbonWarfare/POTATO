@@ -1,4 +1,4 @@
-#define COMPONENT ADMINMENU
+#define COMPONENT adminMenu
 #include "\z\potato\addons\core\script_mod.hpp"
 
 #define DEBUG_MODE_FULL
@@ -32,6 +32,10 @@
 #define UI_TAB_SAFESTART            ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2305)
 #define UI_SERVER_MONITOR            ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 1102)
 #define UI_TAB_CHECKMODS            ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2306)
+#define UI_TAB_MISSIONHINT                ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2307)
+#define UI_TAB_MISSIONHINT_SIDE        ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 23071)
+#define UI_TAB_MISSIONHINT_RANK        ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 23072)
+#define UI_TAB_MISSIONHINT_TEXT       ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 23073)
 
-#define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests"]
-#define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS]
+#define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint"]
+#define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT]
