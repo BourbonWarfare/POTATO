@@ -39,6 +39,3 @@
 
 #define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint"]
 #define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT]
-
-#define HINT_SIDES [1, west, east, resistance, civilian, 0]
-#define HINT_RANKS [-99,1,2,3]

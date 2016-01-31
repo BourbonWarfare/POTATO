@@ -125,7 +125,7 @@ case (6): {
                 str _x;
             };
             UI_TAB_MISSIONHINT_SIDE lbAdd _sideText;
-        } forEach HINT_SIDES;
+        } forEach MISSION_HINT_SIDES;
         UI_TAB_MISSIONHINT_SIDE lbSetCurSel 0;
         {
             private _rankText = switch (_x) do {
@@ -136,7 +136,7 @@ case (6): {
                 default {"All Ranks"};
             };
             UI_TAB_MISSIONHINT_RANK lbAdd _rankText;
-        } forEach HINT_RANKS;
+        } forEach MISSION_HINT_RANKS;
         UI_TAB_MISSIONHINT_RANK lbSetCurSel 0;
     };
 };
