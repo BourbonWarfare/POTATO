@@ -4,8 +4,7 @@ ADDON = false;
 
 PREP(createLocalMarker);
 PREP(sideMarker);
-PREP(test);
-
+PREP(zeus_missionHint);
 PREP(zeusAttributes);
 PREP(zeusAttributes_missionHint);
 

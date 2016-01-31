@@ -1,5 +1,4 @@
 class CfgVehicles {
-
     class Logic;
     class Module_F: Logic {
         class ArgumentsBaseUnits;
@@ -55,46 +54,19 @@ class CfgVehicles {
         };
     };
 
-
-    class GVAR(test): Module_F {
+    class GVAR(zeus_missionHint): Module_F {
         author = QUOTE(PREFIX);
         category = QUOTE(PREFIX);
-        scope = 2;
+        scope = 1;
         scopeCurator = 2;
         isTriggerActivated = 1;
-        displayName = "TEST ";
-        icon = "\a3\Modules_F_Curator\Data\iconEndMission_ca.paa";
-        portrait = "\a3\Modules_F_Curator\Data\portraitEndMission_ca.paa";
-        function = QFUNC(test);
+        displayName = "Mission Hint";
+        // icon = "\a3\Modules_F_Curator\Data\iconEndMission_ca.paa";
+        // portrait = "\a3\Modules_F_Curator\Data\portraitEndMission_ca.paa";
+        function = QFUNC(zeus_missionHint);
         curatorInfoType = QGVAR(RscDisplayAttributes_missionHint);
         curatorCost = 0;
         class Arguments {};
-        class Attributes: AttributesBase {
-            class asdasd: Edit {
-                displayName = "asdfdasfdgsfv Zeus";
-                tooltip = "Variable name of 'Zeus' modules. Works together with synchronized Zeus modules.";
-                property = "fsdfds";
-            };
-            class Type: Combo {
-                displayName = "AAA";
-                property = "asdf";
-                typeName = "BOOL";
-                defaultValue = 1;
-                class values {
-                    class Whitelist {
-                        name = "Inside areas";
-                        value = 1;
-                        default = 1;
-                    };
-                    class Blacklist {
-                        name = "Outside areas";
-                        value = 0;
-                    };
-                };
-            };
-            class ModuleDescription: ModuleDescription {
-            };
-        };
+        class Attributes {};
     };
 };
-
