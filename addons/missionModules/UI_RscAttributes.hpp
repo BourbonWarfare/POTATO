@@ -3,6 +3,7 @@ class RscText;
 class RscListbox;
 class RscEdit;
 class RscXSliderH;
+class RscCheckBox;
 
 class RscDisplayAttributes {
     class Controls {
@@ -72,7 +73,7 @@ class GVAR(RscDisplayAttributes_globalSetSkill): RscDisplayAttributes {
                     x = "0";
                     y = "0";
                     w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-                    h = "4.3 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                    h = "6.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                     class controls {
                         class Title1: RscText {
                             idc = -1;
@@ -120,6 +121,29 @@ class GVAR(RscDisplayAttributes_globalSetSkill): RscDisplayAttributes {
                         class Value4: Value1 {
                             idc = 16187;
                             y = "3.3 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                        };
+                        class Title5: Title1 {
+                            idc = -1;
+                            text = "Seek Cover";
+                            toolTip = "Global AI Set Skill: AI Seek Cover";
+                            y = "4.4 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                        };
+                        class Value5: RscCheckBox {
+                            idc = 16188;
+                            x = "10.1 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+                            y = "4.4 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                            w = "1 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+                            h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                        };
+                        class Title6: Title5 {
+                            idc = -1;
+                            text = "AUTOCOMBAT";
+                            toolTip = "Global AI Set Skill: Ai Switch To Combat Mode";
+                            y = "5.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                        };
+                        class Value6: Value5 {
+                            idc = 16189;
+                            y = "5.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                         };
                     };
                 };

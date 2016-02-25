@@ -3,7 +3,8 @@
 ADDON = false;
 
 PREP(createLocalMarker);
-PREP(setSkills);
+PREP(manInitEH);
+PREP(setSkillsLocal);
 PREP(sideMarker);
 PREP(zeus_globalSetSkill);
 PREP(zeus_missionHint);
