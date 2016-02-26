@@ -14,8 +14,9 @@ if (isServer) then {
     [{
         if (time < 1) exitWith {}; //wait for HCs to connect before triggering events
         {
-            ["hcSetIndex", [_x], [_forEachIndex]] call ace_common_fnc_targetEvent;
+            ["hcSetIndex", [_x], [_forEachIndex + 1]] call ace_common_fnc_targetEvent;
         } forEach (entities "HeadlessClient_F");
+        [_this select 1] call CBA_fnc_removePerFrameHandler;
     }, 0, []] call CBA_fnc_addPerFrameHandler;
 
 } else {
