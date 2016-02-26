@@ -12,8 +12,8 @@ class Extended_PostInit_EventHandlers {
 
 class Extended_InitPost_EventHandlers {
     class CaManBase {
-        class GVAR(setSkills) {
-            serverInit = QUOTE(_this call FUNC(setSkills));
+        class GVAR(manInitEH) {
+            init = QUOTE(_this call FUNC(manInitEH));
         };
     };
 };

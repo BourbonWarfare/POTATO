@@ -13,7 +13,7 @@ if (_giveZeus) then {
         _zeusModule = _moduleGroup createUnit ["ModuleCurator_F",[0,0,0],[],0,"NONE"];
         _zeusModule setVariable ["Owner", "-1"];
         _zeusModule setVariable ["Name", ""];
-        _zeusModule setVariable ["Addons", 2];
+        _zeusModule setVariable ["Addons", 3];
         _zeusModule setVariable ["Forced", 0];
         _unit assignCurator _zeusModule;
     };

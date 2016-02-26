@@ -3,13 +3,6 @@
 params ["_unit"];
 TRACE_1("params",_unit);
 
-// only run this after the settings are initialized
-if !(EGVAR(common,settingsInitFinished)) exitWith {
-    EGVAR(common,runAtSettingsInitialized) pushBack [FUNC(setSkills), _this];
-};
-
-if (GVAR(aiSkill_general) == -1) exitWith {TRACE_1("disabled", GVAR(aiSkill_general));};
-
 {
     _unit setSkill [_x, GVAR(aiSkill_general)];
 } forEach ["general", "commanding", "courage"];
@@ -22,5 +15,15 @@ if (GVAR(aiSkill_general) == -1) exitWith {TRACE_1("disabled", GVAR(aiSkill_gene
 {
     _unit setSkill [_x, GVAR(aiSkill_spotting)];
 } forEach ["spotDistance", "spotTime"];
+if (GVAR(aiSkill_COVER)) then {
+    _unit enableAI "COVER";
+} else {
+    _unit disableAI "COVER";
+};
+if (GVAR(aiSkill_AUTOCOMBAT)) then {
+    _unit enableAI "AUTOCOMBAT";
+} else {
+    _unit disableAI "AUTOCOMBAT";
+};
 
 TRACE_1("ai sills set",_unit);

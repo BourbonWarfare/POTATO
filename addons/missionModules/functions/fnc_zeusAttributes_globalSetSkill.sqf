@@ -46,6 +46,10 @@ _fnc_sliderMove = {
 (_display displayCtrl 16187) ctrlAddEventHandler ["SliderPosChanged", _fnc_sliderMove];
 (_display displayCtrl 16187) call _fnc_sliderMove;
 
+(_display displayCtrl 16188) cbSetChecked GVAR(aiSkill_COVER);
+
+(_display displayCtrl 16189) cbSetChecked GVAR(aiSkill_AUTOCOMBAT);
+
 
 
 private _fnc_onUnload = {
@@ -72,6 +76,8 @@ private _fnc_onConfirm = {
     _logic setVariable ["aiSkill_aimingAccuracy", sliderPosition (_display displayCtrl 16185), true];
     _logic setVariable ["aiSkill_weaponHandling", sliderPosition (_display displayCtrl 16186), true];
     _logic setVariable ["aiSkill_spotting", sliderPosition (_display displayCtrl 16187), true];
+    _logic setVariable ["aiSkill_COVER", cbChecked (_display displayCtrl 16188), true];
+    _logic setVariable ["aiSkill_AUTOCOMBAT", cbChecked (_display displayCtrl 16189), true];
     _logic setVariable ["set", true, true];
 };
 
