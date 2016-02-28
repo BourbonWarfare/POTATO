@@ -6,6 +6,7 @@ PREP(checkMods);
 PREP(checkModsWriteDiary);
 PREP(endMission);
 PREP(openAdminMenu);
+PREP(openRespawn);
 
 PREP(uihook_checkMods);
 PREP(uihook_endMission);
