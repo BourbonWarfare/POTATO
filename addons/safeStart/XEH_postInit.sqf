@@ -10,6 +10,10 @@
     } else {
         GVAR(safeStartEnabled) = false;
         TRACE_1("safestart off at start", GVAR(safeStartEnabled));
+
+        if (isServer) then { //backwards compatibilty
+            missionNamespace setVariable ["PABST_ADMIN_SAFESTART_public_isSafe", false, true];
+        };
     };
 };
 

@@ -33,6 +33,10 @@ GVAR(timerRunning) = true;
         GVAR(safeStartEnabled) = false;
         TRACE_2("Exiting Timer",GVAR(timerRunning),GVAR(safeStartEnabled));
 
+        if (isServer) then { //backwards compatibilty
+            missionNamespace setVariable ["PABST_ADMIN_SAFESTART_public_isSafe", false, true];
+        };
+
         [_this select 1] call CBA_fnc_removePerFrameHandler;
         if (!isNull _display) then {
             (_display displayCtrl 1100) ctrlSetStructuredText parseText format ["<t align='center'>Safe Start Ending<br/><t color='#ff0000'>Start Mission</t></t>"];
