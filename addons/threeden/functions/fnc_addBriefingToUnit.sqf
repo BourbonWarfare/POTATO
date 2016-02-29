@@ -55,8 +55,8 @@ if (_sideBriefSituation != "") then {
     _newPlayer createDiaryRecord ["diary", ["Situation",_sideBriefSituation]];
 };
 if (_groupBrief != "") then {
-    _newPlayer createDiaryRecord ["diary", ["Group",_sideBriefSituation]];
+    _newPlayer createDiaryRecord ["diary", ["Group Brief",_groupBrief]];
 };
 if (_playerBrief != "") then {
-    _newPlayer createDiaryRecord ["diary", ["Player",_sideBriefSituation]];
+    _newPlayer createDiaryRecord ["diary", ["Player Brief",_playerBrief]];
 };

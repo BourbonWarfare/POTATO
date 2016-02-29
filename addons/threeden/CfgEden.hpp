@@ -44,7 +44,42 @@ class Cfg3DEN {
             };
         };
     };
-
+    class Group {
+        class AttributeCategories {
+            class ADDON {
+                displayName = QUOTE(ADDON);
+                class Attributes {
+                    class GVAR(brief) {
+                        displayName = "Group Briefing";
+                        tooltip = "";
+                        property = QGVAR(brief);
+                        control = QGVAR(bigEdit);
+                        defaultValue = "''";
+                        typeName = "STRING";
+                        expression = QUOTE(if (_value != '') then {_this setVariable [ARR_3(QUOTE(QGVAR(briefing)), _value, true)];};);
+                    };
+                };
+            };
+        };
+    };
+    class Object {
+        class AttributeCategories {
+            class ADDON {
+                displayName = QUOTE(ADDON);
+                class Attributes {
+                    class GVAR(brief) {
+                        displayName = "Player Briefing";
+                        tooltip = "";
+                        property = QGVAR(brief);
+                        control = QGVAR(bigEdit);
+                        defaultValue = "''";
+                        typeName = "STRING";
+                        expression = QUOTE(if (_value != '') then {_this setVariable [ARR_3(QUOTE(QGVAR(briefing)), _value, true)];};);
+                    };
+                };
+            };
+        };
+    };
 
     class Mission {
         class GVAR(briefings) {// Custom section class, everything inside will be opened in one window
