@@ -3,11 +3,19 @@
 params ["_newPlayer", "_oldPlayer"];
 TRACE_2("params",_newPlayer,_oldPlayer);
 
+if !(ACEGVAR(common,settingsInitFinished)) exitWith {
+    TRACE_1("delaying for settings",_this);
+    ACEGVAR(common,runAtSettingsInitialized) pushBack [FUNC(addBriefingToUnit), _this];
+};
+
 if (isNull _newPlayer) exitWith {};
 if (!alive _newPlayer) exitWith {};
 if (_newPlayer getVariable [QGVAR(briefingAdded), false]) exitWith {};
 
 _newPlayer setVariable [QGVAR(briefingAdded), true];
+
+if (GVAR(brief_addCredits)) then { [_newPlayer] call FUNC(addCredits); };
+if (GVAR(brief_addOrbat)) then { [_newPlayer] call FUNC(addOrbat); };
 
 private _side = side (group _newPlayer);
 

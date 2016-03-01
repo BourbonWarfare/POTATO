@@ -3,5 +3,7 @@
 ADDON = false;
 
 PREP(addBriefingToUnit);
+PREP(addCredits);
+PREP(addOrbat);
 
 ADDON = true;

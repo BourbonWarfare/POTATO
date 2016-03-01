@@ -14,3 +14,14 @@ class CfgPatches {
 
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
+
+class ACE_Settings {
+    class GVAR(brief_addCredits) {
+        value = 0;
+        typeName = "BOOL";
+    };
+    class GVAR(brief_addOrbat) {
+        value = 0;
+        typeName = "BOOL";
+    };
+};

@@ -7,7 +7,7 @@ class display3DEN {
                     items[] += {QGVAR(briefings)};
                 };
                 class GVAR(briefings) {
-                    text = "Mission Side Briefings";
+                    text = "POTATO: Mission Briefings";
                     action = QUOTE(edit3DENMissionAttributes QUOTE(QGVAR(briefings)););
                 };
             };
@@ -47,7 +47,8 @@ class Cfg3DEN {
     class Group {
         class AttributeCategories {
             class ADDON {
-                displayName = QUOTE(ADDON);
+                displayName = "POTATO: Group Briefing";
+                collapsed = 1;
                 class Attributes {
                     class GVAR(brief) {
                         displayName = "Group Briefing";
@@ -65,10 +66,11 @@ class Cfg3DEN {
     class Object {
         class AttributeCategories {
             class ADDON {
-                displayName = QUOTE(ADDON);
+                displayName = "POTATO: Unit Briefing";
+                collapsed = 1;
                 class Attributes {
                     class GVAR(brief) {
-                        displayName = "Player Briefing";
+                        displayName = "Unit Briefing";
                         tooltip = "";
                         property = QGVAR(brief);
                         control = QGVAR(bigEdit);
@@ -90,6 +92,14 @@ class Cfg3DEN {
                     displayName = "West Briefing"; // Category name visible in Edit Attributes window
                     collapsed = 0; // When 1, the category is collapsed by default
                     class Attributes {
+                        class GVAR(briefWestSituation) {
+                            displayName = "West Situation";
+                            tooltip = "Insert general information about the situation here";
+                            property = QGVAR(briefWestSituation);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
                         class GVAR(briefWestMission) {
                             displayName = "West Mission"; // Name assigned to UI control class Title
                             tooltip = "Insert the mission here."; // Tooltip assigned to UI control class Title
@@ -106,20 +116,20 @@ class Cfg3DEN {
                             defaultValue = "''";
                             typeName = "STRING";
                         };
-                        class GVAR(briefWestSituation) {
-                            displayName = "West Situation";
-                            tooltip = "Insert general information about the situation here";
-                            property = QGVAR(briefWestSituation);
-                            control = QGVAR(bigEdit);
-                            defaultValue = "''";
-                            typeName = "STRING";
-                        };
                     };
                 };
                 class EastBriefing {
                     displayName = "East Briefing";
                     collapsed = 0;
                     class Attributes {
+                        class GVAR(briefEastSituation) {
+                            displayName = "East Situation";
+                            tooltip = "Insert general information about the situation here";
+                            property = QGVAR(briefEastSituation);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
                         class GVAR(briefEastMission) {
                             displayName = "East Mission";
                             tooltip = "Insert the mission here.";
@@ -136,20 +146,20 @@ class Cfg3DEN {
                             defaultValue = "''";
                             typeName = "STRING";
                         };
-                        class GVAR(briefEastSituation) {
-                            displayName = "East Situation";
-                            tooltip = "Insert general information about the situation here";
-                            property = QGVAR(briefEastSituation);
-                            control = QGVAR(bigEdit);
-                            defaultValue = "''";
-                            typeName = "STRING";
-                        };
                     };
                 };
                 class IndependentBriefing {
                     displayName = "Independent Briefing";
                     collapsed = 0;
                     class Attributes {
+                        class GVAR(briefIndependentSituation) {
+                            displayName = "Independent Situation";
+                            tooltip = "Insert general information about the situation here";
+                            property = QGVAR(briefIndependentSituation);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
                         class GVAR(briefIndependentMission) {
                             displayName = "Independent Mission";
                             tooltip = "Insert the mission here.";
@@ -166,20 +176,20 @@ class Cfg3DEN {
                             defaultValue = "''";
                             typeName = "STRING";
                         };
-                        class GVAR(briefIndependentSituation) {
-                            displayName = "Independent Situation";
-                            tooltip = "Insert general information about the situation here";
-                            property = QGVAR(briefIndependentSituation);
-                            control = QGVAR(bigEdit);
-                            defaultValue = "''";
-                            typeName = "STRING";
-                        };
                     };
                 };
                 class CivilianBriefing {
                     displayName = "Civilian Briefing";
                     collapsed = 0;
                     class Attributes {
+                        class GVAR(briefCivilianSituation) {
+                            displayName = "Civilian Situation";
+                            tooltip = "Insert general information about the situation here";
+                            property = QGVAR(briefCivilianSituation);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
                         class GVAR(briefCivilianMission) {
                             displayName = "Civilian Mission";
                             tooltip = "Insert the mission here.";
@@ -192,14 +202,6 @@ class Cfg3DEN {
                             displayName = "Civilian Administration";
                             tooltip = "Insert information on administration and logistics here";
                             property = QGVAR(briefCivilianAdministration);
-                            control = QGVAR(bigEdit);
-                            defaultValue = "''";
-                            typeName = "STRING";
-                        };
-                        class GVAR(briefCivilianSituation) {
-                            displayName = "Civilian Situation";
-                            tooltip = "Insert general information about the situation here";
-                            property = QGVAR(briefCivilianSituation);
                             control = QGVAR(bigEdit);
                             defaultValue = "''";
                             typeName = "STRING";
