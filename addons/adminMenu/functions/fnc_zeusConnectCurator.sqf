@@ -16,12 +16,16 @@ if (_giveZeus) then {
         _zeusModule setVariable ["Addons", 3];
         _zeusModule setVariable ["Forced", 0];
         _unit assignCurator _zeusModule;
+
+        if (missionNamespace getVariable ["ace_zeus_autoAddObjects", false]) then {
+            TRACE_1("adding all units and veh to zeus",_zeusModule);
+            {_zeusModule addCuratorEditableObjects [[_x],true]} foreach vehicles;
+            {_zeusModule addCuratorEditableObjects [[_x],true]} foreach (entities "CaManBase");
+        };
     };
-    _unit setVariable [QGVAR(hasZeus), true, true];
 } else {
     if (!isNull _zeusModule) then {
         unassignCurator _zeusModule;
         deleteVehicle _zeusModule;
     };
-    _unit setVariable [QGVAR(hasZeus), false, true];
 };
