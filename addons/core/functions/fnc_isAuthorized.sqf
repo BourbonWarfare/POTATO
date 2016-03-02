@@ -6,6 +6,5 @@ TRACE_1("params",_this);
 if (!hasInterface) exitWith {false};
 
 isServer || 
-{serverCommandAvailable "#kick"} ||
-{(getPlayerUID player) in AUTHORIZED_USERS}
-// {missionNamespace getVariable [QGVAR(playerIsAuthorized), false]}
+GVAR(playerAuth) ||
+{serverCommandAvailable "#kick"}

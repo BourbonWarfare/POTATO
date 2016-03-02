@@ -1,6 +1,7 @@
 #include "script_component.hpp"
 
 GVAR(playerStartingSide) = sideUnknown;
+GVAR(playerAuth) = false;
 
 if (hasInterface) then {
     ["playerChanged", {
@@ -9,12 +10,13 @@ if (hasInterface) then {
             TRACE_1("Setting start playerside",playerSide);
             GVAR(playerStartingSide) = playerSide;
         };
+        if ((getPlayerUID player) in AUTHORIZED_USERS) then {
+            if (!GVAR(playerAuth)) then {
+                GVAR(playerAuth) = true;
+                diag_log text format ["[POTATO]: Player UID [%1] in list", getPlayerUID player];
+            };
+        };
     }] call ace_common_fnc_addEventHandler;
-};
-
-if (hasInterface && {alive player}) then {
-    private _test = [player] call FUNC(isAuthorized);
-    diag_log text format ["[POTATO]: Player [%1]: Auth Test: %2 ", player, _test];
 };
 
 ["potato_adminMsg", {
