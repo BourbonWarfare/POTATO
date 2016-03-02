@@ -59,7 +59,7 @@ private _fnc_onUnload = {
     private _logic = missionnamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objnull];
     if (isNull _logic) exitWith {};
 
-    _logic setVariable ["closed", true];
+    _logic setVariable ["closed", true, true];
 };
 
 private _fnc_onConfirm = {
