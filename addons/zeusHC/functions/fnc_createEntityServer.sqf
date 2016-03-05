@@ -7,7 +7,7 @@ private _allHCs = entities "HeadlessClient_F";
 TRACE_1("",_allHCs);
 
 if (_allHCs isEqualTo []) exitWith {
-    [QGVAR(createEntity), _this] call ace_common_fnc_serverEvent;
+    [ace_common_fnc_serverEvent, [QGVAR(createEntity), _this]] call CBA_fnc_directCall;
 };
 
 //Find the HC with least units on it
