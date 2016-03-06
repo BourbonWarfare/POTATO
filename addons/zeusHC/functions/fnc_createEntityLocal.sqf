@@ -33,10 +33,11 @@ if (_createVic != "") then {
     case (_createVic isKindOf "Tank"): {_crewType = _crewArmor};
     };
     private _newVehicle = createVehicle [_createVic,_posATL, [], 0, _createArg];
+    _newVehicle setVariable ["F_Gear", "Empty", true]; //Clear gear on these
     //custom `createVehicleCrew`
     {
         _x params ["", "_role", "_cargoIndex", "_turretPath"];
-        if (_cargoIndex == -1) then { //anything besides a cargo slot
+        if (_cargoIndex == -1 && {(_turretPath isEqualTo []) || {!(_newVehicle lockedTurret _turretPath)}}) then { //anything besides a cargo slot (and not locked)
             _unit = _newGroup createUnit [_crewType, _posATL, [], 0, "NONE"];
             TRACE_2("",_crewType,_unit);
             if (_role == "driver") then {
