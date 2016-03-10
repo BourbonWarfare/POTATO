@@ -27,7 +27,7 @@ if ((vehicle _leader) == _leader) then {
         _return = "Moving to pos";
     };
 } else {
-    [_selctedPerson, (vehicle _leader)] remoteExec ["moveInAny", _selctedPerson];
+    [_selectedPerson, (vehicle _leader)] remoteExec ["moveInAny", _selectedPerson];
     _return = "Moving In Vic (no guarentes)";
 };
 
