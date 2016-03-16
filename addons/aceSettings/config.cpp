@@ -13,7 +13,7 @@ class CfgPatches {
 };
 
 
-// ACE Settings: (see http://forums.bourbonwarfare.site.nfoservers.com/viewtopic.php?f=8&t=2026)
+// ACE Settings: (see http://forums.bourbonwarfare.com/viewtopic.php?f=8&t=2026)
 class ACE_Settings {
     //Daylight laser pointer:
     class ace_laserPointer_enabled {
