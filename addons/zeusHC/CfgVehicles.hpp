@@ -138,7 +138,7 @@ class CfgVehicles {
     };
     class GVAR(msv_squad): GVAR(msv_fireteam) {
         displayName = "#Squad (8)";
-        GVAR(createUnits)[] = {"rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_machinegunner","rhs_msv_machinegunner","B_soldier_LAT_F","rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_rifleman"};
+        GVAR(createUnits)[] = {"rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_machinegunner","rhs_msv_machinegunner","rhs_msv_at","rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_rifleman"};
     };
     class GVAR(msv_heliAttack): GVAR(msv_fireteam) {
         displayName = "Heli-Attack: MI-24";
