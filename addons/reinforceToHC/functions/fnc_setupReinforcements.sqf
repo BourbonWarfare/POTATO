@@ -147,10 +147,12 @@ if (count (_pool select _vehiclePoolIndex) == 0) exitWith {
   _side,
   _lz,
   _lzSize,
+  _dialogVehicleBehaviour,
   _dialogUnitBehaviour,
   _allRps,
-  _dialogRpAlgorithm
-] remoteExecCall [QFUNC(spawnReinforcements), [] call FUNC(getSpawnMachineId)];
+  _dialogRpAlgorithm,
+  _rpSize
+] remoteExecCall [QFUNC(setupReinforcementsOnServer), SERVER_CLIENT_ID];
 
 if (count _allRps > 0) then {
   [objNull, "Transport dispatched to LZ. Squad will head to RP."] call bis_fnc_showCuratorFeedbackMessage;

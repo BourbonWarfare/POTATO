@@ -1,10 +1,5 @@
 #include "script_component.hpp"
 
-// Define a scope so that inner calls can break to it if necessary to exit the logic while
-// still performing cleanup. The #define is visible in all module code that #includes this.
-#define MAIN_SCOPE_NAME "module_cleanup"
-scopeName MAIN_SCOPE_NAME;
-
 params["_logic"];
 
 [format["Starting module code '%1'", _logic]] call Ares_fnc_LogMessage;

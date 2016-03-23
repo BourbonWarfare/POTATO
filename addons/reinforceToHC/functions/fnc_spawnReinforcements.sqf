@@ -6,9 +6,11 @@ params [
   "_side",
   "_lz",
   "_lzSize",
+  "_dialogVehicleBehaviour",
   "_dialogUnitBehaviour",
   "_allRps",
-  "_dialogRpAlgorithm"
+  "_dialogRpAlgorithm",
+  "_rpSize"
 ];
 
 private _vehicleType = (_pool select _vehiclePoolIndex) call BIS_fnc_selectRandom;
@@ -50,8 +52,7 @@ if ((_vehicle emptyPositions "Cargo") <= 3) then {
   _maxCargoSpacesToLeaveEmpty = 0;
 };
 
-while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty }
-do {
+while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
   private _squadMembers = (_pool select INFANTRY_UNIT_POOL_INDEX) call BIS_fnc_selectRandom;
   private _freeSpace = (vehicle (leader _vehicleGroup)) emptyPositions "Cargo";
   if (_freeSpace < count _squadMembers) then {
@@ -61,7 +62,7 @@ do {
   
   // Spawn the squad members.
   private _infantryGroup = [_spawnPosition, _side, _squadMembers] call BIS_fnc_spawnGroup;
-  
+
   // Set the default behaviour of the squad
   switch (_dialogUnitBehaviour) do {
     case 1: { // Relaxed
@@ -102,13 +103,12 @@ do {
         _leastUsed
       };
       default {
-        _allRps select (_dialogRpAlgorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
+        _allRps select (_dialogRpAlgorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX)
       };
     };
 
     // Now that we've chosen an RP, increment the count for it.
     _rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
-    
     private _infantryRpWp = _infantryGroup addWaypoint [position _rp, _rpSize];
   } else {
     private _infantryMoveOnWp = _infantryGroup addWaypoint [position _lz, _rpSize];
