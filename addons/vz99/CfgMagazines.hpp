@@ -2,10 +2,10 @@ class CfgMagazines {
     class 8Rnd_82mm_Mo_shells;
 
     class GVAR(HE): 8Rnd_82mm_Mo_shells {
-        picture = "\A3\weapons_F\data\UI\m_30stanag_CA.paa";
+        picture = QUOTE(PATHTOF(ui\shell_ca.paa));
         author = "Pab";
         count = 1;
-        mass = 20;
+        mass = 25;
         
         
         displayName = "vz99 HE Shell";
@@ -36,7 +36,7 @@ class CfgMagazines {
         ammo = QGVAR(ammo_smokeRed);
         initSpeed = 110;
     };
-    class GVAR(smokeRed_charge0): GVAR(smokeWhite) {
+    class GVAR(smokeRed_charge0): GVAR(smokeRed) {
         initSpeed = 70;
     };
 };

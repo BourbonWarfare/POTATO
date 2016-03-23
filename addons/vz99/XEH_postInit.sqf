@@ -3,7 +3,7 @@ TRACE_1("post init",_this);
 
 if (!hasInterface) exitWith {};
 
-GVAR(nextReload) = "";
+GVAR(nextReload) = QGVAR(HE);
 
 // Add keybinds
 [QUOTE(PREFIX), QGVAR(reload), "Reload VZ99",

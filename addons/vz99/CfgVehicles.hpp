@@ -1,6 +1,6 @@
 class CfgVehicles {
 
-    //Add Player Deploy Action:
+    //ACE: Add Player Deploy Action
     class Man;
     class CAManBase: Man {
         class ACE_SelfActions {
@@ -31,9 +31,7 @@ class CfgVehicles {
         };
     };
 
-
     class GVAR(mortar): StaticMortar {
-
         //ACE Compat:
         ace_cargo_hasCargo = 0;
         ace_cargo_canLoad = 0;
@@ -49,44 +47,44 @@ class CfgVehicles {
         class ACE_SelfActions: ACE_SelfActions {
             class GVAR(load_HE) {
                 displayName = "Load HE- charge 1";
-                condition = QUOTE([QUOTE(QGVAR(HE))] call FUNC(canLoadMagazine));
-                statement = QUOTE([QUOTE(QGVAR(HE))] call FUNC(doLoadMagazine));
+                condition = QUOTE([QUOTE(QGVAR(HE))] call FUNC(canSelectNextMagazine));
+                statement = QUOTE([QUOTE(QGVAR(HE))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
                 class GVAR(load_HE_charge0) {
                     displayName = "Load HE - charge 0";
-                    condition = QUOTE([QUOTE(QGVAR(HE_charge0))] call FUNC(canLoadMagazine));
-                    statement = QUOTE([QUOTE(QGVAR(HE_charge0))] call FUNC(doLoadMagazine));
+                    condition = QUOTE([QUOTE(QGVAR(HE_charge0))] call FUNC(canSelectNextMagazine));
+                    statement = QUOTE([QUOTE(QGVAR(HE_charge0))] call FUNC(doSelectNextMagazine));
                     exceptions[] = {};
                 };
             };
             class GVAR(load_smokeWhite) {
-                displayName = "Load Smoke (White) - charge 1";
-                condition = QUOTE([QUOTE(QGVAR(smokeRed))] call FUNC(canLoadMagazine));
-                statement = QUOTE([QUOTE(QGVAR(smokeRed))] call FUNC(doLoadMagazine));
+                displayName = "Load Smoke(White) - charge 1";
+                condition = QUOTE([QUOTE(QGVAR(smokeWhite))] call FUNC(canSelectNextMagazine));
+                statement = QUOTE([QUOTE(QGVAR(smokeWhite))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
                 class GVAR(load_smokeWhite_charge0) {
-                    displayName = "Load Smoke (White) - charge 0";
-                    condition = QUOTE([QUOTE(QGVAR(smokeWhite_charge0))] call FUNC(canLoadMagazine));
-                    statement = QUOTE([QUOTE(QGVAR(smokeWhite_charge0))] call FUNC(doLoadMagazine));
+                    displayName = "Load Smoke(White) - charge 0";
+                    condition = QUOTE([QUOTE(QGVAR(smokeWhite_charge0))] call FUNC(canSelectNextMagazine));
+                    statement = QUOTE([QUOTE(QGVAR(smokeWhite_charge0))] call FUNC(doSelectNextMagazine));
                     exceptions[] = {};
                 };
             };
             class GVAR(load_smokeRed) {
-                displayName = "Load Smoke (Red) - charge 1";
-                condition = QUOTE([QUOTE(QGVAR(smokeRed))] call FUNC(canLoadMagazine));
-                statement = QUOTE([QUOTE(QGVAR(smokeRed))] call FUNC(doLoadMagazine));
+                displayName = "Load Smoke(Red) - charge 1";
+                condition = QUOTE([QUOTE(QGVAR(smokeRed))] call FUNC(canSelectNextMagazine));
+                statement = QUOTE([QUOTE(QGVAR(smokeRed))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
                 class GVAR(load_smokeRed_charge0) {
-                    displayName = "Load Smoke (Red) - charge 0";
-                    condition = QUOTE([QUOTE(QGVAR(smokeRed_charge0))] call FUNC(canLoadMagazine));
-                    statement = QUOTE([QUOTE(QGVAR(smokeRed_charge0))] call FUNC(doLoadMagazine));
+                    displayName = "Load Smoke(Red) - charge 0";
+                    condition = QUOTE([QUOTE(QGVAR(smokeRed_charge0))] call FUNC(canSelectNextMagazine));
+                    statement = QUOTE([QUOTE(QGVAR(smokeRed_charge0))] call FUNC(doSelectNextMagazine));
                     exceptions[] = {};
                 };
             };
         };
 
 
-        model = "\z\potato\addons\vz99\fri";
+        model = QUOTE(PATHTOF(data\vz99_vehicle));
         class AnimationSources {
             class Level {
                 source = "user"; //The controller is defined as a user animation.
@@ -97,14 +95,12 @@ class CfgVehicles {
 
 
         features = "";
-
         author = "PabstMirror";
         scope = 2;
         side = 1;
         faction = "BLU_F";
         crew = "B_Soldier_F";
         availableForSupportTypes[] = {"Artillery"};
-
         displayname = "vz99 pab";
         transportSoldier = 0;
         cargoAction[] = {"Mortar_Gunner"};
@@ -116,10 +112,6 @@ class CfgVehicles {
         cost = 200000;
         accuracy = 0.25;
         threat[] = {1,0.3,0.1};
-
-        class Eventhandlers {
-            fired = "_this call (uinamespace getvariable 'BIS_fnc_effectFired');";
-        };
         htMin = 1;
         htMax = 480;
         afMax = 0;
@@ -158,7 +150,6 @@ class CfgVehicles {
                 gunnergetInAction = "";
                 gunnergetOutAction = "";
 
-
                 elevationMode = 0;
                 stabilizedInAxes = 0;
 
@@ -179,8 +170,8 @@ class CfgVehicles {
                 // discreteDistance[] = {100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900};
                 // discreteDistanceInitIndex = 5;
 
-                turretInfoType = "RscWeaponRangeArtillery";
-                // turretInfoType = "RscOptics_Offroad_01";
+                // turretInfoType = "RscWeaponRangeArtillery";
+                turretInfoType = "RscOptics_Offroad_01";
 
                 memoryPointGunnerOptics = "eye";
                 // gunnerOpticsModel = "\A3\Weapons_F\acc\reticle_Mortar_01_F.p3d";

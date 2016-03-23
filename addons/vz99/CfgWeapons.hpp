@@ -5,9 +5,9 @@ class CfgWeapons {
     class GVAR(carryWeapon): Launcher_Base_F {
         author = "pab";
         scope = 2;
-        displayName = "vvv_wea";
-        model = "\z\potato\addons\vz99\fri";
-        picture = "\A3\weapons_f\launchers\nlaw\data\UI\gear_nlaw_ca.paa";
+        displayName = "VZ99 60mm Mortar";
+        model = QUOTE(PATHTOF(data\vz99_carry));
+        picture = QUOTE(PATHTOF(ui\weaponSide_ca.paa));
         modes[] = {};
     };
 

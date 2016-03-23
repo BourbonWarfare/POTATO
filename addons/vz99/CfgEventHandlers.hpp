@@ -31,7 +31,7 @@ class Extended_GetOut_EventHandlers {
         };
     };
 };
-class Extended_firedbis_Eventhandlers {
+class Extended_FiredBIS_EventHandlers {
     class GVAR(mortar) {
         class ADDON {
             firedBIS = QUOTE(_this call FUNC(handleFired));
