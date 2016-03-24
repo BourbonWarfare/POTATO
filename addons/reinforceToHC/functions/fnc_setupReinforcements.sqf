@@ -2,6 +2,8 @@
 
 params["_logic"];
 
+TRACE_2("",_logic,local _logic);
+
 [format["Inner logic running - %1", _logic]], call Ares_fnc_LogMessage;
 
 if (!local _logic) exitWith { false };

@@ -1,6 +1,7 @@
 #include "script_component.hpp"
 
 params["_logic"];
+TRACE_1("params",_logic);
 
 [format["Starting module code '%1'", _logic]] call Ares_fnc_LogMessage;
 

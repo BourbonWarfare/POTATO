@@ -2,14 +2,12 @@
 
 class CfgPatches {
   class potato_reinforceToHC {
-    units[] = {QGVAR(Reinforcements_Spawn_Units),"Ares_Module_Reinforcements_Spawn_Units"};
-    requiredVersion = 1.56;
+    units[] = {"Ares_Module_Reinforcements_Spawn_Units"};
+    requiredVersion = REQUIRED_VERSION;
     requiredAddons[] = {"potato_core","Ares"};
     author[] = {"AACO"};
     authorUrl = "https://github.com/BourbonWarfare/POTATO";
-    version = "1.0.0.3";
-    versionStr = "1.0.0.3";
-    versionAr[] = {1,0,0,3};
+    VERSION_CONFIG;
   };
 };
 

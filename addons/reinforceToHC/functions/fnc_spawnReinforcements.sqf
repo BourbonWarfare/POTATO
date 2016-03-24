@@ -13,6 +13,8 @@ params [
   "_rpSize"
 ];
 
+TRACE_1("params",_this);
+
 private _vehicleType = (_pool select _vehiclePoolIndex) call BIS_fnc_selectRandom;
 private _vehicleGroup = ([_spawnPosition, 0, _vehicleType, _side] call BIS_fnc_spawnVehicle) select 2;
 
