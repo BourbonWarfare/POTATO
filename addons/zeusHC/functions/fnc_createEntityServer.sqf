@@ -22,7 +22,7 @@ private _hcCounts = [];
 
 {
     private _index = _hcIDs find (groupOwner _x);
-    if (_index > 0) then {
+    if (_index >= 0) then {
         _hcCounts set [_index, ((_hcCounts select _index) + (count units _x))]; 
     };
 } forEach allGroups;
