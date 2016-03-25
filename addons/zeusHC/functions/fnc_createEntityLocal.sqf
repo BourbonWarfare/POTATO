@@ -34,6 +34,8 @@ if (_createVic != "") then {
     };
     private _newVehicle = createVehicle [_createVic,_posATL, [], 0, _createArg];
     _newVehicle setVariable ["F_Gear", "Empty", true]; //Clear gear on these
+    _newGroup addVehicle _newVehicle;
+
     //custom `createVehicleCrew`
     {
         _x params ["", "_role", "_cargoIndex", "_turretPath"];
@@ -50,9 +52,26 @@ if (_createVic != "") then {
 
     _newGroup selectLeader (effectiveCommander _newVehicle);
     _newGroup addVehicle _newVehicle;
+
+    if (ace_zeus_autoAddObjects) then {
+        [{
+            TRACE_1("Delayed addCuratorEditableObjects",_this);
+            {
+                _x addCuratorEditableObjects [[_this], true];
+            } forEach allCurators;
+        }, _newVehicle] call ACEFUNC(common,execNextFrame);
+    };
 } else {
     {
         _unit = _newGroup createUnit [_x, _posATL, [], 0, "FORM"];
         TRACE_2("",_x,_unit);
+        if (ace_zeus_autoAddObjects) then {
+            [{
+                TRACE_1("Delayed addCuratorEditableObjects",_this);
+                {
+                    _x addCuratorEditableObjects [[_this], true];
+                } forEach allCurators;
+            }, _unit] call ACEFUNC(common,execNextFrame);
+        };
     } forEach _createUnits;
 };
