@@ -4,7 +4,6 @@ if (!isNil QGVAR(timerRunning)) exitWith {};
 GVAR(timerRunning) = true;
 
 [{
-    if (isNull (findDisplay 46)) exitWith {};
     disableSerialization;
 
     if (hasInterface) then {
