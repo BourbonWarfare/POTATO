@@ -25,19 +25,35 @@ class CfgVehicles {
         GVAR(createUnits)[] = {"O_soldier_F"};
     }
     class GVAR(east_ftl): GVAR(base_east) {
-        displayName = "#FTL";
+        displayName = "@FTL";
         GVAR(createUnits)[] = {"O_soldier_TL_F"};
     };
     class GVAR(east_ar): GVAR(base_east) {
-        displayName = "#AR";
+        displayName = "@AR";
         GVAR(createUnits)[] = {"O_soldier_AR_F"};
     };
     class GVAR(east_rat): GVAR(base_east) {
-        displayName = "#RAT";
+        displayName = "@RAT";
         GVAR(createUnits)[] = {"O_Soldier_LAT_F"};
     };
     class GVAR(east_rifleman): GVAR(base_east) {
-        displayName = "#Rifleman";
+        displayName = "@Rifleman";
+    };
+    class GVAR(east_manpad): GVAR(base_east) {
+        displayName = "@MANPAD";
+        GVAR(createUnits)[] = {"O_soldier_AA_F"};
+    };
+    class GVAR(east_manpadTeam): GVAR(base_east) {
+        displayName = "#MANPAD Team (2)";
+        GVAR(createUnits)[] = {"O_soldier_AA_F","O_soldier_AAA_F"};
+    };
+    class GVAR(east_matTeam): GVAR(base_east) {
+        displayName = "#MAT Team (2)";
+        GVAR(createUnits)[] = {"O_soldier_AT_F","O_soldier_AAT_F"};
+    };
+    class GVAR(east_patrol): GVAR(base_east) {
+        displayName = "#Patrol (2)";
+        GVAR(createUnits)[] = {"O_soldier_F","O_soldier_F"};
     };
     class GVAR(east_fireteam): GVAR(base_east) {
         displayName = "#Fireteam (4)";
@@ -46,6 +62,10 @@ class CfgVehicles {
     class GVAR(east_squad): GVAR(base_east) {
         displayName = "#Squad (8)";
         GVAR(createUnits)[] = {"O_soldier_SL_F","O_soldier_TL_F","O_soldier_AR_F","O_soldier_AR_F","O_soldier_LAT_F","O_soldier_F","O_soldier_F","O_soldier_F"};
+    };
+    class GVAR(east_aaModern): GVAR(base_east) {
+        displayName = "AA: Tigris";
+        GVAR(createVic) = "O_APC_Tracked_02_AA_F";
     };
     class GVAR(east_apcModern): GVAR(base_east) {
         displayName = "APC: Otokar GMG/HMG";
@@ -88,19 +108,35 @@ class CfgVehicles {
         GVAR(createUnits)[] = {"B_soldier_F"};
     }
     class GVAR(west_ftl): GVAR(base_west) {
-        displayName = "#FTL";
+        displayName = "@FTL";
         GVAR(createUnits)[] = {"B_soldier_TL_F"};
     };
     class GVAR(west_ar): GVAR(base_west) {
-        displayName = "#AR";
+        displayName = "@AR";
         GVAR(createUnits)[] = {"B_soldier_AR_F"};
     };
     class GVAR(west_rat): GVAR(base_west) {
-        displayName = "#RAT";
+        displayName = "@RAT";
         GVAR(createUnits)[] = {"B_Soldier_LAT_F"};
     };
     class GVAR(west_rifleman): GVAR(base_west) {
-        displayName = "#Rifleman";
+        displayName = "@Rifleman";
+    };
+    class GVAR(west_manpad): GVAR(base_west) {
+        displayName = "@MANPAD";
+        GVAR(createUnits)[] = {"B_soldier_AA_F"};
+    };
+    class GVAR(west_manpadTeam): GVAR(base_west) {
+        displayName = "#MANPAD Team (2)";
+        GVAR(createUnits)[] = {"B_soldier_AA_F","B_soldier_AAA_F"};
+    };
+    class GVAR(west_matTeam): GVAR(base_west) {
+        displayName = "#MAT Team (2)";
+        GVAR(createUnits)[] = {"B_soldier_AT_F","B_soldier_AAT_F"};
+    };
+    class GVAR(west_patrol): GVAR(base_west) {
+        displayName = "#Patrol (2)";
+        GVAR(createUnits)[] = {"B_soldier_F","B_soldier_F"};
     };
     class GVAR(west_fireteam): GVAR(base_west) {
         displayName = "#Fireteam (4)";
@@ -109,6 +145,18 @@ class CfgVehicles {
     class GVAR(west_squad): GVAR(base_west) {
         displayName = "#Squad (8)";
         GVAR(createUnits)[] = {"B_soldier_SL_F","B_soldier_TL_F","B_soldier_AR_F","B_soldier_AR_F","B_soldier_LAT_F","B_soldier_F","B_soldier_F","B_soldier_F"};
+    };
+    class GVAR(west_aaModern): GVAR(base_west) {
+        displayName = "AA: Bardelas";
+        GVAR(createVic) = "B_APC_Tracked_01_AA_F";
+    };
+    class GVAR(west_rhsLinebackerD): GVAR(base_west) {
+        displayName = "AA: M6A2 Linebacker (Desert)";
+        GVAR(createVic) = "RHS_M6";
+    };
+    class GVAR(west_rhsLinebackerW): GVAR(base_west) {
+        displayName = "AA: M6A2 Linebacker (Woodland)";
+        GVAR(createVic) = "RHS_M6_wd";
     };
     class GVAR(west_rhsM113GmgD): GVAR(base_west) {
         displayName = "APC: M113 GMG (Desert)";
@@ -182,9 +230,13 @@ class CfgVehicles {
         displayName = "Heli-Attack (Light): AH-9 Littlebird";
         GVAR(createVic) = "B_Heli_Light_01_armed_F";
     };
-    class GVAR(west_rhsBradly): GVAR(base_west) {
-        displayName = "IFV: M2A2 Bradly";
+    class GVAR(west_rhsBradleyD): GVAR(base_west) {
+        displayName = "IFV: M2A2 Bradley (Desert)";
         GVAR(createVic) = "RHS_M2A2";
+    };
+    class GVAR(west_rhsBradleyW): GVAR(base_west) {
+        displayName = "IFV: M2A2 Bradley (Woodland)";
+        GVAR(createVic) = "RHS_M2A2_wd";
     };
     class GVAR(west_ifvModern): GVAR(base_west) {
         displayName = "IFV: Marshall";
@@ -211,19 +263,35 @@ class CfgVehicles {
         GVAR(createUnits)[] = {"I_soldier_F"};
     }
     class GVAR(ind_ftl): GVAR(base_ind) {
-        displayName = "#FTL";
+        displayName = "@FTL";
         GVAR(createUnits)[] = {"I_soldier_TL_F"};
     };
     class GVAR(ind_ar): GVAR(base_ind) {
-        displayName = "#AR";
+        displayName = "@AR";
         GVAR(createUnits)[] = {"I_soldier_AR_F"};
     };
     class GVAR(ind_rat): GVAR(base_ind) {
-        displayName = "#RAT";
+        displayName = "@RAT";
         GVAR(createUnits)[] = {"I_Soldier_LAT_F"};
     };
     class GVAR(ind_rifleman): GVAR(base_ind) {
-        displayName = "#Rifleman";
+        displayName = "@Rifleman";
+    };
+    class GVAR(ind_manpad): GVAR(base_ind) {
+        displayName = "@MANPAD";
+        GVAR(createUnits)[] = {"I_soldier_AA_F"};
+    };
+    class GVAR(ind_manpadTeam): GVAR(base_ind) {
+        displayName = "#MANPAD Team (2)";
+        GVAR(createUnits)[] = {"I_soldier_AA_F","I_soldier_AAA_F"};
+    };
+    class GVAR(ind_matTeam): GVAR(base_ind) {
+        displayName = "#MAT Team (2)";
+        GVAR(createUnits)[] = {"I_soldier_AT_F","I_soldier_AAT_F"};
+    };
+    class GVAR(ind_patrol): GVAR(base_ind) {
+        displayName = "#Patrol (2)";
+        GVAR(createUnits)[] = {"I_soldier_F","I_soldier_F"};
     };
     class GVAR(ind_fireteam): GVAR(base_ind) {
         displayName = "#Fireteam (4)";
@@ -232,6 +300,10 @@ class CfgVehicles {
     class GVAR(ind_squad): GVAR(base_ind) {
         displayName = "#Squad (8)";
         GVAR(createUnits)[] = {"I_soldier_SL_F","I_soldier_TL_F","I_soldier_AR_F","I_soldier_AR_F","I_soldier_LAT_F","I_soldier_F","I_soldier_F","I_soldier_F"};
+    };
+    class GVAR(ind_rhsZsu): GVAR(base_ind) {
+        displayName = "AA: ZSU 23 Shilka";
+        GVAR(createVic) = "rhs_zsu234_aa";
     };
     class GVAR(ind_rhsBTR60): GVAR(base_ind) {
         displayName = "APC: BTR-60";
@@ -274,6 +346,10 @@ class CfgVehicles {
         GVAR(createVic) = "rhs_bmp1_vdv";
     };
     class GVAR(ind_ifvModern): GVAR(base_ind) {
+        displayName = "IFV: Pandur II";
+        GVAR(createVic) = "I_APC_Wheeled_03_cannon_F";
+    };
+    class GVAR(ind_ifvModern2): GVAR(base_ind) {
         displayName = "IFV: Warrior";
         GVAR(createVic) = "I_APC_tracked_03_cannon_F";
     };
@@ -294,19 +370,27 @@ class CfgVehicles {
         GVAR(createUnits)[] = {"rhs_msv_rifleman"};
     }
     class GVAR(msv_ftl): GVAR(base_msv) {
-        displayName = "#FTL";
+        displayName = "@FTL";
         GVAR(createUnits)[] = {"rhs_msv_junior_sergeant"};
     };
     class GVAR(msv_ar): GVAR(base_msv) {
-        displayName = "#AR";
+        displayName = "@AR";
         GVAR(createUnits)[] = {"rhs_msv_machinegunner"};
     };
     class GVAR(msv_rat): GVAR(base_msv) {
-        displayName = "#RAT";
+        displayName = "@RAT";
         GVAR(createUnits)[] = {"rhs_msv_at"};
     };
     class GVAR(msv_rifleman): GVAR(base_msv) {
-        displayName = "#Rifleman";
+        displayName = "@Rifleman";
+    };
+    class GVAR(msv_manpad): GVAR(base_msv) {
+        displayName = "@MANPAD";
+        GVAR(createUnits)[] = {"rhs_msv_aa"};
+    };
+    class GVAR(msv_patrol): GVAR(base_msv) {
+        displayName = "#Patrol (2)";
+        GVAR(createUnits)[] = {"rhs_msv_rifleman","rhs_msv_rifleman"};
     };
     class GVAR(msv_fireteam): GVAR(base_msv) {
         displayName = "#Fireteam (4)";
@@ -315,6 +399,10 @@ class CfgVehicles {
     class GVAR(msv_squad): GVAR(base_msv) {
         displayName = "#Squad (8)";
         GVAR(createUnits)[] = {"rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_machinegunner","rhs_msv_machinegunner","rhs_msv_at","rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_rifleman"};
+    };
+    class GVAR(msv_rhsZsu): GVAR(base_msv) {
+        displayName = "AA: ZSU 23 Shilka";
+        GVAR(createVic) = "rhs_zsu234_aa";
     };
     class GVAR(msv_rhsBTR60): GVAR(base_msv) {
         displayName = "APC: BTR-60";
