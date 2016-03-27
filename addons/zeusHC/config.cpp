@@ -113,7 +113,9 @@ class CfgPatches {
             QGVAR(msv_rhsBmp2),
             QGVAR(msv_rhsBmp3),
             QGVAR(msv_rhsT72),
-            QGVAR(msv_rhsT80)
+            QGVAR(msv_rhsT80),
+
+            QGVAR(build_a_group)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
@@ -127,3 +129,4 @@ class CfgPatches {
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgFactionClasses.hpp"
+#include "Displays.hpp"

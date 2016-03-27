@@ -8,17 +8,19 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 2;
         isTriggerActivated = 0;
-        function = QFUNC(createEntityZeus);
         isGlobal = 0;
         curatorCost = 0;
         class Arguments {};
         class Attributes {};
+    };
 
+    class GVAR(base_prebuilt): GVAR(base_module) {
+        function = QFUNC(createEntityZeus);
         GVAR(createVic) = "";
     };
 
     //------------ East ----------
-    class GVAR(base_east): GVAR(base_module) {
+    class GVAR(base_east): GVAR(base_prebuilt) {
         category = QGVAR(east);
         GVAR(crewAir) = "O_Helipilot_F";
         GVAR(crewArmor)= "O_crew_F";
@@ -101,7 +103,7 @@ class CfgVehicles {
     };
 
     //------------ West ----------
-    class GVAR(base_west): GVAR(base_module) {
+    class GVAR(base_west): GVAR(base_prebuilt) {
         category = QGVAR(west);
         GVAR(crewAir) = "B_Helipilot_F";
         GVAR(crewArmor)= "B_crew_F";
@@ -256,7 +258,7 @@ class CfgVehicles {
     };
 
     //------------ Independent ----------
-    class GVAR(base_ind): GVAR(base_module) {
+    class GVAR(base_ind): GVAR(base_prebuilt) {
         category = QGVAR(ind);
         GVAR(crewAir) = "I_Helipilot_F";
         GVAR(crewArmor)= "I_crew_F";
@@ -362,8 +364,8 @@ class CfgVehicles {
         GVAR(createVic) = "rhs_t72ba_tv";
     };
 
-    //------------ Russian MSV ----------
-    class GVAR(base_msv): GVAR(base_module) {
+    //------------ Russian ----------
+    class GVAR(base_msv): GVAR(base_prebuilt) {
         category = QGVAR(msv);
         GVAR(crewAir) = "rhs_pilot_transport_heli";
         GVAR(crewArmor)= "rhs_msv_crew";
@@ -475,5 +477,18 @@ class CfgVehicles {
     class GVAR(msv_rhsT80): GVAR(base_msv) {
         displayName = "Tank: T-80U";
         GVAR(createVic) = "rhs_t80u";
+    };
+
+    //------------ Custom group/vehicle modules ----------
+    class GVAR(build_a_group): GVAR(base_module) {
+        displayName = "Build-a-Group";
+        category = QGVAR(custom);
+        function = QFUNC(buildAGroup);
+    };
+
+    class GVAR(spawn_a_vehicle): GVAR(base_module) {
+        displayName = "Spawn-a-Vic";
+        category = QGVAR(custom);
+        function = QFUNC(spawnAVehicleModule);
     };
 };
