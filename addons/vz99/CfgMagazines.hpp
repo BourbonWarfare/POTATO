@@ -6,8 +6,7 @@ class CfgMagazines {
         author = "Pab";
         count = 1;
         mass = 25;
-        
-        
+
         displayName = "vz99 HE Shell";
         displayNameShort = "HE";
         GVAR(base) = QGVAR(HE);
@@ -37,6 +36,17 @@ class CfgMagazines {
         initSpeed = 110;
     };
     class GVAR(smokeRed_charge0): GVAR(smokeRed) {
+        initSpeed = 70;
+    };
+
+    class GVAR(flare): GVAR(HE) {
+        GVAR(base) = QGVAR(flare);
+        displayName = "Flare";
+        displayNameShort = "FLARE";
+        ammo = QGVAR(ammo_flare);
+        initSpeed = 110;
+    };
+    class GVAR(flare_charge0): GVAR(flare) {
         initSpeed = 70;
     };
 };

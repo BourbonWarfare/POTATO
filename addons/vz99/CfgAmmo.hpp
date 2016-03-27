@@ -2,6 +2,7 @@ class CfgAmmo {
     class SmokeShellArty;
     class ShotDeployBase;
     class Sh_82mm_AMOS;
+    class Flare_82mm_AMOS_White;
 
     //Smokes:
     class GVAR(deploy_smokeWhite): SmokeShellArty {
@@ -20,6 +21,21 @@ class CfgAmmo {
         model = "\A3\weapons_f\ammo\shell";
         submunitionAmmo = QGVAR(deploy_smokeRed);
     };
+
+    //Flare:
+    class GVAR(ammo_flare): Flare_82mm_AMOS_White {
+        // timeToLive = 45;
+        // model = "\A3\weapons_f\ammo\shell";
+        // effectFlare = "CounterMeasureFlare";
+        // aimAboveTarget[] = {30,60,120,180,240,300,360};
+        // aimAboveDefault = 4;
+        // triggerTime = -1;
+        // triggerSpeedCoef = 1;
+        // lightColor[] = {0.95,0.95,1,0.5};
+        // smokeColor[] = {1,1,1,0.5};
+        // intensity = 10000;
+    };
+
 
 
     //HE:

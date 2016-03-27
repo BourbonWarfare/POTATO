@@ -81,6 +81,18 @@ class CfgVehicles {
                     exceptions[] = {};
                 };
             };
+            class GVAR(load_flare) {
+                displayName = "Load Flare - charge 1";
+                condition = QUOTE([QUOTE(QGVAR(flare))] call FUNC(canSelectNextMagazine));
+                statement = QUOTE([QUOTE(QGVAR(flare))] call FUNC(doSelectNextMagazine));
+                exceptions[] = {};
+                class GVAR(load_flare_charge0) {
+                    displayName = "Load Flare) - charge 0";
+                    condition = QUOTE([QUOTE(QGVAR(flare_charge0))] call FUNC(canSelectNextMagazine));
+                    statement = QUOTE([QUOTE(QGVAR(flare_charge0))] call FUNC(doSelectNextMagazine));
+                    exceptions[] = {};
+                };
+            };
         };
 
 
