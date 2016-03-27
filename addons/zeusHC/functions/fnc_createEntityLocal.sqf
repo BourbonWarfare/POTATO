@@ -28,9 +28,10 @@ if (_createVic != "") then {
     private _createArg = "NONE";
     private _crewType = _createUnits select 0;
     switch (true) do {
-    case (_createVic isKindOf "Air"): {_createArg = "FLY"; _crewType = _crewAir};
-    case (_createVic isKindOf "Wheeled_APC"): {_crewType = _crewArmor};
-    case (_createVic isKindOf "Tank"): {_crewType = _crewArmor};
+        case (_createVic isKindOf "Air"): {_createArg = "FLY"; _crewType = _crewAir};
+        case (_createVic isKindOf "Wheeled_APC"): {_crewType = _crewArmor};
+        case (_createVic isKindOf "Wheeled_APC_F"): {_crewType = _crewArmor};
+        case (_createVic isKindOf "Tank"): {_crewType = _crewArmor};
     };
     private _newVehicle = createVehicle [_createVic,_posATL, [], 0, _createArg];
     _newVehicle setVariable ["F_Gear", "Empty", true]; //Clear gear on these
