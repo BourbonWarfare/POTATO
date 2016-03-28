@@ -36,6 +36,8 @@
 #define UI_TAB_MISSIONHINT_SIDE        ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 23071)
 #define UI_TAB_MISSIONHINT_RANK        ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 23072)
 #define UI_TAB_MISSIONHINT_TEXT       ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 23073)
+#define UI_TAB_FIXGEAR               ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2308)
+#define UI_TAB_FIXGEAR_PERSON        ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2180)
 
-#define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint"]
-#define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT]
+#define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint",        "Reset Gear"]
+#define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT, UI_TAB_FIXGEAR]

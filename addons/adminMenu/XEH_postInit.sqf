@@ -1,5 +1,25 @@
 #include "script_component.hpp"
 
+[QGVAR(resetGear), {
+    params ["_unit"];
+    diag_log text format ["[POTATO] Reseting Gear on %1 [%2]", (name _unit), _unit];
+    if ((isNull _unit) || {!alive _unit} || {!local _unit}) exitWith {};
+
+    removeAllWeapons _unit;
+    removeGoggles _unit;
+    removeHeadgear _unit;
+    removeVest _unit;
+    removeUniform _unit;
+    removeAllAssignedItems _unit;
+    removeBackpack _unit;
+
+    [{
+        diag_log text format ["[POTATO] Calling F_fnc_assignGearMan"];
+        _this call F_fnc_assignGearMan;
+    }, [_unit], 0.5] call ACEFUNC(common,waitAndExecute);
+}] call ACEFUNC(common,addEventHandler);
+
+
 // GVAR(playerDataHash) = [[],[]];
 GVAR(openEndMission) = false;
 
