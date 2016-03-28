@@ -6,5 +6,10 @@ PREP(createEntityServer);
 PREP(createEntityLocal);
 PREP(createEntityZeus);
 PREP(buildAGroup);
+PREP(buildAGroupDialogAdd);
+PREP(buildAGroupDialogFactionChange);
+PREP(buildAGroupDialogLoad);
+PREP(buildAGroupDialogRemove);
+PREP(buildAGroupDialogSpawn);
 
 ADDON = true;

@@ -16,6 +16,7 @@ class RscButton;
 class GVAR(build_a_group_dialog) {
     idd = BUILD_GROUP_IDD;
     movingEnable = false;
+    onLoad = QUOTE(_this call FUNC(buildAGroupDialogLoad)]);
     class controls {
         class GVAR(build_a_group_bg): IGUIBack {
             idc = BUILD_GROUP_BG_IDC;
@@ -44,6 +45,7 @@ class GVAR(build_a_group_dialog) {
             colorBackground2[] = {0.4,0,0,1};
             colorBackgroundFocused[] = {0.8,0,0,1};
             tooltip = "Cancel creating the group";
+            action = "closeDialog 2;";
         };
         class GVAR(build_a_group_okay_btn): RscButtonMenuOK {
             idc = BUILD_GROUP_OK_IDC;
@@ -55,6 +57,7 @@ class GVAR(build_a_group_dialog) {
             colorBackground2[] = {0,0.4,0,1};
             colorBackgroundFocused[] = {0,0.8,0,1};
             tooltip = "Add group";
+            action = QUOTE([] call FUNC(buildAGroupDialogSpawn));
         };
         class GVAR(build_a_group_factions): RscCombo {
             idc = BUILD_GROUP_FACTIONS_IDC;
@@ -64,6 +67,7 @@ class GVAR(build_a_group_dialog) {
             h = 1 * GUI_GRID_H;
             tooltip = "Select a faction";
             sizeEx = 1 * GUI_GRID_H;
+            onLBSelChanged  = QUOTE([_this select 1] call FUNC(buildAGroupDialogFactionChange));
         };
         class GVAR(build_a_group_unit_list): RscListbox {
             idc = BUILD_GROUP_UNITS_IDC;
@@ -71,6 +75,7 @@ class GVAR(build_a_group_dialog) {
             y = 3 * GUI_GRID_H + GUI_GRID_Y;
             w = 18 * GUI_GRID_W;
             h = 24.5 * GUI_GRID_H;
+            onLBDblClick = QUOTE([_this select 1] call FUNC(buildAGroupDialogAdd));
         };
         class GVAR(build_a_group_list_to_add): RscListbox {
             idc = BUILD_GROUP_TO_ADD_IDC;
@@ -78,6 +83,7 @@ class GVAR(build_a_group_dialog) {
             y = 3 * GUI_GRID_H + GUI_GRID_Y;
             w = 19 * GUI_GRID_W;
             h = 24.5 * GUI_GRID_H;
+            onLBDblClick = QUOTE([_this select 1] call FUNC(buildAGroupDialogRemove));
         };
         class GVAR(build_a_group_add_btn): RscButton {
             idc = BUILD_GROUP_ADD_IDC;
@@ -88,6 +94,7 @@ class GVAR(build_a_group_dialog) {
             h = 2.5 * GUI_GRID_H;
             tooltip = "Add unit to the group";
             sizeEx = 1.5 * GUI_GRID_H;
+            action = QUOTE([] call FUNC(buildAGroupDialogAdd));
         };
         class GVAR(build_a_group_remove_btn): RscButton {
             idc = BUILD_GROUP_REMOVE_IDC;
@@ -97,6 +104,7 @@ class GVAR(build_a_group_dialog) {
             w = 4 * GUI_GRID_W;
             h = 2.5 * GUI_GRID_H;
             sizeEx = 1.25 * GUI_GRID_H;
+            action = QUOTE([] call FUNC(buildAGroupDialogRemove));
         };
     };
 };

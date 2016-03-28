@@ -25,4 +25,6 @@
 #define BUILD_GROUP_ADD_IDC 59546106
 #define BUILD_GROUP_REMOVE_IDC 80194177
 
+#define BUILD_GROUP_DISPLAY (findDisplay BUILD_GROUP_IDD)
+
 #include "\z\potato\addons\core\script_macros.hpp"
