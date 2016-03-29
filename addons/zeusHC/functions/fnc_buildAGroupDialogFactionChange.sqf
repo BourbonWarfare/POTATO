@@ -20,7 +20,6 @@ if (isNil QGVAR(buildFactionCache)) then {
 private _factionIndex = (GVAR(buildFactionCache) select 0) find (lbData [BUILD_GROUP_FACTIONS_IDC, _index]);
 if (_factionIndex > -1) then {
     private _unitArray = (GVAR(buildFactionCache) select 1) select _factionIndex;
-    TRACE_1("Unit Array",_unitArray);
     {
         _x params ["_classname", "_displayName", "_icon"];
         private _unitIndex = lbAdd [BUILD_GROUP_UNITS_IDC, _displayName];

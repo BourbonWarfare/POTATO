@@ -481,12 +481,14 @@ class CfgVehicles {
 
     //------------ Custom group/vehicle modules ----------
     class GVAR(build_a_group): GVAR(base_module) {
+        isGlobal = 1;
         displayName = "Build-a-Group";
         category = QGVAR(custom);
         function = QFUNC(buildAGroup);
     };
 
     class GVAR(spawn_a_vehicle): GVAR(base_module) {
+        isGlobal = 1;
         displayName = "Spawn-a-Vic";
         category = QGVAR(custom);
         function = QFUNC(spawnAVehicleModule);

@@ -20,5 +20,12 @@ TRACE_1("white list",GVAR(groupFactionWhiteList));
 private _factionIndex =  if (isNil QGVAR(lastGroupFactionIndex)) then { 0 } else { GVAR(lastGroupFactionIndex) };
 lbSetCurSel [BUILD_GROUP_FACTIONS_IDC, _factionIndex];
 
-// todo: check for last unit array, set to add lb with provided units
-//GVAR(lastGroupUnitArray);
+if (!isNil QGVAR(lastGroupUnitArray)) then {
+    {
+        _x params ["_classname", "_displayName", "_icon"];
+        private _unitIndex = lbAdd [BUILD_GROUP_TO_ADD_IDC, _displayName];
+        lbSetPicture [BUILD_GROUP_TO_ADD_IDC, _unitIndex, getText(configfile >> "CfgVehicleIcons" >> _icon)];
+        lbSetData [BUILD_GROUP_TO_ADD_IDC, _unitIndex, _classname];
+        nil
+    } count GVAR(lastGroupUnitArray);
+};
