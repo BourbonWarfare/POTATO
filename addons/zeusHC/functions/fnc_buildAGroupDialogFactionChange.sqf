@@ -7,13 +7,25 @@ TRACE_1("params",_index);
 lbClear BUILD_GROUP_UNITS_IDC;
 lbClear BUILD_GROUP_TO_ADD_IDC;
 
-private _faction = lbData [BUILD_GROUP_FACTIONS_IDC, _index];
+TRACE_1("Cache",GVAR(buildFactionCache));
 
-// todo: get array of soldiers of a certain faction, and cachem
-private _unitArray = [];
+if (isNil QGVAR(buildFactionCache)) then {
+    GVAR(buildFactionCache) = [[], []];
+    private _relivantUnits = "(configName _x) isKindOf 'Man' && getNumber (_x >> 'scope') > 1" configClasses (configFile >> "CfgVehicles");
+    [_relivantUnits] call FUNC(buildACache);
+    TRACE_1("Cache populated",GVAR(buildFactionCache));
+};
 
-{
-    private _unitIndex = lbAdd [BUILD_GROUP_UNITS_IDC, _x]; // cfg lookup for readable name?
-    lbSetPicture [BUILD_GROUP_UNITS_IDC, _unitIndex, "_x"]; // cfg lookup for picture?
-    lbSetData [BUILD_GROUP_UNITS_IDC, _unitIndex, _x];
-} count _unitArray;
+
+private _factionIndex = (GVAR(buildFactionCache) select 0) find (lbData [BUILD_GROUP_FACTIONS_IDC, _index]);
+if (_factionIndex > -1) then {
+    private _unitArray = (GVAR(buildFactionCache) select 1) select _factionIndex;
+    TRACE_1("Unit Array",_unitArray);
+    {
+        _x params ["_classname", "_displayName", "_icon"];
+        private _unitIndex = lbAdd [BUILD_GROUP_UNITS_IDC, _displayName];
+        lbSetPicture [BUILD_GROUP_UNITS_IDC, _unitIndex, getText(configfile >> "CfgVehicleIcons" >> _icon)];
+        lbSetData [BUILD_GROUP_UNITS_IDC, _unitIndex, _classname];
+        nil
+    } count _unitArray;
+};

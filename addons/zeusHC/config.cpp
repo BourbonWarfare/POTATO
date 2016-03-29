@@ -126,7 +126,6 @@ class CfgPatches {
     };
 };
 
-#include "CfgAceSettings.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgFactionClasses.hpp"

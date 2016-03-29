@@ -16,7 +16,7 @@ class RscButton;
 class GVAR(build_a_group_dialog) {
     idd = BUILD_GROUP_IDD;
     movingEnable = false;
-    onLoad = QUOTE(_this call FUNC(buildAGroupDialogLoad)]);
+    onLoad = QUOTE([] spawn FUNC(buildAGroupDialogLoad));
     class controls {
         class GVAR(build_a_group_bg): IGUIBack {
             idc = BUILD_GROUP_BG_IDC;

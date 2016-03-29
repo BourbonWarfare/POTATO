@@ -11,5 +11,6 @@ PREP(buildAGroupDialogFactionChange);
 PREP(buildAGroupDialogLoad);
 PREP(buildAGroupDialogRemove);
 PREP(buildAGroupDialogSpawn);
+PREP(buildACache);
 
 ADDON = true;
