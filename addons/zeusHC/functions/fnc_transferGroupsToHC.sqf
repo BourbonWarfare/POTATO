@@ -9,6 +9,8 @@ if (!isServer) exitWith { diag_log QUOTE([POTATO] Not executing on server, exiti
 
 private _allHCs = entities "HeadlessClient_F";
 if (_allHCs isEqualTo []) exitWith { diag_log QUOTE([POTATO] No headless clients found, exiting FUNC(transferGroupsToHC)); };
+
+private _hcIDs = [];
 { _hcIDs pushBack (owner _x); nil } count _allHCs;
 
 private _timeBetweenTransfers = if (isNil QGVAR(timeBetweenTransfers)) then { 0.5 } else { GVAR(timeBetweenTransfers) };
