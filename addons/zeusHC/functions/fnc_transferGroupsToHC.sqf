@@ -4,11 +4,11 @@ TRACE_1("Params",_this);
 params [["_force", false]];
 
 //Check the script is run in multiplayer only
-if (!isMultiplayer) exitWith { diag_log QUOTE([POTATO] Not in multiplayer, exiting FUNC(transferGroupsToHC)); };
-if (!isServer) exitWith { diag_log QUOTE([POTATO] Not executing on server, exiting FUNC(transferGroupsToHC)); };
+if (!isMultiplayer) exitWith { diag_log text format ["[POTATO] Not in multiplayer, exiting %1",QFUNC(transferGroupsToHC)]; };
+if (!isServer) exitWith { diag_log text format ["[POTATO] Not executing on server, exiting %1",QFUNC(transferGroupsToHC)]; };
 
 private _allHCs = entities "HeadlessClient_F";
-if (_allHCs isEqualTo []) exitWith { diag_log QUOTE([POTATO] No headless clients found, exiting FUNC(transferGroupsToHC)); };
+if (_allHCs isEqualTo []) exitWith { diag_log text format ["[POTATO] No headless clients found, exiting %1", QFUNC(transferGroupsToHC)]; };
 
 private _hcIDs = [];
 { _hcIDs pushBack (owner _x); nil } count _allHCs;
@@ -20,7 +20,7 @@ private _timeBetweenTransfers = if (isNil QGVAR(timeBetweenTransfers)) then { 0.
 
 //loop all groups
 {
-    if (!((groupOwner _x) in _hcIDs) && (_force || _x getVariable [GVAR(addGroupToHC), false])) then {
+    if (!((groupOwner _x) in _hcIDs) && (_force || _x getVariable [QGVAR(addGroupToHC), false])) then {
         [_x] remoteExecCall [QFUNC(transferGroupLocal), [_allHCs] call FUNC(getSpawnMachineId)];
     };
 

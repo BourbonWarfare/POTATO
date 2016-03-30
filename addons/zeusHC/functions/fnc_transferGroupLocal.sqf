@@ -22,7 +22,6 @@ private _objectsToSync = [[], []];
 
 // create new group on HC with the old group's side
 private _newGroup = createGroup (side _group);
+_newGroup copyWaypoints _group;
 [units _group] joinSilent _newGroup;
 _newGroup selectLeader _groupLeader;
-_newGroup copyWaypoints _group;
-deleteGroup _group;
