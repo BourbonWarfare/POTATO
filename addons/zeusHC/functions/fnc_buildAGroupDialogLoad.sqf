@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+TRACE_1("Params",_this);
 
 waitUntil {dialog};
 
@@ -17,8 +18,7 @@ TRACE_1("white list",GVAR(groupFactionWhiteList));
     nil
 } count GVAR(groupFactionWhiteList);
 
-private _factionIndex =  if (isNil QGVAR(lastGroupFactionIndex)) then { 0 } else { GVAR(lastGroupFactionIndex) };
-lbSetCurSel [BUILD_GROUP_FACTIONS_IDC, _factionIndex];
+lbSetCurSel [BUILD_GROUP_FACTIONS_IDC, if (isNil QGVAR(lastGroupFactionIndex)) then { 0 } else { GVAR(lastGroupFactionIndex) }];
 
 if (!isNil QGVAR(lastGroupUnitArray)) then {
     {

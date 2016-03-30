@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+TRACE_1("Params",_this);
 
 // set current faction for next run
 GVAR(lastGroupFactionIndex) = lbCurSel BUILD_GROUP_FACTIONS_IDC;
@@ -11,10 +12,7 @@ for "_index" from 0 to ((lbSize BUILD_GROUP_TO_ADD_IDC) - 1) do {
                           lbPicture [BUILD_GROUP_TO_ADD_IDC, _index]];
 };
 
-// very much todo
 GVAR(lastGroupUnitArray) = _unitsToAdd;
-TRACE_1("Spawn message",[] call FUNC(getSpawnMachineId));
-
 [GVAR(buildSpawnLocation),_unitsToAdd] remoteExecCall [QFUNC(buildAGroupSpawnServer), SERVER_CLIENT_ID];
 
 // last thing, close dialog with success

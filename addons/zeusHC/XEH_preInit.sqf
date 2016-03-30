@@ -5,15 +5,25 @@ ADDON = false;
 PREP(createEntityServer);
 PREP(createEntityLocal);
 PREP(createEntityZeus);
-PREP(buildAGroup);
-PREP(buildAGroupSpawnLocal);
-PREP(buildAGroupSpawnServer);
-PREP(buildAGroupDialogAdd);
-PREP(buildAGroupDialogFactionChange);
-PREP(buildAGroupDialogLoad);
-PREP(buildAGroupDialogRemove);
-PREP(buildAGroupDialogSpawn);
-PREP(buildACache);
+
 PREP(getSpawnMachineId);
+
+PREP(buildAGroup);
+PREP(buildACache);
+PREP(buildAGroupDialogAdd);
+PREP(buildAGroupSpawnLocal);
+PREP(buildAGroupDialogLoad);
+PREP(buildAGroupSpawnServer);
+PREP(buildAGroupDialogSpawn);
+PREP(buildAGroupDialogRemove);
+PREP(buildAGroupDialogFactionChange);
+
+PREP(spawnAVic);
+PREP(spawnACache);
+PREP(spawnAVicSpawnLocal);
+PREP(spawnAVicDialogLoad);
+PREP(spawnAVicSpawnServer);
+PREP(spawnAVicDialogSpawn);
+PREP(spawnAVicDialogFactionChange);
 
 ADDON = true;

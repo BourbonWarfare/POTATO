@@ -1,10 +1,7 @@
 #include "script_component.hpp"
+TRACE_1("Params",_this);
 
 params ["_configEntries"];
-TRACE_1("params",_configEntries);
-
-private _keys = [];
-private _values = [];
 
 {
     private _faction = getText (_x >> 'faction');

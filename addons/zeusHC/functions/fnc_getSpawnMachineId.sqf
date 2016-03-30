@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+TRACE_1("Params",_this);
 
 private _returnClientId = SERVER_CLIENT_ID;
 private _allHCs = entities "HeadlessClient_F";
@@ -18,7 +19,7 @@ private _hcCounts = [];
 {
   private _index = _hcIDs find (groupOwner _x);
   if (_index > -1) then {
-    _hcCounts set [_index, ((_hcCounts select _index) + (count units _x))]; 
+    _hcCounts set [_index, ((_hcCounts select _index) + (count units _x))];
   };
   nil
 } count allGroups;

@@ -1,7 +1,7 @@
 #include "script_component.hpp"
+TRACE_1("Params",_this);
 
 params [["_index", lbCurSel BUILD_GROUP_FACTIONS_IDC]];
-TRACE_1("params",_index);
 
 // clear both list boxes
 lbClear BUILD_GROUP_UNITS_IDC;

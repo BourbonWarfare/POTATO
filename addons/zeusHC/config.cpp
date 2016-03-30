@@ -115,7 +115,8 @@ class CfgPatches {
             QGVAR(msv_rhsT72),
             QGVAR(msv_rhsT80),
 
-            QGVAR(build_a_group)
+            QGVAR(build_a_group),
+            QGVAR(spawn_a_vehicle)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

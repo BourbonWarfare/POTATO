@@ -491,6 +491,6 @@ class CfgVehicles {
         isGlobal = 1;
         displayName = "Spawn-a-Vic";
         category = QGVAR(custom);
-        function = QFUNC(spawnAVehicleModule);
+        function = QFUNC(spawnAVic);
     };
 };
