@@ -480,17 +480,24 @@ class CfgVehicles {
     };
 
     //------------ Custom group/vehicle modules ----------
-    class GVAR(build_a_group): GVAR(base_module) {
+    class GVAR(base_zeus_only): GVAR(base_module) {
+        scope = 1;
         isGlobal = 1;
+    };
+    class GVAR(build_a_group): GVAR(base_zeus_only) {
         displayName = "Build-a-Group";
         category = QGVAR(custom);
         function = QFUNC(buildAGroup);
     };
-
-    class GVAR(spawn_a_vehicle): GVAR(base_module) {
-        isGlobal = 1;
+    class GVAR(spawn_a_vehicle): GVAR(base_zeus_only) {
         displayName = "Spawn-a-Vic";
         category = QGVAR(custom);
         function = QFUNC(spawnAVic);
+    };
+    class GVAR(move_all_to_hc): GVAR(base_zeus_only) {
+        isGlobal = 0;
+        displayName = "Move all AI to HC";
+        category = QGVAR(custom);
+        function = QFUNC(transferAllToHCZeus);
     };
 };

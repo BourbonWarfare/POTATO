@@ -116,7 +116,8 @@ class CfgPatches {
             QGVAR(msv_rhsT80),
 
             QGVAR(build_a_group),
-            QGVAR(spawn_a_vehicle)
+            QGVAR(spawn_a_vehicle),
+            QGVAR(move_all_to_hc)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
@@ -127,6 +128,7 @@ class CfgPatches {
     };
 };
 
+#include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgFactionClasses.hpp"

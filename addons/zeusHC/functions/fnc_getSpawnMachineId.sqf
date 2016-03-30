@@ -1,10 +1,10 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
+params [["_allHCs", entities "HeadlessClient_F"]];
 
 private _returnClientId = SERVER_CLIENT_ID;
-private _allHCs = entities "HeadlessClient_F";
 
-if (_allHCs isEqualTo []) exitWIth { _returnClientId };
+if (_allHCs isEqualTo []) exitWith { _returnClientId };
 
 //Find the HC with least units on it
 private _hcIDs = [];
