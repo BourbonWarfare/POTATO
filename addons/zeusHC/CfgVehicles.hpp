@@ -5,7 +5,7 @@ class CfgVehicles {
     //------------ Base module ----------
     class GVAR(base_module): Module_F {
         author = QUOTE(PREFIX);
-        scope = 1;
+        scope = 2;
         scopeCurator = 2;
         isTriggerActivated = 0;
         isGlobal = 0;

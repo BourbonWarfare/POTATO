@@ -3,11 +3,11 @@
 params [];
 TRACE_1("params",_this);
 
-private _allHCs = entities "HeadlessClient_F";
+private _allHCs = (entities "HeadlessClient_F") select {isPlayer _x};
 TRACE_1("",_allHCs);
 
 if (_allHCs isEqualTo []) exitWith {
-    [ace_common_fnc_serverEvent, [QGVAR(createEntity), _this]] call CBA_fnc_directCall;
+    [QGVAR(createEntity), _this] call ace_common_fnc_serverEvent;
 };
 
 //Find the HC with least units on it
