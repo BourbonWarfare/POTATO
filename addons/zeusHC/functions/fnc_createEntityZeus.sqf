@@ -6,17 +6,18 @@ if (isNull _logic) exitWith {};
 
 private _posATL = getPosATL _logic;
 private _typeOf = typeOf _logic;
-TRACE_2("",_posATL,_typeOf);
+private _attached = _logic getVariable ["bis_fnc_curatorAttachObject_object",objnull];
+TRACE_3("",_posATL,_typeOf,_attached);
 
 if (time > 0) then {
-    [FUNC(createEntityServer), [_posATL, _typeOf]] call CBA_fnc_directCall;
+    [FUNC(createEntityServer), [_posATL, _typeOf, _attached]] call CBA_fnc_directCall;
 } else {
     [{
-        (diag_tickTime > (_this select 2)) || {time > 0}
+        (diag_tickTime > (_this select 3)) || {time > 0}
     }, {
-        [FUNC(createEntityServer), _this] call CBA_fnc_directCall;
+        _this call FUNC(createEntityServer);
     },
-    [_posATL, _typeOf, (diag_tickTime + 10 + random 10)]] call ACEFUNC(common,waitUntilAndExecute);
+    [_posATL, _typeOf, _attached, (diag_tickTime + 10 + random 10)]] call ACEFUNC(common,waitUntilAndExecute);
 };
 
 deleteVehicle _logic;

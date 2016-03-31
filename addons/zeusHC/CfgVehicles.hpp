@@ -101,6 +101,13 @@ class CfgVehicles {
         displayName = "Tank: T-100";
         GVAR(createVic) = "O_MBT_02_cannon_F";
     };
+    class GVAR(east_dismounts): GVAR(base_east) {
+        curatorCanAttach = 1;
+        scope = 1;
+        displayName = "#Paradrop / Dismounts (6) [attach]";
+        portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
+        GVAR(createUnits)[] = {"O_soldier_SL_F","O_soldier_AR_F","O_soldier_LAT_F","O_soldier_F","O_soldier_F","O_soldier_F"};
+    };
 
     //------------ West ----------
     class GVAR(base_west): GVAR(base_prebuilt) {

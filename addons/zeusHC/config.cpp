@@ -22,6 +22,7 @@ class CfgPatches {
             QGVAR(east_heliAttack),
             QGVAR(east_ifvModern),
             QGVAR(east_tankModern),
+            QGVAR(east_dismounts),
 
             QGVAR(west_ftl),
             QGVAR(west_ar),
