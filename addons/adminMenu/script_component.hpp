@@ -15,8 +15,6 @@
 
 #include "\z\potato\addons\core\script_macros.hpp"
 
-#define AUTHORIZED_USERS            ["76561197993419566", "76561197970715242","76561198087419490", "76561197997311964", "76561197985457597", "76561197988968579", "76561197965053565"]
-
 #define UI_TAB_LISTBOX                ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 1500)
 #define UI_TAB_ZEUS                    ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2300)
 #define UI_TAB_ZEUS_PLAYERS            ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2100)
