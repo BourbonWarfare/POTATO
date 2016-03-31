@@ -5,5 +5,6 @@ ADDON = false;
 PREP(addBriefingToUnit);
 PREP(addCredits);
 PREP(addOrbat);
+PREP(setBriefingVar);
 
 ADDON = true;
