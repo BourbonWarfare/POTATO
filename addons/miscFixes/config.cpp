@@ -24,3 +24,10 @@ class CfgLocationTypes {
 class RscChatListDefault {
     colorMessageProtocol[] = {0.65,0.65,0.65,1};
 };
+
+class CfgVehicles {
+    class LandVehicle;
+    class StaticWeapon: LandVehicle {
+        insideSoundCoef = 0; //ACRE uses this for vehicle sound attenuation (makes it easy to hear mortar gunners)
+    };
+};
