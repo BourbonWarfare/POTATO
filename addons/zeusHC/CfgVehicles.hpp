@@ -496,7 +496,7 @@ class CfgVehicles {
     };
     class GVAR(move_all_to_hc): GVAR(base_zeus_only) {
         isGlobal = 0;
-        displayName = "Move all AI to HC [disabled for now]";
+        displayName = "Move all AI to HC";
         category = QGVAR(custom);
         function = QFUNC(transferAllToHCZeus);
     };

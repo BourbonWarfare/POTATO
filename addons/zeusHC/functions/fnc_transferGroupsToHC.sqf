@@ -1,7 +1,4 @@
 #include "script_component.hpp"
-
-if (true) exitWith {diag_log text format ["[POTATO] - Disabled for now"];
-
 TRACE_1("Params",_this);
 
 params [["_force", false]];
