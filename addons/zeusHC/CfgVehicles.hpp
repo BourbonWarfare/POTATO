@@ -25,7 +25,7 @@ class CfgVehicles {
         GVAR(crewAir) = "O_Helipilot_F";
         GVAR(crewArmor)= "O_crew_F";
         GVAR(createUnits)[] = {"O_soldier_F"};
-    }
+    };
     class GVAR(east_ftl): GVAR(base_east) {
         displayName = "@FTL";
         GVAR(createUnits)[] = {"O_soldier_TL_F"};
@@ -108,7 +108,7 @@ class CfgVehicles {
         GVAR(crewAir) = "B_Helipilot_F";
         GVAR(crewArmor)= "B_crew_F";
         GVAR(createUnits)[] = {"B_soldier_F"};
-    }
+    };
     class GVAR(west_ftl): GVAR(base_west) {
         displayName = "@FTL";
         GVAR(createUnits)[] = {"B_soldier_TL_F"};
@@ -263,7 +263,7 @@ class CfgVehicles {
         GVAR(crewAir) = "I_Helipilot_F";
         GVAR(crewArmor)= "I_crew_F";
         GVAR(createUnits)[] = {"I_soldier_F"};
-    }
+    };
     class GVAR(ind_ftl): GVAR(base_ind) {
         displayName = "@FTL";
         GVAR(createUnits)[] = {"I_soldier_TL_F"};
@@ -370,7 +370,7 @@ class CfgVehicles {
         GVAR(crewAir) = "rhs_pilot_transport_heli";
         GVAR(crewArmor)= "rhs_msv_crew";
         GVAR(createUnits)[] = {"rhs_msv_rifleman"};
-    }
+    };
     class GVAR(msv_ftl): GVAR(base_msv) {
         displayName = "@FTL";
         GVAR(createUnits)[] = {"rhs_msv_junior_sergeant"};
