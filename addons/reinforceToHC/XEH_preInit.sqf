@@ -2,7 +2,6 @@
 
 ADDON = false;
 
-PREP(getSpawnMachineId);
 PREP(reinforcementsCreateUnits);
 PREP(setupReinforcements);
 PREP(setupReinforcementsOnServer);

@@ -61,7 +61,7 @@ while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
     // Trim the squad size so they will fit.
     _squadMembers resize _freeSpace;
   };
-  
+
   // Spawn the squad members.
   private _infantryGroup = [_spawnPosition, _side, _squadMembers] call BIS_fnc_spawnGroup;
 
@@ -115,7 +115,7 @@ while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
   } else {
     private _infantryMoveOnWp = _infantryGroup addWaypoint [position _lz, _rpSize];
   };
-  
+
   // Load the units into the vehicle.
   {
     _x moveInCargo (vehicle (leader _vehicleGroup));
