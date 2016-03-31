@@ -26,8 +26,8 @@ PREP(spawnAVicSpawnServer);
 PREP(spawnAVicDialogSpawn);
 PREP(spawnAVicDialogFactionChange);
 
+PREP(transferSetVar);
 PREP(transferGroupsToHC);
-PREP(transferGroupLocal);
 PREP(transferAllToHCZeus);
 
 ADDON = true;

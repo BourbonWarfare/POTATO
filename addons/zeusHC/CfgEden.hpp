@@ -12,7 +12,7 @@ class Cfg3DEN {
                         control = "Checkbox";
                         defaultValue = "false";
                         typeName = "BOOL";
-                        expression = QUOTE(_this setVariable [ARR_3(QUOTE(QGVAR(addGroupToHC)), _value, true)];);
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(transferSetVar));
                     };
                 };
             };
