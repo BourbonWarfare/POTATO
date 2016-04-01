@@ -1,5 +1,8 @@
 class CfgFactionClasses {
     class PREFIX;
+    class GVAR(custom): PREFIX {
+        displayName = "POTATO HC: Custom";
+    };
     class GVAR(west): PREFIX {
         displayName = "POTATO HC: West";
     };
@@ -10,6 +13,6 @@ class CfgFactionClasses {
         displayName = "POTATO HC: Independents";
     };
     class GVAR(msv): PREFIX {
-        displayName = "POTATO HC: Russian MSV";
+        displayName = "POTATO HC: Russian";
     };
 };
