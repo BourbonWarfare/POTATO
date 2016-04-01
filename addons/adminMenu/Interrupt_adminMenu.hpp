@@ -419,5 +419,31 @@ class GVAR(adminMenuDialog) {
                 };
             };
         };
+        class CONTROL_FIXLOADOUTS: RscControlsGroup {
+            idc = 2308;
+            x = 0.35 * safezoneW + safezoneX;
+            y = 0.205 * safezoneH + safezoneY;
+            w = 0.54 * safezoneW;
+            h = 0.58 * safezoneH;
+            class controls {
+                class PlayerList: RscListbox {
+                    idc = 2180;
+                    x = 0.01 * safezoneW;
+                    y = 0.01 * safezoneH;
+                    w = 0.2 * safezoneW;
+                    h = 0.56 * safezoneH;
+                    sizeEx = 0.025 * safezoneH;
+                };
+                class ResetGearButton: RscButton {
+                    idc = -1;
+                    text = "Reset Gear"; //--- ToDo: Localize;
+                    x = 0.255 * safezoneW;
+                    y = 0.52 * safezoneH;
+                    w = 0.26 * safezoneW;
+                    h = 0.05 * safezoneH;
+                    action = QUOTE(_this call FUNC(uihook_resetGearButton));
+                };
+            };
+        };
     };
 };

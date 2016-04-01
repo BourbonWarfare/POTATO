@@ -1,12 +1,7 @@
 #include "script_component.hpp"
 
-params ["_newPlayer", "_oldPlayer"];
-TRACE_2("params",_newPlayer,_oldPlayer);
-
-if !(ACEGVAR(common,settingsInitFinished)) exitWith {
-    TRACE_1("delaying for settings",_this);
-    ACEGVAR(common,runAtSettingsInitialized) pushBack [FUNC(addBriefingToUnit), _this];
-};
+params ["_newPlayer"];
+TRACE_1("params",_newPlayer);
 
 if (isNull _newPlayer) exitWith {};
 if (!alive _newPlayer) exitWith {};

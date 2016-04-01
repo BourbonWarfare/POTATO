@@ -139,4 +139,24 @@ case (6): {
         } forEach MISSION_HINT_RANKS;
         UI_TAB_MISSIONHINT_RANK lbSetCurSel 0;
     };
+case (7): {
+        TRACE_1("showing reset gear hint tab", _sel);
+        lbClear UI_TAB_FIXGEAR_PERSON;
+        private _listOfUnits = [];
+        {
+            if ((isPlayer _x) && {alive _x} && {(uniform _x) == ""}) then {
+                _listOfUnits pushBack _x;
+                UI_TAB_FIXGEAR_PERSON lbAdd format ["%1 (NAKED)", (name _x)];
+            };
+        } forEach allUnits;
+        {
+            if ((isPlayer _x) && {alive _x} && {(uniform _x) != ""}) then {
+                _listOfUnits pushBack _x;
+                UI_TAB_FIXGEAR_PERSON lbAdd format ["%1", (name _x)];
+            };
+        } forEach allUnits;
+        UI_TAB_FIXGEAR_PERSON lbSetCurSel 0;
+        
+        UI_TAB_FIXGEAR_PERSON setVariable ["listOfUnits", _listOfUnits];
+    };
 };

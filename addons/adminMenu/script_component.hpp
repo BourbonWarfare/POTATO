@@ -15,8 +15,6 @@
 
 #include "\z\potato\addons\core\script_macros.hpp"
 
-#define AUTHORIZED_USERS            ["76561197993419566", "76561197970715242","76561198087419490", "76561197997311964", "76561197985457597", "76561197988968579", "76561197965053565"]
-
 #define UI_TAB_LISTBOX                ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 1500)
 #define UI_TAB_ZEUS                    ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2300)
 #define UI_TAB_ZEUS_PLAYERS            ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2100)
@@ -36,6 +34,8 @@
 #define UI_TAB_MISSIONHINT_SIDE        ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 23071)
 #define UI_TAB_MISSIONHINT_RANK        ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 23072)
 #define UI_TAB_MISSIONHINT_TEXT       ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 23073)
+#define UI_TAB_FIXGEAR               ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2308)
+#define UI_TAB_FIXGEAR_PERSON        ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2180)
 
-#define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint"]
-#define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT]
+#define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint",        "Reset Gear"]
+#define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT, UI_TAB_FIXGEAR]

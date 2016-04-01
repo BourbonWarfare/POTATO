@@ -57,7 +57,7 @@ class Cfg3DEN {
                         control = QGVAR(bigEdit);
                         defaultValue = "''";
                         typeName = "STRING";
-                        expression = QUOTE(if (_value != '') then {_this setVariable [ARR_3(QUOTE(QGVAR(briefing)), _value, true)];};);
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setBriefingVar));
                     };
                 };
             };
@@ -76,7 +76,7 @@ class Cfg3DEN {
                         control = QGVAR(bigEdit);
                         defaultValue = "''";
                         typeName = "STRING";
-                        expression = QUOTE(if (_value != '') then {_this setVariable [ARR_3(QUOTE(QGVAR(briefing)), _value, true)];};);
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setBriefingVar));
                     };
                 };
             };
