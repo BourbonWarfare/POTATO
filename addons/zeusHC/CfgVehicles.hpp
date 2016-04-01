@@ -101,6 +101,13 @@ class CfgVehicles {
         displayName = "Tank: T-100";
         GVAR(createVic) = "O_MBT_02_cannon_F";
     };
+    class GVAR(east_dismounts): GVAR(base_east) {
+        curatorCanAttach = 1;
+        scope = 1;
+        displayName = "#Dismounts (6) [attach]";
+        portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
+        GVAR(createUnits)[] = {"O_soldier_SL_F","O_soldier_AR_F","O_soldier_LAT_F","O_soldier_F","O_soldier_F","O_soldier_F"};
+    };
 
     //------------ West ----------
     class GVAR(base_west): GVAR(base_prebuilt) {
@@ -256,6 +263,13 @@ class CfgVehicles {
         displayName = "Tank: Merkava TUSK";
         GVAR(createVic) = "B_MBT_01_TUSK_F";
     };
+    class GVAR(west_dismounts): GVAR(base_west) {
+        curatorCanAttach = 1;
+        scope = 1;
+        displayName = "#Dismounts (6) [attach]";
+        portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
+        GVAR(createUnits)[] = {"B_soldier_SL_F","B_soldier_AR_F","B_soldier_LAT_F","B_soldier_F","B_soldier_F","B_soldier_F"};
+    };
 
     //------------ Independent ----------
     class GVAR(base_ind): GVAR(base_prebuilt) {
@@ -362,6 +376,13 @@ class CfgVehicles {
     class GVAR(ind_rhsT72): GVAR(base_ind) {
         displayName = "Tank: T72B";
         GVAR(createVic) = "rhs_t72ba_tv";
+    };
+    class GVAR(ind_dismounts): GVAR(base_ind) {
+        curatorCanAttach = 1;
+        scope = 1;
+        displayName = "#Dismounts (6) [attach]";
+        portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
+        GVAR(createUnits)[] = {"I_soldier_SL_F","I_soldier_AR_F","I_soldier_LAT_F","I_soldier_F","I_soldier_F","I_soldier_F"};
     };
 
     //------------ Russian ----------
@@ -477,6 +498,13 @@ class CfgVehicles {
     class GVAR(msv_rhsT80): GVAR(base_msv) {
         displayName = "Tank: T-80U";
         GVAR(createVic) = "rhs_t80u";
+    };
+    class GVAR(msv_dismounts): GVAR(base_msv) {
+        curatorCanAttach = 1;
+        scope = 1;
+        displayName = "#Dismounts (6) [attach]";
+        portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
+        GVAR(createUnits)[] = {"rhs_msv_sergeant","rhs_msv_machinegunner","rhs_msv_at","rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_rifleman"};
     };
 
     //------------ Custom group/vehicle modules ----------

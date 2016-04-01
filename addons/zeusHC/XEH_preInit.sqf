@@ -2,7 +2,7 @@
 
 ADDON = false;
 
-PREP(createEntityServer);
+PREP(createEntityDismounts);
 PREP(createEntityLocal);
 PREP(createEntityZeus);
 

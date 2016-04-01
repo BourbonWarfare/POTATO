@@ -1,6 +1,8 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
-params [["_allHCs", entities "HeadlessClient_F"]];
+
+private _allHCs = (entities "HeadlessClient_F") select {isPlayer _x};
+TRACE_1("",_allHCs);
 
 private _returnClientId = SERVER_CLIENT_ID;
 
