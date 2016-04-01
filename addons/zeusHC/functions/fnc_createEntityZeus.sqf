@@ -6,18 +6,19 @@ if (isNull _logic) exitWith {};
 
 private _posATL = getPosATL _logic;
 private _typeOf = typeOf _logic;
-private _attached = _logic getVariable ["bis_fnc_curatorAttachObject_object",objnull];
-TRACE_3("",_posATL,_typeOf,_attached);
+private _attachedVehicle = _logic getVariable ["bis_fnc_curatorAttachObject_object",objnull];
+private _placerOwner = owner _logic;
+TRACE_4("",_posATL,_typeOf,_attachedVehicle,_placerOwner);
 
 if (time > 0) then {
-    [FUNC(createEntityServer), [_posATL, _typeOf, _attached]] call CBA_fnc_directCall;
+    [_posATL, _typeOf, _attachedVehicle, _placerOwner] remoteExecCall [QFUNC(createEntityLocal), ([] call FUNC(getSpawnMachineId))];
 } else {
     [{
-        (diag_tickTime > (_this select 3)) || {time > 0}
+        (diag_tickTime > (_this select 4)) || {time > 0}
     }, {
-        _this call FUNC(createEntityServer);
+        (_this select [0,4]) remoteExecCall [QFUNC(createEntityLocal), ([] call FUNC(getSpawnMachineId))];
     },
-    [_posATL, _typeOf, _attached, (diag_tickTime + 10 + random 10)]] call ACEFUNC(common,waitUntilAndExecute);
+    [_posATL, _typeOf, _attachedVehicle, _placerOwner,(diag_tickTime + 10 + random 10)]] call ACEFUNC(common,waitUntilAndExecute);
 };
 
 deleteVehicle _logic;

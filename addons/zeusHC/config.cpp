@@ -61,6 +61,7 @@ class CfgPatches {
             QGVAR(west_rhsM1A1D),
             QGVAR(west_rhsM1A1W),
             QGVAR(west_tankModern),
+            QGVAR(west_dismounts),
 
             QGVAR(ind_ftl),
             QGVAR(ind_ar),
@@ -87,6 +88,7 @@ class CfgPatches {
             QGVAR(ind_ifvModern2),
             QGVAR(ind_tankModern),
             QGVAR(ind_rhsT72),
+            QGVAR(ind_dismounts),
 
             QGVAR(msv_ftl),
             QGVAR(msv_ar),
@@ -115,6 +117,7 @@ class CfgPatches {
             QGVAR(msv_rhsBmp3),
             QGVAR(msv_rhsT72),
             QGVAR(msv_rhsT80),
+            QGVAR(msv_dismounts),
 
             QGVAR(build_a_group),
             QGVAR(spawn_a_vehicle),
@@ -123,7 +126,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
-        author[] = {"PabstMirror"};
+        author[] = {"PabstMirror", "AACO"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
