@@ -20,7 +20,7 @@ class Extended_PostInit_EventHandlers {
 class Extended_InitPost_EventHandlers {
     class GVAR(mortar) {
         class ADDON {
-            init = QUOTE(_this call FUNC(handleInit));
+            serverInit = QUOTE(_this call FUNC(handleInit));
         };
     };
 };

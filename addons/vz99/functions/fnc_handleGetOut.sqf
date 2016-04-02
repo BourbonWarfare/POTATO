@@ -14,5 +14,7 @@
  */
 #include "script_component.hpp"
 
-// params [""];
-TRACE_1("params",_this);
+params ["_mortarVeh"];
+TRACE_1("params",_mortarVeh);
+
+[_mortarVeh] call FUNC(levelToGround);

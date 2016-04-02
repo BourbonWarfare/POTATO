@@ -5,7 +5,7 @@ class CfgMagazines {
         picture = QUOTE(PATHTOF(ui\shell_ca.paa));
         author = "Pab";
         count = 1;
-        mass = 25;
+        mass = 20;
 
         displayName = "vz99 HE Shell";
         displayNameShort = "HE";

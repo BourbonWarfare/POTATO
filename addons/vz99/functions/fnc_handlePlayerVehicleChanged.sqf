@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 
 params ["_player", "_mortarVeh"];
-TRACE_2("playerVehicleChanged eh",_player,_newVehicle);
+TRACE_2("playerVehicleChanged eh",_player,_mortarVeh);
 
 if (isNull _mortarVeh) exitWith {};
 if (!(_mortarVeh isKindOf QGVAR(mortar))) exitWith {};

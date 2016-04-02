@@ -40,6 +40,7 @@ class CfgAmmo {
 
     //HE:
     class GVAR(ammo_he): Sh_82mm_AMOS {
+        ace_frag_classes[] = {"ACE_frag_small_HD"};
         SoundSetExplosion[] = {"Mortar_Exp_SoundSet","Mortar_Tail_SoundSet","Explosion_Debris_SoundSet"};
         hit = 120;
         indirectHit = 24;
@@ -70,5 +71,11 @@ class CfgAmmo {
             frequency = 20;
             distance = 1;
         };
+    };
+    class GVAR(ammo_he_airburst): GVAR(ammo_he) {
+        simulation = "shotRocket";
+        timeToLive = 0;
+        explosionEffects = "HERocketExplosion"; //ExploAmmoExplosion, HEShellExplosion
+        CraterEffects = "";
     };
 };

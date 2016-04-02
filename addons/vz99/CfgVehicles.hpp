@@ -21,7 +21,9 @@ class CfgVehicles {
             class MainTurret;
         };
         class ACE_SelfActions;
-        class ACE_Actions;
+        class ACE_Actions {
+            class ACE_MainActions;
+        };
     };
     class StaticMortar: StaticWeapon {
         class Turrets: Turrets {
@@ -33,9 +35,14 @@ class CfgVehicles {
 
     class GVAR(mortar): StaticMortar {
         //ACE Compat:
+        ace_dragging_canCarry = 0;
+        ace_dragging_canDrag = 0;
         ace_cargo_hasCargo = 0;
         ace_cargo_canLoad = 0;
         class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                selection = "bubble start";
+            };
             class GVAR(pickup) {
                 displayName = "Pickup Weapon";
                 selection = "Konec hlavne";
