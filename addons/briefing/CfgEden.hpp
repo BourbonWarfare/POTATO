@@ -3,17 +3,20 @@ class display3DEN {
     class Controls {
         class MenuStrip: ctrlMenuStrip {
             class Items {
-                class Attributes {
-                    items[] += {QGVAR(briefings)};
+                items[] += {QUOTE(PREFIX)}; // += must be used; you want to expand the array, not override it!
+                class PREFIX {
+                    text = "POTATO"; // Item text
+                    items[] = {QGVAR(briefings)};
                 };
                 class GVAR(briefings) {
-                    text = "POTATO: Mission Briefings";
+                    text = "Mission Briefings";
                     action = QUOTE(edit3DENMissionAttributes QUOTE(QGVAR(briefings)););
                 };
             };
         };
     };
 };
+
 class Cfg3DEN {
     class Attributes {
         class Default;
