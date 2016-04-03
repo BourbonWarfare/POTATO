@@ -26,15 +26,18 @@ if (!(_loadedEmpty isEqualTo [])) then {
     _mortarVeh removeMagazinesTurret [(_loadedEmpty select 0), [0]];
 };
 
-// _fuze
+private _fuze = getText (configFile >> "CfgMagazines" >> _magazine >> QGVAR(fuze));
+if (_fuze == "") exitWith {};
 
-switch (_fuze) do {
-case ("proximity"): {[_projectile, _ammo] call FUNC(fuze_proximity);};
+private _detonationHeight = switch (true) do {
+    case (_fuze == "prx"): {10};
+    case (_fuze == "nsb"): {3};
+    default {-1};
 };
 
 [{
     params ["_args", "_pfID"];
-    _args params ["_projectile", "_armedTime"];
+    _args params ["_projectile", "_detonationHeight", "_armedTime"];
 
     if (!alive _projectile) exitWith {
         TRACE_1("exit PFEH",_projectile);
@@ -45,7 +48,9 @@ case ("proximity"): {[_projectile, _ammo] call FUNC(fuze_proximity);};
     if (time < _armedTime) exitWith {};
 
     _height = (getPos _projectile) select 2;
-    if (_height > 10) exitWith {};
+    if (_height > _detonationHeight) exitWith {};
+    
+    TRACE_3("",_height,_detonationHeight,diag_fps);
 
     private _position = getPosATL _projectile;
     private _subMunition = createVehicle [QGVAR(ammo_he_airburst), _position, [], 0, "FLY"];
@@ -56,6 +61,6 @@ case ("proximity"): {[_projectile, _ammo] call FUNC(fuze_proximity);};
     deleteVehicle _projectile;
     [_pfID] call CBA_fnc_removePerFrameHandler;
 
-}, 0, [_projectile, (time + 5)]] call CBA_fnc_addPerFrameHandler;
+}, 0, [_projectile, _detonationHeight, (time + 5)]] call CBA_fnc_addPerFrameHandler;
 
 x3 = _projectile;

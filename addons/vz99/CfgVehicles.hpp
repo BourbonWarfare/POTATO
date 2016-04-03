@@ -53,51 +53,69 @@ class CfgVehicles {
         };
         class ACE_SelfActions: ACE_SelfActions {
             class GVAR(load_HE) {
-                displayName = "Load HE- charge 1";
-                condition = QUOTE([QUOTE(QGVAR(HE))] call FUNC(canSelectNextMagazine));
+                displayName = "Load HE-Impact @ Charge 1";
+                condition = QUOTE(([QUOTE(QGVAR(HE))] call FUNC(canSelectNextMagazine) || {[QUOTE(QGVAR(HE_multi))] call FUNC(canSelectNextMagazine)}));
                 statement = QUOTE([QUOTE(QGVAR(HE))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
                 class GVAR(load_HE_charge0) {
-                    displayName = "Load HE - charge 0";
-                    condition = QUOTE([QUOTE(QGVAR(HE_charge0))] call FUNC(canSelectNextMagazine));
+                    displayName = "@ Charge 0";
+                    condition = QUOTE(true);
                     statement = QUOTE([QUOTE(QGVAR(HE_charge0))] call FUNC(doSelectNextMagazine));
-                    exceptions[] = {};
+                };
+            };
+            class GVAR(load_HE_PRX) {
+                displayName = "Load HE-Proximity @ Charge 1";
+                condition = QUOTE([QUOTE(QGVAR(HE_PRX))] call FUNC(canSelectNextMagazine));
+                statement = QUOTE([QUOTE(QGVAR(HE_PRX))] call FUNC(doSelectNextMagazine));
+                exceptions[] = {};
+                class GVAR(load_HE_charge0) {
+                    displayName = "@ Charge 0";
+                    condition = QUOTE(true);
+                    statement = QUOTE([QUOTE(QGVAR(HE_PRX_charge0))] call FUNC(doSelectNextMagazine));
+                };
+            };
+            class GVAR(load_HE_NSB) {
+                displayName = "Load HE-Near surface burst @ Charge 1";
+                condition = QUOTE([QUOTE(QGVAR(HE_NSB))] call FUNC(canSelectNextMagazine));
+                statement = QUOTE([QUOTE(QGVAR(HE_NSB))] call FUNC(doSelectNextMagazine));
+                exceptions[] = {};
+                class GVAR(load_HE_charge0) {
+                    displayName = "@ Charge 0";
+                    condition = QUOTE(true);
+                    statement = QUOTE([QUOTE(QGVAR(HE_NSB_charge0))] call FUNC(doSelectNextMagazine));
                 };
             };
             class GVAR(load_smokeWhite) {
-                displayName = "Load Smoke(White) - charge 1";
+                displayName = "Load Smoke(White) @ Charge 1";
                 condition = QUOTE([QUOTE(QGVAR(smokeWhite))] call FUNC(canSelectNextMagazine));
                 statement = QUOTE([QUOTE(QGVAR(smokeWhite))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
                 class GVAR(load_smokeWhite_charge0) {
-                    displayName = "Load Smoke(White) - charge 0";
-                    condition = QUOTE([QUOTE(QGVAR(smokeWhite_charge0))] call FUNC(canSelectNextMagazine));
+                    displayName = "@ Charge 0";
+                    condition = QUOTE(true);
                     statement = QUOTE([QUOTE(QGVAR(smokeWhite_charge0))] call FUNC(doSelectNextMagazine));
-                    exceptions[] = {};
                 };
             };
             class GVAR(load_smokeRed) {
-                displayName = "Load Smoke(Red) - charge 1";
+                displayName = "Load Smoke(Red) @ Charge 1";
                 condition = QUOTE([QUOTE(QGVAR(smokeRed))] call FUNC(canSelectNextMagazine));
                 statement = QUOTE([QUOTE(QGVAR(smokeRed))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
                 class GVAR(load_smokeRed_charge0) {
-                    displayName = "Load Smoke(Red) - charge 0";
-                    condition = QUOTE([QUOTE(QGVAR(smokeRed_charge0))] call FUNC(canSelectNextMagazine));
+                    displayName = "@ Charge 0";
+                    condition = QUOTE(true);
                     statement = QUOTE([QUOTE(QGVAR(smokeRed_charge0))] call FUNC(doSelectNextMagazine));
-                    exceptions[] = {};
                 };
             };
             class GVAR(load_flare) {
-                displayName = "Load Flare - charge 1";
+                displayName = "Load Flare @ Charge 1";
                 condition = QUOTE([QUOTE(QGVAR(flare))] call FUNC(canSelectNextMagazine));
                 statement = QUOTE([QUOTE(QGVAR(flare))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
                 class GVAR(load_flare_charge0) {
-                    displayName = "Load Flare) - charge 0";
-                    condition = QUOTE([QUOTE(QGVAR(flare_charge0))] call FUNC(canSelectNextMagazine));
+                    displayName = "@ Charge 0";
+                    condition = QUOTE(true);
                     statement = QUOTE([QUOTE(QGVAR(flare_charge0))] call FUNC(doSelectNextMagazine));
-                    exceptions[] = {};
                 };
             };
         };

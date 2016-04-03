@@ -40,12 +40,14 @@ class CfgAmmo {
 
     //HE:
     class GVAR(ammo_he): Sh_82mm_AMOS {
-        ace_frag_classes[] = {"ACE_frag_small_HD"};
-        SoundSetExplosion[] = {"Mortar_Exp_SoundSet","Mortar_Tail_SoundSet","Explosion_Debris_SoundSet"};
-        hit = 120;
-        indirectHit = 24;
-        indirectHitRange = 12;
-        cost = 200;
+        ace_frag_classes[] = {"ACE_frag_small_HD"}; //HD have move air friction
+
+        effectFly = "ArtilleryTrails";
+        
+        hit = 100;
+        indirectHit = 20;
+        indirectHitRange = 13;
+
         muzzleEffect = "";
         class CamShakeExplode {
             power = "(82*0.2)";
@@ -75,7 +77,7 @@ class CfgAmmo {
     class GVAR(ammo_he_airburst): GVAR(ammo_he) {
         simulation = "shotRocket";
         timeToLive = 0;
-        explosionEffects = "HERocketExplosion"; //ExploAmmoExplosion, HEShellExplosion
-        CraterEffects = "";
+        // explosionEffects = "HERocketExplosion"; //ExploAmmoExplosion, HEShellExplosion
+        // CraterEffects = "";
     };
 };
