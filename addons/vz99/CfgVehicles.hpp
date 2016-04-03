@@ -1,4 +1,22 @@
 class CfgVehicles {
+    class Box_NATO_WpsLaunch_F;
+    class GVAR(box): Box_NATO_WpsLaunch_F {
+        displayName = "vz99 60mm Mortar Weapon And Ammo";
+        author = "PabstMirror";
+        class TransportMagazines {
+            MACRO_ADDMAGAZINE(GVAR(HE),8);
+            MACRO_ADDMAGAZINE(GVAR(HE_multi),8);
+            MACRO_ADDMAGAZINE(GVAR(smokeWhite),8);
+            MACRO_ADDMAGAZINE(GVAR(smokeRed),8);
+            MACRO_ADDMAGAZINE(GVAR(flare),8);
+        };
+        class TransportItems {};
+        class TransportWeapons {
+            MACRO_ADDWEAPON(GVAR(carryWeapon),1);
+        };
+        class TransportBackpacks {};
+    };
+
 
     //ACE: Add Player Deploy Action
     class Man;

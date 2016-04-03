@@ -41,12 +41,13 @@ class CfgAmmo {
     //HE:
     class GVAR(ammo_he): Sh_82mm_AMOS {
         ace_frag_classes[] = {"ACE_frag_small_HD"}; //HD have move air friction
+        ace_frag_force = 1;
 
         effectFly = "ArtilleryTrails";
-        
+
         hit = 100;
-        indirectHit = 20;
-        indirectHitRange = 13;
+        indirectHit = 10;
+        indirectHitRange = 9;
 
         muzzleEffect = "";
         class CamShakeExplode {

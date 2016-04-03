@@ -1,5 +1,4 @@
 #include "script_component.hpp"
-TRACE_1("pre init",_this);
 
 ADDON = false;
 

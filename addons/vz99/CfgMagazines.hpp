@@ -10,6 +10,7 @@ class CfgMagazines {
 
         GVAR(base) = QGVAR(HE);
         displayName = "vz99 60mm HE Impact Fuze";
+        descriptionShort = "60mm HE Shell<br/>For use in the vz99 mortar<br/>With a basic impact fuze";
         displayNameShort = "HE-IMP";
         ammo = QGVAR(ammo_he);
         initSpeed = 110;
@@ -24,6 +25,7 @@ class CfgMagazines {
     class GVAR(HE_multi): GVAR(HE) {
         GVAR(base) = QGVAR(HE_multi);
         displayName = "vz99 60mm HE Multi Fuze";
+        descriptionShort = "60mm HE Shell<br/>For use in the vz99 mortar<br/>ith a multi-option fuze (Impact, Near Surface, Proximity)";
         displayNameShort = "HE-IMP";
         initSpeed = 110;
         GVAR(fuze) = "";
@@ -54,6 +56,7 @@ class CfgMagazines {
     class GVAR(smokeWhite): GVAR(HE) {
         GVAR(base) = QGVAR(smokeWhite);
         displayName = "vz99 60mm Smoke (White)";
+        descriptionShort = "60mm HE White Smoke Shell<br/>For use in the vz99 mortar";
         displayNameShort = "SMOKE (White)";
         ammo = QGVAR(ammo_smokeWhite);
         initSpeed = 110;
@@ -65,6 +68,7 @@ class CfgMagazines {
     class GVAR(smokeRed): GVAR(HE) {
         GVAR(base) = QGVAR(smokeRed);
         displayName = "vz99 60mm Smoke (Red)";
+        descriptionShort = "60mm HE Red Smoke Shell<br/>For use in the vz99 mortar";
         displayNameShort = "SMOKE (Red)";
         ammo = QGVAR(ammo_smokeRed);
         initSpeed = 110;
@@ -77,6 +81,7 @@ class CfgMagazines {
     class GVAR(flare): GVAR(HE) {
         GVAR(base) = QGVAR(flare);
         displayName = "vz99 60mm Flare (White)";
+        descriptionShort = "60mm HE Flare Shell<br/>For use in the vz99 mortar";
         displayNameShort = "FLARE";
         ammo = QGVAR(ammo_flare);
         initSpeed = 110;

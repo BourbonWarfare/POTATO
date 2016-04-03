@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {QGVAR(mortar)};
+        units[] = {QGVAR(mortar), QGVAR(box)};
         weapons[] = {QGVAR(carryWeapon)};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};

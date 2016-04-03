@@ -1,5 +1,4 @@
 #include "script_component.hpp"
-TRACE_1("post init",_this);
 
 if (!hasInterface) exitWith {};
 
