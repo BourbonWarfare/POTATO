@@ -2,14 +2,14 @@
 
 ADDON = false;
 
-PREP(createEntityDismounts);
-PREP(createEntityLocal);
 PREP(createEntityZeus);
+PREP(createEntityLocal);
+PREP(createEntityDismounts);
 
 PREP(getSpawnMachineId);
 
-PREP(buildAGroup);
 PREP(buildACache);
+PREP(buildAGroupZeus);
 PREP(buildAGroupDialogAdd);
 PREP(buildAGroupSpawnLocal);
 PREP(buildAGroupDialogLoad);
@@ -18,8 +18,8 @@ PREP(buildAGroupDialogSpawn);
 PREP(buildAGroupDialogRemove);
 PREP(buildAGroupDialogFactionChange);
 
-PREP(spawnAVic);
 PREP(spawnACache);
+PREP(spawnAVicZeus);
 PREP(spawnAVicSpawnLocal);
 PREP(spawnAVicDialogLoad);
 PREP(spawnAVicSpawnServer);
@@ -29,5 +29,12 @@ PREP(spawnAVicDialogFactionChange);
 PREP(transferSetVar);
 PREP(transferGroupsToHC);
 PREP(transferAllToHCZeus);
+
+PREP(garrisonZeus);
+PREP(garrisonCache);
+PREP(garrisonLocal);
+PREP(garrisonServer);
+PREP(garrisonDialogLoad);
+PREP(garrisonDialogSpawn);
 
 ADDON = true;

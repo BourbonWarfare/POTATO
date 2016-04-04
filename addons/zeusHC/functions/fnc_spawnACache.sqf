@@ -1,7 +1,15 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-params ["_configEntries"];
+GVAR(spawnVicCache) = [[], []];
+
+private _filter = [];
+{
+    _filter pushBack format ["(configName _x) isKindOf '%1'", _x];
+    nil
+} count ["Air","Car","Tank","Wheeled_APC","Wheeled_APC_F","Ship"];
+
+private _relivantUnits = (format ["(%1) && getNumber (_x >> 'scope') > 1", _filter joinString " || "]) configClasses (configFile >> "CfgVehicles");
 
 if (isNil QGVAR(vicFactionBlackList)) then {
     GVAR(vicFactionBlackList) = [];

@@ -508,24 +508,27 @@ class CfgVehicles {
     };
 
     //------------ Custom group/vehicle modules ----------
-    class GVAR(base_zeus_only): GVAR(base_module) {
+    class GVAR(base_custom): GVAR(base_module) {
         scope = 1;
         isGlobal = 1;
+        category = QGVAR(custom);
     };
-    class GVAR(build_a_group): GVAR(base_zeus_only) {
+    class GVAR(build_a_group): GVAR(base_custom) {
         displayName = "Build-a-Group";
-        category = QGVAR(custom);
-        function = QFUNC(buildAGroup);
+        function = QFUNC(buildAGroupZeus);
     };
-    class GVAR(spawn_a_vehicle): GVAR(base_zeus_only) {
+    class GVAR(spawn_a_vehicle): GVAR(base_custom) {
         displayName = "Spawn-a-Vic";
-        category = QGVAR(custom);
-        function = QFUNC(spawnAVic);
+        function = QFUNC(spawnAVicZeus);
     };
-    class GVAR(move_all_to_hc): GVAR(base_zeus_only) {
+    class GVAR(move_all_to_hc): GVAR(base_custom) {
         isGlobal = 0;
         displayName = "Move all AI to HC";
-        category = QGVAR(custom);
         function = QFUNC(transferAllToHCZeus);
+    };
+    class GVAR(garrison): GVAR(base_custom) {
+        scope = 2;
+        displayName = "Spawn and Garrison units";
+        function = QFUNC(garrisonZeus);
     };
 };

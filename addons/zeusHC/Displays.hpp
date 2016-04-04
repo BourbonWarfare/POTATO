@@ -164,3 +164,48 @@ class GVAR(spawn_a_vic_dialog) {
         };
     };
 };
+
+class GVAR(garrison_dialog) {
+    idd = GARRISON_IDD;
+    movingEnable = false;
+    onLoad = QUOTE([] spawn FUNC(garrisonDialogLoad));
+    class controls {
+        class GVAR(group_bg): GVAR(bg) {};
+        class GVAR(garrison_frame): GVAR(base_frame) {
+            text = "Garrison";
+        };
+        class GVAR(garrison_cancel_btn): RscButtonMenuCancel {
+            idc = CANCEL_IDC;
+            x = 43 * GUI_GRID_W + GUI_GRID_X;
+            y = 28 * GUI_GRID_H + GUI_GRID_Y;
+            w = 4 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {0.5,0,0,1};
+            colorBackground2[] = {0.4,0,0,1};
+            colorBackgroundFocused[] = {0.8,0,0,1};
+            tooltip = "Cancel garrisoning";
+            action = "closeDialog 2;";
+        };
+        class GVAR(garrison_okay_btn): RscButtonMenuOK {
+            idc = OK_IDC;
+            x = 40 * GUI_GRID_W + GUI_GRID_X;
+            y = 28 * GUI_GRID_H + GUI_GRID_Y;
+            w = 2 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {0,0.5,0,1};
+            colorBackground2[] = {0,0.4,0,1};
+            colorBackgroundFocused[] = {0,0.8,0,1};
+            tooltip = "Add group";
+            action = QUOTE([] call FUNC(garrisonDialogSpawn));
+        };
+        class GVAR(garrison_factions): RscCombo {
+            idc = GARRISON_FACTIONS_IDC;
+            x = 19.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 8 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            tooltip = "Select a faction";
+            sizeEx = 1 * GUI_GRID_H;
+        };
+    };
+};

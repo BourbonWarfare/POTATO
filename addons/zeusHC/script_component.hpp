@@ -16,8 +16,8 @@
 // display defines
 #define BG_IDC 212453
 #define FRAME_IDC 164739
-#define BUILD_GROUP_OK_IDC 486369
-#define BUILD_GROUP_CANCEL_IDC 362181
+#define OK_IDC 486369
+#define CANCEL_IDC 362181
 
 #define BUILD_GROUP_IDD 796475
 #define BUILD_GROUP_ADD_IDC 595106
@@ -33,5 +33,10 @@
 #define SPAWN_VIC_FACTIONS_IDC 605453
 
 #define SPAWN_VIC_DISPLAY (findDisplay SPAWN_VIC_IDD)
+
+#define GARRISON_IDD 703765
+#define GARRISON_FACTIONS_IDC 232568
+
+#define GARRISON_DISPLAY (findDisplay GARRISON_IDD)
 
 #include "\z\potato\addons\core\script_macros.hpp"
