@@ -30,8 +30,8 @@ private _fuze = getText (configFile >> "CfgMagazines" >> _magazine >> QGVAR(fuze
 if (_fuze == "") exitWith {};
 
 private _detonationHeight = switch (true) do {
-    case (_fuze == "prx"): {10};
-    case (_fuze == "nsb"): {3};
+case (_fuze == "prx"): {10};
+case (_fuze == "nsb"): {3};
     default {-1};
 };
 
@@ -49,7 +49,7 @@ private _detonationHeight = switch (true) do {
 
     _height = (getPos _projectile) select 2;
     if (_height > _detonationHeight) exitWith {};
-    
+
     TRACE_3("",_height,_detonationHeight,diag_fps);
 
     private _position = getPosATL _projectile;
@@ -62,5 +62,3 @@ private _detonationHeight = switch (true) do {
     [_pfID] call CBA_fnc_removePerFrameHandler;
 
 }, 0, [_projectile, _detonationHeight, (time + 5)]] call CBA_fnc_addPerFrameHandler;
-
-x3 = _projectile;

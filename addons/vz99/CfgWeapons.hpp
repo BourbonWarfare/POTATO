@@ -56,7 +56,7 @@ class CfgWeapons {
         maxRange = 4000;
         maxRangeProbab = 0.1;
         reloadTime = 1.8;
-        magazineReloadTime = 1; ///xxxxxxxxxxxxxxx
+        magazineReloadTime = 3; ///xxxxxxxxxxxxxxx
         maxLeadSpeed = 100;
         autoReload = 1;
         canLock = 0;
