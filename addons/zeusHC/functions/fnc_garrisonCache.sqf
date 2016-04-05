@@ -6,12 +6,13 @@ GVAR(garrisonCache) = [[],[]];
 
 // define private helper method
 private _addToCache = {
+    TRACE_1("Params",_this);
     params ["_configFile"];
 
     private _configs = "true" configClasses (_configFile >> "CfgGarrison");
     {
-        if (!((className _x) in (GVAR(garrisonCache) select 0)) && (isArray (_x >> "units")) then {
-            (GVAR(garrisonCache) select 0) pushBack (className _x);
+        if (!((configName _x) in (GVAR(garrisonCache) select 0)) && (isArray (_x >> "units"))) then {
+            (GVAR(garrisonCache) select 0) pushBack (configName _x);
             (GVAR(garrisonCache) select 1) pushBack (getArray (_x >> "units"));
         };
         nil

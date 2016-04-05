@@ -12,6 +12,8 @@ class RscButtonMenuOK;
 class RscCombo;
 class RscListbox;
 class RscButton;
+class RscEdit;
+class RscSlider;
 
 class GVAR(bg): IGUIBack {
     idc = BG_IDC;
@@ -196,7 +198,7 @@ class GVAR(garrison_dialog) {
             colorBackground2[] = {0,0.4,0,1};
             colorBackgroundFocused[] = {0,0.8,0,1};
             tooltip = "Add group";
-            action = QUOTE([] call FUNC(garrisonDialogSpawn));
+            action = QUOTE([] spawn FUNC(garrisonDialogSpawn));
         };
         class GVAR(garrison_factions): RscCombo {
             idc = GARRISON_FACTIONS_IDC;
@@ -206,6 +208,90 @@ class GVAR(garrison_dialog) {
             h = 1 * GUI_GRID_H;
             tooltip = "Select a faction";
             sizeEx = 1 * GUI_GRID_H;
+        };
+        class GVAR(garrison_chance_slider): RscSlider {
+            idc = GARRISON_CHANCE_SLIDER_IDC;
+            text = "Occupy Building Chance";
+            x = 10 * GUI_GRID_W + GUI_GRID_X;
+            y = 5.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 24.5 * GUI_GRID_W;
+            h = 2 * GUI_GRID_H;
+            colorText[] = {1,1,1,1};
+            tooltip = "The chance a building will be garrisoned";
+            sizeEx = 1 * GUI_GRID_H;
+            onSliderPosChanged = QUOTE([ARR_2(true,0)] call FUNC(garrisonDialogControlChange));
+        };
+        class GVAR(garrison_radius_slider): RscSlider {
+            idc = GARRISON_RADIUS_SLIDER_IDC;
+            text = "Occupy Radius";
+            x = 10 * GUI_GRID_W + GUI_GRID_X;
+            y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 24.5 * GUI_GRID_W;
+            h = 2 * GUI_GRID_H;
+            colorText[] = {1,1,1,1};
+            tooltip = "The radius from the placed module that the buildings will be occupied (meters)";
+            sizeEx = 1 * GUI_GRID_H;
+            onSliderPosChanged = QUOTE([ARR_2(true,1)] call FUNC(garrisonDialogControlChange));
+        };
+        class GVAR(garrison_min_slider): RscSlider {
+            idc = GARRISON_MIN_SLIDER_IDC;
+            text = "Occupy Min Units";
+            x = 10 * GUI_GRID_W + GUI_GRID_X;
+            y = 15.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 24.5 * GUI_GRID_W;
+            h = 2 * GUI_GRID_H;
+            colorText[] = {1,1,1,1};
+            tooltip = "Minimum units to occupy a building with";
+            sizeEx = 1 * GUI_GRID_H;
+            onSliderPosChanged = QUOTE([ARR_2(true,2)] call FUNC(garrisonDialogControlChange));
+        };
+        class GVAR(garrison_max_slider): RscSlider {
+            idc = GARRISON_MAX_SLIDER_IDC;
+            text = "Occupy Max Units";
+            x = 10 * GUI_GRID_W + GUI_GRID_X;
+            y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 24.5 * GUI_GRID_W;
+            h = 2 * GUI_GRID_H;
+            colorText[] = {1,1,1,1};
+            tooltip = "Maximum units to occupy a building with";
+            sizeEx = 1 * GUI_GRID_H;
+            onSliderPosChanged = QUOTE([ARR_2(true,3)] call FUNC(garrisonDialogControlChange));
+        };
+        class GVAR(garrison_chance_edit): RscEdit {
+            idc = GARRISON_CHANCE_EDIT_IDC;
+            x = 36.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3.5 * GUI_GRID_W;
+            h = 2 * GUI_GRID_H;
+            tooltip = "The chance a building will be garrisoned";
+            onKillFocus = QUOTE([ARR_2(false,0)] call FUNC(garrisonDialogControlChange));
+        };
+        class GVAR(garrison_radius_edit): RscEdit {
+            idc = GARRISON_RADIUS_EDIT_IDC;
+            x = 36.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 10 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3.5 * GUI_GRID_W;
+            h = 2 * GUI_GRID_H;
+            tooltip = "The radius from the placed module that the buildings will be occupied (meters)";
+            onKillFocus = QUOTE([ARR_2(false,1)] call FUNC(garrisonDialogControlChange));
+        };
+        class GVAR(garrison_min_edit): RscEdit {
+            idc = GARRISON_MIN_EDIT_IDC;
+            x = 36.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 15 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3.5 * GUI_GRID_W;
+            h = 2 * GUI_GRID_H;
+            tooltip = "Minimum units to occupy a building with";
+            onKillFocus = QUOTE([ARR_2(false,2)] call FUNC(garrisonDialogControlChange));
+        };
+        class GVAR(garrison_max_edit): RscEdit {
+            idc = GARRISON_MAX_EDIT_IDC;
+            x = 36.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 20 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3.5 * GUI_GRID_W;
+            h = 2 * GUI_GRID_H;
+            tooltip = "Maximum units to occupy a building with";
+            onKillFocus = QUOTE([ARR_2(false,3)] call FUNC(garrisonDialogControlChange));
         };
     };
 };

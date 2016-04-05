@@ -135,6 +135,7 @@ class CfgPatches {
 
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
-#include "CfgVehicles.hpp"
+#include "CfgGarrison.hpp"
 #include "CfgFactionClasses.hpp"
+#include "CfgVehicles.hpp"
 #include "Displays.hpp"

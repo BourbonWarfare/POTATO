@@ -36,5 +36,8 @@ PREP(garrisonLocal);
 PREP(garrisonServer);
 PREP(garrisonDialogLoad);
 PREP(garrisonDialogSpawn);
+PREP(garrisonIsFacingWall);
+PREP(garrisonDialogCheckMinMax);
+PREP(garrisonDialogControlChange);
 
 ADDON = true;

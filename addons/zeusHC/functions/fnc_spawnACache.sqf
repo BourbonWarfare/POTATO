@@ -7,7 +7,7 @@ private _filter = [];
 {
     _filter pushBack format ["(configName _x) isKindOf '%1'", _x];
     nil
-} count ["Air","Car","Tank","Wheeled_APC","Wheeled_APC_F","Ship"];
+} count ["Air","Car","Tank","Wheeled_APC","Wheeled_APC_F","Boat_F"];
 
 private _relivantUnits = (format ["(%1) && getNumber (_x >> 'scope') > 1", _filter joinString " || "]) configClasses (configFile >> "CfgVehicles");
 
@@ -28,4 +28,4 @@ TRACE_1("black list",GVAR(vicFactionBlackList));
         ((GVAR(spawnVicCache) select 1) select _cacheIndex) pushBack _newItem;
     };
     nil
-} count _configEntries;
+} count _relivantUnits;
