@@ -30,8 +30,8 @@ private _fuze = getText (configFile >> "CfgMagazines" >> _magazine >> QGVAR(fuze
 if (_fuze == "") exitWith {};
 
 private _detonationHeight = switch (true) do {
-case (_fuze == "prx"): {10};
-case (_fuze == "nsb"): {3};
+case (_fuze == "prx"): {4};
+case (_fuze == "nsb"): {1};
     default {-1};
 };
 
