@@ -37,7 +37,7 @@ class CfgVehicles {
                 typeName = "STRING";
             };
             class color {
-                displayName = "Side";
+                displayName = "Color";
                 typeName = "NUMBER";
                 class values {
                     class black { name = "black"; value = 0; default = 1; };
