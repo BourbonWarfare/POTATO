@@ -30,9 +30,10 @@ PREP(transferSetVar);
 PREP(transferGroupsToHC);
 PREP(transferAllToHCZeus);
 
-PREP(garrisonZeus);
 PREP(garrisonCache);
 PREP(garrisonLocal);
+PREP(garrisonSpawn);
+PREP(garrisonModule);
 PREP(garrisonServer);
 PREP(garrisonDialogLoad);
 PREP(garrisonDialogSpawn);

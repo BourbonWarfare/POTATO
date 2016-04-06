@@ -505,7 +505,6 @@ class CfgVehicles {
 
     //------------ Custom group/vehicle modules ----------
     class GVAR(base_custom): GVAR(base_module) {
-        scope = 1;
         isGlobal = 1;
         category = QGVAR(custom);
     };
@@ -525,6 +524,72 @@ class CfgVehicles {
     class GVAR(garrison): GVAR(base_custom) {
         scope = 2;
         displayName = "Spawn and Garrison units";
-        function = QFUNC(garrisonZeus);
+        function = QFUNC(garrisonModule);
+
+        class Attributes {
+            class GVAR(garrisonFaction) {
+                displayName = "Faction";
+                tooltip = "Faction of the units to garrison with";
+                property = QGVAR(garrisonFaction);
+                control = "Combo";
+                expression = "_this setVariable [%s,_value];";
+
+                class values {
+                    class 1 { name = "NATO"; value = "blu_f"; default = 1; };
+                    class 2 { name = "AAF"; value = "ind_f"; };
+                    class 3 { name = "CSAT"; value = "opf_f"; };
+                    class 4 { name = "MSV"; value = "rhs_faction_msv"; };
+                };
+
+                typeName = "STRING";
+            };
+            class GVAR(garrisonChance) {
+                displayName = "Garrison Chance";
+                tooltip = "Chance a building in the radius will be garrisoned";
+                property = QGVAR(garrisonChance);
+                control = "Slider";
+                expression = "_this setVariable [%s,_value * 100];";
+                defaultValue = "0.5";
+                validate = "number";
+            };
+            class GVAR(garrisonRadius) {
+                displayName = "Radius";
+                tooltip = "Radius from placed module to garrison";
+                property = QGVAR(garrisonRadius);
+                control = "Edit";
+                expression = "_this setVariable [%s,_value];";
+                defaultValue = "500";
+                validate = "number";
+                typeName = "NUMBER";
+            };
+            class GVAR(garrisonMin) {
+                displayName = "Min Units";
+                tooltip = "Minimum units to garrison with";
+                property = QGVAR(garrisonMin);
+                control = "Combo";
+                expression = "_this setVariable [%s,_value];";
+
+                class values {
+                    class 1 { name = "1"; value = 1; default = 1; };
+                    class 2 { name = "2"; value = 2; };
+                    class 3 { name = "3"; value = 3; };
+                    class 4 { name = "4"; value = 4; };
+                    class 5 { name = "5"; value = 5; };
+                    class 6 { name = "6"; value = 6; };
+                    class 7 { name = "7"; value = 7; };
+                    class 8 { name = "8"; value = 8; };
+                    class 9 { name = "9"; value = 9; };
+                    class 10 { name = "10"; value = 10; };
+                };
+
+                validate = "number";
+                typeName = "NUMBER";
+            };
+            class GVAR(garrisonMax): GVAR(garrisonMin) {
+                displayName = "Max Units";
+                tooltip = "Maximum units to garrison with";
+                property = QGVAR(garrisonMax);
+            };
+        };
     };
 };
