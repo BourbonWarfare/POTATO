@@ -6,7 +6,7 @@ params ["_faction","_occupyChance","_occupyRadius","_occupyMinNumber","_occupyMa
 private _side = switch (getNumber (configfile >> "CfgFactionClasses" >> _faction >> "side")) do { case 0: {east}; case 1: {west}; case 2: {resistance}; default {civilian}; };
 
 // handle EDEN placed module
-if (isNil QGVAR(garrisonCache)) {
+if (isNil QGVAR(garrisonCache)) then {
     [] call FUNC(garrisonCache);
 };
 

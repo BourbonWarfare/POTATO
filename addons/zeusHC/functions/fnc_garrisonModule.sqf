@@ -6,7 +6,7 @@ params ["_logic"];
 if (local _logic) then {
     GVAR(garrisonLocation) = getPosATL _logic;
 
-    if (isServer && !isNull (_logic getVariable [QGVAR(garrisonChance), objNull])) then {
+    if (isServer && (_logic getVariable [QGVAR(garrisonChance), -1]) > -1) then {
         private _radius = abs(_logic getVariable QGVAR(garrisonRadius));
         private _min = (_logic getVariable QGVAR(garrisonMin)) min (_logic getVariable QGVAR(garrisonMax));
         private _max = (_logic getVariable QGVAR(garrisonMin)) max (_logic getVariable QGVAR(garrisonMax));
@@ -16,7 +16,7 @@ if (local _logic) then {
             _logic getVariable QGVAR(garrisonChance),
             _radius,
             _min,
-            _max,
+            _max
         ] call FUNC(garrisonSpawn);
     } else {
         createDialog QGVAR(garrison_dialog);

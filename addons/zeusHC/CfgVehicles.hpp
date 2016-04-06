@@ -532,7 +532,7 @@ class CfgVehicles {
                 tooltip = "Faction of the units to garrison with";
                 property = QGVAR(garrisonFaction);
                 control = "Combo";
-                expression = "_this setVariable [%s,_value];";
+                expression = "_this setVariable [""%s"",_value];";
 
                 class values {
                     class 1 { name = "NATO"; value = "blu_f"; default = 1; };
@@ -548,7 +548,7 @@ class CfgVehicles {
                 tooltip = "Chance a building in the radius will be garrisoned";
                 property = QGVAR(garrisonChance);
                 control = "Slider";
-                expression = "_this setVariable [%s,_value * 100];";
+                expression = "_this setVariable [""%s"",_value * 100];";
                 defaultValue = "0.5";
                 validate = "number";
             };
@@ -557,7 +557,7 @@ class CfgVehicles {
                 tooltip = "Radius from placed module to garrison";
                 property = QGVAR(garrisonRadius);
                 control = "Edit";
-                expression = "_this setVariable [%s,_value];";
+                expression = "_this setVariable [""%s"",_value];";
                 defaultValue = "500";
                 validate = "number";
                 typeName = "NUMBER";
@@ -567,7 +567,7 @@ class CfgVehicles {
                 tooltip = "Minimum units to garrison with";
                 property = QGVAR(garrisonMin);
                 control = "Combo";
-                expression = "_this setVariable [%s,_value];";
+                expression = "_this setVariable [""%s"",_value];";
 
                 class values {
                     class 1 { name = "1"; value = 1; default = 1; };
