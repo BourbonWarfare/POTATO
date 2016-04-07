@@ -42,15 +42,6 @@ class CfgMagazines {
     class GVAR(HE_PRX_charge0): GVAR(HE_PRX) {
         initSpeed = 70;
     };
-    class GVAR(HE_NSB): GVAR(HE_multi) {
-        GVAR(base) = QGVAR(HE_multi);
-        displayNameShort = "HE-NSB";
-        initSpeed = 110;
-        GVAR(fuze) = "nsb";
-    };
-    class GVAR(HE_NSB_charge0): GVAR(HE_NSB) {
-        initSpeed = 70;
-    };
 
     //Smokes
     class GVAR(smokeWhite): GVAR(HE) {

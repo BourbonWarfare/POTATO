@@ -31,7 +31,6 @@ if (_fuze == "") exitWith {};
 
 private _detonationHeight = switch (true) do {
 case (_fuze == "prx"): {4};
-case (_fuze == "nsb"): {1};
     default {-1};
 };
 

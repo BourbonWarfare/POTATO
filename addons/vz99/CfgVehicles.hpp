@@ -97,19 +97,6 @@ class CfgVehicles {
                     icon = PATHTOF(UI\action_shell_ca.paa);
                 };
             };
-            class GVAR(load_HE_NSB) {
-                displayName = "Load HE-Near surface burst @ Charge 1";
-                condition = QUOTE([QUOTE(QGVAR(HE_NSB))] call FUNC(canSelectNextMagazine));
-                statement = QUOTE([QUOTE(QGVAR(HE_NSB))] call FUNC(doSelectNextMagazine));
-                exceptions[] = {};
-                icon = PATHTOF(UI\action_shell_ca.paa);
-                class GVAR(load_HE_charge0) {
-                    displayName = "@ Charge 0";
-                    condition = QUOTE(true);
-                    statement = QUOTE([QUOTE(QGVAR(HE_NSB_charge0))] call FUNC(doSelectNextMagazine));
-                    icon = PATHTOF(UI\action_shell_ca.paa);
-                };
-            };
             class GVAR(load_smokeWhite) {
                 displayName = "Load Smoke(White) @ Charge 1";
                 condition = QUOTE([QUOTE(QGVAR(smokeWhite))] call FUNC(canSelectNextMagazine));
@@ -263,7 +250,7 @@ class CfgVehicles {
                 maxelev = -5;
 
                 magazines[] = {};
-                weapons[] = {"mortar60mm"};
+                weapons[] = {QGVAR(mortar60mm)};
             };
         };
     };
