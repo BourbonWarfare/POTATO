@@ -21,7 +21,7 @@ TRACE_1("Time between transfers", _timeBetweenTransfers);
 //loop all groups
 {
     if (!(isPlayer (leader _x)) && !((units _x) isEqualTo []) && !((groupOwner _x) in _hcIDs) && (_force || _x getVariable [QGVAR(addGroupToHC), false])) then {
-        private _status = _x setGroupOwner ([_allHCs] call FUNC(getSpawnMachineId));
+        private _status = _x setGroupOwner ([] call FUNC(getSpawnMachineId));
         TRACE_2("Group moved with status",_x,_status);
 
         sleep _timeBetweenTransfers;

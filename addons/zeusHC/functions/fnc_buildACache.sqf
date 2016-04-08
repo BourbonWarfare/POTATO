@@ -1,7 +1,8 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-params ["_configEntries"];
+GVAR(buildFactionCache) = [[], []];
+private _configEntries = "(configName _x) isKindOf 'Man' && getNumber (_x >> 'scope') > 1" configClasses (configFile >> "CfgVehicles");
 
 {
     private _faction = getText (_x >> 'faction');

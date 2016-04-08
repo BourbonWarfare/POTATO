@@ -1,13 +1,17 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-waitUntil {dialog};
-
 if (isNil QGVAR(groupFactionWhiteList)) then {
     GVAR(groupFactionWhiteList) = ["BLU_F","OPF_F","IND_F","rhs_faction_msv"];
 };
-
 TRACE_1("white list",GVAR(groupFactionWhiteList));
+
+if (isNil QGVAR(buildFactionCache)) then {
+    [] call FUNC(buildACache);
+    TRACE_1("Cache populated",GVAR(buildFactionCache));
+};
+
+waitUntil {dialog}; // wait until the dialog is fully loaded before we do any population
 
 // setup faction dropdown, and populate possible unit list
 {

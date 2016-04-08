@@ -1,26 +1,13 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-waitUntil {dialog};
-
 if (isNil QGVAR(spawnVicCache)) then {
-    GVAR(spawnVicCache) = [[], []];
-
-    private _configFilter = {
-        private _filter = [];
-        {
-            _filter pushBack format ["(configName _x) isKindOf '%1'", _x];
-            nil
-        } count _this;
-
-        format ["(%1) && getNumber (_x >> 'scope') > 1", _filter joinString " || "];
-    };
-
-    private _relivantUnits = (["Air","Car","Tank","Wheeled_APC","Wheeled_APC_F","Ship"] call _configFilter) configClasses (configFile >> "CfgVehicles");
-    [_relivantUnits] call FUNC(spawnACache);
+    [] call FUNC(spawnACache);
 
     TRACE_1("Cache populated",GVAR(spawnVicCache));
 };
+
+waitUntil {dialog}; // wait until the dialog is fully loaded before we do any population
 
 {
     private _side = switch (getNumber (configfile >> "CfgFactionClasses" >> _x >> "side")) do { case 0: {"OpFor"}; case 1: {"BluFor"}; case 2: {"Indy"}; case 3: {"Civ"}; };
