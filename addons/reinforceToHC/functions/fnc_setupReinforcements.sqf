@@ -73,17 +73,19 @@ if (count _dialogResult == 0) exitWith {
 };
 
 // Get the data from the dialog to use when choosing what units to spawn
-private _dialogPool =                         _dialogResult select 0;
-private _dialogVehicleClass =         _dialogResult select 1;
-private _dialogVehicleBehaviour = _dialogResult select 2;
-private _dialogLzAlgorithm =            _dialogResult select 3;
-private _dialogRpAlgorithm =            _dialogResult select 4;
-private _dialogUnitBehaviour =        _dialogResult select 5;
-private _lzSize = 20;    // TODO make this a dialog parameter?
-private _rpSize = 20;    // TODO make this a dialog parameters?
+_dialogResult params [
+    "_dialogPool",
+    "_dialogVehicleClass",
+    "_dialogVehicleBehaviour",
+    "_dialogLzAlgorithm",
+    "_dialogRpAlgorithm",
+    "_dialogUnitBehaviour"
+];
+private _lzSize = 20;
+private _rpSize = 20;
 private _spawnPosition = position _logic;
 
-if (not isNil "Ares_CuratorObjectPlaces_LastPlacedObjectPosition") then {
+if (!isNil "Ares_CuratorObjectPlaces_LastPlacedObjectPosition") then {
     _spawnPosition = Ares_CuratorObjectPlaces_LastPlacedObjectPosition;
 };
 
