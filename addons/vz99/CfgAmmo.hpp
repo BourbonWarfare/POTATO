@@ -43,7 +43,7 @@ class CfgAmmo {
         ace_frag_classes[] = {"ACE_frag_small_HD"}; //HD have move air friction
         ace_frag_force = 1;
 
-        effectFly = "ArtilleryTrails";
+        // effectFly = "ArtilleryTrails"; //Fun but not don't make any sense
 
         hit = 100;
         indirectHit = 10;

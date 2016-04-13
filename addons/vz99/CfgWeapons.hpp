@@ -3,7 +3,7 @@ class Mode_SemiAuto;
 class CfgWeapons {
     class Launcher_Base_F;
     class GVAR(carryWeapon): Launcher_Base_F {
-        author = "pab";
+        author = "PabstMirror";
         scope = 2;
         displayName = "VZ99 60mm Mortar";
         model = QUOTE(PATHTOF(data\vz99_carry));
@@ -62,7 +62,7 @@ class CfgWeapons {
         maxRange = 4000;
         maxRangeProbab = 0.1;
         reloadTime = 1.8;
-        magazineReloadTime = 4; ///xxxxxxxxxxxxxxx
+        magazineReloadTime = 3.3; ///xxxxxxxxxxxxxxx
         maxLeadSpeed = 100;
         autoReload = 1;
         canLock = 0;

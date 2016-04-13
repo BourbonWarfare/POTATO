@@ -25,3 +25,8 @@ _mortarVeh setPosASL (AGLtoASL _posATL);
 TRACE_3("created",_mortarVeh,_posATL,_mortarVeh distance _player);
 
 _player removeWeapon QGVAR(carryWeapon);
+
+//Move in auto
+_player moveInGunner _mortarVeh;
+
+

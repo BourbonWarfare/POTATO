@@ -4,7 +4,7 @@ class CfgMagazines {
     //HE
     class GVAR(HE): 8Rnd_82mm_Mo_shells {
         picture = QUOTE(PATHTOF(ui\shell_ca.paa));
-        author = "Pab";
+        author = "PabstMirror";
         count = 1;
         mass = 20;
 
