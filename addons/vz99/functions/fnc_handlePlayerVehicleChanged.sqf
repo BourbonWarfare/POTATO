@@ -23,8 +23,8 @@ if (isNull _player) exitWith {};
 if (isNull _mortarVeh) exitWith {};
 if (!(_mortarVeh isKindOf QGVAR(mortar))) exitWith {};
 
+_mortarVeh disableNVGEquipment ((hmd _player) == "");
 
-TRACE_1("starting PFEH", _this);
 [{
     params ["_args", "_pfID"];
     _args params ["_player", "_mortarVeh"];

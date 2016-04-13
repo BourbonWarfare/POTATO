@@ -17,5 +17,4 @@
 params ["_magazineClassname"];
 TRACE_1("params",_magazineClassname);
 
-systemChat format ["switching to %1", _magazineClassname];
 GVAR(nextReload) = _magazineClassname;

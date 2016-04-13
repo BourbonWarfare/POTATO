@@ -242,7 +242,7 @@ class CfgVehicles {
                     initFov = 0.75;
                     minFov = 0.75;
                     maxFov = 0.75;
-                    visionMode[] = {"Normal"};
+                    visionMode[] = {"Normal", "NVG"};
                 };
 
                 initElev = -25;
