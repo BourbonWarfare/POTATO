@@ -1,14 +1,21 @@
 /*
  * Author: PabstMirror
- *
+ * Handle the mortar's Fired event.
  *
  * Arguments:
+ * 0: unit - Object the event handler is assigned to <OBJECT>
+ * 1: weapon - Fired weapon <STRING>
+ * 2: muzzle - Muzzle that was used <STRING>
+ * 3: mode - Current mode of the fired weapon <STRING>
+ * 4: ammo - Ammo used <STRING>
+ * 5: magazine - magazine name which was used <STRING>
+ * 6: projectile - Object of the projectile that was shot <OBJECT>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call
+ * [firedBIS] call potato_vz99_fnc_doSelectNextMagazine
  *
  * Public: No
  */
@@ -30,7 +37,7 @@ private _fuze = getText (configFile >> "CfgMagazines" >> _magazine >> QGVAR(fuze
 if (_fuze == "") exitWith {};
 
 private _detonationHeight = switch (true) do {
-case (_fuze == "prx"): {4};
+case (_fuze == "prx"): {3.5}; //M734 says "PRX = Proximity air burst between 3 and 13 feet"
     default {-1};
 };
 

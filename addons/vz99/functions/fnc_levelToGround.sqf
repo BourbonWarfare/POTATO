@@ -1,14 +1,15 @@
 /*
  * Author: PabstMirror
- *
+ * "Levels" the mortar to account for ground slope
  *
  * Arguments:
+ * 0: Mortar Vehicle <OBJECT>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call
+ * [mortar] call potato_vz99_fnc_levelToGround
  *
  * Public: No
  */

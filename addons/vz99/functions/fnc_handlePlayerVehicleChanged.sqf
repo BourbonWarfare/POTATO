@@ -7,22 +7,24 @@
  * 1: New Vehicle <OBJECT>
  *
  * Return Value:
- * No
+ * None
  *
  * Example:
- * [
+ * [player, mortar] call potato_vz99_fnc_handlePlayerVehicleChanged
  *
  * Public: No
  */
 #include "script_component.hpp"
 
 params ["_player", "_mortarVeh"];
-TRACE_2("playerVehicleChanged eh",_player,_mortarVeh);
+TRACE_2("params",_player,_mortarVeh);
 
 if (isNull _player) exitWith {};
 if (isNull _mortarVeh) exitWith {};
 if (!(_mortarVeh isKindOf QGVAR(mortar))) exitWith {};
 
+//Disable vehicle's NVG system based on if player is equiped
+//Needed as we are in GUNNER view, so we need to use vehicle's vision system
 _mortarVeh disableNVGEquipment ((hmd _player) == "");
 
 [{
@@ -50,4 +52,4 @@ _mortarVeh disableNVGEquipment ((hmd _player) == "");
             TRACE_1("CANNOT pickup",_mortarVeh);
         };
     };
-}, 0.1, [_player, _mortarVeh]] call CBA_fnc_addPerFrameHandler;
+}, 0, [_player, _mortarVeh]] call CBA_fnc_addPerFrameHandler;

@@ -1,14 +1,16 @@
 /*
  * Author: PabstMirror
- *
+ * Picks up a deployed static weapon.
  *
  * Arguments:
+ * 0: Target (mortar) <OBJECT>
+ * 1: Player <OBJECT>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call
+ * [mortar, player] call potato_vz99_fnc_doPickupWeapon
  *
  * Public: No
  */

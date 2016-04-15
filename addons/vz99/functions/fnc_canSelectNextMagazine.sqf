@@ -1,14 +1,15 @@
 /*
  * Author: PabstMirror
- * 
+ * Tests if player can select the magazine by checking if player has it's base class in inventory.
  *
  * Arguments:
+ * 0: Magazine Classname <STRING>
  *
  * Return Value:
- * Nothing
+ * <BOOL>
  *
  * Example:
- * [] call 
+ * ["potato_vz99_he"] call potato_vz99_fnc_canSelectNextMagazine
  *
  * Public: No
  */

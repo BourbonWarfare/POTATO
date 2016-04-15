@@ -1,14 +1,16 @@
 /*
  * Author: PabstMirror
- *
+ * Tests if player can pickup a deployed static weapon
  *
  * Arguments:
+ * 0: Target (mortar) <OBJECT>
+ * 1: Player <OBJECT>
  *
  * Return Value:
- * Nothing
+ * <BOOL>
  *
  * Example:
- * [] call
+ * [mortar, player] call potato_vz99_fnc_canPickupWeapon
  *
  * Public: No
  */

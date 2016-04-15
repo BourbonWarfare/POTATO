@@ -6,7 +6,6 @@ PREP(doPickupWeapon);
 PREP(doSelectNextMagazine);
 PREP(doReload);
 PREP(handleFired);
-PREP(handleGetOut);
 PREP(handleInit);
 PREP(handlePlayerVehicleChanged);
 PREP(levelToGround);

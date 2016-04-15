@@ -1,14 +1,15 @@
 /*
  * Author: PabstMirror
- * 
+ * Handles vehicle init.
  *
  * Arguments:
+ * 0: Mortar <OBJECT>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call 
+ * [mortar] call potato_vz99_fnc_handleInit
  *
  * Public: No
  */
@@ -16,5 +17,7 @@
 
 params ["_mortarVeh"];
 TRACE_1("params",_mortarVeh);
+
+if (!local _mortarVeh) exitWith {};
 
 [_mortarVeh] call FUNC(levelToGround);
