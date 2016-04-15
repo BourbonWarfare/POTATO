@@ -10,6 +10,32 @@ class CfgPatches {
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
+
+    //CUP/AiA Terrain Dummies:
+    class CUP_Structures_Config {
+        requiredAddons[] = {"AiA_Structures_Config", "CAStructures"};
+    };
+    class CUP_CA_Data {
+        requiredAddons[] = {"AiA_CA_Data"};
+    };
+    class CUP_CA_Plants2 {
+        requiredAddons[] = {"AiA_Plants_Data"};
+    };
+    class CUP_CAStructures_Misc_Armory {
+        requiredAddons[] = {"AiA_Buildings_Config", "CABuildings", "AiA_Buildings2_Config", "CABuildings2"};
+    };
+    class CUP_A2_EditorObjects {
+        requiredAddons[] = {"AiA_Buildings_Config", "CABuildings", "AiA_Buildings2_Config", "CABuildings2"};
+    };
+    class CUP_CAStructures_Misc {
+        requiredAddons[] = {"AiA_Buildings_Config", "CABuildings", "AiA_Buildings2_Config", "CABuildings2"};
+    };
+    class CUP_Buildings_Config {
+        requiredAddons[] = {"AiA_Buildings_Config", "CABuildings", "AiA_Buildings2_Config", "CABuildings2"};
+    };
+    class CUP_CABuildings_Misc {
+        requiredAddons[] = {"AiA_Buildings_Config", "CABuildings", "AiA_Buildings2_Config", "CABuildings2"};
+    };
 };
 
 
