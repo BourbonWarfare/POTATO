@@ -200,7 +200,7 @@ private _addWeaponSystem = {
             {
                 _x params ["_xPath", "_xMag", "_xCount"];
                 if ((_xPath isEqualTo _path) && {_xMag == _magToAdd}) exitwith {
-                    _magCount = _xCount;
+                    _magCount = _magCount + _xCount;
                 };
             } forEach GVAR(deltaLoad);
 
