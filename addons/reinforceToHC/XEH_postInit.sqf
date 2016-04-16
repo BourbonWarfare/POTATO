@@ -14,7 +14,7 @@ GVAR(reinforceUnits) = [
         ["B_Boat_Transport_01_F","B_G_Boat_Transport_01_F"],
         ["B_Boat_Armed_01_minigun_F"],
         [
-            ["B_Soldier_TL_F","B_Soldier_AR_F","B_Soldier_AAR_F","B_Soldier_LAT_F","B_Soldier_F","B_Soldier_F",],
+            ["B_Soldier_TL_F","B_Soldier_AR_F","B_Soldier_AAR_F","B_Soldier_LAT_F","B_Soldier_F","B_Soldier_F"],
             ["B_Soldier_TL_F", "B_Soldier_AR_F", "B_Soldier_AAR_F", "B_Soldier_LAT_F"]
         ]
     ],
@@ -31,7 +31,7 @@ GVAR(reinforceUnits) = [
         ["B_Boat_Transport_01_F","B_G_Boat_Transport_01_F"],
         ["B_Boat_Armed_01_minigun_F"],
         [
-            ["B_Soldier_TL_F","B_Soldier_AR_F","B_Soldier_AAR_F","B_Soldier_LAT_F","B_Soldier_F","B_Soldier_F",],
+            ["B_Soldier_TL_F","B_Soldier_AR_F","B_Soldier_AAR_F","B_Soldier_LAT_F","B_Soldier_F","B_Soldier_F"],
             ["B_Soldier_TL_F", "B_Soldier_AR_F", "B_Soldier_AAR_F", "B_Soldier_LAT_F"]
         ]
     ],
@@ -48,7 +48,7 @@ GVAR(reinforceUnits) = [
         ["I_Boat_Transport_01_F", "I_G_Boat_Transport_01_F"],
         ["I_Boat_Armed_01_minigun_F"],
         [
-            ["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_AAR_F","I_Soldier_LAT_F","I_Soldier_F","I_Soldier_F",],
+            ["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_AAR_F","I_Soldier_LAT_F","I_Soldier_F","I_Soldier_F"],
             ["I_Soldier_TL_F", "I_Soldier_AR_F", "I_Soldier_AAR_F", "I_Soldier_LAT_F"]
         ]
     ],
@@ -65,7 +65,7 @@ GVAR(reinforceUnits) = [
         ["I_Boat_Transport_01_F", "I_G_Boat_Transport_01_F"],
         ["I_Boat_Armed_01_minigun_F"],
         [
-            ["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_AAR_F","I_Soldier_LAT_F","I_Soldier_F","I_Soldier_F",],
+            ["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_AAR_F","I_Soldier_LAT_F","I_Soldier_F","I_Soldier_F"],
             ["I_Soldier_TL_F", "I_Soldier_AR_F", "I_Soldier_AAR_F", "I_Soldier_LAT_F"]
         ]
     ],
@@ -99,7 +99,7 @@ GVAR(reinforceUnits) = [
         ["O_Boat_Transport_01_F","O_G_Boat_Transport_01_F"],
         ["O_Boat_Armed_01_hmg_F"],
         [
-            ["O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_AAR_F","O_Soldier_LAT_F","O_Soldier_F","O_Soldier_F",],
+            ["O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_AAR_F","O_Soldier_LAT_F","O_Soldier_F","O_Soldier_F"],
             ["O_Soldier_TL_F", "O_Soldier_AR_F", "O_Soldier_AAR_F", "O_Soldier_LAT_F"]
         ]
     ],
@@ -116,7 +116,7 @@ GVAR(reinforceUnits) = [
         ["O_Boat_Transport_01_F","O_G_Boat_Transport_01_F"],
         ["O_Boat_Armed_01_hmg_F"],
         [
-            ["O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_AAR_F","O_Soldier_LAT_F","O_Soldier_F","O_Soldier_F",],
+            ["O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_AAR_F","O_Soldier_LAT_F","O_Soldier_F","O_Soldier_F"],
             ["O_Soldier_TL_F", "O_Soldier_AR_F", "O_Soldier_AAR_F", "O_Soldier_LAT_F"]
         ]
     ]
