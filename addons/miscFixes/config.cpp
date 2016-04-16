@@ -13,27 +13,30 @@ class CfgPatches {
 
     //CUP/AiA Terrain Dummies:
     class CUP_Structures_Config {
+        units[] = {};
+        weapons[] = {};
+        requiredVersion = 0.1;
         requiredAddons[] = {"AiA_Structures_Config", "CAStructures"};
     };
-    class CUP_CA_Data {
+    class CUP_CA_Data: CUP_Structures_Config {
         requiredAddons[] = {"AiA_CA_Data"};
     };
-    class CUP_CA_Plants2 {
+    class CUP_CA_Plants2: CUP_Structures_Config {
         requiredAddons[] = {"AiA_Plants_Data"};
     };
-    class CUP_CAStructures_Misc_Armory {
+    class CUP_CAStructures_Misc_Armory: CUP_Structures_Config {
         requiredAddons[] = {"AiA_Buildings_Config", "CABuildings", "AiA_Buildings2_Config", "CABuildings2"};
     };
-    class CUP_A2_EditorObjects {
+    class CUP_A2_EditorObjects: CUP_Structures_Config {
         requiredAddons[] = {"AiA_Buildings_Config", "CABuildings", "AiA_Buildings2_Config", "CABuildings2"};
     };
-    class CUP_CAStructures_Misc {
+    class CUP_CAStructures_Misc: CUP_Structures_Config {
         requiredAddons[] = {"AiA_Buildings_Config", "CABuildings", "AiA_Buildings2_Config", "CABuildings2"};
     };
-    class CUP_Buildings_Config {
+    class CUP_Buildings_Config: CUP_Structures_Config {
         requiredAddons[] = {"AiA_Buildings_Config", "CABuildings", "AiA_Buildings2_Config", "CABuildings2"};
     };
-    class CUP_CABuildings_Misc {
+    class CUP_CABuildings_Misc: CUP_Structures_Config {
         requiredAddons[] = {"AiA_Buildings_Config", "CABuildings", "AiA_Buildings2_Config", "CABuildings2"};
     };
 };
