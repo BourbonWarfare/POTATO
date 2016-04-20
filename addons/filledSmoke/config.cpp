@@ -21,7 +21,7 @@ class CfgCloudlets {
         // particleFSIndex = 12; //default 12
         // particleFSFrameCount = 8; //default 8
         sizeCoef = 2; //default 1
-        interval = 0.1; //default 0.2
+        interval = 0.125; //default 0.2
         lifeTime = 24; //default 14
         moveVelocity[] = {0,0.1,0}; //default {0,0.3,0}
         weight = 6.4; //default 1.26
@@ -52,13 +52,16 @@ class GVAR(bigSmoke) {
         type = QGVAR(SmokeShellWhiteFilled);
         position[] = {0,0,0};
         intensity = 5;
-        interval = .25;
+        interval = .333;
     };
 };
 
 class CfgAmmo {
     class GrenadeHand;
     class SmokeShell: GrenadeHand {
+        effectsSmoke = QGVAR(bigSmoke);
+    };
+    class SmokeShellArty: SmokeShell {
         effectsSmoke = QGVAR(bigSmoke);
     };
     class rhs_ammo_rdg2_white: SmokeShell {

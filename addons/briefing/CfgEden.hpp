@@ -211,6 +211,20 @@ class Cfg3DEN {
                         };
                     };
                 };
+                class ZeusBriefing {
+                    displayName = "Zeus Briefing";
+                    collapsed = 0;
+                    class Attributes {
+                        class GVAR(zeusIntent) {
+                            displayName = "Zeus Intent";
+                            tooltip = "Basic overview of what the Zeus GM should do / units they should use (OPTIONAL)";
+                            property = QGVAR(zeusIntent);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
+                    };
+                };
             };
         };
     };

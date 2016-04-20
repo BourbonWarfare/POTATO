@@ -2,9 +2,7 @@
 
 ADDON = false;
 
-PREP(handleFired);
-PREP(makeSafe);
-PREP(showTimer);
+#include "XEH_PREP.hpp"
 
 //We Start game safe at preInit
 GVAR(safeStartEnabled) = true;

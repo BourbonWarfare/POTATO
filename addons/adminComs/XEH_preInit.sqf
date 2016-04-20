@@ -2,9 +2,6 @@
 
 ADDON = false;
 
-PREP(logListBoxChanged);
-PREP(mouseCatch);
-PREP(sendMessageToAdmin);
-PREP(sendMessageToUser);
+#include "XEH_PREP.hpp"
 
 ADDON = true;

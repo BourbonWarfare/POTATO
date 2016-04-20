@@ -121,7 +121,8 @@ class CfgPatches {
 
             QGVAR(build_a_group),
             QGVAR(spawn_a_vehicle),
-            QGVAR(move_all_to_hc)
+            QGVAR(move_all_to_hc),
+            QGVAR(garrison)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
@@ -134,6 +135,7 @@ class CfgPatches {
 
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
-#include "CfgVehicles.hpp"
+#include "CfgGarrison.hpp"
 #include "CfgFactionClasses.hpp"
+#include "CfgVehicles.hpp"
 #include "Displays.hpp"

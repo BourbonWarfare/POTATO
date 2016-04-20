@@ -2,9 +2,6 @@
 
 ADDON = false;
 
-PREP(reinforcementsCreateUnits);
-PREP(setupReinforcements);
-PREP(setupReinforcementsOnServer);
-PREP(spawnReinforcements);
+#include "XEH_PREP.hpp"
 
 ADDON = true;
