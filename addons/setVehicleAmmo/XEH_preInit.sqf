@@ -2,8 +2,6 @@
 
 ADDON = false;
 
-PREP(attributeLoad);
-PREP(attributeSave);
-PREP(initVehicle);
+#include "XEH_PREP.hpp"
 
 ADDON = true;
