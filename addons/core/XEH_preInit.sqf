@@ -2,6 +2,6 @@
 
 ADDON = false;
 
-PREP(isAuthorized);
+#include "XEH_PREP.hpp"
 
 ADDON = true;
