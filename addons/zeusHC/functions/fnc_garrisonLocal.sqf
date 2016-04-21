@@ -9,6 +9,7 @@ _this spawn {
 
     {
         private _unit = _buildingGroup createUnit [_x select 0, _x select 1, [], 0, "NONE"];
+        if (isNil "_unit") exitWith { diag_log "Garrison unit nil, probably hit group limit"; };
         doStop _unit;
 
         if (isNull _building) then {
