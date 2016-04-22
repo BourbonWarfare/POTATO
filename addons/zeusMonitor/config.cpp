@@ -13,18 +13,4 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-
-class RscText;
-class RscDisplayCurator {
-    class ControlsBackground {
-        class GVAR(unitCount): RscText {
-            idc = 777551;
-            x = "safezoneX";
-            y = "safezoneY + safeZoneH - 14 * pixelH";
-            w = "128 * pixelW";
-            h = "14 * pixelH";
-            sizeEx = "14 * pixelH";
-            text = "Sample";
-        };
-    };
-};
+#include "RscDisplayCurator.hpp"
