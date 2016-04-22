@@ -8,6 +8,10 @@ _this spawn {
     private _unitsAdded = 0;
 
     {
+        if ((count allGroups) > 130) exitWith {//Don't loop to close to max group limit of 144
+            diag_log text format ["[POTATO] - Stopping Garrision because of group limit [%1]", count allGroups];
+        };
+    
         private _numberOfUnits = _occupyMinNumber + (floor random (_occupyMaxNumber - _occupyMinNumber + 1));
         private _unitsToAdd = [];
         private _index = 0;

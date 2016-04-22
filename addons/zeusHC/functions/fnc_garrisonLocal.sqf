@@ -7,9 +7,15 @@ _this spawn {
     private _building = objNull;
     private _buildingGroup = createGroup _side;
 
+    if ((isNil "_buildingGroup") || {isNull _buildingGroup}) exitWith {
+        ERROR("Group Could not be created");
+    };
+
     {
         private _unit = _buildingGroup createUnit [_x select 0, _x select 1, [], 0, "NONE"];
-        if (isNil "_unit") exitWith { diag_log "Garrison unit nil, probably hit group limit"; };
+        if (isNil "_unit") exitWith {
+            ERROR("Unit Could not be created");
+        };
         doStop _unit;
 
         if (isNull _building) then {
@@ -22,7 +28,7 @@ _this spawn {
 
         private _facingWall = if (_inside) then {
             _unit setUnitPos "Up";
-        	[_unit, getDir _unit] call FUNC(garrisonIsFacingWall)
+            [_unit, getDir _unit] call FUNC(garrisonIsFacingWall)
         } else {
             _unit setUnitPos "Middle";
             [_unit, _finalDirection] call FUNC(garrisonIsFacingWall)
