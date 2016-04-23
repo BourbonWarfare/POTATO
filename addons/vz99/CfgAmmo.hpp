@@ -38,6 +38,7 @@ class CfgAmmo {
 
         // effectFly = "ArtilleryTrails"; //Fun but not don't make any sense
 
+        fuseDistance = 50; //The minimum distance any explosive projectile has to travel, before it becomes armed and thus explodes on impact.
         hit = 100;
         indirectHit = 10;
         indirectHitRange = 9;

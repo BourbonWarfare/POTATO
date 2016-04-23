@@ -53,7 +53,7 @@ case (_fuze == "prx"): {3.5}; //M734 says "PRX = Proximity air burst between 3 a
     //Wait for it to arm (heading down)
     if (time < _armedTime) exitWith {};
 
-    _height = (getPos _projectile) select 2;
+    private _height = (getPos _projectile) select 2;
     if (_height > _detonationHeight) exitWith {};
 
     TRACE_3("",_height,_detonationHeight,diag_fps);
