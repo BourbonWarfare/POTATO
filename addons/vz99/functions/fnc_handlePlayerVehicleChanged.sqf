@@ -29,7 +29,7 @@ _mortarVeh disableNVGEquipment ((hmd _player) == "");
 
 [{
     params ["_args", "_pfID"];
-    _args params ["_player", "_mortarVeh"];
+    _args params ["_player", "_mortarVeh", "_levelCheck"];
 
     if ((!alive _player) || {!alive _mortarVeh} || {ACE_player != _player}) exitWith {
         TRACE_2("exiting PFEH, null/change",_player,_mortarVeh);
@@ -52,4 +52,11 @@ _mortarVeh disableNVGEquipment ((hmd _player) == "");
             TRACE_1("CANNOT pickup",_mortarVeh);
         };
     };
-}, 0, [_player, _mortarVeh]] call CBA_fnc_addPerFrameHandler;
+    
+    //Check leveling system
+    if (ACE_time > _levelCheck) then {
+        _args set [2, (ACE_time + 5)];
+        [_mortarVeh, false] call potato_vz99_fnc_levelToGround;
+    };
+    
+}, 0, [_player, _mortarVeh, (ACE_time + 1)]] call CBA_fnc_addPerFrameHandler;

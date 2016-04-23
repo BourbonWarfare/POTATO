@@ -17,7 +17,3 @@
 
 params ["_mortarVeh"];
 TRACE_1("params",_mortarVeh);
-
-if (!local _mortarVeh) exitWith {};
-
-[_mortarVeh] call FUNC(levelToGround);

@@ -19,16 +19,27 @@
 params ["", "_player"];
 TRACE_1("params",_player);
 
-private _posATL = _player getRelPos [1.5, 0]; //in front of player
-_posATL set [2, (getPosATL _player) select 2];
+[{
+    private _codeFinish = {
+        TRACE_1("progressBar finish",_this);
 
-private _mortarVeh = QGVAR(mortar) createVehicle _posATL;
-_mortarVeh setPosATL _posATL;
-TRACE_3("created",_mortarVeh,_posATL,_mortarVeh distance _player);
+        private _posATL = ACE_player getRelPos [0.5, 0]; //in front of player
+        _posATL set [2, (getPosATL ACE_player) select 2];
 
-_player removeWeapon QGVAR(carryWeapon);
+        private _mortarVeh = QGVAR(mortar) createVehicle _posATL;
+        _mortarVeh setPosATL _posATL;
+        TRACE_3("created",_mortarVeh,_posATL,_mortarVeh distance ACE_player);
 
-//Move in auto
-_player moveInGunner _mortarVeh;
+        ACE_player removeWeapon QGVAR(carryWeapon);
 
+        //Level and set starting turret dir to player's dir:
+        [_mortarVeh, (getDir ACE_player)] call FUNC(levelToGround);
 
+        //Move in auto
+        ACE_player moveInGunner _mortarVeh;
+    };
+
+    [2, [], _codeFinish, {TRACE_1("failed to deploy",_this);}, "Deploying..."] call ACEFUNC(common,progressBar);
+}, []] call CBA_fnc_execNextFrame; //Delay a frame for interaction menu
+
+_player playAction "SecondaryWeapon";

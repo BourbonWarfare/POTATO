@@ -146,6 +146,11 @@ class CfgVehicles {
                 animPeriod = 0.5;  //The animation period used for this controller.
                 initPhase = 0;     //Initial phase when object is created.
             };
+            class DirFix {
+                source = "user"; //The controller is defined as a user animation.
+                animPeriod = 0.5;  //The animation period used for this controller.
+                initPhase = 0;     //Initial phase when object is created.
+            };
         };
 
 
