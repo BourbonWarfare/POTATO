@@ -48,6 +48,12 @@ case (civilian):{
 
 TRACE_5("",count _sideBriefAdministration,count _sideBriefMission,count _sideBriefSituation,count _groupBrief,count _playerBrief);
 
+_sideBriefAdministration = [_sideBriefAdministration] call FUNC(convertNewLineToHTML);
+_sideBriefMission = [_sideBriefMission] call FUNC(convertNewLineToHTML);
+_sideBriefSituation = [_sideBriefSituation] call FUNC(convertNewLineToHTML);
+_groupBrief = [_groupBrief] call FUNC(convertNewLineToHTML);
+_playerBrief = [_playerBrief] call FUNC(convertNewLineToHTML);
+
 if (_sideBriefAdministration != "") then {
     _newPlayer createDiaryRecord ["diary", ["Administration",_sideBriefAdministration]];
 };

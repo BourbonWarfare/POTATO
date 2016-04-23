@@ -88,7 +88,7 @@ class Cfg3DEN {
 
     class Mission {
         class GVAR(briefings) {// Custom section class, everything inside will be opened in one window
-            displayName = "Side Briefings (<br/> for newLine)"; // Text visible in the window title as "Edit <displayName>"
+            displayName = "Side Briefings (SHIFT + Enter to add a new line)"; // Text visible in the window title as "Edit <displayName>"
             display = "Display3DENEditAttributes"; // Optional - display for attributes window. Must have the same structure and IDCs as the default Display3DENEditAttributes
             class AttributeCategories {
                 class WestBriefing {
