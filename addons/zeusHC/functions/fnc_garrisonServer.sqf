@@ -1,6 +1,15 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
+// get unit limit, look up mission override first
+GVAR(garrisonUnitLimit) = if (isNumber (missionConfigFile >> "CfgGarrison" >> "maxUnits")) then {
+    getNumber (missionConfigFile >> "CfgGarrison" >> "maxUnits")
+} else {
+    getNumber (configFile >> "CfgGarrison" >> "maxUnits")
+};
+
+diag_log text format ["[POTATO] Garrison Running With Max [%1]", GVAR(garrisonUnitLimit)];
+
 _this spawn {
     params ["_buildingPositions","_side","_units","_occupyMinNumber","_occupyMaxNumber"];
 
