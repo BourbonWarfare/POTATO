@@ -6,7 +6,7 @@ class CfgMagazines {
         picture = QUOTE(PATHTOF(ui\shell_ca.paa));
         author = "PabstMirror";
         count = 1;
-        mass = 20;
+        mass = 30;
 
         GVAR(base) = QGVAR(HE);
         displayName = "vz99 60mm HE Impact Fuze";
