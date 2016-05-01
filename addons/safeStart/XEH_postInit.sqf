@@ -1,5 +1,15 @@
 #include "script_component.hpp"
 
+[
+    {
+        ACEGVAR(common,settingsInitFinished) && {diag_tickTime > (_this select 0)}
+    }, {
+        if (GVAR(enabled)) then {
+            [] call FUNC(makeSafe);
+        };
+    }, [diag_tickTime + 1]
+] call CBA_fnc_waitUntilAndExecute;
+
 [] spawn {
     sleep 1;
 
