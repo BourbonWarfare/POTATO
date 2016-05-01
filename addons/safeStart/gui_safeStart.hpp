@@ -12,8 +12,8 @@ class RscTitles {
         class controls {
             class safeStartHint: RscStructuredText {
                 idc = 1100;
-                x = 0.4 * safezoneW + safezoneX;
-                y = 0.4 * safezoneH + safezoneY;
+                x = 0 * safezoneW + safezoneX;
+                y = 0.05 * safezoneH + safezoneY;
                 w = 0.2 * safezoneW;
                 h = 0.2 * safezoneH;
             };

@@ -24,4 +24,8 @@ class ACE_Settings {
         value = 1;
         isClientSettable = 1;
     };
+    class GVAR(enabled) {
+        typeName = "BOOL";
+        value = 0;
+    };
 };
