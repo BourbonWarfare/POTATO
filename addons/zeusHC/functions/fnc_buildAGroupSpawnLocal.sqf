@@ -1,3 +1,18 @@
+/*
+ * Author: AACO
+ * Function used create the spawned group with the given configuration
+ *
+ * Arguments:
+ * 0: location to spawn the units <ARRAY>
+ * 1: unit classnames to add <ARRAY>
+ *
+ * Examples:
+ * [position player, ["WB_Soldier"]] call potato_zeusHC_fnc_buildAGroupSpawnLocal;
+ * [[1,2,3], ["WB_Soldier"]] call potato_zeusHC_fnc_buildAGroupSpawnLocal;
+ *
+ * Public: No
+ */
+
 // NO_SIDE -1, EAST 0, WEST 1, RESISTANCE 2, CIVILIAN 3, NEUTRAL 4, ENEMY 5, FRIENDLY 6, LOGIC 7
 #include "script_component.hpp"
 TRACE_1("Params",_this);

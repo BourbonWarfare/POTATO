@@ -1,3 +1,19 @@
+/*
+ * Author: AACO
+ * Function used to change the active faction in the dialog
+ * Clears both lists, repopulates the faction unit list
+ * Should only be called from UI events
+ *
+ * Arguments:
+ * 0: index of the unit in the faction list <NUMBER>
+ *
+ * Examples:
+ * [1] call potato_zeusHC_fnc_buildAGroupDialogFactionChange; //Faction in the first index
+ * [5] call potato_zeusHC_fnc_buildAGroupDialogFactionChange; //Faction in the fifth index
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
