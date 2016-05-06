@@ -1,3 +1,19 @@
+/*
+ * Author: AACO
+ * Function called when the ARES reinforcement module is placed down
+ *
+ * Arguments:
+ * 0: placed logic object <OBJECT>
+ *
+ * Return Value:
+ * Always returns true <BOOL>
+ *
+ * Example:
+ * [gameLogic] call potato_reinforceToHC_fnc_reinforcementsCreateUnits;
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 
 params["_logic"];

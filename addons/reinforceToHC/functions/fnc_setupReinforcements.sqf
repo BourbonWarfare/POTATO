@@ -1,3 +1,20 @@
+/*
+ * Author: AACO
+ * Function called by the placed ARES reinforcement module to create the UI
+ * to gather the reinforcment configuration, and send that information to the server
+ *
+ * Arguments:
+ * 0: placed logic object <OBJECT>
+ *
+ * Return Value:
+ * True if the logic is local to execution, false otherwise <BOOL>
+ *
+ * Example:
+ * [gameLogic] call potato_reinforceToHC_fnc_setupReinforcements;
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 
 params["_logic"];
@@ -143,20 +160,23 @@ if (count (_pool select _vehiclePoolIndex) == 0) exitWith {
     true
 };
 
-//spawn on remote machine
+// send to HC
 [
-    _pool,
-    _vehiclePoolIndex,
-    _spawnPosition,
-    _side,
-    _lz,
-    _lzSize,
-    _dialogVehicleBehaviour,
-    _dialogUnitBehaviour,
-    _allRps,
-    _dialogRpAlgorithm,
-    _rpSize
-] remoteExecCall [QFUNC(setupReinforcementsOnServer), SERVER_CLIENT_ID];
+    [
+        _pool,
+        _vehiclePoolIndex,
+        _spawnPosition,
+        _side,
+        _lz,
+        _lzSize,
+        _dialogVehicleBehaviour,
+        _dialogUnitBehaviour,
+        _allRps,
+        _dialogRpAlgorithm,
+        _rpSize
+    ],
+    QFUNC(spawnReinforcements)
+] EFUNC(zeusHC,hcPassthrough);
 
 if (count _allRps > 0) then {
     [objNull, "Transport dispatched to LZ. Squad will head to RP."] call bis_fnc_showCuratorFeedbackMessage;

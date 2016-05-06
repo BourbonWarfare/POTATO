@@ -16,9 +16,12 @@ if (time > 0) then {
     [{
         (diag_tickTime > (_this select 4)) || {time > 0}
     }, {
-        (_this select [0,4]) remoteExecCall [QFUNC(createEntityLocal), ([] call FUNC(getSpawnMachineId))];
+        [
+            _this select [0,4],
+            QFUNC(createEntityLocal)
+        ] call FUNC(hcPassthroughServer);
     },
-    [_posATL, _typeOf, _attachedVehicle, _placerOwner,(diag_tickTime + 10 + random 10)]] call ACEFUNC(common,waitUntilAndExecute);
+    [_posATL, _typeOf, _attachedVehicle, _placerOwner, (diag_tickTime + 10 + random 10)]] call ACEFUNC(common,waitUntilAndExecute);
 };
 
 deleteVehicle _logic;

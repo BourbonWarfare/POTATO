@@ -1,7 +1,6 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-
 // get unit limit, look up mission override first
 if (isNil QGVAR(garrisonUnitLimit)) {
     GVAR(garrisonUnitLimit) = if (isNumber (missionConfigFile >> "CfgGarrison" >> "maxUnits")) then {
@@ -42,7 +41,11 @@ _this spawn {
         TRACE_2("",_unitsToAdd, _unitPositions);
 
         if (count _unitsToAdd > 0) then {
-            [_unitsToAdd, _unitPositions, _side] remoteExecCall [QFUNC(garrisonLocal), [] call FUNC(getSpawnMachineId)];
+            [
+                [_unitsToAdd, _unitPositions, _side],
+                QFUNC(garrisonLocal)
+            ] call FUNC(hcPassthroughServer);
+            
             _unitsAdded = _unitsAdded + (count _unitsToAdd);
         };
 

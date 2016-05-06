@@ -8,7 +8,7 @@
  * Return Value:
  * nil in case of error, empty string otherwise
  *
- * Examples:
+ * Example:
  * ["You're a zeus, congratulations"] call potato_common_fnc_sendCuratorHint
  *
  * Public: Yes

@@ -16,7 +16,11 @@ for "_index" from 0 to ((lbSize BUILD_GROUP_TO_ADD_IDC) - 1) do {
 };
 
 GVAR(lastGroupUnitArray) = _unitsToSave;
-[GVAR(buildSpawnLocation),_unitsToAdd] remoteExecCall [QFUNC(buildAGroupSpawnServer), SERVER_CLIENT_ID];
+
+[
+    [GVAR(buildSpawnLocation), _unitsToAdd],
+    QFUNC(buildAGroupSpawnLocal)
+] call FUNC(hcPassthrough);
 
 // last thing, close dialog with success
 closeDialog 1;
