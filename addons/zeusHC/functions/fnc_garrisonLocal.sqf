@@ -2,24 +2,24 @@
 TRACE_1("Params",_this);
 
 _this spawn {
-    params ["_unitsToAdd","_side"];
+    params ["_unitsToAdd","_unitPositions","_side"];
 
     private _building = objNull;
-    private _buildingGroup = createGroup _side;
+    private _buildingGroup = [_side, nil, _unitsToAdd] EFUNC(common,createGroup);
 
     if ((isNil "_buildingGroup") || {isNull _buildingGroup}) exitWith {
         ERROR("Group Could not be created");
     };
 
     {
-        private _unit = _buildingGroup createUnit [_x select 0, _x select 1, [], 0, "NONE"];
-        if (isNil "_unit") exitWith {
-            ERROR("Unit Could not be created");
-        };
+        private _unit = _x;
+        private _position = _unitPositions select _forEachIndex;
+        _unit setPos _position;
+
         doStop _unit;
 
         if (isNull _building) then {
-            _building = (nearestObjects [_x select 1, ["house"], 50]) select 0;
+            _building = (nearestObjects [_position, ["house"], 50]) select 0;
         };
 
         private _inside = [_unit, 0, 0, 25] call FUNC(garrisonIsFacingWall);
@@ -46,6 +46,5 @@ _this spawn {
         };
 
         _unit doWatch ([_unit, 20, _finalDirection] call BIS_fnc_relPos);
-        nil
-    } count _unitsToAdd;
+    } forEach (units _buildingGroup);
 };

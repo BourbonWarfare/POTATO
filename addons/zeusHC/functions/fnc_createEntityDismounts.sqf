@@ -4,8 +4,8 @@
  */
 #include "script_component.hpp"
 
-params ["_attachedVehicle", "_newGroup", "_createUnits", "_placerOwner"];
-TRACE_4("params",_attachedVehicle, _newGroup, _createUnits,_placerOwner);
+params ["_attachedVehicle", "_side", "_createUnits", "_placerOwner"];
+TRACE_4("params",_attachedVehicle, _side, _createUnits,_placerOwner);
 
 
 //Exit if bad conditions and send hint back to orginal module placer:
@@ -21,7 +21,11 @@ if ((!(_attachedVehicle isKindOf "Air")) && {(vectorMagnitude velocity _attached
     diag_log text format ["[POTATO] - Ground veh too fast"];
     ["Vehicle moving too fast"] remoteExecCall [QACEFUNC(common,displayTextStructured), _placerOwner];
 };
+if (![_side, count _createUnits] call EFUNC(common,canCreateGroup)) exitWith {
+    ["Cannot create a new group at this time"] remoteExecCall [QACEFUNC(common,displayTextStructured), _placerOwner];
+};
 
+private _newGroup = createGroup _side;
 
 private _cargoSelection = getText (configFile >> "CfgVehicles" >> (typeOf _attachedVehicle) >> "memoryPointsGetInCargo");
 if (_cargoSelection == "") then {

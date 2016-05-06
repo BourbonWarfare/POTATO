@@ -4,9 +4,7 @@ TRACE_1("Params",_this);
 
 params ["_location","_vehicleToAdd","_side"];
 
-private _group = createGroup _side;
 private _simulation = getText(configFile >> "CfgVehicles" >> _vehicleToAdd >> "simulation");
-
 private _vehicle = switch (tolower _simulation) do {
     case "airplanex";
     case "helicopterrtd";
@@ -16,15 +14,23 @@ private _vehicle = switch (tolower _simulation) do {
         createVehicle [_vehicleToAdd, _location, [], 0, "FLY"]
     };
     default {
-        _vehicleToAdd createvehicle _location
+        _vehicleToAdd createVehicle _location
     };
 };
 
 //Set a good velocity in the correct direction.
 if (_simulation == "airplanex") then { _vehicle setVelocity [100, 100, 0]; };
 
-//Spawn the crew and add the vehicle to the group.
-createVehicleCrew _vehicle;
-(crew _vehicle) joinSilent _group;
-_group addVehicle _vehicle;
-_group selectLeader (commander _vehicle);
+if ([_side, count (fullCrew [_vehicle, "", true])] call EFUNC(common,canCreateGroup)) then {
+    private _group = createGroup _side;
+
+    //Spawn the crew and add the vehicle to the group.
+    createVehicleCrew _vehicle;
+    (crew _vehicle) joinSilent _group;
+    _group addVehicle _vehicle;
+    _group selectLeader (commander _vehicle);
+    _group
+} else {
+    deleteVehicle _vehicle;
+    grpNull
+};

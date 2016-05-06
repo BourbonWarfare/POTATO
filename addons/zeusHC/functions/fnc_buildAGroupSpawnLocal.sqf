@@ -12,8 +12,5 @@ private _leaderSide = getNumber (configFile >> "CfgVehicles" >> _leaderClass >> 
 if (_leaderSide < 0 || _leaderSide > 3) exitWith { diag_log QUOTE(Leader passed to FUNC(buildAGroupSpawn) is not a 'playable' side) };
 
 private _side = switch (_leaderSide) do { case 0: {east}; case 1: {west}; case 2: {resistance}; case 3: {civilian}; };
-private _group = createGroup _side;
-{
-    (_x select 0) createUnit [_location, _group];
-    nil
-} count _unitsToAdd;
+
+[_side, _location, _unitsToAdd, "FORM"] call EFUNC(common,createGroup);

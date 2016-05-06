@@ -15,8 +15,10 @@ params [
 
 TRACE_1("params",_this);
 
-private _vehicleType = (_pool select _vehiclePoolIndex) call BIS_fnc_selectRandom;
-private _vehicleGroup = ([_spawnPosition, 0, _vehicleType, _side] call BIS_fnc_spawnVehicle) select 2;
+private _vehicleType = _pool selectRandom _vehiclePoolIndex;
+private _vehicleGroup = [[_spawnPosition, _vehicleType, _side] EFUNC(zeusHC,spawnAVicSpawnLocal);
+
+if (isNull _vehicleGroup) exitWith {};
 
 private _vehicleDummyWp = _vehicleGroup addWaypoint [position (leader _vehicleGroup), 0];
 private _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
@@ -55,7 +57,7 @@ if ((_vehicle emptyPositions "Cargo") <= 3) then {
 };
 
 while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
-    private _squadMembers = (_pool select INFANTRY_UNIT_POOL_INDEX) call BIS_fnc_selectRandom;
+    private _squadMembers = _pool selectRandom INFANTRY_UNIT_POOL_INDEX;
     private _freeSpace = (vehicle (leader _vehicleGroup)) emptyPositions "Cargo";
     if (_freeSpace < count _squadMembers) then {
         // Trim the squad size so they will fit.
@@ -63,7 +65,8 @@ while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
     };
 
     // Spawn the squad members.
-    private _infantryGroup = [_spawnPosition, _side, _squadMembers] call BIS_fnc_spawnGroup;
+    private _infantryGroup = [_side,_spawnPosition,_squadMembers] call EFUNC(common,createGroup);
+    if (isNull _infantryGroup) exitWith {};
 
     // Set the default behaviour of the squad
     switch (_dialogUnitBehaviour) do {
@@ -86,7 +89,7 @@ while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
         // Choose the RP based on the algorithm the user selected
         private _rp = switch (_dialogRpAlgorithm) do {
             case 0: { // Random
-                _allRps call BIS_fnc_selectRandom
+                _allRps selectRandom
             };
             case 1: { // Nearest
                 [position _lz, _allRps] call Ares_fnc_GetNearest
@@ -95,7 +98,7 @@ while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
                 [position _lz, _allRps] call Ares_fnc_GetFarthest
             };
             case 3: { // Least Used
-                private _leastUsed = _allRps call BIS_fnc_selectRandom; // Choose randomly to begin with.
+                private _leastUsed = _allRps selectRandom; // Choose randomly to begin with.
                 {
                     if (_x getVariable ["Ares_Rp_Count", 0] < _rp getVariable ["Ares_Rp_Count", 0]) then {
                         _leastUsed = _x;

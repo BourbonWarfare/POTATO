@@ -99,7 +99,7 @@ if (_dialogVehicleClass == UNARMED_HELO_UNIT_POOL_INDEX || _dialogVehicleClass =
 // Choose the LZ based on what the user indicated
 private _lz = switch (_dialogLzAlgorithm) do {
     case 0: { // Random
-        _allLzs call BIS_fnc_selectRandom
+        _allLzs selectRandom
     };
     case 1: { // Nearest
         [_spawnPosition, _allLzs] call Ares_fnc_GetNearest
@@ -108,7 +108,7 @@ private _lz = switch (_dialogLzAlgorithm) do {
         [_spawnPosition, _allLzs] call Ares_fnc_GetFarthest
     };
     case 3: { // Least used
-        private _leastUsed = _allLzs call BIS_fnc_selectRandom; // Choose randomly to start.
+        private _leastUsed = _allLzs selectRandom; // Choose randomly to start.
         {
             if (_x getVariable ["Ares_Lz_Count", 0] < _lz getVariable ["Ares_Lz_Count", 0]) then {
                 _leastUsed = _x;
