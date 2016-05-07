@@ -19,7 +19,7 @@ if (time > 0) then {
         [
             _this select [0,4],
             QFUNC(createEntityLocal)
-        ] call FUNC(hcPassthroughServer);
+        ] call FUNC(hcPassthrough);
     },
     [_posATL, _typeOf, _attachedVehicle, _placerOwner, (diag_tickTime + 10 + random 10)]] call ACEFUNC(common,waitUntilAndExecute);
 };

@@ -6,7 +6,6 @@ PREP(createEntityDismounts);
 
 PREP(hcPassthrough);
 PREP(getSpawnMachineId);
-PREP(hcPassthroughServer);
 
 PREP(buildACache);
 PREP(buildAGroupZeus);

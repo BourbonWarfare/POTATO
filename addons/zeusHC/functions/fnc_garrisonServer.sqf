@@ -44,8 +44,8 @@ _this spawn {
             [
                 [_unitsToAdd, _unitPositions, _side],
                 QFUNC(garrisonLocal)
-            ] call FUNC(hcPassthroughServer);
-            
+            ] call FUNC(hcPassthrough);
+
             _unitsAdded = _unitsAdded + (count _unitsToAdd);
         };
 
