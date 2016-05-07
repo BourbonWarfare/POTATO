@@ -40,4 +40,8 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 0;
     };
+    class ace_overheating_enabled {
+        typeName = "BOOL";
+        value = 0;
+    };
 };
