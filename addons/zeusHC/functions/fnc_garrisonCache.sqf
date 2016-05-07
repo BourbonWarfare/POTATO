@@ -19,12 +19,6 @@ private _addToCache = {
     } count _configs;
 };
 
-// get unit limit, look up mission override first
-GVAR(garrisonUnitLimit) = if (isNumber (missionConfigFile >> "CfgGarrison" >> "maxUnits")) then {
-    getNumber (missionConfigFile >> "CfgGarrison" >> "maxUnits")
-} else {
-    getNumber (configFile >> "CfgGarrison" >> "maxUnits")
-};
 
 [missionConfigFile] call _addToCache; // look through mission config for setup
 [configFile] call _addToCache; // look through the default config for any factions not defined

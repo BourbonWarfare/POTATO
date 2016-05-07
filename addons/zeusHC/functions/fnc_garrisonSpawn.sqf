@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
@@ -23,7 +24,10 @@ private _buildingPositions = [];
     nil
 } count (nearestObjects [GVAR(garrisonLocation), ["house"], _occupyRadius]);
 
+TRACE_3("",GVAR(garrisonLocation),_occupyChance,count _buildingPositions);
+
 if (count _buildingPositions > 0) then {
+    diag_log text format ["[POTATO-zeusHC] Sending %1 buildingPos to server", (count _buildingPositions)];
     [_buildingPositions, _side, _units, _occupyMinNumber, _occupyMaxNumber] remoteExecCall [QFUNC(garrisonServer), SERVER_CLIENT_ID];
 } else {
     [objNull, "Did not find any buildings to garrison (is your occupy chance to low, or min occupy units to high?)"] call BIS_fnc_showCuratorFeedbackMessage
