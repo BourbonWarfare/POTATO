@@ -17,12 +17,9 @@
  */
 
 #include "script_component.hpp"
-params ["_message","_curators"];
-TRACE_2("Curator message",_message,_curators);
 
-if (isNil "_curators" || _curators isEqualTo []) then {
-    _curators = allCurators;
-};
+params ["_message", ["_curators", allCurators]];
+TRACE_2("Curator message",_message,_curators);
 
 diag_log text format ["[POTATO] - %1, sent to: %2", _message, _curators];
 [_message] remoteExecCall [QACEFUNC(common,displayTextStructured), _curators]

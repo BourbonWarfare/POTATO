@@ -2,6 +2,7 @@
  * Author: PabstMirror
  * Creates a crewed vehicle, group, or calls the create dismounts function
  */
+
 #include "script_component.hpp"
 
 params ["_posATL", "_typeOf", ["_attachedVehicle", objNull, [objnull]], "_placerOwner"];
@@ -44,7 +45,7 @@ if (_createVic != "") then {
     _newVehicle setVariable ["F_Gear", "Empty", true]; //Clear gear on these [BWMF]
 
     private _crew = fullCrew [_newVehicle, "", true];
-    if ([_side, count (_crew)] call FUNC(canCreateGroup)) then {
+    if ([_side, [_newVehicle] call FUNC(getCrewCount)] call FUNC(canCreateGroup)) then {
         private _newGroup = createGroup _side;
 
         //custom `createVehicleCrew`

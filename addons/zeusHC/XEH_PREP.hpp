@@ -5,6 +5,7 @@ PREP(createEntityLocal);
 PREP(createEntityDismounts);
 
 PREP(createGroup);
+PREP(getCrewCount);
 PREP(hcPassthrough);
 PREP(canCreateGroup);
 PREP(sendCuratorHint);

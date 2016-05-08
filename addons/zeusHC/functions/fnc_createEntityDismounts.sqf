@@ -2,6 +2,7 @@
  * Author: PabstMirror
  * Creates a dismount squad arround a vehicle and adds parachutes for units exiting aircraft
  */
+
 #include "script_component.hpp"
 
 params ["_attachedVehicle", "_side", "_createUnits", "_placerOwner"];
@@ -18,7 +19,7 @@ if ((_attachedVehicle isKindOf "Air") && {((getPosATL _attachedVehicle) select 2
 if ((!(_attachedVehicle isKindOf "Air")) && {(vectorMagnitude velocity _attachedVehicle) > 5}) exitWith {
     ["Vehicle moving too fast", _placerOwner] call FUNC(sendCuratorHint);
 };
-if (![_side, count _createUnits] call FUNC(canCreateGroup)) exitWith {
+if !([_side, count _createUnits] call FUNC(canCreateGroup)) exitWith {
     ["Cannot create a new group at this time", _placerOwner] call FUNC(sendCuratorHint);
 };
 

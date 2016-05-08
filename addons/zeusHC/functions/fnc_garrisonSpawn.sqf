@@ -22,7 +22,6 @@
  *
  * Public: Yes
  */
-
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("Params",_this);
@@ -85,7 +84,7 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", GVAR(garrisonUn
         private _unitPositions  = [];
         private _index = 0;
         while {_index < _numberOfUnits && _index < (count _x)} do {
-            if ((_unitsAdded + _index) > GVAR(garrisonUnitLimit)) exitWith { TRACE_1("Unit limit reached, exiting while loop",GVAR(garrisonUnitLimit)); };
+            if ((_unitsAdded + _index) >= GVAR(garrisonUnitLimit)) exitWith { TRACE_1("Unit limit reached, exiting while loop",GVAR(garrisonUnitLimit)); };
             private _position = selectRandom _x;
             _x = _x - [_position];
 

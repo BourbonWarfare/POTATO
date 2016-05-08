@@ -43,4 +43,5 @@ private _hcCounts = [];
 (_hcCounts call CBA_fnc_findMin) params ["", "_bestHcIndex"];
 _returnClientId = _hcIDs select _bestHcIndex;
 
+TRACE_1("Client ID",_returnClientId);
 _returnClientId

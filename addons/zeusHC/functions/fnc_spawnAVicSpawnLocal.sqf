@@ -40,7 +40,7 @@ private _vehicle = switch (tolower _simulation) do {
 //Set a good velocity in the correct direction.
 if (_simulation == "airplanex") then { _vehicle setVelocity [100, 100, 0]; };
 
-if ([_side, count (fullCrew [_vehicle, "", true])] call FUNC(canCreateGroup)) then {
+if ([_side, [_vehicle] call FUNC(getCrewCount)] call FUNC(canCreateGroup)) then {
     private _group = createGroup _side;
 
     //Spawn the crew and add the vehicle to the group.

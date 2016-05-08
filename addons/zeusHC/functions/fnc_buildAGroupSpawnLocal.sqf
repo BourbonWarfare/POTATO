@@ -22,7 +22,7 @@ params ["_location","_unitsToAdd"];
 if (count _unitsToAdd < 1) exitWith { diag_log QUOTE(No units passsed to FUNC(buildAGroupSpawn)) };
 
 // get leader to determine side
-private _leaderClass = (_unitsToAdd select 0) select 0;
+private _leaderClass = _unitsToAdd select 0;
 private _leaderSide = getNumber (configFile >> "CfgVehicles" >> _leaderClass >> "side");
 if (_leaderSide < 0 || _leaderSide > 3) exitWith { diag_log QUOTE(Leader passed to FUNC(buildAGroupSpawn) is not a 'playable' side) };
 

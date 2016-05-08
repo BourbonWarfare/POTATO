@@ -21,7 +21,7 @@
 #include "script_component.hpp"
 
 TRACE_1("params",_this);
-params ["_remoteParameters", "_functionToCall", ["_exitIfNotServer", false, false]];
+params ["_remoteParameters", "_functionToCall", ["_exitIfNotServer", false, [false]]];
 
 if (isServer) exitWith {
     _remoteParameters remoteExecCall [_functionToCall, [] call FUNC(getSpawnMachineId)]

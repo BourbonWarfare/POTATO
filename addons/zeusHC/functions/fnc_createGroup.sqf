@@ -19,17 +19,17 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("params", _this);
+TRACE_1("params",_this);
 
 params [
-    ["_side", civilian, civilian],
-    ["_position", [0,0,0], [], 3],
-    ["_classNames", [], []],
-    ["_special", "NONE", ""],
-    ["_code", "", ""]
+    ["_side", civilian, [civilian]],
+    ["_position", [0,0,0], [[]], 3],
+    ["_classNames", [], [[]]],
+    ["_special", "NONE", [""]],
+    ["_code", "", [""]]
 ];
 
-if (![_side, count _classNames] call FUNC(canCreateGroup)) exitWith { grpNull };
+if !([_side, count _classNames] call FUNC(canCreateGroup)) exitWith { grpNull };
 
 private _unitInitFunction = compile _code;
 private _newGroup = createGroup _side;
