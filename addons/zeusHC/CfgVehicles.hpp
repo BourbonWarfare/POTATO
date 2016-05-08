@@ -504,7 +504,7 @@ class CfgVehicles {
     };
 
     //------------ Custom group/vehicle modules ----------
-    class GVAR(build_a_group): GVAR(base_custom) {
+    class GVAR(build_a_group): GVAR(base_module) {
         isGlobal = 1;
         category = QGVAR(custom);
         scopeCurator = 2;
