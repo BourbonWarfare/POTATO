@@ -125,7 +125,7 @@ private _lz = switch (_dialogLzAlgorithm) do {
         [_spawnPosition, _allLzs] call Ares_fnc_GetFarthest
     };
     case 3: { // Least used
-        private _leastUsed = _allLzs selectRandom; // Choose randomly to start.
+        private _leastUsed = selectRandom _allLzs; // Choose randomly to start.
         {
             if (_x getVariable ["Ares_Lz_Count", 0] < _lz getVariable ["Ares_Lz_Count", 0]) then {
                 _leastUsed = _x;

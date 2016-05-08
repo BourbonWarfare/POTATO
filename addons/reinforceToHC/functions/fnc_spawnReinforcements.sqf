@@ -98,7 +98,7 @@ if (count _allRps > 0) then {
     // Choose the RP based on the algorithm the user selected
     _rp = switch (_dialogRpAlgorithm) do {
         case 0: { // Random
-            _allRps selectRandom
+            selectRandom _allRps
         };
         case 1: { // Nearest
             [position _lz, _allRps] call Ares_fnc_GetNearest
@@ -107,7 +107,7 @@ if (count _allRps > 0) then {
             [position _lz, _allRps] call Ares_fnc_GetFarthest
         };
         case 3: { // Least Used
-            private _leastUsed = _allRps selectRandom; // Choose randomly to begin with.
+            private _leastUsed = selectRandom _allRps; // Choose randomly to begin with.
             {
                 if (_x getVariable ["Ares_Rp_Count", 0] < _rp getVariable ["Ares_Rp_Count", 0]) then {
                     _leastUsed = _x;
@@ -127,7 +127,7 @@ if (count _allRps > 0) then {
 };
 
 while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
-    private _squadMembers = _pool selectRandom INFANTRY_UNIT_POOL_INDEX;
+    private _squadMembers = selectRandom (_pool select INFANTRY_UNIT_POOL_INDEX);
     private _freeSpace = (vehicle (leader _vehicleGroup)) emptyPositions "Cargo";
     if (_freeSpace < count _squadMembers) then {
         // Trim the squad size so they will fit.
