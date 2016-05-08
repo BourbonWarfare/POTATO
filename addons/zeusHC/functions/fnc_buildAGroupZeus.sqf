@@ -19,6 +19,5 @@ params ["_logic"];
 if (local _logic) then {
     GVAR(buildSpawnLocation) = getPosATL _logic;
     createDialog QGVAR(build_a_group_dialog);
+    deleteVehicle _logic;
 };
-
-deleteVehicle _logic;

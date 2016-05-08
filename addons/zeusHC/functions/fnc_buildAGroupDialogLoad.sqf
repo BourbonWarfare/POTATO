@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * Function used populate the UI
+ * Function used populate the UI, must be spawned
  * Should only be called from UI events
  *
  * Public: No

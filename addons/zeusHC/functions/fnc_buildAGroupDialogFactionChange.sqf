@@ -5,7 +5,7 @@
  * Should only be called from UI events
  *
  * Arguments:
- * 0: index of the unit in the faction list <NUMBER>
+ * 0: index of the faction list <NUMBER>
  *
  * Examples:
  * [1] call potato_zeusHC_fnc_buildAGroupDialogFactionChange; //Faction in the first index

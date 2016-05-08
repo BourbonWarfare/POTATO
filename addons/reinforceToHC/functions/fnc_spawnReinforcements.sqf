@@ -135,7 +135,7 @@ while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
     };
 
     // Spawn the squad members.
-    private _infantryGroup = [_side,_spawnPosition,_squadMembers] call EFUNC(common,createGroup);
+    private _infantryGroup = [_side,_spawnPosition,_squadMembers] call EFUNC(zeusHC,createGroup);
     if (isNull _infantryGroup) exitWith {};
 
     // Set the default behaviour of the squad

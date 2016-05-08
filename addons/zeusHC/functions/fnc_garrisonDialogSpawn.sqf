@@ -1,3 +1,12 @@
+/*
+ * Author: AACO
+ * Function used to get all the setting from the UI
+ * Saves the last run data
+ * Should only be called from UI events
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 

@@ -4,7 +4,10 @@ PREP(createEntityZeus);
 PREP(createEntityLocal);
 PREP(createEntityDismounts);
 
+PREP(createGroup);
 PREP(hcPassthrough);
+PREP(canCreateGroup);
+PREP(sendCuratorHint);
 PREP(getSpawnMachineId);
 
 PREP(buildACache);
@@ -31,7 +34,6 @@ PREP(garrisonCache);
 PREP(garrisonLocal);
 PREP(garrisonSpawn);
 PREP(garrisonModule);
-PREP(garrisonServer);
 PREP(garrisonDialogLoad);
 PREP(garrisonDialogSpawn);
 PREP(garrisonIsFacingWall);

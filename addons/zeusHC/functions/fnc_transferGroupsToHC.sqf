@@ -1,3 +1,18 @@
+/*
+ * Author: AACO
+ * Function to transfer all AI to HC in a load balanced fasion.
+ * Must be called on the server
+ *
+ * Arguments:
+ * 0: Force all units onto the headless clients? If false, will only move groups with the potato_zeusHC_addGroupToHC flag set <BOOL>
+ *
+ * Examples:
+ * [true] call potato_zeusHC_fnc_transferGroupsToHC; //move them all
+ * [] call potato_zeusHC_fnc_transferGroupsToHC; //only move flagged
+ *
+ * Public: Yes
+ */
+
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 

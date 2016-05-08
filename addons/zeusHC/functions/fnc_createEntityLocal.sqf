@@ -1,3 +1,7 @@
+/*
+ * Author: PabstMirror
+ * Creates a crewed vehicle, group, or calls the create dismounts function
+ */
 #include "script_component.hpp"
 
 params ["_posATL", "_typeOf", ["_attachedVehicle", objNull, [objnull]], "_placerOwner"];
@@ -40,7 +44,7 @@ if (_createVic != "") then {
     _newVehicle setVariable ["F_Gear", "Empty", true]; //Clear gear on these [BWMF]
 
     private _crew = fullCrew [_newVehicle, "", true];
-    if ([_side, count (_crew)] call EFUNC(common,canCreateGroup)) then {
+    if ([_side, count (_crew)] call FUNC(canCreateGroup)) then {
         private _newGroup = createGroup _side;
 
         //custom `createVehicleCrew`
@@ -64,7 +68,7 @@ if (_createVic != "") then {
     };
 } else {
     if (!_curatorCanAttach) then {
-        [_side, _posATL, _createUnits, "FORM"] call EFUNC(common,createGroup);
+        [_side, _posATL, _createUnits, "FORM"] call FUNC(createGroup);
     } else {
         //Paradrop / dismounts:
         [_attachedVehicle, _side, _createUnits, _placerOwner] call FUNC(createEntityDismounts);
