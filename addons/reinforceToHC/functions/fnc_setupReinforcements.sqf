@@ -176,7 +176,7 @@ if (count (_pool select _vehiclePoolIndex) == 0) exitWith {
         _rpSize
     ],
     QFUNC(spawnReinforcements)
-] EFUNC(zeusHC,hcPassthrough);
+] call EFUNC(zeusHC,hcPassthrough);
 
 if (count _allRps > 0) then {
     [objNull, "Transport dispatched to LZ. Squad will head to RP."] call bis_fnc_showCuratorFeedbackMessage;
