@@ -52,7 +52,7 @@ params [
 TRACE_1("params",_this);
 
 private _vehicleType = selectRandom (_pool select _vehiclePoolIndex);
-private _vehicleGroup = [[_spawnPosition, _vehicleType, _side] call EFUNC(zeusHC,spawnAVicSpawnLocal);
+private _vehicleGroup = [_spawnPosition, _vehicleType, _side] call EFUNC(zeusHC,spawnAVicSpawnLocal);
 
 if (isNull _vehicleGroup) exitWith {};
 
