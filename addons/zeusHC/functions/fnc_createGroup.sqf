@@ -22,7 +22,7 @@
 TRACE_1("params", _this);
 
 params [
-    ["_side" civilian, civilian],
+    ["_side", civilian, civilian],
     ["_position", [0,0,0], [], 3],
     ["_classNames", [], []],
     ["_special", "NONE", ""],

@@ -20,7 +20,7 @@
 TRACE_1("params", _this);
 
 params [
-    ["_side" civilian, civilian],
+    ["_side", civilian, civilian],
     ["_numberOfUnits", 0, 0]
 ];
 

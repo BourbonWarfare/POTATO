@@ -116,7 +116,7 @@ if (_dialogVehicleClass == UNARMED_HELO_UNIT_POOL_INDEX || _dialogVehicleClass =
 // Choose the LZ based on what the user indicated
 private _lz = switch (_dialogLzAlgorithm) do {
     case 0: { // Random
-        _allLzs selectRandom
+        selectRandom _allLzs
     };
     case 1: { // Nearest
         [_spawnPosition, _allLzs] call Ares_fnc_GetNearest

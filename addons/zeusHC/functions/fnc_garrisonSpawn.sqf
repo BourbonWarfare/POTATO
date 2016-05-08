@@ -56,7 +56,7 @@ if (count _buildingPositions < 1) exitWith {
 };
 
 // get unit limit, look up mission override first
-if (isNil QGVAR(garrisonUnitLimit)) {
+if (isNil QGVAR(garrisonUnitLimit)) then {
     GVAR(garrisonUnitLimit) = if (isNumber (missionConfigFile >> "CfgGarrison" >> "maxUnits")) then {
         getNumber (missionConfigFile >> "CfgGarrison" >> "maxUnits")
     } else {

@@ -21,7 +21,7 @@ for "_index" from 0 to ((lbSize BUILD_GROUP_TO_ADD_IDC) - 1) do {
                            lbText [BUILD_GROUP_TO_ADD_IDC, _index],
                            lbPicture [BUILD_GROUP_TO_ADD_IDC, _index]];
 
-    _unitsToAdd pushBack lbData [BUILD_GROUP_TO_ADD_IDC, _index;
+    _unitsToAdd pushBack lbData [BUILD_GROUP_TO_ADD_IDC, _index];
 };
 
 GVAR(lastGroupUnitArray) = _unitsToSave;
