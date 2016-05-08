@@ -34,7 +34,7 @@ if (_unitCount < 1) exitWith {
 // ensure we're within our group limit
 private _currentSideGroupCount = { side _x == _side } count allGroups;
 if (_currentSideGroupCount >= GVAR(maxGroupCountPerSide)) exitWith {
-    "Cannot create group, at side group limit"] call FUNC(sendCuratorHint);
+    ["Cannot create group, at side group limit"] call FUNC(sendCuratorHint);
     false
 };
 
