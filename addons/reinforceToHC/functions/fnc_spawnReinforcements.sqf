@@ -1,3 +1,39 @@
+/*
+ * Author: AACO
+ * Function called on the HC/Server to spawn reinforcements with the given
+ * configuration
+ *
+ * Arguments:
+ * 0: vehicle pool <ARRAY>
+ * 1: vehicle pool index <NUMBER>
+ * 2: position to spawn reinforcement <ARRAY>
+ * 3: side of the reinforcements <SIDE>
+ * 4: placed LZ logic object <OBJECT>
+ * 5: LZ size <NUMBER>
+ * 6: vehicle behavior (index) <NUMBER>
+ * 7: unit behavior (index) <NUMBER>
+ * 8: All RPs <ARRAY>
+ * 9: Selected RP type (index) <NUMBER>
+ * 10: RP size <NUMBER>
+ *
+ * Example:
+ * [
+ *         _pool,
+ *         _vehiclePoolIndex,
+ *         _spawnPosition,
+ *         _side,
+ *         _lz,
+ *         _lzSize,
+ *         _dialogVehicleBehaviour,
+ *         _dialogUnitBehaviour,
+ *         _allRps,
+ *         _dialogRpAlgorithm,
+ *         _rpSize
+ * ] call potato_reinforceToHC_fnc_spawnReinforcements;
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 params [
     "_pool",
@@ -15,8 +51,10 @@ params [
 
 TRACE_1("params",_this);
 
-private _vehicleType = (_pool select _vehiclePoolIndex) call BIS_fnc_selectRandom;
-private _vehicleGroup = ([_spawnPosition, 0, _vehicleType, _side] call BIS_fnc_spawnVehicle) select 2;
+private _vehicleType = selectRandom (_pool select _vehiclePoolIndex);
+private _vehicleGroup = [_spawnPosition, _vehicleType, _side] call EFUNC(zeusHC,spawnAVicSpawnLocal);
+
+if (isNull _vehicleGroup) exitWith {};
 
 private _vehicleDummyWp = _vehicleGroup addWaypoint [position (leader _vehicleGroup), 0];
 private _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
@@ -54,8 +92,42 @@ if ((_vehicle emptyPositions "Cargo") <= 3) then {
     _maxCargoSpacesToLeaveEmpty = 0;
 };
 
+private _rp = nil;
+
+if (count _allRps > 0) then {
+    // Choose the RP based on the algorithm the user selected
+    _rp = switch (_dialogRpAlgorithm) do {
+        case 0: { // Random
+            selectRandom _allRps
+        };
+        case 1: { // Nearest
+            [position _lz, _allRps] call Ares_fnc_GetNearest
+        };
+        case 2: { // Furthest
+            [position _lz, _allRps] call Ares_fnc_GetFarthest
+        };
+        case 3: { // Least Used
+            private _leastUsed = selectRandom _allRps; // Choose randomly to begin with.
+            {
+                if (_x getVariable ["Ares_Rp_Count", 0] < _rp getVariable ["Ares_Rp_Count", 0]) then {
+                    _leastUsed = _x;
+                };
+                nil
+            } count _allRps;
+            _leastUsed
+        };
+        default {
+            _allRps select (_dialogRpAlgorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX)
+        };
+    };
+
+    // Now that we've chosen an RP, increment the count for it.
+    _rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
+    private _infantryRpWp = _infantryGroup addWaypoint [position _rp, _rpSize];
+};
+
 while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
-    private _squadMembers = (_pool select INFANTRY_UNIT_POOL_INDEX) call BIS_fnc_selectRandom;
+    private _squadMembers = selectRandom (_pool select INFANTRY_UNIT_POOL_INDEX);
     private _freeSpace = (vehicle (leader _vehicleGroup)) emptyPositions "Cargo";
     if (_freeSpace < count _squadMembers) then {
         // Trim the squad size so they will fit.
@@ -63,7 +135,8 @@ while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
     };
 
     // Spawn the squad members.
-    private _infantryGroup = [_spawnPosition, _side, _squadMembers] call BIS_fnc_spawnGroup;
+    private _infantryGroup = [_side,_spawnPosition,_squadMembers] call EFUNC(zeusHC,createGroup);
+    if (isNull _infantryGroup) exitWith {};
 
     // Set the default behaviour of the squad
     switch (_dialogUnitBehaviour) do {
@@ -82,38 +155,10 @@ while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
     };
 
     // Choose a RP for the squad to head to once unloaded and set their waypoint.
-    if (count _allRps > 0) then {
-        // Choose the RP based on the algorithm the user selected
-        private _rp = switch (_dialogRpAlgorithm) do {
-            case 0: { // Random
-                _allRps call BIS_fnc_selectRandom
-            };
-            case 1: { // Nearest
-                [position _lz, _allRps] call Ares_fnc_GetNearest
-            };
-            case 2: { // Furthest
-                [position _lz, _allRps] call Ares_fnc_GetFarthest
-            };
-            case 3: { // Least Used
-                private _leastUsed = _allRps call BIS_fnc_selectRandom; // Choose randomly to begin with.
-                {
-                    if (_x getVariable ["Ares_Rp_Count", 0] < _rp getVariable ["Ares_Rp_Count", 0]) then {
-                        _leastUsed = _x;
-                    };
-                    nil
-                } count _allRps;
-                _leastUsed
-            };
-            default {
-                _allRps select (_dialogRpAlgorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX)
-            };
-        };
-
-        // Now that we've chosen an RP, increment the count for it.
-        _rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
-        private _infantryRpWp = _infantryGroup addWaypoint [position _rp, _rpSize];
-    } else {
+    if (isNil "_rp") then {
         private _infantryMoveOnWp = _infantryGroup addWaypoint [position _lz, _rpSize];
+    } else {
+        private _infantryRpWp = _infantryGroup addWaypoint [position _rp, _rpSize];
     };
 
     // Load the units into the vehicle.

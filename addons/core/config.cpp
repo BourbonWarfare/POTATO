@@ -14,6 +14,7 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgFactionClasses.hpp"
+#include "ACE_Settings.hpp"
 
 class CfgMods {
     class PREFIX {
@@ -25,16 +26,5 @@ class CfgMods {
         actionName = "Website";
         action = "https://github.com/PabstMirror";
         description = "";
-    };
-};
-
-class ACE_Settings {
-    class GVAR(showNotifcations) {
-        category = QUOTE(PREFIX);
-        displayName = "Potato: Show SystemChat Notifcations";
-        description = "False should disable most Notifcations, can use to make clean recordings.";
-        typeName = "BOOL";
-        value = 1;
-        isClientSettable = 1;
     };
 };

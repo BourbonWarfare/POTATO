@@ -2,26 +2,28 @@
  * Author: PabstMirror
  * Creates a dismount squad arround a vehicle and adds parachutes for units exiting aircraft
  */
+
 #include "script_component.hpp"
 
-params ["_attachedVehicle", "_newGroup", "_createUnits", "_placerOwner"];
-TRACE_4("params",_attachedVehicle, _newGroup, _createUnits,_placerOwner);
+params ["_attachedVehicle", "_side", "_createUnits", "_placerOwner"];
+TRACE_4("params",_attachedVehicle, _side, _createUnits,_placerOwner);
 
 
 //Exit if bad conditions and send hint back to orginal module placer:
 if (isNull _attachedVehicle) exitWith {
-    diag_log text format ["[POTATO] - Attachable not attached"];
-    ["Module needs to be attached on a vehicle"] remoteExecCall [QACEFUNC(common,displayTextStructured), _placerOwner];
+    ["Module needs to be attached on a vehicle", _placerOwner] call FUNC(sendCuratorHint);
 };
 if ((_attachedVehicle isKindOf "Air") && {((getPosATL _attachedVehicle) select 2) < 75}) exitWith {
-    diag_log text format ["[POTATO] - Air veh too low"];
-    ["Aircraft is too low"] remoteExecCall [QACEFUNC(common,displayTextStructured), _placerOwner];
+    ["Aircraft is too low", _placerOwner] call FUNC(sendCuratorHint);
 };
 if ((!(_attachedVehicle isKindOf "Air")) && {(vectorMagnitude velocity _attachedVehicle) > 5}) exitWith {
-    diag_log text format ["[POTATO] - Ground veh too fast"];
-    ["Vehicle moving too fast"] remoteExecCall [QACEFUNC(common,displayTextStructured), _placerOwner];
+    ["Vehicle moving too fast", _placerOwner] call FUNC(sendCuratorHint);
+};
+if !([_side, count _createUnits] call FUNC(canCreateGroup)) exitWith {
+    ["Cannot create a new group at this time", _placerOwner] call FUNC(sendCuratorHint);
 };
 
+private _newGroup = createGroup _side;
 
 private _cargoSelection = getText (configFile >> "CfgVehicles" >> (typeOf _attachedVehicle) >> "memoryPointsGetInCargo");
 if (_cargoSelection == "") then {

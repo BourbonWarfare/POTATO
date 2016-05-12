@@ -1,3 +1,17 @@
+/*
+ * Author: AACO
+ * Function used to sync the changes between the sliders and the text boxes
+ * Should only be called by UI events
+ *
+ * Arguments:
+ * 0: arbitrary index of control set to be updated <NUMBER>
+ *
+ * Example:
+ * [true,0] call potato_zeusHC_fnc_garrisonDialogControlChange;
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
