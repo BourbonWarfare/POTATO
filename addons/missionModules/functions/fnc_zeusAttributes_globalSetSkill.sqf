@@ -13,7 +13,7 @@ TRACE_1("logicObject",_logic);
 
 _control ctrlRemoveAllEventHandlers "setFocus";
 
-_fnc_sliderMove = {
+private _fnc_sliderMove = {
     params ["_slider"];
     private _idc = ctrlIDC _slider;
     private _curVal = switch (_idc) do {
@@ -24,6 +24,32 @@ _fnc_sliderMove = {
     };
     _slider ctrlSetTooltip format ["%1 (was %2)", sliderPosition _slider, _curVal];
 };
+
+private _fnc_getGroupAverage = {
+    private _total = 0;
+    private _skillCount = {
+        private _searchSkill = _x;
+        private _min = 0;
+        private _max = 0;
+
+        {
+            _x params ["_skill", "_inputMin", "_inputMax"];
+            if (_skill == _searchSkill) exitWith {
+                _min = _inputMin;
+                _max = _inputMax;
+            };
+        } forEach SUB_SKILLS;
+
+        _total = _total + ((_min + _max) / 2);
+        true;
+    } count _this;
+    _total / _skillCount
+};
+
+GVAR(aiSkill_general) = ["commanding","courage"] call _fnc_getGroupAverage;
+GVAR(aiSkill_aimingAccuracy) = ["aimingAccuracy"] call _fnc_getGroupAverage;
+GVAR(aiSkill_weaponHandling) = ["aimingShake","aimingSpeed","reloadSpeed"] call _fnc_getGroupAverage;
+GVAR(aiSkill_spotting) = ["spotDistance","spotTime"] call _fnc_getGroupAverage;
 
 //Specific on-load stuff:
 (_display displayCtrl 16184) sliderSetRange [0, 1];
