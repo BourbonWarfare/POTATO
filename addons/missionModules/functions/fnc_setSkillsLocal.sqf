@@ -7,9 +7,7 @@ TRACE_1("params",_unit);
     _x params ["_skill","_inputMin","_inputMax"];
     ([_inputMin,_inputMax,0,1] call EFUNC(core,ensureBoundedMinMax)) params ["_min","_max"];
 
-    private _skillValue = [_min,_max] call EFUNC(core,getBoundedRandom);
-    _unit setSkill [_skill, _skillValue];
-    TRACE_3("Skill set",_unit,_skill,_skillValue);
+    _unit setSkill [_skill, [_min,_max] call EFUNC(core,getBoundedRandom)];
 } forEach SUB_SKILLS;
 
 if (GVAR(aiSkill_COVER)) then {

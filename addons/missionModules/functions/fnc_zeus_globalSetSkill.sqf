@@ -25,6 +25,10 @@ if (!isServer) exitWith {};
             [QGVAR(aiSkill_commanding_max), _val, false, true] call ace_common_fnc_setSetting;
             [QGVAR(aiSkill_courage_min), _val, false, true] call ace_common_fnc_setSetting;
             [QGVAR(aiSkill_courage_max), _val, false, true] call ace_common_fnc_setSetting;
+            [QGVAR(aiSkill_general_min), _val, false, true] call ace_common_fnc_setSetting;
+            [QGVAR(aiSkill_general_max), _val, false, true] call ace_common_fnc_setSetting;
+            [QGVAR(aiSkill_reloadSpeed_min), _val, false, true] call ace_common_fnc_setSetting;
+            [QGVAR(aiSkill_reloadSpeed_max), _val, false, true] call ace_common_fnc_setSetting;
         };
 
         _val = _logic getVariable ["aiSkill_aimingAccuracy", -1];
@@ -39,8 +43,7 @@ if (!isServer) exitWith {};
             [QGVAR(aiSkill_aimingShake_max), _val, false, true] call ace_common_fnc_setSetting;
             [QGVAR(aiSkill_aimingSpeed_min), _val, false, true] call ace_common_fnc_setSetting;
             [QGVAR(aiSkill_aimingSpeed_max), _val, false, true] call ace_common_fnc_setSetting;
-            [QGVAR(aiSkill_reloadSpeed_min), _val, false, true] call ace_common_fnc_setSetting;
-            [QGVAR(aiSkill_reloadSpeed_max), _val, false, true] call ace_common_fnc_setSetting;
+
         };
 
         _val = _logic getVariable ["aiSkill_spotting", -1];

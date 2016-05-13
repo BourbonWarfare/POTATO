@@ -11,4 +11,4 @@ if (!GVAR(aiSkill_set)) exitWith {TRACE_1("disabled", GVAR(aiSkill_set));};
 
 if (!local _unit) exitWith {};
 
-[_unit] call FUNC(setSkillsLocal);
+[FUNC(setSkillsLocal), [_unit]] call CBA_fnc_execNextFrame;

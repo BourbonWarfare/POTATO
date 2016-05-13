@@ -46,9 +46,9 @@ private _fnc_getGroupAverage = {
     _total / _skillCount
 };
 
-GVAR(aiSkill_general) = ["commanding","courage"] call _fnc_getGroupAverage;
+GVAR(aiSkill_general) = ["commanding","courage","general","reloadSpeed"] call _fnc_getGroupAverage;
 GVAR(aiSkill_aimingAccuracy) = ["aimingAccuracy"] call _fnc_getGroupAverage;
-GVAR(aiSkill_weaponHandling) = ["aimingShake","aimingSpeed","reloadSpeed"] call _fnc_getGroupAverage;
+GVAR(aiSkill_weaponHandling) = ["aimingShake","aimingSpeed",] call _fnc_getGroupAverage;
 GVAR(aiSkill_spotting) = ["spotDistance","spotTime"] call _fnc_getGroupAverage;
 
 //Specific on-load stuff:

@@ -1,6 +1,7 @@
 #include "\z\potato\addons\missionModules\script_component.hpp"
 
 #define SUB_SKILLS [\
+    ["general",GVAR(aiSkill_general_min),GVAR(aiSkill_general_max)],\
     ["aimingAccuracy",GVAR(aiSkill_aimingAccuracy_min),GVAR(aiSkill_aimingAccuracy_max)],\
     ["aimingShake",GVAR(aiSkill_aimingShake_min),GVAR(aiSkill_aimingShake_max)],\
     ["aimingSpeed",GVAR(aiSkill_aimingSpeed_min),GVAR(aiSkill_aimingSpeed_max)],\

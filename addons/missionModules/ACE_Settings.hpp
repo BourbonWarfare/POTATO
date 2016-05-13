@@ -65,6 +65,18 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 0.55;
     };
+    class GVAR(aiSkill_general_min) {
+        category = QUOTE(PREFIX);
+        displayName = "Global AI Set Skill: minimum courage";
+        typeName = "SCALAR";
+        value = 0.4;
+    };
+    class GVAR(aiSkill_general_max) {
+        category = QUOTE(PREFIX);
+        displayName = "Global AI Set Skill: maximum courage";
+        typeName = "SCALAR";
+        value = 0.55;
+    };
     class GVAR(aiSkill_reloadSpeed_min) {
         category = QUOTE(PREFIX);
         displayName = "Global AI Set Skill: minimum reloadSpeed";
