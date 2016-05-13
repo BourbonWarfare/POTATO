@@ -4,32 +4,30 @@
  * configuration
  *
  * Arguments:
- * 0: vehicle pool <ARRAY>
- * 1: vehicle pool index <NUMBER>
- * 2: position to spawn reinforcement <ARRAY>
- * 3: side of the reinforcements <SIDE>
- * 4: placed LZ logic object <OBJECT>
- * 5: LZ size <NUMBER>
- * 6: vehicle behavior (index) <NUMBER>
- * 7: unit behavior (index) <NUMBER>
- * 8: All RPs <ARRAY>
- * 9: Selected RP type (index) <NUMBER>
- * 10: RP size <NUMBER>
+ * 0: side of the reinforcements <SIDE>
+ * 1: classname of the vehicle to spawn <STRING>
+ * 2: vehicle behavior (index) <NUMBER>
+ * 3: placed LZ logic object <OBJECT>
+ * 4: LZ size <NUMBER>
+ * 5: Pool of units to use as reinforcments<ARRAY>
+ * 6: unit behavior (index) <NUMBER>
+ * 7: placed PZ logic object (can be nil) <OBJECT>
+ * 8: RP size <NUMBER>
+ * 9: position to spawn reinforcement <ARRAY>
  *
  * Example:
  * [
- *         _pool,
- *         _vehiclePoolIndex,
- *         _spawnPosition,
  *         _side,
+ *         _vehicleClassname,
+ *         _vehicleBehaviorIndex,
  *         _lz,
  *         _lzSize,
- *         _dialogVehicleBehaviour,
- *         _dialogUnitBehaviour,
- *         _allRps,
- *         _dialogRpAlgorithm,
- *         _rpSize
- * ] call potato_reinforceToHC_fnc_spawnReinforcements;
+ *         _unitPool,
+ *         _unitBehaviorIndex,
+ *         _rp,
+ *         _rpSize,
+ *         _spawnPosition
+ * ] call potato_reinforceToHC_fnc_reinforcementsSpawnLocal;
  *
  * Public: No
  */

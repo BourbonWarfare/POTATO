@@ -1,16 +1,18 @@
 /*
  * Author: AACO
- * Function called by the placed ARES reinforcement module to create the UI
- * to gather the reinforcment configuration, and send that information to the server
+ * Helper function to determine LZ/RP waypoints
  *
  * Arguments:
- * 0: placed logic object <OBJECT>
+ * 0: list of waypoints to choose from <ARRAY>
+ * 1: index of waypoint selection <NUMBER>
+ * 2: the name of the var used to count number of times chosen <STRING>
+ * 3: where to compare distances to <ARRAY>
  *
  * Return Value:
- * True if the logic is local to execution, false otherwise <BOOL>
+ * The selected waypoint <OBJECT>
  *
  * Example:
- * [gameLogic] call potato_reinforceToHC_fnc_reinforcementsDialogLoad;
+ * [GVAR(allLzs), _vehicleLZIndex, "Ares_Lz_Count", GVAR(reinforcementLocation)] call potato_reinforceToHC_fnc_reinforcementsSelectWaypoint;
  *
  * Public: No
  */

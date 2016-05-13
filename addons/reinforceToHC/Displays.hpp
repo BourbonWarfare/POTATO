@@ -56,7 +56,7 @@ class GVAR(reinforcement_dialog) {
             colorBackground2[] = {0,0.4,0,1};
             colorBackgroundFocused[] = {0,0.8,0,1};
             tooltip = "Create reinforcements";
-            action = QUOTE([] spawn FUNC(reinforcementsDialogSpawn));
+            action = QUOTE([] call FUNC(reinforcementsDialogSpawn));
         };
         class GVAR(reinforcement_factions): RscCombo {
             idc = REINFORCEMENT_FACTIONS_IDC;
@@ -66,6 +66,7 @@ class GVAR(reinforcement_dialog) {
             h = 1 * GUI_GRID_H;
             tooltip = "Select a faction";
             sizeEx = 1 * GUI_GRID_H;
+            onLBSelChanged  = QUOTE([] call FUNC(reinforcementsDialogChange));
         };
         class GVAR(reinforcement_veh_type): RscCombo {
             idc = REINFORCEMENT_TYPE_IDC;
@@ -75,6 +76,7 @@ class GVAR(reinforcement_dialog) {
             h = 1 * GUI_GRID_H;
             tooltip = "Select a vehicle type";
             sizeEx = 1 * GUI_GRID_H;
+            onLBSelChanged  = QUOTE([] call FUNC(reinforcementsDialogChange));
         };
         class GVAR(reinforcement_veh): RscCombo {
             idc = REINFORCEMENT_VEHICLE_IDC;

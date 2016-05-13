@@ -5,3 +5,4 @@ PREP(reinforcementsDialogLoad);
 PREP(reinforcementsSpawnLocal);
 PREP(reinforcementsDialogSpawn);
 PREP(reinforcementsDialogChange);
+PREP(reinforcementsSelectWaypoint);

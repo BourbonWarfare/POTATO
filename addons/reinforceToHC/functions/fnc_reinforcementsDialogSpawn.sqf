@@ -1,16 +1,10 @@
 /*
  * Author: AACO
- * Function called by the placed ARES reinforcement module to create the UI
- * to gather the reinforcment configuration, and send that information to the server
- *
- * Arguments:
- * 0: placed logic object <OBJECT>
- *
- * Return Value:
- * True if the logic is local to execution, false otherwise <BOOL>
+ * Function called by the UI spawn the reinforcments with the given configuration
+ * Should only be called from UI events
  *
  * Example:
- * [gameLogic] call potato_reinforceToHC_fnc_reinforcementsDialogSpawn;
+ * [] call potato_reinforceToHC_fnc_reinforcementsDialogSpawn;
  *
  * Public: No
  */
@@ -71,8 +65,14 @@ if (count GVAR(allRps) > 0) then {
     _rp = [GVAR(allRps), _unitRPIndex, "Ares_Rp_Count", getPos _lz] call FUNC(reinforcementsSelectWaypoint);
 };
 
-// save current indcies for next run
-
+// save current indexes for next run
+GVAR(lastFactionIndex) = _factionIndex;
+GVAR(lastTypeIndex) = _vehicleTypeIndex;
+GVAR(lastVehicleIndex) = _vehicleIndex;
+GVAR(lastVehicleBehaviorIndex) = _vehicleBehaviorIndex;
+GVAR(lastVehicleLZIndex) = _vehicleLZIndex;
+GVAR(lastUnitRPIndex) = _unitRPIndex;
+GVAR(lastUnitBehaviorIndex) = _unitBehaviorIndex;
 
 // send to HC
 [

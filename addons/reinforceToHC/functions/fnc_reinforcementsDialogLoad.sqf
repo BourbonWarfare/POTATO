@@ -2,12 +2,10 @@
  * Author: AACO
  * Function called by the placed ARES reinforcement module to create the UI
  * to gather the reinforcment configuration, and send that information to the server
- *
- * Arguments:
- * 0: placed logic object <OBJECT>
+ * Should only be called from UI events
  *
  * Example:
- * [gameLogic] call potato_reinforceToHC_fnc_reinforcementsDialogLoad;
+ * [] call potato_reinforceToHC_fnc_reinforcementsDialogLoad;
  *
  * Public: No
  */
