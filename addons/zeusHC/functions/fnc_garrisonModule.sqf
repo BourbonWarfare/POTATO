@@ -20,13 +20,20 @@ if (local _logic) then {
     GVAR(garrisonLocation) = getPosATL _logic;
 
     if (isServer && (_logic getVariable [QGVAR(garrisonChance), -1]) > -1) then {
-        private _radius = abs(_logic getVariable QGVAR(garrisonRadius));
-        private _min = (_logic getVariable QGVAR(garrisonMin)) min (_logic getVariable QGVAR(garrisonMax));
-        private _max = (_logic getVariable QGVAR(garrisonMin)) max (_logic getVariable QGVAR(garrisonMax));
+        private _radius = [abs(_logic getVariable QGVAR(garrisonRadius)),0,2000] call EFUNC(core,ensureRange);
+        private _chance = [_logic getVariable QGVAR(garrisonChance),0,100] call EFUNC(core,ensureRange);
+
+        ([
+            (_logic getVariable QGVAR(garrisonMin),
+            (_logic getVariable QGVAR(garrisonMax),
+            1,
+            20
+        ] call EFUNC(core,ensureBoundedMinMax)) params ["_min","_max"];
 
         [
             _logic getVariable QGVAR(garrisonFaction),
-            _logic getVariable QGVAR(garrisonChance),
+            [] call FUNC(garrisonUnitLimit)
+            _chance,
             _radius,
             _min,
             _max

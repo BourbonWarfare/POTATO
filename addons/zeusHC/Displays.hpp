@@ -197,7 +197,7 @@ class GVAR(garrison_dialog) {
             colorBackground[] = {0,0.5,0,1};
             colorBackground2[] = {0,0.4,0,1};
             colorBackgroundFocused[] = {0,0.8,0,1};
-            tooltip = "Add group";
+            tooltip = "Garrison";
             action = QUOTE([] spawn FUNC(garrisonDialogSpawn));
         };
         class GVAR(garrison_factions): RscCombo {
@@ -208,6 +208,18 @@ class GVAR(garrison_dialog) {
             h = 1 * GUI_GRID_H;
             tooltip = "Select a faction";
             sizeEx = 1 * GUI_GRID_H;
+        };
+        class GVAR(garrison_max_slider): RscSlider {
+            idc = GARRISON_UNITS_SLIDER_IDC;
+            text = "Maximum Units to Spawn";
+            x = 10 * GUI_GRID_W + GUI_GRID_X;
+            y = 5.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 24.5 * GUI_GRID_W;
+            h = 2 * GUI_GRID_H;
+            colorText[] = {1,1,1,1};
+            tooltip = "The maximum units that will be spawned";
+            sizeEx = 1 * GUI_GRID_H;
+            onSliderPosChanged = QUOTE([ARR_2(true,4)] call FUNC(garrisonDialogControlChange));
         };
         class GVAR(garrison_chance_slider): RscSlider {
             idc = GARRISON_CHANCE_SLIDER_IDC;
@@ -256,6 +268,15 @@ class GVAR(garrison_dialog) {
             tooltip = "Maximum units to occupy a building with";
             sizeEx = 1 * GUI_GRID_H;
             onSliderPosChanged = QUOTE([ARR_2(true,3)] call FUNC(garrisonDialogControlChange));
+        };
+        class GVAR(garrison_max_edit): RscEdit {
+            idc = GARRISON_UNITS_EDIT_IDC;
+            x = 36.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3.5 * GUI_GRID_W;
+            h = 2 * GUI_GRID_H;
+            tooltip = "The maximum units that will be spawned";
+            onKillFocus = QUOTE([ARR_2(false,4)] call FUNC(garrisonDialogControlChange));
         };
         class GVAR(garrison_chance_edit): RscEdit {
             idc = GARRISON_CHANCE_EDIT_IDC;

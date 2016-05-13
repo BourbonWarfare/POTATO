@@ -4,15 +4,17 @@
  *
  * Arguments:
  * 0: Faction to spawn units as <STRING>
- * 1: Chance a building will be occupied <NUMBER>
- * 2: Radius to search for buildings <NUMBER>
- * 3: Minimum number of soldiers per house <NUMBER>
- * 4: Maximum number of soldiers per house <NUMBER>
- * 5: Location to search <ARRAY>
+ * 1: Maximum number of units to spawn <NUMBER>
+ * 2: Chance a building will be occupied <NUMBER>
+ * 3: Radius to search for buildings <NUMBER>
+ * 4: Minimum number of soldiers per house <NUMBER>
+ * 5: Maximum number of soldiers per house <NUMBER>
+ * 6: Location to search <ARRAY>
  *
  * Example:
  * [
  *     "blu_f",
+ *     60,
  *     70,
  *     100,
  *     1,
@@ -26,7 +28,14 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-params ["_faction","_occupyChance","_occupyRadius","_occupyMinNumber","_occupyMaxNumber",["_garrisonLocation",GVAR(garrisonLocation),[],3]];
+params ["_faction","_unitLimit","_occupyChance","_occupyRadius","_occupyMinNumber","_occupyMaxNumber",["_garrisonLocation",[0,0,0],[[]],3]];
+
+// validate input data
+_unitLimit = [_unitLimit, 1, [] call FUNC(garrisonUnitLimit)] call EFUNC(core,ensureRange);
+_occupyChance = [_occupyChance, 0, 100] call EFUNC(core,ensureRange);
+_occupyRadius = [_occupyRadius, 0, 2000] call EFUNC(core,ensureRange);
+([_occupyMinNumber, _occupyMaxNumber, 1, 20] call EFUNC(ensureBoundedMinMax)) params ["_occupyMin","_occupyMax"];
+
 
 private _side = switch (getNumber (configfile >> "CfgFactionClasses" >> _faction >> "side")) do { case 0: {east}; case 1: {west}; case 2: {resistance}; default {civilian}; };
 
@@ -54,37 +63,28 @@ if (count _buildingPositions < 1) exitWith {
     ["Did not find any buildings to garrison (is your occupy chance to low, or min occupy units to high?)"] call FUNC(sendCuratorHint);
 };
 
-// get unit limit, look up mission override first
-if (isNil QGVAR(garrisonUnitLimit)) then {
-    GVAR(garrisonUnitLimit) = if (isNumber (missionConfigFile >> "CfgGarrison" >> "maxUnits")) then {
-        getNumber (missionConfigFile >> "CfgGarrison" >> "maxUnits")
-    } else {
-        getNumber (configFile >> "CfgGarrison" >> "maxUnits")
-    };
-};
+diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
 
-diag_log text format ["[POTATO] Garrison Running With Max [%1]", GVAR(garrisonUnitLimit)];
-
-[_buildingPositions, _side, _units, _occupyMinNumber, _occupyMaxNumber] spawn {
-    params ["_buildingPositions","_side","_units","_occupyMinNumber","_occupyMaxNumber"];
-    TRACE_5("params",count _buildingPositions,_side,_units,_occupyMinNumber,_occupyMaxNumber);
+[_buildingPositions, _side, _units, _unitLimit, _occupyMin, _occupyMax] spawn {
+    params ["_buildingPositions","_side","_units","_unitLimit","_occupyMin","_occupyMax"];
+    TRACE_6("params",count _buildingPositions,_side,_units,_unitLimit,_occupyMin,_occupyMax);
 
     private _sleep = if (isNil QGVAR(sleepBetweenSpawns)) then { 0.5 } else { GVAR(sleepBetweenSpawns) };
     private _unitsAdded = 0;
 
     {
-        if (({side _x == _side} count allGroups) > GVAR(maxGroupCountPerSide)) exitWith {//Don't loop to close to max group limit of 144
+        if (({side _x == _side} count allGroups) > GVAR(maxGroupCountPerSide)) exitWith { //Don't loop to close to max group limit of 144
             [
                 text format ["Stopping Garrision because of group limit. %1 groups for side %2", {side _x == _side} count allGroups, _side]
             ] call FUNC(sendCuratorHint);
         };
 
-        private _numberOfUnits = _occupyMinNumber + (floor random (_occupyMaxNumber - _occupyMinNumber + 1));
+        private _numberOfUnits = [_occupyMin,_occupyMax] EFUNC(core,getBoundedRandom);
         private _unitsToAdd = [];
-        private _unitPositions  = [];
+        private _unitPositions = [];
         private _index = 0;
         while {_index < _numberOfUnits && _index < (count _x)} do {
-            if ((_unitsAdded + _index) >= GVAR(garrisonUnitLimit)) exitWith { TRACE_1("Unit limit reached, exiting while loop",GVAR(garrisonUnitLimit)); };
+            if ((_unitsAdded + _index) >= _unitLimit) exitWith { TRACE_1("Unit limit reached, exiting while loop",_unitLimit); };
             private _position = selectRandom _x;
             _x = _x - [_position];
 
@@ -104,9 +104,8 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", GVAR(garrisonUn
             _unitsAdded = _unitsAdded + (count _unitsToAdd);
         };
 
-        if (_unitsAdded >= GVAR(garrisonUnitLimit)) exitWith { TRACE_1("Unit limit reached, exiting count loop",GVAR(garrisonUnitLimit)); };
+        if (_unitsAdded >= _unitLimit) exitWith { TRACE_1("Unit limit reached, exiting count loop",_unitLimit); };
 
         sleep _sleep;
-        nil
-    } count _buildingPositions;
+    } forEach _buildingPositions;
 };

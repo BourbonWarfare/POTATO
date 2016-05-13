@@ -40,6 +40,10 @@ switch (_controlIndex) do {
         _editIdc = GARRISON_MAX_EDIT_IDC;
         _checkMinMax = true;
     };
+    case (4): {
+        _sliderIdc = GARRISON_UNITS_SLIDER_IDC;
+        _editIdc = GARRISON_UNITS_EDIT_IDC;
+    };
 };
 
 if (_sliderIdc == -1 || _editIdc == -1) exitWith { TRACE_1("Control index is in a bad state", _controlIndex) };
@@ -47,13 +51,9 @@ if (_sliderIdc == -1 || _editIdc == -1) exitWith { TRACE_1("Control index is in 
 private _newValue = if (_isSlider) then {
     floor (sliderPosition _sliderIdc)
 } else {
-    private _sliderRange = sliderRange _sliderIdc;
-    private _min = (_sliderRange select 0);
-    private _max = (_sliderRange select 1);
+    (sliderRange _sliderIdc) params ["_min","_max"];
     private _returnValue = floor (parseNumber (ctrlText _editIdc));
-    _returnValue = _max min _returnValue;
-    _returnValue = _min max _returnValue;
-    _returnValue
+    [_returnValue,_min,_max] call EFUNC(core,ensureRange)
 };
 
 sliderSetPosition [_sliderIdc, _newValue];
