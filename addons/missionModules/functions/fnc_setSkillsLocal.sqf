@@ -23,3 +23,16 @@ if (GVAR(aiSkill_AUTOCOMBAT)) then {
 };
 
 TRACE_1("ai sills set",_unit);
+
+#ifdef DEBUG_MODE_FULL
+[_unit] spawn {
+    sleep 1;
+    params ["_unit"];
+
+    diag_log text format ["Unit %1 - Local %2", _unit, local _unit];
+    {
+        _x params ["_skill","_inputMin","_inputMax"];
+        diag_log text format ["Skill [%1] = [%2] from range [%3-%4]",_skill, _unit skill _skill, _inputMin, _inputMax];
+    } forEach SUB_SKILLS;
+};
+#endif
