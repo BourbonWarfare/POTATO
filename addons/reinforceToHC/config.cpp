@@ -33,7 +33,7 @@ class CfgVehicles {
     class Ares_Reinforcements_Module_base;
     class Ares_Module_Reinforcements_Spawn_Units : Ares_Reinforcements_Module_base {
         displayName = "Spawn Units";
-        function = QFUNC(reinforcementsCreateUnits);
+        function = QFUNC(reinforcementsZeus);
         author = "Anton Struyk (Ares base) AACO (2HC)";
         scopeCurator = 2;
     };

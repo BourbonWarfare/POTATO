@@ -172,7 +172,7 @@ class GVAR(garrison_dialog) {
     movingEnable = false;
     onLoad = QUOTE([] spawn FUNC(garrisonDialogLoad));
     class controls {
-        class GVAR(group_bg): GVAR(bg) {};
+        class GVAR(garrison_bg): GVAR(bg) {};
         class GVAR(garrison_frame): GVAR(base_frame) {
             text = "Garrison";
         };
