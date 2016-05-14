@@ -9,3 +9,4 @@ PREP(zeus_missionHint);
 PREP(zeusAttributes);
 PREP(zeusAttributes_globalSetSkill);
 PREP(zeusAttributes_missionHint);
+PREP(skillDebug);
