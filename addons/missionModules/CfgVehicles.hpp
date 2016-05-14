@@ -61,14 +61,13 @@ class CfgVehicles {
         scopeCurator = 2;
         isTriggerActivated = 1;
         displayName = "Mission Hint";
-        // icon = "\a3\Modules_F_Curator\Data\iconEndMission_ca.paa";
-        // portrait = "\a3\Modules_F_Curator\Data\portraitEndMission_ca.paa";
         function = QFUNC(zeus_missionHint);
         curatorInfoType = QGVAR(RscDisplayAttributes_missionHint);
         curatorCost = 0;
         class Arguments {};
         class Attributes {};
     };
+
     class GVAR(zeus_globalSetSkill): Module_F {
         author = QUOTE(PREFIX);
         category = QUOTE(PREFIX);
@@ -76,8 +75,6 @@ class CfgVehicles {
         scopeCurator = 2;
         isTriggerActivated = 1;
         displayName = "Global Set AI Skill";
-        // icon = "\a3\Modules_F_Curator\Data\iconEndMission_ca.paa";
-        // portrait = "\a3\Modules_F_Curator\Data\portraitEndMission_ca.paa";
         function = QFUNC(zeus_globalSetSkill);
         curatorInfoType = QGVAR(RscDisplayAttributes_globalSetSkill);
         curatorCost = 0;
