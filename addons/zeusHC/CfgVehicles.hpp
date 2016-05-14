@@ -520,7 +520,7 @@ class CfgVehicles {
         displayName = "Move all AI to HC";
         function = QFUNC(transferAllToHCZeus);
     };
-    class GVAR(garrison): GVAR(build_a_group) {
+    class GVAR(garrison): GVAR(build_a_group) { //TODO: refactor this to be a lot more dynamic
         scope = 2;
         displayName = "Spawn and Garrison units";
         function = QFUNC(garrisonModule);
