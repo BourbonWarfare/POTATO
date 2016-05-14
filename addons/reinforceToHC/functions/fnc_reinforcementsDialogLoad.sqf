@@ -39,7 +39,7 @@ GVAR(allRps) = [_allRpsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCE
 waitUntil {dialog}; // wait until the dialog is fully loaded before we do any population
 
 // Setup faction list
-private GVAR(validPools) = [];
+GVAR(validPools) = [];
 {
     if ((_x select ADDON_CLASS_INDEX) == "" || isClass(configFile >> "CfgPatches" >> (_x select ADDON_CLASS_INDEX))) then {
         lbAdd [REINFORCEMENT_FACTIONS_IDC, _x select DISPLAY_NAME_INDEX];

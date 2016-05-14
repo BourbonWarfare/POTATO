@@ -10,7 +10,7 @@
  *
  * Public: No
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
@@ -24,19 +24,20 @@ if (local _logic) then {
         private _chance = [_logic getVariable QGVAR(garrisonChance),0,100] call EFUNC(core,ensureRange);
 
         ([
-            (_logic getVariable QGVAR(garrisonMin),
-            (_logic getVariable QGVAR(garrisonMax),
+            _logic getVariable QGVAR(garrisonMin),
+            _logic getVariable QGVAR(garrisonMax),
             1,
             20
         ] call EFUNC(core,ensureBoundedMinMax)) params ["_min","_max"];
 
         [
             _logic getVariable QGVAR(garrisonFaction),
-            [] call FUNC(garrisonUnitLimit)
+            [] call FUNC(garrisonUnitLimit),
             _chance,
             _radius,
             _min,
-            _max
+            _max,
+            GVAR(garrisonLocation)
         ] call FUNC(garrisonSpawn);
     } else {
         createDialog QGVAR(garrison_dialog);

@@ -31,8 +31,10 @@
  *
  * Public: No
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+TRACE_1("params",_this);
+
 params [
     "_side",
     "_vehicleClassname",
@@ -45,8 +47,6 @@ params [
     "_rpSize",
     "_spawnPosition"
 ];
-
-TRACE_1("params",_this);
 
 private _vehicleGroup = [_spawnPosition, _vehicleClassname, _side] call EFUNC(zeusHC,spawnAVicSpawnLocal);
 
@@ -87,8 +87,6 @@ if ((_vehicle emptyPositions "Cargo") <= 3) then {
     // Vehicles with low cargo space shouldn't leave empty seats, otherwise they often won't have any units at all.
     _maxCargoSpacesToLeaveEmpty = 0;
 };
-
-private _rp = nil;
 
 while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
     private _squadMembers = selectRandom _unitPool;

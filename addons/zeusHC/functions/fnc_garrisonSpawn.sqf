@@ -34,7 +34,7 @@ params ["_faction","_unitLimit","_occupyChance","_occupyRadius","_occupyMinNumbe
 _unitLimit = [_unitLimit, 1, [] call FUNC(garrisonUnitLimit)] call EFUNC(core,ensureRange);
 _occupyChance = [_occupyChance, 0, 100] call EFUNC(core,ensureRange);
 _occupyRadius = [_occupyRadius, 0, 2000] call EFUNC(core,ensureRange);
-([_occupyMinNumber, _occupyMaxNumber, 1, 20] call EFUNC(ensureBoundedMinMax)) params ["_occupyMin","_occupyMax"];
+([_occupyMinNumber, _occupyMaxNumber, 1, 20] call EFUNC(core,ensureBoundedMinMax)) params ["_occupyMin","_occupyMax"];
 
 
 private _side = switch (getNumber (configfile >> "CfgFactionClasses" >> _faction >> "side")) do { case 0: {east}; case 1: {west}; case 2: {resistance}; default {civilian}; };
@@ -79,7 +79,7 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
             ] call FUNC(sendCuratorHint);
         };
 
-        private _numberOfUnits = [_occupyMin,_occupyMax] EFUNC(core,getBoundedRandom);
+        private _numberOfUnits = [_occupyMin,_occupyMax] call EFUNC(core,getBoundedRandom);
         private _unitsToAdd = [];
         private _unitPositions = [];
         private _index = 0;

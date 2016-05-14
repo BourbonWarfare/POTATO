@@ -5,13 +5,18 @@
  * Should only be called from UI events
  *
  * Example:
- * [] call potato_zeusHC_fnc_reinforcementsDialogChange; 
+ * [] call potato_zeusHC_fnc_reinforcementsDialogChange;
  *
  * Public: No
  */
 
 #include "script_component.hpp"
 TRACE_1("params",_this);
+
+private _factionIndex = lbCurSel REINFORCEMENT_FACTIONS_IDC;
+private _typeIndex = lbCurSel REINFORCEMENT_TYPE_IDC;
+
+if (_factionIndex == -1 || _typeIndex == -1) exitWith {};
 
 lbClear REINFORCEMENT_VEHICLE_IDC;
 
@@ -21,8 +26,10 @@ lbAdd [REINFORCEMENT_VEHICLE_IDC, "Random"];
     private _icon = getText (configFile >> "CfgVehicles" >> _x >> "icon");
 
     private _vicIndex = lbAdd [REINFORCEMENT_VEHICLE_IDC, _name];
-    lbSetPicture [SPAWN_VIC_LIST_IDC, _vicIndex,  _icon];
-    lbSetData [SPAWN_VIC_LIST_IDC, _vicIndex, _x];
+    lbSetPicture [REINFORCEMENT_VEHICLE_IDC, _vicIndex,  _icon];
+    lbSetData [REINFORCEMENT_VEHICLE_IDC, _vicIndex, _x];
 
     nil
-} count ((GVAR(validPools) select (lbCurSel REINFORCEMENT_FACTIONS_IDC)) select (lbCurSel REINFORCEMENT_TYPE_IDC));
+} count ((GVAR(validPools) select _factionIndex) select (VEHICLE_POOL_START_INDEX + _typeIndex));
+
+lbSetCurSel [REINFORCEMENT_VEHICLE_IDC, 0];

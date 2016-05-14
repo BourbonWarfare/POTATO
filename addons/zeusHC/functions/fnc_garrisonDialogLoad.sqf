@@ -50,7 +50,7 @@ sliderSetPosition [GARRISON_RADIUS_SLIDER_IDC, _radiusValue];
 sliderSetPosition [GARRISON_MIN_SLIDER_IDC, _minValue];
 sliderSetPosition [GARRISON_MAX_SLIDER_IDC, _maxValue];
 
-ctrlSetText [GARRISON_UNIT_EDIT_IDC, str _unitValue];
+ctrlSetText [GARRISON_UNITS_EDIT_IDC, str _unitValue];
 ctrlSetText [GARRISON_CHANCE_EDIT_IDC, str _chanceValue];
 ctrlSetText [GARRISON_RADIUS_EDIT_IDC, str _radiusValue];
 ctrlSetText [GARRISON_MIN_EDIT_IDC, str _minValue];

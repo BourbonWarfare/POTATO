@@ -12,7 +12,7 @@ TRACE_1("Params",_this);
 
 // set current indexes for next run
 GVAR(lastGarrisonFactionIndex) = lbCurSel GARRISON_FACTIONS_IDC;
-GVAR(lastGarrisonUnitLimit) = sliderPosition GARRISON_UNIT_SLIDER_IDC;
+GVAR(lastGarrisonUnitLimit) = sliderPosition GARRISON_UNITS_SLIDER_IDC;
 GVAR(lastGarrisonChanceValue) = sliderPosition GARRISON_CHANCE_SLIDER_IDC;
 GVAR(lastGarrisonRadiusValue) = sliderPosition GARRISON_RADIUS_SLIDER_IDC;
 GVAR(lastGarrisonMinValue) = sliderPosition GARRISON_MIN_SLIDER_IDC;

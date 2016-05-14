@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 class CfgPatches {
-    class potato_reinforceToHC {
+    class ADDON {
     units[] = {"Ares_Module_Reinforcements_Spawn_Units"};
     requiredVersion = REQUIRED_VERSION;
     requiredAddons[] = {"potato_core","potato_zeusHC","Ares"};
@@ -38,3 +38,5 @@ class CfgVehicles {
         scopeCurator = 2;
     };
 };
+
+#include "Displays.hpp" 

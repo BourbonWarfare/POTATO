@@ -24,28 +24,28 @@ private _vehicleLZIndex = lbCurSel REINFORCEMENT_VEHICLE_LZ_IDC;
 
 private _unitRPIndex = lbCurSel REINFORCEMENT_UNIT_RP_IDC;
 private _unitBehaviorIndex = lbCurSel REINFORCEMENT_UNIT_BEHAVIOR_IDC;
-private _unitPool = _selectedPool select INFANTRY_UNIT_POOL_INDEX
+private _unitPool = _selectedPool select INFANTRY_UNIT_POOL_INDEX;
 
 private _side = _selectedPool select SIDE_INDEX;
 
 // Validate pools
-if (!(_selectedPool isKindOf []) || count _selectedPool < 1) exitWith {
+if (!(_selectedPool isEqualType []) || count _selectedPool < 1) exitWith {
     ["Unable to spawn reinforcements. Nonexistant/empty pool"] call EFUNC(zeusHC,sendCuratorHint);
 };
 
-if (!(_vehiclePool isKindOf []) || count _vehiclePool < 1) exitWith {
+if (!(_vehiclePool isEqualType []) || count _vehiclePool < 1) exitWith {
     ["Unable to spawn reinforcements. Nonexistant/empty vehicle pool"] call EFUNC(zeusHC,sendCuratorHint);
 };
 
-if (!(_unitPool isKindOf []) || count _unitPool < 1) exitWith {
+if (!(_unitPool isEqualType []) || count _unitPool < 1) exitWith {
     ["Unable to spawn reinforcements. Nonexistant/empty unit pool"] call EFUNC(zeusHC,sendCuratorHint);
 };
 
 // get vehicle class name
-private _vehicleClassname = if (_vehicleTypeIndex == 0) then {
+private _vehicleClassname = if (_vehicleIndex < 1) then {
     selectRandom _vehiclePool
 } else {
-    _vehiclePool select (_vehicleTypeIndex - 1)
+    _vehiclePool select (_vehicleIndex - 1)
 };
 
 // setup default LZ/RP sizes
@@ -88,7 +88,7 @@ GVAR(lastUnitBehaviorIndex) = _unitBehaviorIndex;
         _rpSize,
         GVAR(reinforcementLocation)
     ],
-    QFUNC(spawnReinforcements)
+    QFUNC(reinforcementsSpawnLocal)
 ] call EFUNC(zeusHC,hcPassthrough);
 
 if (isNil "_rp") then {
