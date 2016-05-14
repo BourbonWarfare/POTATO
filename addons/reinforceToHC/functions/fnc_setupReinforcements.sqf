@@ -127,7 +127,7 @@ private _lz = switch (_dialogLzAlgorithm) do {
     case 3: { // Least used
         private _leastUsed = selectRandom _allLzs; // Choose randomly to start.
         {
-            if (_x getVariable ["Ares_Lz_Count", 0] < _lz getVariable ["Ares_Lz_Count", 0]) then {
+            if (_x getVariable ["Ares_Lz_Count", 0] < _leastUsed getVariable ["Ares_Lz_Count", 0]) then {
                 _leastUsed = _x;
             };
             nil
