@@ -123,7 +123,6 @@ if (count _allRps > 0) then {
 
     // Now that we've chosen an RP, increment the count for it.
     _rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
-    private _infantryRpWp = _infantryGroup addWaypoint [position _rp, _rpSize];
 };
 
 while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
