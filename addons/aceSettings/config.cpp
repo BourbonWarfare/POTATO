@@ -54,4 +54,8 @@ class ACE_Settings {
         value = 0;
         force = 1;
     };
+    class ace_respawn_removeDeadBodiesDisconnected {
+        typeName = "BOOL";
+        value = 0;
+    };
 };
