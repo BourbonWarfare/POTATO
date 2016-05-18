@@ -1,11 +1,10 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-_Unit = _this select 0;
-if (isPlayer _Unit) exitWith {};
-if ((vehicle _Unit) != _Unit) exitWith {};
+params ["_unit"];
 
+if (isPlayer _unit || {(vehicle _unit) != _unit}) exitWith {};
 
 //Lay down
-_Unit setUnitPos "DOWN";
-_Unit spawn VCOMAI_MoveToCover;
+_unit setUnitPos "DOWN";
+[_unit] call VFUNC(moveToCover);

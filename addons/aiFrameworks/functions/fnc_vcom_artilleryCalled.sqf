@@ -1,62 +1,34 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-//AI will use artillery/mortars when possible. This script makes artillery AI fire at a certain position
-//First hash 6/14/2014
-//SYSTEmchat "CALLED ARTY!";
-_Unit = _this select 0;
-_Enemy = _this select 1;
+params ["_unit","_enemy"];
 
+private _support = [];
 {
-	if (isNull _x) then {ArtilleryArray = ArtilleryArray - [_x];};
-} foreach ArtilleryArray;
+	if (isNull _x) then {
+        VGVAR(ArtilleryArray) = VGVAR(ArtilleryArray) - [_x];
+    } else {
+        if (side _unit == side _x && {!((vehicle _x) in _support)}) then {
+            _support pushBack (vehicle _x);
+        };
+    };
 
-_Indsupport = [];
-_Bluforsupport = [];
-_Opforsupport = [];
-_Chosen = [];
-_ArtilleryUnits = [];
+    nil
+} count VGVAR(ArtilleryArray);
+if ((count _support) <= 0) exitWith {};
 
-if (side _Unit isEqualTo West) then
-{
-	{
-		if (side _x isEqualTo West) then {_Bluforsupport = _Bluforsupport + [(vehicle _x)];};
-	} foreach ArtilleryArray;
-	_Chosen = _Bluforsupport;
-};
+_artilleryUnits = [];
 
-if (side _Unit isEqualTo East) then
-{
-	{
-		if (side _x isEqualTo East) then {_Opforsupport = _Opforsupport + [(vehicle _x)];};
-	} foreach ArtilleryArray;
-	_Chosen = _Opforsupport;
-};
 
-if (side _Unit isEqualTo Resistance) then
-{
-	{
-		if (side _x isEqualTo Resistance) then {_Indsupport = _Indsupport + [(vehicle _x)];};
-	} foreach ArtilleryArray;
-	_Chosen = _Indsupport;
-};
 
-//systemchat format ["_Chosen: %1",_Chosen];
-if ((count _Chosen) <= 0) exitWith {};
-
-//player sidechat format ["ARTY CALLED: %1",(vehicle _Unit)];
-_ReturnedSupport = [_Chosen,(vehicle _Unit)] call VCOMAI_ClosestObject;
+private _returnedSupport = [_support, (vehicle _Unit)] call VFUNC(closestObject);
 if (isNil "_ReturnedSupport") exitWith {};
 
-_AlreadyFiring = _ReturnedSupport getVariable "VCOM_ISARTILLERY";
-if !(_AlreadyFiring) exitWith {};
-//player sidechat format ["ARTY _ReturnedSupport: %1",_ReturnedSupport];
+if !(_returnedSupport getVariable [VQGVAR(isArtillery),false]) exitWith {};
 
 _ArtilleryGroup = group _ReturnedSupport;
-//player sidechat format ["ARTY _ArtilleryGroup: %1",_ArtilleryGroup];
 
 _ArtilleryGroupUnits = units _ArtilleryGroup;
-//player sidechat format ["ARTY _ArtilleryGroupUnits: %1",_ArtilleryGroupUnits];
 
 {
 	_ArtilleryUnits = _ArtilleryUnits + [(vehicle _x)];

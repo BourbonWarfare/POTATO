@@ -44,6 +44,14 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 800;
     };
+    class VGVAR(maxDistanceToMountEmptyStatic) {
+        typeName = "SCALAR";
+        value = 100;
+    };
+    class VGVAR(maxDistanceToSmoke) {
+        typeName = "SCALAR";
+        value = 1500;
+    };
 
     /*   Chances of usage   */
     class VGVAR(chanceToUseGrenade) {

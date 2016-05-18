@@ -1,24 +1,27 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-if (VCOM_STATICGARRISON isEqualTo 0) exitWith {};
-_Unit = _this;
-  _Position = getPosATL _Unit;
+if !(VGVAR(usePlacedStaticWeapons)) exitWith {};
 
-  _weapon = nearestObject [_Position,"StaticWeapon"];
-  if (isNull _weapon || {(_weapon distance _Unit) > 100}) exitWith {};
+params["_unit"];
 
-  _AssignedGunner = assignedGunner _weapon;
-  if (isNull _AssignedGunner) then
-  {
-    _Unit doMove (getposATL _weapon);
-    _Unit assignAsGunner _weapon;
-    [_Unit] orderGetIn true;
-    _Waiting = 0;
-    while {_Waiting isEqualTo 0} do
-    {
-    sleep 1;
-      if ((_Unit distance _Weapon) < 3) then {_Waiting = 1};
+private _position = getPosATL _unit;
+private _weapon = nearestObject [_position, "StaticWeapon"];
+
+if (isNull _weapon || {(_weapon distance _unit) > VGVAR(maxDistanceToMountEmptyStatic)}) exitWith {};
+
+if (isNull (assignedGunner _weapon)) then {
+    _unit doMove (getposATL _weapon);
+    _unit assignAsGunner _weapon;
+    [_unit] orderGetIn true;
+
+    /*
+    allow gunner to get in normally
+    private _waiting = 0;
+    while {_waiting isEqualTo 0} do {
+        sleep 1;
+        if ((_unit distance _weapon) < 3) then { _waiting = 1 };
     };
-    _Unit moveInGunner _weapon;
-  };
+    _unit moveInGunner _weapon;
+    */
+};
