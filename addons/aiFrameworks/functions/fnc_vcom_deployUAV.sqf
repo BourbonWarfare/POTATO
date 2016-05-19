@@ -1,41 +1,40 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private ["_UAVBagClassName", "_UAVClassName", "_UAVCreated", "_myNearestEnemy", "_FriendlyArray", "_ClosestFriendly","_Array1"];
-//Lets get that UAV up in the SKY!
+params ["_unit"];
 
-_UAVBagClassName = _this getVariable "VCOM_StaticClassName";
+private _uavBagClassname = _unit getVariable [VQGVAR(staticClassname),objNull];
+if (isNull _uavBagClassname) exitWith {};
 
+private _uavClassname = ([_uavBagClassname,0,-11] call BIS_fnc_trimString) + "_F";
 
-_UAVClassName = [_UAVBagClassName,0,-11] call BIS_fnc_trimString;
-_UAVClassName = _UAVClassName + "_F";
+private _uav = createVehicle [_uavClassname, position _unit, [], 0,""];
+createVehicleCrew _uav;
 
-_UAVCreated = createVehicle [_UAVClassName, getPos _this, [], 0,""];
-createVehicleCrew _UAVCreated;
-removeBackpackGlobal _this;
-_this setVariable ["VCOM_HASUAV",false,false];
+removeBackpackGlobal _unit;
+_unit setVariable [VQGVAR(hasUAV),false];
 
+[_uav] spawn {
+    params ["_uav"];
+    while { alive _uav } do {
+        private _myNearestEnemy = [_uav] call VFUNC(closestEnemy);
+        if !(isNull _myNearestEnemy) then {
+            _uav doMove (position _myNearestEnemy);
 
-while {alive _UAVCreated} do
-{
-	_myNearestEnemy = _UAVCreated call VCOMAI_ClosestEnemy;
-	if (isNil "_myNearestEnemy") exitWith {};
-	if !(_myNearestEnemy isEqualTo []) then
-	{
-		_UAVCreated doMove (getpos _myNearestEnemy);
-		_FriendlyArray = _UAVCreated call VCOMAI_FriendlyArray;
-		_ClosestFriendly = [_FriendlyArray,_UAVCreated] call VCOMAI_ClosestObject;
-		if (isNil "_ClosestFriendly") then {_ClosestFriendly = _UAVCreated};
-		[_UAVCreated] join (group _ClosestFriendly);
-		if (_myNearestEnemy distance _UAVCreated < 600) then
-		{
-			_Array1 = _UAVCreated call VCOMAI_FriendlyArray;
-			{
-				(group _x) reveal [_myNearestEnemy, 4];
-			} foreach _Array1;
-		};
-	};
+            private _friendlyUnits = _uav call VFUNC(friendlyUnits);
+            private _closestFriendly = [_friendlyArray,_uav] call VFUNC(closestObject);
+            if !(isNull _closestFriendly) then {
+                [_uav] joinSilent (group _closestFriendly);
 
+                if ((_myNearestEnemy distance _uav) < VGVAR(maxUAVRevealDistance)) then {
+                    {
+                        (group _x) reveal [_myNearestEnemy, 4];
+                        nil
+                    } count _friendlyUnits;
+                };
+            };
+        };
 
-sleep 10;
+        sleep VGVAR(uavScanTime);
+    };
 };

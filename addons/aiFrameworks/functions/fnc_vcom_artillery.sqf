@@ -11,12 +11,9 @@ private _class = typeOf _vehicle;
 
 if (isNil ("_class")) exitWith {};
 
-//Figure out if it is defined as artillery
-private _artyScan = ;
-
 //Exit the script if it is not defined as artillery
 if (isNumber(configfile >> "CfgVehicles" >> _class >> "artilleryScanner")) then {
-    _vehicle setVariable [VQGVAR(isArtillery), true];
+    _vehicle setVariable [VQGVAR(isArtillery),true,true];
     VGVAR(ArtilleryArray) pushBack _vehicle;
 } else {
     if (_vehicle in VGVAR(ArtilleryArray)) then {

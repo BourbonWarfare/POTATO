@@ -1,9 +1,9 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private ["_ClosestDead"];
+params ["_unit"];
 
 //AllDeadMen because, you know, WOMEN DONT EXIST IN THIS GAME... -_-
-_ClosestDead = [allDeadMen,_this] call VCOMAI_ClosestObject;
-if (isNil ("_ClosestDead")) then {_ClosestDead = [0,0,0];};
-_ClosestDead
+private _closestDead = [allDeadMen, _unit] call VFUNC(closestObject);
+if (isNull _closestDead) then { _closestDead = [0,0,0]; };
+_closestDead

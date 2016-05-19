@@ -11,7 +11,7 @@ if (_unit in VGVAR(ArtilleryArray)) then { VGVAR(ArtilleryArray) = VGVAR(Artille
 
 if (!(_unit getVariable [VQGVAR(allowFlankingUnit), true]) || {_unit getVariable [VGVAR(garrisoned), false]} || {!("ItemRadio" in (assignedItems _unit))}) exitWith {};
 
-private _teammates = [_unit] call VFUNC(friendlyArray);
+private _teammates = [_unit] call VFUNC(friendlyUnits);
 _teammates = _teammates - VGVAR(ArtilleryArray);
 
 {

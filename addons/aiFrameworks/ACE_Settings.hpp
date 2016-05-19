@@ -44,13 +44,37 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 800;
     };
+    class VGVAR(maxEngagementDistance) {
+        typeName = "SCALAR";
+        value = 1000;
+    };
     class VGVAR(maxDistanceToMountEmptyStatic) {
         typeName = "SCALAR";
         value = 100;
     };
+    class VGVAR(maxDistanceToGarrison) {
+        typeName = "SCALAR";
+        value = 200;
+    };
+    class VGVAR(maxDistanceToConsiderTargetStatic) {
+        typeName = "SCALAR";
+        value = 20;
+    };
     class VGVAR(maxDistanceToSmoke) {
         typeName = "SCALAR";
         value = 1500;
+    };
+    class VGVAR(maxDistanceToSatchel) {
+        typeName = "SCALAR";
+        value = 200;
+    };
+    class VGVAR(maxThreatDistance) {
+        typeName = "SCALAR";
+        value = 3000;
+    };
+    class VGVAR(maxUAVRevealDistance) {
+        typeName = "SCALAR";
+        value = 800;
     };
 
     /*   Chances of usage   */
@@ -78,6 +102,10 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 10;
     };
+    class VGVAR(movedRecentlyThreshold) {
+        typeName = "SCALAR";
+        value = 30;
+    };
     class VGVAR(clearingThreshold) {
         typeName = "SCALAR";
         value = 30;
@@ -85,5 +113,13 @@ class ACE_Settings {
     class VGVAR(flankThreshold) {
         typeName = "SCALAR";
         value = 300;
+    };
+    class VGVAR(formationChangeThreshold) {
+        typeName = "SCALAR";
+        value = 10;
+    };
+    class VGVAR(uavScanTime) {
+        typeName = "SCALAR";
+        value = 10;
     };
 };

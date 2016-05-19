@@ -1,28 +1,29 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private ["_Enemy", "_nBuilding", "_Locations"];
+params ["_unit"];
 
-//Function to send AI to clear buildings
-if (_this getVariable "VCOM_MovedRecentlyCover" || {_this getVariable "VCOMAI_ActivelyClearing"} || {_this getVariable "VCOMAI_StartedInside"} || {_this getVariable "VCOM_GARRISONED"}) exitWith {};
+if (_unit getVariable [VQGVAR(startedInside),false]
+    || {_unit getVariable [VQGVAR(garrisoned),false]}
+    || {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}
+    || {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)}) exitWith {};
 
 //Find the closest enemy (This should be the one that is in a building
-_Enemy = _this call VCOMAI_ClosestEnemy;
-if (isNil "_Enemy" || {(typeName _Enemy) isEqualTo "ARRAY"}) exitWith {};
-
+private _enemy = _unit call VFUNC(closestEnemy);
+if (isNull _enemy) exitWith {};
 
 //Find nearest building to the enemy
-_nBuilding = nearestBuilding _Enemy;
+private _building = nearestBuilding _enemy;
 
 //Find the locations of the buildings
-_Locations = [_nBuilding] call BIS_fnc_buildingPositions;
+private _locations = _building buildingPos -1;
+if (count _locations < 1) exitWith {};
 
 //Stop the AI - and then tell them to move to the house
 {
-	//Set variable to true to prevent AI clearing buildings to often
-	_x setVariable ["VCOMAI_ActivelyClearing",true,false];
-	//Spawn cool-down
-	_x spawn {sleep 30;_this setVariable ["VCOMAI_ActivelyClearing",false,false];};
-	_x spawn VCOMAI_StanceModifier;
-	[_Locations,_x] spawn VCOMAI_GarrisonClearPatrol;
-} foreach units (group _this);
+    //Set variable to true to prevent AI clearing buildings to often
+    _x setVariable [VQGVAR(activelyClearing),diag_tickTIme];
+    [_x] spawn VFUNC(stanceModifier);
+    [_x,_locations] spawn VFUNC(garrisonClearPatrol);
+    nil
+} count units (group _unit);

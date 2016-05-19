@@ -1,198 +1,63 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-Private ["_Unit", "_NoFlanking", "_myNearestEnemy", "_GroupUnit", "_myEnemyPos", "_ResetWaypoint", "_OverWatch", "_unit", "_rnd", "_dist", "_dir", "_positions", "_myPlaces", "_RandomArray", "_RandomLocation", "_index", "_waypoint0", "_waypoint1", "_waypoint2", "_index2", "_wPos", "_UnitPosition", "_x1", "_y1", "_x2", "_y2", "_Midpoint", "_group_array", "_GroupCount", "_CoverCount", "_RandomUnit","_locationPos4","_nearestHill"];
-//AI Waypoint Mock up using select best.
-_Unit = _this;
-if (_this getVariable "VCOM_MovedRecentlyCover" || {_this getVariable "VCOMAI_ActivelyClearing"} || {_this getVariable "VCOMAI_StartedInside"} || {_this getVariable "VCOM_GARRISONED"}) exitWith {};
-if !(side _unit in VCOM_SideBasedMovement) exitWith {};
+params ["_unit"];
 
-_NoFlanking = _Unit getVariable "VCOM_NOPATHING_Unit";
-if (_NoFlanking) exitWith {};
+if (_unit getVariable [VQGVAR(startedInside),false]
+    || {_unit getVariable [VQGVAR(garrisoned),false]}
+    || {!(_unit getVariable [VQGVAR(allowFlankingUnit),false])}
+    || {!(side _unit in VGVAR(movementEnabledSides))}
+    || {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}
+    || {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)}) exitWith {};
 
-if (_Unit getVariable "VCOM_FLANKING") exitWith {};
-_Unit setVariable ["VCOM_FLANKING",true,false];
+if ([_unit,VQGVAR(flanking),VGVAR(flankThreshold)] call VFUNC(pastThreshold)) exitWith {};
 
+private _nearestEnemy = _unit findNearestEnemy _unit;
+if (isNull _nearestEnemy) exitWith {};
 
-
-//Exit this script if the group has many active waypoints and the leader is currently moving. Check again in 30 seconds.
-//if ((count (waypoints (group _Unit))) >= 3 && !(((velocityModelSpace _Unit) select 1) isEqualTo 0) ) exitWith {};
-if ((count (waypoints (group _Unit))) >= 3) exitWith {};
-_GroupUnit = group _Unit;
-
-//_myNearestEnemy = _Unit call VCOMAI_ClosestEnemy;
-_myNearestEnemy = _Unit findNearestEnemy _Unit;
-_myEnemyPos = [];
-
-
-if (isNull _myNearestEnemy) exitWith
-{
-	if ((count (waypoints (group _Unit))) < 3) then
-	{
-
-		_wPos = waypointPosition [_GroupUnit, 1];
-		_WType = waypointType [_GroupUnit,1];
-		_speed = waypointSpeed [_GroupUnit,1];
-		_Beh = waypointBehaviour [_GroupUnit,1];
-		if (_wPos isEqualTo [0,0,0]) exitWith {};
-			while {(count (waypoints _GroupUnit)) > 1} do
-			{
-				deleteWaypoint ((waypoints _GroupUnit) select 0);
-				sleep 0.25;
-			};
-		sleep 2;
-		_ResetWaypoint = _GroupUnit addwaypoint [getPosATL _Unit,0];
-		sleep 2;
-		_waypoint2 = _GroupUnit addwaypoint[_wPos,1];
-		_waypoint2 setwaypointtype _WType;
-		_waypoint2 setWaypointSpeed _speed;
-		_waypoint2 setWaypointBehaviour _Beh;
-		//_GroupUnit setCurrentWaypoint [_GroupUnit, _waypoint2 select 1];
-	};
+private _unitGroup = group _unit;
+if ((count (waypoints _unitGroup)) > 0) then { //they're busy, free them for the task to come`
+    while {count (waypoints _unitGroup) > 1} do {
+        deleteWaypoint [_unitGroup, 1];
+    };
+    [_unitGroup, 0] setWaypointPosition [position (leader _unitGroup), 100];
 };
 
-
-if (isNil "_myNearestEnemy" || {(typeName _myNearestEnemy) isEqualTo "ARRAY"}) exitWith {};
-
-
-
-
-
-if (_Unit getVariable "VCOM_GARRISONED") exitWith {};
-
+_unit setVariable [VQGVAR(flanking),diag_tickTime];
 
 //Check to see if the AI should just press the advantage!
-_EnemyGroup = count (units (group _myNearestEnemy));
-_GroupCount = count units _GroupUnit;
-_myEnemyPos = (getposATL _myNearestEnemy);
+private _enemyGroupCount = count (units (group _nearestEnemy));
+private _groupCount = count (units _unitGroup);
+private _enemyPos = getposATL _nearestEnemy;
 
-_RandomChance = random 100;
-if (_RandomChance <= 25) then
-{
-	if ((_EnemyGroup/_GroupCount) <= 0.5) exitWith
-	{
-		while {(count (waypoints _GroupUnit)) > 0} do
-		{
-		deleteWaypoint ((waypoints _GroupUnit) select 0);
-		sleep 0.25;
-		};
-
-
-		_waypoint2 = _GroupUnit addwaypoint[_myEnemyPos,0];
-		_waypoint2 setwaypointtype "MOVE";
-		_waypoint2 setWaypointSpeed "NORMAL";
-		_waypoint2 setWaypointBehaviour "COMBAT";
-	};
-};
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-sleep 0.25;
-if (_myEnemyPos isEqualTo [0,0,0]) exitWith {_Unit setVariable["VCOM_FLANKING",false,false];_Unit spawn VCOMAI_FlankManeuver;};
-
-while {(count (waypoints _GroupUnit)) > 0} do
-{
- deleteWaypoint ((waypoints _GroupUnit) select 0);
- sleep 0.25;
+if ((floor (random 100)) <= 75 && {(_enemyGroupCount/_groupCount) <= 0.25}) exitWith { //direct attack
+    private _waypoint = _unitGroup addwaypoint [_enemyPos,0];
+    _waypoint setwaypointtype "DESTROY";
+    _waypoint setWaypointSpeed "FULL";
+    _waypoint setWaypointBehaviour "COMBAT";
 };
 
+private _distance  = (random 100) + 100;
+private _direction = random 360;
+private _position = [(_enemyPos select 0) + (sin _direction) * _distance, (_enemyPos select 1) + (cos _direction) * _distance, 0];
 
-_ResetWaypoint = _GroupUnit addwaypoint [getPosATL _Unit,0];
+private _places = selectBestPlaces [_enemyPos, 400,"((6*hills + 2*forest + 4*houses + 2*meadow) - sea + (2*trees)) - (1000*deadbody)", 100, 5];
+private _randomLocation = (selectRandom _myPlaces) select 0;
 
-//_OverWatch = [_myEnemyPos] call BIS_fnc_findOverwatch;
+_unitGroup setBehaviour "COMBAT";
 
-//[_unit] call BIS_fnc_threat;
+private _flankWP1 = _unitGroup addWaypoint [_randomLocation,10];
+_flankWP1 setWaypointType "MOVE";
+_flankWP1 setWaypointSpeed "NORMAL";
+_flankWP1 setWaypointBehaviour "COMBAT";
+_flankWP1 setCurrentWaypoint _flankWP1;
 
-_rnd = random 100;
-_dist = (_rnd + 100);
-_dir = random 360;
-_positions = [(_myEnemyPos select 0) + (sin _dir) * _dist, (_myEnemyPos select 1) + (cos _dir) * _dist, 0];
+private _flankWP2 = _unitGroup addwaypoint [_position,10];
+_flankWP2 setwaypointtype "MOVE";
+_flankWP2 setWaypointSpeed "NORMAL";
+_flankWP2 setWaypointBehaviour "COMBAT";
 
-
-_group	= group _Unit;
-_index = currentWaypoint _group;
-
-
-_myPlaces = selectBestPlaces [_myEnemyPos, 400,"((6*hills + 2*forest + 4*houses + 2*meadow) - sea + (2*trees)) - (1000*deadbody)", 100, 5];
-_RandomArray = _myPlaces call BIS_fnc_selectrandom;
-_RandomLocation = _RandomArray select 0;
-
-
-_group setBehaviour "COMBAT";
-_waypoint0 = _group addwaypoint [_RandomLocation,10];
-_waypoint0 setwaypointtype "MOVE";
-_waypoint0 setWaypointSpeed "NORMAL";
-_waypoint0 setWaypointBehaviour "COMBAT";
-_group setCurrentWaypoint [_group,(_waypoint0 select 1)];
-_waypoint1 = _group addwaypoint[_positions,10];
-_waypoint1 setwaypointtype "MOVE";
-_waypoint1 setWaypointSpeed "NORMAL";
-_waypoint1 setWaypointBehaviour "COMBAT";
-_waypoint2 = _group addwaypoint[_myEnemyPos,10];
-_waypoint2 setwaypointtype "MOVE";
-_waypoint2 setWaypointSpeed "NORMAL";
-_waypoint2 setWaypointBehaviour "COMBAT";
-
-
-
-
-/*
-//Lets try making the AI group move more aggressively to the waypoint. Test function will be inside this script here.
-_group spawn
-{
-
-	_CurrentStance = (leader _this) call VCOMAI_CurrentStance;
-	while {_CurrentStance isEqualTo "COMBAT"} do
-	{
-		//Pull the waypoint information
-		_index = currentWaypoint _this;
-		_WPPosition = getWPPos [_this,_index];
-
-		//Exit if WPPosition isEqualTo [0,0,0];
-		if (_WPPosition isEqualTo [0,0,0]) exitWith {};
-
-		//Force AI to move in that direction
-		{
-			_x doMove _WPPosition;
-			systemchat format ["MOVE: %1",_x];
-		} foreach units _this;
-
-		//Update stance information
-		_CurrentStance = (leader _this) call VCOMAI_CurrentStance;
-
-		//For testing we will have it force move the troops every 15 seconds.
-		sleep 15;
-
-	};
-
-
-};
-
-
-
-
-_index2 = currentWaypoint _group;
-_wPos = waypointPosition [_group, _index2];
-
-_UnitPosition = getPosATL _Unit;
-
-
-_x1 = _wPos select 0;
-_y1 = _wPos select 1;
-_x2 = _UnitPosition select 0;
-_y2 = _UnitPosition select 1;
-_Midpoint = [((_x1 + _x2)/2),((_y1 + _y2)/2),1];
-
-
-//Individual Commands. To get the AI to move around more. While some cover.
-
-_group_array = units _group;
-_GroupCount = count _group_array;
-_CoverCount = (round(_GroupCount * .33)); //10 -> 3
-for "_i" from 1 to _CoverCount do {
-	_group_array spawn {
-	_RandomUnit = _this call BIS_fnc_selectRandom;
-	_this = _this - [_RandomUnit];
-	_RandomUnit suppressFor 5;
-};
-};
-*/
+private _attackWP = _unitGroup addwaypoint [_enemyPos,10];
+_attackWP setWaypointType "DESTROY";
+_attackWP setWaypointSpeed "FULL";
+_attackWP setWaypointBehaviour "COMBAT";

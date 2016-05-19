@@ -3,6 +3,9 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
+private _cachedValue = _unit getVariable [VQGVAR(cachedNearestEnemy), objNull];
+if !(isNull (_cachedValue)) exitWith { _cachedValue };
+
 private _minRange = 0;
 private _returnEnemy = objNull;
 private _unitSide = (side _unit);

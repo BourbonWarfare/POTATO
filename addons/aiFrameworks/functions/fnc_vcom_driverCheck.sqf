@@ -1,22 +1,10 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private ["_NotDriver", "_Unit", "_Vehicle", "_ActualDriver"];
-//Created on 8/15/14
-// Modified on : 8/29/14 - Fixed passenger getting a nill for _NotDriver
-_Unit = _this;
+params ["_unit"];
 
-_NotDriver = false;
+private _vehicle = vehicle _unit;
 
-_Vehicle = (vehicle _Unit);
+if (_vehicle == _unit) exitWith { false };
 
-_ActualDriver = driver _Vehicle;
-
-if (_Unit isEqualTo _ActualDriver) then
-{
-
-  _NotDriver = true;
-
-};
-
-_NotDriver
+driver _vehicle == _unit

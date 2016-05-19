@@ -9,17 +9,17 @@ if (isNil "_currentBackpack") exitWith {};
 private _class = [_currentBackpack] call VFUNC(classvehicle);
 if (isNil "_class") exitWith {};
 
-private _parents = [_class, true] call BIS_fnc_returnParents;
+private _parents = [_class,true] call BIS_fnc_returnParents;
 
 if (("StaticWeapon" in _parents) || {("Weapon_Bag_Base" in _parents)}) then {
-    _unit setVariable [VQGVAR(hasStatic), true];
-    _unit setVariable [VQGVAR(staticClassname), _currentBackpack];
+    _unit setVariable [VQGVAR(hasStatic),true];
+    _unit setVariable [VQGVAR(staticClassname),_currentBackpack];
 
     if ("UAV" in (toUpper _currentBackpack)) then {
-        _unit setVariable [VQGVAR(hasUAV), true];
+        _unit setVariable [VQGVAR(hasUAV),true];
     };
 }
 else {
-	_unit setVariable [VQGVAR(hasStatic), false];
-    _unit setVariable [VQGVAR(hasUAV), false];
+    _unit setVariable [VQGVAR(hasStatic),false];
+    _unit setVariable [VQGVAR(hasUAV),false];
 };

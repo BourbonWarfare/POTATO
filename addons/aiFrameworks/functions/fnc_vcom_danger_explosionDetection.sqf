@@ -1,14 +1,18 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private ["_CraterList"];
+params ["_unit"];
 
-_CraterList = position _this nearObjects ["#crater",100];
+private _craterList = _unit nearObjects ["#crater",100];
 
-//Check if an enemy is close to the AI or not.
-_Enemy = _this call VCOMAI_ClosestEnemy;
-if (isNil "_Enemy") then {_Enemy = [0,0,0]};
+if (count _craterList > 0) then {
+    //Check if an enemy is close to the AI or not.
+    private _enemy = [_unit] call VFUNC(closestEnemy);
+    if !(isNull _enemy) then {
+        if (_enemy distance _unit > VGVAR(maxEngagementDistance)) then {
+            _craterList = [];
+        };
+    };
+};
 
-if (_Enemy distance _this > 1000) then {_CraterList = [];};
-
-_CraterList
+_craterList

@@ -8,8 +8,8 @@ private _support = [];
 	if (isNull _x) then {
         VGVAR(ArtilleryArray) = VGVAR(ArtilleryArray) - [_x];
     } else {
-        if (side _unit == side _x && {!((vehicle _x) in _support)}) then {
-            _support pushBack (vehicle _x);
+        if (side _unit == side _x) then {
+            _support pushBackUnique (vehicle _x);
         };
     };
 
@@ -17,16 +17,13 @@ private _support = [];
 } count VGVAR(ArtilleryArray);
 if ((count _support) <= 0) exitWith {};
 
-private _returnedSupport = [_support, (vehicle _Unit)] call VFUNC(closestObject);
+private _returnedSupport = [_support, (vehicle _unit)] call VFUNC(closestObject);
 if (isNull _returnedSupport) exitWith {};
 if !(_returnedSupport getVariable [VQGVAR(isArtillery),false]) exitWith {};
 
 private _artilleryUnits = [];
 {
-    private _vehicle = (vehicle _x);
-    if !(_vehicle in _artilleryUnits) then {
-        _artilleryUnits pushBack _vehicle;
-    };
+    _artilleryUnits pushBackUnique (vehicle _x);
     nil
 } count (units (group _returnedSupport));
 

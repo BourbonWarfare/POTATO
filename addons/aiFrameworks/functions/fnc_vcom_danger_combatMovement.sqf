@@ -1,29 +1,25 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-//if !(_this getVariable "VCOM_VisuallyCanSee") then
-//{
+params ["_unit"];
 
-	_MovingToWP = _this getVariable ["VCOM_MovedRecently",false];
-	_MovingToCover = _this getVariable ["VCOM_InCover",true];
+private _movingToWP = [_unit,VQGVAR(movedRecently),VGVAR(movedRecentlyThreshold)] call VFUNC(pastThreshold);
+private _inCover = _unit getVariable [VQGVAR(inCover),true];
+if (_movingToWP || !(_inCover)) exitWith {};
 
-	if (_MovingToWP || !(_MovingToCover)) exitWith {};
+private _nearestEnemy = [_unit] call VFUNC(closestEnemy);
+if (isNull _nearestEnemy || {!(alive _nearestEnemy)}) exitWith {};
 
-	_NearestEnemy = _this call VCOMAI_ClosestEnemy;
-	if (isNil "_NearestEnemy" || {(typeName _NearestEnemy isEqualTo "ARRAY")} || {isNil "_this"} || {!(alive _NearestEnemy)} || {(_NearestEnemy distance _this) > 5000}) exitWith {};
+private _distance = abs (_nearestEnemy distance _unit);
+if (_distance > VGVAR(maxThreatDistance)) exitWith {};
 
-	_intersections = lineIntersectsSurfaces [eyePos _this,eyepos _NearestEnemy,_this,_NearestEnemy, true, 1];
+private _intersections = lineIntersectsSurfaces [eyePos _unit, eyepos _nearestEnemy, _unit, _nearestEnemy, true, 1];
 
-	if ((count _intersections) isEqualTo 0 && ((_NearestEnemy distance _this) < 1000)) then
-	{
-			_this setVariable ["VCOM_VisuallyCanSee",true,false];
-			_this forceSpeed 0;
-			_this setUnitPos "AUTO";
-			_this suppressfor 5;
-	}
-	else
-	{
-			_this setVariable ["VCOM_VisuallyCanSee",false,false];
-			//_this spawn {sleep 10;if !(_this getVariable "VCOM_VisuallyCanSee") then {_this forceSpeed -1;};};
-	};
-//};
+if ((count _intersections) == 0 && (_distance < VGVAR(maxEngagementDistance))) then {
+    _unit setVariable [VQGVAR(canVisuallySee),true];
+    _unit forceSpeed 0;
+    _unit setUnitPos "AUTO";
+    _unit suppressfor 5;
+} else {
+    _unit setVariable [VQGVAR(canVisuallySee),false];
+};

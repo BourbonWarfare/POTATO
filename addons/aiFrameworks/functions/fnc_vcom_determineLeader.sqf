@@ -1,21 +1,16 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-//Created on 8/14/14
-// Modified on : 8/1/15
+params [_unit];
 
-//This function is to determine if this unit is the group leader or not. And to define if unit is sub-leader or not.
-_Unit = _this select 0;
+private _groupLeader = leader _unit;
+if (_groupLeader == _unit) then {
+    _unit setVariable [VQGVAR(leader),true];
+};
 
-_GroupLeader = leader (group (vehicle _Unit));
-if (_GroupLeader isEqualTo _Unit) then {_Unit setVariable ["VCOM_GroupLeader",true,false];};
+private _subLeader = isFormationLeader _unit;
+if (_subLeader) then {
+    _unit setVariable [VQGVAR(subLeader),true];
+};
 
-_SubLeader = isFormationLeader _Unit;
-if (_SubLeader) then {_Unit setVariable ["VCOM_SubLeader",true,false];};
-
-
-_Leader = _Unit getVariable "VCOM_GroupLeader";
-if (isNil "_Leader") exitWith {};
-_SubLeader = _Unit getVariable "VCOM_SubLeader";
-_CheckArray = [_Leader,_SubLeader];
-_CheckArray
+[_groupLeader,_subLeader]

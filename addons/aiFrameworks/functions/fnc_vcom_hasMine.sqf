@@ -1,42 +1,86 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private ["_Unit", "_magazinesAmmo", "_Magazine", "_value", "_SubtractAmount", "_DemoCharge", "_SatchelCharge", "_Bomb", "_IsWired", "_IsRemote", "_IsClaymore", "_MineName"];
+params ["_unit"];
 
-_Unit = _this;
-_magazinesAmmo = magazinesAmmo _Unit;
+private _fnc_addToArray = {
+    params ["_unit","_object","_arrayVar"];
 
+    private _array = _unit getVariable [_arrayVar, []];
+    _array pushBack _object;
+    _unit setVariable [_arrayVar, _array];
+};
+
+private _fnc_setBomb = {
+    params ["_unit","_bomb","_magazine"];
+
+    [_unit,_bomb,VQGVAR(bombObjectArray)] call _fnc_addToArray;
+    [_unit,_magazine,VQGVAR(bombMagazineArray)] call _fnc_addToArray;
+};
+
+private _magazines = magazinesAmmo _unit;
 {
-	_Magazine = _x select 0;
-	_value = (configfile >> "CfgMagazines" >> _Magazine >> "nameSound") call BIS_fnc_getCfgData;
-	if (_value isEqualTo "satchelcharge") then
-	{
-		_SubtractAmount = 0;
-		_DemoCharge = ["DemoCharge",_Magazine,false] call BIS_fnc_inString;
-		_SatchelCharge = ["SatchelCharge",_Magazine,false] call BIS_fnc_inString;
+    private _magazine = _x select 0;
+    private _magazineLower = toLower _magazine;
 
-		if (_DemoCharge || {_SatchelCharge}) then
-		{
-			_Bomb = "Democharge_F";
-			if (_SatchelCharge) then {_Bomb = "SatchelCharge_F"};
-			_Unit setVariable ["VCOM_SATCHELBOMB",_Bomb,false];
-			_Unit setVariable ["Vcom_SatchelObjectMagazine",_Magazine,false];
-			_Unit setVariable ["VCOM_HASSATCHEL",true,false];
-		};
+    private _isSatchel = "satchelcharge" in _magazineLower;
+    private _isDemo = "democharge" in _magazineLower;
+    private _isWiredMine = "wired" in _magazineLower;
+    private _isRemoteMine = "remote" in _magazineLower;
+    private _isClaymore = "claymore" in _magazineLower;
 
-	};
-	if (_value isEqualTo "mine") then
-	{
-		_SubtractAmount = 0;
-		_IsWired = ["wire",_Magazine,false] call BIS_fnc_inString;
-		_IsRemote = ["remote",_Magazine,false] call BIS_fnc_inString;
-		_IsClaymore = ["Claymore",_Magazine,false] call BIS_fnc_inString;
-		if (_IsWired) then {_SubtractAmount = -9} else {_SubtractAmount = -10};
-		if (_IsRemote) then {_SubtractAmount = -11};
-		_MineName = [_Magazine,0,_SubtractAmount] call BIS_fnc_trimString;
-		if (_IsClaymore) then {_MineName = "Claymore_F"};
-		_Unit setVariable ["Vcom_MineObject",_MineName,false];
-		_Unit setVariable ["Vcom_MineObjectMagazine",_Magazine,false];
-		_Unit setVariable ["VCOM_HasMine",true,false];
-	};
-} forEach _magazinesAmmo;
+    switch (true) do {
+        case ("satchelcharge" in _magazineLower): {
+            [_unit,"SatchelCharge_F",_magazine] call _fnc_setBomb;
+            private _bomb = "SatchelCharge_F";
+        };
+        case ("democharge" in _magazineLower): {
+            [_unit,"Democharge_F",_magazine] call _fnc_setBomb;
+        };
+        case ("wired" in _magazineLower): {
+        };
+        case ("remote" in _magazineLower): {
+        };
+        case ("claymore" in _magazineLower): {
+        };
+    }
+
+    switch (_nameSound) do {
+        case ("satchelcharge"): {
+            private _isDemo = "democharge" in _magazineLower;
+            private _isSatchel = "satchelcharge" in _magazineLower;
+
+        };
+        case ("mine"): {
+            //code
+        };
+    };
+
+    if (_value isEqualTo "satchelcharge") then
+    {
+        _SubtractAmount = 0;
+        _DemoCharge = ["DemoCharge",_Magazine,false] call BIS_fnc_inString;
+        _SatchelCharge = ["SatchelCharge",_Magazine,false] call BIS_fnc_inString;
+
+        if (_DemoCharge || {_SatchelCharge}) then
+        {
+        _Bomb = "Democharge_F";
+
+        };
+
+    };
+    if (_value isEqualTo "mine") then
+    {
+        _SubtractAmount = 0;
+        _IsWired = ["wire",_Magazine,false] call BIS_fnc_inString;
+        _IsRemote = ["remote",_Magazine,false] call BIS_fnc_inString;
+        _IsClaymore = ["Claymore",_Magazine,false] call BIS_fnc_inString;
+        if (_IsWired) then {_SubtractAmount = -9} else {_SubtractAmount = -10};
+        if (_IsRemote) then {_SubtractAmount = -11};
+        _MineName = [_Magazine,0,_SubtractAmount] call BIS_fnc_trimString;
+        if (_IsClaymore) then {_MineName = "Claymore_F"};
+        _Unit setVariable ["Vcom_MineObjectMagazine",_Magazine,false];
+        _Unit setVariable ["VCOM_HasMine",true,false];
+    };
+    nil
+} count _magazines;

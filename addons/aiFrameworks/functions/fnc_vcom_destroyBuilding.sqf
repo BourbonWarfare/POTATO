@@ -1,121 +1,53 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private ["_Unit", "_UnitGroup", "_Point", "_PreviousPosition", "_vehicle", "_Offset", "_ToWorld1", "_ToWorld2", "_PointHeight", "_PointHeightC", "_LookVar", "_nBuilding", "_Building", "_SatchelOfUse", "_Truth", "_PrimaryWeapon", "_PrimaryWeaponItems", "_SecondaryWeapon", "_SecondaryWeaponItems", "_HandgunWeapon", "_HandgunWeaponItems"];
-//Script used to make AI attach explosives to buildings and bring them down if players garrison them.
-_Unit = _this;
-_UnitGroup = group _Unit;
+params ["_unit"];
 
-//_Point = _Unit getVariable "VCOM_CLOSESTENEMY";
-_Point = _Unit call VCOMAI_ClosestEnemy;
-if (_Point isEqualTo [] || {isNil "_Point"}) exitWith {};
-_Unit setVariable ["VCOM_HASSATCHEL",false,false];
-_PreviousPosition = (getPos _Unit);
-if (isNil "_Point") exitWith {};
-//Hint format ["_Point %1",_Point];
-sleep 2;
+private _unitGroup = group _unit;
+private _isLeader = (leader _unit) == _unit;
 
-if ((_Unit distance _Point) < 200) then
-{
+private _enemy = [_unit] call VFUNC(closestEnemy);
+if (isNull _enemy || {_enemy != (vehicle _enemy)}
+    || {(_unit distance _enemy) > VGVAR(maxDistanceToSatchel)}
+    || {!([_enemy] call VFUNC(inBuilding))}) exitWith {};
 
-_vehicle = vehicle _Point;
+private _satchelCount = _unit getVariable [VQGVAR(satchelCount),0];
+private _satchel = _unit getVariable [VQGVAR(satchelObject),""];
+private _satchelMagazine = _unit getVariable [VQGVAR(satchelObjectMagazine),""];
+if (_satchelCount < 1 || {_satchel == ""} || {_satchelMagazine == ""}) exitWith {};
 
-if (_Point isEqualTo _vehicle) then {
+_unit setVariable [VQGVAR(satchelCount),_satchelCount - 1];
+private _previousPosition = (position _unit);
 
+private _building = nearestBuilding _enemy;
 
-_nBuilding = nearestBuilding _Point;
-if ((_nBuilding distance _Point) > 20) exitWith {};
+[_unit] joinSilent (createGroup (side _unit));
+doStop _unit;
+_unit doMove (position _building);
 
-sleep 2;
-doStop _Unit; _Unit doMove (getPos _nBuilding);
-[_Unit] joinSilent grpNull;
+waitUntil { sleep 0.5; _unit distance _building) <= 10 };
 
-[_Unit,_nBuilding,_PreviousPosition,_UnitGroup] spawn {
-_Unit = _this select 0;
-_Building = _this select 1;
-_PreviousPosition = _this select 2;
-_UnitGroup = _this select 3;
-_SatchelOfUse = _Unit getVariable "VCOM_SATCHELBOMB";
-//Hint format ["_SatchelOfUse %1",_SatchelOfUse];
+_unit removeMagazine _satchelMagazine;
+private _bomb = createMine [_satchel, getposATL _unit, [], 0];
+private _bombPos = (position _unit);
 
-_Truth = true;
-while {_Truth} do {
-if ((_Unit distance _Building) <= 10) then {_Truth = false;};
-sleep 0.1;
+doStop _unit;
+_unit doMove _previousPosition;
+
+private _friends = [_unit] call VFUNC(friendlyUnits);
+
+private _notSafe = true;
+while {_notSafe} do {
+    private _closestFriendly = [_friends,_bombPos] call VFUNC(closestObject);
+    if (isNull _closestFriendly || {_closestFriendly distance _bombPos > 20}) then {
+        _notSafe = false;
+    };
+
+    sleep 1;
 };
 
-/*
-//Hint "FIRE FIRE FIRE!";
-_PrimaryWeapon = primaryWeapon _Unit;
-_PrimaryWeaponItems = primaryWeaponItems _Unit;
-_Unit removeWeapon _PrimaryWeapon;
-_SecondaryWeapon = secondaryWeapon _Unit;
-_SecondaryWeaponItems = secondaryWeaponItems _Unit;
-_Unit removeWeapon _SecondaryWeapon;
-_HandgunWeapon = handgunWeapon _Unit;
-_HandgunWeaponItems = handgunItems _Unit;
-_Unit removeWeapon _HandgunWeapon;
-sleep 2;
-_Unit fire ["PipeBombMuzzle","PipeBombMuzzle",_SatchelOfUse];
-_Unit fire ["DemoChargeMuzzle","DemoChargeMuzzle",_SatchelOfUse];
-*/
-_Bomb = _Unit getVariable "VCOM_SATCHELBOMB";
-_RemoveMag = _Unit getVariable "Vcom_SatchelObjectMagazine";
-_Unit removeMagazine _RemoveMag;
-_mine = createMine [_Bomb,getposATL _unit, [], 0];
+[_unit] joinSilent _unitGroup;
+if (_isLeader) then { _unitGroup selectLeader _unit; };
 
-
-
-_PlantPosition = (getpos _Unit);
-/*
-if (_PrimaryWeapon != "") then {
-_Unit addWeapon _PrimaryWeapon;
-{
-_Unit addPrimaryWeaponItem _x;
-} forEach _PrimaryWeaponItems;
-};
-if (_SecondaryWeapon != "") then {
-_Unit addWeapon _SecondaryWeapon;
-{
-_Unit addSecondaryWeaponItem _x;
-} forEach _SecondaryWeaponItems;
-};
-if (_HandgunWeapon != "") then {
-_Unit addWeapon _HandgunWeapon;
-{
-_Unit addHandgunItem _x;
-} forEach _HandgunWeaponItems;
-};
-*/
-//_Unit enableAI "TARGET";
-//_Unit enableAI "AUTOTARGET";
-_NotSafe = true;
-_Array1 = [];
-_UnitSide = (side _Unit);
-doStop _Unit;
-_Unit doMove _PreviousPosition;
-{
-	if (alive _x && (side _x) isEqualTo _UnitSide) then {_Array1 pushback _x;};
-} foreach allUnits;
-while {_NotSafe} do
-{
-	_ClosestFriendly = [_Array1,_PlantPosition] call VCOMAI_ClosestObject;
-	if (isNil "_ClosestFriendly") then {_NotSafe = false;};
-	if (_ClosestFriendly distance _PlantPosition > 15) then {_NotSafe = false;};
-	sleep 1;
-};
-[_Unit] joinSilent _UnitGroup;
-//Hint "TOUCH OFF!";
-//_Unit action ["TOUCHOFF", _Unit];
-_mine setdamage 1;
-_Unit setVariable ["VCOM_FLANKING",false,false];
-//_Unit enableAI "TARGET";
-//_Unit enableAI "AUTOTARGET";
-};
-
-
-
-
-//};
-};
-};
+_bomb setdamage 1;
+_unit setVariable [VQGVAR(flanking),0];
