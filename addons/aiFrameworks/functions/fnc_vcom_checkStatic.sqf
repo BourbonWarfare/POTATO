@@ -1,12 +1,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-_weapon = nearestObject [(getposATL _this),"StaticWeapon"];
-if !(isNull _weapon || {(_weapon distance _this) > 100}) then
-{
-	_this setVariable ["VCOMAI_StaticNearby",true,false];
-}
-else
-{
-	_this setVariable ["VCOMAI_StaticNearby",false,false];
-};
+params ["_unit"];
+
+private _weapons = nearestObjects [_unit,"StaticWeapon",VGVAR(maxDistanceToMountEmptyStatic)];
+_unit setVariable [VQGVAR(StaticNearby), (count _weapons > 0)];

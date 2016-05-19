@@ -1,36 +1,45 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private ["_list", "_position"];
-_list = _this select 0;
-_object = _this select 1;
-//systemchat format ["%1",_object];
+params ["_list","_object"];
 
+private _fnc_getPosition = {
+    params ["_object"];
 
-_position = [0,0,0];
-if (isNil ("_object")) exitWith {};
-if (isNil ("_list")) exitWith {};
-if (TypeName _object isEqualTo "OBJECT") then {_position = getPosWorld _object;};
-if (TypeName _object isEqualTo "STRING") then {_position = getMarkerPos _object;};
-if (TypeName _object isEqualTo "ARRAY") then {_position = _object;};
+    private _position = [];
 
-_DistanceArray = [];
+    if (_object isEqualType objNull) then {
+        _position = getPosWorld _object;
+    } else {
+        if (_object isEqualType "STRING") then {
+            _position = getMarkerPos _object;
+        } else {
+            if (_object isEqualType [] && (count _object) == 3) then {
+                _position = _object;
+            };
+        };
+    };
+
+    _position
+};
+
+private _position = [_object] call _fnc_getPosition;
+if ((count _position) != 3) exitWith { objNull };
+
+private _minRange = 0;
+private _returnObject = objNull;
 
 {
-	if !(isNil "_x") then
-	{
-		_CompareObjectPos = [0,0,0];
-		if (TypeName _x isEqualTo "OBJECT") then {_CompareObjectPos = getPosWorld _x;};
-		if (TypeName _x isEqualTo "STRING") then {_CompareObjectPos = getMarkerPos _x;};
-		if (TypeName _x isEqualTo "ARRAY") then {_CompareObjectPos = _x;};
-		_NewObjectDistance = _CompareObjectPos distance _position;
-		_DistanceArray pushback [_NewObjectDistance,_x];
-	};
-} foreach _list;
+    private _comparePosition = [_x] call _fnc_getPosition;
 
-_DistanceArray sort true;
+    if ((count _comparePosition) == 3) then {
+        private _range = _comparePosition distance _position;
+        if (_range < _minRange || {isNull _returnObject}) then {
+            private _minRange = _range;
+            private _returnObject = _x;
+        };
+    };
+    nil
+} count _list;
 
-_ClosestObject = ((_DistanceArray select 0) select 1);
-
-if (isNil "_ClosestObject") exitWith {};
-_ClosestObject
+_returnObject

@@ -17,35 +17,28 @@ private _support = [];
 } count VGVAR(ArtilleryArray);
 if ((count _support) <= 0) exitWith {};
 
-_artilleryUnits = [];
-
-
-
 private _returnedSupport = [_support, (vehicle _Unit)] call VFUNC(closestObject);
-if (isNil "_ReturnedSupport") exitWith {};
-
+if (isNull _returnedSupport) exitWith {};
 if !(_returnedSupport getVariable [VQGVAR(isArtillery),false]) exitWith {};
 
-_ArtilleryGroup = group _ReturnedSupport;
+private _artilleryUnits = [];
+{
+    private _vehicle = (vehicle _x);
+    if !(_vehicle in _artilleryUnits) then {
+        _artilleryUnits pushBack _vehicle;
+    };
+    nil
+} count (units (group _returnedSupport));
 
-_ArtilleryGroupUnits = units _ArtilleryGroup;
+private _ammoArray = getArtilleryAmmo _artilleryUnits;
+if (count _ammoArray < 1) exitWith {};
+_randomAmmo = selectRandom _ammoArray;
+
+private _enemyPos  = getPos _enemy;
+
+if !(_enemyPos inRangeOfArtillery [_artilleryUnits,_randomAmmo]) exitWith {};
 
 {
-	_ArtilleryUnits = _ArtilleryUnits + [(vehicle _x)];
-} foreach _ArtilleryGroupUnits;
-
-_AmmoArray = getArtilleryAmmo _ArtilleryUnits;
-//player sidechat format ["ARTY _AmmoArray: %1",_AmmoArray];
-if (isNil "_AmmoArray") exitWith {};
-
-_RandomAmmoArray = _AmmoArray call BIS_fnc_selectRandom;
-if (isNil "_RandomAmmoArray") exitWith {};
-//player sidechat format ["ARTY _RandomAmmoArray: %1",_RandomAmmoArray];
-_ContinueFiring = (getPos _Enemy) inRangeOfArtillery [_ArtilleryUnits,_RandomAmmoArray];
-if !(_ContinueFiring) exitWith {};
-//Hint format ["_ArtilleryUnits : %1",_ArtilleryUnits];
-{
-	_x doArtilleryFire [(getPos _Enemy),_RandomAmmoArray,(floor(random 4))];
-	//_x commandArtilleryFire [(getPos _Enemy),_RandomAmmoArray,(floor(random 4))];
-
-} foreach _ArtilleryUnits;
+    _x doArtilleryFire [_enemyPos, _randomAmmo, 1 + floor(random 3)];
+    nil
+} count _artilleryUnits;

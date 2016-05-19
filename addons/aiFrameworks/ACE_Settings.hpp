@@ -72,4 +72,18 @@ class ACE_Settings {
         typeName = "ARRAY";
         value = {WEST,EAST,CIVILIAN,RESISTANCE};
     };
+
+    /*   Operation Timeouts   */
+    class VGVAR(moveCompletedThreshold) {
+        typeName = "SCALAR";
+        value = 10;
+    };
+    class VGVAR(clearingThreshold) {
+        typeName = "SCALAR";
+        value = 30;
+    };
+    class VGVAR(flankThreshold) {
+        typeName = "SCALAR";
+        value = 300;
+    };
 };

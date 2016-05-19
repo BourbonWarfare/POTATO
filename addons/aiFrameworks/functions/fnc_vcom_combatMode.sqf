@@ -1,12 +1,13 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-//VCOMAI_CombatMode
-_TimeShot = _this getVariable "VCOM_FiredTime";
-_NearestEnemy = _this call VCOMAI_ClosestEnemy;
-if (isNil "_NearestEnemy") then {_NearestEnemy = [0,0,0];};
+params ["_unit"]
 
-if ((diag_tickTime - _TimeShot) > 60 && ((_NearestEnemy distance _this) > 1000)) then
-{
-	_this setBehaviour (_this getVariable "VCOMAI_LastCStance");
+//VCOMAI_CombatMode
+private _timeShot = _unit getVariable [VQGVAR(firedTime), 0];
+
+private _nearestEnemy = [_unit] call VFUNC(closestEnemy);
+
+if ((diag_tickTime - _timeShot) > 60 && ((_nearestEnemy distance _unit) > 1000 || {isNull _nearestEnemy})) then {
+	_unit setBehaviour (_unit getVariable [VQGVAR(lastStance), behaviour _unit]);
 };

@@ -1,24 +1,25 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private ["_Unit", "_CurrentBackPack", "_class", "_parents", "_IsUAV"];
-_Unit = _this;
+params ["_unit"];
 
-_CurrentBackPack = backpack _Unit;
+private _currentBackpack = backpack _unit;
+if (isNil "_currentBackpack") exitWith {};
 
-if (isNil "_CurrentBackPack") exitWith {};
-_class = [_CurrentBackPack] call VCOMAI_Classvehicle;
-
+private _class = [_currentBackpack] call VFUNC(classvehicle);
 if (isNil "_class") exitWith {};
-_parents = [_class,true] call BIS_fnc_returnParents;
-if (("StaticWeapon" in _parents) || {("Weapon_Bag_Base" in _parents)}) then
-{
-	_Unit setVariable ["VCOM_HASSTATIC",true,false];
-	_Unit setVariable ["VCOM_StaticClassName",_CurrentBackPack,false];
-	_IsUAV = ["UAV",_CurrentBackPack,false] call BIS_fnc_inString;
-	if (_IsUAV) then {_Unit setVariable ["VCOM_HASUAV",true,false];};
+
+private _parents = [_class, true] call BIS_fnc_returnParents;
+
+if (("StaticWeapon" in _parents) || {("Weapon_Bag_Base" in _parents)}) then {
+    _unit setVariable [VQGVAR(hasStatic), true];
+    _unit setVariable [VQGVAR(staticClassname), _currentBackpack];
+
+    if ("UAV" in (toUpper _currentBackpack)) then {
+        _unit setVariable [VQGVAR(hasUAV), true];
+    };
 }
-else
-{
-	_Unit setVariable ["VCOM_HASSTATIC",false,false];
+else {
+	_unit setVariable [VQGVAR(hasStatic), false];
+    _unit setVariable [VQGVAR(hasUAV), false];
 };
