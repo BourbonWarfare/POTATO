@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_unit","_enemy"];
+params ["_unit"];
 
 private _support = [];
 {
@@ -31,9 +31,11 @@ private _ammoArray = getArtilleryAmmo _artilleryUnits;
 if (count _ammoArray < 1) exitWith {};
 _randomAmmo = selectRandom _ammoArray;
 
-private _enemyPos  = getPos _enemy;
+private _enemyPos  = getPos ([_unit] call VFUNC(closestEnemy));
 
 if !(_enemyPos inRangeOfArtillery [_artilleryUnits,_randomAmmo]) exitWith {};
+
+_unit setVariable [VQGVAR(calledArtillery),diag_tickTime];
 
 {
     _x doArtilleryFire [_enemyPos, _randomAmmo, 1 + floor(random 3)];

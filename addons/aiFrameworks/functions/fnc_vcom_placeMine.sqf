@@ -3,7 +3,7 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
-if (chanceToUseMine <= random 100) exitWith {};
+if (VGVAR(chanceToUseMine) <= random 100) exitWith {};
 
 private _nearestEnemy = [_unit] call VFUNC(closestEnemy);
 if (isNull _nearestEnemy) exitWith {};
@@ -21,7 +21,7 @@ _unit setVariable [VQGVAR(plantedMineRecently),diag_tickTime];
 
 private _mine = objNull;
 
-if (_nearestEnemy distance _unit < VGVAR(maxDistanceToPlantMine)) then {
+if (_nearestEnemy distance _unit < 200) then {
     _mine = createMine [_mineClassname, getposATL _unit, [], 3];
 } else {
     private _nearRoads = _unit nearRoads 50;

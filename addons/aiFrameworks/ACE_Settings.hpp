@@ -82,7 +82,7 @@ class ACE_Settings {
     };
     class VGVAR(maxDistanceToPlantMine) {
         typeName = "SCALAR";
-        value = 200;
+        value = 2000;
     };
     class VGVAR(maxThreatDistance) {
         typeName = "SCALAR";
@@ -90,13 +90,17 @@ class ACE_Settings {
     };
     class VGVAR(maxUAVRevealDistance) {
         typeName = "SCALAR";
-        value = 800;
+        value = 1000;
     };
 
     /*   Chances of usage   */
+    class VGVAR(chanceToUseArtillery) {
+        typeName = "SCALAR"
+        value = 25;
+    };
     class VGVAR(chanceToUseGrenade) {
         typeName = "SCALAR";
-        value = 20;
+        value = 30;
     };
     class VGVAR(chanceToUseMine) {
         typeName = "SCALAR";
@@ -114,13 +118,17 @@ class ACE_Settings {
     };
 
     /*   Operation Timeouts   */
+    class VGVAR(artilleryThreshold) {
+        typeName = "SCALAR";
+        value = 120;
+    };
     class VGVAR(moveCompletedThreshold) {
         typeName = "SCALAR";
         value = 10;
     };
     class VGVAR(grenadeThreshold) {
         typeName = "SCALAR";
-        value = 10;
+        value = 20;
     };
     class VGVAR(movedRecentlyThreshold) {
         typeName = "SCALAR";
@@ -141,5 +149,9 @@ class ACE_Settings {
     class VGVAR(uavScanTime) {
         typeName = "SCALAR";
         value = 10;
+    };
+    class VGVAR(bombThreshold) {
+        typeName = "SCALAR";
+        value = 120;
     };
 };

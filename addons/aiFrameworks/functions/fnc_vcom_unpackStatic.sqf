@@ -42,6 +42,7 @@ private _weaponClassname = [_staticClassname,0,-9] call BIS_fnc_trimString;
 _weaponClassname = if !("mortar" in _staticClassnameLower) then { _weaponClassname + "_high_F" } else { _weaponClassname + "_F" };
 
 _unit setVariable [VQGVAR(hasDeployed),true];
+_unit setVariable [VQGVAR(hasStatic),false];
 
 private _staticCreated = _weaponClassname createvehicle [0,0,0];
 _staticCreated setPosATL (getPosATL _unit);

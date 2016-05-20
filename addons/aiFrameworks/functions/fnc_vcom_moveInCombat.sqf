@@ -23,12 +23,12 @@ if (_groupLeader != _unit && {_groupLeader distance _unit > 150}) then {
     private _index = currentWaypoint _unitGroup;
     private _wpPosition = getWPPos [_unitGroup,_index];
 
-    if !(_WPPosition isEqualTo [0,0,0]) then {
+    if !(_wpPosition == [0,0,0]) then {
         if (_unit == _groupLeader) then {
             private _units = units _unitGroup;
 
             {
-                [_x,_WPPosition] spawn {
+                [_x,_wpPosition] spawn {
                     params ["_unit","_pos"];
                     sleep (random 10);
 
@@ -37,7 +37,9 @@ if (_groupLeader != _unit && {_groupLeader distance _unit > 150}) then {
                         _unit doMove _pos;
                     };
 
-                    private _coverPos = [_Unit,_MoveToPos] call VFUNC(findCoverPos);
+                    private _moveToPos = [_unit,_pos] call VFUNC(fragmentMove);
+
+                    private _coverPos = [_unit,_moveToPos] call VFUNC(findCoverPos);
                     if !(isNil "_coverPos") then {
                         _unit setVariable [VQGVAR(inCover),false];
 
@@ -51,7 +53,7 @@ if (_groupLeader != _unit && {_groupLeader distance _unit > 150}) then {
                         _unit forcespeed 0;
                         _unit setVariable [VQGVAR(inCover),true];
                     } else {
-                        _unit doMove ([_unit,_pos] call VFUNC(fragmentMove));
+                        _unit doMove _moveToPos;
                     };
                 };
                 nil

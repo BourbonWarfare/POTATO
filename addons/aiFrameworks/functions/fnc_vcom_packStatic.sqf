@@ -16,3 +16,4 @@ deleteVehicle _weapon;
 sleep 1;
 _unit addBackpack _unitStatic;
 _unit setVariable [VQGVAR(hasDeployed),false];
+_unit setVariable [VQGVAR(hasStatic),true];
