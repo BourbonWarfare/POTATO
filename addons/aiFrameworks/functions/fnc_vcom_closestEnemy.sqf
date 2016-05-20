@@ -3,13 +3,14 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
-private _cachedValue = _unit getVariable [VQGVAR(cachedNearestEnemy), objNull];
-if !(isNull (_cachedValue)) exitWith { _cachedValue };
+private _returnEnemy = _unit getVariable [VQGVAR(cachedNearestEnemy), objNull];
+if !(isNull (_returnEnemy)) exitWith { _returnEnemy };
+
+_returnEnemy = _unit findNearestEnemy _unit;
+if !(isNull _returnEnemy) exitWith { _returnEnemy };
 
 private _minRange = 0;
-private _returnEnemy = objNull;
 private _unitSide = (side _unit);
-
 {
     private _xSide = side _x;
 	if (_xSide != _unitSide && !(_xSide isEqualTo CIVILIAN)) then {

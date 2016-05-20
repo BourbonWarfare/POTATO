@@ -2,25 +2,15 @@
 TRACE_1("params",_this);
 
 //Helps the AI recognize people firing from a better distance
-_unit = (_this select 0) select 0;
+params ["_unit"];
 
-if !(side _unit in VCOM_SideBasedMovement) exitWith {};
+if ((diag_tickTime - (_unit getVariable [VQGVAR(firedTimeHearing),0]) > 10) then {
+    {
+        if ((_x distance _unit) <= VGVAR(gunshotDetectionRange) && !(_x getVariable [VQGVAR(shotsFired),false])) then {
+            _x setVariable [VQGVAR(shotsFired),true,true];
+        };
+        nil
+    } count [_unit] call VFUNC(enemyUnits);
 
-_bullet = (_this select 0) select 6;
-
-
-_TimeShot = _unit getVariable "VCOM_FiredTimeHearing";
-
-if ((diag_tickTime - _TimeShot) > 10) then
-{
-	_Array1 = _unit call VCOMAI_EnemyArray;
-
-	{
-		if ((_x distance _unit) < VCOM_HEARINGDISTANCE && !(_x getVariable "VCOMAI_ShotsFired")) then
-		{
-			_x setVariable ["VCOMAI_ShotsFired",true,true];
-		};
-	} foreach _Array1;
-
-	_Unit setVariable ["VCOM_FiredTimeHearing",diag_tickTime,false];
+    _unit setVariable [VQGVAR(firedTimeHearing),diag_tickTime];
 };

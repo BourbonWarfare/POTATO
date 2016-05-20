@@ -1,30 +1,27 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-_GroupUnits = _this select 0;
-_Side = _this select 1;
+params ["_groupUnits", "_side"];
 
-
-_LetsWait = true;
-while {_LetsWait} do
-{
-
-	{
-		if ((count (waypoints (group _x))) > 1) then {_LetsWait = false};
-	} foreach _GroupUnits;
-	sleep 2;
+private _wait = true;
+while {_wait} do {
+    {
+        if ((count (waypoints (group _x))) > 1 || {!(alive _x)}) then { _wait = false };
+        nil;
+    } count _groupUnits;
+    sleep 2;
 };
 
 
 
-_group = createGroup _Side;
+private _group = createGroup _side;
 
 {
-	[_x] joinSilent _group;
-	_x setVariable ["VCOM_LOITERING",false];
-	if (_x isEqualTo (leader _x)) then
-	{
-		_x setVariable ["VCOM_FLANKING",false,false];
-	};
-	_x setVariable ["VCOM_MovedRecently",false,false];
-} foreach _GroupUnits;
+    [_x] joinSilent _group;
+
+    if (_x == (leader _x)) then { _x setVariable [VQGVAR(flanking),0]; };
+    _x setVariable [VQGVAR(loitering),false];
+    _x setVariable [VQGVAR(movedRecently),0];
+
+    nil
+} count _groupUnits;

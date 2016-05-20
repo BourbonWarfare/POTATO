@@ -1,46 +1,29 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-//Created on ???
-// Modified on : 9/7/14 - 8/4/15  - Added a check building distance stat.
-_Unit = _this;
-if (_Unit getVariable "VCOM_MovedRecentlyCover" || {_Unit getVariable "VCOMAI_ActivelyClearing"} || {_Unit getVariable "VCOMAI_StartedInside"} || {_Unit getVariable "VCOM_GARRISONED"}) exitWith {};
-_Group = (group _Unit);
-_UnitsGroup = units _Group;
-_SpecificUnit = _UnitsGroup select 0;
+params ["_unit"];
 
-_ClosestEnemy = _Unit call VCOMAI_ClosestEnemy;
-if (isNil "_ClosestEnemy" || {_ClosestEnemy isEqualTo []}) exitWith {};
+if (_unit getVariable [VQGVAR(startedInside),false]
+    || {_unit getVariable [VQGVAR(garrisoned),false]}
+    || {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}
+    || {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)}) exitWith {};
 
-_nBuilding = nearestBuilding _ClosestEnemy;
-_IsEnterable = [_nBuilding] call BIS_fnc_isBuildingEnterable;
+private _unitGroup = (group _unit);
+private _units = units _unitGroup;
+
+private _closestEnemy = [_unit] call VFUNC(closestEnemy);
+if (isNull _closestEnemy) exitWith {};
+
+private _building = nearestBuilding _closestEnemy;
+private _isEnterable = [_building] call BIS_fnc_isBuildingEnterable;
+if ((_unit distance _building) > 200 || {!([_building] call BIS_fnc_isBuildingEnterable)}) exitWith {};
+
+private _positions = _building buildingPos -1;
+if (count _positions < (count _units)) exitWith {};
 
 {
-
-
-if (!(_IsEnterable)) exitWith {};
-_CheckDist = _SpecificUnit distance _nBuilding;
-if (_CheckDist > 200) exitWith {};
-_bposleft = [];
-_pcnt = 0;
-while {format ["%1", _nBuilding buildingPos (_pcnt)] != "[0,0,0]" } do {
-_bposleft set [count _bposleft, (_pcnt)];
-_pcnt = _pcnt + 1;
-};
-_LocationArray = [];
-{
-	_LocationArray = _LocationArray + [(_nBuilding buildingPos _x)];
-} forEach _bposleft;
-
-if (isNil "_LocationArray") exitWith {};
-if ((count _LocationArray) <= 0) exitWith {};
-if ((count _LocationArray) < (count _UnitsGroup)) exitWith {};
-
-_AttackPoint = _LocationArray select floor(random(count _LocationArray));
-if (isNil "_AttackPoint") exitWith {};
-_LocationArray = _LocationArray - [_AttackPoint];
-//_Unit setPos _AttackPoint;
-//doStop _x;
-_x moveTo _AttackPoint;
-
-} foreach _UnitsGroup;
+    private _position = selectRandom _positions;
+    _positions = _positions - [_position];
+    _x moveTo _position;
+    nil
+} count _units;

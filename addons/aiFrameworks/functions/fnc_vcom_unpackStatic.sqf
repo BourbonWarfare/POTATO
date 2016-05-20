@@ -1,100 +1,64 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private ["_position", "_Unit", "_weapon", "_leader", "_gunner", "_assistant", "_UnitGroups", "_CurrentBackPack", "_class", "_parents", "_rnd", "_dist", "_dir", "_positions", "_myNearestEnemy", "_StaticClassName", "_IsMortar", "_WeaponClassname", "_StaticCreated", "_dirTo"];_group = 		_this select 0;
-_position =		_this select 1;
-_Unit = _this select 2;
-_weapon = 		objNull;
-_leader = 		leader _group;
-_units = 		(units _group) - [leader _group];
-//_gunner = 		_units select 0;
-//_assistant = 	_units select 1;
-_Unit setVariable ["HASDEPLOYED",true,false];
-_group = group _Unit;
-_UnitGroups = units _group;
-_gunner = 0;
+params ["_unit"];
 
-/*
-{
-  _CurrentBackPack = backpack _x;
+private _gunner = 0;
+private _weapon = objNull;
 
-  if (!(isNil "_CurrentBackPack")) then
-  {
-    _class = [_CurrentBackPack] call VCOMAI_Classvehicle;
-    if (!(isNil "_class")) then
-    {
-      _parents = [_class,true] call BIS_fnc_returnParents;
-      if (!(isNil "_parents")) then
-      {
-        if (("StaticWeapon" in _parents) || ("Weapon_Bag_Base" in _parents)) then {_x setVariable ["USEDSTATICWEAP",_CurrentBackPack,false];_gunner = _x;};
-      };
+private _currentBackPack = backpack _unit;
+
+if (_currentBackPack != "") then {
+    private _class = [_currentBackPack] call VFUNC(classVehicle);
+    if !(isNil "_class") then {
+        private _parents = [_class, true] call BIS_fnc_returnParents;
+        if !(isNil "_parents") then {
+            if (("StaticWeapon" in _parents) || {("Weapon_Bag_Base" in _parents)}) then {
+                _unit setVariable [VQGVAR(usedStatic),_CurrentBackPack];
+                _gunner = _unit;
+            };
+        };
     };
-  };
-} forEach _UnitGroups;
-*/
-_CurrentBackPack = backpack _Unit;
-
-if (!(isNil "_CurrentBackPack")) then
-{
-  _class = [_CurrentBackPack] call VCOMAI_Classvehicle;
-  if (!(isNil "_class")) then
-  {
-    _parents = [_class,true] call BIS_fnc_returnParents;
-    if (!(isNil "_parents")) then
-    {
-      if (("StaticWeapon" in _parents) || {("Weapon_Bag_Base" in _parents)}) then {_Unit setVariable ["USEDSTATICWEAP",_CurrentBackPack,false];_gunner = _Unit;};
-    };
-  };
 };
-
 
 if (_gunner isEqualTo 0) exitWith {};
-_rnd = random 1;
-_dist = (_rnd + 2);
-_dir = random 360;
-_positions = [(_position select 0) + (sin _dir) * _dist, (_position select 1) + (cos _dir) * _dist, 0];
 
-_Unit doMove _positions;
+private _distance = (random 1) + 2;
+private _direction = random 360;
+private _position = [(_position select 0) + (sin _direction) * _distance, (_position select 1) + (cos _direction) * _distance, (_position select 2)];
 
-_myNearestEnemy = _Unit findNearestEnemy (getPosASL _Unit);
-//_myNearestEnemy = player;
+_unit doMove _position;
 
-
-if (isNull _myNearestEnemy) then
-{
-  _myNearestEnemy = _Unit call VCOMAI_ClosestEnemy;
+private _nearestEnemy = _unit findNearestEnemy _unit;
+if (isNull _nearestEnemy) then {
+  _nearestEnemy = _unit call VFUNC(closestEnemy);
 };
-if (_myNearestEnemy isEqualTo []) exitWith {};
-sleep 0.25;
-//_assistant action ["PutBag",_assistant];
+if (isNull _nearestEnemy) exitWith {};
 
-	_StaticClassName = _Unit getVariable "VCOM_StaticClassName";
+private _staticClassname = _unit getVariable VQGVAR(staticClassname);
+private _staticClassnameLower = toLower _staticClassname;
+private _weaponClassname = [_staticClassname,0,-9] call BIS_fnc_trimString;
 
-	_IsMortar = ["Mortar",_StaticClassName,false] call BIS_fnc_inString;
+_weaponClassname = if !("mortar" in _staticClassnameLower) then { _weaponClassname + "_high_F" } else { _weaponClassname + "_F" };
 
-	_WeaponClassname = [_StaticClassName,0,-9] call BIS_fnc_trimString;
-	if !(_IsMortar) then {_WeaponClassname = _WeaponClassname + "_high_F";} else {_WeaponClassname = _WeaponClassname + "_F";};
+_unit setVariable [VQGVAR(hasDeployed),true];
 
-	_StaticCreated = _WeaponClassname createvehicle [0,0,0];
-	_StaticCreated setposATL (getposATL _Unit);
+private _staticCreated = _weaponClassname createvehicle [0,0,0];
+_staticCreated setPosATL (getPosATL _unit);
+_unit setVariable [VQGVAR(staticWeapon),_staticCreated];
 
-  _weapon = nearestObject [_position,"StaticWeapon"];
-  _Unit setVariable ["supportWeaponSetup",_weapon,false];
+_unit assignAsGunner _staticCreated;
+[_unit] orderGetIn true;
+_unit moveInGunner _staticCreated;
+removeBackpackGlobal _unit;
 
-  _Unit assignAsGunner _weapon;
- [_Unit] orderGetIn true;
- _Unit moveInGunner _weapon;
-removeBackpackGlobal _Unit;
+private _dirTo = (position _weapon) getDir (position _nearestEnemy);
+_staticCreated setDir _dirTo;
+(vehicle _unit) setDir _dirTo;
 
-_dirTo = [position _weapon,position _myNearestEnemy] call BIS_fnc_dirTo;
-_weapon setDir _dirTo;
-(Vehicle _Unit) setDir _dirTo;
-
-
-[_Unit,_group] spawn {
-_Unit = _this select 0;
-_group = _this select 1;
-sleep (180 + (random 180));
-if (!(alive _Unit) || {_Unit isEqualTo (Vehicle _Unit)}) exitWith {};
-[_group,_Unit] spawn VCOMAI_PackStatic;
+[_unit] spawn {
+    params ["_unit"];
+    sleep (180 + (random 180));
+    if (!(alive _unit) || {_unit == (vehicle _unit)}) exitWith {};
+    [_unit] call VFUNC(packStatic);
 };

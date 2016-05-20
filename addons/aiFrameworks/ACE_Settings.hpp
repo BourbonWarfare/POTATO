@@ -6,6 +6,10 @@ class ACE_Settings {
     };
 
     /*   Granular bevhavior toggles   */
+    class VGVAR(advancedSuppression) {
+        typeName = "BOOL";
+        value = 1;
+    };
     class VGVAR(allowFlanking) {
         typeName = "BOOL";
         value = 1;
@@ -21,6 +25,14 @@ class ACE_Settings {
     class VGVAR(increaseAccuracyOnStaticTargets) {
         typeName = "BOOL";
         value = 1;
+    };
+    class VGVAR(earsEnabled) {
+        typeName = "BOOL";
+        value = 1;
+    };
+    class VGVAR(loiteringEnabled) {
+        typeName = "BOOL";
+        value = 0;
     };
     class VGVAR(useMines) {
         typeName = "BOOL";
@@ -64,7 +76,11 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 1500;
     };
-    class VGVAR(maxDistanceToSatchel) {
+    class VGVAR(maxDistanceToBombBuilding) {
+        typeName = "SCALAR";
+        value = 200;
+    };
+    class VGVAR(maxDistanceToPlantMine) {
         typeName = "SCALAR";
         value = 200;
     };
@@ -84,7 +100,7 @@ class ACE_Settings {
     };
     class VGVAR(chanceToUseMine) {
         typeName = "SCALAR";
-        value = 40;
+        value = 50;
     };
 
     /*   Side array settings   */
@@ -99,6 +115,10 @@ class ACE_Settings {
 
     /*   Operation Timeouts   */
     class VGVAR(moveCompletedThreshold) {
+        typeName = "SCALAR";
+        value = 10;
+    };
+    class VGVAR(grenadeThreshold) {
         typeName = "SCALAR";
         value = 10;
     };

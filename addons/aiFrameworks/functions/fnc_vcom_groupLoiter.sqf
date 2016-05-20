@@ -3,6 +3,8 @@ TRACE_1("params",_this);
 
 params ["_groupLeader", "_group"];
 
+if !(VGVAR(loiteringEnabled)) exitWith {};
+
 private _unitArray = units _group;
 [_unitArray, side _group] spawn VFUNC(regroup); //This function will automatically regroup soldiers if they get more than 1 waypoint.
 
