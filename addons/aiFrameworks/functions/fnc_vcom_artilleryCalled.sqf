@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
@@ -19,9 +20,12 @@ private _support = [];
     nil
 } count allGroups;
 
+TRACE_1("",_support);
+
 if ((count _support) <= 0) exitWith {};
 
 private _returnedSupport = [_support, _unit] call VFUNC(closestObject);
+TRACE_1("",_returnedSupport);
 if (isNull _returnedSupport) exitWith {};
 
 private _artilleryUnits = [];
@@ -30,9 +34,15 @@ private _artilleryUnits = [];
     nil
 } count (units (group _returnedSupport));
 
+TRACE_1("",_artilleryUnits);
+
 private _ammoArray = getArtilleryAmmo _artilleryUnits;
+TRACE_1("",_ammoArray);
+
 if (count _ammoArray < 1) exitWith {};
 _randomAmmo = selectRandom _ammoArray;
+
+TRACE_1("",_randomAmmo);
 
 private _enemyPos  = getPos ([_unit] call VFUNC(closestEnemy));
 

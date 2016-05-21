@@ -52,6 +52,10 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 1000;
     };
+    class VGVAR(deadBodyDetectionRange) {
+        typeName = "SCALAR";
+        value = 50;
+    };
     class VGVAR(gunshotDetectionRange) {
         typeName = "SCALAR";
         value = 1000;
@@ -129,6 +133,14 @@ class ACE_Settings {
     class VGVAR(clearingThreshold) {
         typeName = "SCALAR";
         value = 30;
+    };
+    class VGVAR(craterCheckThreshold) {
+        typeName = "SCALAR";
+        value = 15;
+    };
+    class VGVAR(deadBodyCheckThreshold) {
+        typeName = "SCALAR";
+        value = 15;
     };
     class VGVAR(flankThreshold) {
         typeName = "SCALAR";

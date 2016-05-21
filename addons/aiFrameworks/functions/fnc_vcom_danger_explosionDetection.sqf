@@ -3,6 +3,8 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
+if !([_unit,VQGVAR(lastCraterCheck),VGVAR(craterCheckThreshold)] call VFUNC(pastThreshold)) exitWith { false };
+
 private _craterList = _unit nearObjects ["#crater",100];
 
 if (count _craterList > 0) then {
@@ -15,4 +17,4 @@ if (count _craterList > 0) then {
     };
 };
 
-_craterList
+count _craterList > 0

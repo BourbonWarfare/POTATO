@@ -35,11 +35,12 @@ private _returnObject = objNull;
     if ((count _comparePosition) == 3) then {
         private _range = _comparePosition distance _position;
         if (_range < _minRange || {isNull _returnObject}) then {
-            private _minRange = _range;
-            private _returnObject = _x;
+            _minRange = _range;
+            _returnObject = _x;
         };
     };
     nil
 } count _list;
 
+TRACE_1("",_returnObject);
 _returnObject

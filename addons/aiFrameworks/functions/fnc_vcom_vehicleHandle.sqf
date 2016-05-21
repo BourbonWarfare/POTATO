@@ -11,7 +11,7 @@ private _cargoList = assignedCargo _unitVehicle;
 private _unitGroup = group _unit;
 private _unitGroupLeader = leader _unitGroup;
 
-if ((_nearestEnemy distance _unit && {(count _cargoList) > 0}) < 600) then {
+if (_nearestEnemy distance _unit < 600 && {(count _cargoList) > 0}) then {
 
     [_unitVehicle,_cargoList] spawn {
         params ["_unitVehicle","_cargoList"];

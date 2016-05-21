@@ -3,7 +3,7 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
-private _gunner = 0;
+private _gunner = objNull;
 private _weapon = objNull;
 
 private _currentBackPack = backpack _unit;
@@ -21,11 +21,13 @@ if (_currentBackPack != "") then {
     };
 };
 
-if (_gunner isEqualTo 0) exitWith {};
+if (isNull _gunner) exitWith {};
+
+private _currentPosition = position _unit;
 
 private _distance = (random 1) + 2;
 private _direction = random 360;
-private _position = [(_position select 0) + (sin _direction) * _distance, (_position select 1) + (cos _direction) * _distance, (_position select 2)];
+private _position = [(_currentPosition select 0) + (sin _direction) * _distance, (_currentPosition select 1) + (cos _direction) * _distance, (_currentPosition select 2)];
 
 _unit doMove _position;
 
@@ -36,10 +38,9 @@ if (isNull _nearestEnemy) then {
 if (isNull _nearestEnemy) exitWith {};
 
 private _staticClassname = _unit getVariable VQGVAR(staticClassname);
-private _staticClassnameLower = toLower _staticClassname;
 private _weaponClassname = [_staticClassname,0,-9] call BIS_fnc_trimString;
 
-_weaponClassname = if !("mortar" in _staticClassnameLower) then { _weaponClassname + "_high_F" } else { _weaponClassname + "_F" };
+_weaponClassname = if !(["mortar",_staticClassname] call BIS_fnc_inString) then { _weaponClassname + "_high_F" } else { _weaponClassname + "_F" };
 
 _unit setVariable [VQGVAR(hasDeployed),true];
 _unit setVariable [VQGVAR(hasStatic),false];

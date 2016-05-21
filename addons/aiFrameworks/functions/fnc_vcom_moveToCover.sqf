@@ -13,6 +13,8 @@ _unit setVariable [VQGVAR(inCover),false];
 _unit setUnitPosWeak "MIDDLE";
 
 [_unit,_closestCover] spawn {
+    params ["_unit","_closestCover"];
+    
     private _waitTime = diag_ticktime + 15;
     while {alive _unit && !(diag_ticktime > _waitTime) && (_unit distance _closestCover) > 2} do {
         _unit doMove _closestCover;

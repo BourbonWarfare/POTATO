@@ -20,11 +20,10 @@ private _fnc_setBomb = {
 
 {
     private _magazine = _x select 0;
-    private _magazineLower = toLower _magazine;
 
     switch (getText (configfile >> "CfgMagazines" >> _Magazine >> "nameSound")) do {
         case ("satchelcharge"): {
-            private _bombName = if ("satchelcharge" in _magazineLower) then {
+            private _bombName = if (["satchelcharge",_magazine] call BIS_fnc_inString) then {
                 "SatchelCharge_F"
             } else {
                 "Democharge_F"
@@ -34,13 +33,13 @@ private _fnc_setBomb = {
         };
         case ("mine"): {
             private _mineName = switch (true) do {
-                case ("wired" in _magazineLower): {
+                case (["wired",_magazine] call BIS_fnc_inString): {
                     [_magazine, 0, -9] call BIS_fnc_trimString
                 };
-                case ("remote" in _magazineLower): {
+                case (["remote",_magazine] call BIS_fnc_inString): {
                     [_magazine, 0, -11] call BIS_fnc_trimString
                 };
-                case ("claymore" in _magazineLower): {
+                case (["claymore",_magazine] call BIS_fnc_inString): {
                     "Claymore_F"
                 };
                 default {

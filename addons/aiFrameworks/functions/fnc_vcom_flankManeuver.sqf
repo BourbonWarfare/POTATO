@@ -49,7 +49,7 @@ private _flankWP1 = _unitGroup addWaypoint [_randomLocation,10];
 _flankWP1 setWaypointType "MOVE";
 _flankWP1 setWaypointSpeed "NORMAL";
 _flankWP1 setWaypointBehaviour "COMBAT";
-_flankWP1 setCurrentWaypoint _flankWP1;
+_unitGroup setCurrentWaypoint _flankWP1;
 
 private _flankWP2 = _unitGroup addwaypoint [_position,10];
 _flankWP2 setwaypointtype "MOVE";

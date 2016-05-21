@@ -9,7 +9,7 @@ item4[] = {"DEAD_BODY_FOUND",4,218,102.157349,-588.901611,229.680786,-513.747742
 item5[] = {"COMBAT",4,218,-202.695435,-440.810425,-92.695435,-370.810425,120.000000,"COMBAT"};
 item6[] = {"Stop_to_fire",2,250,16.297363,-426.854919,106.297363,-376.854919,0.000000,"Stop to fire"};
 item7[] = {"Continue",2,250,-190.567627,-963.928162,-100.567627,-913.928101,0.000000,"Continue"};
-item8[] = {"EXPLOSION",4,218,100.953857,-705.666382,210.953857,-635.666382,80.000000,"EXPLOSION"};
+item8[] = {"EXPLOSION",4,4314,100.953857,-705.666382,210.953857,-635.666382,80.000000,"EXPLOSION"};
 item9[] = {"ENEMY_SPOTTED",4,218,-31.544800,-886.136597,88.455200,-816.136597,100.000000,"ENEMY SPOTTED"};
 item10[] = {"Combat_Mode",2,250,270.248779,-792.742493,390.248779,-742.742493,0.000000,"Combat Mode"};
 item11[] = {"Should_Exit",4,218,-1025.380859,-653.165405,-945.380859,-613.165405,900.000000,"Should Exit"};
@@ -61,7 +61,7 @@ link31[] = {23,5};
 link32[] = {23,13};
 link33[] = {24,16};
 globals[] = {0.000000,0,0,0,0,640,480,1,264,6316128,1,-1877.825439,783.843628,231.749634,-1255.653687,2244,1254,1};
-window[] = {2,-1,-1,-32000,-32000,910,78,1559,78,3,2262};
+window[] = {2,-1,-1,-1,-1,1040,208,1689,208,3,2262};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -294,7 +294,7 @@ class FSM
                                         priority = 80.000000;
                                         to="Combat_Mode";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"count ([_unit] call potato_aiFrameworks_fnc_vcom_danger_explosionDetection) > 0"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_danger_explosionDetection"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -305,7 +305,7 @@ class FSM
                                         priority = 70.000000;
                                         to="Combat_Mode";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"([_unit] call potato_aiFrameworks_fnc_vcom_danger_deadBodyDetection) distance _unit < 50"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_danger_deadBodyDetection"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/

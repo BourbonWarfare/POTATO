@@ -19,6 +19,8 @@ _unit setVariable [VQGVAR(flanking),0];
 _unit setVariable [VQGVAR(formationChanged),0];
 _unit setVariable [VQGVAR(grenadeThrown),0];
 _unit setVariable [VQGVAR(lastChecked),0];
+_unit setVariable [VQGVAR(lastCraterCheck),0];
+_unit setVariable [VQGVAR(lastDeadBodyCheck),0];
 _unit setVariable [VQGVAR(movedRecently),0];
 _unit setVariable [VQGVAR(movedRecentlyCover),0];
 _unit setVariable [VQGVAR(movingToSupport),0];

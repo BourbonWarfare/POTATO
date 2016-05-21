@@ -9,6 +9,5 @@ if (!([_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUN
 
 private _enemy = [_unit] call VFUNC(closestEnemy);
 if (isNull _enemy) exitWith { false };
-if ((typeName _enemy) isEqualType []) exitWith { false };
 
 [_enemy] call VFUNC(inBuilding)

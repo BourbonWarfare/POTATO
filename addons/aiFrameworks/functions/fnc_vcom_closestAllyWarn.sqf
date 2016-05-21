@@ -6,10 +6,10 @@ params ["_unit"];
 private _unitSide = side (group _unit);
 if (!(_unitSide in VGVAR(movementEnabledSides)) || {isPlayer _unit}) exitWith {};
 
-if (!(_unit getVariable [VQGVAR(allowFlankingUnit), true]) || {_unit getVariable [VGVAR(garrisoned), false]} || {!("ItemRadio" in (assignedItems _unit))}) exitWith {};
+if (!(_unit getVariable [VQGVAR(allowFlankingUnit), true]) || {_unit getVariable [VQGVAR(garrisoned), false]} || {!("ItemRadio" in (assignedItems _unit))}) exitWith {};
 
 {
-    if (_x getVariable [VQGVAR(allowFlankingUnit), true] && {!(_x getVariable [VGVAR(garrisoned), false])} && {"ItemRadio" in (assignedItems _x)} && {!(_unit getVariable [VQGVAR(isArtillery),false])}) then {
+    if (_x getVariable [VQGVAR(allowFlankingUnit), true] && {!(_x getVariable [VQGVAR(garrisoned), false])} && {"ItemRadio" in (assignedItems _x)} && {!(_unit getVariable [VQGVAR(isArtillery),false])}) then {
         private _group = group _x;
         if ((count (waypoints _group)) < 2) then {
             private _index = currentWaypoint _group;
