@@ -5,7 +5,6 @@ params ["_name"];
 
 if (_name isEqualType "STRING") then {
     (configFile >> "cfgVehicles" >> _name)
-}
-else {
+} else {
     (configFile >> EMPTY_DUMMY)
 };

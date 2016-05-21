@@ -3,23 +3,26 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
+private _groupSide = (side (group _unit));
+
 private _support = [];
 {
-	if (isNull _x) then {
-        VGVAR(ArtilleryArray) = VGVAR(ArtilleryArray) - [_x];
-    } else {
-        if (side _unit == side _x) then {
-            _support pushBackUnique (vehicle _x);
-        };
+    if (_groupSide == side _x) then {
+        {
+            if (alive _x && {_unit getVariable [VQGVAR(isArtillery),false]}) then {
+                _support pushBackUnique (vehicle _x);
+            };
+            nil
+        } count units _x;
     };
 
     nil
-} count VGVAR(ArtilleryArray);
+} count allGroups;
+
 if ((count _support) <= 0) exitWith {};
 
-private _returnedSupport = [_support, (vehicle _unit)] call VFUNC(closestObject);
+private _returnedSupport = [_support, _unit] call VFUNC(closestObject);
 if (isNull _returnedSupport) exitWith {};
-if !(_returnedSupport getVariable [VQGVAR(isArtillery),false]) exitWith {};
 
 private _artilleryUnits = [];
 {

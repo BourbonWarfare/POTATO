@@ -8,8 +8,8 @@ private _isLeader = (leader _unit) == _unit;
 
 private _enemy = [_unit] call VFUNC(closestEnemy);
 if (isNull _enemy || {_enemy != (vehicle _enemy)}
-    || {(_unit distance _enemy) > VGVAR(maxDistanceToBombBuilding)}
-    || {!([_enemy] call VFUNC(inBuilding))}) exitWith {};
+        || {(_unit distance _enemy) > VGVAR(maxDistanceToBombBuilding)}
+        || {!([_enemy] call VFUNC(inBuilding))}) exitWith {};
 
 private _bombArray = _unit getVariable [VQGVAR(bombArray),[]];
 if (count (_bombArray) < 1) exitWith {};

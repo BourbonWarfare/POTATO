@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_unit","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile"];
+params ["_unit"];
 
 if (diag_fps <= 15) exitWith {};
 

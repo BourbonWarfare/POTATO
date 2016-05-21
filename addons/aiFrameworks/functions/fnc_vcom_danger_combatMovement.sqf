@@ -3,7 +3,7 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
-private _movingToWP = [_unit,VQGVAR(movedRecently),VGVAR(movedRecentlyThreshold)] call VFUNC(pastThreshold);
+private _movingToWP = !([_unit,VQGVAR(movedRecently),VGVAR(movedRecentlyThreshold)] call VFUNC(pastThreshold));
 private _inCover = _unit getVariable [VQGVAR(inCover),true];
 if (_movingToWP || !(_inCover)) exitWith {};
 

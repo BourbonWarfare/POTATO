@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_unit","_unitGroup",["_passFunction",false,[false]]];
+params ["_unit","_unitGroup"];
 
 //Lets find the closest building
 private _building = nearestBuilding _unit;
@@ -15,9 +15,7 @@ if (count _buildingPositions < 1) exitWith {};
 //Find the units in the group!
 private _units = units _unitGroup;
 
-if (_passFunction) then {
-    [_units, side _unitGroup] spawn VFUNC(regroup);
-};
+[_units, side _unitGroup] spawn VFUNC(regroup);
 
 while {count _units > 0} do {
     private _garrisonPositions = _buildingPositions;

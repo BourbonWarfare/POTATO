@@ -18,7 +18,6 @@ private _fnc_setBomb = {
     [_unit,_magazine,VQGVAR(bombMagazineArray)] call _fnc_addToArray;
 };
 
-private _magazines = magazinesAmmo _unit;
 {
     private _magazine = _x select 0;
     private _magazineLower = toLower _magazine;
@@ -54,4 +53,4 @@ private _magazines = magazinesAmmo _unit;
     };
 
     nil
-} count _magazines;
+} count (magazinesAmmo _unit);

@@ -8,7 +8,7 @@ class ACE_Settings {
     /*   Granular bevhavior toggles   */
     class VGVAR(advancedSuppression) {
         typeName = "BOOL";
-        value = 1;
+        value = 0;
     };
     class VGVAR(allowFlanking) {
         typeName = "BOOL";
@@ -22,11 +22,11 @@ class ACE_Settings {
         typeName = "BOOL";
         value = 1;
     };
-    class VGVAR(increaseAccuracyOnStaticTargets) {
+    class VGVAR(earsEnabled) {
         typeName = "BOOL";
         value = 1;
     };
-    class VGVAR(earsEnabled) {
+    class VGVAR(increaseAccuracyOnStaticTargets) {
         typeName = "BOOL";
         value = 1;
     };
@@ -50,21 +50,13 @@ class ACE_Settings {
     /*   AI distance settings   */
     class VGVAR(aiMutualSupportRange) {
         typeName = "SCALAR";
-        value = 800;
+        value = 1000;
     };
     class VGVAR(gunshotDetectionRange) {
         typeName = "SCALAR";
-        value = 800;
-    };
-    class VGVAR(maxEngagementDistance) {
-        typeName = "SCALAR";
         value = 1000;
     };
-    class VGVAR(maxDistanceToMountEmptyStatic) {
-        typeName = "SCALAR";
-        value = 100;
-    };
-    class VGVAR(maxDistanceToGarrison) {
+    class VGVAR(maxDistanceToBombBuilding) {
         typeName = "SCALAR";
         value = 200;
     };
@@ -72,17 +64,25 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 20;
     };
+    class VGVAR(maxDistanceToGarrison) {
+        typeName = "SCALAR";
+        value = 200;
+    };
+    class VGVAR(maxDistanceToMountEmptyStatic) {
+        typeName = "SCALAR";
+        value = 100;
+    };
+    class VGVAR(maxDistanceToPlantMine) {
+        typeName = "SCALAR";
+        value = 1500;
+    };
     class VGVAR(maxDistanceToSmoke) {
         typeName = "SCALAR";
         value = 1500;
     };
-    class VGVAR(maxDistanceToBombBuilding) {
+    class VGVAR(maxEngagementDistance) {
         typeName = "SCALAR";
-        value = 200;
-    };
-    class VGVAR(maxDistanceToPlantMine) {
-        typeName = "SCALAR";
-        value = 2000;
+        value = 1000;
     };
     class VGVAR(maxThreatDistance) {
         typeName = "SCALAR";
@@ -108,11 +108,11 @@ class ACE_Settings {
     };
 
     /*   Side array settings   */
-    class VGVAR(movementEnabledSides) {
+    class VGVAR(executionEnabledSides) {
         typeName = "ARRAY";
         value = {WEST,EAST,CIVILIAN,RESISTANCE};
     };
-    class VGVAR(executionEnabledSides) {
+    class VGVAR(movementEnabledSides) {
         typeName = "ARRAY";
         value = {WEST,EAST,CIVILIAN,RESISTANCE};
     };
@@ -122,17 +122,9 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 120;
     };
-    class VGVAR(moveCompletedThreshold) {
+    class VGVAR(bombThreshold) {
         typeName = "SCALAR";
-        value = 10;
-    };
-    class VGVAR(grenadeThreshold) {
-        typeName = "SCALAR";
-        value = 20;
-    };
-    class VGVAR(movedRecentlyThreshold) {
-        typeName = "SCALAR";
-        value = 30;
+        value = 120;
     };
     class VGVAR(clearingThreshold) {
         typeName = "SCALAR";
@@ -146,12 +138,20 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 10;
     };
-    class VGVAR(uavScanTime) {
+    class VGVAR(grenadeThreshold) {
+        typeName = "SCALAR";
+        value = 20;
+    };
+    class VGVAR(moveCompletedThreshold) {
         typeName = "SCALAR";
         value = 10;
     };
-    class VGVAR(bombThreshold) {
+    class VGVAR(movedRecentlyThreshold) {
         typeName = "SCALAR";
-        value = 120;
+        value = 30;
+    };
+    class VGVAR(uavScanTime) {
+        typeName = "SCALAR";
+        value = 20;
     };
 };

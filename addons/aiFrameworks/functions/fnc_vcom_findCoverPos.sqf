@@ -5,9 +5,9 @@ TRACE_1("params",_this);
 params ["_unit","_movePosition"];
 
 if (_unit getVariable [VQGVAR(startedInside),false]
-    || {_unit getVariable [VQGVAR(garrisoned),false]}
-    || {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}
-    || {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)}) exitWith {};
+        || {_unit getVariable [VQGVAR(garrisoned),false]}
+        || {!([_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold))}
+        || {!([_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)})) exitWith {};
 
 private _nearestEnemy = [_unit] call VFUNC(closestEnemy);
 if (isNull _nearestEnemy) exitWith {};

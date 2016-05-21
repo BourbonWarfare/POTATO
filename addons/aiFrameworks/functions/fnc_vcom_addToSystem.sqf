@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
@@ -14,6 +15,8 @@ if (VGVAR(advancedSuppression)) then {
 };
 
 if (isPlayer _unit) exitWith {};
+
+TRACE_2("",VGVAR(movementEnabledSides),VGVAR(executionEnabledSides));
 
 if ((side _unit) in VGVAR(executionEnabledSides) && {!(_unit getVariable [VQGVAR(disabledUnit),false])}) then {
     [VFUNC(addToSystemDelayed), [_unit]] call CBA_fnc_execNextFrame; //delay by a single frame for stability

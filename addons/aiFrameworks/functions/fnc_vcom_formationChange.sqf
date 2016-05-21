@@ -4,7 +4,7 @@ TRACE_1("params",_this);
 params [_unit];
 
 //Check if the leader changed formation 10 seconds ago already. If so, exit the script
-if ([_unit,VQGVAR(formationChanged),VGVAR(formationChangeThreshold)] call VFUNC(pastThreshold)) exitWith {};
+if !([_unit,VQGVAR(formationChanged),VGVAR(formationChangeThreshold)] call VFUNC(pastThreshold)) exitWith {};
 
 //Grab the group of the unit
 private _unitGroup = group _unit;

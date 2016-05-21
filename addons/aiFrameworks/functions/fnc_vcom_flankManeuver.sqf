@@ -4,13 +4,12 @@ TRACE_1("params",_this);
 params ["_unit"];
 
 if (_unit getVariable [VQGVAR(startedInside),false]
-    || {_unit getVariable [VQGVAR(garrisoned),false]}
-    || {!(_unit getVariable [VQGVAR(allowFlankingUnit),false])}
-    || {!(side _unit in VGVAR(movementEnabledSides))}
-    || {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}
-    || {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)}) exitWith {};
-
-if ([_unit,VQGVAR(flanking),VGVAR(flankThreshold)] call VFUNC(pastThreshold)) exitWith {};
+        || {_unit getVariable [VQGVAR(garrisoned),false]}
+        || {!(_unit getVariable [VQGVAR(allowFlankingUnit),false])}
+        || {!(side _unit in VGVAR(movementEnabledSides))}
+        || {!([_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold))}
+        || {!([_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)})
+        || {!([_unit,VQGVAR(flanking),VGVAR(flankThreshold)] call VFUNC(pastThreshold))}) exitWith {};
 
 private _nearestEnemy = _unit findNearestEnemy _unit;
 if (isNull _nearestEnemy) exitWith {};
