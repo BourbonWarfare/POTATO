@@ -9,7 +9,7 @@ private _support = [];
 {
     if (_groupSide == side _x) then {
         {
-            if (alive _x && {_unit getVariable [VQGVAR(isArtillery),false]}) then {
+            if (alive _x && {_x getVariable [VQGVAR(isArtillery),false]}) then {
                 _support pushBackUnique (vehicle _x);
             };
             nil

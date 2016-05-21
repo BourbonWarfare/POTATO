@@ -20,9 +20,8 @@ if ([_unit,VQGVAR(grenadeThrown),VGVAR(grenadeThreshold)] call VFUNC(pastThresho
         _unit forceWeaponFire ["MiniGrenadeMuzzle","MiniGrenadeMuzzle"];
     } else {
         if (_checkDistance < VGVAR(maxDistanceToSmoke) && VGVAR(useSmoke)) then {
-                _unit setDir (_unit getDir _nearestEnemy);
-                _unit forceWeaponFire ["SmokeShellMuzzle","SmokeShellMuzzle"];
-            };
+            _unit setDir (_unit getDir _nearestEnemy);
+            _unit forceWeaponFire ["SmokeShellMuzzle","SmokeShellMuzzle"];
         };
     };
 };

@@ -54,3 +54,5 @@ private _fnc_setBomb = {
 
     nil
 } count (magazinesAmmo _unit);
+
+TRACE_2("",(_unit getVariable VQGVAR(bombArray),(_unit getVariable VQGVAR(mineArray));

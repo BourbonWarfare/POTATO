@@ -7,7 +7,7 @@ params ["_unit","_movePosition"];
 if (_unit getVariable [VQGVAR(startedInside),false]
         || {_unit getVariable [VQGVAR(garrisoned),false]}
         || {!([_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold))}
-        || {!([_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)})) exitWith {};
+        || {!([_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold))}) exitWith {};
 
 private _nearestEnemy = [_unit] call VFUNC(closestEnemy);
 if (isNull _nearestEnemy) exitWith {};
@@ -27,7 +27,7 @@ private _typedListFinal = [];
 
             if ((abs ((_point2 select 0) - (_point1 select 0))) > 2
                 && {abs ((_point2 select 1) - (_point1 select 1)) > 2}
-                && {abs ((_point2 select 2) - (_point1 select 2)) > 2)} then {
+                && {abs ((_point2 select 2) - (_point1 select 2)) > 2}) then {
 
                 if (_type == "") then {
                     _untypedListFinal pushBack _x
@@ -41,9 +41,9 @@ private _typedListFinal = [];
 } count (nearestObjects [_movePosition, [], 50]);
 
 
-if (_typedListFinal == [] && _untypedListFinal == []) exitWith {};
+if (_typedListFinal isEqualTo [] && _untypedListFinal isEqualTo []) exitWith {};
 
-private _closestCover = if !(_typedListFinal == []) then {
+private _closestCover = if !(_typedListFinal isEqualTo []) then {
     _typedListFinal select 0
 } else {
     _untypedListFinal select 0

@@ -5,7 +5,7 @@ params ["_unit"];
 
 if (diag_fps <= 15) exitWith {};
 
-if ((diag_tickTime - (_unit getVariable [VQGVAR(firedTime),0]) > 10) then {
+if (diag_tickTime - (_unit getVariable [VQGVAR(firedTime),0]) > 10) then {
     _unit setVariable [VQGVAR(firedTime), diag_tickTime, true];
 
     private _pos = cursorTarget;
@@ -21,8 +21,6 @@ if ((diag_tickTime - (_unit getVariable [VQGVAR(firedTime),0]) > 10) then {
 
     private _closestEnemy = [_unit] call VFUNC(closestEnemy);
     if (isNull _closestEnemy) exitWith {};
-
-    private _enemyGroup =;
 
     {
         if ((_pos distance _x) < 50) then {

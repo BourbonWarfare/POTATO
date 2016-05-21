@@ -95,7 +95,7 @@ class ACE_Settings {
 
     /*   Chances of usage   */
     class VGVAR(chanceToUseArtillery) {
-        typeName = "SCALAR"
+        typeName = "SCALAR";
         value = 25;
     };
     class VGVAR(chanceToUseGrenade) {
@@ -110,11 +110,11 @@ class ACE_Settings {
     /*   Side array settings   */
     class VGVAR(executionEnabledSides) {
         typeName = "ARRAY";
-        value = {WEST,EAST,CIVILIAN,RESISTANCE};
+        value[] = {WEST,EAST,RESISTANCE};
     };
     class VGVAR(movementEnabledSides) {
         typeName = "ARRAY";
-        value = {WEST,EAST,CIVILIAN,RESISTANCE};
+        value[] = {WEST,EAST,RESISTANCE};
     };
 
     /*   Operation Timeouts   */

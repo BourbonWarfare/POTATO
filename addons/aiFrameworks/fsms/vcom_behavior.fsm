@@ -13,7 +13,7 @@ item8[] = {"Continue",8,218,956.312561,668.248291,1046.312622,718.248291,0.00000
 item9[] = {"Leader_Or_Not",2,250,758.874146,632.724976,848.874207,682.724792,0.000000,"Leader" \n "Or" \n "Not"};
 item10[] = {"Dead_check",4,218,915.166992,194.946960,1015.166870,244.946777,800.000000,"Dead check"};
 item11[] = {"Force_Wait",3,250,925.522461,1245.413940,1025.522339,1295.414063,0.000000,"Force Wait"};
-item12[] = {"Continue",8,218,759.189270,1247.345703,849.189331,1297.345825,0.000000,"Continue"};
+item12[] = {"Continue",4,218,759.189270,1247.345703,849.189270,1297.345703,0.000000,"Continue"};
 item13[] = {"Should_Exit",4,218,629.326416,196.453888,719.326660,246.453888,900.000000,"Should Exit"};
 item14[] = {"Exit",1,250,768.093262,73.608704,858.093140,123.608704,0.000000,"Exit"};
 item15[] = {"Leader",4,218,1372.662842,323.270966,1472.662842,373.270966,700.000000,"Leader"};
@@ -58,21 +58,18 @@ item53[] = {"PlaceMine",2,250,3452.032227,612.944763,3536.933105,656.473816,0.00
 item54[] = {"Deploy_UAV",2,250,3454.410400,693.050049,3547.972900,738.758301,0.000000,"Deploy UAV"};
 item55[] = {"Has_UAV",4,218,3275.439209,691.567261,3375.439209,741.567261,400.000000,"Has UAV"};
 item56[] = {"",7,210,3743.816162,1263.037109,3751.816162,1271.036987,0.000000,""};
-item57[] = {"Delay",4,218,2487.099121,413.925049,2577.099121,463.924927,0.000000,"Delay"};
-item58[] = {"FLANKBEHAVIOR",2,250,2429.766602,61.947258,2529.766602,111.947250,0.000000,"FLANKBEHAVIOR"};
-item59[] = {"Flank_Orders",4,218,2391.582031,169.955643,2466.582031,219.955658,750.000000,"Flank Orders"};
-item60[] = {"ArtyUse",4,218,2514.130859,222.814362,2614.130859,272.814362,550.000000,"ArtyUse"};
-item61[] = {"LightGarrison",4,218,2712.856689,322.186218,2812.856689,372.186218,150.000000,"LightGarrison"};
-item62[] = {"Light_Garrison",2,250,2842.847900,237.538376,2942.847900,287.538361,0.000000,"Light Garrison"};
-item63[] = {"ArtilleryCalled",2,250,2572.583496,118.871933,2672.583496,168.872055,0.000000,"ArtilleryCalled" \n ""};
-item64[] = {"Clear_Garrison",4,4314,2638.037842,260.417511,2738.036865,310.417236,525.000000,"Clear Garrison"};
-item65[] = {"Clear_Building",2,250,2709.084961,161.713257,2809.084717,211.713257,0.000000,"Clear Building"};
-item66[] = {"",7,210,2874.404785,9.818375,2882.404785,17.818375,0.000000,""};
-item67[] = {"",7,210,3743.954590,9.807007,3751.954590,17.807007,0.000000,""};
-item68[] = {"Combat",4,218,1949.075317,1001.885925,2049.075195,1051.885864,800.000000,"Combat"};
-item69[] = {"Combat_Brain_1",3,250,2470.036133,1002.794983,2570.036621,1052.795044,0.000000,"Combat Brain"};
-item70[] = {"Delay",4,218,2474.235352,1095.387817,2564.235352,1145.387695,0.000000,"Delay"};
-item71[] = {"____FAKE____",9,32,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+item57[] = {"FLANKBEHAVIOR",2,250,2429.766602,61.947258,2529.766602,111.947250,0.000000,"FLANKBEHAVIOR"};
+item58[] = {"Flank_Orders",4,218,2391.582031,169.955643,2466.582031,219.955658,750.000000,"Flank Orders"};
+item59[] = {"ArtyUse",4,218,2514.130859,222.814362,2614.130859,272.814362,550.000000,"ArtyUse"};
+item60[] = {"LightGarrison",4,218,2712.856689,322.186218,2812.856689,372.186218,150.000000,"LightGarrison"};
+item61[] = {"Light_Garrison",2,250,2842.847900,237.538376,2942.847900,287.538361,0.000000,"Light Garrison"};
+item62[] = {"ArtilleryCalled",2,250,2572.583496,118.871933,2672.583496,168.872055,0.000000,"ArtilleryCalled" \n ""};
+item63[] = {"Clear_Garrison",4,218,2638.037842,260.417511,2738.036865,310.417236,525.000000,"Clear Garrison"};
+item64[] = {"Clear_Building",2,250,2709.084961,161.713257,2809.084717,211.713257,0.000000,"Clear Building"};
+item65[] = {"",7,210,2874.404785,9.818375,2882.404785,17.818375,0.000000,""};
+item66[] = {"",7,210,3743.954590,9.807007,3751.954590,17.807007,0.000000,""};
+item67[] = {"Combat",4,218,1949.075317,1001.885925,2049.075195,1051.885864,800.000000,"Combat"};
+item68[] = {"Combat_Brain_1",3,250,2470.036133,1002.794983,2570.036621,1052.795044,0.000000,"Combat Brain"};
 version=1;
 class LayoutItems
 {
@@ -115,7 +112,7 @@ link24[] = {17,26};
 link25[] = {17,27};
 link26[] = {18,26};
 link27[] = {18,27};
-link28[] = {18,68};
+link28[] = {18,67};
 link29[] = {19,20};
 link30[] = {20,24};
 link31[] = {21,22};
@@ -141,53 +138,47 @@ link50[] = {36,39};
 link51[] = {38,10};
 link52[] = {39,38};
 link53[] = {40,46};
-link54[] = {40,57};
+link54[] = {40,58};
 link55[] = {40,59};
 link56[] = {40,60};
-link57[] = {40,61};
-link58[] = {40,64};
-link59[] = {41,42};
-link60[] = {42,56};
-link61[] = {43,44};
-link62[] = {44,42};
-link63[] = {45,47};
-link64[] = {46,34};
-link65[] = {46,43};
-link66[] = {46,45};
-link67[] = {46,48};
-link68[] = {46,51};
-link69[] = {46,52};
-link70[] = {46,55};
-link71[] = {47,42};
-link72[] = {48,49};
-link73[] = {49,42};
-link74[] = {50,42};
-link75[] = {51,50};
-link76[] = {52,53};
-link77[] = {53,42};
-link78[] = {54,42};
-link79[] = {55,54};
-link80[] = {56,33};
-link81[] = {58,66};
-link82[] = {59,58};
-link83[] = {60,63};
-link84[] = {61,62};
-link85[] = {62,66};
-link86[] = {63,66};
+link57[] = {40,63};
+link58[] = {41,42};
+link59[] = {42,56};
+link60[] = {43,44};
+link61[] = {44,42};
+link62[] = {45,47};
+link63[] = {46,34};
+link64[] = {46,43};
+link65[] = {46,45};
+link66[] = {46,48};
+link67[] = {46,51};
+link68[] = {46,52};
+link69[] = {46,55};
+link70[] = {47,42};
+link71[] = {48,49};
+link72[] = {49,42};
+link73[] = {50,42};
+link74[] = {51,50};
+link75[] = {52,53};
+link76[] = {53,42};
+link77[] = {54,42};
+link78[] = {55,54};
+link79[] = {56,33};
+link80[] = {57,65};
+link81[] = {58,57};
+link82[] = {59,62};
+link83[] = {60,61};
+link84[] = {61,65};
+link85[] = {62,65};
+link86[] = {63,64};
 link87[] = {64,65};
 link88[] = {65,66};
-link89[] = {66,67};
-link90[] = {67,42};
-link91[] = {68,69};
-link92[] = {69,46};
-link93[] = {69,70};
-link94[] = {57,71};
-link95[] = {70,71};
-globals[] = {0.000000,0,0,0,0,640,480,2,599,6316128,1,439.502502,3404.500488,1990.314941,42.696999,1361,894,1};
-window[] = {2,-1,-1,-1,-1,1232,-1818,-358,312,3,1379};
+link89[] = {66,42};
+link90[] = {67,68};
+link91[] = {68,46};
+globals[] = {0.000000,0,0,0,0,640,480,2,599,6316128,1,316.733887,3622.752197,1940.404785,-566.092712,1654,1254,1};
+window[] = {2,-1,-1,-32000,-32000,946,26,1486,26,3,1672};
 *//*%FSM</HEAD>*/
-#include "script_component.hpp"
-TRACE_1("params",_this);
 class FSM
 {
         fsmName = "vcom_behavior";
@@ -209,7 +200,7 @@ class FSM
                                         priority = 100.000000;
                                         to="Exit";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"isPlayer _unit || {_unit getVariable [VQGVAR(disabledUnit),false]}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isPlayer _unit || {_unit getVariable [""potato_aiFrameworks_vcom_disabledUnit"",false]}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -237,17 +228,17 @@ class FSM
                          "private _nearestEnemy = objNull;" \n
                          "private _waypointType = objNull;" \n
                          "" \n
-                         "[_unit] call VFUNC(defaultSetup);" \n
-                         "[_unit] call VFUNC(buildingSpawnCheck);" \n
-                         "[_unit] call VFUNC(checkBag);" \n
-                         "[_unit] call VFUNC(hasMine);" \n
-                         "[_unit] call VFUNC(artillery);" \n
+                         "[_unit] call potato_aiFrameworks_fnc_vcom_defaultSetup;" \n
+                         "[_unit] call potato_aiFrameworks_fnc_vcom_buildingSpawnCheck;" \n
+                         "[_unit] call potato_aiFrameworks_fnc_vcom_checkBag;" \n
+                         "[_unit] call potato_aiFrameworks_fnc_vcom_hasMine;" \n
+                         "[_unit] call potato_aiFrameworks_fnc_vcom_artillery;" \n
                          "" \n
-                         "if (VGVAR(increaseAccuracyOnStaticTargets)) then {" \n
-                         "	[_unit] call VFUNC(focusedAccuracy);" \n
+                         "if (potato_aiFrameworks_vcom_increaseAccuracyOnStaticTargets) then {" \n
+                         "	[_unit] call potato_aiFrameworks_fnc_vcom_focusedAccuracy;" \n
                          "};" \n
                          "" \n
-                         "[_unit] execFSM ""fsms\vcom_dangerIdentify.fsm"";"/*%FSM</STATEINIT""">*/;
+                         "[_unit] execFSM ""\z\potato\addons\aiFrameworks\fsms\vcom_dangerIdentify.fsm"";"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -270,13 +261,13 @@ class FSM
                 {
                         name = "Equipment_Check";
                         itemno = 7;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(buildingSpawnCheck);" \n
-                         "[_unit] call VFUNC(checkBag);" \n
-                         "[_unit] call VFUNC(hasMine);" \n
-                         "[_unit] call VFUNC(artillery);" \n
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_buildingSpawnCheck;" \n
+                         "[_unit] call potato_aiFrameworks_fnc_vcom_checkBag;" \n
+                         "[_unit] call potato_aiFrameworks_fnc_vcom_hasMine;" \n
+                         "[_unit] call potato_aiFrameworks_fnc_vcom_artillery;" \n
                          "" \n
-                         "if (VGVAR(increaseAccuracyOnStaticTargets)) then {" \n
-                         "	[_unit] call VFUNC(focusedAccuracy);" \n
+                         "if (potato_aiFrameworks_vcom_increaseAccuracyOnStaticTargets) then {" \n
+                         "	[_unit] call potato_aiFrameworks_fnc_vcom_focusedAccuracy;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -300,7 +291,7 @@ class FSM
                 {
                         name = "Leader_Or_Not";
                         itemno = 9;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(resetCaches);"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_resetCaches;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -311,7 +302,7 @@ class FSM
                                         priority = 900.000000;
                                         to="Exit";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"isPlayer _unit || {_unit getVariable [VQGVAR(disabledUnit),false]} || {!VGVAR(applyToPlayerLedGroups) && {isPlayer _leader}}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isPlayer _unit || {_unit getVariable [""potato_aiFrameworks_vcom_disabledUnit"",false]} || {!potato_aiFrameworks_vcom_applyToPlayerLedGroups && {isPlayer (leader _unit)}}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -355,7 +346,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Equipment_Check";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_unit getVariable [VQGVAR(lastChecked),0]) < (diag_tickTime - 20)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_unit getVariable [""potato_aiFrameworks_vcom_lastChecked"",0]) < (diag_tickTime - 20)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -367,7 +358,7 @@ class FSM
                 {
                         name = "Force_Wait";
                         itemno = 11;
-                        init = /*%FSM<STATEINIT""">*/"sleep 1;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -378,7 +369,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Leader_Or_Not";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _time + 1"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -403,7 +394,7 @@ class FSM
                         name = "Leader_Cycle_Beg";
                         itemno = 17;
                         init = /*%FSM<STATEINIT""">*/"_time = time;" \n
-                         "[_unit] call VFUNC(formationChange);" \n
+                         "[_unit] call potato_aiFrameworks_fnc_vcom_formationChange;" \n
                          "" \n
                          "_group = group _unit;" \n
                          "_waypointType = waypointType [_group,currentWaypoint _group];" \n
@@ -440,7 +431,7 @@ class FSM
                                         priority = 700.000000;
                                         to="Garrison";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_waypointType == ""HOLD"" && {!(_unit setVariable [VQGVAR(garrisoned),false])}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_waypointType == ""HOLD"" && {!(_unit setVariable [""potato_aiFrameworks_vcom_garrisoned"",false])}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -451,7 +442,7 @@ class FSM
                                         priority = 600.000000;
                                         to="Loiter";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_waypointType == ""DISMISS"" && {VGVAR(loiteringEnabled)} && {!(_unit getvariable [VQGVAR(loitering),false])}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_waypointType == ""DISMISS"" && {potato_aiFrameworks_vcom_loiteringEnabled} && {!(_unit getvariable [""potato_aiFrameworks_vcom_loitering"",false])}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -492,7 +483,7 @@ class FSM
                                 /*%FSM<LINK "Combat">*/
                                 class Combat
                                 {
-                                        itemno = 68;
+                                        itemno = 67;
                                         priority = 800.000000;
                                         to="Combat_Brain_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -519,7 +510,7 @@ class FSM
                 {
                         name = "Garrison";
                         itemno = 20;
-                        init = /*%FSM<STATEINIT""">*/"[_unit,_group] call VFUNC(garrison);"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"[_unit,_group] call potato_aiFrameworks_fnc_vcom_garrison;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -542,7 +533,7 @@ class FSM
                 {
                         name = "Loiter";
                         itemno = 22;
-                        init = /*%FSM<STATEINIT""">*/"[_unit,_group] call VFUNC(groupLoiter);"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"[_unit,_group] call potato_aiFrameworks_fnc_vcom_groupLoiter;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -576,7 +567,7 @@ class FSM
                                         priority = 100.000000;
                                         to="Driver_Checks";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"[_unit] call VFUNC(driverCheck)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_driverCheck"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -610,7 +601,7 @@ class FSM
                                         priority = 900.000000;
                                         to="CheckNow";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"behaviour _unit == ""COMBAT"" || {!([_unit,VQGVAR(movingToSupport),VQGVAR(movingToSupport)] call VFUNC(pastThreshold))}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"behaviour _unit == ""COMBAT"" || {!([_unit,""potato_aiFrameworks_vcom_movingToSupport"",potato_aiFrameworks_vcom_moveCompletedThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold)}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -644,8 +635,8 @@ class FSM
                 {
                         name = "CheckNow";
                         itemno = 36;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(moveInCombat);" \n
-                         "[_unit] call VFUNC(vehicleHandle);" \n
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_moveInCombat;" \n
+                         "[_unit] call potato_aiFrameworks_fnc_vcom_vehicleHandle;" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -681,9 +672,9 @@ class FSM
                 {
                         name = "Combat_Brain";
                         itemno = 40;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(combatMode);" \n
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_combatMode;" \n
                          "" \n
-                         "_nearestEnemy = [_unit] call VFUNC(closestEnemy);"/*%FSM</STATEINIT""">*/;
+                         "_nearestEnemy = [_unit] call potato_aiFrameworks_fnc_vcom_closestEnemy;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -694,18 +685,18 @@ class FSM
                                         priority = 800.000000;
                                         to="Suppressed";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"getSuppression _unit > 0 && {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"getSuppression _unit > 0 && {[_unit,""potato_aiFrameworks_vcom_movedRecentlyCover"",potato_aiFrameworks_vcom_moveCompletedThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "Flank_Orders">*/
                                 class Flank_Orders
                                 {
-                                        itemno = 59;
+                                        itemno = 58;
                                         priority = 750.000000;
                                         to="FLANKBEHAVIOR";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!(_unit getVariable [VQGVAR(garrisoned),false]) && {[_unit,VQGVAR(flanking),VGVAR(flankThreshold)] call VFUNC(pastThreshold)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_unit getVariable [""potato_aiFrameworks_vcom_garrisoned"",false]) && {[_unit,""potato_aiFrameworks_vcom_flanking"",potato_aiFrameworks_vcom_flankThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -716,7 +707,7 @@ class FSM
                                         priority = 700.000000;
                                         to="SetupStatic";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < VGVAR(maxEngagementDistance) && {_unit getVariable [VQGVAR(hasStatic),false]}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < potato_aiFrameworks_vcom_maxEngagementDistance && {_unit getVariable [""potato_aiFrameworks_vcom_hasStatic"",false]}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -727,29 +718,29 @@ class FSM
                                         priority = 600.000000;
                                         to="PlantTheSatch";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"count (_unit getVariable [VQGVAR(bombArray),[]]) > 0 && {[_unit,VQGVAR(plantedBombRecently),VGVAR(bombThreshold)] call VFUNC(pastThreshold)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"count (_unit getVariable [""potato_aiFrameworks_vcom_bombArray"",[]]) > 0 && {[_unit,""potato_aiFrameworks_vcom_plantedBombRecently"",potato_aiFrameworks_vcom_bombThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "ArtyUse">*/
                                 class ArtyUse
                                 {
-                                        itemno = 60;
+                                        itemno = 59;
                                         priority = 550.000000;
                                         to="ArtilleryCalled";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"VGVAR(canCallInArtillery) && {[_unit,VQGVAR(calledArtillery),VGVAR(artilleryThreshold)] call VFUNC(pastThreshold)} && {VGVAR(chanceToUseArtillery) >= random 100}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"potato_aiFrameworks_vcom_canCallInArtillery && {[_unit,""potato_aiFrameworks_vcom_calledArtillery"",potato_aiFrameworks_vcom_artilleryThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold} && {potato_aiFrameworks_vcom_chanceToUseArtillery <= random 100}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "Clear_Garrison">*/
                                 class Clear_Garrison
                                 {
-                                        itemno = 64;
+                                        itemno = 63;
                                         priority = 525.000000;
                                         to="Clear_Building";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"[_unit] call VFUNC(buildingCheck) && {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)})"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_buildingCheck && {[_unit,""potato_aiFrameworks_vcom_activelyClearing"",potato_aiFrameworks_vcom_clearingThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -760,7 +751,7 @@ class FSM
                                         priority = 500.000000;
                                         to="PlaceMine";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < VGVAR(maxDistanceToPlantMine) && {count (_unit getVariable [VQGVAR(mineArray),[]]) > 0} && {[_unit,VQGVAR(plantedMineRecently),VGVAR(mineThreshold)] call VFUNC(pastThreshold)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < potato_aiFrameworks_vcom_maxDistanceToPlantMine && {count (_unit getVariable [""potato_aiFrameworks_vcom_mineArray"",[]]) > 0} && {[_unit,""potato_aiFrameworks_vcom_plantedMineRecently"",potato_aiFrameworks_vcom_mineThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -771,7 +762,7 @@ class FSM
                                         priority = 400.000000;
                                         to="Deploy_UAV";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_unit getVariable [VQGVAR(hasUAV),false]"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_unit getVariable [""potato_aiFrameworks_vcom_hasUAV"",false]"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -782,7 +773,7 @@ class FSM
                                         priority = 300.000000;
                                         to="Get_In_Static";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < VGVAR(maxEngagementDistance) && {_unit getvariable [VQGVAR(staticNearby),false]};"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < potato_aiFrameworks_vcom_maxEngagementDistance && {_unit getvariable [""potato_aiFrameworks_vcom_staticNearby"",false]};"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -793,30 +784,18 @@ class FSM
                                         priority = 200.000000;
                                         to="MoveUnit";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"[_unit,VQGVAR(movedRecently),VGVAR(movedRecentlyThreshold)] call VFUNC(pastThreshold)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"[_unit,""potato_aiFrameworks_vcom_movedRecently"",potato_aiFrameworks_vcom_movedRecentlyThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "LightGarrison">*/
                                 class LightGarrison
                                 {
-                                        itemno = 61;
+                                        itemno = 60;
                                         priority = 150.000000;
                                         to="Light_Garrison";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!(_unit getVariable [VQGVAR(garrisoned),false]) && {random 100 <= 10}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Delay">*/
-                                class Delay
-                                {
-                                        itemno = 57;
-                                        priority = 0.000000;
-                                        to="____FAKE____";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"sleep 0.25;" \n
-                                         "false"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_unit getVariable [""potato_aiFrameworks_vcom_garrisoned"",false]) && {random 100 <= 10}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -828,7 +807,7 @@ class FSM
                 {
                         name = "Suppressed";
                         itemno = 41;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(moveToCover);"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_moveToCover;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -851,7 +830,7 @@ class FSM
                 {
                         name = "MoveUnit";
                         itemno = 44;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(moveInCombat);" \n
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_moveInCombat;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -875,7 +854,7 @@ class FSM
                 {
                         name = "SetupStatic";
                         itemno = 47;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(unpackStatic);"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_unpackStatic;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -898,7 +877,7 @@ class FSM
                 {
                         name = "PlantTheSatch";
                         itemno = 49;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(destroyBuilding);"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_destroyBuilding;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -921,7 +900,7 @@ class FSM
                 {
                         name = "Get_In_Static";
                         itemno = 50;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(armEmptyStatic);"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_armEmptyStatic;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -944,7 +923,7 @@ class FSM
                 {
                         name = "PlaceMine";
                         itemno = 53;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(placeMine);" \n
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_placeMine;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -968,7 +947,7 @@ class FSM
                 {
                         name = "Deploy_UAV";
                         itemno = 54;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(deployUAV);" \n
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_deployUAV;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -991,8 +970,8 @@ class FSM
                 class FLANKBEHAVIOR
                 {
                         name = "FLANKBEHAVIOR";
-                        itemno = 58;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(flankManeuver);"/*%FSM</STATEINIT""">*/;
+                        itemno = 57;
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_flankManeuver;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1014,8 +993,8 @@ class FSM
                 class Light_Garrison
                 {
                         name = "Light_Garrison";
-                        itemno = 62;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(lightGarrison);"/*%FSM</STATEINIT""">*/;
+                        itemno = 61;
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_lightGarrison;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1037,9 +1016,9 @@ class FSM
                 class ArtilleryCalled
                 {
                         name = "ArtilleryCalled";
-                        itemno = 63;
+                        itemno = 62;
                         init = /*%FSM<STATEINIT""">*/"if (!(isNull _nearestEnemy) && {(count (units (group _nearestEnemy))) > 2}) then {" \n
-                         "	[_unit] call VFUNC(artilleryCalled);" \n
+                         "	[_unit] call potato_aiFrameworks_fnc_vcom_artilleryCalled;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1062,8 +1041,8 @@ class FSM
                 class Clear_Building
                 {
                         name = "Clear_Building";
-                        itemno = 65;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(garrisonClear);" \n
+                        itemno = 64;
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_garrisonClear;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1086,10 +1065,10 @@ class FSM
                 class Combat_Brain_1
                 {
                         name = "Combat_Brain_1";
-                        itemno = 69;
-                        init = /*%FSM<STATEINIT""">*/"[_unit] call VFUNC(combatMode);" \n
+                        itemno = 68;
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_combatMode;" \n
                          "" \n
-                         "_nearestEnemy = [_unit] call VFUNC(closestEnemy);"/*%FSM</STATEINIT""">*/;
+                         "_nearestEnemy = [_unit] call potato_aiFrameworks_fnc_vcom_closestEnemy;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1100,7 +1079,7 @@ class FSM
                                         priority = 800.000000;
                                         to="Suppressed";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"getSuppression _unit > 0 && {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"getSuppression _unit > 0 && {[_unit,""potato_aiFrameworks_vcom_movedRecentlyCover"",potato_aiFrameworks_vcom_moveCompletedThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1111,7 +1090,7 @@ class FSM
                                         priority = 700.000000;
                                         to="SetupStatic";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < VGVAR(maxEngagementDistance) && {_unit getVariable [VQGVAR(hasStatic),false]}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < potato_aiFrameworks_vcom_maxEngagementDistance && {_unit getVariable [""potato_aiFrameworks_vcom_hasStatic"",false]}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1122,7 +1101,7 @@ class FSM
                                         priority = 600.000000;
                                         to="PlantTheSatch";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"count (_unit getVariable [VQGVAR(bombArray),[]]) > 0 && {[_unit,VQGVAR(plantedBombRecently),VGVAR(bombThreshold)] call VFUNC(pastThreshold)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"count (_unit getVariable [""potato_aiFrameworks_vcom_bombArray"",[]]) > 0 && {[_unit,""potato_aiFrameworks_vcom_plantedBombRecently"",potato_aiFrameworks_vcom_bombThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1133,7 +1112,7 @@ class FSM
                                         priority = 500.000000;
                                         to="PlaceMine";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < VGVAR(maxDistanceToPlantMine) && {count (_unit getVariable [VQGVAR(mineArray),[]]) > 0} && {[_unit,VQGVAR(plantedMineRecently),VGVAR(mineThreshold)] call VFUNC(pastThreshold)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < potato_aiFrameworks_vcom_maxDistanceToPlantMine && {count (_unit getVariable [""potato_aiFrameworks_vcom_mineArray"",[]]) > 0} && {[_unit,""potato_aiFrameworks_vcom_plantedMineRecently"",potato_aiFrameworks_vcom_mineThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1144,7 +1123,7 @@ class FSM
                                         priority = 400.000000;
                                         to="Deploy_UAV";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_unit getVariable [VQGVAR(hasUAV),false]"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_unit getVariable [""potato_aiFrameworks_vcom_hasUAV"",false]"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1155,7 +1134,7 @@ class FSM
                                         priority = 300.000000;
                                         to="Get_In_Static";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < VGVAR(maxEngagementDistance) && {_unit getvariable [VQGVAR(staticNearby),false]};"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_nearestEnemy distance _unit < potato_aiFrameworks_vcom_maxEngagementDistance && {_unit getvariable [""potato_aiFrameworks_vcom_staticNearby"",false]};"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1166,34 +1145,10 @@ class FSM
                                         priority = 200.000000;
                                         to="MoveUnit";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"[_unit,VQGVAR(movedRecently),VGVAR(movedRecentlyThreshold)] call VFUNC(pastThreshold)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"[_unit,""potato_aiFrameworks_vcom_movedRecently"",potato_aiFrameworks_vcom_movedRecentlyThreshold] call potato_aiFrameworks_fnc_vcom_pastThreshold"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "Delay">*/
-                                class Delay
-                                {
-                                        itemno = 70;
-                                        priority = 0.000000;
-                                        to="____FAKE____";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"sleep 1;" \n
-                                         "false"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                        };
-                };
-                /*%FSM</STATE>*/
-                /*%FSM<STATE "____FAKE____">*/
-                class ____FAKE____
-                {
-                        name = "____FAKE____";
-                        itemno = 71;
-                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
-                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
-                        class Links
-                        {
                         };
                 };
                 /*%FSM</STATE>*/

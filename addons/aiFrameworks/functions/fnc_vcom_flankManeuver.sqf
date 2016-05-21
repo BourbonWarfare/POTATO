@@ -6,9 +6,9 @@ params ["_unit"];
 if (_unit getVariable [VQGVAR(startedInside),false]
         || {_unit getVariable [VQGVAR(garrisoned),false]}
         || {!(_unit getVariable [VQGVAR(allowFlankingUnit),false])}
-        || {!(side _unit in VGVAR(movementEnabledSides))}
+        || {!((side _unit) in VGVAR(movementEnabledSides))}
         || {!([_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold))}
-        || {!([_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)})
+        || {!([_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold))}
         || {!([_unit,VQGVAR(flanking),VGVAR(flankThreshold)] call VFUNC(pastThreshold))}) exitWith {};
 
 private _nearestEnemy = _unit findNearestEnemy _unit;
@@ -31,7 +31,7 @@ private _enemyPos = getposATL _nearestEnemy;
 
 if ((floor (random 100)) <= 75 && {(_enemyGroupCount/_groupCount) <= 0.25}) exitWith { //direct attack
     private _waypoint = _unitGroup addwaypoint [_enemyPos,0];
-    _waypoint setwaypointtype "DESTROY";
+    _waypoint setwaypointtype "MOVE";
     _waypoint setWaypointSpeed "FULL";
     _waypoint setWaypointBehaviour "COMBAT";
 };
@@ -57,6 +57,6 @@ _flankWP2 setWaypointSpeed "NORMAL";
 _flankWP2 setWaypointBehaviour "COMBAT";
 
 private _attackWP = _unitGroup addwaypoint [_enemyPos,10];
-_attackWP setWaypointType "DESTROY";
+_attackWP setWaypointType "MOVE";
 _attackWP setWaypointSpeed "FULL";
 _attackWP setWaypointBehaviour "COMBAT";

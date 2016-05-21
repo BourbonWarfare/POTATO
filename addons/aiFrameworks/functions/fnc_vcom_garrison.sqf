@@ -21,7 +21,7 @@ while {count _units > 0} do {
     private _garrisonPositions = _buildingPositions;
 
     while {count _garrisonPositions > 0} do {
-        private _garrisonUnit = _units selectRandom;
+        private _garrisonUnit = selectRandom _units;
         _garrisonUnit joinSilent (createGroup (side _unitGroup));
         _units = _units - [_garrisonUnit];
 

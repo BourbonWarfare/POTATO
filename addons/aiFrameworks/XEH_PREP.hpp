@@ -47,6 +47,7 @@ VPREP(placeMine);
 VPREP(regroup);
 VPREP(resetCaches);
 VPREP(stanceModifier);
+VPREP(stringArrayToSideArray);
 VPREP(suppressingShots);
 VPREP(switchMoveLocal);
 VPREP(throwGrenade);

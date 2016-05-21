@@ -2,7 +2,7 @@
 TRACE_1("params",_this);
 
 
-params ["_unit","_locations"]
+params ["_unit","_locations"];
 
 //Stop the AI - and then tell them to move to the house
 _unit setVariable [VQGVAR(inCover),true];

@@ -8,7 +8,7 @@ if (_unit getVariable [VQGVAR(startedInside),false]
         || {_unit getVariable [VQGVAR(canVisuallySee),false]}
         || {!([_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold))}
         || {!([_unit,VQGVAR(movedRecently),VGVAR(movedRecentlyThreshold)] call VFUNC(pastThreshold))}
-        || {!([_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)})) exitWith {};
+        || {!([_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold))}) exitWith {};
 
 _unit setVariable [VQGVAR(movedRecently),diag_tickTime];
 
@@ -23,7 +23,7 @@ if (_groupLeader != _unit && {_groupLeader distance _unit > 150}) then {
     private _index = currentWaypoint _unitGroup;
     private _wpPosition = getWPPos [_unitGroup,_index];
 
-    if !(_wpPosition == [0,0,0]) then {
+    if !(_wpPosition isEqualTo [0,0,0]) then {
         if (_unit == _groupLeader) then {
             private _units = units _unitGroup;
 

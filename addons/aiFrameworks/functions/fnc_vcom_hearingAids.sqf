@@ -10,7 +10,7 @@ if (diag_tickTime - (_unit getVariable [VQGVAR(firedTimeHearing),0]) > 10) then 
             _x setVariable [VQGVAR(shotsFired),true,true];
         };
         nil
-    } count [_unit] call VFUNC(enemyUnits);
+    } count ([_unit] call VFUNC(enemyUnits));
 
     _unit setVariable [VQGVAR(firedTimeHearing),diag_tickTime];
 };

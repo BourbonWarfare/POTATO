@@ -21,35 +21,34 @@ _unit setVariable [VQGVAR(plantedMineRecently),diag_tickTime];
 
 private _mine = objNull;
 
-if (_nearestEnemy distance _unit < 200) then {
-    _mine = createMine [_mineClassname, getposATL _unit, [], 3];
-} else {
-    private _nearRoads = _unit nearRoads 50;
-    if (count _nearRoads > 0) then {
-        private _closestRoad = [_nearRoads,_unit] call VFUNC(closestObject);
-        _unit doMove (getpos _closestRoad);
+[_unit,_nearestEnemy,_mineClassname] spawn {
+    params ["_unit","_nearestEnemy","_mineClassname"];
 
-        waitUntil {sleep 1; !(alive _unit) || _unit distance _closestRoad < 3};
-
-        _mine = createMine [_mineClassname, getposATL _closestRoad, [], 3];
-    } else {
+    if (_nearestEnemy distance _unit < 200) then {
         _mine = createMine [_mineClassname, getposATL _unit, [], 3];
+    } else {
+        private _nearRoads = _unit nearRoads 50;
+        if (count _nearRoads > 0) then {
+            private _closestRoad = [_nearRoads,_unit] call VFUNC(closestObject);
+            _unit doMove (getpos _closestRoad);
+
+            waitUntil {sleep 1; !(alive _unit) || _unit distance _closestRoad < 3};
+
+            _mine = createMine [_mineClassname, getposATL _closestRoad, [], 3];
+        } else {
+            _mine = createMine [_mineClassname, getposATL _unit, [], 3];
+        };
     };
-};
 
-if (isNull _mine) exitWith {};
-
-
-
-[_mine, side (group _unit)] spawn {
-    params ["_mine", "_side"];
+    if (isNull _mine) exitWith {};
 
     private _notSafe = true;
+    private _unitSide = (side (group _unit));
 
     while {alive _mine && _notSafe} do {
         private _units = [];
         {
-            if ((alive _x) && {side _x != _side}) then { _units pushback _x; };
+            if ((alive _x) && {side _x != _unitSide}) then { _units pushback _x; };
             nil
         } count allUnits;
 

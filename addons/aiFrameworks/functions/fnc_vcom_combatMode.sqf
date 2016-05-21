@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_unit"]
+params ["_unit"];
 
 //VCOMAI_CombatMode
 private _nearestEnemy = [_unit] call VFUNC(closestEnemy);

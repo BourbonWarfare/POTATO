@@ -7,7 +7,7 @@ _unit setVariable [VQGVAR(lastChecked),diag_ticktime];
 
 private _oldTargetPos = _unit getvariable [VQGVAR(assignedEnemyPos), [0,0,0]];
 
-if (_oldTargetPos == [0,0,0]) then {
+if (_oldTargetPos isEqualTo [0,0,0]) then {
     _unit setVariable [VQGVAR(assignedEnemyPos), position (assignedTarget _unit)];
 } else {
     private _target = assignedTarget _unit;

@@ -26,30 +26,33 @@ private _building = nearestBuilding _enemy;
 doStop _unit;
 _unit doMove (position _building);
 
-waitUntil { sleep 0.5; _unit distance _building) <= 10 };
+[_unit,_building,_bombClassname,_bombMagazine,_previousPosition] spawn {
+    params ["_unit","_building","_bombClassname","_bombMagazine","_previousPosition"];
+    waitUntil { sleep 0.5; _unit distance _building <= 10 };
 
-_unit removeMagazine _bombMagazine;
-_unit setVariable [VQGVAR(plantedBombRecently),diag_tickTime];
-private _bomb = createMine [_bombClassname, getposATL _unit, [], 0];
-private _bombPos = (position _unit);
+    _unit removeMagazine _bombMagazine;
+    _unit setVariable [VQGVAR(plantedBombRecently),diag_tickTime];
+    private _bomb = createMine [_bombClassname, getposATL _unit, [], 0];
+    private _bombPos = (position _unit);
 
-doStop _unit;
-_unit doMove _previousPosition;
+    doStop _unit;
+    _unit doMove _previousPosition;
 
-private _friends = [_unit] call VFUNC(friendlyUnits);
+    private _friends = [_unit] call VFUNC(friendlyUnits);
 
-private _notSafe = true;
-while {_notSafe} do {
-    private _closestFriendly = [_friends,_bombPos] call VFUNC(closestObject);
-    if (isNull _closestFriendly || {_closestFriendly distance _bombPos > 20}) then {
-        _notSafe = false;
+    private _notSafe = true;
+    while {_notSafe} do {
+        private _closestFriendly = [_friends,_bombPos] call VFUNC(closestObject);
+        if (isNull _closestFriendly || {_closestFriendly distance _bombPos > 20}) then {
+            _notSafe = false;
+        };
+
+        sleep 1;
     };
 
-    sleep 1;
+    [_unit] joinSilent _unitGroup;
+    if (_isLeader) then { _unitGroup selectLeader _unit; };
+
+    _bomb setdamage 1;
+    _unit setVariable [VQGVAR(flanking),0];
 };
-
-[_unit] joinSilent _unitGroup;
-if (_isLeader) then { _unitGroup selectLeader _unit; };
-
-_bomb setdamage 1;
-_unit setVariable [VQGVAR(flanking),0];
