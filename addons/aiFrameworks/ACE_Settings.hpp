@@ -140,7 +140,7 @@ class ACE_Settings {
     };
     class VGVAR(flankThreshold) {
         typeName = "SCALAR";
-        value = 300;
+        value = 120;
     };
     class VGVAR(formationChangeThreshold) {
         typeName = "SCALAR";

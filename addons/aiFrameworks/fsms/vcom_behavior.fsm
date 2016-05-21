@@ -110,7 +110,7 @@ item105[] = {"MoveUnit_1",2,250,3451.815918,880.093506,3551.815674,930.093506,0.
 item106[] = {"CheckIfStatic",4,218,3273.325684,449.501343,3373.325684,499.501343,700.000000,"CheckIfStatic"};
 item107[] = {"",7,210,2996.532715,630.485901,3004.532715,638.485901,0.000000,""};
 item108[] = {"SetupStatic_1",2,250,3451.225830,454.861145,3529.103271,493.799866,0.000000,"SetupStatic"};
-item109[] = {"SatchelPlant",4,218,3272.697266,528.478455,3372.697266,578.478455,600.000000,"SatchelPlant"};
+item109[] = {"SatchelPlant",4,4314,3272.697266,528.478455,3372.697266,578.478455,600.000000,"SatchelPlant"};
 item110[] = {"PlantTheSatch_1",2,250,3451.217773,531.342163,3533.727295,575.512085,0.000000,"PlantTheSatch"};
 item111[] = {"Get_In_Static",2,250,3456.361572,779.739502,3556.361572,829.739502,0.000000,"Get In Static"};
 item112[] = {"Arm_Static_Weapo",4,218,3247.361084,772.872253,3403.286133,835.921082,300.000000,"Arm Static Weapon"};
@@ -131,11 +131,11 @@ item126[] = {"Get_In_Static_1",2,250,1473.150146,-1472.132202,1573.150146,-1422.
 item127[] = {"Delay",4,218,2487.099121,413.925049,2577.099121,463.924927,0.000000,"Delay"};
 item128[] = {"MinePlant",4,218,1069.730835,-1022.702026,1169.730835,-972.701965,55.000000,"MinePlant"};
 item129[] = {"PlaceMine_1",2,250,1472.402954,-1403.160400,1572.402954,-1353.160400,0.000000,"PlaceMine"};
-item130[] = {"FLANKBEHAVIOR_1",2,4346,2580.587891,119.655083,2680.587891,169.655075,0.000000,"FLANKBEHAVIOR"};
-item131[] = {"Flank_Orders",4,218,2455.587891,255.677841,2530.587891,305.677856,80.000000,"Flank Orders"};
+item130[] = {"FLANKBEHAVIOR_1",2,250,2580.587891,119.655083,2680.587891,169.655075,0.000000,"FLANKBEHAVIOR"};
+item131[] = {"Flank_Orders",4,218,2455.587891,255.677841,2530.587891,305.677856,750.000000,"Flank Orders"};
 item132[] = {"Deploy_UAV_1",2,250,1475.252808,-1538.393677,1575.252808,-1488.393677,0.000000,"Deploy UAV"};
 item133[] = {"Has_UAV",4,218,923.853638,-1065.406860,1023.852600,-1015.407104,50.000000,"Has UAV"};
-item134[] = {"ArtyUse_",4,218,2429.551514,79.944031,2529.551514,129.944031,550.000000,"ArtyUse" \n ""};
+item134[] = {"ArtyUse",4,218,2429.551514,79.944031,2529.551514,129.944031,550.000000,"ArtyUse"};
 item135[] = {"LightGarrison",4,218,2764.290039,135.883377,2864.290039,185.883377,150.000000,"LightGarrison"};
 item136[] = {"Dead",4,218,1574.381836,-641.251831,1624.381836,-591.251831,1001.000000,"Dead"};
 item137[] = {"Dead",4,218,386.045837,-2078.064941,436.045837,-2028.064819,1001.000000,"Dead"};
@@ -165,9 +165,9 @@ item160[] = {"",7,210,636.901123,-1062.262573,644.901123,-1054.262573,0.000000,"
 item161[] = {"",7,210,1364.579834,-1507.279419,1372.579834,-1499.279419,0.000000,""};
 item162[] = {"Light_Garrison_1",2,250,2828.902588,-14.116623,2928.902588,35.883377,0.000000,"Light Garrison"};
 item163[] = {"ArtilleryCalled_1",2,250,2508.477295,0.410339,2608.477295,50.410461,0.000000,"ArtilleryCalled" \n ""};
-item164[] = {"Clear_Garrison",4,218,2990.070068,-42.467667,3090.069092,7.532089,60.000000,"Clear Garrison"};
+item164[] = {"Clear_Garrison",4,218,2990.070068,-42.467667,3090.069092,7.532089,525.000000,"Clear Garrison"};
 item165[] = {"Clear_Building_1",2,250,3110.238281,-134.060806,3210.238037,-84.060806,0.000000,"Clear Building"};
-item166[] = {"____FAKE____",9,5381344,296732931448227030000000000000000.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+item166[] = {"____FAKE____",9,5270184,296732931448227030000000000000000.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
 version=1;
 class LayoutItems
 {
@@ -406,7 +406,7 @@ link210[] = {166,131};
 link211[] = {166,134};
 link212[] = {166,135};
 link213[] = {166,164};
-globals[] = {0.000000,0,0,0,0,640,480,2,589,6316128,1,1709.881348,4083.189453,1382.968750,-437.756012,932,715,1};
+globals[] = {0.000000,0,0,0,0,640,480,2,589,6316128,1,2345.819580,3447.250000,680.712402,-164.269150,932,715,1};
 window[] = {2,-1,-1,-32000,-32000,1095,175,1635,175,3,950};
 *//*%FSM</HEAD>*/
 class FSM
@@ -2369,15 +2369,8 @@ class FSM
                 {
                         name = "FLANKBEHAVIOR_1";
                         itemno = 130;
-                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
-                         "_wait = 1;" \n
-                         "" \n
-                         "_Unit spawn VCOMAI_FlankManeuver;" \n
-                         "" \n
-                         "_Unit spawn {" \n
-                         "	sleep 30;" \n
-                         "	_this setVariable [""VCOM_FLANKING"",false,false];" \n
-                         "};"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"_time = time;" \n
+                         "[_unit] call VFUNC(flankManeuver);"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -2679,9 +2672,8 @@ class FSM
                 {
                         name = "Clear_Building_1";
                         itemno = 165;
-                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
-                         "_wait = 1;" \n
-                         "_Unit spawn VCOMAI_GarrisonClear;" \n
+                        init = /*%FSM<STATEINIT""">*/"_time = time;" \n
+                         "[_unit] call VFUNC(garrisonClear);" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -2698,14 +2690,36 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "ArtyUse_">*/
-                                class ArtyUse_
+                                /*%FSM<LINK "Flank_Orders">*/
+                                class Flank_Orders
+                                {
+                                        itemno = 131;
+                                        priority = 750.000000;
+                                        to="FLANKBEHAVIOR_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_unit getVariable [VQGVAR(garrisoned),false]) && {[_unit,VQGVAR(flanking),VGVAR(flankThreshold)] call VFUNC(pastThreshold)}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "ArtyUse">*/
+                                class ArtyUse
                                 {
                                         itemno = 134;
                                         priority = 550.000000;
                                         to="ArtilleryCalled_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"VGVAR(canCallInArtillery) && {[_unit,VQGVAR(calledArtillery),VGVAR(artilleryThreshold)] call VFUNC(pastThreshold)} && {VGVAR(chanceToUseArtillery) >= random 100}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Clear_Garrison">*/
+                                class Clear_Garrison
+                                {
+                                        itemno = 164;
+                                        priority = 525.000000;
+                                        to="Clear_Building_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"[_unit] call VFUNC(buildingCheck) && {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)})"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2716,29 +2730,7 @@ class FSM
                                         priority = 150.000000;
                                         to="Light_Garrison_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_unit getVariable [VQGVAR(garrisoned),false]) && {random 100 <= 10}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Flank_Orders">*/
-                                class Flank_Orders
-                                {
-                                        itemno = 131;
-                                        priority = 80.000000;
-                                        to="FLANKBEHAVIOR_1";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!(_Unit getVariable ""VCOM_FLANKING"") && !(_Unit getVariable ""VCOM_GARRISONED"")"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Clear_Garrison">*/
-                                class Clear_Garrison
-                                {
-                                        itemno = 164;
-                                        priority = 60.000000;
-                                        to="Clear_Building_1";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_Unit call VCOMAI_BuildingCheck) && !(_Unit getvariable ""VCOMAI_ActivelyClearing"")"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_unit getVariable [VQGVAR(garrisoned),false]) && {random 100 <= 10}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
