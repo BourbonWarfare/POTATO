@@ -44,4 +44,18 @@ class ACE_Settings {
         typeName = "BOOL";
         value = 0;
     };
+    class ace_ui_ammoCount {
+        typeName = "BOOL";
+        value = 0;
+        force = 1;
+    };
+    class ace_ui_groupBar {
+        typeName = "BOOL";
+        value = 0;
+        force = 1;
+    };
+    class ace_respawn_removeDeadBodiesDisconnected {
+        typeName = "BOOL";
+        value = 0;
+    };
 };

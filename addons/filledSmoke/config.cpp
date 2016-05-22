@@ -21,8 +21,8 @@ class CfgCloudlets {
         // particleFSIndex = 12; //default 12
         // particleFSFrameCount = 8; //default 8
         sizeCoef = 2; //default 1
-        interval = 0.125; //default 0.2
-        lifeTime = 24; //default 14
+        interval = 0.13; //default 0.2
+        lifeTime = 22; //default 14
         moveVelocity[] = {0,0.1,0}; //default {0,0.3,0}
         weight = 6.4; //default 1.26
         volume = 5; //default 1
