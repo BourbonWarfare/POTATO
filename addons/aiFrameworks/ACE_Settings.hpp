@@ -32,7 +32,7 @@ class ACE_Settings {
     };
     class VGVAR(loiteringEnabled) {
         typeName = "BOOL";
-        value = 0;
+        value = 1;
     };
     class VGVAR(useMines) {
         typeName = "BOOL";
@@ -150,9 +150,17 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 10;
     };
+    class VGVAR(globalSmokeThreshold) {
+        typeName = "SCALAR";
+        value = 90;
+    };
     class VGVAR(grenadeThreshold) {
         typeName = "SCALAR";
         value = 20;
+    };
+    class VGVAR(mineThreshold) {
+        typeName = "SCALAR";
+        value = 120;
     };
     class VGVAR(moveCompletedThreshold) {
         typeName = "SCALAR";

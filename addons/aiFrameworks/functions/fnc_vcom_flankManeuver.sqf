@@ -31,7 +31,7 @@ private _enemyPos = getposATL _nearestEnemy;
 
 if ((floor (random 100)) <= 75 && {(_enemyGroupCount/_groupCount) <= 0.25}) exitWith { //direct attack
     private _waypoint = _unitGroup addwaypoint [_enemyPos,0];
-    _waypoint setwaypointtype "MOVE";
+    _waypoint setwaypointtype "SAD";
     _waypoint setWaypointSpeed "FULL";
     _waypoint setWaypointBehaviour "COMBAT";
 };
@@ -57,6 +57,6 @@ _flankWP2 setWaypointSpeed "NORMAL";
 _flankWP2 setWaypointBehaviour "COMBAT";
 
 private _attackWP = _unitGroup addwaypoint [_enemyPos,10];
-_attackWP setWaypointType "MOVE";
+_attackWP setWaypointType "SAD";
 _attackWP setWaypointSpeed "FULL";
 _attackWP setWaypointBehaviour "COMBAT";

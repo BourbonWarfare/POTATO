@@ -21,7 +21,7 @@ item16[] = {"Everyone_else",8,218,1411.094116,994.259888,1522.631104,1048.874878
 item17[] = {"Leader_Cycle_Beg",3,250,1638.951782,320.886017,1770.709351,372.329498,0.000000,"Leader Cycle Beginning"};
 item18[] = {"Soldier_Cycle_Be",3,250,1682.689575,998.368469,1823.363281,1052.421509,0.000000,"Soldier Cycle Beginning"};
 item19[] = {"Hold_WP",4,218,1445.329590,404.159882,1545.329468,454.159790,700.000000,"Hold WP"};
-item20[] = {"Garrison",2,250,1293.610229,495.281372,1393.609985,545.281372,0.000000,"Garrison"};
+item20[] = {"Garrison",2,4346,1293.610229,495.281372,1393.609985,545.281372,0.000000,"Garrison"};
 item21[] = {"Dismissed_WP",4,218,1553.550415,450.018250,1653.550293,500.018250,600.000000,"Dismissed WP"};
 item22[] = {"Loiter",2,250,1413.115723,566.018555,1513.115723,616.018616,0.000000,"Loiter"};
 item23[] = {"Combat",4,218,1961.939453,320.423096,2061.939453,370.423096,800.000000,"Combat"};
@@ -59,7 +59,7 @@ item54[] = {"Deploy_UAV",2,250,3454.410400,693.050049,3547.972900,738.758301,0.0
 item55[] = {"Has_UAV",4,218,3275.439209,691.567261,3375.439209,741.567261,400.000000,"Has UAV"};
 item56[] = {"",7,210,3743.816162,1263.037109,3751.816162,1271.036987,0.000000,""};
 item57[] = {"FLANKBEHAVIOR",2,250,2429.766602,61.947258,2529.766602,111.947250,0.000000,"FLANKBEHAVIOR"};
-item58[] = {"Flank_Orders",4,4314,2391.582031,169.955643,2466.582031,219.955658,750.000000,"Flank Orders"};
+item58[] = {"Flank_Orders",4,218,2391.582031,169.955643,2466.582031,219.955658,750.000000,"Flank Orders"};
 item59[] = {"ArtyUse",4,218,2514.130859,222.814362,2614.130859,272.814362,550.000000,"ArtyUse"};
 item60[] = {"LightGarrison",4,218,2712.856689,322.186218,2812.856689,372.186218,150.000000,"LightGarrison"};
 item61[] = {"Light_Garrison",2,250,2842.847900,237.538376,2942.847900,287.538361,0.000000,"Light Garrison"};
@@ -176,8 +176,8 @@ link88[] = {65,66};
 link89[] = {66,42};
 link90[] = {67,68};
 link91[] = {68,46};
-globals[] = {0.000000,0,0,0,0,640,480,2,599,6316128,1,-150.122314,2357.981689,1476.814453,-424.735016,1654,1254,1};
-window[] = {2,-1,-1,-1,-1,1128,208,1668,208,3,1672};
+globals[] = {0.000000,0,0,0,0,640,480,2,599,6316128,1,948.980408,3011.054688,1307.731934,-255.654541,1654,1254,1};
+window[] = {2,-1,-1,-32000,-32000,998,78,1538,78,3,1672};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -431,7 +431,7 @@ class FSM
                                         priority = 700.000000;
                                         to="Garrison";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_waypointType == ""HOLD"" && {!(_unit setVariable [""potato_aiFrameworks_vcom_garrisoned"",false])}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_waypointType == ""HOLD"" && {!(_unit getVariable [""potato_aiFrameworks_vcom_garrisoned"",false])}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -442,7 +442,7 @@ class FSM
                                         priority = 600.000000;
                                         to="Loiter";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_waypointType == ""DISMISS"" && {potato_aiFrameworks_vcom_loiteringEnabled} && {!(_unit getvariable [""potato_aiFrameworks_vcom_loitering"",false])}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_waypointType == ""DISMISS"" || {_waypointType == ""LOITER""}) && {potato_aiFrameworks_vcom_loiteringEnabled} && {!(_unit getvariable [""potato_aiFrameworks_vcom_loitering"",false])}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -510,7 +510,7 @@ class FSM
                 {
                         name = "Garrison";
                         itemno = 20;
-                        init = /*%FSM<STATEINIT""">*/"[_unit,_group] call potato_aiFrameworks_fnc_vcom_garrison;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"[_unit] call potato_aiFrameworks_fnc_vcom_garrison;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {

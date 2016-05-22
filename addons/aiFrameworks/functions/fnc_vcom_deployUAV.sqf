@@ -3,8 +3,8 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
-private _uavBagClassname = _unit getVariable [VQGVAR(staticClassname),objNull];
-if (isNull _uavBagClassname) exitWith {};
+private _uavBagClassname = _unit getVariable [VQGVAR(staticClassname),""];
+if (_uavBagClassname == "") exitWith {};
 
 private _uavClassname = ([_uavBagClassname,0,-11] call BIS_fnc_trimString) + "_F";
 
@@ -19,10 +19,10 @@ _unit setVariable [VQGVAR(hasUAV),false];
     while { alive _uav } do {
         private _myNearestEnemy = [_uav] call VFUNC(closestEnemy);
         if !(isNull _myNearestEnemy) then {
-            _uav doMove (position _myNearestEnemy);
+            (group _uav) move (position _myNearestEnemy);
 
             private _friendlyUnits = _uav call VFUNC(friendlyUnits);
-            private _closestFriendly = [_friendlyArray,_uav] call VFUNC(closestObject);
+            private _closestFriendly = [_friendlyUnits,_uav] call VFUNC(closestObject);
             if !(isNull _closestFriendly) then {
                 [_uav] joinSilent (group _closestFriendly);
 

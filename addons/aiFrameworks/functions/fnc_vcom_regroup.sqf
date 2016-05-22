@@ -12,8 +12,6 @@ while {_wait} do {
     sleep 2;
 };
 
-
-
 private _group = createGroup _side;
 
 {

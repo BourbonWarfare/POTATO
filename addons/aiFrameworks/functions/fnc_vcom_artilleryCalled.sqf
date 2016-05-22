@@ -1,4 +1,3 @@
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
@@ -39,8 +38,10 @@ TRACE_1("",_artilleryUnits);
 private _ammoArray = getArtilleryAmmo _artilleryUnits;
 TRACE_1("",_ammoArray);
 
-if (count _ammoArray < 1) exitWith {};
-_randomAmmo = selectRandom _ammoArray;
+private _ammoCount = count _ammoArray;
+if (_ammoCount < 1) exitWith {};
+
+private _randomAmmo = _ammoArray select (floor random [0,0,_ammoCount]); // note, not using random select, we want to prioritize the boom
 
 TRACE_1("",_randomAmmo);
 

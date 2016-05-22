@@ -4,18 +4,12 @@ TRACE_1("params",_this);
 params ["_unit"];
 
 private _fnc_addToArray = {
+    TRACE_1("inner params",_this);
     params ["_unit","_object","_arrayVar"];
 
     private _array = _unit getVariable [_arrayVar, []];
     _array pushBack _object;
     _unit setVariable [_arrayVar, _array];
-};
-
-private _fnc_setBomb = {
-    params ["_unit","_bomb","_magazine"];
-
-    [_unit,_bomb,VQGVAR(bombObjectArray)] call _fnc_addToArray;
-    [_unit,_magazine,VQGVAR(bombMagazineArray)] call _fnc_addToArray;
 };
 
 {
@@ -54,4 +48,4 @@ private _fnc_setBomb = {
     nil
 } count (magazinesAmmo _unit);
 
-TRACE_2("",(_unit getVariable VQGVAR(bombArray),(_unit getVariable VQGVAR(mineArray));
+TRACE_2("",_unit getVariable VQGVAR(bombArray),_unit getVariable VQGVAR(mineArray));

@@ -1,4 +1,3 @@
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
@@ -7,7 +6,7 @@ params ["_unit","_unitGroup"];
 if !(VGVAR(loiteringEnabled)) exitWith {};
 
 private _fnc_case3 = {
-    params [_unit];
+    params ["_unit"];
     for "_i" from 0 to 10 do {
         _unit playMoveNow (selectRandom ["AmovPercMstpSnonWnonDnon_exercisePushup","SitDown","AmovPercMstpSnonWnonDnon_SaluteIn","AmovPercMstpSrasWrflDnon_AinvPknlMstpSlayWrflDnon"]);
         sleep (random 7) + 5;
@@ -27,7 +26,7 @@ while {alive _unit && {_unit getvariable [VQGVAR(loitering),false]}} do {
     _unit doMove _position;
     switch (_action) do {
         case 1: {
-            waitUntil { sleep 2; (_unit distance _positions) < 2 };
+            waitUntil { sleep 2; (_unit distance _position) < 2 };
 
             _unit playMoveNow (selectRandom ["AmovPercMstpSnonWnonDnon_exercisePushup","SitDown","AmovPercMstpSnonWnonDnon_SaluteIn","AmovPercMstpSrasWrflDnon_AinvPknlMstpSlayWrflDnon"]);
         };
@@ -62,12 +61,12 @@ while {alive _unit && {_unit getvariable [VQGVAR(loitering),false]}} do {
 
             private _distance2 = (random 5 + 3);
             private _direction2 = random 360;
-            _position2 = [(_position2 select 0) + (sin _direction2) * _distance2, (_position2 select 1) + (cos _direction2) * _distance2, _position2 select 2];
-            _closestUnit doMove _positions2;
+            private _position2 = [(_position select 0) + (sin _direction2) * _distance2, (_position select 1) + (cos _direction2) * _distance2, _position select 2];
+            _closestUnit doMove _position2;
 
             sleep 10;
 
-            private _fire = "FirePlace_burning_F" createvehicle _positions2;
+            private _fire = "FirePlace_burning_F" createvehicle _position2;
 
             _closestUnit lookAt _fire;
             _unit lookAt _fire;
@@ -79,7 +78,7 @@ while {alive _unit && {_unit getvariable [VQGVAR(loitering),false]}} do {
             deletevehicle _fire;
         };
         case 4: {
-            waitUntil {sleep 2; (_unit distance _positions) < 2};
+            waitUntil {sleep 2; (_unit distance _position) < 2};
 
             _unit playActionNow "SitDown";
             sleep 100;
