@@ -6,7 +6,7 @@ class RscDisplayCurator {
         class GVAR(acreSpectateButton): RscButton {
             idc = 777550;
             x = "safezoneX";
-            y = "safezoneY + safeZoneH - 12 * pixelH";
+            y = "safezoneY + safeZoneH - 14 * pixelH";
             w = "80 * pixelW";
             h = "12 * pixelH";
             sizeEx = "12 * pixelH";
@@ -16,10 +16,10 @@ class RscDisplayCurator {
         class GVAR(unitCount): RscText {
             idc = 777551;
             x = "safezoneX + 80 * pixelW";
-            y = "safezoneY + safeZoneH - 12 * pixelH";
+            y = "safezoneY + safeZoneH - 14 * pixelH";
             w = "80 * pixelW";
-            h = "12 * pixelH";
-            sizeEx = "12 * pixelH";
+            h = "14 * pixelH";
+            sizeEx = "14 * pixelH";
             text = "Sample";
         };
     };
