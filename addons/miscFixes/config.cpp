@@ -70,14 +70,12 @@ class CfgWeapons {
         model = "\A3\weapons_f\empty";
         displayName = "Plot NVG (AI Only)";
         descriptionShort = "Do not attempt to use as a player, only to allow AI to have better vision";
+        class ItemInfo {
+            type = 616;
+            hmdType = 0;
+            uniformModel = "\A3\weapons_f\empty";
+            modelOff = "\A3\weapons_f\empty";
+            mass = 20;
+        };
     };
 };
-
-
-
-
-
-
-
-
-
