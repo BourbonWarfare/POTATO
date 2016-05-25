@@ -19,5 +19,8 @@ if (_unit == _vehicle || {isNil "_class"}) exitWith {
     [_unit, false] call _fnc_setIfNotSet;
 };
 
-TRACE_3("",_vehicle,_class,isNumber(configfile >> "CfgVehicles" >> _class >> "artilleryScanner"));
-[_unit, isNumber(configfile >> "CfgVehicles" >> _class >> "artilleryScanner")] call _fnc_setIfNotSet;
+private _isArtillery = isNumber(configfile >> "CfgVehicles" >> _class >> "artilleryScanner");
+private _hasAmmo = count (getArtilleryAmmo [_vehicle]) > 0;
+
+TRACE_4("",_vehicle,_class,_isArtillery,_hasAmmo);
+[_unit, _isArtillery && _hasAmmo] call _fnc_setIfNotSet;

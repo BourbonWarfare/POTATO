@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
@@ -9,7 +10,10 @@ private _support = [];
 {
     if (_groupSide == side _x) then {
         {
-            if (alive _x && {_x getVariable [VQGVAR(isArtillery),false]}) then {
+            if (alive _x
+                    && {_x getVariable [VQGVAR(isArtillery),false]}
+                    && {[_x,VQGVAR(lastFiredArtillery),VGVAR(artilleryFireThreshold)] call VFUNC(pastThreshold)}
+                    && {count (getArtilleryAmmo [(vehicle _x)]) > 0}) then {
                 _support pushBackUnique (vehicle _x);
             };
             nil
@@ -20,38 +24,32 @@ private _support = [];
 } count allGroups;
 
 TRACE_1("",_support);
+while {count _support > 0} do {
 
-if ((count _support) <= 0) exitWith {};
+    private _returnedSupport = [_support, _unit] call VFUNC(closestObject);
+    if (isNull _returnedSupport) exitWith {};
 
-private _returnedSupport = [_support, _unit] call VFUNC(closestObject);
-TRACE_1("",_returnedSupport);
-if (isNull _returnedSupport) exitWith {};
+    private _artilleryUnits = crew _returnedSupport;
+    TRACE_2("",_returnedSupport,_artilleryUnits);
 
-private _artilleryUnits = [];
-{
-    _artilleryUnits pushBackUnique (vehicle _x);
-    nil
-} count (units (group _returnedSupport));
+    private _ammoArray = getArtilleryAmmo [_returnedSupport];
+    private _ammoCount = count _ammoArray;
+    if (_ammoCount > 0) then {
+        private _randomAmmo = _ammoArray select (floor random [0,0,_ammoCount]);
+        private _enemyPos  = getPos ([_unit] call VFUNC(closestEnemy));
+        TRACE_3("",_ammoArray,_randomAmmo,_enemyPos);
 
-TRACE_1("",_artilleryUnits);
+        if (_enemyPos inRangeOfArtillery [[_returnedSupport],_randomAmmo]) exitWith {
+            _unit setVariable [VQGVAR(calledArtillery),diag_tickTime];
+            { _x setVariable [VQGVAR(lastFiredArtillery),diag_tickTime,true]; _x setSkill ["aimingSpeed", 1]; nil } count _artilleryUnits;
 
-private _ammoArray = getArtilleryAmmo _artilleryUnits;
-TRACE_1("",_ammoArray);
-
-private _ammoCount = count _ammoArray;
-if (_ammoCount < 1) exitWith {};
-
-private _randomAmmo = _ammoArray select (floor random [0,0,_ammoCount]); // note, not using random select, we want to prioritize the boom
-
-TRACE_1("",_randomAmmo);
-
-private _enemyPos  = getPos ([_unit] call VFUNC(closestEnemy));
-
-if !(_enemyPos inRangeOfArtillery [_artilleryUnits,_randomAmmo]) exitWith {};
-
-_unit setVariable [VQGVAR(calledArtillery),diag_tickTime];
-
-{
-    _x doArtilleryFire [_enemyPos, _randomAmmo, 1 + floor(random 3)];
-    nil
-} count _artilleryUnits;
+            private _firePosition = [
+                (_enemyPos select 0) + ((random VGVAR(maximumRoundDispersion)) - (VGVAR(maximumRoundDispersion) / 2)),
+                (_enemyPos select 1) + ((random VGVAR(maximumRoundDispersion)) - (VGVAR(maximumRoundDispersion) / 2)),
+                _enemyPos select 2
+            ];
+            _returnedSupport doArtilleryFire [_firePosition, _randomAmmo, 1 + floor(random VGVAR(maximumRoundsPerBarrage))];
+        };
+    };
+    _support = _support - [_returnedSupport];
+};

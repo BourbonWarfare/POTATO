@@ -111,6 +111,20 @@ class ACE_Settings {
         value = 50;
     };
 
+    /*    Special artillery settings    */
+    class VGVAR(artilleryFireThreshold) {
+        typeName = "SCALAR";
+        value = 90;
+    };
+    class VGVAR(maximumRoundDispersion) {
+        typeName = "SCALAR";
+        value = 50;
+    };
+    class VGVAR(maximumRoundsPerBarrage) {
+        typeName = "SCALAR";
+        value = 2;
+    };
+
     /*   Side array settings   */
     class VGVAR(executionEnabledSides) {
         typeName = "ARRAY";
@@ -122,9 +136,13 @@ class ACE_Settings {
     };
 
     /*   Operation Timeouts   */
+    class VGVAR(artilleryFiredThreshold) {
+        typeName = "SCALAR";
+        value = 90;
+    };
     class VGVAR(artilleryThreshold) {
         typeName = "SCALAR";
-        value = 120;
+        value = 150;
     };
     class VGVAR(bombThreshold) {
         typeName = "SCALAR";

@@ -61,13 +61,13 @@ private _vehicle = vehicle (leader _vehicleGroup);
 // Make the driver full skill. This makes him less likely to do dumb things when they take contact.
 (driver _vehicle) setSkill 1;
 
-if (_lzSize == 150) then {
-    // Special settings for helicopters. Otherwise they tend to run away instead of land
-    {
-        _x allowFleeing 0;
-        nil
-    } count (crew _vehicle);
+{
+    _x allowFleeing 0;
+    _x setVariable ["potato_aiFrameworks_vcom_disabledUnit", true];
+    nil
+} count (crew _vehicle);
 
+if (_lzSize == 150) then {
     _vehicleUnloadWp setWaypointTimeout [0,0,0]; // Take off ASAP
 } else {
     _vehicleUnloadWp setWaypointTimeout [5,10,20]; // Give the units some time to get away from truck
