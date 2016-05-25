@@ -100,7 +100,7 @@ class ACE_Settings {
     /*   Chances of usage   */
     class VGVAR(chanceToUseArtillery) {
         typeName = "SCALAR";
-        value = 25;
+        value = 10;
     };
     class VGVAR(chanceToUseGrenade) {
         typeName = "SCALAR";
