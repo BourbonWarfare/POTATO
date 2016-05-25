@@ -3,7 +3,7 @@
 class CfgPatches {
     class ADDON {
         units[] = {};
-        weapons[] = {};
+        weapons[] = {QGVAR(plotNVG)};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core", "mbg_celle2", "ace_ui"};
         author[] = {"PabstMirror"};
@@ -60,3 +60,24 @@ class CfgVehicles {
         insideSoundCoef = 0; //ACRE uses this for vehicle sound attenuation (makes it easy to hear mortar gunners)
     };
 };
+
+
+class CfgWeapons {
+    class NVGoggles;
+    class GVAR(plotNVG): NVGoggles {
+        author = "pabst";
+        modelOptics = QUOTE(PATHTOF(models\plotNVGs));
+        model = "\A3\weapons_f\empty";
+        displayName = "Plot NVG (AI Only)";
+        descriptionShort = "Do not attempt to use as a player, only to allow AI to have better vision";
+    };
+};
+
+
+
+
+
+
+
+
+
