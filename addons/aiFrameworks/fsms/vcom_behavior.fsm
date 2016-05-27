@@ -1,8 +1,8 @@
-/*%FSM<COMPILE "G:\Steam\SteamApps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, vcom_behavior">*/
+/*%FSM<COMPILE "scriptedFSM.cfg, vcom_behavior">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Begin_State",0,250,44.886627,623.309082,134.886627,673.309082,0.000000,"Begin State"};
-item1[] = {"Should_Exit",4,218,-97.035378,625.647522,-13.685858,661.607605,100.000000,"Should Exit"};
+item1[] = {"Should_Exit",4,4314,-97.035378,625.647522,-13.685858,661.607605,100.000000,"Should Exit"};
 item2[] = {"else",8,218,196.470215,626.178284,296.469879,676.178284,0.000000,"else"};
 item3[] = {"Tick_Check",4,218,959.287231,574.543335,1049.287231,624.543335,0.000000,"Tick Check"};
 item4[] = {"Set_Basic",2,250,372.943726,629.338684,462.943726,679.338623,0.000000,"Set Basic"};
@@ -21,7 +21,7 @@ item16[] = {"Everyone_else",8,218,1411.094116,994.259888,1522.631104,1048.874878
 item17[] = {"Leader_Cycle_Beg",3,250,1638.951782,320.886017,1770.709351,372.329498,0.000000,"Leader Cycle Beginning"};
 item18[] = {"Soldier_Cycle_Be",3,250,1682.689575,998.368469,1823.363281,1052.421509,0.000000,"Soldier Cycle Beginning"};
 item19[] = {"Hold_WP",4,218,1445.329590,404.159882,1545.329468,454.159790,700.000000,"Hold WP"};
-item20[] = {"Garrison",2,4346,1293.610229,495.281372,1393.609985,545.281372,0.000000,"Garrison"};
+item20[] = {"Garrison",2,250,1293.610229,495.281372,1393.609985,545.281372,0.000000,"Garrison"};
 item21[] = {"Dismissed_WP",4,218,1553.550415,450.018250,1653.550293,500.018250,600.000000,"Dismissed WP"};
 item22[] = {"Loiter",2,250,1413.115723,566.018555,1513.115723,616.018616,0.000000,"Loiter"};
 item23[] = {"Combat",4,218,1961.939453,320.423096,2061.939453,370.423096,800.000000,"Combat"};
@@ -176,8 +176,8 @@ link88[] = {65,66};
 link89[] = {66,42};
 link90[] = {67,68};
 link91[] = {68,46};
-globals[] = {0.000000,0,0,0,0,640,480,2,599,6316128,1,948.980408,3011.054688,1307.731934,-255.654541,1654,1254,1};
-window[] = {2,-1,-1,-32000,-32000,998,78,1538,78,3,1672};
+globals[] = {0.000000,0,0,0,0,640,480,2,599,6316128,1,-527.391113,1534.683105,1307.731934,-255.654541,1650,1208,1};
+window[] = {2,-1,-1,-1,-1,1070,150,1610,150,3,1672};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -238,7 +238,7 @@ class FSM
                          "	[_unit] call potato_aiFrameworks_fnc_vcom_focusedAccuracy;" \n
                          "};" \n
                          "" \n
-                         "[_unit] execFSM ""\z\potato\addons\aiFrameworks\fsms\vcom_dangerIdentify.fsm"";"/*%FSM</STATEINIT""">*/;
+                         "[_unit] execFSM '\z\potato\addons\aiFrameworks\fsms\vcom_dangerIdentify.fsm';"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
