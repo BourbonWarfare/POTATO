@@ -3,7 +3,7 @@
 class CfgPatches {
     class ADDON {
         units[] = {};
-        weapons[] = {};
+        weapons[] = {"potato_fakeNVG"};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core", "mbg_celle2", "ace_ui"};
         author[] = {"PabstMirror"};
@@ -90,5 +90,24 @@ class CfgVehicles {
     class RHS_MELB_MH6M;
     class MELB_MH6M: RHS_MELB_MH6M {
         displayName = "MH-6M [Replace With RHS Version]";
+    };
+};
+
+
+class CfgWeapons {
+    class NVGoggles;
+    class potato_fakeNVG: NVGoggles {
+        author = "pabst";
+        modelOptics = QUOTE(PATHTOF(models\plotNVGs));
+        model = "\A3\weapons_f\empty";
+        displayName = "Fake NVGs (AI Only)";
+        descriptionShort = "[Plot Googles] Do not attempt to use as a player, only to allow AI to have better vision";
+        class ItemInfo {
+            type = 616;
+            hmdType = 0;
+            uniformModel = "\A3\weapons_f\empty";
+            modelOff = "\A3\weapons_f\empty";
+            mass = 20;
+        };
     };
 };
