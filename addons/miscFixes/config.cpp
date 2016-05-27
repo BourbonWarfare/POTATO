@@ -3,7 +3,7 @@
 class CfgPatches {
     class ADDON {
         units[] = {};
-        weapons[] = {QGVAR(plotNVG)};
+        weapons[] = {"potato_fakeNVG"};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core", "mbg_celle2", "ace_ui"};
         author[] = {"PabstMirror"};
@@ -96,12 +96,12 @@ class CfgVehicles {
 
 class CfgWeapons {
     class NVGoggles;
-    class GVAR(plotNVG): NVGoggles {
+    class potato_fakeNVG: NVGoggles {
         author = "pabst";
         modelOptics = QUOTE(PATHTOF(models\plotNVGs));
         model = "\A3\weapons_f\empty";
-        displayName = "Plot NVG (AI Only)";
-        descriptionShort = "Do not attempt to use as a player, only to allow AI to have better vision";
+        displayName = "Fake NVGs (AI Only)";
+        descriptionShort = "[Plot Googles] Do not attempt to use as a player, only to allow AI to have better vision";
         class ItemInfo {
             type = 616;
             hmdType = 0;
