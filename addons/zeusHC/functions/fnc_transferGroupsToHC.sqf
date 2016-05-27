@@ -21,11 +21,23 @@ params [["_force", false]];
 waitUntil { time > 0 };
 
 //Check the script is run in multiplayer only
-if (!isMultiplayer) exitWith { diag_log text format ["[POTATO] Not in multiplayer, exiting %1",QFUNC(transferGroupsToHC)]; };
-if (!isServer) exitWith { diag_log text format ["[POTATO] Not executing on server, exiting %1",QFUNC(transferGroupsToHC)]; };
+if (!isMultiplayer) exitWith {
+    diag_log text format ["[POTATO] Not in multiplayer, exiting %1",QFUNC(transferGroupsToHC)];
+    diag_log text format ["[POTATO] Broadcasting aiTransfered var (SKIPPED)"];
+    missionNameSpace setVariable [QGVAR(aiTransfered), true, true];
+};
+if (!isServer) exitWith {
+    diag_log text format ["[POTATO] Not executing on server, exiting %1",QFUNC(transferGroupsToHC)];
+    diag_log text format ["[POTATO] Broadcasting aiTransfered var (SKIPPED)"];
+    missionNameSpace setVariable [QGVAR(aiTransfered), true, true];
+};
 
 private _allHCs = entities "HeadlessClient_F";
-if (_allHCs isEqualTo []) exitWith { diag_log text format ["[POTATO] No headless clients found, exiting %1", QFUNC(transferGroupsToHC)]; };
+if (_allHCs isEqualTo []) exitWith {
+    diag_log text format ["[POTATO] No headless clients found, exiting %1", QFUNC(transferGroupsToHC)];
+    diag_log text format ["[POTATO] Broadcasting aiTransfered var (SKIPPED)"];
+    missionNameSpace setVariable [QGVAR(aiTransfered), true, true];
+};
 
 private _hcIDs = [];
 { _hcIDs pushBack (owner _x); nil } count _allHCs;
@@ -43,3 +55,8 @@ TRACE_1("Time between transfers", _timeBetweenTransfers);
     };
     nil
 } count allGroups;
+
+
+diag_log text format ["[POTATO] Broadcasting aiTransfered var (Transfer Done)"];
+missionNameSpace setVariable [QGVAR(aiTransfered), true, true];
+

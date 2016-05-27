@@ -35,6 +35,7 @@ PREP(garrisonCache);
 PREP(garrisonLocal);
 PREP(garrisonSpawn);
 PREP(garrisonModule);
+PREP(garrisonUnitLimit);
 PREP(garrisonDialogLoad);
 PREP(garrisonDialogSpawn);
 PREP(garrisonIsFacingWall);

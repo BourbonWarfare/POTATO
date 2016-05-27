@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 class CfgPatches {
-    class potato_reinforceToHC {
+    class ADDON {
     units[] = {"Ares_Module_Reinforcements_Spawn_Units"};
     requiredVersion = REQUIRED_VERSION;
     requiredAddons[] = {"potato_core","potato_zeusHC","Ares"};
@@ -33,8 +33,10 @@ class CfgVehicles {
     class Ares_Reinforcements_Module_base;
     class Ares_Module_Reinforcements_Spawn_Units : Ares_Reinforcements_Module_base {
         displayName = "Spawn Units";
-        function = QFUNC(reinforcementsCreateUnits);
+        function = QFUNC(reinforcementsZeus);
         author = "Anton Struyk (Ares base) AACO (2HC)";
         scopeCurator = 2;
     };
 };
+
+#include "Displays.hpp" 
