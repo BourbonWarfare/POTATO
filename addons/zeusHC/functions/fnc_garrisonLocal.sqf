@@ -30,6 +30,7 @@ _this spawn {
         private _unit = _x;
         private _position = _unitPositions select _forEachIndex;
         _unit setPos _position;
+        _unit setVariable ["potato_aiFrameworks_vcom_garrisoned", true];
 
         doStop _unit;
 
