@@ -6,7 +6,8 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"ACE_COMMON"};
-        author[] = {"PabstMirror"};
+        author = {"Potato"};
+        authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
@@ -18,13 +19,13 @@ class CfgPatches {
 
 class CfgMods {
     class PREFIX {
-        dir = "@BourbonMods";
-        name = "Bourbon Mods";
+        dir = "@POTATO";
+        name = "POTATO";
         picture = QUOTE(PATHTOF(potato_icon_ca.paa));
         hidePicture = "false";
         hideName = "false";
         actionName = "Website";
-        action = "https://github.com/PabstMirror";
+        action = "https://github.com/BourbonWarfare/POTATO";
         description = "";
     };
 };

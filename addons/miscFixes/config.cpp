@@ -6,7 +6,8 @@ class CfgPatches {
         weapons[] = {"potato_fakeNVG"};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core", "mbg_celle2", "ace_ui"};
-        author[] = {"PabstMirror"};
+        author = {"Potato"};
+        authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
