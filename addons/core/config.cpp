@@ -6,7 +6,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"ACE_COMMON"};
-        author = {"Potato"};
+        author = "Potato";
         authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;

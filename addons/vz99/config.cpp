@@ -6,7 +6,7 @@ class CfgPatches {
         weapons[] = {QGVAR(carryWeapon)};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
-        author = {"Potato"};
+        author = "Potato";
         authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
