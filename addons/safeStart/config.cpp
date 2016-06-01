@@ -6,7 +6,8 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
-        author[] = {"PabstMirror"};
+        author = {"Potato"};
+        authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
@@ -23,5 +24,9 @@ class ACE_Settings {
         typeName = "BOOL";
         value = 1;
         isClientSettable = 1;
+    };
+    class GVAR(enabled) {
+        typeName = "BOOL";
+        value = 0;
     };
 };

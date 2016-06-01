@@ -9,7 +9,7 @@ _this spawn {
     TRACE_1("",_unit);
     
     _diaryBuilder = [];
-    _diaryBuilder pushBack "<font size='8'>Only accurate at mission start.</t>";
+    _diaryBuilder pushBack "<font size='8'>Only accurate at mission start.</font>";
 
     {
         if (({isPlayer _x} count (units _x)) > 0) then {

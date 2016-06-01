@@ -1,5 +1,5 @@
 class CfgGarrison {
-    maxUnits = 100;
+    maxUnits = 45;
 
     class blu_f {
         units[] = {"B_soldier_TL_F","B_soldier_F","B_soldier_F","B_soldier_F","B_soldier_AR_F","B_soldier_F","B_soldier_F","B_soldier_F","B_soldier_AR_F","B_Soldier_LAT_F"};

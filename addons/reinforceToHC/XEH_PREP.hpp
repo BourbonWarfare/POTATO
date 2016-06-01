@@ -1,6 +1,8 @@
 TRACE_1("",QUOTE(ADDON));
 
-PREP(reinforcementsCreateUnits);
-PREP(setupReinforcements);
-PREP(setupReinforcementsOnServer);
-PREP(spawnReinforcements);
+PREP(reinforcementsZeus);
+PREP(reinforcementsDialogLoad);
+PREP(reinforcementsSpawnLocal);
+PREP(reinforcementsDialogSpawn);
+PREP(reinforcementsDialogChange);
+PREP(reinforcementsSelectWaypoint);

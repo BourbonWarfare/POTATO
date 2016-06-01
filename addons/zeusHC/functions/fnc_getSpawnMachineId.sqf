@@ -1,3 +1,17 @@
+/*
+ * Author: AACO
+ * Helper function to get the least loaded HC, or server if no HCs are available
+ * Can only be executed on the server
+ *
+ * Return Value:
+ * Client ID of the least loaded HC, or client ID of the server if no HCs are available <NUMBER>
+ *
+ * Examples:
+ * [] call potato_zeusHC_fnc_getSpawnMachineId
+ *
+ * Public: Yes
+ */
+
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
@@ -29,4 +43,5 @@ private _hcCounts = [];
 (_hcCounts call CBA_fnc_findMin) params ["", "_bestHcIndex"];
 _returnClientId = _hcIDs select _bestHcIndex;
 
+TRACE_1("Client ID",_returnClientId);
 _returnClientId

@@ -1,3 +1,12 @@
+/*
+ * Author: AACO
+ * Function used to ensure the min value stays equal, or less than the max value and
+ * to ensure the max value stays equal, or more than the min value
+ * Should only be called when the min/max sliders change
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 

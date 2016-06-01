@@ -1,3 +1,11 @@
+/*
+ * Author: AACO
+ * Function used populate the UI, must be spawned
+ * Should only be called from UI events
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
@@ -28,7 +36,7 @@ if (!isNil QGVAR(lastGroupUnitArray)) then {
     {
         _x params ["_classname", "_displayName", "_icon"];
         private _unitIndex = lbAdd [BUILD_GROUP_TO_ADD_IDC, _displayName];
-        lbSetPicture [BUILD_GROUP_TO_ADD_IDC, _unitIndex, getText(configfile >> "CfgVehicleIcons" >> _icon)];
+        lbSetPicture [BUILD_GROUP_TO_ADD_IDC, _unitIndex, _icon];
         lbSetData [BUILD_GROUP_TO_ADD_IDC, _unitIndex, _classname];
         nil
     } count GVAR(lastGroupUnitArray);

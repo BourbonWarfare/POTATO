@@ -26,8 +26,8 @@ GVAR(reinforceUnits) = [
         ["rhsusf_m1025_d_mk19","rhsusf_m1025_d_m2","rhsusf_m1025_w_mk19","rhsusf_m1025_w_m2","rhsusf_rg33_m2_d","rhsusf_rg33_m2_wd"],
         ["rhsusf_M1078A1P2_B_d_open_fmtv_usarmy","rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy"],
         ["rhsusf_m113_usarmy","rhsusf_m113d_usarmy","rhsusf_m113_usarmy_MK19","rhsusf_m113d_usarmy_MK19","RHS_M2A2","RHS_M2A2_wd"],
-        ["RHS_UH60M_US_base","RHS_CH_47F_base"],
-        ["RHS_UH60M","RHS_UH60M_d","RHS_CH_47F"],
+        ["RHS_UH1Y_UNARMED","RHS_UH60M_MEV","rhsusf_CH53E_USMC"],
+        ["RHS_UH1Y","RHS_UH60M","RHS_CH_47F"],
         ["B_Boat_Transport_01_F","B_G_Boat_Transport_01_F"],
         ["B_Boat_Armed_01_minigun_F"],
         [

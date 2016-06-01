@@ -6,7 +6,8 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core", "ace_laserPointer", "ace_map", "ace_zeus", "ace_hearing", "ace_overheating"};
-        author[] = {"PabstMirror"};
+        author = {"Potato"};
+        authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
@@ -38,6 +39,24 @@ class ACE_Settings {
     };
     class ace_overheating_unJamFailChance {
         typeName = "SCALAR";
+        value = 0;
+    };
+    class ace_overheating_enabled {
+        typeName = "BOOL";
+        value = 0;
+    };
+    class ace_ui_ammoCount {
+        typeName = "BOOL";
+        value = 0;
+        force = 1;
+    };
+    class ace_ui_groupBar {
+        typeName = "BOOL";
+        value = 0;
+        force = 1;
+    };
+    class ace_respawn_removeDeadBodiesDisconnected {
+        typeName = "BOOL";
         value = 0;
     };
 };

@@ -6,7 +6,8 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"ACE_COMMON"};
-        author[] = {"PabstMirror"};
+        author = {"Potato"};
+        authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
@@ -14,27 +15,17 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgFactionClasses.hpp"
+#include "ACE_Settings.hpp"
 
 class CfgMods {
     class PREFIX {
-        dir = "@BourbonMods";
-        name = "Bourbon Mods";
+        dir = "@POTATO";
+        name = "POTATO";
         picture = QUOTE(PATHTOF(potato_icon_ca.paa));
         hidePicture = "false";
         hideName = "false";
         actionName = "Website";
-        action = "https://github.com/PabstMirror";
+        action = "https://github.com/BourbonWarfare/POTATO";
         description = "";
-    };
-};
-
-class ACE_Settings {
-    class GVAR(showNotifcations) {
-        category = QUOTE(PREFIX);
-        displayName = "Potato: Show SystemChat Notifcations";
-        description = "False should disable most Notifcations, can use to make clean recordings.";
-        typeName = "BOOL";
-        value = 1;
-        isClientSettable = 1;
     };
 };

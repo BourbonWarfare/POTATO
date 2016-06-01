@@ -31,6 +31,5 @@ if ((vehicle _leader) == _leader) then {
     _return = "Moving In Vic (no guarentes)";
 };
 
-_selectedPerson setPos (getPos leader _selectedGroup);
 private _debugMsg = format ["Teleporting %1 to group %2 [%3]", (name _selectedPerson), _selectedGroup, _return];
 ["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);
