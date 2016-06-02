@@ -6,7 +6,6 @@
     if ((isNull _unit) || {!alive _unit} || {!local _unit}) exitWith {};
 
     removeAllWeapons _unit;
-    removeGoggles _unit;
     removeHeadgear _unit;
     removeVest _unit;
     removeUniform _unit;
