@@ -17,6 +17,7 @@
 
 #define UI_TAB_LISTBOX                ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 1500)
 #define UI_TAB_ZEUS                    ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2300)
+#define UI_TAB_ZEUS_PLAYERS_ID 2100
 #define UI_TAB_ZEUS_PLAYERS            ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2100)
 #define UI_TAB_SUPPLIES                ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2301)
 #define UI_TAB_SUPPLIES_TYPE        ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2120)

@@ -16,14 +16,17 @@ case (0): {
         private _fnc_addPlayerToList = {
             params ["_unit"];
 
-            if (isNull (getAssignedCuratorLogic _unit)) then {
-                UI_TAB_ZEUS_PLAYERS lbAdd format ["%1", name _unit];
+            private _name = if (isNull (getAssignedCuratorLogic _unit)) then {
+                format ["%1", name _unit]
             } else {
-                UI_TAB_ZEUS_PLAYERS lbAdd format ["[ZEUS] %1", name _unit];
+                format ["[ZEUS] %1", name _unit]
             };
+
+            private _index = lbAdd [UI_TAB_ZEUS_PLAYERS_ID, _name];
+            lbSetData [UI_TAB_ZEUS_PLAYERS_ID, _index, _unit];
         };
 
-        lbClear UI_TAB_ZEUS_PLAYERS;
+        lbClear UI_TAB_ZEUS_PLAYERS_ID;
 
         [player] call _fnc_addPlayerToList;
         {
@@ -32,7 +35,7 @@ case (0): {
             };
         } forEach allUnits;
 
-        UI_TAB_ZEUS_PLAYERS lbSetCurSel 0;
+        lbSetCurSel [UI_TAB_ZEUS_PLAYERS_ID, 0];
     };
 case (1): {
         TRACE_1("showing supplies tab", _sel);
