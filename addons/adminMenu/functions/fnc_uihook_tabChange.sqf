@@ -13,6 +13,8 @@ switch (_sel) do {
 case (0): {
         TRACE_1("showing zeus tab", _sel);
 
+        GVAR(ui_zeusTargets) = [];
+
         private _fnc_addPlayerToList = {
             params ["_unit"];
 
@@ -22,8 +24,8 @@ case (0): {
                 format ["[ZEUS] %1", name _unit]
             };
 
-            private _index = lbAdd [UI_TAB_ZEUS_PLAYERS_ID, _name];
-            lbSetData [UI_TAB_ZEUS_PLAYERS_ID, _index, _unit];
+            lbAdd [UI_TAB_ZEUS_PLAYERS_ID, _name];
+            GVAR(ui_zeusTargets) pushBack _unit;
         };
 
         lbClear UI_TAB_ZEUS_PLAYERS_ID;
