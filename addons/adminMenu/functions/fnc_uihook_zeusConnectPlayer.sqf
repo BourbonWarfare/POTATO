@@ -18,4 +18,4 @@ private _debugMsg = if (_giveZeus) then {
     format ["Disabling ZEUS for %1", (name _selectedPlayer)];
 };
 
-["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);
+["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;

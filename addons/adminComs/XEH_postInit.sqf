@@ -14,5 +14,5 @@ if (hasInterface) then {
                 [] call FUNC(mouseCatch);
             };
         };
-    }] call ace_common_fnc_addEventHandler;
+    }] call CBA_fnc_addEventHandler;
 };

@@ -60,7 +60,7 @@ if (!isServer) exitWith {};
             TRACE_1("Setting must be forced off", GVAR(aiSkill_set));
         };
 
-        ["UpdateAISettings", []] call ace_common_fnc_globalEvent;
+        [QGVAR(UpdateAISettings), []] call CBA_fnc_globalEvent;
 
         TRACE_2("ai settings updated",GVAR(aiSkill_COVER),GVAR(aiSkill_AUTOCOMBAT));
     } else {
@@ -68,4 +68,4 @@ if (!isServer) exitWith {};
     };
 
     deleteVehicle _logic;
-}, [_logic]] call ace_common_fnc_waitUntilAndExecute;
+}, [_logic]] call CBA_fnc_waitUntilAndExecute;

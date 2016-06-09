@@ -5,4 +5,4 @@
 if (!isServer) exitWith {};
 
 missionNamespace setVariable [QGVAR(startTime_PV), dayTime, true];
-["safeStartOn", []] call ace_common_fnc_globalEvent;
+["potato_safeStartOn", []] call CBA_fnc_globalEvent;

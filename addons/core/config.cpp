@@ -29,3 +29,12 @@ class CfgMods {
         description = "";
     };
 };
+
+class ACE_newEvents {
+    // potato_adminMsg = "potato_adminMsg";
+    // potato_becomeZeus = "potato_becomeZeus";
+    // potato_missionHint = "potato_missionHint";
+    // potato_becomeZeus = "potato_becomeZeus";
+    hcSetIndex = "potato_hcSetIndex";
+    safeStartOn = "potato_safeStartOn";
+};

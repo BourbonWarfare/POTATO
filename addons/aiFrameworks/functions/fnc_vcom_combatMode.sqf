@@ -7,5 +7,5 @@ params ["_unit"];
 private _nearestEnemy = [_unit] call VFUNC(closestEnemy);
 
 if ((diag_tickTime - (_unit getVariable [VQGVAR(firedTime),0])) > 60 && ((_nearestEnemy distance _unit) > VGVAR(maxEngagementDistance) || {isNull _nearestEnemy})) then {
-	_unit setBehaviour (_unit getVariable [VQGVAR(lastStance), behaviour _unit]);
+    _unit setBehaviour (_unit getVariable [VQGVAR(lastStance), behaviour _unit]);
 };

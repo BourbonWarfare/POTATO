@@ -27,7 +27,7 @@
     };
 };
 
-["safeStartOn", {
+["potato_safeStartOn", {
     GVAR(safeStartEnabled) = true;
     [] call FUNC(showTimer);
-}] call ace_common_fnc_addEventHandler;
+}] call CBA_fnc_addEventHandler;

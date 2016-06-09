@@ -26,4 +26,4 @@ if ((_colorIndex < 0) || {_colorIndex > 3}) exitWith {};
     private _color = ["ColorBlack", "ColorRed", "ColorGreen", "ColorBlue"] select _colorIndex;    
     [_pos, _text, _color] call FUNC(createLocalMarker);
 
-}, [_pos, _sideIndex, _text, _colorIndex]] call ace_common_fnc_waitUntilAndExecute;
+}, [_pos, _sideIndex, _text, _colorIndex]] call CBA_fnc_waitUntilAndExecute;
