@@ -6,10 +6,6 @@ params ["_unit"];
 // disable default FSM
 _unit disableAI "FSM";
 
-// add event handlers
-_unit addEventHandler ["Killed",{_this call VFUNC(closestAllyWarn);}];
-_unit addEventHandler ["Hit",{_this call VFUNC(aiHit);}];
-
 // set unit timer defaults
 _unit setVariable [VQGVAR(activelyClearing),0];
 _unit setVariable [VQGVAR(calledArtillery),0];

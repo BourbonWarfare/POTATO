@@ -8,7 +8,7 @@ VGVAR(ehAdded) = false;
     },
     {
         if (VGVAR(enabled)) then {
-            VGVAR(lastSmokeThrown) = 0;
+            missionNamespace setVariable [VQGVAR(lastSmokeThrown), 0];
             [VGVAR(executionEnabledSides)] call VFUNC(stringArrayToSideArray);
             [VGVAR(movementEnabledSides)] call VFUNC(stringArrayToSideArray);
 

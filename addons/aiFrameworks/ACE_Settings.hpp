@@ -34,6 +34,10 @@ class ACE_Settings {
         typeName = "BOOL";
         value = 1;
     };
+    class VGVAR(proneAndMoveToCoverOnHit) { // probably don't turn this off
+        typeNmae = "BOOL";
+        value = 1;
+    };
     class VGVAR(useMines) {
         typeName = "BOOL";
         value = 1;
@@ -44,6 +48,10 @@ class ACE_Settings {
     };
     class VGVAR(useSmoke) {
         typeName = "BOOL";
+        value = 1;
+    };
+    class VGVAR(warnAlliesOnDeath) {
+        typeNmae = "BOOL";
         value = 1;
     };
 
