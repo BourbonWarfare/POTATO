@@ -1,10 +1,9 @@
 #include "script_component.hpp"
 
-// params [""];
 TRACE_1("params",_this);
 
 private _selectedIndex = lbCurSel UI_TAB_ZEUS_PLAYERS;
-if ((_selectedIndex < 0) || (_selectedIndex >= (count GVAR(ui_zeusTargets)))) exitWith {TRACE_1("Bad Index",_selectedIndex);};
+if (_selectedIndex < 0 || {_selectedIndex >= count GVAR(ui_zeusTargets)}) exitWith {TRACE_1("Bad Index",_selectedIndex);};
 
 private _selectedPlayer = GVAR(ui_zeusTargets) select _selectedIndex;
 if (isNull _selectedPlayer) exitWith {TRACE_1("null",_selectedPlayer);};

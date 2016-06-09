@@ -12,24 +12,32 @@ disableSerialization;
 switch (_sel) do {
 case (0): {
         TRACE_1("showing zeus tab", _sel);
-        lbClear UI_TAB_ZEUS_PLAYERS;
-        if (player in allPlayers) then {
-            GVAR(ui_zeusTargets) = [player];
-        } else {
-            GVAR(ui_zeusTargets) = [];
+
+        GVAR(ui_zeusTargets) = [];
+
+        private _fnc_addPlayerToList = {
+            params ["_unit"];
+
+            private _name = if (isNull (getAssignedCuratorLogic _unit)) then {
+                format ["%1", name _unit]
+            } else {
+                format ["[ZEUS] %1", name _unit]
+            };
+
+            lbAdd [UI_TAB_ZEUS_PLAYERS_ID, _name];
+            GVAR(ui_zeusTargets) pushBack _unit;
         };
 
-        { if ((_x != player)) then {GVAR(ui_zeusTargets) pushBack _x;}; } forEach allPlayers;
+        lbClear UI_TAB_ZEUS_PLAYERS_ID;
 
+        [player] call _fnc_addPlayerToList;
         {
-            if (!isNull (getAssignedCuratorLogic _x)) then {
-                UI_TAB_ZEUS_PLAYERS lbAdd format ["[ZEUS] %1", (name _x)];
-            } else {
-                UI_TAB_ZEUS_PLAYERS lbAdd format ["%1", (name _x)];
+            if (alive _x && {isPlayer _x} && {_x != player}) then {
+                [_x] call _fnc_addPlayerToList;
             };
-        } forEach GVAR(ui_zeusTargets);
+        } forEach allUnits;
 
-        UI_TAB_ZEUS_PLAYERS lbSetCurSel 0;
+        lbSetCurSel [UI_TAB_ZEUS_PLAYERS_ID, 0];
     };
 case (1): {
         TRACE_1("showing supplies tab", _sel);
@@ -156,7 +164,7 @@ case (7): {
             };
         } forEach allUnits;
         UI_TAB_FIXGEAR_PERSON lbSetCurSel 0;
-        
+
         UI_TAB_FIXGEAR_PERSON setVariable ["listOfUnits", _listOfUnits];
     };
 };
