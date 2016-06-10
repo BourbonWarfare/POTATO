@@ -6,7 +6,7 @@ params ["_unit"];
 //Lets find the closest building
 private _building = nearestBuilding _unit;
 
-if ((_building distance _unit) > VGVAR(maxDistanceToGarrison) || {_unit getVariable [VQGVAR(garrisoned),false]}) exitWith {};
+if ((_building distance _unit) > VGVAR(maxDistanceToGarrison)) exitWith {};
 
 //Find positions in a house.
 private _buildingPositions = _building buildingPos -1;

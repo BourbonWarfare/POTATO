@@ -13,4 +13,6 @@
     #define DEBUG_SETTINGS DEBUG_SETTINGS_CORE
 #endif
 
+#define SERVER_CLIENT_ID 2
+
 #include "\z\potato\addons\core\script_macros.hpp"

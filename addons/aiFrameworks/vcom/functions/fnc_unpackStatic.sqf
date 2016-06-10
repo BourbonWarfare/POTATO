@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_unit"];
+params ["_unit","_nearestEnemyInput"];
 
 private _gunner = objNull;
 private _weapon = objNull;
@@ -33,7 +33,7 @@ _unit doMove _position;
 
 private _nearestEnemy = _unit findNearestEnemy _unit;
 if (isNull _nearestEnemy) then {
-  _nearestEnemy = _unit call VFUNC(closestEnemy);
+  _nearestEnemy = _nearestEnemyInput;
 };
 if (isNull _nearestEnemy) exitWith {};
 
@@ -52,15 +52,12 @@ _unit setVariable [VQGVAR(staticWeapon),_staticCreated];
 _unit assignAsGunner _staticCreated;
 [_unit] orderGetIn true;
 _unit moveInGunner _staticCreated;
-removeBackpackGlobal _unit;
+removeBackpack _unit;
 
 private _dirTo = (position _weapon) getDir (position _nearestEnemy);
 _staticCreated setDir _dirTo;
 (vehicle _unit) setDir _dirTo;
 
-[_unit] spawn {
-    params ["_unit"];
-    sleep (180 + (random 180));
-    if (!(alive _unit) || {_unit == (vehicle _unit)}) exitWith {};
-    [_unit] call VFUNC(packStatic);
-};
+sleep (180 + (random 180));
+if (!(alive _unit) || {_unit == (vehicle _unit)}) exitWith {};
+[_unit] call VFUNC(packStatic);

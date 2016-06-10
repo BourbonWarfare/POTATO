@@ -68,7 +68,7 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 1000;
     };
-    class VGVAR(maxDistanceToBombBuilding) {
+    class VGVAR(maxDistanceToPlantCharge) {
         typeName = "SCALAR";
         value = 200;
     };
@@ -118,6 +118,10 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 50;
     };
+    class VGVAR(lightGarrisonChance) {
+        typeName = "SCALAR";
+        value = 75;
+    };
 
     /*    Special artillery settings    */
     class VGVAR(artilleryFireThreshold) {
@@ -155,6 +159,10 @@ class ACE_Settings {
     class VGVAR(bombThreshold) {
         typeName = "SCALAR";
         value = 120;
+    };
+    class VGVAR(brainCycleWait) {
+        typeName = "SCALAR";
+        value = 0.5;
     };
     class VGVAR(clearingThreshold) {
         typeName = "SCALAR";

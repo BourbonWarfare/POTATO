@@ -2,7 +2,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_unit"];
+params ["_unit","_nearestEnemy"];
 
 private _groupSide = (side (group _unit));
 
@@ -36,7 +36,7 @@ while {count _support > 0} do {
     private _ammoCount = count _ammoArray;
     if (_ammoCount > 0) then {
         private _randomAmmo = _ammoArray select (floor random [0,0,_ammoCount]);
-        private _enemyPos  = getPos ([_unit] call VFUNC(closestEnemy));
+        private _enemyPos  = getPos _nearestEnemy;
         TRACE_3("",_ammoArray,_randomAmmo,_enemyPos);
 
         if (_enemyPos inRangeOfArtillery [[_returnedSupport],_randomAmmo]) exitWith {

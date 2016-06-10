@@ -12,8 +12,8 @@ if ([_unit,VQGVAR(grenadeThrown),VGVAR(grenadeThreshold)] call VFUNC(pastThresho
     private _checkDistance = (_unit distance _nearestEnemy);
 
     if !(lineintersects [eyepos _unit, eyepos _nearestEnemy, _unit, _nearestEnemy]
-        && {_checkDistance < 60}
-        && {_checkDistance > 6}) then {
+            && {_checkDistance < 60}
+            && {_checkDistance > 6}) then {
 
         _unit setDir (_unit getDir _nearestEnemy);
         _unit forceWeaponFire ["HandGrenadeMuzzle","HandGrenadeMuzzle"];

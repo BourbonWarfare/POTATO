@@ -1,18 +1,9 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_unit"];
-
-if (VGVAR(chanceToUseMine) <= random 100) exitWith {};
-
-private _nearestEnemy = [_unit] call VFUNC(closestEnemy);
-if (isNull _nearestEnemy) exitWith {};
+params ["_unit","_nearestEnemy"];
 
 private _mineArray = _unit getVariable [VQGVAR(mineArray),[]];
-if (count (_mineArray) < 1) exitWith {};
-
-TRACE_2("past early escapes",_nearestEnemy,_mineArray);
-
 private _selectedArray = (_mineArray select 0);
 _selectedArray params ["_mineClassname","_mineMagazine"];
 TRACE_1("selected munition",_selectedArray);

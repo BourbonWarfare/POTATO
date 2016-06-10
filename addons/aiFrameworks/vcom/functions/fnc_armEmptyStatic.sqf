@@ -1,8 +1,6 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-if !(VGVAR(usePlacedStaticWeapons)) exitWith {};
-
 params ["_unit"];
 
 private _weapons = nearestObjects [_unit,"StaticWeapon",VGVAR(maxDistanceToMountEmptyStatic)];
