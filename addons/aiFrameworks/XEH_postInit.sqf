@@ -2,6 +2,9 @@
 
 VGVAR(ehAdded) = false;
 
+VGVAR(suppressorCache) = [[],[]];
+VGVAR(vehicleCache) = [[],[]];
+
 [
     {
         ACEGVAR(common,settingsInitFinished) && {EGVAR(zeusHC,aiTransfered)} && {diag_tickTime > (_this select 0)}

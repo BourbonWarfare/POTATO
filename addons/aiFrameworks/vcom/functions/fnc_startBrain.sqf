@@ -14,6 +14,18 @@ params ["_unit"];
         private _group = group _unit;
         if !(local _group) exitWith { [_unit, _group] call VFUNC(transferToNewOwner); };
 
+        // every 20 seconds, check gear and stuff
+        if ((_unit getVariable [VQGVAR(lastChecked),0]) < (diag_tickTime - 20)) then {
+            [_unit] call VFUNC(buildingCheck);
+            [_unit] call VFUNC(checkBag);
+            [_unit] call VFUNC(hasMine);
+            [_unit] call VFUNC(artillery);
+
+            if (VGVAR(increaseAccuracyOnStaticTargets)) then {
+            	[_unit] call VFUNC(focusedAccuracy);
+            };
+        };
+
         private _isLeader = leader _unit == _unit; // leader check
         private _inCombat = behaviour _unit == "COMBAT"; // combat check
 
@@ -146,11 +158,19 @@ params ["_unit"];
         } else {
             // handle unit being driver
             if (driver _vehicle == _unit) then {
-
+                if (_inCombat || {!([_unit,VQGVAR(movingToSupport),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold))}) then {
+                    [_unit] call VFUNC(moveInCombat);
+                    [_unit] call VFUNC(vehicleHandle);
+                };
             } else {
                 //handle unit being gunner
-                if (gunner _vehicle == _unit) then {
+                if (gunner _vehicle == _unit) then { // TODO: make this for any vehicle turret position
+                    _unit setSkill ["aimingSpeed", 1];
+                    _unit setSkill ["spotDistance", 1];
 
+                    if (_inCombat) then {
+                        [_unit,_vehicle] call VFUNC(gunnerTargeting);
+                    };
                 };
             };
         };

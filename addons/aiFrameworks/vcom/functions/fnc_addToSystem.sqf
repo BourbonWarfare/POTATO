@@ -5,8 +5,6 @@ params ["_unit"];
 
 if !(local _unit) exitWith {};
 
-VGVAR(suppressorCache) = [[],[]];
-
 if (VGVAR(earsEnabled)) then {
     _unit addEventHandler ["Fired",{_this call VFUNC(hearingAids);}];
 };
