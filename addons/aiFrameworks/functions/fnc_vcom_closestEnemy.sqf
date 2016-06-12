@@ -13,7 +13,7 @@ private _minRange = 0;
 private _unitSide = (side _unit);
 {
     private _xSide = side _x;
-	if (_xSide != _unitSide && !(_xSide isEqualTo CIVILIAN)) then {
+    if (_xSide != _unitSide && !(_xSide isEqualTo CIVILIAN)) then {
         private _range = abs (_unit distance _x);
         if (_range < _minRange || {isNull _returnEnemy}) then {
             _minRange = _range;

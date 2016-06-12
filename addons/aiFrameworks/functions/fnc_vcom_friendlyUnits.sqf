@@ -7,7 +7,7 @@ private _unitSide = side (group _unit);
 
 private _returnUnits = [];
 {
-	if (side _x == _unitSide) then {
+    if (side _x == _unitSide) then {
         {
             if (alive _x) then { _returnUnits pushBack _x; };
             nil
