@@ -15,12 +15,14 @@ if ([_unit,VQGVAR(grenadeThrown),VGVAR(grenadeThreshold)] call VFUNC(pastThresho
             && {_checkDistance < 60}
             && {_checkDistance > 6}) then {
 
+        _unit setVariable [VQGVAR(grenadeThrown),diag_tickTime];
+
         _unit setDir (_unit getDir _nearestEnemy);
         _unit forceWeaponFire ["HandGrenadeMuzzle","HandGrenadeMuzzle"];
         _unit forceWeaponFire ["MiniGrenadeMuzzle","MiniGrenadeMuzzle"];
     } else {
-        // note lastSmokeThrown is local, so if you're running two HCs you can have two grenades per threshold
-        if (VGVAR(useSmoke) && {_checkDistance < VGVAR(maxDistanceToSmoke)} && {diag_tickTime - VGVAR(globalSmokeThreshold) > VGVAR(lastSmokeThrown)}) then {
+        if (VGVAR(useSmoke) && {_checkDistance < VGVAR(maxDistanceToSmoke)} && {[missionNamespace,VQGVAR(lastSmokeThrown),VGVAR(globalSmokeThreshold)] call VFUNC(pastThreshold)}) then {
+            missionNamespace setVariable [VQGVAR(lastSmokeThrown), diag_tickTime, true];
             _unit setDir (_unit getDir _nearestEnemy);
             _unit forceWeaponFire ["SmokeShellMuzzle","SmokeShellMuzzle"];
         };

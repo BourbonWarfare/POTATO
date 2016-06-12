@@ -33,7 +33,7 @@ private _direction = random 360;
 private _position = [(_enemyPos select 0) + (sin _direction) * _distance, (_enemyPos select 1) + (cos _direction) * _distance, 0];
 
 private _places = selectBestPlaces [_enemyPos, 400,"((6*hills + 2*forest + 4*houses + 2*meadow) - sea + (2*trees)) - (1000*deadbody)", 100, 5];
-private _randomLocation = (selectRandom _myPlaces) select 0;
+private _randomLocation = (selectRandom _places) select 0;
 
 _unitGroup setBehaviour "COMBAT";
 

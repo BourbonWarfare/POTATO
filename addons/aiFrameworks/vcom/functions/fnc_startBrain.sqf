@@ -6,7 +6,7 @@ params ["_unit"];
 [_unit] spawn {
     params ["_unit"];
 
-    while (true) do { // oh boy do I hate infinite loops
+    while {true} do { // oh boy do I hate infinite loops
         // if unit should stop running VCOM logic (i.e. dead/deleted), quit
         if ([_unit] call VFUNC(shouldExit)) exitWith { TRACE_1("Stopping logic loop",_unit); };
 
@@ -69,13 +69,13 @@ params ["_unit"];
                     case (_isLeader
                             && {VGVAR(canCallInArtillery)}
                             && {!(isNull _nearestEnemy)}
-                            && {count (units (group _nearestEnemy))) > 2}
+                            && {count (units (group _nearestEnemy)) > 2}
                             && {[_unit,VQGVAR(calledArtillery),VGVAR(artilleryThreshold)] call VFUNC(pastThreshold)}
                             && {VGVAR(chanceToUseArtillery) <= random 100}): {
                         [_unit,_nearestEnemy] call VFUNC(callArtillery);
                     };
                     // clear enemy occupied building
-                    case (_isLeader &&
+                    case (_isLeader
                             && {(!isNull _nearestEnemy)}
                             && {!(_unit getVariable [VQGVAR(isInside),false])}
                             && {!(_unit getVariable [VQGVAR(garrisoned),false])}
@@ -99,7 +99,7 @@ params ["_unit"];
                     // arm a static if one is nearby
                     case (VGVAR(usePlacedStaticWeapons)
                             && {!(isNull _nearestEnemy)}
-                            && {_nearestEnemy distance _unit < VCOM(maxEngagementDistance)}
+                            && {_nearestEnemy distance _unit < VGVAR(maxEngagementDistance)}
                             && {[_unit] call VFUNC(checkStatic)}): {
                         [_unit] call VFUNC(armEmptyStatic);
                     };
@@ -169,7 +169,7 @@ params ["_unit"];
                     _unit setSkill ["spotDistance", 1];
 
                     if (_inCombat) then {
-                        [_unit,_vehicle] call VFUNC(gunnerTargeting);
+                        [_unit,_vehicle,_group] call VFUNC(gunnerTargeting);
                     };
                 };
             };

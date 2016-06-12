@@ -7,4 +7,4 @@ if (isPlayer _unit || {(vehicle _unit) != _unit}) exitWith {};
 
 //Lay down
 _unit setUnitPos "DOWN";
-[_unit] call VFUNC(moveToCover);
+[_unit] spawn VFUNC(moveToCover);

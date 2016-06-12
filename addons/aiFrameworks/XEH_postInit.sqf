@@ -2,9 +2,6 @@
 
 VGVAR(ehAdded) = false;
 
-VGVAR(suppressorCache) = [[],[]];
-VGVAR(vehicleCache) = [[],[]];
-
 [
     {
         ACEGVAR(common,settingsInitFinished) && {EGVAR(zeusHC,aiTransfered)} && {diag_tickTime > (_this select 0)}
@@ -12,6 +9,9 @@ VGVAR(vehicleCache) = [[],[]];
     {
         if (VGVAR(enabled)) then {
             missionNamespace setVariable [VQGVAR(lastSmokeThrown), 0];
+            VGVAR(suppressorCache) = [[],[]];
+            VGVAR(vehicleCache) = [[],[]];
+
             [VGVAR(executionEnabledSides)] call VFUNC(stringArrayToSideArray);
             [VGVAR(movementEnabledSides)] call VFUNC(stringArrayToSideArray);
 

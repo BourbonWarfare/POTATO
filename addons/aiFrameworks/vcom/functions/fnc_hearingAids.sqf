@@ -16,7 +16,7 @@ if (diag_tickTime - (_unit getVariable [VQGVAR(firedTimeHearing),0]) > 10) then 
              (VGVAR(suppressorCache) select 1) select _lookup
         } else {
             [(configFile >> "CfgWeapons" >> _muzzle >> "ItemInfo" >> "AmmoCoef"), "audibleFire", 1] call BIS_fnc_returnConfigEntry
-        }
+        };
         _loudness < 1
     };
 
