@@ -41,3 +41,8 @@ PREP(garrisonDialogSpawn);
 PREP(garrisonIsFacingWall);
 PREP(garrisonDialogCheckMinMax);
 PREP(garrisonDialogControlChange);
+
+PREP(fixGroup);
+PREP(fixGroupBulk);
+PREP(fixAllGroupsZeus);
+PREP(fixNearestGroupZeus);

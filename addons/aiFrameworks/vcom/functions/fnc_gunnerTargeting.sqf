@@ -5,9 +5,12 @@ params ["_unit","_vehicle","_group"];
 
 private _side = side _group;
 
-private _lookup = (VGVAR(vehicleCache) select 0) find _vehicle;
+private _lookup = (VGVAR(vehicleWeaponCache) select 0) find _vehicle;
 
-private _weaponArray = if (_lookup < 0) then {
+// TODO: do an ammo check
+private _weaponArray = if (_lookup > -1) then {
+    (VGVAR(vehicleWeaponCache) select 1) select _lookup
+} else {
     private _weapons = _vehicle weaponsTurret ((assignedVehicleRole _unit) select 1);
 
     private _hasCannon = false;
@@ -29,12 +32,10 @@ private _weaponArray = if (_lookup < 0) then {
     } forEach _weapons;
 
     private _returnArray = [_hasCannon,_hasMissile,_hasMg];
-    private _index = (VGVAR(vehicleCache) select 0) pushBack _vehicle;
-    (VGVAR(vehicleCache) select 1) pushBack _returnArray;
+    (VGVAR(vehicleWeaponCache) select 0) pushBack _vehicle;
+    (VGVAR(vehicleWeaponCache) select 1) pushBack _returnArray;
 
     _returnArray
-} else {
-    (VGVAR(vehicleCache) select 1) select _lookup
 };
 
 _weaponArray params ["_hasCannon","_hasMissile","_hasMg"];
@@ -54,43 +55,73 @@ private _nearestOtherDistance = -1;
 private _nearestVisableOther = objNull;
 private _nearestVisableOtherDistance = -1;
 
+private _skipArray = [];
+
 {
     private _xSide = side (group _x);
     if (_side != _xSide) then {
+
         private _xVehicle = vehicle _x;
-        private _distance = _vehicle distance _xVehicle;
-        switch (true) do {
-            case (_xVehicle isKindOf "Tank" || {_xVehicle isKindOf "Wheeled_APC_F"}): {
-                if (_nearestArmorDistance > _distance || {isNull _nearestArmor}) then {
-                    _nearestArmor = _xVehicle;
-                    _nearestArmorDistance = _distance;
+        if !(_xVehicle in _skipArray) then {
+            private _xVehicleType = typeOf _xVehicle;
+            private _distance = _vehicle distance _xVehicle;
+
+            private _index = (VGVAR(vehicleTypeCache) select 0) find _xVehicleType;
+
+            private _type = if (_index > -1) then {
+                (VGVAR(vehicleTypeCache) select 1) select _index
+            } else {
+                private _cfgType = switch (true) do {
+                    case (_xVehicle isKindOf "Tank" || {_xVehicle isKindOf "Wheeled_APC_F"}): {
+                        "ARMOR"
+                    };
+                    case (_xVehicle isKindOf "Car" || {_xVehicle isKindOf "Air"}): {
+                        "SOFT"
+                    };
+                    default {
+                        "OTHER"
+                    };
                 };
 
-                if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableArmorDistance > _distance || {isNull _nearestVisableArmor}}) then {
-                    _nearestVisableArmor = _xVehicle;
-                    _nearestVisableArmorDistance = _distance;
-                };
+                (VGVAR(vehicleTypeCache) select 0) pushBack _xVehicleType;
+                (VGVAR(vehicleTypeCache) select 1) pushBack _cfgType;
+
+                _cfgType
             };
-            case (_xVehicle isKindOf "Car" || {_xVehicle isKindOf "Air"}): {
-                if (_nearestSoftDistance > _distance || {isNull _nearestSoft}) then {
-                    _nearestSoft = _xVehicle;
-                    _nearestSoftDistance = _distance;
-                };
 
-                if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableSoftDistance > _distance || {isNull _nearestVisableSoft}}) then {
-                    _nearestVisableSoft = _xVehicle;
-                    _nearestVisableSoftDistance = _distance;
-                };
-            };
-            default {
-                if (_nearestOtherDistance > _distance || {isNull _nearestOther}) then {
-                    _nearestOther = _xVehicle;
-                    _nearestOtherDistance = _distance;
-                };
+            switch (_type) do {
+                case ("ARMOR"): {
+                    if (_nearestArmorDistance > _distance || {isNull _nearestArmor}) then {
+                        _nearestArmor = _xVehicle;
+                        _nearestArmorDistance = _distance;
+                    };
 
-                if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableOtherDistance > _distance || {isNull _nearestVisableOther}}) then {
-                    _nearestVisableOther = _xVehicle;
-                    _nearestVisableOtherDistance = _distance;
+                    if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableArmorDistance > _distance || {isNull _nearestVisableArmor}}) then {
+                        _nearestVisableArmor = _xVehicle;
+                        _nearestVisableArmorDistance = _distance;
+                    };
+                };
+                case ("SOFT"): {
+                    if (_nearestSoftDistance > _distance || {isNull _nearestSoft}) then {
+                        _nearestSoft = _xVehicle;
+                        _nearestSoftDistance = _distance;
+                    };
+
+                    if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableSoftDistance > _distance || {isNull _nearestVisableSoft}}) then {
+                        _nearestVisableSoft = _xVehicle;
+                        _nearestVisableSoftDistance = _distance;
+                    };
+                };
+                default {
+                    if (_nearestOtherDistance > _distance || {isNull _nearestOther}) then {
+                        _nearestOther = _xVehicle;
+                        _nearestOtherDistance = _distance;
+                    };
+
+                    if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableOtherDistance > _distance || {isNull _nearestVisableOther}}) then {
+                        _nearestVisableOther = _xVehicle;
+                        _nearestVisableOtherDistance = _distance;
+                    };
                 };
             };
         };
@@ -98,59 +129,24 @@ private _nearestVisableOtherDistance = -1;
     nil
 } count allUnits;
 
-if (_hasCannon) then {
-    switch (false) do {
-        case (isNull _nearestVisableArmor): {
-            _unit doFire _nearestVisableArmor;
-        };
-        case (isNull _nearestVisableSoft): {
-            _unit doFire _nearestVisableSoft;
-        };
-        case (isNull _nearestVisableOther): {
-            _unit doFire _nearestVisableOther;
-        };
-        case (isNull _nearestArmor): {
-            _unit doWatch _nearestArmor;
-        };
-        case (isNull _nearestSoft): {
-            _unit doWatch _nearestSoft;
-        };
-        case (isNull _nearestOther): {
-            _unit doWatch _nearestOther;
-        };
+// cannon should track all levels, ATGMs should only track vics, MGs should only track soft targets
+switch (true) do {
+    case ((_hasCannon || {_hasMissile}) && {!(isNull _nearestVisableArmor)}): {
+        _unit doFire _nearestVisableArmor;
     };
-} else {
-    if (_hasMissile) then {
-        switch (false) do {
-            case (isNull _nearestVisableArmor): {
-                _unit doFire _nearestVisableArmor;
-            };
-            case (isNull _nearestVisableSoft): {
-                _unit doFire _nearestVisableSoft;
-            };
-            case (isNull _nearestArmor): {
-                _unit doWatch _nearestArmor;
-            };
-            case (isNull _nearestSoft): {
-                _unit doWatch _nearestSoft;
-            };
-        };
-    } else {
-        if (_hasMg) then {
-            switch (false) do {
-                case (isNull _nearestVisableSoft): {
-                    _unit doFire _nearestVisableSoft;
-                };
-                case (isNull _nearestVisableOther): {
-                    _unit doFire _nearestVisableOther;
-                };
-                case (isNull _nearestSoft): {
-                    _unit doWatch _nearestSoft;
-                };
-                case (isNull _nearestOther): {
-                    _unit doWatch _nearestOther;
-                };
-            };
-        };
+    case ((_hasCannon || {_hasMissile} || {_hasMg}) && {!(isNull _nearestVisableSoft)}): {
+        _unit doFire _nearestVisableSoft;
+    };
+    case ((_hasCannon || {_hasMg}) && {!(isNull _nearestVisableOther)}): {
+        _unit doFire _nearestVisableOther;
+    };
+    case ((_hasCannon || {_hasMissile}) && {!(isNull _nearestArmor)}): {
+        _unit doTarget _nearestArmor;
+    };
+    case ((_hasCannon || {_hasMissile} || {_hasMg}) && {!(isNull _nearestSoft)}): {
+        _unit doTarget _nearestSoft;
+    };
+    case ((_hasCannon || {_hasMg}) && {!(isNull _nearestOther)}): {
+        _unit doTarget _nearestOther;
     };
 };

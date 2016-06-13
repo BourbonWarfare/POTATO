@@ -24,6 +24,7 @@ params ["_unit"];
             if (VGVAR(increaseAccuracyOnStaticTargets)) then {
             	[_unit] call VFUNC(focusedAccuracy);
             };
+            _unit setVariable [VQGVAR(lastChecked),diag_ticktime];
         };
 
         private _isLeader = leader _unit == _unit; // leader check
@@ -164,7 +165,7 @@ params ["_unit"];
                 };
             } else {
                 //handle unit being gunner
-                if (gunner _vehicle == _unit) then { // TODO: make this for any vehicle turret position
+                if (gunner _vehicle == _unit) then { //TODO: make this for any vehicle turret position
                     _unit setSkill ["aimingSpeed", 1];
                     _unit setSkill ["spotDistance", 1];
 

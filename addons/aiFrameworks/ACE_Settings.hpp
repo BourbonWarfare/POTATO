@@ -34,7 +34,7 @@ class ACE_Settings {
         typeName = "BOOL";
         value = 1;
     };
-    class VGVAR(proneAndMoveToCoverOnHit) { // probably don't turn this off
+    class VGVAR(proneAndMoveToCoverOnHit) {
         typeName = "BOOL";
         value = 1;
     };

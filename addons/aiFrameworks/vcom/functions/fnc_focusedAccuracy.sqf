@@ -3,8 +3,6 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
-_unit setVariable [VQGVAR(lastChecked),diag_ticktime];
-
 private _oldTargetPos = _unit getvariable [VQGVAR(assignedEnemyPos), [0,0,0]];
 
 if (_oldTargetPos isEqualTo [0,0,0]) then {

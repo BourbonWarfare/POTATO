@@ -15,7 +15,10 @@ if (diag_tickTime - (_unit getVariable [VQGVAR(firedTimeHearing),0]) > 10) then 
         private _loudness = if (_lookup > -1) then {
              (VGVAR(suppressorCache) select 1) select _lookup
         } else {
-            [(configFile >> "CfgWeapons" >> _muzzle >> "ItemInfo" >> "AmmoCoef"), "audibleFire", 1] call BIS_fnc_returnConfigEntry
+            private _cfgLoud = [(configFile >> "CfgWeapons" >> _muzzle >> "ItemInfo" >> "AmmoCoef"), "audibleFire", 1] call BIS_fnc_returnConfigEntry;
+            (VGVAR(suppressorCache) select 0) pushBack _muzzle;
+            (VGVAR(suppressorCache) select 1) pushBack _cfgLoud;
+            _cfgLoud
         };
         _loudness < 1
     };
