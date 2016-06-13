@@ -14,16 +14,26 @@ params ["_unit"];
         private _group = group _unit;
         if !(local _group) exitWith { [_unit, _group] call VFUNC(transferToNewOwner); };
 
-        // every 20 seconds, check gear and stuff
-        if ((_unit getVariable [VQGVAR(lastChecked),0]) < (diag_tickTime - 20)) then {
+        // check gear and stuff
+        if ([_unit,VQGVAR(lastChecked),VGVAR(gearCheckThreshold)] call VFUNC(pastThreshold)) then {
             [_unit] call VFUNC(buildingCheck);
-            [_unit] call VFUNC(checkBag);
-            [_unit] call VFUNC(hasMine);
-            [_unit] call VFUNC(artillery);
+
+            if (VGVAR(useBackpackStatics) || {VGVAR(useUav)}) then {
+                [_unit] call VFUNC(checkBag);
+            };
+
+            if (VGVAR(useCharges) || {VGVAR(useMines)}) then {
+                [_unit] call VFUNC(hasMine);
+            };
+
+            if (VGVAR(canCallInArtillery)) then {
+                [_unit] call VFUNC(artillery);
+            };
 
             if (VGVAR(increaseAccuracyOnStaticTargets)) then {
             	[_unit] call VFUNC(focusedAccuracy);
             };
+
             _unit setVariable [VQGVAR(lastChecked),diag_ticktime];
         };
 
@@ -58,11 +68,15 @@ params ["_unit"];
                         [_unit] call VFUNC(flankManeuver);
                     };
                     // check if unit has static to deploy
-                    case (_unit getVariable [VQGVAR(hasStatic),false] && {_nearestEnemy distance _unit < VGVAR(maxEngagementDistance)}): {
+                    case (VGVAR(useBackpackStatics)
+                            && {_unit getVariable [VQGVAR(hasStatic),false]}
+                            && {!(isNull _nearestEnemy)}
+                            && {_nearestEnemy distance _unit < VGVAR(maxEngagementDistance)}): {
                         [_unit,_nearestEnemy] call VFUNC(unpackStatic);
                     };
                     // check if the unit has a stachel to destroy a building/vehicle with
-                    case (!(isNull _nearestEnemy)
+                    case (VGVAR(useCharges)
+                            && {!(isNull _nearestEnemy)}
                             && {count (_unit getVariable [VQGVAR(bombArray),[]]) > 0}
                             && {[_unit,VQGVAR(plantedBombRecently),VGVAR(bombThreshold)] call VFUNC(pastThreshold)}
                             && {(_unit distance _nearestEnemy) > VGVAR(maxDistanceToPlantCharge)}
@@ -89,7 +103,8 @@ params ["_unit"];
                         [_unit] call VFUNC(garrisonClear);
                     };
                     // check if the unit has a mine to plant
-                    case (!(isNull _nearestEnemy)
+                    case (VGVAR(useMines)
+                            && {!(isNull _nearestEnemy)}
                             && {count (_unit getVariable [VQGVAR(mineArray),[]]) > 0}
                             && {[_unit,VQGVAR(plantedMineRecently),VGVAR(mineThreshold)] call VFUNC(pastThreshold)}
                             && {(_unit distance _nearestEnemy) > VGVAR(maxDistanceToPlantMine)}
@@ -97,7 +112,7 @@ params ["_unit"];
                         [_unit] call VFUNC(placeMine);
                     };
                     // if the unit has a UAV, deploy it
-                    case (_unit getVariable [VQGVAR(hasUAV),false]): {
+                    case (VGVAR(useUav) && {_unit getVariable [VQGVAR(hasUAV),false]}): {
                         [_unit] call VFUNC(deployUAV);
                     };
                     // arm a static if one is nearby
@@ -161,14 +176,14 @@ params ["_unit"];
             };
         } else {
             // handle unit being driver
-            if (driver _vehicle == _unit) then {
+            if (VGVAR(useEnhancedDriving) && {driver _vehicle == _unit}) then {
                 if (_inCombat || {!([_unit,VQGVAR(movingToSupport),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold))}) then {
                     [_unit] call VFUNC(moveInCombat);
                     [_unit] call VFUNC(vehicleHandle);
                 };
             } else {
                 //handle unit being gunner
-                if (gunner _vehicle == _unit) then { //TODO: make this for any vehicle turret position
+                if (VGVAR(useEnhancedGunning) && {gunner _vehicle == _unit}) then { //TODO: make this for any vehicle turret position
                     _unit setSkill ["aimingSpeed", 1];
                     _unit setSkill ["spotDistance", 1];
 
@@ -179,7 +194,7 @@ params ["_unit"];
             };
         };
 
-        // add sleep to loop to hopefully free up some cycles.
+        // add sleep to loop to hopefully free up some cycles, random used to "stagger" executions
         sleep VGVAR(brainCycleWait) + (random 0.5);
     };
 };

@@ -11,7 +11,7 @@ if ([_unit,VQGVAR(grenadeThrown),VGVAR(grenadeThreshold)] call VFUNC(pastThresho
 
     private _checkDistance = (_unit distance _nearestEnemy);
 
-    if !(lineintersects [eyepos _unit, eyepos _nearestEnemy, _unit, _nearestEnemy]
+    if (!([_unit,_nearestEnemy] call VFUNC(canSee))
             && {_checkDistance < 60}
             && {_checkDistance > 6}) then {
 
