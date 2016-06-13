@@ -1,6 +1,6 @@
 /*
  * Author: AACO`
- * logic called when a fix nearest group module is placed
+ * logic called when a fix all groups module is placed
  */
 
  #include "script_component.hpp"

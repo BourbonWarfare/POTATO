@@ -27,6 +27,9 @@ params ["_unit"];
             _unit setVariable [VQGVAR(lastChecked),diag_ticktime];
         };
 
+        // reset any per run cached variables.
+        [_unit] call VFUNC(resetCaches);
+
         private _isLeader = leader _unit == _unit; // leader check
         private _inCombat = behaviour _unit == "COMBAT"; // combat check
 
