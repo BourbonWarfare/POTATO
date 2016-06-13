@@ -14,19 +14,19 @@ if (isServer) then {
     [{
         if (time < 1) exitWith {}; //wait for HCs to connect before triggering events
         {
-            ["hcSetIndex", [_x], [_forEachIndex + 1]] call ace_common_fnc_targetEvent;
+            ["potato_hcSetIndex", [_forEachIndex + 1], [_x]] call CBA_fnc_targetEvent;
         } forEach (entities "HeadlessClient_F");
         [_this select 1] call CBA_fnc_removePerFrameHandler;
     }, 0, []] call CBA_fnc_addPerFrameHandler;
 
 } else {
     if (!hasInterface) then {
-        ["hcSetIndex", {
+        ["potato_hcSetIndex", {
             params ["_index"];
             GVAR(dataIndex) = _index;
             [] execFSM "z\potato\addons\serverMonitor\pabst_fsmCPS.fsm";
             diag_log text format ["[POTATO] Server Monitor FSM Installed [Index %1]", GVAR(dataIndex)];
-        }] call ace_common_fnc_addEventHandler;
+        }] call CBA_fnc_addEventHandler;
     };
 };
 

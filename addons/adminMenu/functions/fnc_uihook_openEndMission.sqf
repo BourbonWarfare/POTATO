@@ -4,7 +4,7 @@
 TRACE_1("params",_this);
 
 private _debugMsg = format ["Unlocking End Mission"];
-["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);
+["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
 
 GVAR(openEndMission) = true;
 

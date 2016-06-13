@@ -10,6 +10,6 @@ if (!([] call EFUNC(core,isAuthorized))) exitWith {
 };
 
 private _debugMsg = format ["Opens Respawn"];
-["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);
+["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
 
 createDialog "respawnMenuDialog";

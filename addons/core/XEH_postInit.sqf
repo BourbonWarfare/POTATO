@@ -4,7 +4,7 @@ GVAR(playerStartingSide) = sideUnknown;
 GVAR(playerAuth) = false;
 
 if (hasInterface) then {
-    ["playerChanged", {
+    ["ace_playerChanged", {
         if (isNull ace_player) exitWith {};
         if (GVAR(playerStartingSide) isEqualTo sideUnknown) then {
             TRACE_1("Setting start playerside",playerSide);
@@ -16,7 +16,7 @@ if (hasInterface) then {
                 diag_log text format ["[POTATO]: Player UID [%1] in list", getPlayerUID player];
             };
         };
-    }] call ace_common_fnc_addEventHandler;
+    }] call CBA_fnc_addEventHandler;
 };
 
 ["potato_adminMsg", {
@@ -29,7 +29,7 @@ if (hasInterface) then {
     if (isServer) then {
         diag_log text format ["[POTATO] potato_adminMsg EH: %1", _this];
     };
-}] call ace_common_fnc_addEventHandler;
+}] call CBA_fnc_addEventHandler;
 
 ["potato_missionHint", {
     //side is 0-dead, 1-dead+alive or actuall side like east/west
@@ -46,4 +46,4 @@ if (hasInterface) then {
     if (isServer) then {
         diag_log text format ["[POTATO] potato_missionHint EH: %1", _this];
     };
-}] call ace_common_fnc_addEventHandler;
+}] call CBA_fnc_addEventHandler;

@@ -28,7 +28,7 @@ if (_giveZeus) then {
 
         diag_log text format ["[POTATO] Assigning [%1] to Zeus [%2]", name _unit, _zeusModule];
         _unit assignCurator _zeusModule;
-        ["potato_becomeZeus", _unit, [_unit]] call ACEFUNC(common,targetEvent);
+        ["potato_becomeZeus", [_unit], [_unit]] call CBA_fnc_targetEvent;
 
         if (missionNamespace getVariable ["ace_zeus_autoAddObjects", false]) then {
             TRACE_1("adding all units and veh to zeus",_zeusModule);
