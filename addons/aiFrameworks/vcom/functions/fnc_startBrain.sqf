@@ -31,7 +31,7 @@ params ["_unit"];
             };
 
             if (VGVAR(increaseAccuracyOnStaticTargets)) then {
-            	[_unit] call VFUNC(focusedAccuracy);
+                [_unit] call VFUNC(focusedAccuracy);
             };
 
             _unit setVariable [VQGVAR(lastChecked),diag_ticktime];

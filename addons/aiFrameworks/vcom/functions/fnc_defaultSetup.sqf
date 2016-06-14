@@ -33,11 +33,9 @@ _unit setVariable [VQGVAR(hasUAV),false];
 _unit setVariable [VQGVAR(inCover),false];
 _unit setVariable [VQGVAR(isArtillery),false,true];
 _unit setVariable [VQGVAR(isInside),false];
-_unit setVariable [VQGVAR(leader),false];
 _unit setVariable [VQGVAR(loitering),false];
 _unit setVariable [VQGVAR(shotsFired),false,true];
 _unit setVariable [VQGVAR(staticNearby),false];
-_unit setVariable [VQGVAR(subLeader),false];
 
 // set other defaults
 _unit setVariable [VQGVAR(assignedEnemyPos),[0,0,0]];
