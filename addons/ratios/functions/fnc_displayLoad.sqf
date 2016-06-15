@@ -2,6 +2,11 @@
 
 TRACE_1("params",_this);
 
+TRACE_1("",getMissionConfigValue [ARR_2(QGVAR(westRatio), 0)]);
+TRACE_1("",getMissionConfigValue [ARR_2(QGVAR(eastRatio), 0)]);
+TRACE_1("",getMissionConfigValue [ARR_2(QGVAR(indpRatio), 0)]);
+TRACE_1("",getMissionConfigValue [ARR_2(QGVAR(civRatio), 0)]);
+
 if (!hasInterface) exitWith {};
 
 SET_UI_VAR(loaded,true);
@@ -24,11 +29,7 @@ waitUntil {
         || {!GET_UI_VAR(loaded)}
 };
 
-private _countCivs = if (isNumber (missionConfigFile >> QGVAR(config) >> "includeCivs")) then {
-    (getNumber ((missionConfigFile >> QGVAR(config) >> "includeCivs"))) > 0
-} else {
-    false
-};
+private _countCivs = (getMissionConfigValue [QGVAR(civRatio), 0]) > 0;
 
 private _westEnabled = ctrlEnabled SIDE_WEST;
 private _eastEnabled = ctrlEnabled SIDE_EAST;
@@ -38,6 +39,7 @@ private _civEnabled = _countCivs && {ctrlEnabled SIDE_CIV};
 //if this order changes, change it in update
 private _sideArray = [_westEnabled,_eastEnabled,_indyEnabled,_civEnabled];
 private _sideCount = { _x } count _sideArray;
+TRACE_2("",_sideArray,_sideCount);
 
 private _exit = false;
 switch (_sideCount) do {
@@ -75,13 +77,15 @@ switch (_sideCount) do {
 
 if (_exit) exitWith {};
 
-if ((isNumber (missionConfigFile >> QGVAR(config) >> "blueFor"))
-        || {isNumber (missionConfigFile >> QGVAR(config) >> "opFor")}
-        || {isNumber (missionConfigFile >> QGVAR(config) >> "indy")}
-        || {isNumber (missionConfigFile >> QGVAR(config) >> "civ")}) then {
+if (((getMissionConfigValue [QGVAR(westRatio), 0]) > 0)
+        || {(getMissionConfigValue [QGVAR(eastRatio), 0]) > 0}
+        || {(getMissionConfigValue [QGVAR(indpRatio), 0]) > 0}
+        || {(getMissionConfigValue [QGVAR(civRatio), 0]) > 0}) then {
 
     private _addArray = [_westEnabled,_eastEnabled,_indyEnabled,_civEnabled];
 
+    TRACE_1("",_addArray);
+    
     if (ctrlEnabled RATIO_INPUT_1) then {
         _addArray = [RATIO_INPUT_1_IDC,_addArray] call FUNC(prefillInput);
     };
