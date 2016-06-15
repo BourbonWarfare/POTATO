@@ -12,7 +12,6 @@ PREP(prefillInput);
 PREP(displayUpdate);
 PREP(getNumberAsString);
 
-private _loadTimeout = diag_tickTime + 60;
 waitUntil {
     ctrlEnabled SIDE_CIV
         || {ctrlEnabled SIDE_EAST}
@@ -20,7 +19,7 @@ waitUntil {
         || {ctrlEnabled SIDE_LOGIC}
         || {ctrlEnabled SIDE_VIRTUAL}
         || {ctrlEnabled SIDE_WEST}
-        || {diag_tickTime > _loadTimeout}
+        || {!GET_UI_VAR(loaded)}
 };
 
 private _countCivs = if (isNumber (missionConfigFile >> QGVAR(config) >> "includeCivs")) then {
