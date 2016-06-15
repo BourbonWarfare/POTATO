@@ -1,8 +1,12 @@
 #include "script_component.hpp"
 
-params ["_sideCount","_sideArray"];
+params ["_sideCount","_sideArray","_countCivs"];
 
 private _numberOfPlayers = lbSize PLAYER_LIST;
+private _override = parseNumber (ctrlText RATIO_PLAYER_OVERRIDE_INPUT);
+if (_override > 0) then {
+    _numberOfPlayers = _override;
+};
 
 private _ratioInput1 = ctrlText RATIO_INPUT_1;
 private _ratioInput2 = ctrlText RATIO_INPUT_2;
@@ -13,9 +17,15 @@ private _nonPlayerTextureCache = GET_UI_VAR(nonPlayerTextureCache);
 if (isNil "_nonPlayerTextureCache") then {
     _nonPlayerTextureCache = [];
 
+    private _nonPlayerTextures = if (_countCivs) then {
+        ["logicLocked","logicUnlocked","virtLocked","virtUnlocked"]
+    } else {
+        ["civlLocked","civlUnlocked","logicLocked","logicUnlocked","virtLocked","virtUnlocked"]
+    };
+
     {
         _nonPlayerTextureCache pushBack (getText (configFile >> SLOT_DISPLAY_NAME >> _x));
-    } forEach ["logicLocked","logicUnlocked","virtLocked","virtUnlocked"];
+    } forEach _nonPlayerTextures;
 
     SET_UI_VAR(nonPlayerTextureCache,_nonPlayerTextureCache);
 };
@@ -70,10 +80,10 @@ if (isNil "_playerTextureCache") then {
 
 private _denominator = (_ratioInputValue1 + _ratioInputValue2 + _ratioInputValue3 + _ratioInputValue4);
 
-private _teamCount1 = round(_players / _denominator * _ratioInputValue1);
-private _teamCount2 = round(_players / _denominator * _ratioInputValue2);
-private _teamCount3 = round(_players / _denominator * _ratioInputValue3);
-private _teamCount4 = round(_players / _denominator * _ratioInputValue4);
+private _teamCount1 = round (_players / _denominator * _ratioInputValue1);
+private _teamCount2 = round (_players / _denominator * _ratioInputValue2);
+private _teamCount3 = round (_players / _denominator * _ratioInputValue3);
+private _teamCount4 = round (_players / _denominator * _ratioInputValue4);
 
 if (_teamCount1 > 0) then {
     RATIO_OUTPUT_1 lbAdd (str _teamCount1);

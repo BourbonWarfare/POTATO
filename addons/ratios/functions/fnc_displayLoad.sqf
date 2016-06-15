@@ -8,6 +8,7 @@ SET_UI_VAR(nonPlayerTextureCache,nil);
 SET_UI_VAR(playerTextureCache,nil);
 
 PREP(skipUpdate);
+PREP(prefillInput);
 PREP(displayUpdate);
 PREP(getNumberAsString);
 
@@ -22,11 +23,20 @@ waitUntil {
         || {diag_tickTime > _loadTimeout}
 };
 
-private _sideArray = [];
-private _sideCount = {
-    _sideArray pushBack _x;
-    _x
-} count [ctrlEnabled SIDE_WEST, ctrlEnabled SIDE_EAST, ctrlEnabled SIDE_INDY, ctrlEnabled SIDE_CIV]; //if this order changes, change it in update
+private _countCivs = if (isNumber (missionConfigFile >> QGVAR(config) >> "includeCivs")) then {
+    (getNumber ((missionConfigFile >> QGVAR(config) >> "includeCivs"))) > 0
+} else {
+    false
+};
+
+private _westEnabled = ctrlEnabled SIDE_WEST;
+private _eastEnabled = ctrlEnabled SIDE_EAST;
+private _indyEnabled = ctrlEnabled SIDE_INDY;
+private _civEnabled = _countCivs && {ctrlEnabled SIDE_CIV};
+
+//if this order changes, change it in update
+private _sideArray = [_westEnabled,_eastEnabled,_indyEnabled,_civEnabled];
+private _sideCount = { _x } count _sideArray;
 
 private _exit = false;
 switch (_sideCount) do {
@@ -44,6 +54,10 @@ switch (_sideCount) do {
     case (4): {};
     default {
         _exit = true;
+
+        RATIO_PLAYER_OVERRIDE ctrlShow false;
+        RATIO_PLAYER_OVERRIDE_INPUT ctrlShow false;
+
         RATIO_TEXT ctrlShow false;
 
         RATIO_INPUT_1 ctrlShow false;
@@ -65,96 +79,25 @@ if ((isNumber (missionConfigFile >> QGVAR(config) >> "blueFor"))
         || {isNumber (missionConfigFile >> QGVAR(config) >> "indy")}
         || {isNumber (missionConfigFile >> QGVAR(config) >> "civ")}) then {
 
-    private _addCiv = ctrlEnabled SIDE_CIV;
-    private _addEast = ctrlEnabled SIDE_EAST;
-    private _addIndy = ctrlEnabled SIDE_INDY;
-    private _addWest = ctrlEnabled SIDE_WEST;
+    private _addArray = [_westEnabled,_eastEnabled,_indyEnabled,_civEnabled];
 
     if (ctrlEnabled RATIO_INPUT_1) then {
-        switch (true) do {
-            case (_addWest): {
-                RATIO_INPUT_1 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "blueFor", 1] call FUNC(getNumberAsString));
-                _addWest = false;
-            };
-            case (_addEast): {
-                RATIO_INPUT_1 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "opFor", 1] call FUNC(getNumberAsString));
-                _addEast = false;
-            };
-            case (_addIndy): {
-                RATIO_INPUT_1 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "indy", 1] call FUNC(getNumberAsString));
-                _addIndy = false;
-            };
-            case (_addCiv): {
-                RATIO_INPUT_1 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "civ", 1] call FUNC(getNumberAsString));
-                _addCiv = false;
-            };
-        };
+        _addArray = [RATIO_INPUT_1_IDC,_addArray] call FUNC(prefillInput);
     };
 
     if (ctrlEnabled RATIO_INPUT_2) then {
-        switch (true) do {
-            case (_addWest): {
-                RATIO_INPUT_2 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "blueFor", 1] call FUNC(getNumberAsString));
-                _addWest = false;
-            };
-            case (_addEast): {
-                RATIO_INPUT_2 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "opFor", 1] call FUNC(getNumberAsString));
-                _addEast = false;
-            };
-            case (_addIndy): {
-                RATIO_INPUT_2 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "indy", 1] call FUNC(getNumberAsString));
-                _addIndy = false;
-            };
-            case (_addCiv): {
-                RATIO_INPUT_2 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "civ", 1] call FUNC(getNumberAsString));
-                _addCiv = false;
-            };
-        };
+        _addArray = [RATIO_INPUT_2_IDC,_addArray] call FUNC(prefillInput);
     };
 
     if (ctrlEnabled RATIO_INPUT_3) then {
-        switch (true) do {
-            case (_addWest): {
-                RATIO_INPUT_3 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "blueFor", 1] call FUNC(getNumberAsString));
-                _addWest = false;
-            };
-            case (_addEast): {
-                RATIO_INPUT_3 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "opFor", 1] call FUNC(getNumberAsString));
-                _addEast = false;
-            };
-            case (_addIndy): {
-                RATIO_INPUT_3 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "indy", 1] call FUNC(getNumberAsString));
-                _addIndy = false;
-            };
-            case (_addCiv): {
-                RATIO_INPUT_3 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "civ", 1] call FUNC(getNumberAsString));
-                _addCiv = false;
-            };
-        };
+        _addArray = [RATIO_INPUT_3_IDC,_addArray] call FUNC(prefillInput);
     };
 
     if (ctrlEnabled RATIO_INPUT_4) then {
-        switch (true) do {
-            case (_addWest): {
-                RATIO_INPUT_4 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "blueFor", 1] call FUNC(getNumberAsString));
-                _addWest = false;
-            };
-            case (_addEast): {
-                RATIO_INPUT_4 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "opFor", 1] call FUNC(getNumberAsString));
-                _addEast = false;
-            };
-            case (_addIndy): {
-                RATIO_INPUT_4 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "indy", 1] call FUNC(getNumberAsString));
-                _addIndy = false;
-            };
-            case (_addCiv): {
-                RATIO_INPUT_4 ctrlSetText ([missionConfigFile >> QGVAR(config) >> "civ", 1] call FUNC(getNumberAsString));
-                _addCiv = false;
-            };
-        };
+        [RATIO_INPUT_4_IDC,_addArray] call FUNC(prefillInput);
     };
 };
 
 while {GET_UI_VAR(loaded)} do {
-    [_sideCount,_sideArray] call FUNC(displayUpdate);
+    [_sideCount,_sideArray,_countCivs] call FUNC(displayUpdate);
 };
