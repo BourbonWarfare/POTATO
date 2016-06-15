@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+TRACE_1("params",_this);
+
 if (!hasInterface) exitWith {};
 
 SET_UI_VAR(loaded,true);

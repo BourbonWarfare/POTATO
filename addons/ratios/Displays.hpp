@@ -81,7 +81,4 @@ class RscDisplayMultiplayerSetup: RscStandardDisplay {
             x = "37 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
         };
     };
-
-    onLoad = QUOTE(A3_LOAD RATIO_LOAD);
-    onUnload = QUOTE(A3_UNLOAD RATIO_UNLOAD);
 };
