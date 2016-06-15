@@ -3,7 +3,7 @@
 
 // #define DEBUG_MODE_FULL
 #define DISABLE_COMPILE_CACHE // do not turn off
-// #define CBA_DEBUG_SYNCHRONOUS
+#define CBA_DEBUG_SYNCHRONOUS // do not turn off
 
 #ifdef DEBUG_ENABLED_RATIOS
     #define DEBUG_MODE_FULL
@@ -64,12 +64,6 @@
 #define RATIO_OUTPUT_4 GET_CTRL(RATIO_OUTPUT_4_IDC)
 
 #include "\z\potato\addons\core\script_macros.hpp"
-
-// display functions
-#define A3_LOAD [ARR_4('onLoad',_this,'RscDisplayMultiplayerSetup','GUI')] call (uinamespace getvariable 'BIS_fnc_initDisplay');
-#define A3_UNLOAD [ARR_4('onUnload',_this,'RscDisplayMultiplayerSetup','GUI')] call (uinamespace getvariable 'BIS_fnc_initDisplay');
-#define RATIO_LOAD _this spawn compile preprocessFileLineNumbers '\z\potato\addons\ratios\functions\fnc_displayLoad.sqf';
-#define RATIO_UNLOAD _this call compile preprocessFileLineNumbers '\z\potato\addons\ratios\functions\fnc_displayUnload.sqf';
 
 #define SET_UI_VAR(var1,var2) (uiNamespace setVariable [QGVAR(var1), var2])
 #define GET_UI_VAR(var1) (uiNamespace getVariable [QGVAR(var1), nil])
