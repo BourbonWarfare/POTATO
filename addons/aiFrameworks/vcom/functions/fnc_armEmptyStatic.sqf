@@ -4,6 +4,8 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
+_unit setVariable [VQGVAR(orderedIntoStatic),diag_tickTime];
+
 private _weapons = nearestObjects [_unit,["StaticWeapon"],VGVAR(maxDistanceToMountEmptyStatic)];
 if ((count _weapons) > 0) then {
     private _weapon = _weapons select 0;

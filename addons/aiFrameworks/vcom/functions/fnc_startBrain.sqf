@@ -129,7 +129,8 @@ params ["_unit"];
                     case (VGVAR(usePlacedStaticWeapons)
                             && {!(isNull _nearestEnemy)}
                             && {_nearestEnemy distance _unit < VGVAR(maxEngagementDistance)}
-                            && {[_unit] call VFUNC(checkStatic)}): {
+                            && {[_unit] call VFUNC(checkStatic)}
+                            && {[_unit,VQGVAR(orderedIntoStatic),VGVAR(orderedIntoStaticThreshold)] call VFUNC(pastThreshold)}): {
                         TRACE_1("Arm static",_unit);
                         [_unit] call VFUNC(armEmptyStatic);
                     };

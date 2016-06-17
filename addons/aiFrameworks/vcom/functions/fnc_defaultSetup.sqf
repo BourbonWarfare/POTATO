@@ -21,6 +21,7 @@ _unit setVariable [VQGVAR(lastFiredArtillery),0,true];
 _unit setVariable [VQGVAR(movedRecently),0];
 _unit setVariable [VQGVAR(movedRecentlyCover),0];
 _unit setVariable [VQGVAR(movingToSupport),0];
+_unit setVariable [VQGVAR(orderedIntoStatic),0];
 _unit setVariable [VQGVAR(plantedBombRecently),0];
 _unit setVariable [VQGVAR(plantedMineRecently),0];
 

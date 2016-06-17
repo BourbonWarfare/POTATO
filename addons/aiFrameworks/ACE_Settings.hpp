@@ -224,6 +224,10 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 30;
     };
+    class VGVAR(orderedIntoStaticThreshold) {
+        typeName = "SCALAR";
+        value = 60;
+    };
     class VGVAR(uavScanTime) {
         typeName = "SCALAR";
         value = 20;
