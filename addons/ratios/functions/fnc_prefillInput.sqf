@@ -1,25 +1,17 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+TRACE_1("params",_this);
 
-params ["_idc","_addArray"];
-_addArray params ["_westEnabled","_eastEnabled","_indyEnabled","_civEnabled"];
+params ["_ratioArray","_ratioCount","_index"];
 
-switch (true) do {
-    case (_westEnabled): {
-        GET_CTRL(_idc) ctrlSetText (str getMissionConfigValue [QGVAR(westRatio), 1]);
-        _westEnabled = false;
-    };
-    case (_eastEnabled): {
-        GET_CTRL(_idc) ctrlSetText (str getMissionConfigValue [QGVAR(eastRatio), 1]);
-        _eastEnabled = false;
-    };
-    case (_indyEnabled): {
-        GET_CTRL(_idc) ctrlSetText (str getMissionConfigValue [QGVAR(indpRatio), 1]);
-        _indyEnabled = false;
-    };
-    case (_civEnabled): {
-        GET_CTRL(_idc) ctrlSetText (str getMissionConfigValue [QGVAR(civRatio), 1]);
-        _civEnabled = false;
-    };
+private _returnString = str 1;
+
+if (_index < _ratioCount) then {
+    private _ratioValue = parseNumber (_ratioArray select _index);
+    if (_ratioValue > 0) then {
+        _returnString = str _ratioValue;
+    }
 };
 
-[_westEnabled,_eastEnabled,_indyEnabled,_civEnabled]
+TRACE_1("return",_returnString);
+_returnString

@@ -48,10 +48,6 @@ class RscDisplayMultiplayerSetup: RscStandardDisplay {
             idc = RATIO_INPUT_3_IDC;
             x = "35.78 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
         };
-        class GVAR(RatioInput_4): GVAR(RatioInput_1) {
-            idc = RATIO_INPUT_4_IDC;
-            x = "37 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
-        };
 
         class GVAR(RatioOutput_1): RscListBox {
             idc = RATIO_OUTPUT_1_IDC;
@@ -75,10 +71,6 @@ class RscDisplayMultiplayerSetup: RscStandardDisplay {
         class GVAR(RatioOutput_3): GVAR(RatioOutput_1) {
             idc = RATIO_OUTPUT_3_IDC;
             x = "35 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
-        };
-        class GVAR(RatioOutput_4): GVAR(RatioOutput_1) {
-            idc = RATIO_OUTPUT_4_IDC;
-            x = "37 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
         };
     };
 };
