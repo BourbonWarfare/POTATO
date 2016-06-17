@@ -3,6 +3,8 @@ TRACE_1("params",_this);
 
 params ["_unit","_nearestEnemy"];
 
+_unit setVariable [VQGVAR(calledArtillery),diag_tickTime];
+
 private _groupSide = (side (group _unit));
 
 private _support = [];
@@ -39,7 +41,6 @@ while {count _support > 0} do {
         TRACE_3("",_ammoArray,_randomAmmo,_enemyPos);
 
         if (_enemyPos inRangeOfArtillery [[_returnedSupport],_randomAmmo]) exitWith {
-            _unit setVariable [VQGVAR(calledArtillery),diag_tickTime];
             { _x setVariable [VQGVAR(lastFiredArtillery),diag_tickTime,true]; _x setSkill ["aimingSpeed", 1]; nil } count _artilleryUnits;
 
             private _firePosition = [

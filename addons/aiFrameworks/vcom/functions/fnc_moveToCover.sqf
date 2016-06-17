@@ -3,6 +3,7 @@ TRACE_1("params",_this);
 
 params ["_unit"];
 
+_unit setVariable [VQGVAR(movedRecentlyCover),diag_tickTime];
 [_unit] call VFUNC(throwGrenade);
 private _closestCover = [_unit] call VFUNC(findCoverPos);
 

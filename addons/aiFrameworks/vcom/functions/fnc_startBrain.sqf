@@ -1,5 +1,6 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
+
 params ["_unit"];
 
 // ensure logic is in a thread.
@@ -45,6 +46,7 @@ params ["_unit"];
 
         // if the unit is no longer in the vehicle, change the logic
         private _vehicle = vehicle _unit;
+        //TRACE_6("status",_unit,_vehicle,_group,_isLeader,_inCombat,_vehicle == _unit);
         if (_vehicle == _unit) then {
             // handle combat movement/support actions
             if (_inCombat) then {
@@ -54,6 +56,7 @@ params ["_unit"];
                 switch (true) do {
                     // suppressed, move to cover
                     case (getSuppression _unit > 0 && {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}): {
+                        TRACE_1("suppressed, moving to cover",_unit);
                         [_unit] call VFUNC(moveToCover);
                     };
                     // try to flank
@@ -65,6 +68,7 @@ params ["_unit"];
                             && {[_unit,VQGVAR(flanking),VGVAR(flankThreshold)] call VFUNC(pastThreshold)}
                             && {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}
                             && {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)}): {
+                        TRACE_1("flank",_unit);
                         [_unit] call VFUNC(flankManeuver);
                     };
                     // check if unit has static to deploy
@@ -72,6 +76,7 @@ params ["_unit"];
                             && {_unit getVariable [VQGVAR(hasStatic),false]}
                             && {!(isNull _nearestEnemy)}
                             && {_nearestEnemy distance _unit < VGVAR(maxEngagementDistance)}): {
+                        TRACE_2("deploy static",_unit,_nearestEnemy);
                         [_unit,_nearestEnemy] call VFUNC(unpackStatic);
                     };
                     // check if the unit has a stachel to destroy a building/vehicle with
@@ -79,9 +84,10 @@ params ["_unit"];
                             && {!(isNull _nearestEnemy)}
                             && {count (_unit getVariable [VQGVAR(bombArray),[]]) > 0}
                             && {[_unit,VQGVAR(plantedBombRecently),VGVAR(bombThreshold)] call VFUNC(pastThreshold)}
-                            && {(_unit distance _nearestEnemy) > VGVAR(maxDistanceToPlantCharge)}
+                            && {(_unit distance _nearestEnemy) < VGVAR(maxDistanceToPlantCharge)}
                             && {([_nearestEnemy] call VFUNC(inBuilding) || _nearestEnemy != vehicle _nearestEnemy)}): {
-                        [_unit,_nearestEnemy] call VFUNC(plantCharge);
+                        TRACE_2("plantCharge",_unit,_nearestEnemy);
+                        [_unit,_nearestEnemy,_group,_isLeader] call VFUNC(plantCharge);
                     };
                     // try to call in artillery on the nearest enemy group (must have 2+ units in enemy group)
                     case (_isLeader
@@ -90,29 +96,33 @@ params ["_unit"];
                             && {count (units (group _nearestEnemy)) > 2}
                             && {[_unit,VQGVAR(calledArtillery),VGVAR(artilleryThreshold)] call VFUNC(pastThreshold)}
                             && {VGVAR(chanceToUseArtillery) <= random 100}): {
+                        TRACE_2("Call Arty",_unit,_nearestEnemy);
                         [_unit,_nearestEnemy] call VFUNC(callArtillery);
                     };
                     // clear enemy occupied building
                     case (_isLeader
-                            && {(!isNull _nearestEnemy)}
+                            && {!(isNull _nearestEnemy)}
                             && {!(_unit getVariable [VQGVAR(isInside),false])}
                             && {!(_unit getVariable [VQGVAR(garrisoned),false])}
                             && {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}
                             && {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)}
                             && {[_nearestEnemy] call VFUNC(inBuilding)}): {
-                        [_unit] call VFUNC(garrisonClear);
+                        TRACE_2("Clear building",_unit,_nearestEnemy);
+                        [_unit,_nearestEnemy] call VFUNC(garrisonClear);
                     };
                     // check if the unit has a mine to plant
                     case (VGVAR(useMines)
                             && {!(isNull _nearestEnemy)}
                             && {count (_unit getVariable [VQGVAR(mineArray),[]]) > 0}
                             && {[_unit,VQGVAR(plantedMineRecently),VGVAR(mineThreshold)] call VFUNC(pastThreshold)}
-                            && {(_unit distance _nearestEnemy) > VGVAR(maxDistanceToPlantMine)}
+                            && {(_unit distance _nearestEnemy) < VGVAR(maxDistanceToPlantMine)}
                             && {VGVAR(chanceToUseMine) <= random 100}): {
-                        [_unit] call VFUNC(placeMine);
+                        TRACE_2("Placing mine",_unit,_nearestEnemy);
+                        [_unit,_nearestEnemy] call VFUNC(placeMine);
                     };
                     // if the unit has a UAV, deploy it
                     case (VGVAR(useUav) && {_unit getVariable [VQGVAR(hasUAV),false]}): {
+                        TRACE_1("use UAV",_unit);
                         [_unit] call VFUNC(deployUAV);
                     };
                     // arm a static if one is nearby
@@ -120,6 +130,7 @@ params ["_unit"];
                             && {!(isNull _nearestEnemy)}
                             && {_nearestEnemy distance _unit < VGVAR(maxEngagementDistance)}
                             && {[_unit] call VFUNC(checkStatic)}): {
+                        TRACE_1("Arm static",_unit);
                         [_unit] call VFUNC(armEmptyStatic);
                     };
                     // don't stay static in combat
@@ -129,6 +140,7 @@ params ["_unit"];
                             && {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}
                             && {[_unit,VQGVAR(movedRecently),VGVAR(movedRecentlyThreshold)] call VFUNC(pastThreshold)}
                             && {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)}): {
+                        TRACE_1("Move!",_unit);
                         [_unit] call VFUNC(moveInCombat);
                     };
                     // try to enter enemy building (but not actively clear it)
@@ -139,7 +151,8 @@ params ["_unit"];
                             && {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}
                             && {[_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pastThreshold)}
                             && {VGVAR(lightGarrisonChance) <= random 100}): {
-                        [_unit,_nearestEnemy] call VFUNC(lightGarrison);
+                        TRACE_2("Light clear",_unit,_nearestEnemy);
+                        [_unit,_nearestEnemy,_group] call VFUNC(lightGarrison);
                     };
                 };
             } else {

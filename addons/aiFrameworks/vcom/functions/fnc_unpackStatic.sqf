@@ -58,6 +58,10 @@ private _dirTo = (position _weapon) getDir (position _nearestEnemy);
 _staticCreated setDir _dirTo;
 (vehicle _unit) setDir _dirTo;
 
-sleep (180 + (random 180));
-if (!(alive _unit) || {_unit == (vehicle _unit)}) exitWith {};
-[_unit] call VFUNC(packStatic);
+[_unit] spawn {
+    params ["_unit"];
+
+    sleep (180 + (random 180));
+    if (!(alive _unit) || {_unit == (vehicle _unit)}) exitWith {};
+    [_unit] call VFUNC(packStatic);
+};

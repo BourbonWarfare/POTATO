@@ -18,7 +18,7 @@ private _nearestAiGroupDistance = -1;
     } forEach (units _x);
 
     if (_noPlayers) then {
-        private _distance = _x distance _logic;
+        private _distance = (leader _x) distance _logic;
 
         if (_distance < _nearestAiGroupDistance || {isNull _nearestAiGroup}) then {
             _nearestAiGroup = _x;

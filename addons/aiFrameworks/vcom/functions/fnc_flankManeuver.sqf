@@ -1,10 +1,13 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
 params ["_unit"];
 
+_unit setVariable [VQGVAR(flanking),diag_tickTime];
+
 private _nearestEnemy = _unit findNearestEnemy _unit;
-if (isNull _nearestEnemy) exitWith {};
+if (isNull _nearestEnemy) exitWith {TRACE_1("Exiting early",_nearestEnemy);};
 
 private _unitGroup = group _unit;
 if ((count (waypoints _unitGroup)) > 0) then { //they're busy, free them for the task to come`
@@ -13,8 +16,6 @@ if ((count (waypoints _unitGroup)) > 0) then { //they're busy, free them for the
     };
     [_unitGroup, 0] setWaypointPosition [position (leader _unitGroup), 100];
 };
-
-_unit setVariable [VQGVAR(flanking),diag_tickTime];
 
 //Check to see if the AI should just press the advantage!
 private _enemyGroupCount = count (units (group _nearestEnemy));

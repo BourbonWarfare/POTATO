@@ -1,10 +1,11 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_unit","_nearestEnemy"];
+params ["_unit","_nearestEnemy","_group"];
 
-private _unitGroup = (group _unit);
-private _units = units _unitGroup;
+_unit setVariable [VQGVAR(activelyClearing),diag_tickTime];
+
+private _units = units _group;
 
 private _building = nearestBuilding _nearestEnemy;
 private _isEnterable = [_building] call BIS_fnc_isBuildingEnterable;

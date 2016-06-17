@@ -53,5 +53,6 @@ VPREP(stringArrayToSideArray);
 VPREP(suppressingShots);
 VPREP(switchMoveLocal);
 VPREP(throwGrenade);
+VPREP(transferToNewOwner);
 VPREP(unpackStatic);
 VPREP(vehicleHandle);
