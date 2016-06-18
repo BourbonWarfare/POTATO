@@ -2,12 +2,13 @@
  * Author: PabstMirror
  * logic called when a premade group/vehicle module is placed
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+TRACE_1("params",_this);
 
-params ["_logic"];
-TRACE_2("params",_logic,_this select 1);
-if (isNull _logic) exitWith {};
+params ["_logic","","_activated"];
+
+if (isNull _logic || !_activated) exitWith {};
 
 private _posATL = getPosATL _logic;
 private _typeOf = typeOf _logic;

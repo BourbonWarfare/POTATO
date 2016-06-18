@@ -17,6 +17,7 @@ class CfgVehicles {
     class GVAR(base_prebuilt): GVAR(base_module) {
         function = QFUNC(createEntityZeus);
         GVAR(createVic) = "";
+        isTriggerActivated = 1;
     };
 
     //------------ East ----------
@@ -524,6 +525,7 @@ class CfgVehicles {
         scope = 2;
         displayName = "Spawn and Garrison units";
         function = QFUNC(garrisonModule);
+        isTriggerActivated = 1;
 
         class Attributes {
             class GVAR(garrisonFaction) {
