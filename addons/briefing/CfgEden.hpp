@@ -3,10 +3,8 @@ class display3DEN {
     class Controls {
         class MenuStrip: ctrlMenuStrip {
             class Items {
-                items[] += {QUOTE(PREFIX)}; // += must be used; you want to expand the array, not override it!
                 class PREFIX {
-                    text = "POTATO"; // Item text
-                    items[] = {QGVAR(briefings)};
+                    items[] += {QGVAR(briefings)};
                 };
                 class GVAR(briefings) {
                     text = "Mission Briefings";
