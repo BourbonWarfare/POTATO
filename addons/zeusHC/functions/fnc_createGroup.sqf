@@ -41,4 +41,7 @@ private _newGroup = createGroup _side;
     nil
 } count _classNames;
 
-_newGroup;
+// explicitly select leader
+_newGroup selectLeader ((units _newGroup) select 0);
+
+_newGroup

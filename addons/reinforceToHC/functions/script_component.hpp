@@ -1,7 +1,5 @@
 #include "\z\potato\addons\reinforceToHC\script_component.hpp"
 
-#define SERVER_CLIENT_ID 2
-
 #define DISPLAY_NAME_INDEX 0
 #define SIDE_INDEX 1
 #define ADDON_CLASS_INDEX 2

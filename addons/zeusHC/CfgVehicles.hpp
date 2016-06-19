@@ -6,7 +6,7 @@ class CfgVehicles {
     class GVAR(base_module): Module_F {
         author = QUOTE(PREFIX);
         scope = 1;
-        scopeCurator = 2;
+        scopeCurator = 1;
         isTriggerActivated = 0;
         isGlobal = 0;
         curatorCost = 0;
@@ -23,6 +23,7 @@ class CfgVehicles {
     //------------ East ----------
     class GVAR(east_rifleman): GVAR(base_prebuilt) {
         scope = 2;
+        scopeCurator = 2;
         displayName = "@Rifleman";
         category = QGVAR(east);
         GVAR(crewAir) = "O_Helipilot_F";
@@ -112,6 +113,7 @@ class CfgVehicles {
     //------------ West ----------
     class GVAR(west_rifleman): GVAR(base_prebuilt) {
         scope = 2;
+        scopeCurator = 2;
         displayName = "@Rifleman";
         category = QGVAR(west);
         GVAR(crewAir) = "B_Helipilot_F";
@@ -273,6 +275,7 @@ class CfgVehicles {
     //------------ Independent ----------
     class GVAR(ind_rifleman): GVAR(base_prebuilt) {
         scope = 2;
+        scopeCurator = 2;
         displayName = "@Rifleman";
         category = QGVAR(ind);
         GVAR(crewAir) = "I_Helipilot_F";
@@ -386,6 +389,7 @@ class CfgVehicles {
     //------------ Russian ----------
     class GVAR(msv_rifleman): GVAR(base_prebuilt) {
         scope = 2;
+        scopeCurator = 2;
         displayName = "@Rifleman";
         category = QGVAR(msv);
         GVAR(crewAir) = "rhs_pilot_transport_heli";
@@ -502,6 +506,19 @@ class CfgVehicles {
         displayName = "#Dismounts (6) [attach]";
         portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
         GVAR(createUnits)[] = {"rhs_msv_sergeant","rhs_msv_machinegunner","rhs_msv_at","rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_rifleman"};
+    };
+
+    //------------ Utility modules ----------
+    class GVAR(fix_nearest_group): GVAR(base_prebuilt) {
+        scope = 1;
+        scopeCurator = 2;
+        displayName = "Fix nearest group";
+        category = QGVAR(util);
+        function = QFUNC(fixNearestGroupZeus);
+    };
+    class GVAR(fix_all_groups): GVAR(fix_nearest_group) {
+        displayName = "Fix all groups";
+        function = QFUNC(fixAllGroupsZeus);
     };
 
     //------------ Custom group/vehicle modules ----------
