@@ -14,7 +14,6 @@
  */
 
 #include "script_component.hpp"
-disableSerialization;
 TRACE_1("Params",_this);
 
 params ["_mapControl"];
