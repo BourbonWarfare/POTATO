@@ -17,13 +17,6 @@ class Extended_PostInit_EventHandlers {
 
 
 //Vehicle EH:
-class Extended_GetOut_EventHandlers {
-    class GVAR(mortar) {
-        class ADDON {
-            serverGetOut = QUOTE(_this call FUNC(handleGetOut));
-        };
-    };
-};
 class Extended_FiredBIS_EventHandlers {
     class GVAR(mortar) {
         class ADDON {

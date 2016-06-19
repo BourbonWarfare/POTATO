@@ -3,7 +3,7 @@ TRACE_1("params",_this);
 params ["_unit","_group", ["_exitIfNotServer", false, [false]]];
 
 if (isServer) exitWith {
-    [_unit] remoteExecCall [QFUNC(addToSystemDelayed), groupOwner _group]
+    [_unit] remoteExecCall [VQFUNC(addToSystemDelayed), groupOwner _group]
 };
 
 if (_exitIfNotServer) exitWith {
@@ -11,4 +11,4 @@ if (_exitIfNotServer) exitWith {
     nil
 };
 
-[_unit, _group, true] remoteExecCall [QFUNC(transferToNewOwner), SERVER_CLIENT_ID]
+[_unit, _group, true] remoteExecCall [VQFUNC(transferToNewOwner), SERVER_CLIENT_ID]
