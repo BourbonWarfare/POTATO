@@ -26,5 +26,3 @@ if (GVAR(skipInstallingEH) || {_display getVariable [_installedVarName, false]})
 _display setVariable [_installedVarName, true];
 
 (_display displayCtrl _idc) ctrlAddEventHandler ["draw", {_this call FUNC(drawMarkers)}];
-
-TRACE_3("end",_display,_idc,_display displayCtrl _idc);

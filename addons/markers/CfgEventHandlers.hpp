@@ -1,9 +1,9 @@
 class Extended_DisplayLoad_EventHandlers {
     class RscMiniMap {
-        ADDON = QUOTE([ARR_2(_this select 0, GPS_IDC)] call FUNC(addMarkersToDisplay); diag_log 'test1';);
+        ADDON = QUOTE([ARR_2(_this select 0, GPS_IDC)] call FUNC(addMarkersToDisplay););
     };
     class RscDiary {
-        ADDON = QUOTE([ARR_2(_this select 0, MAP_IDC)] call FUNC(addMarkersToDisplay); diag_log 'test2';);
+        ADDON = QUOTE([ARR_2(_this select 0, MAP_IDC)] call FUNC(addMarkersToDisplay););
     };
 };
 
