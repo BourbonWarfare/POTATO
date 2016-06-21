@@ -1,14 +1,10 @@
 /*
  * Author: AACO
- * Function used to add units from the faction unit list to the pending list
- * Should only be called from UI events
- *
- * Arguments:
- * 0: index of the unit in the faction unit list <NUMBER>
+ * Function used to scan all active groups/players and try to add them to the
+ * marker hash
  *
  * Examples:
- * [1] call potato_zeusHC_fnc_buildAGroupDialogAdd; //unit in the first index
- * [5] call potato_zeusHC_fnc_buildAGroupDialogAdd; //unit in the fifth index
+ * [] call potato_markers_fnc_initMarkerHash;
  *
  * Public: No
  */

@@ -1,14 +1,13 @@
 /*
  * Author: AACO
- * Function used to add units from the faction unit list to the pending list
- * Should only be called from UI events
+ * Function used to draw markers
  *
  * Arguments:
- * 0: index of the unit in the faction unit list <NUMBER>
+ * 0: Map control <CONTROL>
  *
  * Examples:
- * [1] call potato_zeusHC_fnc_buildAGroupDialogAdd; //unit in the first index
- * [5] call potato_zeusHC_fnc_buildAGroupDialogAdd; //unit in the fifth index
+ * [(findDisplay 12) displayCtrl 52] call potato_markers_fnc_drawMarkers; // draw markers on map
+ * [(findDisplay 133) displayCtrl 101] call potato_markers_fnc_drawMarkers; // draw markers on GPS
  *
  * Public: No
  */
