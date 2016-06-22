@@ -22,10 +22,10 @@ private _sideArray = switch (playerSide) do {
 
 {
     if (!(isNull _x) && {side _x in _sideArry}) then {
-        [_x] FUNC(addMarkerInfoToHash);
+        [_x] call FUNC(addMarkerInfoToHash);
 
         {
-            [_x] FUNC(addMarkerInfoToHash);
+            [_x] call FUNC(addMarkerInfoToHash);
         } forEach (units _x);
     };
 } forEach allGroups;
