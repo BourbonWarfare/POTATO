@@ -15,29 +15,29 @@ class Cfg3DEN {
             };
         };
         class GVAR(markerIconSelect): Toolbox {
-            attributeLoad = QUOTE((_this controlsGroupCtrl GROUP_MARKER_ICON_IDC) lbsetcursel ([UNIT_MARKERS] find _value););
-            attributeSave = QUOTE([UNIT_MARKERS] select (GETMVAR(GVAR(selectedIcon),0)););
-            h = "2 * 5 * (pixelH * 1.25 * 4)";
+            attributeLoad = QUOTE((_this controlsGroupCtrl GROUP_MARKER_ICON_IDC) lbSetCurSel ([UNIT_MARKERS] find _value););
+            attributeSave = QUOTE([UNIT_MARKERS] select (GETMVAR(QGVAR(selectedIcon),0)););
+            h = "3 * 5 * (pixelH * 1.25 * 4)";
             class Controls: Controls {
                 class Title: Title {
-                    h = "2 * 5 * (pixelH * 1.25 * 4)";
+                    h = "3 * 5 * (pixelH * 1.25 * 4)";
                 };
                 class Background: ctrlStatic {
                     x = "48 * (pixelW * 1.25 * 4)";
                     w = "82 * (pixelW * 1.25 * 4)";
-                    h = "2 * 5 * (pixelH * 1.25 * 4)";
+                    h = "3 * 5 * (pixelH * 1.25 * 4)";
                     colorBackground[] = {0,0,0,0.5};
                 };
                 class Value: Value {
                     idc = GROUP_MARKER_ICON_IDC;
                     style = "0x02 + 0x30 + 0x800";
-                    h = "2 * 10 * (pixelH * 1.25 * 4)";
+                    h = "3 * 5 * (pixelH * 1.25 * 4)";
                     colorBackground[] = {0,0,0,0};
 
                     rows = 2;
                     columns = 7;
-                    strings[] = {UNIT_MARKERS};
-                    values[] = {UNIT_MARKERS};
+                    strings[] = {UNIT_MARKERS_TEST};
+                    values[] = {UNIT_MARKERS_TEST};
                     tooltips[] = {
                         "Unkown",
                         "Infantry",
@@ -54,7 +54,7 @@ class Cfg3DEN {
                         "Artillery",
                         "Medic"
                     };
-                    onToolboxSelChanged = QUOTE(SETMVAR(GVAR(selectedIcon),_this select 1););
+                    onToolboxSelChanged = QUOTE(SETMVAR(QGVAR(selectedIcon),_this select 1););
                 };
             };
         };
@@ -70,7 +70,7 @@ class Cfg3DEN {
                         displayName = "Add Marker";
                         tooltip = "Add marker to group";
                         property = QGVAR(addMarker);
-                        expression = QUOTE(SETVAR(_this,GVAR(addMarker),_value););
+                        expression = QUOTE(SETVAR(_this,QGVAR(addMarker),_value););
                         typeName = "BOOL";
                         defaultValue = false;
                     };
@@ -79,16 +79,16 @@ class Cfg3DEN {
                         displayName = "Marker Text";
                         tooltip = "Group marker text";
                         property = QGVAR(markerText);
-                        expression = QUOTE(SETVAR(_this,GVAR(markerText),_value););
+                        expression = QUOTE(SETVAR(_this,QGVAR(markerText),_value););
                         typeName = "STRING";
-                        defaultValue = "";
+                        defaultValue = "''";
                     };
                     class GVAR(groupMarkerSize) {
                         control = "Combo";
                         displayName = "Marker Size";
                         tooltip = "Group marker size";
                         property = QGVAR(markerSize);
-                        expression = QUOTE(SETVAR(_this,GVAR(markerSize),_value););
+                        expression = QUOTE(SETVAR(_this,QGVAR(markerSize),_value););
                         typeName = "NUMBER";
                         class values {
                             class 1 { name = "small"; value = 16; };
@@ -119,7 +119,7 @@ class Cfg3DEN {
                         displayName = "Marker Icon";
                         tooltip = "Group Marker Icon";
                         property = QGVAR(markerTexture);
-                        expression = QUOTE(SETVAR(_this,GVAR(markerTexture),_value););
+                        expression = QUOTE(SETVAR(_this,QGVAR(markerTexture),_value););
                         typeName = "STRING";
                         defaultValue = "\A3\ui_f\data\map\markers\nato\b_unknown.paa";
                     };
@@ -131,7 +131,7 @@ class Cfg3DEN {
         class AttributeCategories {
             class ADDON {
                 displayName = "POTATO: Unit Marker";
-                collapsed = 1;
+                //collapsed = 1;
                 condition = "objectBrain";
                 class Attributes {
                     class GVAR(addUnitMarker) {
@@ -139,9 +139,9 @@ class Cfg3DEN {
                         displayName = "Add Marker";
                         tooltip = "Add marker to unit";
                         property = QGVAR(addMarker);
-                        expression = QUOTE(SETVAR(_this,GVAR(addMarker),_value););
+                        expression = QUOTE(SETVAR(_this,QGVAR(addMarker),_value););
                         typeName = "BOOL";
-                        //condition = "objectBrain";
+                        condition = "objectBrain";
                         defaultValue = false;
                     };
                     class GVAR(unitMarkerText) {
@@ -149,19 +149,19 @@ class Cfg3DEN {
                         displayName = "Marker Text";
                         tooltip = "Unit marker text";
                         property = QGVAR(markerText);
-                        expression = QUOTE(SETVAR(_this,GVAR(markerText),_value););
+                        expression = QUOTE(SETVAR(_this,QGVAR(markerText),_value););
                         typeName = "STRING";
-                        //condition = "objectBrain";
-                        defaultValue = "";
+                        condition = "objectBrain";
+                        defaultValue = "''";
                     };
                     class GVAR(unitMarkerSize) {
                         control = "Combo";
                         displayName = "Marker Size";
                         tooltip = "Unit marker size";
                         property = QGVAR(markerSize);
-                        expression = QUOTE(SETVAR(_this,GVAR(markerSize),_value););
+                        expression = QUOTE(SETVAR(_this,QGVAR(markerSize),_value););
                         typeName = "NUMBER";
-                        //condition = "objectBrain";
+                        condition = "objectBrain";
                         class values {
                             class 1 { name = "small"; value = 16; };
                             class 2 { name = "medium"; value = 24; default = 1; };
@@ -175,7 +175,7 @@ class Cfg3DEN {
                         property = QGVAR(markerColor);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setMarkerColor););
                         typeName = "STRING";
-                        //condition = "objectBrain";
+                        condition = "objectBrain";
                         class values {
                             class 1 { name = "white"; value = "white"; default = 1; };
                             class 2 { name = "red"; value = "red"; };
@@ -192,9 +192,9 @@ class Cfg3DEN {
                         displayName = "Marker Icon";
                         tooltip = "Unit Marker Icon";
                         property = QGVAR(markerTexture);
-                        expression = QUOTE(SETVAR(_this,GVAR(markerTexture),_value););
+                        expression = QUOTE(SETVAR(_this,QGVAR(markerTexture),_value););
                         typeName = "STRING";
-                        //condition = "objectBrain";
+                        condition = "objectBrain";
                         defaultValue = "\A3\ui_f\data\map\markers\nato\b_unknown.paa";
                     };
                 };

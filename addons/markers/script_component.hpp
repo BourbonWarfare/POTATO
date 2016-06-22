@@ -35,7 +35,22 @@
 #define UNIT_MARKER_ICON "\A3\ui_f\data\map\markers\military\start_CA.paa"
 #define UNIT_MARKER_SIZE 12
 
-#define UNIT_MARKERS "\A3\ui_f\data\map\markers\nato\b_unknown.paa",\
+#define UNIT_MARKERS '\A3\ui_f\data\map\markers\nato\b_unknown.paa',\
+'\A3\ui_f\data\map\markers\nato\b_inf.paa',\
+'\A3\ui_f\data\map\markers\nato\b_hq.paa',\
+'\A3\ui_f\data\map\markers\nato\b_support.paa',\
+'\A3\ui_f\data\map\markers\nato\b_motor_inf.paa',\
+'\A3\ui_f\data\map\markers\nato\b_recon.paa',\
+'\A3\ui_f\data\map\markers\nato\b_mortar.paa',\
+'\A3\ui_f\data\map\markers\nato\b_maint.paa',\
+'\A3\ui_f\data\map\markers\nato\b_mech_inf.paa',\
+'\A3\ui_f\data\map\markers\nato\b_armor.paa',\
+'\A3\ui_f\data\map\markers\nato\b_air.paa',\
+'\A3\ui_f\data\map\markers\nato\b_plane.paa',\
+'\A3\ui_f\data\map\markers\nato\b_art.paa',\
+'\A3\ui_f\data\map\markers\nato\b_med.paa'
+
+#define UNIT_MARKERS_TEST "\A3\ui_f\data\map\markers\nato\b_unknown.paa",\
 "\A3\ui_f\data\map\markers\nato\b_inf.paa",\
 "\A3\ui_f\data\map\markers\nato\b_hq.paa",\
 "\A3\ui_f\data\map\markers\nato\b_support.paa",\
