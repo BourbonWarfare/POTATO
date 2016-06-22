@@ -1,14 +1,14 @@
 /*
  * Author: AACO
- * Function used to add units from the faction unit list to the pending list
- * Should only be called from UI events
+ * Function used to add the draw marker EH to the map/gps controls
  *
  * Arguments:
- * 0: index of the unit in the faction unit list <NUMBER>
+ * 0: Display the map control lives on <DISPLAY>
+ * 0: Map or GPS IDC <NUMBER>
  *
  * Examples:
- * [1] call potato_zeusHC_fnc_buildAGroupDialogAdd; //unit in the first index
- * [5] call potato_zeusHC_fnc_buildAGroupDialogAdd; //unit in the fifth index
+ * [(findDisplay 12), 52] call potato_markers_fnc_addMarkersToDisplay; // add markers to main map
+ * [(findDisplay 133), 101] call potato_markers_fnc_addMarkersToDisplay; // add markers to GPS
  *
  * Public: No
  */
@@ -21,7 +21,7 @@ TRACE_2("IDs",_display,_idc);
 
 if !(GVAR(settingsInitialized)) exitWith { GVAR(settingsDelayedFunctions) pushBack [FUNC(addMarkersToDisplay),_this]; };
 
-private _installedVarName = format ["%2_%3",_idc,"EHInstalled"];
+private _installedVarName = format ["%1_%2_%3",QGVAR(displays),_idc,"EHInstalled"];
 if (GVAR(skipInstallingEH) || {_display getVariable [_installedVarName, false]}) exitWith {};
 _display setVariable [_installedVarName, true];
 

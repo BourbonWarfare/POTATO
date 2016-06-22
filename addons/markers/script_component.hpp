@@ -1,7 +1,7 @@
 #define COMPONENT markers
 #include "\z\potato\addons\core\script_mod.hpp"
 
-#define DEBUG_MODE_FULL
+// #define DEBUG_MODE_FULL
 // #define DISABLE_COMPILE_CACHE
 // #define CBA_DEBUG_SYNCHRONOUS
 
@@ -15,6 +15,11 @@
 
 #define MAP_IDC 51
 #define GPS_IDC 101
+
+#define DEFAULT_MARKER_TEXT ""
+#define DEFAULT_MARKER_ICON "\A3\ui_f\data\map\markers\nato\b_unknown.paa"
+#define DEFAULT_MARKER_COLOR [0,0,0,0]
+#define DEFAULT_MARKER_SIZE 24
 
 #define UNIT_MARKER_ICON "\A3\ui_f\data\map\markers\military\start_CA.paa"
 #define UNIT_MARKER_SIZE 12
