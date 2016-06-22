@@ -30,7 +30,7 @@ if (isNull _drawObject
 private _text = _drawObject getVariable [QGVAR(markerText), DEFAULT_MARKER_TEXT];
 private _texture = _drawObject getVariable [QGVAR(markerTexture), DEFAULT_MARKER_ICON];
 private _colorArray = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR];
-private _size = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKER_SIZE];
+private _size = _drawObject getVariable [QGVAR(markerSize), DEFAULT_MARKER_SIZE];
 private _position = if (_drawObject isEqualType grpNull) then {
     position (leader _drawObject)
 } else {
