@@ -13,3 +13,5 @@
 
 #define MISSION_HINT_SIDES [1, west, east, resistance, civilian, 0]
 #define MISSION_HINT_RANKS [-99,1,2,3]
+
+#define SERVER_CLIENT_ID 2
