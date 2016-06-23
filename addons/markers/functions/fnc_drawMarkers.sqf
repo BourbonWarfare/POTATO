@@ -23,11 +23,12 @@ if ((player != player) || {!alive player}) exitWith {};
 private _mapSize = ((ctrlPosition _mapControl) select 3) / (getResolution select 4);
 private _sizeFactor = (_mapSize + 1) / 2;
 
-if (GVAR(groupAndUnitEnabled) && {diag_tickTime > GVAR(nextUpdate)}) then {
+if (GVAR(groupAndUnitEnabled)) then {
 
     private _recalc = diag_tickTime > GVAR(nextUpdate);
 
     {
+        TRACE_1("icon data", _x);
         _x params ["_text", "_texture", "_color", "_size", "_position"];
 
         if (_recalc) then {

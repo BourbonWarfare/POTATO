@@ -50,7 +50,7 @@
 '\A3\ui_f\data\map\markers\nato\b_art.paa',\
 '\A3\ui_f\data\map\markers\nato\b_med.paa'
 
-#define UNIT_MARKERS_TEST "\A3\ui_f\data\map\markers\nato\b_unknown.paa",\
+#define UNIT_MARKERS_STRINGS "\A3\ui_f\data\map\markers\nato\b_unknown.paa",\
 "\A3\ui_f\data\map\markers\nato\b_inf.paa",\
 "\A3\ui_f\data\map\markers\nato\b_hq.paa",\
 "\A3\ui_f\data\map\markers\nato\b_support.paa",\

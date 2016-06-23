@@ -38,6 +38,6 @@ private _position = if (_drawObject isEqualType grpNull) then {
 };
 
 (GVAR(drawHash) select 0) pushBack _drawObject;
-(GVAR(drawHash) select 1) pushBack [_text, _texture, _color, _size, _position];
+(GVAR(drawHash) select 1) pushBack [_text, _texture, _colorArray, _size, _position];
 
 true

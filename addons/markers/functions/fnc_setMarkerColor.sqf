@@ -29,4 +29,7 @@ private _colorArray = switch (_markerColor) do {
     default { WHITE_ARRAY };
 };
 
-SETVAR(_markerObject,GVAR(markerColor),_colorArray);
+[{
+    params ["_markerObject","_colorArray"];
+    SETPVAR(_markerObject,GVAR(markerColor),_colorArray);
+}, [_markerObject,_colorArray,_var]] call CBA_fnc_execNextFrame;

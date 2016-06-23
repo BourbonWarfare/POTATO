@@ -20,8 +20,10 @@ private _sideArray = switch (playerSide) do {
     default { [] };
 };
 
+TRACE_2("sides",_sideArray,playerSide);
+
 {
-    if (!(isNull _x) && {side _x in _sideArry}) then {
+    if (!(isNull _x) && {side _x in _sideArray}) then {
         [_x] call FUNC(addMarkerInfoToHash);
 
         {
