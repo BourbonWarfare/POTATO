@@ -69,7 +69,6 @@ if (_ratioInputValue1 == 0
     if (_sideCount > 2 && _ratioInputValue3 == 0) then { RATIO_INPUT_3 ctrlSetText ""; };
 };
 
-
 // clear out the old ratio values
 lbClear RATIO_OUTPUT_1;
 lbClear RATIO_OUTPUT_2;
