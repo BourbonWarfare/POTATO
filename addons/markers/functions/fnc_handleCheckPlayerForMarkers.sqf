@@ -18,13 +18,7 @@ TRACE_1("Params",_this);
 params ["_newPlayer"];
 private _newPlayerGroup = group _newPlayer;
 
-private _sideArray = switch (playerSide) do {
-    case west: { GVAR(viewBluForMarkers) };
-    case east: { GVAR(viewOpForMarkers) };
-    case resistance: { GVAR(viewIndyMarkers) };
-    case civilian: { GVAR(viewCivMarkers) };
-    default { [] };
-};
+private _sideArray = [] call FUNC(getSideArray);
 
 if (!(isNull _newPlayerGroup) && {side _newPlayerGroup in _sideArray}) then {
     [_newPlayerGroup] call FUNC(addMarkerInfoToHash);

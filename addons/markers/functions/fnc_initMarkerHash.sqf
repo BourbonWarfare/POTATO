@@ -12,13 +12,7 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-private _sideArray = switch (playerSide) do {
-    case west: { GVAR(viewBluForMarkers) };
-    case east: { GVAR(viewOpForMarkers) };
-    case resistance: { GVAR(viewIndyMarkers) };
-    case civilian: { GVAR(viewCivMarkers) };
-    default { [] };
-};
+private _sideArray = [] call FUNC(getSideArray);
 
 TRACE_2("sides",_sideArray,playerSide);
 
