@@ -22,9 +22,17 @@ class ACE_Settings {
         typeName = "BOOL";
         value = 1;
     };
+    class VGVAR(dismountBeforeEnemies) {
+        typeName = "BOOL";
+        value = 0;
+    };
     class VGVAR(earsEnabled) {
         typeName = "BOOL";
         value = 1;
+    };
+    class VGVAR(enableSupressedUnits) {
+        typeName = "BOOL";
+        value = 0;
     };
     class VGVAR(increaseAccuracyOnStaticTargets) {
         typeName = "BOOL";
@@ -84,6 +92,10 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 50;
     };
+    class VGVAR(dismountBeforeEnemiesDistance) {
+        typeName = "SCALAR";
+        value = 400;
+    };
     class VGVAR(gunshotDetectionRange) {
         typeName = "SCALAR";
         value = 1000;
@@ -115,6 +127,10 @@ class ACE_Settings {
     class VGVAR(maxEngagementDistance) {
         typeName = "SCALAR";
         value = 1000;
+    };
+    class VGVAR(maxGunnerPrioritizationDistance) {
+        typeName = "SCALAR";
+        value = 1500;
     };
     class VGVAR(maxThreatDistance) {
         typeName = "SCALAR";
@@ -211,6 +227,10 @@ class ACE_Settings {
     class VGVAR(grenadeThreshold) {
         typeName = "SCALAR";
         value = 20;
+    };
+    class VGVAR(gunnerPrioritizationThreshold) {
+        typeName = "SCALAR";
+        value = 10;
     };
     class VGVAR(mineThreshold) {
         typeName = "SCALAR";
