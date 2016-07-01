@@ -166,7 +166,7 @@ class ACE_Settings {
     };
     class VGVAR(maximumRoundDispersion) {
         typeName = "SCALAR";
-        value = 50;
+        value = 300;
     };
     class VGVAR(maximumRoundsPerBarrage) {
         typeName = "SCALAR";
