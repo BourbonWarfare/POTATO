@@ -118,13 +118,14 @@ class CfgPatches {
             QGVAR(msv_rhsT80),
             QGVAR(msv_dismounts),
 
+            QGVAR(ungarrison_all_groups),
+            QGVAR(ungarrison_nearest_group),
+            QGVAR(move_all_to_hc),
+            QGVAR(fix_nearest_group),
+
             QGVAR(build_a_group),
             QGVAR(spawn_a_vehicle),
-            QGVAR(move_all_to_hc),
-            QGVAR(garrison),
-
-            QGVAR(fix_all_groups),
-            QGVAR(fix_nearest_group)
+            QGVAR(garrison)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

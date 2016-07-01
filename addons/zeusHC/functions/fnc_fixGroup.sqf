@@ -23,25 +23,46 @@ params [
 // if the group is not local, exit
 if (isNull _group || !(local _group)) exitWith { ERROR("Group is null/not local, can not even try to fix"); };
 
-// try to cycle the leader, unset any doWatches
-private _leader = leader _group;
-private _leaderNotSwapped = true;
-{
-    _x doWatch objNull;
-    if (_leaderNotSwapped && {_leader != _x}) then {
-        _leaderNotSwapped = false;
-        _group selectLeader _x;
+_this spawn {
+    params [
+        ["_group", grpNull, [grpNull]]
+    ];
+
+    private _newGroup = createGroup (side _group);
+    _newGroup copyWaypoints _group;
+
+    private _index = (count (units _group)) - 1;
+    while {count (units _group) > 0} do {
+        private _newUnit = _newGroup createUnit [typeOf _x, [0,0,0], [], 50, "NONE"];
+
+        if (leader _group == _x) then {
+            _newGroup selectLeader _newUnit;
+        };
+
+        sleep 1;
+
+        _newUnit setDir direction _x;
+        switch (stance _x) do {
+            case ("PRONE"): {
+                _newUnit setUnitPos "DOWN";
+            };
+            case ("CROUCH"): {
+                _newUnit setUnitPos "MIDDLE";
+            };
+            default {
+                _newUnit setUnitPos "UP";
+            };
+        };
+        private _unitPosition = position _x;
+        deleteVehicle _x;
+        _newUnit setPos _unitPosition;
+        _newUnit setUnitPos "AUTO";
+
+        if (_index > 0) then {
+            DEC(_index);
+            sleep 2;
+        };
     };
-    nil
-} count (units _group);
-_group selectLeader _leader;
 
-// set the behavior to normal, sometimes "COMBAT" locks a group up.
-_group setBehaviour "NORMAL";
-
-// remove all waypoints, then add a move waypoint at the groups location
-while { count (waypoints _group) > 0 } do {
-    deleteWaypoint ((waypoints _group) select 0);
+    deleteGroup _group;
 };
-private _tmpWaypoint = _group addWaypoint [_leader getRelPos [15, getDir _leader], 0];
-_tmpWaypoint setWaypointType "MOVE";

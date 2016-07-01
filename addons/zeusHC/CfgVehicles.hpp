@@ -505,20 +505,24 @@ class CfgVehicles {
     };
 
     //------------ Utility modules ----------
-    class GVAR(fix_nearest_group): GVAR(base_prebuilt) {
+    class GVAR(ungarrison_nearest_group): GVAR(base_prebuilt) {
         scope = 1;
         scopeCurator = 2;
-        displayName = "Fix nearest group";
+        displayName = "Ungarrison nearest group";
         category = QGVAR(util);
         function = QFUNC(fixNearestGroupZeus);
     };
-    class GVAR(fix_all_groups): GVAR(fix_nearest_group) {
-        displayName = "Fix all groups";
+    class GVAR(ungarrison_all_groups): GVAR(ungarrison_nearest_group) {
+        displayName = "Ungarrison all groups";
         function = QFUNC(fixAllGroupsZeus);
     };
-    class GVAR(move_all_to_hc): GVAR(fix_nearest_group) {
+    class GVAR(move_all_to_hc): GVAR(ungarrison_nearest_group) {
         displayName = "Move all AI to HC";
         function = QFUNC(transferAllToHCZeus);
+    };
+    class GVAR(fix_nearest_group): GVAR(ungarrison_nearest_group) {
+        displayName = "'Fix' nearest group";
+        function = QFUNC(fixNearestGroupZeus);
     };
 
     //------------ Custom group/vehicle modules ----------

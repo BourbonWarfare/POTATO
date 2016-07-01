@@ -9,6 +9,7 @@ PREP(createGroup);
 PREP(hcPassthrough);
 PREP(canCreateGroup);
 PREP(sendCuratorHint);
+PREP(getNearestAIGroup);
 PREP(getSpawnMachineId);
 PREP(hcPassthroughSpawn);
 
@@ -43,7 +44,10 @@ PREP(garrisonIsFacingWall);
 PREP(garrisonDialogCheckMinMax);
 PREP(garrisonDialogControlChange);
 
+PREP(ungarrisonGroup);
+PREP(ungarrisonGroupBulk);
+PREP(ungarrisonAllGroupsZeus);
+PREP(ungarrisonNearestGroupZeus);
+
 PREP(fixGroup);
-PREP(fixGroupBulk);
-PREP(fixAllGroupsZeus);
 PREP(fixNearestGroupZeus);
