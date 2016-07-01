@@ -78,7 +78,7 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
             ] call FUNC(sendCuratorHint);
         };
 
-        private _numberOfUnits = [_occupyMin,_occupyMax] call EFUNC(core,getBoundedRandom);
+        private _numberOfUnits = [_occupyMin,_occupyMax,true] call EFUNC(core,getBoundedRandom);
         private _unitsToAdd = [];
         private _unitPositions = [];
         private _index = 0;

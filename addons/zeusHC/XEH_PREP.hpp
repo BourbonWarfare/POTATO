@@ -11,7 +11,6 @@ PREP(canCreateGroup);
 PREP(sendCuratorHint);
 PREP(getNearestAIGroup);
 PREP(getSpawnMachineId);
-PREP(hcPassthroughSpawn);
 
 PREP(buildACache);
 PREP(buildAGroupZeus);

@@ -20,7 +20,8 @@ private _side = switch (getNumber (configFile >> "CfgVehicles" >> _vehicleClass 
 
 [
     [GVAR(vicSpawnLocation), _vehicleClass, _side],
-    QFUNC(spawnAVicSpawnLocal)
+    QFUNC(spawnAVicSpawnLocal),
+    true
 ] call FUNC(hcPassthroughSpawn);
 
 // last thing, close dialog with success

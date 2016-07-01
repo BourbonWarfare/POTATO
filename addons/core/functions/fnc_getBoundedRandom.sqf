@@ -19,6 +19,12 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_min","_max"];
+params ["_min","_max", ["_round", false, [false]]];
 
-_min + round (random (_max - _min))
+private _random = if (_round) then {
+    round (random (_max - _min))
+} else {
+    random (_max - _min)
+};
+
+_min + _random
