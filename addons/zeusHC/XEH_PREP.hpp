@@ -4,12 +4,13 @@ PREP(createEntityZeus);
 PREP(createEntityLocal);
 PREP(createEntityDismounts);
 
+PREP(createCrew);
 PREP(createGroup);
-PREP(getCrewCount);
 PREP(hcPassthrough);
 PREP(canCreateGroup);
 PREP(sendCuratorHint);
 PREP(getSpawnMachineId);
+PREP(hcPassthroughSpawn);
 
 PREP(buildACache);
 PREP(buildAGroupZeus);

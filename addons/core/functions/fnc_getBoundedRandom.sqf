@@ -21,4 +21,4 @@ TRACE_1("params",_this);
 
 params ["_min","_max"];
 
-_min + random (_max - _min)
+_min + round (random (_max - _min))

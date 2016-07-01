@@ -69,7 +69,6 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
     params ["_buildingPositions","_side","_units","_unitLimit","_occupyMin","_occupyMax"];
     TRACE_6("params",count _buildingPositions,_side,_units,_unitLimit,_occupyMin,_occupyMax);
 
-    private _sleep = if (isNil QGVAR(sleepBetweenSpawns)) then { 0.5 } else { GVAR(sleepBetweenSpawns) };
     private _unitsAdded = 0;
 
     {
@@ -106,6 +105,6 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
 
         if (_unitsAdded >= _unitLimit) exitWith { TRACE_1("Unit limit reached, exiting count loop",_unitLimit); };
 
-        sleep _sleep;
+        sleep GVAR(delayBetweenGroupCreation);
     } forEach _buildingPositions;
 };

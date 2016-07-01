@@ -2,7 +2,7 @@
  * Author: PabstMirror
  * logic called when a premade group/vehicle module is placed
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
