@@ -16,8 +16,8 @@ TRACE_3("sel",_selectedSide,_selectedRank,_hintText);
 
 //Debug trace to admin log:
 private _debugMsg = format ["Sending Hint to %1", _selectedSide];
-["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);
+["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
 
 //Actual misison hint event:
 private _debugMsg = format ["Sending Hint to %1", _selectedSide];
-["potato_missionHint", [_hintText, _selectedSide, _selectedRank]] call ACEFUNC(common,globalEvent);
+["potato_missionHint", [_hintText, _selectedSide, _selectedRank]] call CBA_fnc_globalEvent;

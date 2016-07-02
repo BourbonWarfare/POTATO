@@ -41,7 +41,7 @@ GVAR(timerRunning) = true;
             (_display displayCtrl 1100) ctrlSetStructuredText parseText format ["<t align='center'>Safe Start Ending<br/><t color='#ff0000'>Start Mission</t></t>"];
             [{
                 (QGVAR(safeStartRscTitle) call BIS_fnc_rscLayer) cutText ["", "PLAIN"];
-            }, [], 7] call ace_common_fnc_waitAndExecute;
+            }, [], 7] call CBA_fnc_waitAndExecute;
         };
     };
 }, 0.2, []] call CBA_fnc_addPerFrameHandler;

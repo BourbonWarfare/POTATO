@@ -2,7 +2,7 @@
 
 GVAR(ehAdded) = false;
 
-["UpdateAISettings", {
+[QGVAR(UpdateAISettings), {
     TRACE_1("UpdateAISettings EH",_this);
     
     //If EH is not installed, add it now
@@ -18,12 +18,11 @@ GVAR(ehAdded) = false;
             [_x] call FUNC(setSkillsLocal);
         };
     } forEach allUnits;
-}] call ace_common_fnc_addEventHandler;
+}] call CBA_fnc_addEventHandler;
 
-["SettingsInitialized", {
-    TRACE_1("SettingsInitialized eh", GVAR(aiSkill_set));
+["ace_settingsInitialized", {
+    TRACE_1("ace_settingsInitialized eh", GVAR(aiSkill_set));
     if (GVAR(aiSkill_set)) then {
-        ["UpdateAISettings", []] call ACEFUNC(common,localEvent);
+        [QGVAR(UpdateAISettings), []] call CBA_fnc_localEvent;
     };
-}] call ACEFUNC(common,addEventHandler);
-
+}] call CBA_fnc_addEventHandler;

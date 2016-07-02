@@ -54,9 +54,9 @@ _mortarVeh disableNVGEquipment ((hmd _player) == "");
     };
     
     //Check leveling system
-    if (ACE_time > _levelCheck) then {
-        _args set [2, (ACE_time + 5)];
+    if (CBA_missionTime > _levelCheck) then {
+        _args set [2, (CBA_missionTime + 5)];
         [_mortarVeh, false] call potato_vz99_fnc_levelToGround;
     };
     
-}, 0, [_player, _mortarVeh, (ACE_time + 1)]] call CBA_fnc_addPerFrameHandler;
+}, 0, [_player, _mortarVeh, (CBA_missionTime + 1)]] call CBA_fnc_addPerFrameHandler;

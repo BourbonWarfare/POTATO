@@ -12,4 +12,4 @@ if ((_selectedPersonIndex < 0) || {_selectedPersonIndex >= (count _listOfUnits)}
 private _selectedPerson = _listOfUnits select _selectedPersonIndex;
 if (isNull _selectedPerson) exitWith {};
 
-[QGVAR(resetGear), _selectedPerson, [_selectedPerson]] call ACEFUNC(common,objectEvent);
+[QGVAR(resetGear), [_selectedPerson], [_selectedPerson]] call CBA_fnc_targetEvent;

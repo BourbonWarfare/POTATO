@@ -3,10 +3,8 @@ class display3DEN {
     class Controls {
         class MenuStrip: ctrlMenuStrip {
             class Items {
-                items[] += {QUOTE(PREFIX)}; // += must be used; you want to expand the array, not override it!
                 class PREFIX {
-                    text = "POTATO"; // Item text
-                    items[] = {QGVAR(briefings)};
+                    items[] += {QGVAR(briefings)};
                 };
                 class GVAR(briefings) {
                     text = "Mission Briefings";
@@ -32,17 +30,17 @@ class Cfg3DEN {
             };
         };
         class GVAR(bigEdit): Edit {
-            h = "5 * 5 * (pixelH * 1.25 * 4)";
+            h = "5 * 5 * (pixelH * pixelGrid * 0.25)";
             class Controls: Controls {
                 class Title: Title {
-                    h = "5 * 5 * (pixelH * 1.25 * 4)";
-                    w = "30 * (pixelW * 1.25 * 4)";
+                    h = "5 * 5 * (pixelH * pixelGrid * 0.25)";
+                    w = "30 * (pixelW * pixelGrid * 0.25)";
                 };
                 class Value: Value {
                     style = 16; //multi line
-                    x = "30 * (pixelW * 1.25 * 4)";
-                    w = "100 * (pixelW * 1.25 * 4)";
-                    h = "5 * 5 * (pixelH * 1.25 * 4)";
+                    x = "30 * (pixelW * pixelGrid * 0.25)";
+                    w = "100 * (pixelW * pixelGrid * 0.25)";
+                    h = "5 * 5 * (pixelH * pixelGrid * 0.25)";
                 };
             };
         };
