@@ -5,7 +5,8 @@
  * Arguments:
  * 0: Parameters for passed through function <ANY>
  * 1: Function to be passed to the HC (or server if no HC is available) <STRING>
- * 2: Should this function exit if not called on server? (optional, default false) <BOOL>
+ * 2: Should this function be spawned instead of called on the remote machine? (optional, default false) <BOOL>
+ * 3: Should this function exit if not called on server? (optional, default false) <BOOL>
  *
  * Return Value:
  * nil if there was an error, otherwise an empty string <ANY>

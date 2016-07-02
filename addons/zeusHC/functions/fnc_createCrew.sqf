@@ -1,22 +1,19 @@
 /*
  * Author: AACO
- * Function used to safely spawn groups, will check for a group count and a total AI count
+ * Function used to safely spawn a crew, will check for a group count and a total AI count
  *
  * Arguments:
- * 0: side of the group you want spawned <SIDE>
- * 1: location you want the units to spawn <ARRAY>
- * 2: array of unit classnames you want added to the group <ARRAY>
+ * 0: side of the crew you want spawned <SIDE>
+ * 1: vehicle you want the crew added to <OBJECT>
+ * 2: classname of the units spawned as the crew <STRING>
  * 3: should the units be spawned in a delayed fashion *MUST BE EXECUTED IN A SCHEDULED ENVIRONMENT!!* (optional, default: false) <BOOL>
- * 4: special formation to spawn the group with (optional, default: "NONE") <STRING>
- * 5: code you want to execute on each unit. _this will be the created unit (optional) <STRING>
 
  *
  * Return Value:
  * The created group or grpNull if the group couldn't be created <GROUP>
  *
  * Examples:
- * [west, position player, ["SoldierWB"]] call potato_zeusHC_fnc_createGroup;
- * [east, [1,2,3], ["SoldierWB","SoldierWB"], "FORM", "_this setPos [4,5,6];"] call potato_zeusHC_fnc_createGroup;
+ * [west, vic, "SoldierWB", true] spawn potato_zeusHC_fnc_createCrew;
  *
  * Public: Yes
  */

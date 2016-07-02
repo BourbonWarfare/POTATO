@@ -1,5 +1,5 @@
 /*
- * Author: AACO`
+ * Author: AACO
  * logic called when an ungarrison all groups module is placed
  */
 

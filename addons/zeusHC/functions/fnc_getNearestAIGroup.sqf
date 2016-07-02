@@ -1,6 +1,17 @@
 /*
- * Author: AACO`
- * logic called when a fix nearest group module is placed
+ * Author: AACO
+ * Function to get the nearest AI group compared to the given logic
+ *
+ * Arguments:
+ * 0: Object to compare group leaders to <OBJECT>
+ *
+ * Return Value:
+ * grpNull if there was an error, the closest group to the provided object <GROUP>
+ *
+ * Examples:
+ * [player] call potato_zeusHC_fnc_getNearestAIGroup;
+ *
+ * Public: Yes
  */
 
 #include "script_component.hpp"
