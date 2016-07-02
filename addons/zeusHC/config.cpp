@@ -74,6 +74,7 @@ class CfgPatches {
             QGVAR(ind_fireteam),
             QGVAR(ind_squad),
             QGVAR(ind_rhsZsu),
+            QGVAR(ind_gazZu),
             QGVAR(ind_rhsBTR60),
             QGVAR(ind_carModernGmg),
             QGVAR(ind_carModernHmg),

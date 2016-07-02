@@ -322,6 +322,10 @@ class CfgVehicles {
         displayName = "AA: ZSU 23 Shilka";
         GVAR(createVic) = "rhs_zsu234_aa";
     };
+    class GVAR(ind_gazZu): GVAR(ind_rifleman) {
+        displayName = "AA: GAZ ZU 23";
+        GVAR(createVic) = "rhsgref_ins_g_gaz66_zu23";
+    };
     class GVAR(ind_rhsBTR60): GVAR(ind_rifleman) {
         displayName = "APC: BTR-60";
         GVAR(createVic) = "rhs_btr60_vv";
@@ -340,15 +344,15 @@ class CfgVehicles {
     };
     class GVAR(ind_rhsUazGmg): GVAR(ind_rifleman) {
         displayName = "Car: UAZ GMG";
-        GVAR(createVic) = "rhs_uaz_ags_chdkz";
+        GVAR(createVic) = "rhsgref_ins_g_uaz_ags";
     };
     class GVAR(ind_rhsUazHmg): GVAR(ind_rifleman) {
         displayName = "Car: UAZ HMG";
-        GVAR(createVic) = "rhs_uaz_dshkm_chdkz";
+        GVAR(createVic) = "rhsgref_ins_g_uaz_dshkm_chdkz";
     };
     class GVAR(ind_rhsUazSpg): GVAR(ind_rifleman) {
         displayName = "Car: UAZ SPG-9";
-        GVAR(createVic) = "rhs_uaz_spg9_chdkz";
+        GVAR(createVic) = "rhsgref_ins_g_uaz_spg9";
     };
     class GVAR(ind_heliAttack): GVAR(ind_rifleman) {
         displayName = "Heli-Attack: Wildcat";
@@ -510,11 +514,11 @@ class CfgVehicles {
         scopeCurator = 2;
         displayName = "Ungarrison nearest group";
         category = QGVAR(util);
-        function = QFUNC(fixNearestGroupZeus);
+        function = QFUNC(ungarrisonNearestGroupZeus);
     };
     class GVAR(ungarrison_all_groups): GVAR(ungarrison_nearest_group) {
         displayName = "Ungarrison all groups";
-        function = QFUNC(fixAllGroupsZeus);
+        function = QFUNC(ungarrisonAllGroupsZeus);
     };
     class GVAR(move_all_to_hc): GVAR(ungarrison_nearest_group) {
         displayName = "Move all AI to HC";

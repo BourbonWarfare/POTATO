@@ -33,16 +33,17 @@ _this spawn {
 
     private _index = (count (units _group)) - 1;
     while {count (units _group) > 0} do {
-        private _newUnit = _newGroup createUnit [typeOf _x, [0,0,0], [], 50, "NONE"];
+        private _unit = (units _group) select _index;
+        private _newUnit = _newGroup createUnit [typeOf _unit, [0,0,0], [], 50, "NONE"];
 
-        if (leader _group == _x) then {
+        if (leader _group == _unit) then {
             _newGroup selectLeader _newUnit;
         };
 
         sleep 1;
 
-        _newUnit setDir direction _x;
-        switch (stance _x) do {
+        _newUnit setDir direction _unit;
+        switch (stance _unit) do {
             case ("PRONE"): {
                 _newUnit setUnitPos "DOWN";
             };
@@ -53,8 +54,8 @@ _this spawn {
                 _newUnit setUnitPos "UP";
             };
         };
-        private _unitPosition = position _x;
-        deleteVehicle _x;
+        private _unitPosition = position _unit;
+        deleteVehicle _unit;
         _newUnit setPos _unitPosition;
         _newUnit setUnitPos "AUTO";
 

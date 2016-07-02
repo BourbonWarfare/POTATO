@@ -35,21 +35,27 @@ private _crew = [];
 private _crewCount = {
     _x params ["", "_role", "_cargoIndex"];
     if (_cargoIndex == -1 && _role in ["driver","commander","gunner"]) then {
-        _crew pushBack _x;
+        if (_role == "gunner" && {!("gunner" in _crew)}) then {
+            _crew = ["gunner"] + _crew;
+        } else {
+            _crew pushBackUnique _role;
+        };
+
         true
     } else {
         false
     };
 } count (fullCrew [_vehicle, "", true]);
 
+TRACE_1("",_crew);
+
 if ([_side, _crewCount] call FUNC(canCreateGroup)) then {
     private _group = createGroup _side;
 
     {
-        _x params ["_cfgCrewType", "_role"];
         private _unit = _group createUnit [_crewType, [0,0,0], [], 0, "NONE"];
 
-        switch (_role) do {
+        switch (_x) do {
             case ("driver"): {
                 _unit assignAsDriver _vehicle;
                 _unit moveInDriver _vehicle;
