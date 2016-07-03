@@ -82,3 +82,11 @@ class CfgWeapons {
         };
     };
 };
+
+class CfgInGameUI {
+    class SquadRadar {
+        //78-64-40
+        // backgroundTexture = "";
+        compassBackgroundTexture = QUOTE(PATHTOF(ui\squadRadarBackground_Darker_ca.paa));
+    };
+};
