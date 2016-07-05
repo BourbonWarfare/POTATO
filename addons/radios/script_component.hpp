@@ -15,5 +15,5 @@
 
 #include "\z\potato\addons\core\script_macros.hpp"
 
-ACRE_FUNC(var1) DOUBLES(acre_api_fnc,var1)
-ACRE_QFUNC(var1) QUOTE(DOUBLES(acre_api_fnc,var1))
+#define ACRE_FUNC(var1) DOUBLES(acre_api_fnc,var1)
+#define ACRE_QFUNC(var1) QUOTE(DOUBLES(acre_api_fnc,var1))

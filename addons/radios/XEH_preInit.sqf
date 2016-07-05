@@ -12,7 +12,7 @@ GVAR(defaultLanguages) = [
   ["fr", "French"]
 ];
 
-GVAR(initilized) = false;
+GVAR(initialized) = false;
 
 // catch events fired pre post-init
 GVAR(runInitNow) = false;

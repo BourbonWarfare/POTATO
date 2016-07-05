@@ -45,7 +45,7 @@ if (!GVAR(usePotato)) exitWith {TRACE_1("disabled",GVAR(usePotato))};
 
         // send event to the system where the owner is local
         if (isPlayer _unit) then {
-            [QGVAR(gearAssigned), [], owner _unit] call CBA_fnc_targetEvent;
+            [QGVAR(gearAssigned), [], _unit] call CBA_fnc_targetEvent;
         };
     };
 
@@ -72,7 +72,7 @@ if (!GVAR(usePotato)) exitWith {TRACE_1("disabled",GVAR(usePotato))};
 
     // send event to the system where the owner is local
     if (isPlayer _unit) then {
-        [QGVAR(gearAssigned), [], owner _unit] call CBA_fnc_targetEvent;
+        [QGVAR(gearAssigned), [], _unit] call CBA_fnc_targetEvent;
     };
 
     TRACE_2("done",_unit,(diag_tickTime - _startTime));
