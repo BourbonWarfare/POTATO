@@ -20,7 +20,7 @@
                     GVAR(gearEHID) = [QEGVAR(assignGear,gearAssigned), FUNC(configureRadios)] call CBA_fnc_addEventHandler;
 
                     if (GVAR(runInitNow)) then {
-                        [FUNC(configureRadios)] call CBA_fnc_execNextFrame;
+                        [] call FUNC(configureRadios);
                     };
                 }
             ] call CBA_fnc_waitUntilAndExecute;

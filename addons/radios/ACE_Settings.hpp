@@ -24,6 +24,10 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 8;
     };
+    class GVAR(addCommonChannelFreq) {
+        typeName = "SCALAR";
+        value = 90.75;
+    };
     class GVAR(addCommonChannelAllMR) {
         typeName = "BOOL";
         value = 0;
