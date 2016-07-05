@@ -1,7 +1,7 @@
 /*
  *
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
@@ -9,25 +9,27 @@ TRACE_1("params",_this);
 [GVAR(terrainInterference)] call ACRE_FUNC(setLossModelScale);
 
 //Setup babble languages:
-GVAR(languages) = missionNamespace getVariable [QGVAR(availableLanguages), GVAR(defaultLanguages)];
 {
     _x call ACRE_FUNC(babelAddLanguageType);
-} forEach GVAR(languages);
+} forEach GVAR(availableLanguages);
 
 // copy radio presets
-TRACE_3("",GVAR(westPresetSR),GVAR(westPresetMR),GVAR(westPresetLR));
+TRACE_3("west base presets",GVAR(westPresetSR),GVAR(westPresetMR),GVAR(westPresetLR));
 ["ACRE_PRC343", GVAR(westPresetSR), WEST_SR] call ACRE_FUNC(copyPreset);
 ["ACRE_PRC148", GVAR(westPresetMR), WEST_MR] call ACRE_FUNC(copyPreset);
 ["ACRE_PRC117F", GVAR(westPresetLR), WEST_LR] call ACRE_FUNC(copyPreset);
 
+TRACE_3("east base presets",GVAR(eastPresetSR),GVAR(eastPresetMR),GVAR(eastPresetLR));
 ["ACRE_PRC343", GVAR(eastPresetSR), EAST_SR] call ACRE_FUNC(copyPreset);
 ["ACRE_PRC148", GVAR(eastPresetMR), EAST_MR] call ACRE_FUNC(copyPreset);
 ["ACRE_PRC117F", GVAR(eastPresetLR), EAST_LR] call ACRE_FUNC(copyPreset);
 
+TRACE_3("indy base presets",GVAR(indyPresetSR),GVAR(indyPresetMR),GVAR(indyPresetLR));
 ["ACRE_PRC343", GVAR(indyPresetSR), INDY_SR] call ACRE_FUNC(copyPreset);
 ["ACRE_PRC148", GVAR(indyPresetMR), INDY_MR] call ACRE_FUNC(copyPreset);
 ["ACRE_PRC117F", GVAR(indyPresetLR), INDY_LR] call ACRE_FUNC(copyPreset);
 
+TRACE_3("civ base presets",GVAR(civPresetSR),GVAR(civPresetMR),GVAR(civPresetLR));
 ["ACRE_PRC343", GVAR(civPresetSR), CIV_SR] call ACRE_FUNC(copyPreset);
 ["ACRE_PRC148", GVAR(civPresetMR), CIV_MR] call ACRE_FUNC(copyPreset);
 ["ACRE_PRC117F", GVAR(civPresetLR), CIV_LR] call ACRE_FUNC(copyPreset);

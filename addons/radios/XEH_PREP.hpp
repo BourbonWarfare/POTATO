@@ -1,4 +1,12 @@
 TRACE_1("",QUOTE(ADDON));
 
-PREP(initializeRadios);
+
 PREP(configureRadios);
+PREP(initializeRadios);
+
+PREP(acreControlLoad);
+
+PREP(channelControlLoad);
+PREP(channelControlSetChange);
+PREP(channelControlRadioChange);
+PREP(channelControlChannelChange);
