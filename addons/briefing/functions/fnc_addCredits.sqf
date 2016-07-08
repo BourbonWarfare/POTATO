@@ -4,8 +4,8 @@
 params ["_unit"];
 TRACE_1("params",_unit);
 
-private _missionName = getText (missionConfigFile >> "onLoadName");
-private _authorName = getText (missionConfigFile >> "author");
+private _missionName = getMissionConfigValue ["onLoadName", "???"];
+private _authorName = getMissionConfigValue ["author", "???"];
 private _worldName = getText (configFile >> "CfgWorlds" >> worldName >> "description");
 
 private _missionFrameworkDate = getMissionConfigValue ["bwmfDate", "Pre-March2016"];

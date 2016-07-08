@@ -31,7 +31,7 @@
  *
  * Public: No
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
@@ -64,8 +64,7 @@ private _vehicle = vehicle (leader _vehicleGroup);
 {
     _x allowFleeing 0;
     _x setVariable ["potato_aiFrameworks_vcom_disabledUnit", true];
-    nil
-} count (crew _vehicle);
+} forEach (crew _vehicle);
 
 if (_lzSize == 150) then {
     _vehicleUnloadWp setWaypointTimeout [0,0,0]; // Take off ASAP
@@ -97,7 +96,7 @@ while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
     };
 
     // Spawn the squad members.
-    private _infantryGroup = [_side,_spawnPosition,_squadMembers] call EFUNC(zeusHC,createGroup);
+    private _infantryGroup = [_side,[0,0,0],_squadMembers,true] call EFUNC(zeusHC,createGroup);
     if (isNull _infantryGroup) exitWith {};
 
     // Set the default behaviour of the squad
@@ -126,6 +125,6 @@ while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do {
     // Load the units into the vehicle.
     {
         _x moveInCargo _vehicle;
-        nil
-    } count (units _infantryGroup);
+    } forEach (units _infantryGroup);
+    sleep 1;
 };

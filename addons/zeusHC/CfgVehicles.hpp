@@ -322,6 +322,10 @@ class CfgVehicles {
         displayName = "AA: ZSU 23 Shilka";
         GVAR(createVic) = "rhs_zsu234_aa";
     };
+    class GVAR(ind_gazZu): GVAR(ind_rifleman) {
+        displayName = "AA: GAZ ZU 23";
+        GVAR(createVic) = "rhsgref_ins_g_gaz66_zu23";
+    };
     class GVAR(ind_rhsBTR60): GVAR(ind_rifleman) {
         displayName = "APC: BTR-60";
         GVAR(createVic) = "rhs_btr60_vv";
@@ -340,15 +344,15 @@ class CfgVehicles {
     };
     class GVAR(ind_rhsUazGmg): GVAR(ind_rifleman) {
         displayName = "Car: UAZ GMG";
-        GVAR(createVic) = "rhs_uaz_ags_chdkz";
+        GVAR(createVic) = "rhsgref_ins_g_uaz_ags";
     };
     class GVAR(ind_rhsUazHmg): GVAR(ind_rifleman) {
         displayName = "Car: UAZ HMG";
-        GVAR(createVic) = "rhs_uaz_dshkm_chdkz";
+        GVAR(createVic) = "rhsgref_ins_g_uaz_dshkm_chdkz";
     };
     class GVAR(ind_rhsUazSpg): GVAR(ind_rifleman) {
         displayName = "Car: UAZ SPG-9";
-        GVAR(createVic) = "rhs_uaz_spg9_chdkz";
+        GVAR(createVic) = "rhsgref_ins_g_uaz_spg9";
     };
     class GVAR(ind_heliAttack): GVAR(ind_rifleman) {
         displayName = "Heli-Attack: Wildcat";
@@ -436,25 +440,21 @@ class CfgVehicles {
         displayName = "APC: BTR-70";
         GVAR(createVic) = "rhs_btr70_msv";
     };
+    class GVAR(msv_rhsBTR80): GVAR(msv_rifleman) {
+        displayName = "APC: BTR-80";
+        GVAR(createVic) = "rhs_btr80_msv";
+    };
     class GVAR(msv_carBrdm): GVAR(msv_rifleman) {
         displayName = "Car: BRDM-2";
-        GVAR(createVic) = "Cha_BRDM2_TK";
+        GVAR(createVic) = "rhsgref_BRDM2_msv";
     };
     class GVAR(msv_carBrdmAtgm): GVAR(msv_rifleman) {
         displayName = "Car: BRDM-2 Konkers";
-        GVAR(createVic) = "Cha_BRDM2_ATGM_TK";
+        GVAR(createVic) = "rhsgref_BRDM2_ATGM_msv";
     };
-    class GVAR(msv_rhsUazGmg): GVAR(msv_rifleman) {
-        displayName = "Car: UAZ GMG";
-        GVAR(createVic) = "rhs_uaz_ags_chdkz";
-    };
-    class GVAR(msv_rhsUazHmg): GVAR(msv_rifleman) {
-        displayName = "Car: UAZ HMG";
-        GVAR(createVic) = "rhs_uaz_dshkm_chdkz";
-    };
-    class GVAR(msv_rhsUazSpg): GVAR(msv_rifleman) {
-        displayName = "Car: UAZ SPG-9";
-        GVAR(createVic) = "rhs_uaz_spg9_chdkz";
+    class GVAR(msv_rhsGazGmgMmg): GVAR(msv_rifleman) {
+        displayName = "Car: GAZ GMG/MMG";
+        GVAR(createVic) = "rhs_tigr_sts_msv";
     };
     class GVAR(msv_heliAttackHeavy): GVAR(msv_rifleman) {
         displayName = "Heli-Attack (Heavy): MI-24";
@@ -509,16 +509,24 @@ class CfgVehicles {
     };
 
     //------------ Utility modules ----------
-    class GVAR(fix_nearest_group): GVAR(base_prebuilt) {
+    class GVAR(ungarrison_nearest_group): GVAR(base_prebuilt) {
         scope = 1;
         scopeCurator = 2;
-        displayName = "Fix nearest group";
+        displayName = "Ungarrison nearest group";
         category = QGVAR(util);
-        function = QFUNC(fixNearestGroupZeus);
+        function = QFUNC(ungarrisonNearestGroupZeus);
     };
-    class GVAR(fix_all_groups): GVAR(fix_nearest_group) {
-        displayName = "Fix all groups";
-        function = QFUNC(fixAllGroupsZeus);
+    class GVAR(ungarrison_all_groups): GVAR(ungarrison_nearest_group) {
+        displayName = "Ungarrison all groups";
+        function = QFUNC(ungarrisonAllGroupsZeus);
+    };
+    class GVAR(move_all_to_hc): GVAR(ungarrison_nearest_group) {
+        displayName = "Move all AI to HC";
+        function = QFUNC(transferAllToHCZeus);
+    };
+    class GVAR(fix_nearest_group): GVAR(ungarrison_nearest_group) {
+        displayName = "'Fix' nearest group";
+        function = QFUNC(fixNearestGroupZeus);
     };
 
     //------------ Custom group/vehicle modules ----------
@@ -532,11 +540,6 @@ class CfgVehicles {
     class GVAR(spawn_a_vehicle): GVAR(build_a_group) {
         displayName = "Spawn-a-Vic";
         function = QFUNC(spawnAVicZeus);
-    };
-    class GVAR(move_all_to_hc): GVAR(build_a_group) {
-        isGlobal = 0;
-        displayName = "Move all AI to HC";
-        function = QFUNC(transferAllToHCZeus);
     };
     class GVAR(garrison): GVAR(build_a_group) { //TODO: refactor this to be a lot more dynamic
         scope = 2;

@@ -55,7 +55,9 @@ params ["_unit"];
 
                 switch (true) do {
                     // suppressed, move to cover
-                    case (getSuppression _unit > 0 && {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}): {
+                    case (VGVAR(enableSupressedUnits)
+                            && getSuppression _unit > 0
+                            && {[_unit,VQGVAR(movedRecentlyCover),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold)}): {
                         TRACE_1("suppressed, moving to cover",_unit);
                         [_unit] call VFUNC(moveToCover);
                     };
@@ -191,8 +193,11 @@ params ["_unit"];
         } else {
             // handle unit being driver
             if (VGVAR(useEnhancedDriving) && {driver _vehicle == _unit}) then {
-                if (_inCombat || {!([_unit,VQGVAR(movingToSupport),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold))}) then {
-                    [_unit] call VFUNC(moveInCombat);
+                if (_inCombat && {!([_unit,VQGVAR(movingToSupport),VGVAR(moveCompletedThreshold)] call VFUNC(pastThreshold))}) then {
+                    if ([_unit,VQGVAR(movedRecently),VGVAR(movedRecentlyThreshold)] call VFUNC(pastThreshold)) then {
+                        [_unit] call VFUNC(moveInCombat);
+                    };
+
                     [_unit] call VFUNC(vehicleHandle);
                 };
             } else {
@@ -201,7 +206,7 @@ params ["_unit"];
                     _unit setSkill ["aimingSpeed", 1];
                     _unit setSkill ["spotDistance", 1];
 
-                    if (_inCombat) then {
+                    if (_inCombat && [_unit,VQGVAR(gunnerPrioritization),VGVAR(gunnerPrioritizationThreshold)] call VFUNC(pastThreshold)) then {
                         [_unit,_vehicle,_group] call VFUNC(gunnerTargeting);
                     };
                 };

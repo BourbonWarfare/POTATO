@@ -5,7 +5,8 @@
  * Arguments:
  * 0: Parameters for passed through function <ANY>
  * 1: Function to be passed to the HC (or server if no HC is available) <STRING>
- * 2: Should this function exit if not called on server? (optional, default false) <BOOL>
+ * 2: Should this function be spawned instead of called on the remote machine? (optional, default false) <BOOL>
+ * 3: Should this function exit if not called on server? (optional, default false) <BOOL>
  *
  * Return Value:
  * nil if there was an error, otherwise an empty string <ANY>
@@ -21,10 +22,14 @@
 #include "script_component.hpp"
 
 TRACE_1("params",_this);
-params ["_remoteParameters", "_functionToCall", ["_exitIfNotServer", false, [false]]];
+params ["_remoteParameters", "_functionToCall", ["_spawn", false, [false]], ["_exitIfNotServer", false, [false]]];
 
 if (isServer) exitWith {
-    _remoteParameters remoteExecCall [_functionToCall, [] call FUNC(getSpawnMachineId)]
+    if (_spawn) then {
+        _remoteParameters remoteExec [_functionToCall, [] call FUNC(getSpawnMachineId)]
+    } else {
+        _remoteParameters remoteExecCall [_functionToCall, [] call FUNC(getSpawnMachineId)]
+    };
 };
 
 if (_exitIfNotServer) exitWith {
@@ -32,4 +37,4 @@ if (_exitIfNotServer) exitWith {
     nil
 };
 
-[_remoteParameters, _functionToCall, true] remoteExecCall [QFUNC(hcPassthrough), SERVER_CLIENT_ID]
+[_remoteParameters, _functionToCall, _spawn, true] remoteExecCall [QFUNC(hcPassthrough), SERVER_CLIENT_ID]

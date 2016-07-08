@@ -28,4 +28,4 @@ if (_leaderSide < 0 || _leaderSide > 3) exitWith { diag_log QUOTE(Leader passed 
 
 private _side = switch (_leaderSide) do { case 0: {east}; case 1: {west}; case 2: {resistance}; case 3: {civilian}; };
 
-[_side, _location, _unitsToAdd, "FORM"] call FUNC(createGroup);
+[_side, _location, _unitsToAdd, true, "FORM"] spawn FUNC(createGroup);

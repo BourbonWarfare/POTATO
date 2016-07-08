@@ -11,7 +11,9 @@ private _cargoList = assignedCargo _unitVehicle;
 private _unitGroup = group _unit;
 private _unitGroupLeader = leader _unitGroup;
 
-if (_nearestEnemy distance _unit < 600 && {(count _cargoList) > 0}) then {
+if (VGVAR(dismountBeforeEnemies)
+        && {(_nearestEnemy distance _unit) < VGVAR(dismountBeforeEnemiesDistance)}
+        && {(count _cargoList) > 0}) then {
 
     [_unitVehicle,_cargoList] spawn {
         params ["_unitVehicle","_cargoList"];
@@ -29,11 +31,15 @@ if (_nearestEnemy distance _unit < 600 && {(count _cargoList) > 0}) then {
             doGetOut _x;
             [_x] orderGetIn false;
             _x action ["eject", _unitVehicle];
+            nil
         } count _cargoList;
     };
 };
 
-if ((count (waypoints _unitGroup)) < 2) then {
+if (_unit getVariable [VQGVAR(allowFlankingUnit),false]
+        && {(side _unit) in VGVAR(movementEnabledSides)}
+        && {[_unit,VQGVAR(flanking),VGVAR(flankThreshold)] call VFUNC(pastThreshold)}
+        && {(count (waypoints _unitGroup)) < 2}) then {
     [_unit] call VFUNC(flankManeuver);
 
     if (_unitGroupLeader == _unit) then {
