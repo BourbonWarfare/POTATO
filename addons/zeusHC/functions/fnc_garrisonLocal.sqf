@@ -20,7 +20,7 @@ _this spawn {
     params ["_unitsToAdd","_unitPositions","_side"];
 
     private _building = objNull;
-    private _buildingGroup = [_side, [0,0,0], _unitsToAdd] call FUNC(createGroup);
+    private _buildingGroup = [_side, [0,0,0], _unitsToAdd, true] call FUNC(createGroup);
 
     if ((isNil "_buildingGroup") || {isNull _buildingGroup}) exitWith {
         ERROR("Group Could not be created");

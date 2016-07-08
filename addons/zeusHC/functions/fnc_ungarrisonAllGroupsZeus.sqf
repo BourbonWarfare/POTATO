@@ -1,6 +1,6 @@
 /*
- * Author: AACO`
- * logic called when a fix all groups module is placed
+ * Author: AACO
+ * logic called when an ungarrison all groups module is placed
  */
 
 #include "script_component.hpp"
@@ -32,7 +32,7 @@ private _ownerToGroups = [[],[]];
 
 {
     private _groups = (_ownerToGroups select 1) select _forEachIndex;
-    [_groups] remoteExecCall [QFUNC(fixGroupBulk), _x];
+    [_groups] remoteExecCall [QFUNC(ungarrisonGroupBulk), _x];
 } forEach (_ownerToGroups select 0);
 
 deleteVehicle _logic;

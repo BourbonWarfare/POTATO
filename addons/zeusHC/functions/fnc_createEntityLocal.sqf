@@ -21,10 +21,10 @@ private _crewArmor = getText (_config >> QGVAR(crewArmor));
 TRACE_5("",_faction,_createVic,_createUnits,_crewAir,_crewArmor);
 
 private _side = switch (_faction) do {
-case ("east");
-case ("msv"): {east};
-case ("west"): {west;};
-case ("ind"): {resistance;};
+    case ("east");
+    case ("msv"): {east};
+    case ("west"): {west;};
+    case ("ind"): {resistance;};
     default {sideUnknown};
 };
 
@@ -36,40 +36,18 @@ if (_createVic != "") then {
 
     switch (true) do {
         case (_createVic isKindOf "Air"): {_createArg = "FLY"; _crewType = _crewAir};
-        case (_createVic isKindOf "Wheeled_APC"): {_crewType = _crewArmor};
+        case (_createVic isKindOf "Wheeled_APC");
         case (_createVic isKindOf "Wheeled_APC_F"): {_crewType = _crewArmor};
         case (_createVic isKindOf "Tank"): {_crewType = _crewArmor};
     };
 
-    private _newVehicle = createVehicle [_createVic,_posATL, [], 0, _createArg];
+    private _newVehicle = createVehicle [_createVic, _posATL, [], 0, _createArg];
     _newVehicle setVariable ["F_Gear", "Empty", true]; //Clear gear on these [BWMF]
 
-    private _crew = fullCrew [_newVehicle, "", true];
-    if ([_side, [_newVehicle] call FUNC(getCrewCount)] call FUNC(canCreateGroup)) then {
-        private _newGroup = createGroup _side;
-
-        //custom `createVehicleCrew`
-        {
-            _x params ["", "_role", "_cargoIndex", "_turretPath"];
-            if (_cargoIndex == -1 && {(_turretPath isEqualTo []) || {!(_newVehicle lockedTurret _turretPath)}}) then { //anything besides a cargo slot (and not locked)
-                _unit = _newGroup createUnit [_crewType, _posATL, [], 0, "NONE"];
-                TRACE_2("",_crewType,_unit);
-                if (_role == "driver") then {
-                    _unit moveInDriver _newVehicle;
-                } else {
-                    _unit moveInTurret [_newVehicle, _turretPath];
-                };
-            };
-        } forEach (fullCrew [_newVehicle, "", true]);
-
-        _newGroup selectLeader (effectiveCommander _newVehicle);
-        _newGroup addVehicle _newVehicle;
-    } else {
-        deleteVehicle _newVehicle;
-    };
+    [_side, _newVehicle, _crewType, true] spawn FUNC(createCrew);
 } else {
     if (!_curatorCanAttach) then {
-        [_side, _posATL, _createUnits, "FORM"] call FUNC(createGroup);
+        [_side, _posATL, _createUnits, true, "FORM"] spawn FUNC(createGroup);
     } else {
         //Paradrop / dismounts:
         [_attachedVehicle, _side, _createUnits, _placerOwner] call FUNC(createEntityDismounts);

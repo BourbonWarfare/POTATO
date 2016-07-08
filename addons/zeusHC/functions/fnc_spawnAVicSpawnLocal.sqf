@@ -40,16 +40,15 @@ private _vehicle = switch (tolower _simulation) do {
 //Set a good velocity in the correct direction.
 if (_simulation == "airplanex") then { _vehicle setVelocity [100, 100, 0]; };
 
-if ([_side, [_vehicle] call FUNC(getCrewCount)] call FUNC(canCreateGroup)) then {
-    private _group = createGroup _side;
-
-    //Spawn the crew and add the vehicle to the group.
-    createVehicleCrew _vehicle;
-    (crew _vehicle) joinSilent _group;
-    _group addVehicle _vehicle;
-    _group selectLeader (commander _vehicle);
-    _group
+private _crewType = if (isText (configFile >> "CfgVehicles" >> _vehicleToAdd >> "crew")) then {
+    getText (configFile >> "CfgVehicles" >> _vehicleToAdd >> "crew")
 } else {
-    deleteVehicle _vehicle;
-    grpNull
+    switch (_side) do {
+        case (west): { "B_crew_F" };
+        case (east): { "O_crew_F" };
+        case (resistance): { "I_crew_F" };
+        default { "C_man_w_worker_F" };
+    }
 };
+
+[_side, _vehicle, _crewType, true] call FUNC(createCrew);
