@@ -100,6 +100,8 @@ class Cfg3DEN {
         class GVAR(radioChannels): TitleWide {
             onLoad = QUOTE(_this call FUNC(channelControlLoad));
             onUnload = "";
+            attributeSave = QUOTE(_this call FUNC(channelAttributeSave));
+            attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(channelAttributeLoad));
             //attributeLoad = "['attributeLoad',_this] call (uinamespace getvariable 'AmmoBox_script');";
             //attributeSave = "['attributeSave',_this] call (uinamespace getvariable 'AmmoBox_script');";
             h = (18 * SIZE_M + 1) * GRID_H;
@@ -120,6 +122,8 @@ class Cfg3DEN {
         class GVAR(configureAcre): TitleWide {
             onLoad = QUOTE(_this call FUNC(acreControlLoad));
             onUnload = "";
+            attributeSave = QUOTE(_this call FUNC(acreAttributeSave));
+            attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(acreAttributeLoad));
             //attributeLoad = "['attributeLoad',_this] call (uinamespace getvariable 'AmmoBox_script');";
             //attributeSave = "['attributeSave',_this] call (uinamespace getvariable 'AmmoBox_script');";
             h = (26 * SIZE_M + 1) * GRID_H;
@@ -199,6 +203,7 @@ class Cfg3DEN {
                         displayName = "Unit Radio Setup";
                         property = QGVAR(radio);
                         control = QGVAR(radioChannels);
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setChannels));
                     };
                 };
             };
