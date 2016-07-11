@@ -4,6 +4,7 @@
 
 #include "script_component.hpp"
 TRACE_1("params",_this);
+
 params ["_ctrlSet","_index"];
 
 private _ctrlGroup = ctrlParentControlsGroup _ctrlSet;

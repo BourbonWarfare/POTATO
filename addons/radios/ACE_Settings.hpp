@@ -62,7 +62,7 @@ class ACE_Settings {
         typeName = "ARRAY";
         value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
     };
-    class GVAR(westDefaultLanguage) { // language must be defined
+    class GVAR(westDefaultLanguages) { // language must be defined
         typeName = "ARRAY";
         value[] = {"en"};
     };
@@ -100,7 +100,7 @@ class ACE_Settings {
         typeName = "ARRAY";
         value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
     };
-    class GVAR(eastDefaultLanguage) { // language must be defined
+    class GVAR(eastDefaultLanguages) { // language must be defined
         typeName = "ARRAY";
         value[] = {"ru"};
     };
@@ -138,7 +138,7 @@ class ACE_Settings {
         typeName = "ARRAY";
         value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
     };
-    class GVAR(indyDefaultLanguage) { // language must be defined
+    class GVAR(indyDefaultLanguages) { // language must be defined
         typeName = "ARRAY";
         value[] = {"ar"};
     };
@@ -176,7 +176,7 @@ class ACE_Settings {
         typeName = "ARRAY";
         value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
     };
-    class GVAR(civDefaultLanguage) { // language must be defined
+    class GVAR(civDefaultLanguages) { // language must be defined
         typeName = "ARRAY";
         value[] = {"ar"};
     };

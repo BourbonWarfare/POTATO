@@ -8,6 +8,10 @@ PREP(initializeRadios);
 PREP(acreControlLoad);
 PREP(acreAttributeLoad);
 PREP(acreAttributeSave);
+PREP(acreControlSideChange);
+PREP(acreControlRadioChange);
+PREP(acreControlChannelChange);
+PREP(acreControlChannelEditChange);
 
 // 3den channel config
 PREP(setChannels);

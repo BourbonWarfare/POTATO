@@ -102,8 +102,6 @@ class Cfg3DEN {
             onUnload = "";
             attributeSave = QUOTE(_this call FUNC(channelAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(channelAttributeLoad));
-            //attributeLoad = "['attributeLoad',_this] call (uinamespace getvariable 'AmmoBox_script');";
-            //attributeSave = "['attributeSave',_this] call (uinamespace getvariable 'AmmoBox_script');";
             h = (18 * SIZE_M + 1) * GRID_H;
             class Controls: Controls {
                 class SetTitle: Title {
@@ -124,8 +122,6 @@ class Cfg3DEN {
             onUnload = "";
             attributeSave = QUOTE(_this call FUNC(acreAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(acreAttributeLoad));
-            //attributeLoad = "['attributeLoad',_this] call (uinamespace getvariable 'AmmoBox_script');";
-            //attributeSave = "['attributeSave',_this] call (uinamespace getvariable 'AmmoBox_script');";
             h = (26 * SIZE_M + 1) * GRID_H;
             class Controls: Controls {
                 class SetSide: Title {
@@ -162,7 +158,7 @@ class Cfg3DEN {
                     y = 10 * SIZE_M * GRID_H;
                 };
                 class SetChannelName: ctrlEdit {
-                    idc = RADIO_CHANNEL_IDC;
+                    idc = CFG_CHANNEL_IDC;
                     x = SIZE_M * GRID_W;
                     y = 12 * SIZE_M * GRID_H;
                     w = (ATTRIBUTE_TITLE_W + ATTRIBUTE_CONTENT_W - SIZE_M) * GRID_W;
@@ -187,6 +183,7 @@ class Cfg3DEN {
                         displayName = "Group Radio Setup";
                         property = QGVAR(radio);
                         control = QGVAR(radioChannels);
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setChannels));
                     };
                 };
             };
@@ -220,8 +217,9 @@ class Cfg3DEN {
                     class Attributes {
                         class GVAR(acreConfig) {
                             displayName = "West Babel";
-                            property = QGVAR(westBabel);
+                            property = QGVAR(channelsAndBabel);
                             control = QGVAR(configureAcre);
+                            expression = QUOTE([ARR_2(_this,_value)] call FUNC(acreAttributeLoad));
                         };
                     };
                 };

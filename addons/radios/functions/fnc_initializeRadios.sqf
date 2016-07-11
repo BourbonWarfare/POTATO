@@ -131,7 +131,7 @@ TRACE_1("",playerSide);
 switch (playerSide) do {
     case west: {
         if (GVAR(playerLanguages) isEqualTo []) then {
-            GVAR(playerLanguages) = GVAR(westDefaultLanguage);
+            GVAR(playerLanguages) = GVAR(westDefaultLanguages);
         };
         ["ACRE_PRC343", WEST_SR] call ACRE_FUNC(setPreset);
         ["ACRE_PRC148", WEST_MR] call ACRE_FUNC(setPreset);
@@ -139,7 +139,7 @@ switch (playerSide) do {
     };
     case east: {
         if (GVAR(playerLanguages) isEqualTo []) then {
-            GVAR(playerLanguages) = GVAR(eastDefaultLanguage);
+            GVAR(playerLanguages) = GVAR(eastDefaultLanguages);
         };
         ["ACRE_PRC343", EAST_SR] call ACRE_FUNC(setPreset);
         ["ACRE_PRC148", EAST_MR] call ACRE_FUNC(setPreset);
@@ -147,7 +147,7 @@ switch (playerSide) do {
     };
     case independent: {
         if (GVAR(playerLanguages) isEqualTo []) then {
-            GVAR(playerLanguages) = GVAR(indyDefaultLanguage);
+            GVAR(playerLanguages) = GVAR(indyDefaultLanguages);
         };
         ["ACRE_PRC343", INDY_SR] call ACRE_FUNC(setPreset);
         ["ACRE_PRC148", INDY_MR] call ACRE_FUNC(setPreset);
@@ -155,7 +155,7 @@ switch (playerSide) do {
     };
     default { // should just be civs
         if (GVAR(playerLanguages) isEqualTo []) then {
-            GVAR(playerLanguages) = GVAR(civDefaultLanguage);
+            GVAR(playerLanguages) = GVAR(civDefaultLanguages);
         };
         ["ACRE_PRC343", CIV_SR] call ACRE_FUNC(setPreset);
         ["ACRE_PRC148", CIV_MR] call ACRE_FUNC(setPreset);

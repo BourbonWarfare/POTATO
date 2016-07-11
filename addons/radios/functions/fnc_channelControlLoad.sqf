@@ -4,6 +4,7 @@
 
 #include "script_component.hpp"
 TRACE_3("params",_this,get3DENSelected "object",get3DENSelected "group");
+
 params ["_ctrlGroup"];
 
 // get controls
@@ -73,7 +74,7 @@ switch (_side) do {
 };
 
 TRACE_3("prefill",_populatedSR,_populatedMR,_populatedLR); // log channel info
-// populate channel ingo
+// populate channel info
 GVAR(srList) = [_populatedSR, 16] call FUNC(fillChannelArray);
 GVAR(mrList) = [_populatedMR, 99] call FUNC(fillChannelArray);
 GVAR(lrList) = [_populatedLR, 99] call FUNC(fillChannelArray);
