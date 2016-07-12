@@ -20,4 +20,5 @@ lnbClear _ctrlChannels;
 {
     _ctrlChannels lnbAddRow [str (_forEachIndex + 1), _x];
 } forEach _channels;
+
 _ctrlChannels lnbSetCurSelRow (GVAR(selectedChannels) select _index);

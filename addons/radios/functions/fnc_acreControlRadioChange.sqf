@@ -5,7 +5,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_ctrlRadio","_index"];
+params ["_ctrlRadio","_index",["_channelIndex",0,[0]]];
 
 private _ctrlGroup = ctrlParentControlsGroup _ctrlRadio;
 private _ctrlSide = _ctrlGroup controlsGroupCtrl CFG_SIDE_IDC;
@@ -25,4 +25,4 @@ lnbClear _ctrlChannels;
 } forEach _channels;
 
 private _sideIndex = lbCurSel _ctrlSide;
-_ctrlChannels lnbSetCurSelRow ((GVAR(sideChannelArray) select _sideIndex) select _index);
+_ctrlChannels lnbSetCurSelRow _channelIndex;

@@ -14,17 +14,10 @@ private _ctrlChannels = _ctrlGroup controlsGroupCtrl RADIO_CHANNEL_IDC;
 private _ctrlChannelEdit = _ctrlGroup controlsGroupCtrl CFG_CHANNEL_IDC;
 
 GVAR(sideChannelArray) = [
-    [0,0,0], // west
-    [0,0,0], // east
-    [0,0,0], // indy
-    [0,0,0] // civ
-];
-
-GVAR(sideBabelArray) = [
-    0, // west
-    0, // east
-    0, // indy
-    0 // civ
+    [false,false,false], // west
+    [false,false,false], // east
+    [false,false,false], // indy
+    [false,false,false] // civ
 ];
 
 {
@@ -42,6 +35,12 @@ _ctrlRadio lbSetCurSel 0;
 [_ctrlRadio,0] call FUNC(acreControlRadioChange);
 
 _ctrlChannels ctrlAddEventHandler ["lbselchanged",{_this call FUNC(acreControlChannelChange);}];
+_ctrlChannels lnbSetCurSelRow 0;
 [_ctrlChannels,0] call FUNC(acreControlChannelChange);
 
-_ctrlChannelEdit ctrlAddEventHandler ["KeyDown",{_this call FUNC(acreControlChannelEditChange);}];
+//_ctrlChannelEdit ctrlAddEventHandler ["onKillFocus",{_this spawn FUNC(acreControlChannelEditChange);}];
+_ctrlChannelEdit ctrlAddEventHandler ["KeyDown",{_this spawn FUNC(acreControlChannelEditChange);}];
+
+_ctrlBabel ctrlAddEventHandler ["lbselchanged",{_this spawn FUNC(acreControlBabelChange);}];
+//_ctrlBabel lnbSetCurSelRow 0;
+//[_ctrlChannels,0] call FUNC(acreControlChannelChange);

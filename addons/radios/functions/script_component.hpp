@@ -1,5 +1,12 @@
 #include "\z\potato\addons\radios\script_component.hpp"
 
+#define RADIO_SR "ACRE_PRC343"
+#define RADIO_MR "ACRE_PRC148"
+#define RADIO_LR "ACRE_PRC117F"
+
+#define RADIO_TX "frequencyTX"
+#define RADIO_RX "frequencyRX"
+
 #define WEST_SR "west343"
 #define WEST_MR "west148"
 #define WEST_LR "west117"

@@ -1,16 +1,21 @@
 TRACE_1("",QUOTE(ADDON));
 
 // radio config
+PREP(setChannel);
 PREP(configureRadios);
+PREP(addSharedChannel);
 PREP(initializeRadios);
 
 // 3den mission config
 PREP(acreControlLoad);
 PREP(acreAttributeLoad);
 PREP(acreAttributeSave);
+PREP(acreGetChannelArrays);
 PREP(acreControlSideChange);
+PREP(acreControlBabelChange);
 PREP(acreControlRadioChange);
 PREP(acreControlChannelChange);
+PREP(acreSetAcreConfiguration);
 PREP(acreControlChannelEditChange);
 
 // 3den channel config
@@ -25,3 +30,4 @@ PREP(channelControlChannelChange);
 
 // util funtions
 PREP(fillChannelArray);
+PREP(setChannelArrays);

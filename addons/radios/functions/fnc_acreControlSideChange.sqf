@@ -8,39 +8,38 @@ TRACE_1("params",_this);
 params ["_ctrlSide","_index"];
 
 private _ctrlGroup = ctrlParentControlsGroup _ctrlSide;
+private _ctrlBabel = _ctrlGroup controlsGroupCtrl BABEL_LIST_IDC;
 private _ctrlRadio = _ctrlGroup controlsGroupCtrl RADIO_CHOOSE_IDC;
 private _ctrlChannels = _ctrlGroup controlsGroupCtrl RADIO_CHANNEL_IDC;
 
-private _populatedSR = [];
-private _populatedMR = [];
-private _populatedLR = [];
-switch (_index) do {
+private _side = switch (_index) do {
     case (0): {
-        _populatedSR = GVAR(westSRChannelNames);
-        _populatedMR = GVAR(westMRChannelNames);
-        _populatedLR = GVAR(westLRChannelNames);
+        GVAR(selectedLanguages) = GVAR(westDefaultLanguages);
+        west
     };
     case (1): {
-        _populatedSR = GVAR(eastSRChannelNames);
-        _populatedMR = GVAR(eastMRChannelNames);
-        _populatedLR = GVAR(eastLRChannelNames);
+        GVAR(selectedLanguages) = GVAR(eastDefaultLanguages);
+        east
     };
     case (2): {
-        _populatedSR = GVAR(indySRChannelNames);
-        _populatedMR = GVAR(indyMRChannelNames);
-        _populatedLR = GVAR(indyLRChannelNames);
+        GVAR(selectedLanguages) = GVAR(indyDefaultLanguages);
+        independent
     };
     default {
-        _populatedSR = GVAR(civSRChannelNames);
-        _populatedMR = GVAR(civMRChannelNames);
-        _populatedLR = GVAR(civLRChannelNames);
+        GVAR(selectedLanguages) = GVAR(civDefaultLanguages);
+        civilian
     };
 };
 
-TRACE_3("prefill",_populatedSR,_populatedMR,_populatedLR); // log channel info
-// populate channel info
-GVAR(srList) = [_populatedSR, 16] call FUNC(fillChannelArray);
-GVAR(mrList) = [_populatedMR, 99] call FUNC(fillChannelArray);
-GVAR(lrList) = [_populatedLR, 99] call FUNC(fillChannelArray);
+TRACE_5("Babel junk",GVAR(selectedLanguages),GVAR(westDefaultLanguages),GVAR(eastDefaultLanguages),GVAR(indyDefaultLanguages),GVAR(civDefaultLanguages));
 
+{
+    if ((_x select 0) in GVAR(selectedLanguages)) then {
+        _ctrlBabel lbSetSelected [_forEachIndex, true];
+    } else {
+        _ctrlBabel lbSetSelected [_forEachIndex, false];
+    };
+} forEach GVAR(availableLanguages);
+
+[_side] call FUNC(setChannelArrays);
 [_ctrlRadio,lbCurSel _ctrlRadio] call FUNC(acreControlRadioChange);

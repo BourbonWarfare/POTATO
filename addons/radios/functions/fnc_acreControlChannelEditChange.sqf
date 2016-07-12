@@ -1,7 +1,7 @@
 /*
  *
  */
-
+disableSerialization;
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
@@ -16,13 +16,18 @@ private _selectedSideIndex = lbCurSel _ctrlSide;
 private _selectedRadioIndex = lbCurSel _ctrlRadio;
 private _selectedChannelIndex = lnbCurSelRow _ctrlChannels;
 
+uiSleep 0.05;
 private _channelName = ctrlText _ctrlChannelEdit;
+
+TRACE_5("pre",_channelName,GVAR(srList),GVAR(mrList),GVAR(lrList),(GVAR(sideChannelArray) select _selectedSideIndex));
+((GVAR(sideChannelArray) select _selectedSideIndex) set [_selectedRadioIndex,true]);
 
 switch (_selectedRadioIndex) do {
     case (0): { GVAR(srList) set [_selectedChannelIndex, _channelName]; };
     case (1): { GVAR(mrList) set [_selectedChannelIndex, _channelName]; };
     default { GVAR(lrList) set [_selectedChannelIndex, _channelName]; };
 };
+TRACE_5("post",_channelName,GVAR(srList),GVAR(mrList),GVAR(lrList),(GVAR(sideChannelArray) select _selectedSideIndex));
 
 switch (_selectedSideIndex) do {
     case (0): {
@@ -55,4 +60,4 @@ switch (_selectedSideIndex) do {
     };
 };
 
-[_ctrlRadio,lbCurSel _ctrlRadio] call FUNC(acreControlRadioChange);
+[_ctrlRadio, lbCurSel _ctrlRadio, _selectedChannelIndex] call FUNC(acreControlRadioChange);
