@@ -6,6 +6,7 @@ class ctrlStatic;
 class ctrlToolbox;
 class ctrlListNBox;
 class ctrlMenuStrip;
+class ctrlCheckboxBaseline;
 
 class GVAR(setAttribute): ctrlToolbox {
     idc = RADIO_SET_IDC;
@@ -58,7 +59,7 @@ class GVAR(channelSelect): ctrlListNBox {
 };
 class GVAR(bableSelectBackground): ctrlStatic {
     x = SIZE_M * GRID_W;
-    y = 3 * SIZE_M * GRID_H;
+    y = 5 * SIZE_M * GRID_H;
     w = (ATTRIBUTE_TITLE_W + ATTRIBUTE_CONTENT_W - SIZE_M) * GRID_W;
     h = 5 * SIZE_M * GRID_H;
     colorBackground[] = {1,1,1,0.1};
@@ -67,11 +68,20 @@ class GVAR(bableSelect): ctrlListNBox {
     idc = BABEL_LIST_IDC;
     style = LB_MULTI;
     x = SIZE_M * GRID_W;
-    y = 3 * SIZE_M * GRID_H;
+    y = 5 * SIZE_M * GRID_H;
     w = (ATTRIBUTE_TITLE_W + ATTRIBUTE_CONTENT_W - SIZE_M) * GRID_W;
     h = 5 * SIZE_M * GRID_H;
     columns[] = {0.05,0.15};
     disableOverflow = 1;
+};
+class GVAR(sharedMRCheckbox): ctrlCheckboxBaseline {
+    idc = CFG_SHARED_MR;
+    x = ATTRIBUTE_TITLE_W * GRID_W;
+    w = SIZE_M * GRID_W;
+    h = SIZE_M * GRID_H;
+};
+class GVAR(sharedLRCheckbox): GVAR(sharedMRCheckbox) {
+    idc = CFG_SHARED_LR;
 };
 
 class display3DEN {
@@ -122,7 +132,7 @@ class Cfg3DEN {
             onUnload = "";
             attributeSave = QUOTE(_this call FUNC(acreAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(acreAttributeLoad));
-            h = (26 * SIZE_M + 1) * GRID_H;
+            h = (28 * SIZE_M + 1) * GRID_H;
             class Controls: Controls {
                 class SetSide: Title {
                     text = "Choose Side";
@@ -144,31 +154,47 @@ class Cfg3DEN {
                         "Civilian (None of the others)"
                     };
                 };
+                class SharedMRTitle: Title {
+                    text = "Shared 148 Channel";
+                    y = 2 * SIZE_M * GRID_H;
+                };
+                class SharedMRCheckbox: GVAR(sharedMRCheckbox) {
+                    y = 2 * SIZE_M * GRID_H;
+                    onCheckedChanged = QUOTE(_this pushBack false; _this call FUNC(acreControlSharedChange););
+                };
+                class SharedLRTitle: Title {
+                    text = "Shared 117 Channel";
+                    y = 3 * SIZE_M * GRID_H;
+                };
+                class SharedLRCheckbox: GVAR(sharedLRCheckbox) {
+                    y = 3 * SIZE_M * GRID_H;
+                    onCheckedChanged = QUOTE(_this pushBack true; _this call FUNC(acreControlSharedChange););
+                };
                 class BabelChooseTitle: Title {
                     text = "Babel";
-                    y = 2 * SIZE_M * GRID_H;
+                    y = 4 * SIZE_M * GRID_H;
                 };
                 class BabelListBackground: GVAR(bableSelectBackground) {};
                 class BabelList: GVAR(bableSelect) {};
                 class RadiosChooseTitle: Title {
                     text = "Radios";
-                    y = 9 * SIZE_M * GRID_H;
+                    y = 11 * SIZE_M * GRID_H;
                 };
                 class RadioChooseControl: GVAR(radioSelect) {
-                    y = 10 * SIZE_M * GRID_H;
+                    y = 12 * SIZE_M * GRID_H;
                 };
                 class SetChannelName: ctrlEdit {
                     idc = CFG_CHANNEL_IDC;
                     x = SIZE_M * GRID_W;
-                    y = 12 * SIZE_M * GRID_H;
+                    y = 14 * SIZE_M * GRID_H;
                     w = (ATTRIBUTE_TITLE_W + ATTRIBUTE_CONTENT_W - SIZE_M) * GRID_W;
                     h = 1 * SIZE_M * GRID_H;
                 };
                 class ChannelBackground: GVAR(channelSelectBackground) {
-                    y = 13 * SIZE_M * GRID_H;
+                    y = 15 * SIZE_M * GRID_H;
                 };
                 class ChannelList: GVAR(channelSelect) {
-                    y = 13 * SIZE_M * GRID_H;
+                    y = 15 * SIZE_M * GRID_H;
                 };
             };
         };

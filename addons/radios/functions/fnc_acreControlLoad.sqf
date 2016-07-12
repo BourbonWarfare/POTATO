@@ -12,6 +12,10 @@ private _ctrlBabel = _ctrlGroup controlsGroupCtrl BABEL_LIST_IDC;
 private _ctrlRadio = _ctrlGroup controlsGroupCtrl RADIO_CHOOSE_IDC;
 private _ctrlChannels = _ctrlGroup controlsGroupCtrl RADIO_CHANNEL_IDC;
 private _ctrlChannelEdit = _ctrlGroup controlsGroupCtrl CFG_CHANNEL_IDC;
+private _ctrlSharedMR = _ctrlGroup controlsGroupCtrl CFG_SHARED_MR;
+private _ctrlSharedLR = _ctrlGroup controlsGroupCtrl CFG_SHARED_LR;
+
+TRACE_2("",_ctrlSharedMR,_ctrlSharedLR);
 
 GVAR(sideChannelArray) = [
     [false,false,false], // west
@@ -42,5 +46,3 @@ _ctrlChannels lnbSetCurSelRow 0;
 _ctrlChannelEdit ctrlAddEventHandler ["KeyDown",{_this spawn FUNC(acreControlChannelEditChange);}];
 
 _ctrlBabel ctrlAddEventHandler ["lbselchanged",{_this spawn FUNC(acreControlBabelChange);}];
-//_ctrlBabel lnbSetCurSelRow 0;
-//[_ctrlChannels,0] call FUNC(acreControlChannelChange);

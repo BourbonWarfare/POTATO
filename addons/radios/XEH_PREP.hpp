@@ -14,6 +14,7 @@ PREP(acreGetChannelArrays);
 PREP(acreControlSideChange);
 PREP(acreControlBabelChange);
 PREP(acreControlRadioChange);
+PREP(acreControlSharedChange);
 PREP(acreControlChannelChange);
 PREP(acreSetAcreConfiguration);
 PREP(acreControlChannelEditChange);
