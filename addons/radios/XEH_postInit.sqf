@@ -9,7 +9,8 @@
         TRACE_2("",GVAR(enabled),hasInterface);
         if (GVAR(enabled) && hasInterface) then {
             [] call FUNC(initializeRadios);
-
+            [FUNC(addAcreBriefing)] call CBA_fnc_execNextFrame;
+            
             [
                 {
                     GVAR(initialized) && {[player] call ACRE_FUNC(isInitialized)}

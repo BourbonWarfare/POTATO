@@ -12,17 +12,15 @@ private _ctrlChoose = _ctrlGroup controlsGroupCtrl RADIO_CHOOSE_IDC;
 private _ctrlChannel = _ctrlGroup controlsGroupCtrl RADIO_CHANNEL_IDC;
 
 private _switch = _index == 1;
+private _fade = if (_switch) then { FADE_ENABLED } else { FADE_DISABLED };
+
 GVAR(setChannel) = _switch;
 _ctrlChoose ctrlEnable _switch;
 _ctrlChannel ctrlEnable _switch;
 
-if (_switch) then {
-    _ctrlChoose ctrlSetFade FADE_ENABLED;
-    _ctrlChannel ctrlSetFade FADE_ENABLED;
-} else {
-    _ctrlChoose ctrlSetFade FADE_DISABLED;
-    _ctrlChannel ctrlSetFade FADE_DISABLED;
-};
+
+_ctrlChoose ctrlSetFade _fade;
+_ctrlChannel ctrlSetFade _fade;
 
 _ctrlChoose ctrlCommit FADE_LENGTH;
 _ctrlChannel ctrlCommit FADE_LENGTH;

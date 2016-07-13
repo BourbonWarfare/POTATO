@@ -113,9 +113,7 @@ private _presetArray = switch (playerSide) do {
 
 _presetArray params ["_sr", "_mr", "_lr", "_babel"];
 
-if (GVAR(playerLanguages) isEqualTo []) then {
-    GVAR(playerLanguages) = _babel;
-};
+GVAR(sideLanguages) = _babel;
 
 [RADIO_SR, _sr] call ACRE_FUNC(setPreset);
 [RADIO_MR, _mr] call ACRE_FUNC(setPreset);
@@ -123,5 +121,3 @@ if (GVAR(playerLanguages) isEqualTo []) then {
 
 GVAR(initialized) = true;
 LOG("Radios Initilized");
-
-//TODO: build some kind of signal briefing
