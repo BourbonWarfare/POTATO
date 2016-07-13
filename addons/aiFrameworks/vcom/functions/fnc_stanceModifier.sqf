@@ -13,7 +13,6 @@ while {!([_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pa
     if (isNull _nearestUnit) then {
         _unit setUnitPosWeak "UP";
     } else {
-        _StanceCompare = stance _NearestUnit;
         switch (stance _nearestUnit) do {
             case ("STAND"): {
                 _unit setUnitPosWeak "MIDDLE";
@@ -24,7 +23,7 @@ while {!([_unit,VQGVAR(activelyClearing),VGVAR(clearingThreshold)] call VFUNC(pa
             default {
                 _unit setUnitPosWeak "UP";
             };
-        }
+        };
     };
     sleep 1;
 };

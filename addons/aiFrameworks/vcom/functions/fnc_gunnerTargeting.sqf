@@ -3,6 +3,8 @@ TRACE_1("params",_this);
 
 params ["_unit","_vehicle","_group"];
 
+_unit setVariable [VQGVAR(gunnerPrioritization),diag_tickTime];
+
 private _side = side _group;
 
 private _lookup = (VGVAR(vehicleWeaponCache) select 0) find _vehicle;
@@ -66,61 +68,65 @@ private _skipArray = [];
             private _xVehicleType = typeOf _xVehicle;
             private _distance = _vehicle distance _xVehicle;
 
-            private _index = (VGVAR(vehicleTypeCache) select 0) find _xVehicleType;
+            // ignore vehicles outside given distance
+            if (_distance < VGVAR(maxGunnerPrioritizationDistance)) then {
 
-            private _type = if (_index > -1) then {
-                (VGVAR(vehicleTypeCache) select 1) select _index
-            } else {
-                private _cfgType = switch (true) do {
-                    case (_xVehicle isKindOf "Tank" || {_xVehicle isKindOf "Wheeled_APC_F"}): {
-                        "ARMOR"
+                private _index = (VGVAR(vehicleTypeCache) select 0) find _xVehicleType;
+
+                private _type = if (_index > -1) then {
+                    (VGVAR(vehicleTypeCache) select 1) select _index
+                } else {
+                    private _cfgType = switch (true) do {
+                        case (_xVehicle isKindOf "Tank" || {_xVehicle isKindOf "Wheeled_APC_F"}): {
+                            "ARMOR"
+                        };
+                        case (_xVehicle isKindOf "Car" || {_xVehicle isKindOf "Air"}): {
+                            "SOFT"
+                        };
+                        default {
+                            "OTHER"
+                        };
                     };
-                    case (_xVehicle isKindOf "Car" || {_xVehicle isKindOf "Air"}): {
-                        "SOFT"
+
+                    (VGVAR(vehicleTypeCache) select 0) pushBack _xVehicleType;
+                    (VGVAR(vehicleTypeCache) select 1) pushBack _cfgType;
+
+                    _cfgType
+                };
+
+                switch (_type) do {
+                    case ("ARMOR"): {
+                        if (_nearestArmorDistance > _distance || {isNull _nearestArmor}) then {
+                            _nearestArmor = _xVehicle;
+                            _nearestArmorDistance = _distance;
+                        };
+
+                        if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableArmorDistance > _distance || {isNull _nearestVisableArmor}}) then {
+                            _nearestVisableArmor = _xVehicle;
+                            _nearestVisableArmorDistance = _distance;
+                        };
+                    };
+                    case ("SOFT"): {
+                        if (_nearestSoftDistance > _distance || {isNull _nearestSoft}) then {
+                            _nearestSoft = _xVehicle;
+                            _nearestSoftDistance = _distance;
+                        };
+
+                        if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableSoftDistance > _distance || {isNull _nearestVisableSoft}}) then {
+                            _nearestVisableSoft = _xVehicle;
+                            _nearestVisableSoftDistance = _distance;
+                        };
                     };
                     default {
-                        "OTHER"
-                    };
-                };
+                        if (_nearestOtherDistance > _distance || {isNull _nearestOther}) then {
+                            _nearestOther = _xVehicle;
+                            _nearestOtherDistance = _distance;
+                        };
 
-                (VGVAR(vehicleTypeCache) select 0) pushBack _xVehicleType;
-                (VGVAR(vehicleTypeCache) select 1) pushBack _cfgType;
-
-                _cfgType
-            };
-
-            switch (_type) do {
-                case ("ARMOR"): {
-                    if (_nearestArmorDistance > _distance || {isNull _nearestArmor}) then {
-                        _nearestArmor = _xVehicle;
-                        _nearestArmorDistance = _distance;
-                    };
-
-                    if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableArmorDistance > _distance || {isNull _nearestVisableArmor}}) then {
-                        _nearestVisableArmor = _xVehicle;
-                        _nearestVisableArmorDistance = _distance;
-                    };
-                };
-                case ("SOFT"): {
-                    if (_nearestSoftDistance > _distance || {isNull _nearestSoft}) then {
-                        _nearestSoft = _xVehicle;
-                        _nearestSoftDistance = _distance;
-                    };
-
-                    if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableSoftDistance > _distance || {isNull _nearestVisableSoft}}) then {
-                        _nearestVisableSoft = _xVehicle;
-                        _nearestVisableSoftDistance = _distance;
-                    };
-                };
-                default {
-                    if (_nearestOtherDistance > _distance || {isNull _nearestOther}) then {
-                        _nearestOther = _xVehicle;
-                        _nearestOtherDistance = _distance;
-                    };
-
-                    if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableOtherDistance > _distance || {isNull _nearestVisableOther}}) then {
-                        _nearestVisableOther = _xVehicle;
-                        _nearestVisableOtherDistance = _distance;
+                        if ([_vehicle,_xVehicle] call VFUNC(canSee) && {_nearestVisableOtherDistance > _distance || {isNull _nearestVisableOther}}) then {
+                            _nearestVisableOther = _xVehicle;
+                            _nearestVisableOtherDistance = _distance;
+                        };
                     };
                 };
             };

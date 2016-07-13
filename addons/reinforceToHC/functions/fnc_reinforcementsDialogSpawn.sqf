@@ -88,7 +88,8 @@ GVAR(lastUnitBehaviorIndex) = _unitBehaviorIndex;
         _rpSize,
         GVAR(reinforcementLocation)
     ],
-    QFUNC(reinforcementsSpawnLocal)
+    QFUNC(reinforcementsSpawnLocal),
+    true
 ] call EFUNC(zeusHC,hcPassthrough);
 
 if (isNil "_rp") then {

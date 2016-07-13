@@ -24,7 +24,7 @@
  *
  * Public: Yes
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
@@ -69,7 +69,6 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
     params ["_buildingPositions","_side","_units","_unitLimit","_occupyMin","_occupyMax"];
     TRACE_6("params",count _buildingPositions,_side,_units,_unitLimit,_occupyMin,_occupyMax);
 
-    private _sleep = if (isNil QGVAR(sleepBetweenSpawns)) then { 0.5 } else { GVAR(sleepBetweenSpawns) };
     private _unitsAdded = 0;
 
     {
@@ -79,7 +78,7 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
             ] call FUNC(sendCuratorHint);
         };
 
-        private _numberOfUnits = [_occupyMin,_occupyMax] call EFUNC(core,getBoundedRandom);
+        private _numberOfUnits = [_occupyMin,_occupyMax,true] call EFUNC(core,getBoundedRandom);
         private _unitsToAdd = [];
         private _unitPositions = [];
         private _index = 0;
@@ -106,6 +105,6 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
 
         if (_unitsAdded >= _unitLimit) exitWith { TRACE_1("Unit limit reached, exiting count loop",_unitLimit); };
 
-        sleep _sleep;
+        sleep GVAR(delayBetweenGroupCreation);
     } forEach _buildingPositions;
 };
