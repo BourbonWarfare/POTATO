@@ -121,5 +121,3 @@ GVAR(sideLanguages) = _babel;
 
 GVAR(initialized) = true;
 LOG("Radios Initilized");
-
-//TODO: build some kind of signal briefing

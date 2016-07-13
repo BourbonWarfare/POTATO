@@ -2,9 +2,11 @@ TRACE_1("",QUOTE(ADDON));
 
 // radio config
 PREP(setChannel);
+PREP(addAcreBriefing);
 PREP(configureRadios);
 PREP(addSharedChannel);
 PREP(initializeRadios);
+PREP(reinitializeRadios);
 
 // 3den mission config
 PREP(acreControlLoad);
