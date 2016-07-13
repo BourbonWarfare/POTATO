@@ -127,6 +127,31 @@ class Cfg3DEN {
                 class ChannelList: GVAR(channelSelect) {};
             };
         };
+        class GVAR(babel): TitleWide {
+            onLoad = QUOTE(_this call FUNC(babelControlLoad));
+            onUnload = "";
+            attributeSave = QUOTE(_this call FUNC(babelAttributeSave));
+            attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(babelAttributeLoad));
+            h = (9 * SIZE_M + 1) * GRID_H;
+            class Controls: Controls {
+                class SetTitle: Title {
+                    text = "Set languages";
+                };
+                class SetControl: GVAR(setAttribute) {
+                    strings[] = {"Don't Set", "Set Languages"};
+                };
+                class BabelChooseTitle: Title {
+                    text = "Babel";
+                    y = 3 * SIZE_M * GRID_H;
+                };
+                class BabelListBackground: GVAR(bableSelectBackground) {
+                    y = 4 * SIZE_M * GRID_H;
+                };
+                class BabelList: GVAR(bableSelect) {
+                    y = 4 * SIZE_M * GRID_H;
+                };
+            };
+        };
         class GVAR(configureAcre): TitleWide {
             onLoad = QUOTE(_this call FUNC(acreControlLoad));
             onUnload = "";
@@ -202,11 +227,15 @@ class Cfg3DEN {
     class Group {
         class AttributeCategories {
             class ADDON {
-                displayName = "POTATO: Group Radio Setup";
+                displayName = "POTATO: Group ACRE Setup";
                 collapsed = 1;
                 class Attributes {
+                    class GVAR(babel) {
+                        property = QGVAR(babel);
+                        control = QGVAR(babel);
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setLanguages));
+                    };
                     class GVAR(radios) {
-                        displayName = "Group Radio Setup";
                         property = QGVAR(radio);
                         control = QGVAR(radioChannels);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setChannels));
@@ -218,12 +247,17 @@ class Cfg3DEN {
     class Object {
         class AttributeCategories {
             class ADDON {
-                displayName = "POTATO: Unit Radio Setup";
+                displayName = "POTATO: Unit ACRE Setup";
                 collapsed = 1;
                 class Attributes {
+                    class GVAR(babel) {
+                        condition = "objectBrain";
+                        property = QGVAR(babel);
+                        control = QGVAR(babel);
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setLanguages));
+                    };
                     class GVAR(radios) {
                         condition = "objectBrain";
-                        displayName = "Unit Radio Setup";
                         property = QGVAR(radio);
                         control = QGVAR(radioChannels);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setChannels));
@@ -280,9 +314,6 @@ class Cfg3DEN {
                             defaultValue = QGVAR(addCommonChannelNumber);
                             typeName = "NUMBER";
                             expression = QUOTE([ARR_3(QUOTE(QGVAR(addCommonChannelNumber)),_value,true)] call ACEFUNC(common,setSetting));
-
-                            // default = (GVAR(addCommonChannelNumber) == 1);
-
                             class values {
                                 class 1 { name = "1"; value = 1; };
                                 class 2 { name = "2"; value = 2; };

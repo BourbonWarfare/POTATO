@@ -43,13 +43,7 @@ private _side = switch (_index) do {
 
 TRACE_5("Babel junk",GVAR(selectedLanguages),GVAR(westDefaultLanguages),GVAR(eastDefaultLanguages),GVAR(indyDefaultLanguages),GVAR(civDefaultLanguages));
 
-{
-    if ((_x select 0) in GVAR(selectedLanguages)) then {
-        _ctrlBabel lbSetSelected [_forEachIndex, true];
-    } else {
-        _ctrlBabel lbSetSelected [_forEachIndex, false];
-    };
-} forEach GVAR(availableLanguages);
+[_ctrlBabel] call FUNC(setBabelList);
 
 [_side] call FUNC(setChannelArrays);
 [_ctrlRadio,lbCurSel _ctrlRadio] call FUNC(acreControlRadioChange);

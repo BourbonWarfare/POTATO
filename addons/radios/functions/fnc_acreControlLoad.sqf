@@ -24,10 +24,7 @@ GVAR(sideChannelArray) = [
     [false,false,false] // civ
 ];
 
-{
-    _x params ["_short", "_long"];
-    _ctrlBabel lnbAddRow [_short, _long];
-} forEach GVAR(availableLanguages);
+[_ctrlBabel] call FUNC(populateBabelList);
 
 // register event handlers
 _ctrlSide ctrlAddeventHandler ["toolboxselchanged",{_this call FUNC(acreControlSideChange);}];

@@ -29,6 +29,17 @@ PREP(channelControlSetChange);
 PREP(channelControlRadioChange);
 PREP(channelControlChannelChange);
 
+// 3den babel config
+PREP(setLanguages);
+PREP(setLanguagesLocal);
+PREP(babelControlLoad);
+PREP(babelAttributeLoad);
+PREP(babelAttributeSave);
+PREP(babelControlSetChange);
+PREP(babelControlBabelChange);
+
 // util funtions
+PREP(setBabelList);
 PREP(fillChannelArray);
 PREP(setChannelArrays);
+PREP(populateBabelList);
