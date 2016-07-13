@@ -92,7 +92,7 @@ class display3DEN {
                     items[] += {QGVAR(radios)};
                 };
                 class GVAR(radios) {
-                    text = "Radio Setup";
+                    text = "ACRE Configuration";
                     action = QUOTE(edit3DENMissionAttributes QUOTE(QGVAR(configureAcre)););
                 };
             };
@@ -233,16 +233,102 @@ class Cfg3DEN {
         };
     };
     class Mission {
-        class GVAR(configureAcre) {// Custom section class, everything inside will be opened in one window
-            displayName = "Radio Setup"; // Text visible in the window title as "Edit <displayName>"
-            display = "Display3DENEditAttributes"; // Optional - display for attributes window. Must have the same structure and IDCs as the default Display3DENEditAttributes
+        class GVAR(configureAcre) {
+            displayName = "ACRE Configuration";
+            display = "Display3DENEditAttributes";
             class AttributeCategories {
-                class ACRE {
-                    displayName = "Babel and Radio Setup"; // Category name visible in Edit Attributes window
-                    collapsed = 0; // When 1, the category is collapsed by default
+                class GVAR(globalConfig) {
+                    displayName = "ACRE Configuration global";
+                    collapsed = 0;
                     class Attributes {
-                        class GVAR(acreConfig) {
-                            displayName = "West Babel";
+                        class masterEnabled {
+                            displayName = "Master Enable";
+                            property = QGVAR(enabled);
+                            control = "Checkbox";
+                            defaultValue = QGVAR(enabled);
+                            typeName = "BOOL";
+                            expression = QUOTE([ARR_3(QUOTE(QGVAR(enabled)),_value,true)] call ACEFUNC(common,setSetting));
+                        };
+                        class radioInterference {
+                            displayName = "Allow radio to radio interference";
+                            property = QGVAR(radioInterference);
+                            control = "Checkbox";
+                            defaultValue = QGVAR(radioInterference);
+                            typeName = "BOOL";
+                            expression = QUOTE([ARR_3(QUOTE(QGVAR(radioInterference)),_value,true)] call ACEFUNC(common,setSetting));
+                        };
+                        class terrainInterference {
+                            displayName = "Set level of terrain interference";
+                            property = QGVAR(terrainInterference);
+                            control = "Slider";
+                            defaultValue = QGVAR(terrainInterference);
+                            typeName = "NUMBER";
+                            expression = QUOTE([ARR_3(QUOTE(QGVAR(terrainInterference)),_value,true)] call ACEFUNC(common,setSetting));
+                        };
+                        class addCommonChannelName {
+                            displayName = "Shared channel name";
+                            property = QGVAR(addCommonChannelName);
+                            control = "Edit";
+                            defaultValue = QGVAR(addCommonChannelName);
+                            typeName = "STRING";
+                            expression = QUOTE([ARR_3(QUOTE(QGVAR(addCommonChannelName)),_value,true)] call ACEFUNC(common,setSetting));
+                        };
+                        class addCommonChannelNumber {
+                            displayName = "Shared channel number";
+                            property = QGVAR(addCommonChannelNumber);
+                            control = "Combo";
+                            defaultValue = QGVAR(addCommonChannelNumber);
+                            typeName = "NUMBER";
+                            expression = QUOTE([ARR_3(QUOTE(QGVAR(addCommonChannelNumber)),_value,true)] call ACEFUNC(common,setSetting));
+
+                            // default = (GVAR(addCommonChannelNumber) == 1);
+
+                            class values {
+                                class 1 { name = "1"; value = 1; };
+                                class 2 { name = "2"; value = 2; };
+                                class 3 { name = "3"; value = 3; };
+                                class 4 { name = "4"; value = 4; };
+                                class 5 { name = "5"; value = 5; };
+                                class 6 { name = "6"; value = 6; };
+                                class 7 { name = "7"; value = 7; };
+                                class 8 { name = "8"; value = 8; };
+                                class 9 { name = "9"; value = 9; };
+                                class 10 { name = "10"; value = 10; };
+                                class 11 { name = "11"; value = 11; };
+                                class 12 { name = "12"; value = 12; };
+                                class 13 { name = "13"; value = 13; };
+                                class 14 { name = "14"; value = 14; };
+                                class 15 { name = "15"; value = 15; };
+                                class 16 { name = "16"; value = 16; };
+                                class 17 { name = "17"; value = 17; };
+                                class 18 { name = "18"; value = 18; };
+                                class 19 { name = "19"; value = 19; };
+                                class 20 { name = "20"; value = 20; };
+                            };
+                        };
+                        class addCommonChannelAllMR {
+                            displayName = "Global shared 148 channel";
+                            property = QGVAR(addCommonChannelAllMR);
+                            control = "Checkbox";
+                            defaultValue = QGVAR(addCommonChannelAllMR);
+                            typeName = "BOOL";
+                            expression = QUOTE([ARR_3(QUOTE(QGVAR(addCommonChannelAllMR)),_value,true)] call ACEFUNC(common,setSetting));
+                        };
+                        class addCommonChannelAllLR {
+                            displayName = "Global shared 117 channel";
+                            property = QGVAR(addCommonChannelAllLR);
+                            control = "Checkbox";
+                            defaultValue = QGVAR(addCommonChannelAllLR);
+                            typeName = "BOOL";
+                            expression = QUOTE([ARR_3(QUOTE(QGVAR(addCommonChannelAllLR)),_value,true)] call ACEFUNC(common,setSetting));
+                        };
+                    };
+                };
+                class GVAR(sideConfig) {
+                    displayName = "ACRE Configuration per side";
+                    collapsed = 0;
+                    class Attributes {
+                        class GVAR(sideConfig) {
                             property = QGVAR(channelsAndBabel);
                             control = QGVAR(configureAcre);
                             expression = QUOTE([ARR_2(_this,_value)] call FUNC(acreAttributeLoad));
