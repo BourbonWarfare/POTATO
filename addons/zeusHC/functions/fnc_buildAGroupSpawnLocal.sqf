@@ -19,13 +19,13 @@ TRACE_1("Params",_this);
 
 params ["_location","_unitsToAdd"];
 
-if (count _unitsToAdd < 1) exitWith { diag_log QUOTE(No units passsed to FUNC(buildAGroupSpawn)) };
+if (count _unitsToAdd < 1) exitWith { diag_log QUOTE(No units passsed to FUNC(buildAGroupSpawnLocal)) };
 
 // get leader to determine side
 private _leaderClass = _unitsToAdd select 0;
 private _leaderSide = getNumber (configFile >> "CfgVehicles" >> _leaderClass >> "side");
-if (_leaderSide < 0 || _leaderSide > 3) exitWith { diag_log QUOTE(Leader passed to FUNC(buildAGroupSpawn) is not a 'playable' side) };
+if (_leaderSide < 0 || _leaderSide > 3) exitWith { diag_log QUOTE(Leader passed to FUNC(buildAGroupSpawnLocal) is not a 'playable' side) };
 
 private _side = switch (_leaderSide) do { case 0: {east}; case 1: {west}; case 2: {resistance}; case 3: {civilian}; };
 
-[_side, _location, _unitsToAdd, "FORM"] call FUNC(createGroup);
+[_side, _location, _unitsToAdd, true, "FORM"] spawn FUNC(createGroup);

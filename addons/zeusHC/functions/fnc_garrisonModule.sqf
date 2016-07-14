@@ -10,13 +10,13 @@
  *
  * Public: No
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-params ["_logic"];
+params ["_logic","","_activated"];
 
-if (local _logic) then {
+if (_activated && local _logic) then {
     GVAR(garrisonLocation) = getPosATL _logic;
 
     if (isServer && (_logic getVariable [QGVAR(garrisonChance), -1]) > -1) then {

@@ -14,4 +14,4 @@ if (_text == "") exitWith {systemChat "Input your msg";};
 
 systemChat "Message Sent";
 
-["potato_adminMsg", [_text, profileName]] call ACEFUNC(common,globalEvent);
+["potato_adminMsg", [_text, profileName]] call CBA_fnc_globalEvent;

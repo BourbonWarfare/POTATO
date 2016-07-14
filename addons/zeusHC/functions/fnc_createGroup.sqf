@@ -6,7 +6,10 @@
  * 0: side of the group you want spawned <SIDE>
  * 1: location you want the units to spawn <ARRAY>
  * 2: array of unit classnames you want added to the group <ARRAY>
- * 3: code you want to execute on each unit. _this will be the created unit (optional) <STRING>
+ * 3: should the units be spawned in a delayed fashion *MUST BE EXECUTED IN A SCHEDULED ENVIRONMENT!!* (optional, default: false) <BOOL>
+ * 4: special formation to spawn the group with (optional, default: "NONE") <STRING>
+ * 5: code you want to execute on each unit. _this will be the created unit (optional) <STRING>
+
  *
  * Return Value:
  * The created group or grpNull if the group couldn't be created <GROUP>
@@ -25,11 +28,13 @@ params [
     ["_side", civilian, [civilian]],
     ["_position", [0,0,0], [[]], 3],
     ["_classNames", [], [[]]],
+    ["_delayed", false, [false]],
     ["_special", "NONE", [""]],
     ["_code", "", [""]]
 ];
 
-if !([_side, count _classNames] call FUNC(canCreateGroup)) exitWith { grpNull };
+private _numUnitsToSpawn = count _classNames;
+if !([_side, _numUnitsToSpawn] call FUNC(canCreateGroup)) exitWith { grpNull };
 
 private _unitInitFunction = compile _code;
 private _newGroup = createGroup _side;
@@ -38,7 +43,12 @@ private _newGroup = createGroup _side;
     private _newUnit = _newGroup createUnit [_x, _position, [], 0, _special];
     _newUnit call _unitInitFunction;
 
-    nil
-} count _classNames;
+    if (_delayed && {_forEachIndex < (_numUnitsToSpawn - 1)}) then {
+        sleep GVAR(delayBetweenUnitCreation);
+    };
+} forEach _classNames;
 
-_newGroup;
+// explicitly select leader
+_newGroup selectLeader ((units _newGroup) select 0);
+
+_newGroup

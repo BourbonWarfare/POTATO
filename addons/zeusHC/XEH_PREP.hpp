@@ -4,11 +4,12 @@ PREP(createEntityZeus);
 PREP(createEntityLocal);
 PREP(createEntityDismounts);
 
+PREP(createCrew);
 PREP(createGroup);
-PREP(getCrewCount);
 PREP(hcPassthrough);
 PREP(canCreateGroup);
 PREP(sendCuratorHint);
+PREP(getNearestAIGroup);
 PREP(getSpawnMachineId);
 
 PREP(buildACache);
@@ -41,3 +42,11 @@ PREP(garrisonDialogSpawn);
 PREP(garrisonIsFacingWall);
 PREP(garrisonDialogCheckMinMax);
 PREP(garrisonDialogControlChange);
+
+PREP(ungarrisonGroup);
+PREP(ungarrisonGroupBulk);
+PREP(ungarrisonAllGroupsZeus);
+PREP(ungarrisonNearestGroupZeus);
+
+PREP(fixGroup);
+PREP(fixNearestGroupZeus);

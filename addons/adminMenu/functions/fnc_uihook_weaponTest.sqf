@@ -3,7 +3,7 @@
 TRACE_1("params",_this);
 
 private _debugMsg = format ["Doing Weapon Test"];
-["potato_adminMsg", [_debugMsg, profileName]] call ACEFUNC(common,globalEvent);
+["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
 
 //Needs a player to add to breifing:
 if ((isNull player) || {!alive player}) exitWith {};
