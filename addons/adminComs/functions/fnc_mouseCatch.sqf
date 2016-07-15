@@ -4,9 +4,10 @@
 TRACE_1("params",_this);
 
 disableSerialization;
+params ["_display"];
 
-private _chatList = (findDisplay 49) displayCtrl 840431;
-private _replyButton = (findDisplay 49) displayCtrl 840432;
+private _chatList = _display displayCtrl 840431;
+private _replyButton = _display displayCtrl 840432;
 
 if (!([] call EFUNC(core,isAuthorized))) exitWith {
     _chatList ctrlShow false;
@@ -25,6 +26,7 @@ lbClear _chatList;
 private _index = -1;
 {
     _x params ["_time", "_msg", "_from", "_to"];
+    TRACE_1("log:",_x);
     private _min = floor (_time / 60);
     private _sec = floor (_time % 60);
     _min = if (_min < 10) then {format ["0%1", _min]} else {_min};
