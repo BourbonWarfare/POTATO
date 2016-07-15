@@ -15,18 +15,18 @@ class ACE_Settings {
 
     class GVAR(viewBluForMarkers) {
         typeName = "ARRAY";
-        value[] = {WEST};
+        value[] = {"WEST"};
     };
     class GVAR(viewOpForMarkers) {
         typeName = "ARRAY";
-        value[] = {EAST};
+        value[] = {"EAST"};
     };
     class GVAR(viewIndyMarkers) {
         typeName = "ARRAY";
-        value[] = {RESISTANCE};
+        value[] = {"RESISTANCE"};
     };
     class GVAR(viewCivMarkers) {
         typeName = "ARRAY";
-        value[] = {CIVILIAN};
+        value[] = {"CIVILIAN"};
     };
 };

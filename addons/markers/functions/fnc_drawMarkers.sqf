@@ -15,6 +15,8 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
+BEGIN_COUNTER(drawMarkers);
+
 params ["_mapControl"];
 
 if ((player != player) || {!alive player}) exitWith {};
@@ -70,6 +72,7 @@ if (GVAR(intraFireteamEnabled) && {(ctrlMapScale _mapControl) < 0.5}) then {
                 case "BLUE": { BLUE_ARRAY };
                 default { WHITE_ARRAY };
             };
+            if (isNil "_color") exitWith {};
 
             private _unitPosition = position _x;
             private _unitName = if (alive _x) then { name _x } else { "" };
@@ -90,3 +93,5 @@ if (GVAR(intraFireteamEnabled) && {(ctrlMapScale _mapControl) < 0.5}) then {
         nil
     } count (units (group player));
 };
+
+END_COUNTER(drawMarkers);

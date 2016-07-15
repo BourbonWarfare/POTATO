@@ -26,7 +26,7 @@ LOG("Post init start");
                 [QGVAR(checkPlayerForMarkers), FUNC(handleCheckPlayerForMarkers)] call CBA_fnc_addEventHandler;
 
                 // catch local player changed event, transmit global event
-                ["ace_playerChanged", {
+                ["unit", {
                     params ["_newPlayer", "_oldPlayer"];
 
                     if (side _newPlayer != side _oldPlayer) then {
@@ -35,7 +35,7 @@ LOG("Post init start");
                     };
 
                     [QGVAR(checkPlayerForMarkers), [_newPlayer]] call CBA_fnc_globalEvent;
-                }] call CBA_fnc_addEventHandler;
+                }] call CBA_fnc_addPlayerEventHandler;
 
                 [] call FUNC(initMarkerHash);
             };
