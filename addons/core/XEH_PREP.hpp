@@ -5,3 +5,4 @@ PREP(ensureMinMax);
 PREP(isAuthorized);
 PREP(getBoundedRandom);
 PREP(ensureBoundedMinMax);
+PREP(stringArrayToSideArray);
