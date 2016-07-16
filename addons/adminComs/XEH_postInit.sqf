@@ -11,7 +11,7 @@ if (hasInterface) then {
 
             if (!isNull (findDisplay 49)) then {
                 //If they have it open, update chat log now:
-                [] call FUNC(mouseCatch);
+                [findDisplay 49] call FUNC(mouseCatch);
             };
         };
     }] call CBA_fnc_addEventHandler;
