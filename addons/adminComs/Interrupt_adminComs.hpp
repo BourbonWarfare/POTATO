@@ -15,17 +15,6 @@ class RscStandardDisplay;
 
 // Add Text to escape menu (borowed from AGM)
 
-//borowed from CBA, mouse trap, blocks screen until disabled onMouseEnter (automatic)
-class GVAR(mouseCatch): RscActiveText {
-    style = 48;
-    idc = -1; //template
-    x = safezoneX;
-    y = safezoneY;
-    w = safezoneX + safezoneW;
-    h = safezoneY + safezoneH;
-    text = "#(argb,8,8,3)color(1,0,0,0)";
-    onMouseEnter = QUOTE((_this select 0) ctrlEnable false; (_this select 0) ctrlShow false; _this call FUNC(mouseCatch););
-};
 class GVAR(background): RscPicture {
     idc = -1;
     text = "#(argb,8,8,3)color(0,0,0,0.7)";
@@ -84,7 +73,6 @@ class RscDisplayMPInterrupt: RscStandardDisplay {
         class GVAR(sendMessageToAdmin): GVAR(sendMessageToAdmin) {};
         class GVAR(sendMessageToUser): GVAR(sendMessageToUser) {};
         class GVAR(chatList): GVAR(chatList) {};
-        class GVAR(mouseCatch): GVAR(mouseCatch) {};
     };
 };
 class RscDisplayInterrupt: RscStandardDisplay {
@@ -92,7 +80,6 @@ class RscDisplayInterrupt: RscStandardDisplay {
         class GVAR(background): GVAR(background) {};
         class GVAR(textInput): GVAR(textInput) {};
         class GVAR(chatList): GVAR(chatList) {};
-        class GVAR(mouseCatch): GVAR(mouseCatch) {};
         class GVAR(sendMessageToAdmin): GVAR(sendMessageToAdmin) {};
         class GVAR(sendMessageToUser): GVAR(sendMessageToUser) {};
     };
@@ -104,7 +91,6 @@ class RscDisplayInterruptEditor3D: RscStandardDisplay {
         class GVAR(sendMessageToAdmin): GVAR(sendMessageToAdmin) {};
         class GVAR(sendMessageToUser): GVAR(sendMessageToUser) {};
         class GVAR(chatList): GVAR(chatList) {};
-        class GVAR(mouseCatch): GVAR(mouseCatch) {};
     };
 };
 class RscDisplayInterruptEditorPreview: RscStandardDisplay {
@@ -114,6 +100,5 @@ class RscDisplayInterruptEditorPreview: RscStandardDisplay {
         class GVAR(sendMessageToAdmin): GVAR(sendMessageToAdmin){};
         class GVAR(sendMessageToUser): GVAR(sendMessageToUser) {};
         class GVAR(chatList): GVAR(chatList) {};
-        class GVAR(mouseCatch): GVAR(mouseCatch) {};
     };
 };
