@@ -23,14 +23,14 @@ if (time > 0) then {
     ] call FUNC(hcPassthrough);
 } else {
     [{
-        (diag_tickTime > (_this select 4)) || {time > 0}
+        time > (_this select 4)
     }, {
         [
             _this select [0,4],
             QFUNC(createEntityLocal)
         ] call FUNC(hcPassthrough);
     },
-    [_posATL, _typeOf, _attachedVehicle, _placerOwner, (diag_tickTime + 10 + random 10)]] call CBA_fnc_waitUntilAndExecute;
+    [_posATL, _typeOf, _attachedVehicle, _placerOwner, random 15]] call CBA_fnc_waitUntilAndExecute;
 };
 
 deleteVehicle _logic;
