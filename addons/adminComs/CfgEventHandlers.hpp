@@ -15,3 +15,18 @@ class Extended_PostInit_EventHandlers {
         init = QUOTE(call COMPILE_FILE(XEH_postInit));
     };
 };
+
+class Extended_DisplayLoad_EventHandlers {
+    class RscDisplayMPInterrupt {
+        ADDON = QUOTE(_this call FUNC(mouseCatch););
+    };
+    class RscDisplayInterrupt {
+        ADDON = QUOTE(_this call FUNC(mouseCatch););
+    };
+    class RscDisplayInterruptEditor3D {
+        ADDON = QUOTE(_this call FUNC(mouseCatch););
+    };
+    class RscDisplayInterruptEditorPreview {
+        ADDON = QUOTE(_this call FUNC(mouseCatch););
+    };
+};

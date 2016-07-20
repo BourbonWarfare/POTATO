@@ -13,8 +13,8 @@ VGVAR(ehAdded) = false;
             VGVAR(vehicleWeaponCache) = [[],[]];
             VGVAR(vehicleTypeCache) = [[],[]];
 
-            [VGVAR(executionEnabledSides)] call VFUNC(stringArrayToSideArray);
-            [VGVAR(movementEnabledSides)] call VFUNC(stringArrayToSideArray);
+            [VGVAR(executionEnabledSides)] call EFUNC(core,stringArrayToSideArray);
+            [VGVAR(movementEnabledSides)] call EFUNC(core,stringArrayToSideArray);
 
             if (!VGVAR(ehAdded)) exitWith { //install EH
                 TRACE_1("Adding Man Init EH", VGVAR(ehAdded));
