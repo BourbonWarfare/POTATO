@@ -30,15 +30,22 @@ if (_activated && local _logic) then {
             20
         ] call EFUNC(core,ensureBoundedMinMax)) params ["_min","_max"];
 
+
         [
-            _logic getVariable QGVAR(garrisonFaction),
-            [] call FUNC(garrisonUnitLimit),
-            _chance,
-            _radius,
-            _min,
-            _max,
-            GVAR(garrisonLocation)
-        ] call FUNC(garrisonSpawn);
+            { time > (_this select 7) },
+            { (_this select [0,7]) call FUNC(garrisonSpawn) },
+            [
+                _logic getVariable QGVAR(garrisonFaction),
+                [] call FUNC(garrisonUnitLimit),
+                _chance,
+                _radius,
+                _min,
+                _max,
+                GVAR(garrisonLocation),
+                random 15
+            ]
+        ] call CBA_fnc_waitUntilAndExecute;
+
     } else {
         createDialog QGVAR(garrison_dialog);
     };
