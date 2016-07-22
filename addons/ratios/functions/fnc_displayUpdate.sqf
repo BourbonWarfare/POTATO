@@ -60,13 +60,14 @@ private _ratioInputValue2 = parseNumber _ratioInput2;
 private _ratioInputValue3 = parseNumber _ratioInput3;
 
 // make sure the inputs are valid, otherwise reset the inputs and exit
-if (_ratioInputValue1 == 0
-        || {_ratioInputValue2 == 0}
-        || {_sideCount > 2 && _ratioInputValue3 == 0}) exitWith {
+if ((_ratioInputValue1 == 0 && {_ratioInput1 != "0"})
+        || {_ratioInputValue2 == 0 && {_ratioInput2 != "0"}}
+        || {_sideCount > 2 && {_ratioInputValue3 == 0} && {_ratioInput3 != "0"}}) exitWith {
 
-    if (_ratioInputValue1 == 0) then { RATIO_INPUT_1 ctrlSetText ""; };
-    if (_ratioInputValue2 == 0) then { RATIO_INPUT_2 ctrlSetText ""; };
-    if (_sideCount > 2 && _ratioInputValue3 == 0) then { RATIO_INPUT_3 ctrlSetText ""; };
+    if (_ratioInputValue1 == 0 && {_ratioInput1 != "0"}) then { RATIO_INPUT_1 ctrlSetText ""; };
+    if (_ratioInputValue2 == 0 && {_ratioInput2 != "0"}) then { RATIO_INPUT_2 ctrlSetText "";};
+    if (_sideCount > 2 && {_ratioInputValue3 == 0} && {_ratioInput3 != "0"}) then { RATIO_INPUT_3 ctrlSetText ""; };
+    LOG("Invalid input(s), exiting early");
 };
 
 // clear out the old ratio values
@@ -90,6 +91,9 @@ if (isNil "_playerTextureCache") then {
 
 // calculate the ratios
 private _denominator = (_ratioInputValue1 + _ratioInputValue2 + _ratioInputValue3);
+
+// exit if the denominator is zero to avoid blowing up the world
+if (_denominator) exitWith { LOG("Please don't divide by zero"); };
 
 private _teamCount1 = round (_players / _denominator * _ratioInputValue1);
 private _teamCount2 = round (_players / _denominator * _ratioInputValue2);

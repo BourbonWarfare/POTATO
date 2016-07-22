@@ -36,6 +36,8 @@ waitUntil {
         || {!GET_UI_VAR(loaded)}
 };
 
+uiSleep 0.1; // sleep to stabilize
+
 // check which side displays are enabled
 private _westEnabled = ctrlEnabled SIDE_WEST;
 private _eastEnabled = ctrlEnabled SIDE_EAST;
@@ -78,12 +80,10 @@ if ((!isNil "_ratioCanidate") && {(_ratioCanidate find ":") > -1}) then {
     private _ratioArray = _ratioCanidate splitString ":";
     private _ratioCount = count _ratioArray;
 
-    if (_sideCount > 0) then {
-        RATIO_INPUT_1 ctrlSetText ([_ratioArray,_ratioCount,0] call FUNC(prefillInput));
-    };
-    if (_sideCount > 1) then {
-        RATIO_INPUT_2 ctrlSetText ([_ratioArray,_ratioCount,1] call FUNC(prefillInput));
-    };
+    // first two ratios ensured
+    RATIO_INPUT_1 ctrlSetText ([_ratioArray,_ratioCount,0] call FUNC(prefillInput));
+    RATIO_INPUT_2 ctrlSetText ([_ratioArray,_ratioCount,1] call FUNC(prefillInput));
+
     if (_sideCount > 2) then {
         RATIO_INPUT_3 ctrlSetText ([_ratioArray,_ratioCount,2] call FUNC(prefillInput));
     };
