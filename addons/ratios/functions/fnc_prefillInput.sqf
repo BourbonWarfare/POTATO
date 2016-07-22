@@ -6,13 +6,12 @@
  * 0: Array of prefill ratio data <ARRAY>
  * 1: Count of active sides <NUMBER>
  * 2: Index to pull the ratio data from <NUMBER>
- *
- * Return Value:
- * The parsed ratio, 1 if the ratio couldn't be parsed <STRING>
+ * 3: Ratio input control to prefill <CONTROL>
+ * 4: Ratio check control to preset <CONTROL>
  *
  * Examples:
- * [_ratioArray,_ratioCount,0] call potato_ratios_prefillInput;
- * [_ratioArray,_ratioCount,1] call potato_ratios_prefillInput;
+ * [_ratioArray,_ratioCount,0,RATIO_INPUT_1,RATIO_CHECK_1] call potato_ratios_prefillInput;
+ * [_ratioArray,_ratioCount,1,RATIO_INPUT_2,RATIO_CHECK_2] call potato_ratios_prefillInput;
  *
  * Public: No
  */

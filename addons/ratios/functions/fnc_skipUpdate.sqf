@@ -7,12 +7,15 @@
  * 1: Ratio #2 input text <STRING>
  * 2: Ratio #3 input text <STRING>
  * 3: Number of players in the server <NUMBER>
+ * 4: Check #1 value <BOOL>
+ * 5: Check #2 value <BOOL>
+ * 6: Check #3 value <BOOL>
  *
  * Return Value:
  * True if the ratio update can be skipped, false otherwise <BOOL>
  *
  * Examples:
- * [_ratioInput1, _ratioInput2, _ratioInput3, _players] call potato_ratios_skipUpdate;
+ * [_ratioInput1, _ratioInput2, _ratioInput3, _players, _ratioChecked1, _ratioChecked2, _ratioChecked3] call potato_ratios_skipUpdate;
  *
  * Public: No
  */
