@@ -20,20 +20,27 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_ratioArray","_ratioCount","_index"];
+params ["_ratioArray","_ratioCount","_index","_inputControl","_checkControl"];
 
 // setup the default return value
-private _returnString = str 1;
+private _input = str 1;
+private _check = false;
 
 // skip if the index is out of bounds
 if (_index < _ratioCount) then {
-    private _ratioValue = parseNumber (_ratioArray select _index);
+    private _stringToParse = (_ratioArray select _index);
+    if (_stringToParse select ((count _stringToParse - 1)) == "C") then {
+        _check = true;
+    };
 
     // set the return value to the parsed number (if it's valid)
+    private _ratioValue = parseNumber _stringToParse;
     if (_ratioValue > 0) then {
-        _returnString = str _ratioValue;
+        _input = str _ratioValue;
     }
 };
 
-TRACE_1("return",_returnString);
-_returnString
+TRACE_2("setting",_input,_check);
+
+_inputControl ctrlSetText _input;
+_checkControl ctrlSetChecked _check;

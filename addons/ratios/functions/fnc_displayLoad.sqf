@@ -59,6 +59,10 @@ if (_sideCount < 2) exitWith {
     RATIO_INPUT_2 ctrlShow false;
     RATIO_INPUT_3 ctrlShow false;
 
+    RATIO_CHECK_1 ctrlShow false;
+    RATIO_CHECK_2 ctrlShow false;
+    RATIO_CHECK_3 ctrlShow false;
+
     RATIO_OUTPUT_1 ctrlShow false;
     RATIO_OUTPUT_2 ctrlShow false;
     RATIO_OUTPUT_3 ctrlShow false;
@@ -67,6 +71,7 @@ if (_sideCount < 2) exitWith {
 // if there are less than three sides, disable the third ratio display
 if (_sideCount < 3) then {
     RATIO_INPUT_3 ctrlShow false;
+    RATIO_CHECK_3 ctrlShow false;
     RATIO_OUTPUT_3  ctrlShow false;
 };
 
@@ -81,11 +86,11 @@ if ((!isNil "_ratioCanidate") && {(_ratioCanidate find ":") > -1}) then {
     private _ratioCount = count _ratioArray;
 
     // first two ratios ensured
-    RATIO_INPUT_1 ctrlSetText ([_ratioArray,_ratioCount,0] call FUNC(prefillInput));
-    RATIO_INPUT_2 ctrlSetText ([_ratioArray,_ratioCount,1] call FUNC(prefillInput));
+    [_ratioArray,_ratioCount,0,RATIO_INPUT_1,RATIO_CHECK_1] call FUNC(prefillInput);
+    [_ratioArray,_ratioCount,1,RATIO_INPUT_2,RATIO_CHECK_2] call FUNC(prefillInput);
 
     if (_sideCount > 2) then {
-        RATIO_INPUT_3 ctrlSetText ([_ratioArray,_ratioCount,2] call FUNC(prefillInput));
+        [_ratioArray,_ratioCount,2,RATIO_INPUT_3,RATIO_CHECK_3] call FUNC(prefillInput);
     };
 };
 

@@ -1,5 +1,6 @@
 class RscEdit;
 class RscListBox;
+class RscCheckBox;
 class RscStandardDisplay;
 
 class RscDisplayMultiplayerSetup: RscStandardDisplay {
@@ -35,18 +36,36 @@ class RscDisplayMultiplayerSetup: RscStandardDisplay {
             shadow = 0;
             size = 0.2;
             sizeEx = "0.55 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-            w = "1.3 * (((safezoneW / safezoneH) min 1.2) / 40)";
+            w = "1.2 * (((safezoneW / safezoneH) min 1.2) / 40)";
             h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-            x = "33.1 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            x = "31.2 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
             y = "3.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY)";
         };
         class GVAR(RatioInput_2): GVAR(RatioInput_1) {
             idc = RATIO_INPUT_2_IDC;
-            x = "34.45 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            x = "33.8 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
         };
         class GVAR(RatioInput_3): GVAR(RatioInput_1) {
             idc = RATIO_INPUT_3_IDC;
-            x = "35.78 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            x = "35.4 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+        };
+
+        class GVAR(RatioCheck_1): RscCheckBox {
+            idc = RATIO_CHECK_1_IDC;
+            shadow = 0;
+            sizeEx = "0.55 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+            w = "1 * (((safezoneW / safezoneH) min 1.2) / 40)";
+            h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+            x = "30 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            y = "3.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY)";
+        };
+        class GVAR(RatioCheck_2): GVAR(RatioCheck_1) {
+            idc = RATIO_CHECK_2_IDC;
+            x = "32.6 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+        };
+        class GVAR(RatioCheck_3): GVAR(RatioCheck_1) {
+            idc = RATIO_CHECK_3_IDC;
+            x = "34.2 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
         };
 
         class GVAR(RatioOutput_1): RscListBox {

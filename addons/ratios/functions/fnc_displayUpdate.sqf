@@ -29,6 +29,10 @@ private _ratioInput1 = ctrlText RATIO_INPUT_1;
 private _ratioInput2 = ctrlText RATIO_INPUT_2;
 private _ratioInput3 = ctrlText RATIO_INPUT_3;
 
+private _ratioChecked1 = ctrlChecked RATIO_CHECK_1;
+private _ratioChecked2 = ctrlChecked RATIO_CHECK_2;
+private _ratioChecked3 = ctrlChecked RATIO_CHECK_3;
+
 // get the non player icons, to remove 'non players' from the player count
 private _nonPlayerTextureCache = GET_UI_VAR(nonPlayerTextureCache);
 if (isNil "_nonPlayerTextureCache") then {
@@ -52,7 +56,7 @@ for "_i" from 0 to (_numberOfPlayers - 1) do {
 private _players = _numberOfPlayers - _nonPlayers;
 
 // check if the input information has changed, if it hasn't, skip updating
-if ([_ratioInput1, _ratioInput2, _ratioInput3, _players] call FUNC(skipUpdate)) exitWith {};
+if ([_ratioInput1, _ratioInput2, _ratioInput3, _players, _ratioChecked1, _ratioChecked2, _ratioChecked3] call FUNC(skipUpdate)) exitWith {};
 
 // parse the input into numbers
 private _ratioInputValue1 = parseNumber _ratioInput1;
@@ -90,10 +94,32 @@ if (isNil "_playerTextureCache") then {
 };
 
 // calculate the ratios
-private _denominator = (_ratioInputValue1 + _ratioInputValue2 + _ratioInputValue3);
+private _denominator = 0;
+
+if (_ratioChecked1) then {
+    _players = _players - _ratioInputValue1;
+} else {
+    _denominator = _denominator + _ratioInputValue1;
+};
+if (_ratioChecked2) then {
+    _players = _players - _ratioInputValue2;
+} else {
+    _denominator = _denominator + _ratioInputValue2;
+};
+if (_ratioChecked3) then {
+    _players = _players - _ratioInputValue3;
+} else {
+    _denominator = _denominator + _ratioInputValue3;
+};
 
 // exit if the denominator is zero to avoid blowing up the world
-if (_denominator) exitWith { LOG("Please don't divide by zero"); };
+if (_denominator == 0) exitWith { LOG("Please don't divide by zero"); };
+
+private _teamCount1 = if (_ratioChecked1) then {
+    _ratioInputValue1
+} else {
+    round (_players / _denominator * _ratioInputValue1)
+};
 
 private _teamCount1 = round (_players / _denominator * _ratioInputValue1);
 private _teamCount2 = round (_players / _denominator * _ratioInputValue2);
