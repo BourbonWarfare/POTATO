@@ -33,7 +33,7 @@ class RscDisplayMultiplayerSetup: RscStandardDisplay {
             w = "1.2 * (((safezoneW / safezoneH) min 1.2) / 40)";
             h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
             x = "32.3 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
-            y = "3.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY)";
+            y = "3.3 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY)";
         };
         class GVAR(RatioInput_2): GVAR(RatioInput_1) {
             idc = RATIO_INPUT_2_IDC;
@@ -51,7 +51,7 @@ class RscDisplayMultiplayerSetup: RscStandardDisplay {
             w = "1 * (((safezoneW / safezoneH) min 1.2) / 40)";
             h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
             x = "31.2 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
-            y = "3.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY)";
+            y = "3.3 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY)";
         };
         class GVAR(RatioCheck_2): GVAR(RatioCheck_1) {
             idc = RATIO_CHECK_2_IDC;
@@ -75,7 +75,7 @@ class RscDisplayMultiplayerSetup: RscStandardDisplay {
             colorSelectBackground[] = {0,0,0,0};
             colorSelectBackground2[] = {0,0,0,0};
             colorPictureSelected[] = {0,0,0,0};
-            y = "4.3 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
+            y = "4.6 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
         };
         class GVAR(RatioOutput_2): GVAR(RatioOutput_1) {
             idc = RATIO_OUTPUT_2_IDC;
