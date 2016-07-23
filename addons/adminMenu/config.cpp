@@ -20,6 +20,9 @@ class GVAR(supplies) {
     class ACE_Box_Misc {};
     class ACE_medicalSupplyCrate {};
     class ACE_medicalSupplyCrate_advanced {};
+    
+    class EGVAR(miscFixes,smawBox) {};
+    class EGVAR(vz99,box) {};
 
     class Box_NATO_Ammo_F {};
     class Box_East_Ammo_F {};
