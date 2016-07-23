@@ -28,10 +28,12 @@ if (_override > 0) then {
 private _ratioInput1 = ctrlText RATIO_INPUT_1;
 private _ratioInput2 = ctrlText RATIO_INPUT_2;
 private _ratioInput3 = ctrlText RATIO_INPUT_3;
+TRACE_3("inputs",_ratioInput1,_ratioInput2,_ratioInput3);
 
-private _ratioChecked1 = ctrlChecked RATIO_CHECK_1;
-private _ratioChecked2 = ctrlChecked RATIO_CHECK_2;
-private _ratioChecked3 = ctrlChecked RATIO_CHECK_3;
+private _ratioChecked1 = cbChecked RATIO_CHECK_1;
+private _ratioChecked2 = cbChecked RATIO_CHECK_2;
+private _ratioChecked3 = cbChecked RATIO_CHECK_3;
+TRACE_3("checks",_ratioChecked1,_ratioChecked2,_ratioChecked3);
 
 // get the non player icons, to remove 'non players' from the player count
 private _nonPlayerTextureCache = GET_UI_VAR(nonPlayerTextureCache);
@@ -118,12 +120,20 @@ if (_denominator == 0) exitWith { LOG("Please don't divide by zero"); };
 private _teamCount1 = if (_ratioChecked1) then {
     _ratioInputValue1
 } else {
-    round (_players / _denominator * _ratioInputValue1)
+    round ((_players / _denominator * _ratioInputValue1) * 10) / 10;
 };
 
-private _teamCount1 = round (_players / _denominator * _ratioInputValue1);
-private _teamCount2 = round (_players / _denominator * _ratioInputValue2);
-private _teamCount3 = round (_players / _denominator * _ratioInputValue3);
+private _teamCount2 = if (_ratioChecked2) then {
+    _ratioInputValue2
+} else {
+    round ((_players / _denominator * _ratioInputValue2) * 10) / 10;
+};
+
+private _teamCount3 = if (_ratioChecked3) then {
+    _ratioInputValue3
+} else {
+    round ((_players / _denominator * _ratioInputValue3) * 10) / 10;
+};
 
 // display calculated ratios
 if (_teamCount1 > 0) then {

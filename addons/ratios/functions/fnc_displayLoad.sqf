@@ -11,7 +11,7 @@
 TRACE_1("params",_this);
 
 // display shouldn't load if there's no interface, but belt & suspenders
-if (!hasInterface) exitWith {};
+if (!hasInterface) exitWith { LOG("no interface, exiting"); };
 
 // set defaults for pseduo GVARs
 SET_UI_VAR(loaded,true);
@@ -25,16 +25,18 @@ PREP(skipUpdate);
 PREP(prefillInput);
 PREP(displayUpdate);
 
+TRACE_5("pre",ctrlEnabled SIDE_CIV,ctrlEnabled SIDE_EAST,ctrlEnabled SIDE_INDY,ctrlEnabled SIDE_WEST,!GET_UI_VAR(loaded));
+
 // wait until the display elements we need are displayed, or the display is unloaded
 waitUntil {
     ctrlEnabled SIDE_CIV
         || {ctrlEnabled SIDE_EAST}
         || {ctrlEnabled SIDE_INDY}
-        || {ctrlEnabled SIDE_LOGIC}
-        || {ctrlEnabled SIDE_VIRTUAL}
         || {ctrlEnabled SIDE_WEST}
         || {!GET_UI_VAR(loaded)}
 };
+
+TRACE_5("post",ctrlEnabled SIDE_CIV,ctrlEnabled SIDE_EAST,ctrlEnabled SIDE_INDY,ctrlEnabled SIDE_WEST,!GET_UI_VAR(loaded));
 
 uiSleep 0.1; // sleep to stabilize
 
@@ -53,8 +55,6 @@ if (_sideCount < 2) exitWith {
     RATIO_PLAYER_OVERRIDE ctrlShow false;
     RATIO_PLAYER_OVERRIDE_INPUT ctrlShow false;
 
-    RATIO_TEXT ctrlShow false;
-
     RATIO_INPUT_1 ctrlShow false;
     RATIO_INPUT_2 ctrlShow false;
     RATIO_INPUT_3 ctrlShow false;
@@ -72,7 +72,7 @@ if (_sideCount < 2) exitWith {
 if (_sideCount < 3) then {
     RATIO_INPUT_3 ctrlShow false;
     RATIO_CHECK_3 ctrlShow false;
-    RATIO_OUTPUT_3  ctrlShow false;
+    RATIO_OUTPUT_3 ctrlShow false;
 };
 
 // check the mission description for ratio information
@@ -86,11 +86,18 @@ if ((!isNil "_ratioCanidate") && {(_ratioCanidate find ":") > -1}) then {
     private _ratioCount = count _ratioArray;
 
     // first two ratios ensured
-    [_ratioArray,_ratioCount,0,RATIO_INPUT_1,RATIO_CHECK_1] call FUNC(prefillInput);
-    [_ratioArray,_ratioCount,1,RATIO_INPUT_2,RATIO_CHECK_2] call FUNC(prefillInput);
+    ([_ratioArray,_ratioCount,0] call FUNC(prefillInput)) params ["_input1","_check1"];
+    RATIO_INPUT_1 ctrlSetText _input1;
+    RATIO_CHECK_1 cbSetChecked _check1;
+
+    ([_ratioArray,_ratioCount,1] call FUNC(prefillInput)) params ["_input2","_check2"];
+    RATIO_INPUT_2 ctrlSetText _input2;
+    RATIO_CHECK_2 cbSetChecked _check2;
 
     if (_sideCount > 2) then {
-        [_ratioArray,_ratioCount,2,RATIO_INPUT_3,RATIO_CHECK_3] call FUNC(prefillInput);
+        ([_ratioArray,_ratioCount,2] call FUNC(prefillInput)) params ["_input3","_check3"];
+        RATIO_INPUT_3 ctrlSetText _input3;
+        RATIO_CHECK_3 cbSetChecked _check3;
     };
 };
 
