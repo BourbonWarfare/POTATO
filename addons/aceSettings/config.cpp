@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "ace_laserPointer", "ace_map", "ace_zeus", "ace_hearing", "ace_overheating"};
+        requiredAddons[] = {"potato_core", "ace_laserPointer", "ace_map", "ace_zeus", "ace_hearing", "ace_overheating", "ace_gforces", "ace_goggles", "ace_frag"};
         author = "Potato";
         authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -58,5 +58,17 @@ class ACE_Settings {
     class ace_respawn_removeDeadBodiesDisconnected {
         typeName = "BOOL";
         value = 0;
+    };
+    // class ace_goggles_effects { //Disable rotor-wash and prone dust effects
+        // typeName = "SCALAR";
+        // value = 1;
+    // };
+    // class ace_gforces_enabledFor {
+        // typeName = "SCALAR";
+        // value = 0;
+    // };
+    class ace_frag_maxTrack {
+        typeName = "SCALAR";
+        value = 1;
     };
 };
