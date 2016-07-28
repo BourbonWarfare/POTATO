@@ -69,6 +69,6 @@ class ACE_Settings {
     // };
     class ace_frag_maxTrack {
         typeName = "SCALAR";
-        value = 1;
+        value = 2;
     };
 };
