@@ -1,5 +1,6 @@
 class RscEdit;
 class RscListBox;
+class RscCheckBox;
 class RscStandardDisplay;
 
 class RscDisplayMultiplayerSetup: RscStandardDisplay {
@@ -24,53 +25,65 @@ class RscDisplayMultiplayerSetup: RscStandardDisplay {
             y = "2.3 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
         };
 
-         class GVAR(RatioText): TextListedPlayers {
-             y = "3.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY)";
-             idc = RATIO_TEXT_IDC;
-             text = "Ratio:";
-         };
-
         class GVAR(RatioInput_1): RscEdit {
             idc = RATIO_INPUT_1_IDC;
             shadow = 0;
             size = 0.2;
             sizeEx = "0.55 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-            w = "1.3 * (((safezoneW / safezoneH) min 1.2) / 40)";
+            w = "1.2 * (((safezoneW / safezoneH) min 1.2) / 40)";
             h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-            x = "33.1 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
-            y = "3.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY)";
+            x = "32.3 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            y = "3.3 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY)";
         };
         class GVAR(RatioInput_2): GVAR(RatioInput_1) {
             idc = RATIO_INPUT_2_IDC;
-            x = "34.45 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            x = "34.8 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
         };
         class GVAR(RatioInput_3): GVAR(RatioInput_1) {
             idc = RATIO_INPUT_3_IDC;
-            x = "35.78 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            x = "37.3 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+        };
+
+        class GVAR(RatioCheck_1): RscCheckBox {
+            idc = RATIO_CHECK_1_IDC;
+            shadow = 0;
+            sizeEx = "0.55 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+            w = "1 * (((safezoneW / safezoneH) min 1.2) / 40)";
+            h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+            x = "31.2 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            y = "3.3 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY)";
+        };
+        class GVAR(RatioCheck_2): GVAR(RatioCheck_1) {
+            idc = RATIO_CHECK_2_IDC;
+            x = "33.7 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+        };
+        class GVAR(RatioCheck_3): GVAR(RatioCheck_1) {
+            idc = RATIO_CHECK_3_IDC;
+            x = "36.2 * (((safezoneW / safezoneH) min 1.2) / 40) + (SafezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
         };
 
         class GVAR(RatioOutput_1): RscListBox {
             idc = RATIO_OUTPUT_1_IDC;
             canDrag = 0;
             rows = 1;
-            size = 0.175;
+            size = 1; //0.175;
             sizeEx = "0.6 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-            x = "31 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
-            w = "1.8 * (((safezoneW / safezoneH) min 1.2) / 40)";
-            h = "0.8 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+            x = "31.4 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            w = "2.3 * (((safezoneW / safezoneH) min 1.2) / 40)";
+            h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
             colorBackground[] = {0,0,0,0};
             colorSelectBackground[] = {0,0,0,0};
             colorSelectBackground2[] = {0,0,0,0};
             colorPictureSelected[] = {0,0,0,0};
-            y = "4.3 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
+            y = "4.6 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
         };
         class GVAR(RatioOutput_2): GVAR(RatioOutput_1) {
             idc = RATIO_OUTPUT_2_IDC;
-            x = "33 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            x = "33.9 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
         };
         class GVAR(RatioOutput_3): GVAR(RatioOutput_1) {
             idc = RATIO_OUTPUT_3_IDC;
-            x = "35 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
+            x = "36.4 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";
         };
     };
 };
