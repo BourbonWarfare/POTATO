@@ -39,7 +39,14 @@ if (!GVAR(usePotato)) exitWith {TRACE_1("disabled",GVAR(usePotato))};
 
     if (!isClass(_path)) exitWith {
         TRACE_2("No Class Found",_unit,typeOf _unit);
+
+        //TODO: legacy variable sync for radios, remove eventually
         _unit setVariable ["F_Gear_Setup", true, true];
+
+        // send event to the system where the owner is local
+        if (isPlayer _unit) then {
+            [QGVAR(gearAssigned), [], _unit] call CBA_fnc_targetEvent;
+        };
     };
 
     private _randomIndex = floor (random GVAR(maxRandomization));
@@ -60,7 +67,13 @@ if (!GVAR(usePotato)) exitWith {TRACE_1("disabled",GVAR(usePotato))};
         _unit call compile ("this = _this;"+ getText (_path >> "init"));
     };
 
+    //TODO: legacy variable sync for radios, remove eventually
     _unit setVariable ["F_Gear_Setup", true, true];
+
+    // send event to the system where the owner is local
+    if (isPlayer _unit) then {
+        [QGVAR(gearAssigned), [], _unit] call CBA_fnc_targetEvent;
+    };
 
     TRACE_2("done",_unit,(diag_tickTime - _startTime));
 
