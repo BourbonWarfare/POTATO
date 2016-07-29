@@ -33,7 +33,6 @@ PREP(channelControlChannelChange);
 
 // 3den babel config
 PREP(setLanguages);
-PREP(setLanguagesLocal);
 PREP(babelControlLoad);
 PREP(babelAttributeLoad);
 PREP(babelAttributeSave);
