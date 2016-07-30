@@ -23,7 +23,6 @@ PREP(acreControlChannelEditChange);
 
 // 3den channel config
 PREP(setChannels);
-PREP(setChannelsLocal);
 PREP(channelControlLoad);
 PREP(channelAttributeLoad);
 PREP(channelAttributeSave);

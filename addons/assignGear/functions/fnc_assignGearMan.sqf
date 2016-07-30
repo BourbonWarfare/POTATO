@@ -38,14 +38,8 @@ if ((!isClass(_path)) && GVAR(useFallback)) then {
 
 if (!isClass(_path)) exitWith {
     TRACE_2("No Class Found",_unit,typeOf _unit);
-
-    //TODO: legacy variable sync for radios, remove eventually
-    _unit setVariable ["F_Gear_Setup", true, true];
-
-    // send event to the system where the owner is local
-    if (isPlayer _unit) then {
-        [QGVAR(gearAssigned), [], _unit] call CBA_fnc_targetEvent;
-    };
+    _unit setVariable [QGVAR(gearSetup), true, true];
+    _unit setVariable ["F_Gear_Setup", true, true]; //TODO: legacy variable sync for radios, remove eventually
 };
 
 private _randomIndex = floor (random GVAR(maxRandomization));
@@ -66,13 +60,8 @@ if (isText (_path >> "init")) then {
     _unit call compile ("this = _this;"+ getText (_path >> "init"));
 };
 
-//TODO: legacy variable sync for radios, remove eventually
-_unit setVariable ["F_Gear_Setup", true, true];
+_unit setVariable [QGVAR(gearSetup), true, true];
+_unit setVariable ["F_Gear_Setup", true, true]; //TODO: legacy variable sync for radios, remove eventually
 
-// send event to the system where the owner is local
-if (isPlayer _unit) then {
-    TRACE_1("Sending targetEvent",_unit);
-    [QGVAR(gearAssigned), [], _unit] call CBA_fnc_targetEvent;
-};
 
 TRACE_2("done",_unit,(diag_tickTime - _startTime));
