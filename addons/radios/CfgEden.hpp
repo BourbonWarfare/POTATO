@@ -281,7 +281,7 @@ class Cfg3DEN {
                             control = "Checkbox";
                             defaultValue = QGVAR(enabled);
                             typeName = "BOOL";
-                            expression = QUOTE([ARR_4(QUOTE(QGVAR(enabled)),_value,true,true)] call ACEFUNC(common,setSetting));
+                            expression = "";
                         };
                         class radioInterference {
                             displayName = "Allow radio to radio interference";
@@ -289,7 +289,7 @@ class Cfg3DEN {
                             control = "Checkbox";
                             defaultValue = QGVAR(radioInterference);
                             typeName = "BOOL";
-                            expression = QUOTE([ARR_4(QUOTE(QGVAR(radioInterference)),_value,true,true)] call ACEFUNC(common,setSetting));
+                            expression = "";
                         };
                         class terrainInterference {
                             displayName = "Set level of terrain interference";
@@ -297,7 +297,7 @@ class Cfg3DEN {
                             control = "Slider";
                             defaultValue = QGVAR(terrainInterference);
                             typeName = "NUMBER";
-                            expression = QUOTE([ARR_4(QUOTE(QGVAR(terrainInterference)),_value,true,true)] call ACEFUNC(common,setSetting));
+                            expression = "";
                         };
                         class addCommonChannelName {
                             displayName = "Shared channel name";
@@ -305,7 +305,7 @@ class Cfg3DEN {
                             control = "Edit";
                             defaultValue = QGVAR(addCommonChannelName);
                             typeName = "STRING";
-                            expression = QUOTE([ARR_4(QUOTE(QGVAR(addCommonChannelName)),_value,true,true)] call ACEFUNC(common,setSetting));
+                            expression = "";
                         };
                         class addCommonChannelNumber {
                             displayName = "Shared channel number";
@@ -313,7 +313,7 @@ class Cfg3DEN {
                             control = "Combo";
                             defaultValue = QGVAR(addCommonChannelNumber);
                             typeName = "NUMBER";
-                            expression = QUOTE([ARR_4(QUOTE(QGVAR(addCommonChannelNumber)),_value,true,true)] call ACEFUNC(common,setSetting));
+                            expression = "";
                             class values {
                                 class 1 { name = "1"; value = 1; };
                                 class 2 { name = "2"; value = 2; };
@@ -343,7 +343,7 @@ class Cfg3DEN {
                             control = "Checkbox";
                             defaultValue = QGVAR(addCommonChannelAllMR);
                             typeName = "BOOL";
-                            expression = QUOTE([ARR_4(QUOTE(QGVAR(addCommonChannelAllMR)),_value,true,true)] call ACEFUNC(common,setSetting));
+                            expression = "";
                         };
                         class addCommonChannelAllLR {
                             displayName = "Global shared 117 channel";
@@ -351,7 +351,7 @@ class Cfg3DEN {
                             control = "Checkbox";
                             defaultValue = QGVAR(addCommonChannelAllLR);
                             typeName = "BOOL";
-                            expression = QUOTE([ARR_4(QUOTE(QGVAR(addCommonChannelAllLR)),_value,true,true)] call ACEFUNC(common,setSetting));
+                            expression = "";
                         };
                     };
                 };

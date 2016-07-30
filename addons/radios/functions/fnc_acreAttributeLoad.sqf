@@ -5,6 +5,8 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
+if (!isServer) exitWith {};
+
 params ["_ctrlGroup",["_params", [], [[],true]]];
 if (_params isEqualType true && {_params}) exitWith { LOG("data not set, or in strange state, exiting early"); };
 
