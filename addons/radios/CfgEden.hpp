@@ -238,7 +238,7 @@ class Cfg3DEN {
                     class GVAR(radios) {
                         property = QGVAR(radio);
                         control = QGVAR(radioChannels);
-                        expression = QUOTE([ARR_2(FUNC(setChannels), [ARR_2(_this,_value)])] call CBA_fnc_execNextFrame);
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setChannels));
                     };
                 };
             };
@@ -260,7 +260,7 @@ class Cfg3DEN {
                         condition = "objectBrain";
                         property = QGVAR(radio);
                         control = QGVAR(radioChannels);
-                        expression = QUOTE([ARR_2(FUNC(setChannels), [ARR_2(_this,_value)])] call CBA_fnc_execNextFrame);
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setChannels));
                     };
                 };
             };
