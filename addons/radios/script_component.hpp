@@ -19,6 +19,15 @@
 #define ACRE_FUNC(var1) DOUBLES(acre_api_fnc,var1)
 #define ACRE_QFUNC(var1) QUOTE(DOUBLES(acre_api_fnc,var1))
 
+// Default values
+#define RADIOS_ENABLED false
+#define RADIO_INTERFERENCE false
+#define TERRAIN_INTERFERENCE 0.5
+#define COMMON_CHANNEL_NAME "Negotiations"
+#define COMMON_CHANNEL_NUMBER 8
+#define ADD_COMMON_CHANNEL_ALL_MR false
+#define ADD_COMMON_CHANNEL_ALL_LR false
+
 // Display defines
 #define RADIO_SET_IDC 413265
 #define RADIO_CHOOSE_IDC 141722
