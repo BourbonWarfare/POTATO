@@ -48,7 +48,7 @@ def getFunctions(filepath):
     with open(filepath, 'r') as file:
         content = file.read()
 
-        srch = re.compile('[^EV]FUNC\(([_a-zA-Z0-9]*)\)')
+        srch = re.compile('[^EV_]FUNC\(([_a-zA-Z0-9]*)\)')
         modfuncs = srch.findall(content)
         modfuncs = sorted(set(modfuncs))
         
