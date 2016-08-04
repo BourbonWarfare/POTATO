@@ -2,8 +2,8 @@
 #include "\z\potato\addons\core\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
-#define DISABLE_COMPILE_CACHE
-#define CBA_DEBUG_SYNCHRONOUS
+// #define DISABLE_COMPILE_CACHE
+// #define CBA_DEBUG_SYNCHRONOUS
 
 #ifdef DEBUG_ENABLED_ASSIGNGEAR
     #define DEBUG_MODE_FULL
