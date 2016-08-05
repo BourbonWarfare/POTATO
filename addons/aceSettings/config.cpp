@@ -59,14 +59,14 @@ class ACE_Settings {
         typeName = "BOOL";
         value = 0;
     };
-    // class ace_goggles_effects { //Disable rotor-wash and prone dust effects
-        // typeName = "SCALAR";
-        // value = 1;
-    // };
-    // class ace_gforces_enabledFor {
-        // typeName = "SCALAR";
-        // value = 0;
-    // };
+    class ace_goggles_effects { //Disable rotor-wash and prone dust effects
+        typeName = "SCALAR";
+        value = 1;
+    };
+    class ace_gforces_enabledFor {
+        typeName = "SCALAR";
+        value = 0;
+    };
     class ace_frag_maxTrack {
         typeName = "SCALAR";
         value = 2;
