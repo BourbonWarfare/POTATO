@@ -1,5 +1,10 @@
 #include "script_component.hpp"
 
+// Could 3den this later, but for now we want it running on old missions
+diag_log text "[POTATO-radios] Setting acre_sys_signal_omnidirectionalRadios to true"; 
+acre_sys_signal_omnidirectionalRadios = true;
+
+
 // set global settings, see script_component.hpp for default values
 GVAR(enabled) = getMissionConfigValue [QGVAR(enabled), RADIOS_ENABLED];
 GVAR(radioInterference) = getMissionConfigValue [QGVAR(radioInterference), RADIO_INTERFERENCE];
