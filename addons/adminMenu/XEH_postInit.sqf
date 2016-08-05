@@ -13,8 +13,13 @@
     removeBackpack _unit;
 
     [{
-        diag_log text format ["[POTATO] Calling F_fnc_assignGearMan"];
-        _this call F_fnc_assignGearMan;
+        if (missionNamespace getVariable [QEGVAR(assignGear,usePotato), false]) then {
+            diag_log text format ["[POTATO] Calling potato_assignGear_fnc_assignGearMan"];
+            _this call potato_assignGear_fnc_assignGearMan;
+        } else {
+            diag_log text format ["[POTATO] Calling F_fnc_assignGearMan"];
+            _this call F_fnc_assignGearMan;
+        };
     }, [_unit], 0.5] call CBA_fnc_waitAndExecute;
 }] call CBA_fnc_addEventHandler;
 
