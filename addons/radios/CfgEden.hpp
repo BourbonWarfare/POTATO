@@ -31,8 +31,8 @@ class GVAR(radioSelect): ctrlToolbox {
     rows = 1;
     columns = 3;
     strings[] = {
-        "\idi\clients\acre\addons\sys_prc343\Data\343_icon.paa",
-        "\idi\clients\acre\addons\sys_prc148\Data\148_icon.paa",
+        "\idi\clients\acre\addons\sys_prc343\Data\static\343_icon.paa",
+        "\idi\clients\acre\addons\sys_prc148\Data\static\148_icon.paa",
         "\idi\clients\acre\addons\sys_prc117f\Data\PRC117F_ico.paa"
     };
     tooltips[] = {
