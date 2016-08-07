@@ -8,3 +8,7 @@ PREP(setMarkerColor);
 PREP(addMarkerInfoToHash);
 PREP(addMarkersToDisplay);
 PREP(handleCheckPlayerForMarkers);
+
+PREP(markerIconChange);
+PREP(markerAttributeLoad);
+PREP(markerAttributeSave);

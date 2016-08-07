@@ -15,8 +15,8 @@ class Cfg3DEN {
             };
         };
         class GVAR(markerIconSelect): Toolbox {
-            attributeLoad = QUOTE((_this controlsGroupCtrl GROUP_MARKER_ICON_IDC) lbSetCurSel ([UNIT_MARKERS] find _value););
-            attributeSave = QUOTE([UNIT_MARKERS] select (GETMVAR(QGVAR(selectedIcon),0)););
+            attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(markerAttributeLoad));
+            attributeSave = QUOTE(_this call FUNC(markerAttributeSave));
             h = "4 * 5 * (pixelH * 1.25 * 4)";
             class Controls: Controls {
                 class Title: Title {
@@ -54,7 +54,7 @@ class Cfg3DEN {
                         "Artillery",
                         "Medic"
                     };
-                    onToolboxSelChanged = QUOTE(SETMVAR(QGVAR(selectedIcon),_this select 1););
+                    onToolboxSelChanged = QUOTE(_this call FUNC(markerIconChange));
                 };
             };
         };
