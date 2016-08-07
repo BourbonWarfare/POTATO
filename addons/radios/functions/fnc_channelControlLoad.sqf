@@ -7,35 +7,32 @@ TRACE_3("params",_this,get3DENSelected "object",get3DENSelected "group");
 
 params ["_ctrlGroup"];
 
-if !(isNil QGVAR(channelControlLoaded)) exitWith { LOG("Channel control already loaded, exiting"); GVAR(channelControlLoaded) = nil; };
-
 // get controls
 private _ctrlSet = _ctrlGroup controlsGroupCtrl RADIO_SET_IDC;
 private _ctrlRadio = _ctrlGroup controlsGroupCtrl RADIO_CHOOSE_IDC;
 private _ctrlChannels = _ctrlGroup controlsGroupCtrl RADIO_CHANNEL_IDC;
 
 // determine selected objects, prioritize groups
-private _selectedObjects = get3DENSelected "object";
 private _selectedGroups = get3DENSelected "group";
-GVAR(selected) = if (count _selectedGroups > 0) then {
-    GVAR(channelControlLoaded) = true;
+private _selected = if (count _selectedGroups > 0) then {
     _selectedGroups
 } else {
-    _selectedObjects
+    get3DENSelected "object"
 };
+_ctrlGroup setVariable [QGVAR(selected), _selected];
 
 // determine side of unit(s)/group(s) bail if there is a mix of sides
-private _side = side (GVAR(selected) select 0);
-GVAR(channelsInvalid) = false;
+private _side = side (_selected select 0);
+_ctrlGroup setVariable [QGVAR(channelsInvalid), false];
 {
-    if (side _x != _side) exitWith { GVAR(channelsInvalid) = true };
-} forEach GVAR(selected);
+    if (side _x != _side) exitWith { _ctrlGroup setVariable [QGVAR(channelsInvalid), true]; };
+} forEach _selected;
 
-GVAR(setChannel) = false;
-GVAR(selectedChannels) = [0,0,0];
+_ctrlGroup setVariable [QGVAR(setChannel), false];
+_ctrlGroup setVariable [QGVAR(selectedChannels), [0,0,0]];
 
 // there's either nothing selected, or a mix of sides, bail out
-if (GVAR(channelsInvalid) || {count GVAR(selected) < 0}) exitWith {
+if (_ctrlGroup getVariable QGVAR(channelsInvalid) || {count _selected < 0}) exitWith {
     _ctrlChannel ctrlEnable false;
     _ctrlRadio ctrlEnable false;
     _ctrlSet ctrlEnable false;
@@ -49,7 +46,7 @@ if (GVAR(channelsInvalid) || {count GVAR(selected) < 0}) exitWith {
     _ctrlSet ctrlCommit FADE_LENGTH;
 };
 
-[_side] call FUNC(setChannelArrays);
+[_ctrlGroup, _side] call FUNC(setChannelArrays);
 
 // register event handlers
 _ctrlSet ctrlAddeventHandler ["toolboxselchanged",{_this call FUNC(channelControlSetChange);}];

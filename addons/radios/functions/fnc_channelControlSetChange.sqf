@@ -14,10 +14,9 @@ private _ctrlChannel = _ctrlGroup controlsGroupCtrl RADIO_CHANNEL_IDC;
 private _switch = _index == 1;
 private _fade = if (_switch) then { FADE_ENABLED } else { FADE_DISABLED };
 
-GVAR(setChannel) = _switch;
+_ctrlGroup setVariable [QGVAR(setChannel), _switch];
 _ctrlChoose ctrlEnable _switch;
 _ctrlChannel ctrlEnable _switch;
-
 
 _ctrlChoose ctrlSetFade _fade;
 _ctrlChannel ctrlSetFade _fade;
