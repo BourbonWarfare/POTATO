@@ -6,7 +6,7 @@
 TRACE_1("params",_this);
 
 [{
-    params ["_object",["_radioArray",[],[[]]]];
+    params ["_object",["_radioArray",[],[[],false]]];
     _radioArray params [["_setChannels", false, [false]], ["_channelsArray", [], [[]]]];
     TRACE_3("",_object,_setChannels,_channelsArray);
 

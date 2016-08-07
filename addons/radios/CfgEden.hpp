@@ -234,11 +234,13 @@ class Cfg3DEN {
                         property = QGVAR(babel);
                         control = QGVAR(babel);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setLanguages));
+                        defaultValue = "true";
                     };
                     class GVAR(radios) {
                         property = QGVAR(radio);
                         control = QGVAR(radioChannels);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setChannels));
+                        defaultValue = "true";
                     };
                 };
             };
@@ -255,12 +257,14 @@ class Cfg3DEN {
                         property = QGVAR(babel);
                         control = QGVAR(babel);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setLanguages));
+                        defaultValue = "true";
                     };
                     class GVAR(radios) {
                         condition = "objectBrain";
                         property = QGVAR(radio);
                         control = QGVAR(radioChannels);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setChannels));
+                        defaultValue = "true";
                     };
                 };
             };

@@ -9,5 +9,5 @@ private _setChannel = _this getVariable [QGVAR(setChannel), false];
 if (_setChannel) then {
     [_setChannel, _this getVariable [QGVAR(selectedChannels), [0,0,0]]]
 } else {
-    nil
+    true
 }

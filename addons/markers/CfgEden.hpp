@@ -72,7 +72,7 @@ class Cfg3DEN {
                         property = QGVAR(addMarker);
                         expression = QUOTE([ARR_3(_this,_value,QUOTE(QGVAR(addMarker)))] call FUNC(setGroupVar););
                         typeName = "BOOL";
-                        defaultValue = false;
+                        defaultValue = "false";
                     };
                     class GVAR(groupMarkerText) {
                         control = "Edit";
@@ -92,9 +92,10 @@ class Cfg3DEN {
                         typeName = "NUMBER";
                         class values {
                             class 1 { name = "small"; value = 16; };
-                            class 2 { name = "medium"; value = 24; default = 1; };
+                            class 2 { name = "medium"; value = 24; };
                             class 3 { name = "large"; value = 32; };
                         };
+                        defaultValue = "24";
                     };
                     class GVAR(groupMarkerColor) {
                         control = "Combo";
@@ -104,7 +105,7 @@ class Cfg3DEN {
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setMarkerColor););
                         typeName = "STRING";
                         class values {
-                            class 1 { name = "white"; value = "white"; default = 1; };
+                            class 1 { name = "white"; value = "white"; };
                             class 2 { name = "red"; value = "red"; };
                             class 3 { name = "blue"; value = "blue"; };
                             class 4 { name = "green"; value = "green"; };
@@ -113,6 +114,7 @@ class Cfg3DEN {
                             class 7 { name = "pink"; value = "pink"; };
                             class 8 { name = "black"; value = "black"; };
                         };
+                        defaultValue = "'white'";
                     };
                     class GVAR(groupMarkerTexture) {
                         control = QGVAR(markerIconSelect);
@@ -121,7 +123,7 @@ class Cfg3DEN {
                         property = QGVAR(markerTexture);
                         expression = QUOTE([ARR_3(_this,_value,QUOTE(QGVAR(markerTexture)))] call FUNC(setGroupVar););
                         typeName = "STRING";
-                        defaultValue = "'\A3\ui_f\data\map\markers\nato\b_unknown.paa'";
+                        defaultValue = """\A3\ui_f\data\map\markers\nato\b_unknown.paa""";
                     };
                 };
             };
@@ -141,7 +143,7 @@ class Cfg3DEN {
                         expression = QUOTE(SETPVAR(_this,QGVAR(addMarker),_value););
                         typeName = "BOOL";
                         condition = "objectBrain";
-                        defaultValue = false;
+                        defaultValue = "false";
                     };
                     class GVAR(unitMarkerText) {
                         control = "Edit";
@@ -163,9 +165,10 @@ class Cfg3DEN {
                         condition = "objectBrain";
                         class values {
                             class 1 { name = "small"; value = 16; };
-                            class 2 { name = "medium"; value = 24; default = 1; };
+                            class 2 { name = "medium"; value = 24; };
                             class 3 { name = "large"; value = 32; };
                         };
+                        defaultValue = "24";
                     };
                     class GVAR(unitMarkerColor) {
                         control = "Combo";
@@ -176,7 +179,7 @@ class Cfg3DEN {
                         typeName = "STRING";
                         condition = "objectBrain";
                         class values {
-                            class 1 { name = "white"; value = "white"; default = 1; };
+                            class 1 { name = "white"; value = "white"; };
                             class 2 { name = "red"; value = "red"; };
                             class 3 { name = "blue"; value = "blue"; };
                             class 4 { name = "green"; value = "green"; };
@@ -185,6 +188,7 @@ class Cfg3DEN {
                             class 7 { name = "pink"; value = "pink"; };
                             class 8 { name = "black"; value = "black"; };
                         };
+                        defaultValue = "'white'";
                     };
                     class GVAR(unitMarkerTexture) {
                         control = QGVAR(markerIconSelect);
@@ -194,7 +198,7 @@ class Cfg3DEN {
                         expression = QUOTE(SETPVAR(_this,QGVAR(markerTexture),_value););
                         typeName = "STRING";
                         condition = "objectBrain";
-                        defaultValue = "'\A3\ui_f\data\map\markers\nato\b_unknown.paa'";
+                        defaultValue = """\A3\ui_f\data\map\markers\nato\b_unknown.paa""";
                     };
                 };
             };

@@ -3,7 +3,7 @@
  */
 #include "script_component.hpp"
 
-params ["_thing", ["_languageArray",[],[[]]]];
+params ["_thing", ["_languageArray",[],[[],false]]];
 TRACE_2("params",_thing,_languageArray);
 
 if (_languageArray isEqualTo []) exitWith { LOG("No languages set, exiting"); };

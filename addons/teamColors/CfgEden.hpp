@@ -42,14 +42,14 @@ class Cfg3DEN {
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setColor));
                         typeName = "STRING";
                         condition = "objectBrain";
-                        defaultValue = "MAIN";
                         class values {
-                            class 1 { name = "white"; value = "MAIN"; default = 1; };
+                            class 1 { name = "white"; value = "MAIN";};
                             class 2 { name = "red"; value = "RED"; };
                             class 3 { name = "green"; value = "GREEN"; };
                             class 4 { name = "blue"; value = "BLUE"; };
                             class 5 { name = "yellow"; value = "YELLOW"; };
                         };
+                        defaultValue = "'MAIN'";
                     };
                 };
             };
