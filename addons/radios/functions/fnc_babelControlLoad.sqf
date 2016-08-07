@@ -7,6 +7,8 @@ TRACE_3("params",_this,get3DENSelected "object",get3DENSelected "group");
 
 params ["_ctrlGroup"];
 
+if !(isNil QGVAR(babelControlLoaded)) exitWith { LOG("Channel control already loaded, exiting"); GVAR(babelControlLoaded) = nil; };
+
 // get controls
 private _ctrlSet = _ctrlGroup controlsGroupCtrl RADIO_SET_IDC;
 private _ctrlBabel = _ctrlGroup controlsGroupCtrl BABEL_LIST_IDC;
@@ -15,6 +17,7 @@ private _ctrlBabel = _ctrlGroup controlsGroupCtrl BABEL_LIST_IDC;
 private _selectedObjects = get3DENSelected "object";
 private _selectedGroups = get3DENSelected "group";
 GVAR(babelSelected) = if (count _selectedGroups > 0) then {
+    GVAR(babelControlLoaded) = true;
     _selectedGroups;
 } else {
     _selectedObjects
