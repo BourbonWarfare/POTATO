@@ -7,30 +7,27 @@ TRACE_3("params",_this,get3DENSelected "object",get3DENSelected "group");
 
 params ["_ctrlGroup"];
 
-if !(isNil QGVAR(babelControlLoaded)) exitWith { LOG("Channel control already loaded, exiting"); GVAR(babelControlLoaded) = nil; };
-
 // get controls
 private _ctrlSet = _ctrlGroup controlsGroupCtrl RADIO_SET_IDC;
 private _ctrlBabel = _ctrlGroup controlsGroupCtrl BABEL_LIST_IDC;
 
 // determine selected objects, prioritize groups
-private _selectedObjects = get3DENSelected "object";
 private _selectedGroups = get3DENSelected "group";
-GVAR(babelSelected) = if (count _selectedGroups > 0) then {
-    GVAR(babelControlLoaded) = true;
-    _selectedGroups;
+private _babelSelected = if (count _selectedGroups > 0) then {
+    _selectedGroups
 } else {
-    _selectedObjects
+    get3DENSelected "object"
 };
 
 // determine side of unit(s)/group(s) bail if there is a mix of sides
-private _side = side (GVAR(babelSelected) select 0);
-GVAR(babelInvalid) = false;
+private _side = side (_babelSelected select 0);
+private _babelInvalid = false;
 {
-    if (side _x != _side) exitWith { GVAR(babelInvalid) = true };
-} forEach GVAR(babelSelected);
+    if (side _x != _side) exitWith { _babelInvalid = true };
+} forEach _babelSelected;
 
-GVAR(setBabel) = false;
+_ctrlGroup setVariable [QGVAR(babelInvalid), _babelInvalid];
+_ctrlGroup setVariable [QGVAR(setBabel), false];
 
 // there's either nothing selected, or a mix of sides, bail out
 if (GVAR(babelInvalid) || {count GVAR(babelSelected) < 0}) exitWith {
@@ -44,12 +41,13 @@ if (GVAR(babelInvalid) || {count GVAR(babelSelected) < 0}) exitWith {
     _ctrlSet ctrlCommit FADE_LENGTH;
 };
 
-GVAR(selectedLanguages) = switch (_side) do {
+private _selectedLanguages = switch (_side) do {
     case (west): { GVAR(westDefaultLanguages) };
     case (east): { GVAR(eastDefaultLanguages) };
     case (independent): { GVAR(indyDefaultLanguages) };
     default { GVAR(civDefaultLanguages) };
 };
+_ctrlGroup setVariable [QGVAR(selectedLanguages),_selectedLanguages];
 
 [_ctrlBabel] call FUNC(populateBabelList);
 [_ctrlBabel] call FUNC(setBabelList);

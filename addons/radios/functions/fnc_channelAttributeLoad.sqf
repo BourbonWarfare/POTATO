@@ -18,7 +18,6 @@ if (_isSet) then {
     private _ctrlRadio = _ctrlGroup controlsGroupCtrl RADIO_CHOOSE_IDC;
     private _ctrlChannels = _ctrlGroup controlsGroupCtrl RADIO_CHANNEL_IDC;
 
-    _ctrlGroup setVariable [QGVAR(setChannel),_isSet];
     _ctrlGroup setVariable [QGVAR(selectedChannels),_channelArray];
 
     _ctrlSet lbSetCurSel 1;
