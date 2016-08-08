@@ -37,38 +37,30 @@ TRACE_3("civ base presets",GVAR(civPresetSR),GVAR(civPresetMR),GVAR(civPresetLR)
 // setup default channel names
 {
     [RADIO_MR, WEST_MR, _forEachIndex + 1, "label", _x] call ACRE_FUNC(setPresetChannelField);
-    TRACE_1("West MR preset data",((((([ARR_2(RADIO_MR,WEST_MR)] call ACRE_FUNC(getPresetData)) select 1)) select 0) select 1) select _forEachIndex);
 } forEach GVAR(westMRChannelNames);
 {
     [RADIO_LR, WEST_LR, _forEachIndex + 1, "name", _x] call ACRE_FUNC(setPresetChannelField);
-    TRACE_1("West LR preset data",((((([ARR_2(RADIO_LR,WEST_LR)] call ACRE_FUNC(getPresetData)) select 1)) select 0) select 1) select _forEachIndex);
 } forEach GVAR(westLRChannelNames);
 
 {
     [RADIO_MR, EAST_MR, _forEachIndex + 1, "label", _x] call ACRE_FUNC(setPresetChannelField);
-    TRACE_1("East MR preset data",((((([ARR_2(RADIO_MR,EAST_MR)] call ACRE_FUNC(getPresetData)) select 1)) select 0) select 1) select _forEachIndex);
 } forEach GVAR(eastMRChannelNames);
 {
     [RADIO_LR, EAST_LR, _forEachIndex + 1, "name", _x] call ACRE_FUNC(setPresetChannelField);
-    TRACE_1("East LR preset data",((((([ARR_2(RADIO_LR,EAST_LR)] call ACRE_FUNC(getPresetData)) select 1)) select 0) select 1) select _forEachIndex);
 } forEach GVAR(eastLRChannelNames);
 
 {
     [RADIO_MR, INDY_MR, _forEachIndex + 1, "label", _x] call ACRE_FUNC(setPresetChannelField);
-    TRACE_1("Indy MR preset data",((((([ARR_2(RADIO_MR,INDY_MR)] call ACRE_FUNC(getPresetData)) select 1)) select 0) select 1) select _forEachIndex);
 } forEach GVAR(indyMRChannelNames);
 {
     [RADIO_LR, INDY_LR, _forEachIndex + 1, "name", _x] call ACRE_FUNC(setPresetChannelField);
-    TRACE_1("Indy LR preset data",((((([ARR_2(RADIO_LR,INDY_LR)] call ACRE_FUNC(getPresetData)) select 1)) select 0) select 1) select _forEachIndex);
 } forEach GVAR(indyLRChannelNames);
 
 {
     [RADIO_MR, CIV_MR, _forEachIndex + 1, "label", _x] call ACRE_FUNC(setPresetChannelField);
-    TRACE_1("Civ MR preset data",((((([ARR_2(RADIO_MR,CIV_MR)] call ACRE_FUNC(getPresetData)) select 1)) select 0) select 1) select _forEachIndex);
 } forEach GVAR(civMRChannelNames);
 {
     [RADIO_LR, CIV_LR, _forEachIndex + 1, "name", _x] call ACRE_FUNC(setPresetChannelField);
-    TRACE_1("Civ LR preset data",((((([ARR_2(RADIO_LR,CIV_LR)] call ACRE_FUNC(getPresetData)) select 1)) select 0) select 1) select _forEachIndex);
 } forEach GVAR(civLRChannelNames);
 
 // set common channel after we pre-set the default channel names (avoid the name from getting overriden)
