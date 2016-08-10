@@ -3,6 +3,11 @@
  */
 
 #include "script_component.hpp"
-TRACE_2("params",_this,_this getVariable QGVAR(selectedIcon));
+TRACE_3("params",_this,_this getVariable QGVAR(setChannel),_this getVariable QGVAR(selectedChannels));
 
-[UNIT_MARKERS] select (_this getVariable [QGVAR(selectedIcon),0]);
+private _setChannel = _this getVariable [QGVAR(setChannel), false];
+if (_setChannel) then {
+    [_setChannel, _this getVariable [QGVAR(selectedChannels), [0,0,0]]]
+} else {
+    true
+}

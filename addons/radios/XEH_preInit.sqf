@@ -4,6 +4,15 @@ ADDON = false;
 
 #include "XEH_PREP.hpp"
 
+// defaults
+GVAR(enabled) = false;
+GVAR(radioInterference) = false;
+GVAR(terrainInterference) = 0.5;
+GVAR(addCommonChannelName) = "Negotiations";
+GVAR(addCommonChannelNumber) = 8;
+GVAR(addCommonChannelAllMR) = false;
+GVAR(addCommonChannelAllLR) = false;
+
 GVAR(availableLanguages) = [
     ["af", "Afrikaans"],
     ["am", "American"],

@@ -1,18 +1,18 @@
 #include "script_component.hpp"
 
 // Could 3den this later, but for now we want it running on old missions
-diag_log text "[POTATO-radios] Setting acre_sys_signal_omnidirectionalRadios to true"; 
+diag_log text "[POTATO-radios] Setting acre_sys_signal_omnidirectionalRadios to true";
 acre_sys_signal_omnidirectionalRadios = true;
 
 
 // set global settings, see script_component.hpp for default values
-GVAR(enabled) = getMissionConfigValue [QGVAR(enabled), RADIOS_ENABLED];
-GVAR(radioInterference) = getMissionConfigValue [QGVAR(radioInterference), RADIO_INTERFERENCE];
-GVAR(terrainInterference) = getMissionConfigValue [QGVAR(terrainInterference), TERRAIN_INTERFERENCE];
-GVAR(addCommonChannelName) = getMissionConfigValue [QGVAR(addCommonChannelName), COMMON_CHANNEL_NAME];
-GVAR(addCommonChannelNumber) = getMissionConfigValue [QGVAR(addCommonChannelNumber), COMMON_CHANNEL_NUMBER];
-GVAR(addCommonChannelAllMR) = getMissionConfigValue [QGVAR(addCommonChannelAllMR), ADD_COMMON_CHANNEL_ALL_MR];
-GVAR(addCommonChannelAllLR) = getMissionConfigValue [QGVAR(addCommonChannelAllLR), ADD_COMMON_CHANNEL_ALL_LR];
+GVAR(enabled) = getMissionConfigValue [QGVAR(enabled), GVAR(enabled)];
+GVAR(radioInterference) = getMissionConfigValue [QGVAR(radioInterference), GVAR(radioInterference)];
+GVAR(terrainInterference) = getMissionConfigValue [QGVAR(terrainInterference), GVAR(terrainInterference)];
+GVAR(addCommonChannelName) = getMissionConfigValue [QGVAR(addCommonChannelName), GVAR(addCommonChannelName)];
+GVAR(addCommonChannelNumber) = getMissionConfigValue [QGVAR(addCommonChannelNumber), GVAR(addCommonChannelNumber)];
+GVAR(addCommonChannelAllMR) = getMissionConfigValue [QGVAR(addCommonChannelAllMR), GVAR(addCommonChannelAllMR)];
+GVAR(addCommonChannelAllLR) = getMissionConfigValue [QGVAR(addCommonChannelAllLR), GVAR(addCommonChannelAllLR)];
 
 ["ace_settingsInitialized", {
     TRACE_3("",GVAR(enabled),hasInterface,EGVAR(assignGear,usePotato));

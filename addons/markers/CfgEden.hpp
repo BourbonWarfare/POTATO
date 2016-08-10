@@ -1,45 +1,99 @@
-class ctrlStatic;
+#include "\a3\3den\UI\macros.inc"
+#include "\a3\3den\UI\resincl.inc"
+
+class ctrlEdit;
+class ctrlToolbox;
 
 class Cfg3DEN {
     class Attributes {
         class Default;
-        class Title: Default {
-            class Controls {
-                class Title;
-            };
+        class Title;
+        class TitleWide: Default {
+            class Controls;
         };
-        class Toolbox: Title {
-            class Controls: Controls {
-                class Title: Title {};
-                class Value;
-            };
-        };
-        class GVAR(markerIconSelect): Toolbox {
-            attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(markerAttributeLoad));
+        class GVAR(configureMarker): TitleWide {
+            onLoad = QUOTE(_this call FUNC(markerControlLoad));
+            onUnload = "";
             attributeSave = QUOTE(_this call FUNC(markerAttributeSave));
-            h = "4 * 5 * (pixelH * 1.25 * 4)";
+            attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(markerAttributeLoad));
+            h = (28 * SIZE_M + 1) * GRID_H;
             class Controls: Controls {
-                class Title: Title {
-                    h = "3 * 5 * (pixelH * 1.25 * 4)";
+                class SetTitle: Title {
+                    text = "Set Marker";
                 };
-                class Background: ctrlStatic {
-                    x = "48 * (pixelW * 1.25 * 4)";
-                    w = "82 * (pixelW * 1.25 * 4)";
-                    h = "4 * 5 * (pixelH * 1.25 * 4)";
-                    colorBackground[] = {0,0,0,0};
+                class GVAR(set): ctrlToolbox {
+                    idc = MARKER_SET_IDC;
+                    x = SIZE_M * GRID_W;
+                    y = 1 * SIZE_M * GRID_H;
+                    w = (ATTRIBUTE_TITLE_W + ATTRIBUTE_CONTENT_W - SIZE_M) * GRID_W;
+                    h = 1 * SIZE_M * GRID_H;
+
+                    rows = 1;
+                    columns = 2;
+                    strings[] = {"Don't Set", "Set Marker"};
+                    values[] = {0, 1};
                 };
-                class Value: Value {
-                    idc = GROUP_MARKER_ICON_IDC;
-                    style = "0x02 + 0x30 + 0x800";
-                    h = "4 * 5 * (pixelH * 1.25 * 4)";
-                    colorBackground[] = {0,0,0,0};
+                class NameTitle: Title {
+                    text = "Marker Text";
+                    y = 2 * SIZE_M * GRID_H;
+                };
+                class GVAR(name): ctrlEdit {
+                    idc = MARKER_NAME_IDC;
+                    x = SIZE_M * GRID_W;
+                    y = 2 * SIZE_M * GRID_H;
+                    w = (ATTRIBUTE_TITLE_W + ATTRIBUTE_CONTENT_W - SIZE_M) * GRID_W;
+                    h = 1 * SIZE_M * GRID_H;
+                };
+                class SizeTitle: Title {
+                    text = "Marker Size";
+                    y = 3 * SIZE_M * GRID_H;
+                };
+                class GVAR(size): GVAR(set) {
+                    idc = MARKER_SIZE_IDC;
+                    y = 3 * SIZE_M * GRID_H;
+                    columns = 3;
+                    strings[] = {"Small", "Medium", "Large"};
+                    values[] = {16, 24, 32};
+                };
+                class ColorTitle: Title {
+                    text = "Marker Color";
+                    y = 4 * SIZE_M * GRID_H;
+                };
+                class GVAR(color): GVAR(set) {
+                    idc = MARKER_COLOR_IDC;
+                    y = 4 * SIZE_M * GRID_H;
+                    h = 2 * SIZE_M * GRID_H;
+
+                    rows = 2;
+                    columns = 4;
+                    strings[] = {
+                        "White", "Red", "Blue", "Green",
+                        "Orange", "Yellow", "Pink", "Black"
+                    };
+                    values[] = {
+                        "white", "red", "blue", "green",
+                        "orange", "yellow", "pink", "black"
+                    };
+                };
+                class ColorTitle: Title {
+                    text = "Marker Icon";
+                    y = 6 * SIZE_M * GRID_H;
+                };
+                class GVAR(iconSelect): ctrlToolbox {
+                    idc = MARKER_ICON_IDC;
+                    style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
+                    colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",0.5};
+                    x = SIZE_M * GRID_W;
+                    y = 6 * SIZE_M * GRID_H;
+                    w = (ATTRIBUTE_TITLE_W + ATTRIBUTE_CONTENT_W - SIZE_M) * GRID_W;
+                    h = 2 * SIZE_M * GRID_H;
 
                     rows = 2;
                     columns = 7;
                     strings[] = {UNIT_MARKERS_STRINGS};
                     values[] = {UNIT_MARKERS};
                     tooltips[] = {
-                        "Unkown",
+                        "Unknown",
                         "Infantry",
                         "HQ",
                         "MMG",
@@ -54,7 +108,6 @@ class Cfg3DEN {
                         "Artillery",
                         "Medic"
                     };
-                    onToolboxSelChanged = QUOTE(_this call FUNC(markerIconChange));
                 };
             };
         };
@@ -66,64 +119,10 @@ class Cfg3DEN {
                 collapsed = 1;
                 class Attributes {
                     class GVAR(addGroupMarker) {
-                        control = "Checkbox";
-                        displayName = "Add Marker";
-                        tooltip = "Add marker to group";
+                        control = QGVAR(configureMarker);
                         property = QGVAR(addMarker);
-                        expression = QUOTE([ARR_3(_this,_value,QUOTE(QGVAR(addMarker)))] call FUNC(setGroupVar););
-                        typeName = "BOOL";
-                        defaultValue = "false";
-                    };
-                    class GVAR(groupMarkerText) {
-                        control = "Edit";
-                        displayName = "Marker Text";
-                        tooltip = "Group marker text";
-                        property = QGVAR(markerText);
-                        expression =  QUOTE([ARR_3(_this,_value,QUOTE(QGVAR(markerText)))] call FUNC(setGroupVar););
-                        typeName = "STRING";
-                        defaultValue = "''";
-                    };
-                    class GVAR(groupMarkerSize) {
-                        control = "Combo";
-                        displayName = "Marker Size";
-                        tooltip = "Group marker size";
-                        property = QGVAR(markerSize);
-                        expression = QUOTE([ARR_3(_this,_value,QUOTE(QGVAR(markerSize)))] call FUNC(setGroupVar););
-                        typeName = "NUMBER";
-                        class values {
-                            class 1 { name = "small"; value = 16; };
-                            class 2 { name = "medium"; value = 24; };
-                            class 3 { name = "large"; value = 32; };
-                        };
-                        defaultValue = "24";
-                    };
-                    class GVAR(groupMarkerColor) {
-                        control = "Combo";
-                        displayName = "Marker Color";
-                        tooltip = "Group marker color";
-                        property = QGVAR(markerColor);
-                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setMarkerColor););
-                        typeName = "STRING";
-                        class values {
-                            class 1 { name = "white"; value = "white"; };
-                            class 2 { name = "red"; value = "red"; };
-                            class 3 { name = "blue"; value = "blue"; };
-                            class 4 { name = "green"; value = "green"; };
-                            class 5 { name = "orange"; value = "orange"; };
-                            class 6 { name = "yellow"; value = "yellow"; };
-                            class 7 { name = "pink"; value = "pink"; };
-                            class 8 { name = "black"; value = "black"; };
-                        };
-                        defaultValue = "'white'";
-                    };
-                    class GVAR(groupMarkerTexture) {
-                        control = QGVAR(markerIconSelect);
-                        displayName = "Marker Icon";
-                        tooltip = "Group Marker Icon";
-                        property = QGVAR(markerTexture);
-                        expression = QUOTE([ARR_3(_this,_value,QUOTE(QGVAR(markerTexture)))] call FUNC(setGroupVar););
-                        typeName = "STRING";
-                        defaultValue = """\A3\ui_f\data\map\markers\nato\b_unknown.paa""";
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setMarker););
+                        defaultValue = "(true)";
                     };
                 };
             };
@@ -136,69 +135,11 @@ class Cfg3DEN {
                 collapsed = 1;
                 class Attributes {
                     class GVAR(addUnitMarker) {
-                        control = "Checkbox";
-                        displayName = "Add Marker";
-                        tooltip = "Add marker to unit";
+                        control = QGVAR(configureMarker);
                         property = QGVAR(addMarker);
-                        expression = QUOTE(SETPVAR(_this,QGVAR(addMarker),_value););
-                        typeName = "BOOL";
+                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setMarker););
                         condition = "objectBrain";
-                        defaultValue = "false";
-                    };
-                    class GVAR(unitMarkerText) {
-                        control = "Edit";
-                        displayName = "Marker Text";
-                        tooltip = "Unit marker text";
-                        property = QGVAR(markerText);
-                        expression = QUOTE(SETPVAR(_this,QGVAR(markerText),_value););
-                        typeName = "STRING";
-                        condition = "objectBrain";
-                        defaultValue = "''";
-                    };
-                    class GVAR(unitMarkerSize) {
-                        control = "Combo";
-                        displayName = "Marker Size";
-                        tooltip = "Unit marker size";
-                        property = QGVAR(markerSize);
-                        expression = QUOTE(SETPVAR(_this,QGVAR(markerSize),_value););
-                        typeName = "NUMBER";
-                        condition = "objectBrain";
-                        class values {
-                            class 1 { name = "small"; value = 16; };
-                            class 2 { name = "medium"; value = 24; };
-                            class 3 { name = "large"; value = 32; };
-                        };
-                        defaultValue = "24";
-                    };
-                    class GVAR(unitMarkerColor) {
-                        control = "Combo";
-                        displayName = "Marker Color";
-                        tooltip = "Unit marker color";
-                        property = QGVAR(markerColor);
-                        expression = QUOTE([ARR_2(_this,_value)] call FUNC(setMarkerColor););
-                        typeName = "STRING";
-                        condition = "objectBrain";
-                        class values {
-                            class 1 { name = "white"; value = "white"; };
-                            class 2 { name = "red"; value = "red"; };
-                            class 3 { name = "blue"; value = "blue"; };
-                            class 4 { name = "green"; value = "green"; };
-                            class 5 { name = "orange"; value = "orange"; };
-                            class 6 { name = "yellow"; value = "yellow"; };
-                            class 7 { name = "pink"; value = "pink"; };
-                            class 8 { name = "black"; value = "black"; };
-                        };
-                        defaultValue = "'white'";
-                    };
-                    class GVAR(unitMarkerTexture) {
-                        control = QGVAR(markerIconSelect);
-                        displayName = "Marker Icon";
-                        tooltip = "Unit Marker Icon";
-                        property = QGVAR(markerTexture);
-                        expression = QUOTE(SETPVAR(_this,QGVAR(markerTexture),_value););
-                        typeName = "STRING";
-                        condition = "objectBrain";
-                        defaultValue = """\A3\ui_f\data\map\markers\nato\b_unknown.paa""";
+                        defaultValue = "(true)";
                     };
                 };
             };

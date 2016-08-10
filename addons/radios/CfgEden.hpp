@@ -234,13 +234,13 @@ class Cfg3DEN {
                         property = QGVAR(babel);
                         control = QGVAR(babel);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setLanguages));
-                        defaultValue = "true";
+                        defaultValue = "(true)";
                     };
                     class GVAR(radios) {
                         property = QGVAR(radio);
                         control = QGVAR(radioChannels);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setChannels));
-                        defaultValue = "true";
+                        defaultValue = "(true)";
                     };
                 };
             };
@@ -257,14 +257,14 @@ class Cfg3DEN {
                         property = QGVAR(babel);
                         control = QGVAR(babel);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setLanguages));
-                        defaultValue = "true";
+                        defaultValue = "(true)";
                     };
                     class GVAR(radios) {
                         condition = "objectBrain";
                         property = QGVAR(radio);
                         control = QGVAR(radioChannels);
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(setChannels));
-                        defaultValue = "true";
+                        defaultValue = "(true)";
                     };
                 };
             };
@@ -283,7 +283,7 @@ class Cfg3DEN {
                             displayName = "Master Enable";
                             property = QGVAR(enabled);
                             control = "Checkbox";
-                            defaultValue = QGVAR(enabled);
+                            defaultValue = QUOTE((GVAR(enabled)));
                             typeName = "BOOL";
                             expression = "";
                         };
@@ -291,7 +291,7 @@ class Cfg3DEN {
                             displayName = "Allow radio to radio interference";
                             property = QGVAR(radioInterference);
                             control = "Checkbox";
-                            defaultValue = QGVAR(radioInterference);
+                            defaultValue = QUOTE((GVAR(radioInterference)));
                             typeName = "BOOL";
                             expression = "";
                         };
@@ -299,7 +299,7 @@ class Cfg3DEN {
                             displayName = "Set level of terrain interference";
                             property = QGVAR(terrainInterference);
                             control = "Slider";
-                            defaultValue = QGVAR(terrainInterference);
+                            defaultValue = QUOTE((GVAR(terrainInterference)));
                             typeName = "NUMBER";
                             expression = "";
                         };
@@ -307,7 +307,7 @@ class Cfg3DEN {
                             displayName = "Shared channel name";
                             property = QGVAR(addCommonChannelName);
                             control = "Edit";
-                            defaultValue = QGVAR(addCommonChannelName);
+                            defaultValue = QUOTE((GVAR(addCommonChannelName)));
                             typeName = "STRING";
                             expression = "";
                         };
@@ -315,7 +315,7 @@ class Cfg3DEN {
                             displayName = "Shared channel number";
                             property = QGVAR(addCommonChannelNumber);
                             control = "Combo";
-                            defaultValue = QGVAR(addCommonChannelNumber);
+                            defaultValue = QUOTE((GVAR(addCommonChannelNumber)));
                             typeName = "NUMBER";
                             expression = "";
                             class values {
@@ -345,7 +345,7 @@ class Cfg3DEN {
                             displayName = "Global shared 148 channel";
                             property = QGVAR(addCommonChannelAllMR);
                             control = "Checkbox";
-                            defaultValue = QGVAR(addCommonChannelAllMR);
+                            defaultValue = QUOTE((GVAR(addCommonChannelAllMR)));
                             typeName = "BOOL";
                             expression = "";
                         };
@@ -353,7 +353,7 @@ class Cfg3DEN {
                             displayName = "Global shared 117 channel";
                             property = QGVAR(addCommonChannelAllLR);
                             control = "Checkbox";
-                            defaultValue = QGVAR(addCommonChannelAllLR);
+                            defaultValue = QUOTE((GVAR(addCommonChannelAllLR)));
                             typeName = "BOOL";
                             expression = "";
                         };
