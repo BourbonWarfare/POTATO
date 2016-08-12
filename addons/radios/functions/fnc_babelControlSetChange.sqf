@@ -13,7 +13,7 @@ private _ctrlBabel = _ctrlGroup controlsGroupCtrl BABEL_LIST_IDC;
 private _switch = _index == 1;
 private _fade = if (_switch) then { FADE_ENABLED } else { FADE_DISABLED };
 
-GVAR(setBabel) = _switch;
+_ctrlGroup setVariable [QGVAR(setBabel), _switch];
 
 _ctrlBabel ctrlEnable _switch;
 _ctrlBabel ctrlSetFade _fade;

@@ -3,58 +3,37 @@
  */
 
 #include "script_component.hpp"
-TRACE_3("params",_this,get3DENSelected "object",get3DENSelected "group");
+TRACE_1("params");
 
 params ["_ctrlGroup"];
 
 // get controls
-private _ctrlSet = _ctrlGroup controlsGroupCtrl RADIO_SET_IDC;
-private _ctrlRadio = _ctrlGroup controlsGroupCtrl RADIO_CHOOSE_IDC;
-private _ctrlChannels = _ctrlGroup controlsGroupCtrl RADIO_CHANNEL_IDC;
+private _ctrlSet = _ctrlGroup controlsGroupCtrl MARKER_SET_IDC;
+private _ctrlIcon = _ctrlGroup controlsGroupCtrl MARKER_ICON_IDC;
+private _ctrlName = _ctrlGroup controlsGroupCtrl MARKER_NAME_IDC;
+private _ctrlSize = _ctrlGroup controlsGroupCtrl MARKER_SIZE_IDC;
+private _ctrlColor = _ctrlGroup controlsGroupCtrl MARKER_COLOR_IDC;
 
-// determine selected objects, prioritize groups
-private _selectedGroups = get3DENSelected "group";
-private _selected = if (count _selectedGroups > 0) then {
-    _selectedGroups
-} else {
-    get3DENSelected "object"
-};
-_ctrlGroup setVariable [QGVAR(selected), _selected];
-
-// determine side of unit(s)/group(s) bail if there is a mix of sides
-private _side = side (_selected select 0);
-_ctrlGroup setVariable [QGVAR(channelsInvalid), false];
-{
-    if (side _x != _side) exitWith { _ctrlGroup setVariable [QGVAR(channelsInvalid), true]; };
-} forEach _selected;
-
-_ctrlGroup setVariable [QGVAR(setChannel), false];
-_ctrlGroup setVariable [QGVAR(selectedChannels), [0,0,0]];
-
-// there's either nothing selected, or a mix of sides, bail out
-if (_ctrlGroup getVariable QGVAR(channelsInvalid) || {count _selected < 0}) exitWith {
-    _ctrlChannel ctrlEnable false;
-    _ctrlRadio ctrlEnable false;
-    _ctrlSet ctrlEnable false;
-
-    _ctrlChannel ctrlSetFade FADE_DISABLED;
-    _ctrlRadio ctrlSetFade FADE_DISABLED;
-    _ctrlSet ctrlSetFade FADE_DISABLED;
-
-    _ctrlChannel ctrlCommit FADE_LENGTH;
-    _ctrlRadio ctrlCommit FADE_LENGTH;
-    _ctrlSet ctrlCommit FADE_LENGTH;
-};
-
-[_ctrlGroup, _side] call FUNC(setChannelArrays);
+// set default values
+_ctrlGroup setVariable [QGVAR(setMarker), false];
+_ctrlGroup setVariable [QGVAR(markerIcon), DEFAULT_MARKER_ICON];
+_ctrlGroup setVariable [QGVAR(markerText), DEFAULT_MARKER_TEXT];
+_ctrlGroup setVariable [QGVAR(markerSize), DEFAULT_MARKER_SIZE];
+_ctrlGroup setVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR_TEXT];
 
 // register event handlers
-_ctrlSet ctrlAddeventHandler ["toolboxselchanged",{_this call FUNC(channelControlSetChange);}];
+_ctrlSet ctrlAddeventHandler ["toolboxselchanged",{_this call FUNC(markerSetChange);}];
 _ctrlSet lbSetCurSel 0;
-[_ctrlSet,0] call FUNC(channelControlSetChange);
+[_ctrlSet,0] call FUNC(markerSetChange);
 
-_ctrlRadio ctrlAddEventHandler ["toolboxselchanged",{_this call FUNC(channelControlRadioChange);}];
-_ctrlRadio lbSetCurSel 0;
-[_ctrlRadio,0] call FUNC(channelControlRadioChange);
+// PROBABLY don't need the below, just grab on save with IDCs
+_ctrlSize ctrlAddeventHandler ["toolboxselchanged",{_this call FUNC(markerSizeChange);}];
+_ctrlSize lbSetCurSel 0;
 
-_ctrlChannels ctrlAddEventHandler ["lbselchanged",{_this call FUNC(channelControlChannelChange);}];
+_ctrlColor ctrlAddeventHandler ["toolboxselchanged",{_this call FUNC(markerColorChange);}];
+_ctrlColor lbSetCurSel 0;
+
+_ctrlIcon ctrlAddeventHandler ["toolboxselchanged",{_this call FUNC(markerIconChange);}];
+_ctrlIcon lbSetCurSel 0;
+
+_ctrlName ctrlAddEventHandler ["onKillFocus",{_this call FUNC(markerNameChange);}];
