@@ -34,6 +34,7 @@
 
 #define DEFAULT_MARKER_TEXT ""
 #define DEFAULT_MARKER_ICON "\A3\ui_f\data\map\markers\nato\b_unknown.paa"
+#define DEFAULT_MARKER_COLOR_TEXT "white"
 #define DEFAULT_MARKER_COLOR WHITE_ARRAY
 #define DEFAULT_MARKER_SIZE 24
 

@@ -7,7 +7,7 @@ TRACE_3("params",_this,_this getVariable QGVAR(setChannel),_this getVariable QGV
 
 private _setChannel = _this getVariable [QGVAR(setChannel), false];
 if (_setChannel) then {
-    [_setChannel, _this getVariable [QGVAR(selectedChannels), [0,0,0]]]
+    _this getVariable [QGVAR(selectedChannels), [0,0,0]]
 } else {
     true
 }
