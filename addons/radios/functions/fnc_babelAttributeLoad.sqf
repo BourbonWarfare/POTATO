@@ -12,8 +12,7 @@ if ((_languageString isEqualType true && {_languageString}) || {_languageString 
 private _ctrlSet = _ctrlGroup controlsGroupCtrl RADIO_SET_IDC;
 private _ctrlBabel = _ctrlGroup controlsGroupCtrl BABEL_LIST_IDC;
 
-private _selectedLanguages = _languageString splitString ",";
-_ctrlGroup setVariable [QGVAR(selectedLanguages), _selectedLanguages];
+[_ctrlBabel, _languageString splitString ","] call FUNC(setBabelList);
 
 _ctrlSet lbSetCurSel 1;
 [_ctrlSet,1] call FUNC(babelControlSetChange);

@@ -31,14 +31,7 @@ _ctrlGroup setVariable [QGVAR(setBabel), false];
 
 // there's either nothing selected, or a mix of sides, bail out
 if (_babelInvalid || {count G_babelSelected < 0}) exitWith {
-    _ctrlBabel ctrlEnable false;
-    _ctrlSet ctrlEnable false;
-
-    _ctrlBabel ctrlSetFade FADE_DISABLED;
-    _ctrlSet ctrlSetFade FADE_DISABLED;
-
-    _ctrlBabel ctrlCommit FADE_LENGTH;
-    _ctrlSet ctrlCommit FADE_LENGTH;
+    [false, [_ctrlBabel, _ctrlSet]] call EFUNC(core,setControlFade);
 };
 
 private _selectedLanguages = switch (_side) do {
@@ -47,14 +40,11 @@ private _selectedLanguages = switch (_side) do {
     case (independent): { GVAR(indyDefaultLanguages) };
     default { GVAR(civDefaultLanguages) };
 };
-_ctrlGroup setVariable [QGVAR(selectedLanguages),_selectedLanguages];
 
 [_ctrlBabel] call FUNC(populateBabelList);
-[_ctrlBabel] call FUNC(setBabelList);
+[_ctrlBabel, _selectedLanguages] call FUNC(setBabelList);
 
 // register event handlers
 _ctrlSet ctrlAddeventHandler ["toolboxselchanged",{_this call FUNC(babelControlSetChange);}];
 _ctrlSet lbSetCurSel 0;
 [_ctrlSet,0] call FUNC(babelControlSetChange);
-
-_ctrlBabel ctrlAddEventHandler ["lbselchanged",{_this spawn FUNC(babelControlBabelChange);}];

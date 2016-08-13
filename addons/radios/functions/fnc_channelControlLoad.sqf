@@ -33,17 +33,11 @@ _ctrlGroup setVariable [QGVAR(selectedChannels), [0,0,0]];
 
 // there's either nothing selected, or a mix of sides, bail out
 if (_ctrlGroup getVariable QGVAR(channelsInvalid) || {count _selected < 0}) exitWith {
-    _ctrlChannel ctrlEnable false;
-    _ctrlRadio ctrlEnable false;
-    _ctrlSet ctrlEnable false;
-
-    _ctrlChannel ctrlSetFade FADE_DISABLED;
-    _ctrlRadio ctrlSetFade FADE_DISABLED;
-    _ctrlSet ctrlSetFade FADE_DISABLED;
-
-    _ctrlChannel ctrlCommit FADE_LENGTH;
-    _ctrlRadio ctrlCommit FADE_LENGTH;
-    _ctrlSet ctrlCommit FADE_LENGTH;
+    [false, [
+        _ctrlChannel,
+        _ctrlRadio,
+        _ctrlSet
+    ]] call EFUNC(core,setControlFade);
 };
 
 [_ctrlGroup, _side] call FUNC(setChannelArrays);

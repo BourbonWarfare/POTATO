@@ -22,7 +22,3 @@
 #define CIV_SR "civ343"
 #define CIV_MR "civ148"
 #define CIV_LR "civ117"
-
-#define FADE_LENGTH 0.5
-#define FADE_ENABLED 0
-#define FADE_DISABLED 0.7

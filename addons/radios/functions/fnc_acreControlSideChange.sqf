@@ -45,5 +45,5 @@ TRACE_5("Babel junk",GVAR(selectedLanguages),GVAR(westDefaultLanguages),GVAR(eas
 
 [_ctrlBabel] call FUNC(setBabelList);
 
-[_side] call FUNC(setChannelArrays);
+[_ctrlGroup,_side] call FUNC(setChannelArrays);
 [_ctrlRadio,lbCurSel _ctrlRadio] call FUNC(acreControlRadioChange);

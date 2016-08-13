@@ -71,4 +71,10 @@
 "\A3\ui_f\data\map\markers\nato\b_art.paa",\
 "\A3\ui_f\data\map\markers\nato\b_med.paa"
 
+#define UNIT_MARKER_SIZES 16,24,32
+#define UNIT_MARKER_SIZES_STRINGS "Small","Medium","Large"
+
+#define UNIT_MARKER_COLORS "white","red","blue","green","orange","yellow","pink","black"
+#define UNIT_MARKER_COLORS_STRINGS "White","Red","Blue","Green","Orange","Yellow","Pink","Black"
+
 #include "\z\potato\addons\core\script_macros.hpp"

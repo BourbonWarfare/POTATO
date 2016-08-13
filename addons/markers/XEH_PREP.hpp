@@ -1,14 +1,16 @@
 TRACE_1("",QUOTE(ADDON));
 
+// map drawing/updating
 PREP(drawMarkers);
-PREP(setGroupVar);
 PREP(getSideArray);
 PREP(initMarkerHash);
-PREP(setMarkerColor);
 PREP(addMarkerInfoToHash);
 PREP(addMarkersToDisplay);
 PREP(handleCheckPlayerForMarkers);
 
-PREP(markerIconChange);
+// 3den control functions
+PREP(setMarker);
 PREP(markerAttributeLoad);
 PREP(markerAttributeSave);
+PREP(markerControlLoad);
+PREP(markerControlSetChange);

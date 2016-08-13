@@ -15,3 +15,7 @@
 #define MISSION_HINT_RANKS [-99,1,2,3]
 
 #define SERVER_CLIENT_ID 2
+
+#define FADE_LENGTH 0.25
+#define FADE_ENABLED 0
+#define FADE_DISABLED 0.7

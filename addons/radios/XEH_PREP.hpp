@@ -36,7 +36,6 @@ PREP(babelControlLoad);
 PREP(babelAttributeLoad);
 PREP(babelAttributeSave);
 PREP(babelControlSetChange);
-PREP(babelControlBabelChange);
 
 // util funtions
 PREP(setBabelList);

@@ -40,51 +40,45 @@ class Cfg3DEN {
                 class GVAR(name): ctrlEdit {
                     idc = MARKER_NAME_IDC;
                     x = SIZE_M * GRID_W;
-                    y = 2 * SIZE_M * GRID_H;
+                    y = 3 * SIZE_M * GRID_H;
                     w = (ATTRIBUTE_TITLE_W + ATTRIBUTE_CONTENT_W - SIZE_M) * GRID_W;
                     h = 1 * SIZE_M * GRID_H;
                 };
                 class SizeTitle: Title {
                     text = "Marker Size";
-                    y = 3 * SIZE_M * GRID_H;
+                    y = 4 * SIZE_M * GRID_H;
                 };
                 class GVAR(size): GVAR(set) {
                     idc = MARKER_SIZE_IDC;
-                    y = 3 * SIZE_M * GRID_H;
+                    y = 5 * SIZE_M * GRID_H;
                     columns = 3;
-                    strings[] = {"Small", "Medium", "Large"};
-                    values[] = {16, 24, 32};
+                    strings[] = {UNIT_MARKER_SIZES_STRINGS};
+                    values[] = {UNIT_MARKER_SIZES};
                 };
                 class ColorTitle: Title {
                     text = "Marker Color";
-                    y = 4 * SIZE_M * GRID_H;
+                    y = 6 * SIZE_M * GRID_H;
                 };
                 class GVAR(color): GVAR(set) {
                     idc = MARKER_COLOR_IDC;
-                    y = 4 * SIZE_M * GRID_H;
+                    y = 7 * SIZE_M * GRID_H;
                     h = 2 * SIZE_M * GRID_H;
 
                     rows = 2;
                     columns = 4;
-                    strings[] = {
-                        "White", "Red", "Blue", "Green",
-                        "Orange", "Yellow", "Pink", "Black"
-                    };
-                    values[] = {
-                        "white", "red", "blue", "green",
-                        "orange", "yellow", "pink", "black"
-                    };
+                    strings[] = {UNIT_MARKER_COLORS_STRINGS};
+                    values[] = {UNIT_MARKER_COLORS};
                 };
-                class ColorTitle: Title {
+                class IconTitle: Title {
                     text = "Marker Icon";
-                    y = 6 * SIZE_M * GRID_H;
+                    y = 9 * SIZE_M * GRID_H;
                 };
                 class GVAR(iconSelect): ctrlToolbox {
                     idc = MARKER_ICON_IDC;
                     style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
-                    colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",0.5};
+                    colorBackground[] = {0,0,0,0};
                     x = SIZE_M * GRID_W;
-                    y = 6 * SIZE_M * GRID_H;
+                    y = 10 * SIZE_M * GRID_H;
                     w = (ATTRIBUTE_TITLE_W + ATTRIBUTE_CONTENT_W - SIZE_M) * GRID_W;
                     h = 2 * SIZE_M * GRID_H;
 
