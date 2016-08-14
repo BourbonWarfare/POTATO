@@ -5,8 +5,6 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-//uiSleep 1;
-
 // helper function
 private _cleanLines = {
     TRACE_1("cleanLines params",_this);

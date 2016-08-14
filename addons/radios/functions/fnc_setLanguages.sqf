@@ -1,6 +1,7 @@
 /*
  *
  */
+
 #include "script_component.hpp"
 
 params ["_object",["_languageString","",["",false]]];

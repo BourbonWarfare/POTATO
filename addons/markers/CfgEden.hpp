@@ -16,7 +16,7 @@ class Cfg3DEN {
             onUnload = "";
             attributeSave = QUOTE(_this call FUNC(markerAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(markerAttributeLoad));
-            h = (28 * SIZE_M + 1) * GRID_H;
+            h = (12 * SIZE_M + 1) * GRID_H;
             class Controls: Controls {
                 class SetTitle: Title {
                     text = "Set Marker";

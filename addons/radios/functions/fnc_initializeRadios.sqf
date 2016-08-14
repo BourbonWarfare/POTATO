@@ -7,6 +7,7 @@ TRACE_1("params",_this);
 
 [GVAR(radioInterference)] call ACRE_FUNC(setInterference);
 [GVAR(terrainInterference)] call ACRE_FUNC(setLossModelScale);
+acre_sys_signal_omnidirectionalRadios = GVAR(omnidirectionalAntenna);
 
 //Setup babble languages:
 {

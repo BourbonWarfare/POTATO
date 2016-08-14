@@ -30,7 +30,7 @@ _ctrlGroup setVariable [QGVAR(babelInvalid), _babelInvalid];
 _ctrlGroup setVariable [QGVAR(setBabel), false];
 
 // there's either nothing selected, or a mix of sides, bail out
-if (_babelInvalid || {count G_babelSelected < 0}) exitWith {
+if (_babelInvalid || {count _babelSelected < 0}) exitWith {
     [false, [_ctrlBabel, _ctrlSet]] call EFUNC(core,setControlFade);
 };
 
