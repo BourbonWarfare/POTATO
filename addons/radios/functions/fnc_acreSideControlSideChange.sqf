@@ -44,6 +44,5 @@ private _side = switch (_index) do {
 TRACE_4("Babel junk",GVAR(westDefaultLanguages),GVAR(eastDefaultLanguages),GVAR(indyDefaultLanguages),GVAR(civDefaultLanguages));
 
 [_ctrlBabel] call FUNC(setBabelList);
-
 [_ctrlGroup,_side] call FUNC(setChannelArrays);
 [_ctrlRadio,lbCurSel _ctrlRadio] call FUNC(acreSideControlRadioChange);

@@ -27,7 +27,7 @@ _paramsStrings params [
     "_civLR"
 ];
 
-_commonChannels params [
+(_commonChannels splitString ",") params [
     "_commonWestMR",
     "_commonWestLR",
     "_commonEastMR",
