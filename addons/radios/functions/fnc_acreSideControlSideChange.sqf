@@ -14,6 +14,11 @@ private _ctrlChannels = _ctrlGroup controlsGroupCtrl RADIO_CHANNEL_IDC;
 private _ctrlSharedMR = _ctrlGroup controlsGroupCtrl CFG_S_SHARED_MR;
 private _ctrlSharedLR = _ctrlGroup controlsGroupCtrl CFG_S_SHARED_LR;
 
+TRACE_8("Shared settings",GVAR(addCommonChannelWestMR),GVAR(addCommonChannelWestLR),\
+GVAR(addCommonChannelEastMR),GVAR(addCommonChannelEastLR),\
+GVAR(addCommonChannelIndyMR),GVAR(addCommonChannelIndyLR),\
+GVAR(addCommonChannelCivMR),GVAR(addCommonChannelCivLR));
+
 private _side = switch (_index) do {
     case (0): {
         _ctrlGroup setVariable [QGVAR(selectedLanguages), GVAR(westDefaultLanguages)];
@@ -43,6 +48,6 @@ private _side = switch (_index) do {
 
 TRACE_4("Babel junk",GVAR(westDefaultLanguages),GVAR(eastDefaultLanguages),GVAR(indyDefaultLanguages),GVAR(civDefaultLanguages));
 
-[_ctrlBabel] call FUNC(setBabelList);
+[_ctrlBabel, _ctrlGroup getVariable QGVAR(selectedLanguages)] call FUNC(setBabelList);
 [_ctrlGroup,_side] call FUNC(setChannelArrays);
 [_ctrlRadio,lbCurSel _ctrlRadio] call FUNC(acreSideControlRadioChange);

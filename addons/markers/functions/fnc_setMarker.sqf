@@ -15,6 +15,7 @@
 
 #include "script_component.hpp"
 TRACE_1("Params",_this);
+
 params ["_object",["_markerInfo","",["",false]]];
 if (_markerInfo isEqualType true && {_markerInfo}) exitWith { LOG("Marker not set, or in strange state, exiting early"); };
 

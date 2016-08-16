@@ -4,6 +4,7 @@
 
 #include "script_component.hpp"
 TRACE_1("params",_this);
+
 params ["_object",["_channelString","0,0,0",["",false]]];
 if (_channelString isEqualType true && {_channelString}) exitWith { LOG("channels not set, or in strange state, exiting early"); };
 

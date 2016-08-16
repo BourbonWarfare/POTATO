@@ -10,7 +10,6 @@ PREP(reinitializeRadios);
 
 // 3den global mission config
 PREP(acreGlobalTIChange);
-PREP(setAcreGlobalSettings);
 PREP(acreGlobalControlLoad);
 PREP(acreGlobalAttributeLoad);
 PREP(acreGlobalAttributeSave);
@@ -19,7 +18,6 @@ PREP(acreGlobalSetControlsFromGVars);
 
 // 3den side specific mission config
 PREP(acreSideControlLoad);
-PREP(setAcreSideSettings);
 PREP(acreSideAttributeLoad);
 PREP(acreSideAttributeSave);
 PREP(acreSideControlSideChange);
@@ -28,6 +26,7 @@ PREP(acreSideControlRadioChange);
 PREP(acreSideSetGVarsFromString);
 PREP(acreSideControlSharedChange);
 PREP(acreSideControlChannelChange);
+PREP(acreSideSetControlsFromGVars);
 PREP(acreSideControlChannelEditChange);
 
 // 3den channel config

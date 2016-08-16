@@ -10,11 +10,7 @@ if (_ctrlGroup getVariable [QGVAR(babelInvalid), false]) exitWith { LOG("Multipl
 if ((_languageString isEqualType true && {_languageString}) || {_languageString isEqualTo ""}) exitWith { LOG("languages not set, or in strange state, exiting early"); };
 
 private _ctrlSet = _ctrlGroup controlsGroupCtrl RADIO_SET_IDC;
-private _ctrlBabel = _ctrlGroup controlsGroupCtrl BABEL_LIST_IDC;
-
-[_ctrlBabel, _languageString splitString ","] call FUNC(setBabelList);
 
 _ctrlSet lbSetCurSel 1;
 [_ctrlSet,1] call FUNC(babelControlSetChange);
-
-[_ctrlBabel] call FUNC(setBabelList);
+[_ctrlGroup controlsGroupCtrl BABEL_LIST_IDC, _languageString splitString ","] call FUNC(setBabelList);

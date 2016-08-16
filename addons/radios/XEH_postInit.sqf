@@ -1,5 +1,12 @@
 #include "script_component.hpp"
 
+/*
+if (isServer) then {
+    [] call FUNC(setAcreGlobalSettings);
+    [] call FUNC(setAcreSideSettings);
+};
+*/
+
 // Remove by october
 diag_log text "[POTATO-radios] Setting acre_sys_signal_omnidirectionalRadios to true";
 acre_sys_signal_omnidirectionalRadios = true;
@@ -11,6 +18,11 @@ acre_sys_signal_omnidirectionalRadios = true;
     TRACE_3("",GVAR(enabled),hasInterface,EGVAR(assignGear,usePotato));
 
     if (GVAR(enabled) && hasInterface) then {
+
+        if (hasInterface) then {
+
+        };
+
         if !(missionNamespace getVariable [QEGVAR(assignGear,usePotato), false]) exitWith {
             ERROR("Radios enabled, but gear assign is not running");
         };
