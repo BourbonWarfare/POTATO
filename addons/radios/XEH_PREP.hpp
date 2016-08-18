@@ -8,18 +8,26 @@ PREP(addSharedChannel);
 PREP(initializeRadios);
 PREP(reinitializeRadios);
 
-// 3den mission config
-PREP(acreControlLoad);
-PREP(acreAttributeLoad);
-PREP(acreAttributeSave);
-PREP(acreGetChannelArrays);
-PREP(acreControlSideChange);
-PREP(acreControlBabelChange);
-PREP(acreControlRadioChange);
-PREP(acreControlSharedChange);
-PREP(acreControlChannelChange);
-PREP(acreSetAcreConfiguration);
-PREP(acreControlChannelEditChange);
+// 3den global mission config
+PREP(acreGlobalTIChange);
+PREP(acreGlobalControlLoad);
+PREP(acreGlobalAttributeLoad);
+PREP(acreGlobalAttributeSave);
+PREP(acreGlobalSetGVarsFromString);
+PREP(acreGlobalSetControlsFromGVars);
+
+// 3den side specific mission config
+PREP(acreSideControlLoad);
+PREP(acreSideAttributeLoad);
+PREP(acreSideAttributeSave);
+PREP(acreSideControlSideChange);
+PREP(acreSideControlBabelChange);
+PREP(acreSideControlRadioChange);
+PREP(acreSideSetGVarsFromString);
+PREP(acreSideControlSharedChange);
+PREP(acreSideControlChannelChange);
+PREP(acreSideSetControlsFromGVars);
+PREP(acreSideControlChannelEditChange);
 
 // 3den channel config
 PREP(setChannels);
@@ -36,7 +44,6 @@ PREP(babelControlLoad);
 PREP(babelAttributeLoad);
 PREP(babelAttributeSave);
 PREP(babelControlSetChange);
-PREP(babelControlBabelChange);
 
 // util funtions
 PREP(setBabelList);

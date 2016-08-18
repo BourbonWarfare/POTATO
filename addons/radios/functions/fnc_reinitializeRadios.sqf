@@ -9,8 +9,6 @@ if (time < 1) exitWith {
     systemChat "Please wait until the mission has started to reinitialize your radios";
 };
 
-[] call FUNC(configureRadios);
-
 // remove/readd radios
 private _radios = [];
 {
@@ -25,8 +23,10 @@ TRACE_1("replacing",_radios);
 _radios spawn {
     {
         player removeItem _x;
-        sleep 0.25;
+        sleep 0.5;
         player addItem _x;
-        sleep 0.25;
+        sleep 0.5;
     } forEach _this;
+
+    [] call FUNC(configureRadios);
 };

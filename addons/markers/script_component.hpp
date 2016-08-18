@@ -14,7 +14,11 @@
     #define DEBUG_SETTINGS DEBUG_SETTINGS_MARKERS
 #endif
 
-#define GROUP_MARKER_ICON_IDC 79899
+#define MARKER_SET_IDC 79899
+#define MARKER_ICON_IDC 176983
+#define MARKER_NAME_IDC 464271
+#define MARKER_SIZE_IDC 578744
+#define MARKER_COLOR_IDC 604448
 
 #define MAP_IDC 51
 #define GPS_IDC 101
@@ -30,6 +34,7 @@
 
 #define DEFAULT_MARKER_TEXT ""
 #define DEFAULT_MARKER_ICON "\A3\ui_f\data\map\markers\nato\b_unknown.paa"
+#define DEFAULT_MARKER_COLOR_TEXT "white"
 #define DEFAULT_MARKER_COLOR WHITE_ARRAY
 #define DEFAULT_MARKER_SIZE 24
 
@@ -65,5 +70,11 @@
 "\A3\ui_f\data\map\markers\nato\b_plane.paa",\
 "\A3\ui_f\data\map\markers\nato\b_art.paa",\
 "\A3\ui_f\data\map\markers\nato\b_med.paa"
+
+#define UNIT_MARKER_SIZES 16,24,32
+#define UNIT_MARKER_SIZES_STRINGS "Small","Medium","Large"
+
+#define UNIT_MARKER_COLORS "white","red","blue","green","orange","yellow","pink","black"
+#define UNIT_MARKER_COLORS_STRINGS "White","Red","Blue","Green","Orange","Yellow","Pink","Black"
 
 #include "\z\potato\addons\core\script_macros.hpp"

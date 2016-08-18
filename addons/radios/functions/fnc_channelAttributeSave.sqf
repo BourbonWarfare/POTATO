@@ -7,7 +7,8 @@ TRACE_3("params",_this,_this getVariable QGVAR(setChannel),_this getVariable QGV
 
 private _setChannel = _this getVariable [QGVAR(setChannel), false];
 if (_setChannel) then {
-    [_setChannel, _this getVariable [QGVAR(selectedChannels), [0,0,0]]]
+    (_this getVariable [QGVAR(selectedChannels), [0,0,0]]) params ["_sr","_mr","_lr"];
+    format ["%1,%2,%3",_sr,_mr,_lr]
 } else {
     true
 }

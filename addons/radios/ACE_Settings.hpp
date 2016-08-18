@@ -1,7 +1,44 @@
 class ACE_Settings {
+    /* master on/off */
+    class GVAR(enabled) {
+        typeName = "BOOL";
+        value = 0;
+    };
+
+    /* system settings */
+    class GVAR(radioInterference) {
+        typeName = "BOOL";
+        value = 0;
+    };
+    class GVAR(omnidirectionalAntenna) {
+        typeName = "BOOL";
+        value = 1;
+    };
+    class GVAR(terrainInterference) {
+        typeName = "SCALAR";
+        value = 0.25;
+    };
+
+    /* common channel config */
+    class GVAR(addCommonChannelName) {
+        typeName = "STRING";
+        value = "Negotiations";
+    };
+    class GVAR(addCommonChannelNumber) {
+        typeName = "SCALAR";
+        value = 8;
+    };
     class GVAR(addCommonChannelFreq) {
         typeName = "SCALAR";
         value = 90.75;
+    };
+    class GVAR(addCommonChannelAllMR) {
+        typeName = "BOOL";
+        value = 0;
+    };
+    class GVAR(addCommonChannelAllLR) {
+        typeName = "BOOL";
+        value = 0;
     };
 
     /* blufor specific settings */

@@ -1,13 +1,16 @@
 /*
  *
  */
+
 #include "script_component.hpp"
 
-params ["_thing", ["_languageArray",[],[[],false]]];
-TRACE_2("params",_thing,_languageArray);
+params ["_object",["_languageString","",["",false]]];
+TRACE_2("params",_object,_languageString);
 
-if (_languageArray isEqualTo []) exitWith { LOG("No languages set, exiting"); };
+if ((_languageString isEqualType true && {_languageString}) || {_languageString isEqualTo ""}) exitWith { LOG("languages not set, or in strange state, exiting early"); };
 
 [{
-    (_this select 0) setVariable [QGVAR(assignedLanguages), (_this select 1), true];
-}, [_thing, _languageArray]] call CBA_fnc_execNextFrame;
+    params ["_object","_languageString"];
+    private _languageArray = _languageString splitString ",";
+    _object setVariable [QGVAR(assignedLanguages), _languageArray, true];
+}, [_object, _languageString]] call CBA_fnc_execNextFrame;
