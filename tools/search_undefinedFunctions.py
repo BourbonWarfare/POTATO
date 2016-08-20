@@ -48,13 +48,17 @@ def getFunctions(filepath):
     with open(filepath, 'r') as file:
         content = file.read()
 
-        srch = re.compile('[^EV_]FUNC\(([_a-zA-Z0-9]*)\)')
+        srch = re.compile('[^EVC_]FUNC\(([_a-zA-Z0-9]*)\)')
         modfuncs = srch.findall(content)
         modfuncs = sorted(set(modfuncs))
         
         srch = re.compile('VFUNC\(([_a-zA-Z0-9]*)\)')
         aiFuncs = srch.findall(content)
         aiFuncs = sorted(set(aiFuncs))
+        
+        srch = re.compile('CFUNC\(([_a-zA-Z0-9]*)\)')
+        coreFuncs = srch.findall(content)
+        coreFuncs = sorted(set(coreFuncs))
 
         srch = re.compile('[^C]EFUNC\(([_a-zA-Z0-9]*),([_a-zA-Z0-9]*)\)')
         exfuncs = srch.findall(content)
@@ -66,6 +70,9 @@ def getFunctions(filepath):
 
     for func in aiFuncs:
         fileFuncs.append("potato_{0}_vcom_fnc_{1}".format(selfmodule,func))
+        
+    for func in coreFuncs:
+        fileFuncs.append("potato_core_fnc_{1}".format(selfmodule,func))
 
     for exModule,func in exfuncs:
         fileFuncs.append("potato_{0}_fnc_{1}".format(exModule, func))
