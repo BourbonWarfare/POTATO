@@ -24,8 +24,6 @@ TRACE_1("params",_this);
 
 params ["_input"];
 
-private _returnValue = false;
-
 if (_input isEqualType "" && {toLower _input == "true" || _input == "1"}) exitWith {
     true
 };

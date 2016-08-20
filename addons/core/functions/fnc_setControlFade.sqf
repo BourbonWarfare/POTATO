@@ -1,6 +1,7 @@
 /*
  * Author: AACO
  * Function used to fade (in/out) an array of controls
+ * Note: this function needs to be called from a UI execution environment (where serialization is disabled)
  *
  * Arguments:
  * 0: Should the control be faded in (true) or out (false) <BOOL>
