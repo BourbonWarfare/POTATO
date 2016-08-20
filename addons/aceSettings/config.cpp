@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "ace_laserPointer", "ace_map", "ace_zeus", "ace_hearing", "ace_overheating", "ace_gforces", "ace_goggles", "ace_frag"};
+        requiredAddons[] = {"potato_core", "ace_laserPointer", "ace_map", "ace_zeus", "ace_hearing", "ace_overheating", "ace_gforces", "ace_goggles", "ace_frag", "ace_medical"};
         author = "Potato";
         authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -16,6 +16,15 @@ class CfgPatches {
 
 // ACE Settings: (see http://forums.bourbonwarfare.com/viewtopic.php?f=8&t=2026)
 class ACE_Settings {
+
+    // Lets force this at 2x for now (from 6x in missions) while adjusting to new basic medical
+    class ace_medical_bleedingCoefficient {
+        typeName = "NUMBER";
+        value = 2;
+        force = 1; // This overrides mission setting/module!!!
+    };
+
+
     //Daylight laser pointer:
     class ace_laserPointer_enabled {
         typeName = "BOOL";
