@@ -32,7 +32,7 @@ if ((getText (missionconfigfile >> "CfgDebriefingSections" >> "acex_killTracker"
     TRACE_1("no mission debriefing config",_this);
 };
 
-ACE_LOGINFO("Running Kill Tracking");
+INFO("Running Kill Tracking");
 
 // Variables:
 GVAR(eventsArray) = [];
