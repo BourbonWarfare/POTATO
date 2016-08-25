@@ -8,9 +8,13 @@ if (isServer) then {
 */
 
 // Remove by october
-diag_log text "[POTATO-radios] Setting acre_sys_signal_omnidirectionalRadios to true";
-acre_sys_signal_omnidirectionalRadios = true;
-
+if (isNil "acre_api_fnc_ignoreAntennaDirection") then {
+    INFO_1("Setting omnidirectional for acre pre-904",true);
+    acre_sys_signal_omnidirectionalRadios = true;
+} else {
+    INFO_1("Setting omnidirectional for acre post-904",true);
+    [true] call acre_api_fnc_ignoreAntennaDirection;
+};
 
 // set global settings, see script_component.hpp for default values
 

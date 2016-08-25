@@ -7,8 +7,13 @@ TRACE_1("params",_this);
 
 [GVAR(radioInterference)] call ACRE_FUNC(setInterference);
 [GVAR(terrainInterference)] call ACRE_FUNC(setLossModelScale);
-acre_sys_signal_omnidirectionalRadios = GVAR(omnidirectionalAntenna);
-
+if (isNil "acre_api_fnc_ignoreAntennaDirection") then {
+    INFO_1("Setting omnidirectional for acre pre-904",GVAR(omnidirectionalAntenna));
+    acre_sys_signal_omnidirectionalRadios = GVAR(omnidirectionalAntenna);
+} else {
+    INFO_1("Setting omnidirectional for acre post-904",GVAR(omnidirectionalAntenna));
+    [GVAR(omnidirectionalAntenna)] call acre_api_fnc_ignoreAntennaDirection;
+};
 //Setup babble languages:
 {
     _x call ACRE_FUNC(babelAddLanguageType);
