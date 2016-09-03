@@ -12,9 +12,15 @@ TRACE_1("params",_this);
         ((findDisplay 312) displayCtrl 777550) ctrlSetTextColor [0,1,0,1];
     } else {
         ((findDisplay 312) displayCtrl 777550) ctrlSetTextColor [1,1,1,1];
+    };   
+    if (GVAR(cleanupPFID) >= 0) then {
+        ((findDisplay 312) displayCtrl 777551) ctrlSetTextColor [0,1,0,1];
+    } else {
+        ((findDisplay 312) displayCtrl 777551) ctrlSetTextColor [1,1,1,1];
     };
         
     private _aiCount = {!isPlayer _x} count allUnits;
-    ((findDisplay 312) displayCtrl 777551) ctrlSetText format ["AI: %1", _aiCount];
+    ((findDisplay 312) displayCtrl 777551) ctrlSetText format ["Cleanup Dead: %1", count allDead];
+    ((findDisplay 312) displayCtrl 777552) ctrlSetText format ["[AI: %1] [Entities: %2]", _aiCount, count (entities "")];
 
 }, 0.5, []] call CBA_fnc_addPerFrameHandler;
