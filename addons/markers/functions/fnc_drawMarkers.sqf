@@ -36,10 +36,11 @@ if (GVAR(groupAndUnitEnabled)) then {
         if (_recalc) then {
             private _drawObject = (GVAR(drawHash) select 0) select _forEachIndex;
             if !(isNull _drawObject) then {
-                _position = if (_drawObject isEqualType grpNull) then {
-                    position (leader _drawObject);
+                if (_drawObject isEqualType grpNull) then {
+                    if (isNull (leader _drawObject)) exitWith {};
+                    _position = position (leader _drawObject);
                 } else {
-                    position _drawObject;
+                    _position = position _drawObject;
                 };
                 _x set [4, _position];
             };

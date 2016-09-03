@@ -30,7 +30,7 @@ LOG("Post init start");
                     params ["_newPlayer", "_oldPlayer"];
 
                     if (side _newPlayer != side _oldPlayer) then {
-                        GVAR(markerHash) = [[],[]];
+                        GVAR(drawHash) = [[],[]];
                         [] call FUNC(initMarkerHash);
                     };
 

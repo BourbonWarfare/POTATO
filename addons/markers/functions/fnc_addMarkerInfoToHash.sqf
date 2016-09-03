@@ -32,6 +32,7 @@ private _texture = _drawObject getVariable [QGVAR(markerTexture), DEFAULT_MARKER
 private _colorArray = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR];
 private _size = _drawObject getVariable [QGVAR(markerSize), DEFAULT_MARKER_SIZE];
 private _position = if (_drawObject isEqualType grpNull) then {
+    if ((units _drawObject) isEqualTo []) exitWith {[-10000, -10000, 0]};
     position (leader _drawObject)
 } else {
     position _drawObject
