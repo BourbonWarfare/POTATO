@@ -12,7 +12,7 @@
  * Example:
  * [cursorTarget] call potato_assignGear_fnc_assignGearVehicle;
  */
- #define DEBUG_MODE_FULL
+// #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_theVehicle", "_defaultLoadout"];
