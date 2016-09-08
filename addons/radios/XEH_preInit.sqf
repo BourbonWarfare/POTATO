@@ -44,6 +44,6 @@ GVAR(availableLanguages) = [
     ["zu", "Zulu"]
 ];
 
-GVAR(initialized) = false;
+GVAR(initState) = 0;
 
 ADDON = true;

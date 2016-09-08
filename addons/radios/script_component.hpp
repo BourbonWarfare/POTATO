@@ -40,3 +40,27 @@
 #define CFG_G_CC_NUMBER_IDC 722725
 #define CFG_G_CC_MR_IDC 974122
 #define CFG_G_CC_LR_IDC 981063
+
+// Radio Macros
+#define RADIO_SR "ACRE_PRC343"
+#define RADIO_MR "ACRE_PRC148"
+#define RADIO_LR "ACRE_PRC117F"
+
+#define RADIO_TX "frequencyTX"
+#define RADIO_RX "frequencyRX"
+
+#define WEST_SR "west343"
+#define WEST_MR "west148"
+#define WEST_LR "west117"
+
+#define EAST_SR "east343"
+#define EAST_MR "east148"
+#define EAST_LR "east117"
+
+#define INDY_SR "indy343"
+#define INDY_MR "indy148"
+#define INDY_LR "indy117"
+
+#define CIV_SR "civ343"
+#define CIV_MR "civ148"
+#define CIV_LR "civ117"

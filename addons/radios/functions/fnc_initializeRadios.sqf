@@ -5,6 +5,8 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
+INFO_2("%1 - [InitState %2] Creating radio presets", diag_frameNo, GVAR(initState));
+                
 [GVAR(radioInterference)] call ACRE_FUNC(setInterference);
 [GVAR(terrainInterference)] call ACRE_FUNC(setLossModelScale);
 if (isNil "acre_api_fnc_ignoreAntennaDirection") then {
@@ -98,24 +100,5 @@ if (GVAR(addCommonChannelAllLR) || GVAR(addCommonChannelCivLR)) then {
     [RADIO_LR, CIV_LR, true] call FUNC(addSharedChannel);
 };
 
-private _groupLanguages = (group player) getVariable [QGVAR(assignedLanguages),[]];
-GVAR(playerLanguages) = player getVariable [QGVAR(assignedLanguages), _groupLanguages];
-
-TRACE_1("",playerSide);
-private _presetArray = switch (playerSide) do {
-    case west: { [WEST_SR, WEST_MR, WEST_LR, GVAR(westDefaultLanguages)] };
-    case east: { [EAST_SR, EAST_MR, EAST_LR, GVAR(eastDefaultLanguages)] };
-    case independent: { [INDY_SR, INDY_MR, INDY_LR, GVAR(indyDefaultLanguages)] };
-    default { [CIV_SR, CIV_MR, CIV_LR, GVAR(civDefaultLanguages)] }; // should just be civs
-};
-
-_presetArray params ["_sr", "_mr", "_lr", "_babel"];
-
-GVAR(sideLanguages) = _babel;
-
-[RADIO_SR, _sr] call ACRE_FUNC(setPreset);
-[RADIO_MR, _mr] call ACRE_FUNC(setPreset);
-[RADIO_LR, _lr] call ACRE_FUNC(setPreset);
-
-GVAR(initialized) = true;
+GVAR(initState) = 1;
 LOG("Radios Initilized");
