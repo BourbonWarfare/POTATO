@@ -18,11 +18,11 @@ class CfgPatches {
 class ACE_Settings {
     class ace_advanced_fatigue_performanceFactor {
         typeName = "SCALAR";
-        value = 1.5;  
+        value = 1.3;  
     };
     class ace_advanced_fatigue_recoveryFactor {
         typeName = "SCALAR";
-        value = 1.5;  
+        value = 2;  
     };
     class ace_frag_maxTrack {
         typeName = "SCALAR";
