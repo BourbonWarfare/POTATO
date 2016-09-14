@@ -21,12 +21,23 @@ if (isNil "acre_api_fnc_ignoreAntennaDirection") then {
 ["ace_settingsInitialized", {
     TRACE_3("",GVAR(enabled),hasInterface,EGVAR(assignGear,usePotato));
 
-    if (GVAR(enabled) && hasInterface) then {
+    if (GVAR(enabled)) then {
         if !(missionNamespace getVariable [QEGVAR(assignGear,usePotato), false]) exitWith {
             ERROR("Radios enabled, but gear assign is not running");
         };
 
+        // Make sure to create presets all machines;    from ACRE API:
+        // Warning All presets must exist and match on all clients and especially the server; regardless of where the presets are used.
+        // If you create a preset, copy a preset or modify a presets data information; these changes must occur on all clients and the server.
+        // If they do not, ACRE may not work.
+
         [] call FUNC(initializeRadios);
+
+
+        if (!hasInterface) exitWith {
+            GVAR(initState) = 999;
+            INFO_2("%1 - [InitState %2] DONE (Non Interface)", diag_frameNo, GVAR(initState));
+        };
 
         [
         {

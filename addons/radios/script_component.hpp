@@ -1,9 +1,10 @@
 #define COMPONENT radios
 #include "\z\potato\addons\core\script_mod.hpp"
 
-// #define DEBUG_MODE_FULL
-// #define DISABLE_COMPILE_CACHE
-// #define CBA_DEBUG_SYNCHRONOUS
+#define DEBUG_ACRE_API
+#define DEBUG_MODE_FULL
+#define DISABLE_COMPILE_CACHE
+#define CBA_DEBUG_SYNCHRONOUS
 
 #ifdef DEBUG_ENABLED_RADIOS
     #define DEBUG_MODE_FULL
@@ -16,8 +17,13 @@
 #include "\z\potato\addons\core\script_macros.hpp"
 
 // ACRE functions
-#define ACRE_FUNC(var1) DOUBLES(acre_api_fnc,var1)
-#define ACRE_QFUNC(var1) QUOTE(DOUBLES(acre_api_fnc,var1))
+#ifdef DEBUG_ACRE_API
+    #define ACRE_FUNC(var1) {if (QUOTE(var1) != QUOTE(isInitialized)) then {INFO_2("API call %1 with %2", QUOTE(DOUBLES(acre_api_fnc,var1)), _this);}; _this call DOUBLES(acre_api_fnc,var1);}
+    #define ACRE_QFUNC(var1) QUOTE(DOUBLES(acre_api_fnc,var1))
+#else
+    #define ACRE_FUNC(var1) DOUBLES(acre_api_fnc,var1)
+    #define ACRE_QFUNC(var1) QUOTE(DOUBLES(acre_api_fnc,var1))
+#endif
 
 // Display defines
 #define RADIO_SET_IDC 413265
