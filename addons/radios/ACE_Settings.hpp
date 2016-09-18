@@ -44,7 +44,7 @@ class ACE_Settings {
     /* blufor specific settings */
     class GVAR(westPresetSR) {
         typeName = "STRING";
-        value = "default";
+        value = "default2";
     };
     class GVAR(westSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
@@ -52,7 +52,7 @@ class ACE_Settings {
     };
     class GVAR(westPresetMR) {
         typeName = "STRING";
-        value = "default";
+        value = "default2";
     };
     class GVAR(westMRChannelNames) { // order matters
         typeName = "ARRAY";
@@ -60,7 +60,7 @@ class ACE_Settings {
     };
     class GVAR(westPresetLR) {
         typeName = "STRING";
-        value = "default";
+        value = "default2";
     };
     class GVAR(westLRChannelNames) { // order matters
         typeName = "ARRAY";
@@ -82,7 +82,7 @@ class ACE_Settings {
     /* opfor specific settings */
     class GVAR(eastPresetSR) {
         typeName = "STRING";
-        value = "default2";
+        value = "default3";
     };
     class GVAR(eastSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
@@ -90,7 +90,7 @@ class ACE_Settings {
     };
     class GVAR(eastPresetMR) {
         typeName = "STRING";
-        value = "default2";
+        value = "default3";
     };
     class GVAR(eastMRChannelNames) { // order matters
         typeName = "ARRAY";
@@ -98,7 +98,7 @@ class ACE_Settings {
     };
     class GVAR(eastPresetLR) {
         typeName = "STRING";
-        value = "default2";
+        value = "default3";
     };
     class GVAR(eastLRChannelNames) { // order matters
         typeName = "ARRAY";
@@ -120,7 +120,7 @@ class ACE_Settings {
     /* indy specific settings */
     class GVAR(indyPresetSR) {
         typeName = "STRING";
-        value = "default3";
+        value = "default4";
     };
     class GVAR(indySRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
@@ -128,7 +128,7 @@ class ACE_Settings {
     };
     class GVAR(indyPresetMR) {
         typeName = "STRING";
-        value = "default3";
+        value = "default4";
     };
     class GVAR(indyMRChannelNames) { // order matters
         typeName = "ARRAY";
@@ -136,7 +136,7 @@ class ACE_Settings {
     };
     class GVAR(indyPresetLR) {
         typeName = "STRING";
-        value = "default3";
+        value = "default4";
     };
     class GVAR(indyLRChannelNames) { // order matters
         typeName = "ARRAY";
@@ -158,7 +158,7 @@ class ACE_Settings {
     /* civ specific settings */
     class GVAR(civPresetSR) {
         typeName = "STRING";
-        value = "default4";
+        value = "default";
     };
     class GVAR(civSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
@@ -166,7 +166,7 @@ class ACE_Settings {
     };
     class GVAR(civPresetMR) {
         typeName = "STRING";
-        value = "default4";
+        value = "default";
     };
     class GVAR(civMRChannelNames) { // order matters
         typeName = "ARRAY";
@@ -174,7 +174,7 @@ class ACE_Settings {
     };
     class GVAR(civPresetLR) {
         typeName = "STRING";
-        value = "default4";
+        value = "default";
     };
     class GVAR(civLRChannelNames) { // order matters
         typeName = "ARRAY";
