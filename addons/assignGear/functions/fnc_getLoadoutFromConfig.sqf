@@ -108,7 +108,7 @@ private _fnc_addItemsToContainer = {
             
             if (_ammountAdded == 0) exitWith {_itemToAdd};
             if (_count > 0) then {
-                (_array select 1) pushBack [_classname, _count, _ammountAdded];
+                (_array select 1) pushBack [_classname, _ammountAdded, _count];
             } else {
                 (_array select 1) pushBack [_classname, _ammountAdded];
             };
