@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {"potato_fakeNVG"};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "mbg_celle2", "ace_ui"};
+        requiredAddons[] = {"potato_core", "mbg_celle2", "ace_ui", "rhs_c_weapons"};
         author = "Potato";
         authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -70,6 +70,12 @@ class CfgWeapons {
             modelOff = "\A3\weapons_f\empty";
             mass = 20;
         };
+    };
+
+    // Manually list all mags for HLC/RHS compat
+    class rhs_weap_ak74m;
+    class rhs_weap_akm : rhs_weap_ak74m {
+        magazines[] = {"rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer", "rhs_30Rnd_762x39mm_89", "rhs_30Rnd_762x39mm_U""hlc_30Rnd_762x39_b_ak", "hlc_30Rnd_762x39_t_ak", "hlc_45Rnd_762x39_m_rpk", "HLC_45rnd_762x39_T_RPK", "hlc_30rnd_762x39_s_ak"};
     };
 };
 
