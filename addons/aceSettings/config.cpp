@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core","ace_laserPointer","ace_map","ace_zeus","ace_hearing","ace_overheating","ace_gforces","ace_goggles","ace_frag","ace_medical","ace_medical_ai","ace_advanced_fatigue"};
+        requiredAddons[] = {"potato_core","ace_laserPointer","ace_map","ace_zeus","ace_hearing","ace_overheating","ace_gforces","ace_goggles","ace_frag","ace_medical","ace_medical_ai","ace_advanced_fatigue", "ace_cookoff"};
         author = "Potato";
         authors[] = {"PabstMirror"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -23,6 +23,10 @@ class ACE_Settings {
     class ace_advanced_fatigue_recoveryFactor {
         typeName = "SCALAR";
         value = 2;  
+    };
+    class ace_cookoff_enable { // Disable cookoff until we verify it's working how we want
+        typeName = "BOOL";
+        value = 0;  
     };
     class ace_frag_maxTrack {
         typeName = "SCALAR";
