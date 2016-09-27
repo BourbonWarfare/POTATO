@@ -18,7 +18,7 @@ TRACE_1("params",_this);
 params ["_sideCount","_sideArray"];
 
 // get literal count from the player list, if override is filled out, use that instead
-private _numberOfPlayers = lbSize PLAYER_LIST;
+private _numberOfPlayers = (lbSize PLAYER_LIST) / 3; // should just be able to use lnbSize, but no
 private _override = parseNumber (ctrlText RATIO_PLAYER_OVERRIDE_INPUT);
 if (_override > 0) then {
     _numberOfPlayers = _override;
