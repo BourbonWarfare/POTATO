@@ -25,7 +25,7 @@ class CfgAmmo {
     //Flare:
     class GVAR(ammo_flare): Flare_82mm_AMOS_White {
         flareSize = 6;
-        intensity = 100000;
+        intensity = 2000000;
         timeToLive = 45;
     };
 
