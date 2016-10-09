@@ -7,6 +7,7 @@ PREP(configureRadios);
 PREP(addSharedChannel);
 PREP(initializeRadios);
 PREP(reinitializeRadios);
+PREP(setupPlayer);
 
 // 3den global mission config
 PREP(acreGlobalTIChange);

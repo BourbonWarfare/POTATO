@@ -5,6 +5,10 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
+if ((ace_player getVariable [QGVAR(briefingAdded), objNull]) isEqualTo ace_player) exitWith {
+    TRACE_1("briefing already added",_this);
+};
+
 // helper function
 private _cleanLines = {
     TRACE_1("cleanLines params",_this);
@@ -32,7 +36,7 @@ private _addNetToBriefing = {
     params ["_diaryBuilder", "_hasRadio", "_nets", "_setChannelVar", "_group"];
 
     private _groupChannel = _group getVariable [_setChannelVar,1];
-    private _playerChannel = player getVariable [_setChannelVar, _groupChannel];
+    private _playerChannel = ace_player getVariable [_setChannelVar, _groupChannel];
 
     {
         private _channelNumber = _forEachIndex + 1;
@@ -46,10 +50,10 @@ private _addNetToBriefing = {
     } forEach _nets;
 };
 
-private _group = group player;
+private _group = group ace_player;
 
-(switch (playerSide) do {
-    case (west): {
+(switch ((getNumber (configFile >> "CfgVehicles" >> (typeOf _player) >> "side"))) do {
+    case (1): {
         [
             GVAR(westDefaultLanguages),
             GVAR(westSRChannelNames),
@@ -59,7 +63,7 @@ private _group = group player;
             GVAR(addCommonChannelWestLR)
         ]
     };
-    case (east): {
+    case (0): {
         [
             GVAR(eastDefaultLanguages),
             GVAR(eastSRChannelNames),
@@ -69,7 +73,7 @@ private _group = group player;
             GVAR(addCommonChannelEastLR)
         ]
     };
-    case (independent): {
+    case (2): {
         [
             GVAR(indyDefaultLanguages),
             GVAR(indySRChannelNames),
@@ -99,7 +103,7 @@ if (GVAR(addCommonChannelAllLR) || {_addSharedLRNetSide}) then {
 };
 
 private _groupLanguages = _group getVariable [QGVAR(assignedLanguages),_defaultLanguages];
-private _playerLanguages = player getVariable [QGVAR(assignedLanguages), _groupLanguages];
+private _playerLanguages = ace_player getVariable [QGVAR(assignedLanguages), _groupLanguages];
 
 //Show Spoken Languages:
 private _languageDisplayNames = [];
@@ -119,7 +123,7 @@ private _hasLR = false;
     if (_x isKindOf [RADIO_SR, configFile >> "CfgWeapons"]) then { _hasSR = true; };
     if (_x isKindOf [RADIO_MR, configFile >> "CfgWeapons"]) then { _hasMR = true; };
     if (_x isKindOf [RADIO_LR, configFile >> "CfgWeapons"]) then { _hasLR = true; };
-} forEach (items player);
+} forEach (items ace_player);
 
 TRACE_7("ACRE info",_languageDisplayNames,_hasSR,_srChannels,_hasMR,_mrChannels,_hasLR,_lrChannels);
 
@@ -136,4 +140,6 @@ _diaryBuilder pushBack "<br/><br/>Note: Subject to change.";
 
 _diaryBuilder pushBack QUOTE(<br/><br/><execute expression='[] call FUNC(reinitializeRadios);'>Reinitialize radios</execute>);
 
-player createDiaryRecord ["diary", ["SIGNALS", _diaryBuilder joinString ""]];
+ace_player createDiaryRecord ["diary", ["SIGNALS", _diaryBuilder joinString ""]];
+ace_player setVariable [QGVAR(briefingAdded), ace_player];
+
