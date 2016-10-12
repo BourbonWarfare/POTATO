@@ -17,6 +17,10 @@ class CfgPatches {
 #include "ACE_Settings.hpp"
 #include "CfgEden.hpp"
 
+#include "CfgAmmo.hpp"
+#include "CfgMagazines.hpp"
+#include "CfgWeapons.hpp"
+
 class CfgMods {
     class PREFIX {
         dir = "@POTATO";
