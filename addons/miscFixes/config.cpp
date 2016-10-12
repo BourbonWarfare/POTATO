@@ -72,6 +72,17 @@ class CfgWeapons {
         };
     };
 
+    // create lighter SMAWs for playability
+    class Launcher;
+    class Launcher_Base_F: Launcher {
+        class WeaponSlotsInfo;
+    };
+    class rhs_weap_smaw : Launcher_Base_F {
+        class WeaponSlotsInfo {
+            mass = 70;
+        };
+    };
+
     // Manually list all mags for HLC/RHS compat
     class rhs_weap_ak74m;
     class rhs_weap_akm : rhs_weap_ak74m {
@@ -101,6 +112,16 @@ class CfgWeapons {
             containerClass = "Supply30";
             mass = 30;
         };
+    };
+};
+
+class CfgMagazines {
+    class CA_LauncherMagazine;
+    class rhs_mag_smaw_HEAA: CA_LauncherMagazine {
+        mass = 80;
+    };
+    class rhs_mag_smaw_HEDP: CA_LauncherMagazine {
+        mass = 65;
     };
 };
 
