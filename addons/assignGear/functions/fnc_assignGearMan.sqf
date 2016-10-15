@@ -60,6 +60,17 @@ if (isText (_path >> "init")) then {
     _unit call compile ("this = _this;"+ getText (_path >> "init"));
 };
 
+_w = (parseNumber ([_unit] call ace_movement_fnc_getWeight));
+if ((_w > 35) && (_w < 40)) then {
+    diag_log format ["[SCMF] Heavy loadout found %1 (%2 - %3)", _unit, (typeof _unit), ([_unit] call ace_movement_fnc_getWeight)];
+    systemChat format ["Heavy loadout found %1 (%2 - %3)", _unit, (typeof _unit), ([_unit] call ace_movement_fnc_getWeight)];
+};
+if (_w > 40) then {
+    diag_log format ["[SCMF] Loadout too heavy for %1 (%2 - %3)", _unit, (typeof _unit), ([_unit] call ace_movement_fnc_getWeight)];
+    systemChat format ["Loadout too heavy for %1 (%2 - %3)", _unit, (typeof _unit), ([_unit] call ace_movement_fnc_getWeight)];
+};
+
+
 _unit setVariable [QGVAR(gearSetup), true, true];
 _unit setVariable ["F_Gear_Setup", true, true]; //TODO: legacy variable sync for radios, remove eventually
 
