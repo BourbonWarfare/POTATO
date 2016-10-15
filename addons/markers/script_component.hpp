@@ -38,7 +38,7 @@
 #define DEFAULT_MARKER_COLOR WHITE_ARRAY
 #define DEFAULT_MARKER_SIZE 24
 
-#define UNIT_MARKER_ICON "\A3\ui_f\data\map\markers\military\start_CA.paa"
+#define UNIT_MARKER_ICON (_x call STHud_Icon)
 #define UNIT_MARKER_SIZE 12
 
 #define UNIT_MARKERS '\A3\ui_f\data\map\markers\nato\b_unknown.paa',\
