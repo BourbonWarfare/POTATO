@@ -22,7 +22,7 @@ class ACE_Settings {
         typeName = "BOOL";
     };
     class GVAR(brief_addOrbat) {
-        value = 0;
+        value = 1;
         typeName = "BOOL";
     };
 };
