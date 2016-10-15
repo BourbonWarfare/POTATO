@@ -4,8 +4,8 @@ GVAR(playerStartingSide) = sideUnknown;
 GVAR(playerAuth) = false;
 
 if (hasInterface) then {
-    ["ace_playerChanged", {
-        if (isNull ace_player) exitWith {};
+    ["unit", {
+        if (isNull player) exitWith {};
         if (GVAR(playerStartingSide) isEqualTo sideUnknown) then {
             TRACE_1("Setting start playerside",playerSide);
             GVAR(playerStartingSide) = playerSide;
@@ -16,7 +16,7 @@ if (hasInterface) then {
                 diag_log text format ["[POTATO]: Player UID [%1] in list", getPlayerUID player];
             };
         };
-    }] call CBA_fnc_addEventHandler;
+    }, true] call CBA_fnc_addPlayerEventHandler;
 };
 
 ["potato_adminMsg", {
