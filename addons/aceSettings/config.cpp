@@ -13,6 +13,7 @@ class CfgPatches {
     };
 };
 
+#include "CfgEventHandlers.hpp"
 
 // ACE Settings: (see http://forums.bourbonwarfare.com/viewtopic.php?f=8&t=2026)
 class ACE_Settings {
