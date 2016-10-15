@@ -48,7 +48,7 @@ class ACE_Settings {
     };
     class GVAR(westSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
-        value[] = {"Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","Empty","Empty","Empty","1st Platoon","2nd Platoon","COY","Air","Armor","Fire Support"};
+        value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","COY","Air","Armor","Fire Support"};
     };
     class GVAR(westPresetMR) {
         typeName = "STRING";
@@ -86,7 +86,7 @@ class ACE_Settings {
     };
     class GVAR(eastSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
-        value[] = {"Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","Empty","Empty","Empty","1st Platoon","2nd Platoon","COY","Air","Armor","Fire Support"};
+        value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","COY","Air","Armor","Fire Support"};
     };
     class GVAR(eastPresetMR) {
         typeName = "STRING";
@@ -124,7 +124,7 @@ class ACE_Settings {
     };
     class GVAR(indySRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
-        value[] = {"Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","Empty","Empty","Empty","1st Platoon","2nd Platoon","COY","Air","Armor","Fire Support"};
+        value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","COY","Air","Armor","Fire Support"};
     };
     class GVAR(indyPresetMR) {
         typeName = "STRING";
@@ -162,7 +162,7 @@ class ACE_Settings {
     };
     class GVAR(civSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
-        value[] = {"Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","Empty","Empty","Empty","1st Platoon","2nd Platoon","COY","Air","Armor","Fire Support"};
+        value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","COY","Air","Armor","Fire Support"};
     };
     class GVAR(civPresetMR) {
         typeName = "STRING";
