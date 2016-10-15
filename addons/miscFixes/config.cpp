@@ -78,7 +78,7 @@ class CfgWeapons {
         class WeaponSlotsInfo;
     };
     class rhs_weap_smaw : Launcher_Base_F {
-        class WeaponSlotsInfo {
+        class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 70;
         };
     };
