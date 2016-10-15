@@ -12,12 +12,12 @@ if (hasInterface) then {
         _unit createDiaryRecord ["diary", ["Zeus",_zeusIntent]];
     }] call CBA_fnc_addEventHandler;
 
-    ["ace_playerChanged", {
+    ["unit", {
         TRACE_1("playerChanged eh",ace_player);
         [{
             ACEGVAR(common,settingsInitFinished) && {diag_tickTime > (_this select 1)}
         }, {
             [_this select 0] call FUNC(addBriefingToUnit);
         }, [(_this select 0), diag_tickTime + 1]] call CBA_fnc_waitUntilAndExecute;
-    }] call CBA_fnc_addEventHandler;
+    }, true] call CBA_fnc_addPlayerEventHandler;
 };
