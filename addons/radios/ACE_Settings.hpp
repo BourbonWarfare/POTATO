@@ -16,7 +16,7 @@ class ACE_Settings {
     };
     class GVAR(terrainInterference) {
         typeName = "SCALAR";
-        value = 0.25;
+        value = 0;
     };
 
     /* common channel config */
