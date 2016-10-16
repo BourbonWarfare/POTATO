@@ -23,6 +23,7 @@
 
         if (isServer) then { //backwards compatibilty
             missionNamespace setVariable ["PABST_ADMIN_SAFESTART_public_isSafe", false, true];
+            missionNamespace setVariable ["PABST_ADMIN_SAFESTART_public_shotWarning", false, true];
         };
     };
 };

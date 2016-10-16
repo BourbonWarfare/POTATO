@@ -12,6 +12,7 @@ PABST_fnc_safeStart = {
 };
 if (isServer) then {
     missionNamespace setVariable ["PABST_ADMIN_SAFESTART_public_isSafe", true, true];
+    missionNamespace setVariable ["PABST_ADMIN_SAFESTART_public_shotWarning", true, true];
 };
 
 ADDON = true;
