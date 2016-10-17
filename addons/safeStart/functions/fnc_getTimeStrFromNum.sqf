@@ -1,4 +1,22 @@
+/*
+ * Author: AACO
+ * Function used to convert a number into a two digit zero padded string
+ *
+ * Arguments:
+ * 0: Number to convert <NUMBER>
+ *
+ * Return Value:
+ * A two digit zero padded string representation of the provided number <STRING>
+ *
+ * Examples:
+ * [5] call potato_safeStart_fnc_getTimeStrFromNum; // returns "05"
+ * [17] call potato_safeStart_fnc_getTimeStrFromNum; // return "17"
+ *
+ * Public: Yes
+ */
+
 #include "script_component.hpp"
+TRACE_1("Params",_this);
 
 params ["_number"];
 

@@ -1,4 +1,22 @@
+/*
+ * Author: AACO
+ * Function used to convert a number into a HH:MM:SS formatted string
+ *
+ * Arguments:
+ * 0: Seconds since timer started <NUMBER>
+ *
+ * Return Value:
+ * A HH:MM:SS formatted string of time number of seconds since the provided started time <STRING>
+ *
+ * Examples:
+ * [5] call potato_safeStart_fnc_getTimeText; // returns "00:00:05"
+ * [61] call potato_safeStart_fnc_getTimeText; // return "00:01:01"
+ *
+ * Public: Yes
+ */
+
 #include "script_component.hpp"
+TRACE_1("Params",_this);
 
 private _elapsedTime = CBA_missionTime - (_this select 0);
 

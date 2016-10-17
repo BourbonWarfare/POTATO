@@ -1,7 +1,9 @@
-TRACE_1("",QUOTE(ADDON));
+LOG(QUOTE(ADDON));
 
-PREP(makeSafe);
-PREP(showTimer);
-PREP(handleFired);
 PREP(getTimeText);
+PREP(handleFired);
+PREP(toggleTimer);
+PREP(updateTimer);
+PREP(createDisplay);
+PREP(toggleSafeStart);
 PREP(getTimeStrFromNum);
