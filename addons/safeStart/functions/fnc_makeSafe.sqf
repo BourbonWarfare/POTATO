@@ -4,5 +4,5 @@
 
 if (!isServer) exitWith {};
 
-missionNamespace setVariable [QGVAR(startTime_PV), dayTime, true];
+missionNamespace setVariable [QGVAR(startTime_PV), CBA_missionTime, true];
 ["potato_safeStartOn", []] call CBA_fnc_globalEvent;

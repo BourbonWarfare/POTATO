@@ -23,18 +23,12 @@ GVAR(timerRunning) = true;
 
     if (_serverStartTimePV != -1) then {
         if (!isNull _display) then {
-            private _picture = "<img image='\A3\UI_F\data\IGUI\Cfg\Actions\settimer_ca.paa'/>";
-            private _timeStr = [dayTime - _serverStartTimePV] call BIS_fnc_timeToString;
-            (_display displayCtrl 1100) ctrlSetStructuredText parseText format ["<t align='center'>Safe Start Enabled<br/>%1 %2</t>", _picture, _timeStr];
+            (_display displayCtrl 1100) ctrlSetStructuredText parseText ([_serverStartTimePV] call FUNC(getTimeText));
         };
     } else {
         GVAR(timerRunning) = nil;
         GVAR(safeStartEnabled) = false;
         TRACE_2("Exiting Timer",GVAR(timerRunning),GVAR(safeStartEnabled));
-
-        if (isServer) then { //backwards compatibilty
-            missionNamespace setVariable ["PABST_ADMIN_SAFESTART_public_isSafe", false, true];
-        };
 
         [_this select 1] call CBA_fnc_removePerFrameHandler;
         if (!isNull _display) then {
