@@ -6,6 +6,7 @@ ADDON = false;
 
 // We Start game safe at preInit
 GVAR(safeStartEnabled) = true;
+GVAR(safeStartWarningEnabled) = true;
 
 // Register events
 ["potato_safeStartOn", {
