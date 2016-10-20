@@ -17,7 +17,7 @@ TRACE_1("Params",_this);
 
 params [["_side", west, [west]]];
 
-private ["_lead","_unitCheckStrings","_leader"];
+private ["_unitCheckStrings","_leader"];
 
 _strSide = switch (_side) do {
     case west: {"BLU_"};
