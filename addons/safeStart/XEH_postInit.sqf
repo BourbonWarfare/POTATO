@@ -1,33 +1,21 @@
 #include "script_component.hpp"
 
-[
-    {
-        ACEGVAR(common,settingsInitFinished) && {diag_tickTime > (_this select 0)}
-    }, {
-        if (GVAR(enabled)) then {
-            [] call FUNC(makeSafe);
-        };
-    }, [diag_tickTime + 1]
-] call CBA_fnc_waitUntilAndExecute;
-
-[] spawn {
-    sleep 1;
-
-    if ((missionNamespace getVariable [QGVAR(startTime_PV), -1]) != -1) then {
-        //Mission was safed at game start:
-        [] call FUNC(showTimer);
-        TRACE_1("safestart on at start", GVAR(safeStartEnabled));
-    } else {
-        GVAR(safeStartEnabled) = false;
-        TRACE_1("safestart off at start", GVAR(safeStartEnabled));
-
-        if (isServer) then { //backwards compatibilty
-            missionNamespace setVariable ["PABST_ADMIN_SAFESTART_public_isSafe", false, true];
-        };
-    };
+if (isServer) then {
+    [
+        { ACEGVAR(common,settingsInitFinished) && {time > 0} },
+        { [GVAR(enabled)] call FUNC(toggleSafeStart); }
+    ] call CBA_fnc_waitUntilAndExecute;
 };
 
-["potato_safeStartOn", {
-    GVAR(safeStartEnabled) = true;
-    [] call FUNC(showTimer);
-}] call CBA_fnc_addEventHandler;
+if (didJip) then {
+    [
+        { ACEGVAR(common,settingsInitFinished) && {time > 1} },
+        {
+            if (missionNamespace getVariable [QGVAR(startTime_PV), -1] == -1) then {
+                ["potato_safeStartOff"] call CBA_fnc_localEvent;
+            } else {
+                ["potato_safeStartOn"] call CBA_fnc_localEvent;
+            };
+        }
+    ] call CBA_fnc_waitUntilAndExecute;
+};
