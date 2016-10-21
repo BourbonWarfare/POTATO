@@ -48,7 +48,7 @@ class ACE_Settings {
     };
     class GVAR(westSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
-        value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","COY","Air","Armor","Fire Support"};
+        value[] = {"Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","1st Platoon","2nd Platoon","COY"};
     };
     class GVAR(westPresetMR) {
         typeName = "STRING";
@@ -56,7 +56,7 @@ class ACE_Settings {
     };
     class GVAR(westMRChannelNames) { // order matters
         typeName = "ARRAY";
-        value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
+        value[] = {"PLTNET 1","PLTNET 2","COY","AIR COMMAND","GROUND COMMAND","AIR LOCAL 1","AIR LOCAL 2","AIR LOCAL 3","GROUND LOCAL 1","GROUND LOCAL 2","GROUND LOCAL 3"};
     };
     class GVAR(westPresetLR) {
         typeName = "STRING";
@@ -64,7 +64,7 @@ class ACE_Settings {
     };
     class GVAR(westLRChannelNames) { // order matters
         typeName = "ARRAY";
-        value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
+        value[] = {"PLTNET 1","PLTNET 2","COY","AIR COMMAND","GROUND COMMAND","AIR LOCAL 1","AIR LOCAL 2","AIR LOCAL 3","GROUND LOCAL 1","GROUND LOCAL 2","GROUND LOCAL 3"};
     };
     class GVAR(westDefaultLanguages) { // language must be defined
         typeName = "ARRAY";
@@ -86,7 +86,7 @@ class ACE_Settings {
     };
     class GVAR(eastSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
-        value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","COY","Air","Armor","Fire Support"};
+        value[] = {"Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","1st Platoon","2nd Platoon","COY"};
     };
     class GVAR(eastPresetMR) {
         typeName = "STRING";
@@ -94,7 +94,7 @@ class ACE_Settings {
     };
     class GVAR(eastMRChannelNames) { // order matters
         typeName = "ARRAY";
-        value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
+        value[] = {"PLTNET 1","PLTNET 2","COY","AIR COMMAND","GROUND COMMAND","AIR LOCAL 1","AIR LOCAL 2","AIR LOCAL 3","GROUND LOCAL 1","GROUND LOCAL 2","GROUND LOCAL 3"};
     };
     class GVAR(eastPresetLR) {
         typeName = "STRING";
@@ -102,7 +102,7 @@ class ACE_Settings {
     };
     class GVAR(eastLRChannelNames) { // order matters
         typeName = "ARRAY";
-        value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
+        value[] = {"PLTNET 1","PLTNET 2","COY","AIR COMMAND","GROUND COMMAND","AIR LOCAL 1","AIR LOCAL 2","AIR LOCAL 3","GROUND LOCAL 1","GROUND LOCAL 2","GROUND LOCAL 3"};
     };
     class GVAR(eastDefaultLanguages) { // language must be defined
         typeName = "ARRAY";
@@ -124,7 +124,7 @@ class ACE_Settings {
     };
     class GVAR(indySRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
-        value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","COY","Air","Armor","Fire Support"};
+        value[] = {"Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","1st Platoon","2nd Platoon","COY"};
     };
     class GVAR(indyPresetMR) {
         typeName = "STRING";
@@ -132,7 +132,7 @@ class ACE_Settings {
     };
     class GVAR(indyMRChannelNames) { // order matters
         typeName = "ARRAY";
-        value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
+        value[] = {"PLTNET 1","PLTNET 2","COY","AIR COMMAND","GROUND COMMAND","AIR LOCAL 1","AIR LOCAL 2","AIR LOCAL 3","GROUND LOCAL 1","GROUND LOCAL 2","GROUND LOCAL 3"};
     };
     class GVAR(indyPresetLR) {
         typeName = "STRING";
@@ -140,7 +140,7 @@ class ACE_Settings {
     };
     class GVAR(indyLRChannelNames) { // order matters
         typeName = "ARRAY";
-        value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
+        value[] = {"PLTNET 1","PLTNET 2","COY","AIR COMMAND","GROUND COMMAND","AIR LOCAL 1","AIR LOCAL 2","AIR LOCAL 3","GROUND LOCAL 1","GROUND LOCAL 2","GROUND LOCAL 3"};
     };
     class GVAR(indyDefaultLanguages) { // language must be defined
         typeName = "ARRAY";
@@ -162,7 +162,7 @@ class ACE_Settings {
     };
     class GVAR(civSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
-        value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","COY","Air","Armor","Fire Support"};
+        value[] = {"Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","1st Platoon","2nd Platoon","COY"};
     };
     class GVAR(civPresetMR) {
         typeName = "STRING";
@@ -170,7 +170,7 @@ class ACE_Settings {
     };
     class GVAR(civMRChannelNames) { // order matters
         typeName = "ARRAY";
-        value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
+        value[] = {"PLTNET 1","PLTNET 2","COY","AIR COMMAND","GROUND COMMAND","AIR LOCAL 1","AIR LOCAL 2","AIR LOCAL 3","GROUND LOCAL 1","GROUND LOCAL 2","GROUND LOCAL 3"};
     };
     class GVAR(civPresetLR) {
         typeName = "STRING";
@@ -178,7 +178,7 @@ class ACE_Settings {
     };
     class GVAR(civLRChannelNames) { // order matters
         typeName = "ARRAY";
-        value[] = {"PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"};
+        value[] = {"PLTNET 1","PLTNET 2","COY","AIR COMMAND","GROUND COMMAND","AIR LOCAL 1","AIR LOCAL 2","AIR LOCAL 3","GROUND LOCAL 1","GROUND LOCAL 2","GROUND LOCAL 3"};
     };
     class GVAR(civDefaultLanguages) { // language must be defined
         typeName = "ARRAY";
