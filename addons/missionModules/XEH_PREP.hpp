@@ -2,7 +2,10 @@ TRACE_1("",QUOTE(ADDON));
 
 PREP(createLocalMarker);
 PREP(manInitEH);
+PREP(setFog);
 PREP(setSkillsLocal);
+PREP(setTime);
+PREP(setWeather);
 PREP(sideMarker);
 PREP(zeus_globalSetSkill);
 PREP(zeus_missionHint);
