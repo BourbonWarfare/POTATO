@@ -94,8 +94,10 @@ private _transportBackpacks = getArray(_path >> "TransportBackpacks");
 } count _transportWeapons;
 
 // transportBackpacks
+/*
 {
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
     _theVehicle addBackpackCargoGlobal [_classname, parseNumber _amount];
     nil
 } count _transportBackpacks;
+*/
