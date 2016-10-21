@@ -36,7 +36,7 @@ if (hasInterface) then {
     params ["_msg", ["_side", 1, [sideEnemy, 0]], ["_rankMin", 0]];
     TRACE_3("potato_missionHint eh",_msg,_side,_rankMin);
     if (hasInterface) then {
-        if ((_side isEqualTo 1) || {(!alive player) && {_side isEqualTo 0}} || {_side isEqualTo GVAR(playerStartingSide)}) then {
+        if ((_side isEqualTo 1) || {((!alive player) || ((player getVariable ["f_respawnUID", ""]) in f_serverRespawnableUnits)) && {_side isEqualTo 0}} || {_side isEqualTo GVAR(playerStartingSide)}) then {
             private _playerRank = if (alive player) then {rankId player} else {999};
             if (_playerRank >= _rankMin) then {
                 hint _msg;
