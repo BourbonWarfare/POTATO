@@ -8,7 +8,7 @@ private _missionName = getMissionConfigValue ["onLoadName", "???"];
 private _authorName = getMissionConfigValue ["author", "???"];
 private _worldName = getText (configFile >> "CfgWorlds" >> worldName >> "description");
 
-private _missionFrameworkDate = getMissionConfigValue ["bwmfDate", "Pre-March2016"];
+private _missionFrameworkDate = getMissionConfigValue ["scmfDate", "Pre-March2016"];
 private _potatoVersion = getText (configFile >> "CfgPatches" >> "potato_core" >> "versionStr");
 
 _unit createDiaryRecord ["diary", ["Credits", format ["
@@ -16,8 +16,9 @@ _unit createDiaryRecord ["diary", ["Credits", format ["
 <font size=13>by %2</font><br/>
 <font size=13>on %3</font><br/>
 <br/>
-Bourbon Warfare Mission Framework<br/>
-BWMF Version: %4<br/>
+Signal Community Mission Framework<br/>
+SCMF Version: %4<br/>
+Forked from BWMF (http://github.com/BourbonWarfare/bwmf)<br/>
 Based on F3 (http://www.ferstaberinde.com/f3/en/)<br/>
 <br/>
 <br/>
