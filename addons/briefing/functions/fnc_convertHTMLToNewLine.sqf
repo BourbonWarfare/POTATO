@@ -20,4 +20,4 @@ TRACE_1("params", _this);
 
 params ["_input"];
 
-(_input splitString "<br/>") joinString (toString [9] + toString [10])
+(_input splitString "<br/>") joinString (toString [10])
