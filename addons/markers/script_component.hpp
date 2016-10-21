@@ -38,9 +38,6 @@
 #define DEFAULT_MARKER_COLOR WHITE_ARRAY
 #define DEFAULT_MARKER_SIZE 24
 
-#define UNIT_MARKER_ICON (_x call STHud_Icon)
-#define UNIT_MARKER_SIZE 12
-
 #define UNIT_MARKERS '\A3\ui_f\data\map\markers\nato\b_unknown.paa',\
 '\A3\ui_f\data\map\markers\nato\b_inf.paa',\
 '\A3\ui_f\data\map\markers\nato\b_hq.paa',\
