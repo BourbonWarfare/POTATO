@@ -12,7 +12,7 @@
  *
  * Public: Yes
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 params ["_newPlayer", "_isMedic", "_wounds"];
@@ -29,13 +29,11 @@ private _maxEffectiveness = -9999;
     private _treatmentClassName = configName (_treatmentCfg);
 
     if (_treatmentClassName != "Bandage") then { // ignore the basic bandage
-
         private _treatment = [];
         private _woundList = [];
-        
         _treatment pushBack (_treatmentClassName);
-        {
 
+        {
             private _woundClassName = configName _x;
             private _wound = [];
             private _woundName = getText (_x >> "name");
@@ -49,7 +47,6 @@ private _maxEffectiveness = -9999;
 
             {
                 private _subWound = format ["%1%2", _woundClassName, _x];
-
                 private _effectiveness = if (isNumber (_treatmentCfg >> _subWound >> "effectiveness")) then {
                      getNumber (_treatmentCfg >> _subWound >> "effectiveness")
                 } else {
@@ -80,8 +77,7 @@ private _maxEffectiveness = -9999;
     };
 } forEach ("true" configClasses (configfile >> "ACE_Medical_Advanced" >> "Treatment" >> "Bandaging"));
 
-TRACE_1("", _treatmentInfo);
-TRACE_1("", _woundEffectiveness);
+TRACE_2("", _woundEffectiveness, _treatmentInfo);
 
 _treatmentsDiaryBuilder pushBack "Bandages and their effect on injuries:";
 {

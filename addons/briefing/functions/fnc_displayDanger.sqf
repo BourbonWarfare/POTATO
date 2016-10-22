@@ -14,7 +14,7 @@
  *
  * Public: Yes
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 #define TEXT_VERY_HIGH "<font color='#FF0000'>VERY HIGH</font>"
@@ -30,7 +30,6 @@
 
 TRACE_1("params",_this);
 params ["_value", "_min", "_range", ["_inverse", false, [false]]];
-TRACE_1("", _inverse);
 
 private _offsetValue = _value - _min;
 

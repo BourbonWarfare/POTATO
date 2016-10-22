@@ -15,22 +15,22 @@
  * Public: Yes
  */
 
- #include "script_component.hpp"
+#include "script_component.hpp"
 
- TRACE_1("params", _this);
- params ["_input"];
+TRACE_1("params", _this);
+params ["_input"];
 
- private _output = _input;
+private _output = _input;
 
- private _index = _output find (toString [10]);
- while {_index > -1} do {
-     if (_index >=  count _output) then {
-         _output = format ["%1<br/>", _output select [0, _index]];
-     } else {
-         _output = format ["%1<br/>%2", _output select [0, _index], _output select [_index + 1]];
-     };
-     _index = _output find (toString [10]);
+private _index = _output find (toString [10]);
+while {_index > -1} do {
+ if (_index >=  count _output) then {
+     _output = format ["%1<br/>", _output select [0, _index]];
+ } else {
+     _output = format ["%1<br/>%2", _output select [0, _index], _output select [_index + 1]];
  };
+ _index = _output find (toString [10]);
+};
 
- TRACE_1("output", _output);
- _output
+TRACE_1("output", _output);
+_output
