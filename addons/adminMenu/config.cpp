@@ -21,6 +21,7 @@ class GVAR(supplies) {
     class ACE_medicalSupplyCrate {};
     class ACE_medicalSupplyCrate_advanced {};
     
+    class EGVAR(miscFixes,acreBox) {};
     class EGVAR(miscFixes,smawBox) {};
     class EGVAR(vz99,box) {};
 
