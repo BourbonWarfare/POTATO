@@ -52,6 +52,24 @@ class CfgVehicles {
         class TransportItems {};
         class TransportBackpacks {};
     };
+    
+    class GVAR(acreBox): Box_NATO_Support_F {
+        scope = 1;
+        displayName = "ACRE Radio Box";
+        transportMaxWeapons = 9001;
+        transportMaxMagazines = 9001;
+        transportMaxItems = 9001;
+        maximumload = 1000;
+
+        class TransportWeapons {};
+        class TransportMagazines {};
+        class TransportItems {
+            MACRO_ADDITEM(ACRE_PRC343,20);
+            MACRO_ADDITEM(ACRE_PRC148,10);
+            MACRO_ADDITEM(ACRE_PRC117F,10);       
+        };
+        class TransportBackpacks {};
+    };
 };
 
 
