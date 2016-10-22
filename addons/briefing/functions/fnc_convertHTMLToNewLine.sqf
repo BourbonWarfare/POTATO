@@ -16,8 +16,21 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("params", _this);
 
+TRACE_1("params", _this);
 params ["_input"];
 
-(_input splitString "<br/>") joinString (toString [10])
+private _output = _input;
+
+private _index = _output find "<br/>";
+while {_index > -1} do {
+    if (_index + 5 >= count _output) then {
+        _output = format ["%1%2", _output select [0, _index], toString [10]];
+    } else {
+        _output = format ["%1%2%3", _output select [0, _index], toString [10], _output select [_index + 5]];
+    };
+    _index = _output find "<br/>";
+};
+
+TRACE_1("output", _output);
+_output

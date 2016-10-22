@@ -37,8 +37,8 @@ private _maxBleedRate = -9999;
 
     {
         private _bleedRate = getNumber (_woundCfg >> _x >> "bleedingRate");
-        if (_bleedRate < _minPain) then { _minBleedRate = _bleedRate; };
-        if (_bleedRate > _maxPain) then { _maxBleedRate = _bleedRate; };
+        if (_bleedRate < _minBleedRate) then { _minBleedRate = _bleedRate; };
+        if (_bleedRate > _maxBleedRate) then { _maxBleedRate = _bleedRate; };
         _wound pushBack _bleedRate;
     } forEach ["Minor", "Medium", "Large"];
 

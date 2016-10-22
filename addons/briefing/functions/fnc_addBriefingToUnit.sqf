@@ -25,7 +25,7 @@ _newPlayer setVariable [QGVAR(briefingAdded), true];
 
 if (GVAR(brief_addCredits)) then { [_newPlayer] call FUNC(addCredits); };
 if (GVAR(brief_addOrbat)) then { [_newPlayer] call FUNC(addOrbat); };
-if (ACEGVAR(medical,level) == 2) then [_newPlayer] call FUNC(addMedicalNotes); };
+if (ACEGVAR(medical,level) == 2) then { [_newPlayer] call FUNC(addMedicalNotes); };
 
 private _side = side (group _newPlayer);
 

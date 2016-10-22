@@ -12,7 +12,7 @@
  *
  * Public: Yes
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_newPlayer", "_isMedic", "_wounds"];
@@ -26,80 +26,99 @@ private _maxEffectiveness = -9999;
 
 {
     private _treatmentCfg = _x;
-    private _treatment = [];
-    private _woundList = [];
+    private _treatmentClassName = configName (_treatmentCfg);
 
-    _treatment pushBack (configName (_treatmentCfg));
-    {
-        private _wound = [];
-        private _woundName = getText (_x >> "name");
-        _wound pushBack _woundName;
+    if (_treatmentClassName != "Bandage") then { // ignore the basic bandage
 
-        private _index = (_woundEffectiveness select 0) find _woundName;
-        if (_index < 0) then {
-            (_woundEffectiveness select 0) pushBack _woundName;
-            _index = (_woundEffectiveness select 1) pushBack [9999, -9999];
-        };
-
+        private _treatment = [];
+        private _woundList = [];
+        
+        _treatment pushBack (_treatmentClassName);
         {
-            private _subWound = format ["%1%2", _woundName, _x];
-            private _effectiveness = getNumber (_config >> _subWound >> "effectiveness");
 
-            if (_effectiveness < (((_woundEffectiveness select 1) select _index) select 0)) then {
-                ((_woundEffectiveness select 1) select _index) set [0, _effectiveness];
+            private _woundClassName = configName _x;
+            private _wound = [];
+            private _woundName = getText (_x >> "name");
+            _wound pushBack _woundName;
+
+            private _index = (_woundEffectiveness select 0) find _woundName;
+            if (_index < 0) then {
+                (_woundEffectiveness select 0) pushBack _woundName;
+                _index = ((_woundEffectiveness select 1) pushBack [9999, -9999]);
             };
 
-            if (_effectiveness > (((_woundEffectiveness select 1) select _index) select 1)) then {
-                ((_woundEffectiveness select 1) select _index) set [1, _effectiveness];
-            };
+            {
+                private _subWound = format ["%1%2", _woundClassName, _x];
 
-            _wound pushBack _bleedRate;
-        } forEach ["Minor","Medium","Large"];
+                private _effectiveness = if (isNumber (_treatmentCfg >> _subWound >> "effectiveness")) then {
+                     getNumber (_treatmentCfg >> _subWound >> "effectiveness")
+                } else {
+                    WARNING_2("No config for wound type [%1] config base [%2]", _woundClassName, _subWound);
+                    getNumber (_treatmentCfg >> "effectiveness")
+                };
 
-        _woundList pushBack _wound;
-    } forEach _wounds;
+                TRACE_2("", _subWound, _effectiveness);
 
-    _treatment pushBack _woundList;
-    _treatmentInfo pushBack _treatment;
+                if (_effectiveness < (((_woundEffectiveness select 1) select _index) select 0)) then {
+                    ((_woundEffectiveness select 1) select _index) set [0, _effectiveness];
+                };
+
+                if (_effectiveness > (((_woundEffectiveness select 1) select _index) select 1)) then {
+                    ((_woundEffectiveness select 1) select _index) set [1, _effectiveness];
+                };
+
+                _wound pushBack _effectiveness;
+            } forEach ["Minor","Medium","Large"];
+
+            _woundList pushBack _wound;
+            TRACE_1("", _wound);
+        } forEach _wounds;
+
+        _treatment pushBack _woundList;
+        _treatmentInfo pushBack _treatment;
+        TRACE_2("", _treatment, _woundList);
+    };
 } forEach ("true" configClasses (configfile >> "ACE_Medical_Advanced" >> "Treatment" >> "Bandaging"));
+
+TRACE_1("", _treatmentInfo);
+TRACE_1("", _woundEffectiveness);
 
 _treatmentsDiaryBuilder pushBack "Bandages and their effect on injuries:";
 {
+    TRACE_1("treatment", _x);
     _x params ["_treatmentName", "_woundList"];
     _treatmentsDiaryBuilder pushBack format ["  • %1", _treatmentName];
 
     {
-        _x params ["_woundInfo"];
-        {
-            _x params ["_woundName", "_minorEffectiveness", "_mediumEffectiveness", "_largeEffectiveness"];
+        TRACE_1("wound info", _x);
+        _x params ["_woundName", "_minorEffectiveness", "_mediumEffectiveness", "_largeEffectiveness"];
 
-            private _index = (_woundEffectiveness select 0) find _woundName;
-            if (_index > -1) {
-                (_woundEffectiveness select 1) select _index
-            } else {
-                [0, 10]
-            } params ["_minEffectiveness", "_maxEffectiveness"];
+        private _index = (_woundEffectiveness select 0) find _woundName;
+        if (_index > -1) then {
+            (_woundEffectiveness select 1) select _index
+        } else {
+            [0, 10]
+        } params ["_minEffectiveness", "_maxEffectiveness"];
 
-            private _rangeEffectiveness = _maxEffectiveness - _minEffectiveness;
+        private _rangeEffectiveness = _maxEffectiveness - _minEffectiveness;
 
-            _treatmentsDiaryBuilder pushBack format [
-                "      %1 - Minor: %2",
-                _woundName,
-                [_minorEffectiveness, _minEffectiveness, _rangeEffectiveness, true] call FUNC(displayDanger);
-            ];
+        _treatmentsDiaryBuilder pushBack format [
+            "      %1 - Minor: %2",
+            _woundName,
+            [_minorEffectiveness, _minEffectiveness, _rangeEffectiveness, true] call FUNC(displayDanger)
+        ];
 
-            _treatmentsDiaryBuilder pushBack format [
-                "      %1 - Medium: %2",
-                _woundName,
-                [_mediumEffectiveness, _minEffectiveness, _rangeEffectiveness, true] call FUNC(displayDanger);
-            ];
+        _treatmentsDiaryBuilder pushBack format [
+            "      %1 - Medium: %2",
+            _woundName,
+            [_mediumEffectiveness, _minEffectiveness, _rangeEffectiveness, true] call FUNC(displayDanger)
+        ];
 
-            _treatmentsDiaryBuilder pushBack format [
-                "      %1 - Large: %2",
-                _woundName,
-                [_largeEffectiveness, _minEffectiveness, _rangeEffectiveness, true] call FUNC(displayDanger);
-            ];
-        } forEach _woundInfo;
+        _treatmentsDiaryBuilder pushBack format [
+            "      %1 - Large: %2",
+            _woundName,
+            [_largeEffectiveness, _minEffectiveness, _rangeEffectiveness, true] call FUNC(displayDanger)
+        ];
 
         _treatmentsDiaryBuilder pushBack "";
     } forEach _woundList;

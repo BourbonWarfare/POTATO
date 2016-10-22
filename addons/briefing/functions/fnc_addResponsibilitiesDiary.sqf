@@ -19,7 +19,7 @@ TRACE_1("params",_this);
 
 private _responsibilitiesDiaryBuilder = [];
 
-if (_isMedic) {
+if (_isMedic) then {
     _responsibilitiesDiaryBuilder pushBack "Role: Medic";
     _responsibilitiesDiaryBuilder pushBack "";
     _responsibilitiesDiaryBuilder pushBack "Responsibilities:";
