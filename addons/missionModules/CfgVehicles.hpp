@@ -13,11 +13,49 @@ class CfgVehicles {
         author = QUOTE(PREFIX);
         category = QUOTE(PREFIX);
         scope = 2;
-        displayName = "Side Only Marker";
+        displayName = "Side Marker";
         icon = QUOTE(PATHTOF(UI\sideMarker_ca.paa));
         isGlobal = 2;
         isTriggerActivated = 0;
         function = QFUNC(sideMarker);
+
+        class Attributes {
+            class east {
+                displayName = "Show to east:";
+                control = "Checkbox";
+                property = QGVAR(east);
+                defaultValue = "(false)";
+            };
+            class west: east {
+                displayName = "Show to west:";
+                property = QGVAR(west);
+            };
+            class independent: east {
+                displayName = "Show to independent:";
+                property = QGVAR(independent);
+            };
+            class civilian: east {
+                displayName = "Show to civilians:";
+                property = QGVAR(civilian);
+            };
+            class text {
+                displayName = "Marker text:";
+                control = "Edit";
+                property = QGVAR(text);
+                defaultValue = "''";
+            };
+            class color {
+                control = QGVAR(sideMarkerColor);
+                property = QGVAR(color);
+                defaultValue = "'ColorBlack'";
+            };
+            class icon {
+                control = QGVAR(sideMarkerIcon);
+                property = QGVAR(icon);
+                defaultValue = "'mil_dot_noShadow'";
+            };
+        };
+        /*
         class Arguments {
             class side {
                 displayName = "Side";
@@ -46,12 +84,18 @@ class CfgVehicles {
                     class blue { name = "blue"; value = 3; };
                 };
             };
+            class icon {
+                displayName = "Icon";
+                typeName = "String";
+                control = QGVAR(sideMarkerIcon);
+            };
         };
         class ModuleDescription: ModuleDescription {
             position = 1;
             description = "Adds a marker for only one side";
             sync[] = {};
-        };
+        }
+        */;
     };
 
     class GVAR(zeus_missionHint): Module_F {
