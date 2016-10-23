@@ -106,7 +106,7 @@ class Cfg3DEN {
             onLoad = QUOTE(_this call FUNC(channelControlLoad));
             attributeSave = QUOTE(_this call FUNC(channelAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(channelAttributeLoad));
-            h = (18 * SIZE_M + 1) * GRID_H;
+            h = (17 * SIZE_M + 1) * GRID_H;
             class Controls: Controls {
                 class SetTitle: Title {
                     style = 1;
