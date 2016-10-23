@@ -8,7 +8,7 @@ _this spawn {
     params ["_unit"];
     TRACE_1("",_unit);
 
-    private _debugMode = true;	//allows for AI to create ORBAT entries for testing
+    private _debugMode = false;	//allows for AI to create ORBAT entries for testing
 
     _diaryHyperlinkedText = "";
 
