@@ -28,8 +28,8 @@ if (local _unit) then {
     deleteVehicle _projectile;
 
     if (GVAR(safeStartWarningEnabled)) then {
-        _masterAdminList = [] call potato_core_fnc_authorizedUsers;
-        _masterUnitList = [];
+        private _masterAdminList = [] call potato_core_fnc_authorizedUsers;
+        private _masterUnitList = [];
 
         {
             if ((getPlayerUID _x) in _masterAdminList) then {
