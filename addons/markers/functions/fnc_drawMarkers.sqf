@@ -52,11 +52,22 @@ if (GVAR(groupAndUnitEnabled)) then {
                              _size * _sizeFactor,
                              _size * _sizeFactor,
                              0,
-                             _text,
-                             1,
-                             (([0.05,0] select (((ctrlMapScale _mapControl) * _mapSize) > 0.1)) * _sizeFactor),
-                             'TahomaB',
+                             "",
+                             0,
+                             (([0.0375,0] select (((ctrlMapScale _mapControl) * _mapSize) > 0.1)) * _sizeFactor),
+                             'PuristaSemiBold',
                              "right"];
+         _mapControl drawIcon [ INVISIBLE_TEXTURE ,
+                              [0,0,0,1],
+                              _position,
+                              _size * _sizeFactor,
+                              _size * _sizeFactor,
+                              0,
+                              _text,
+                              0,
+                              (([0.0375,0] select (((ctrlMapScale _mapControl) * _mapSize) > 0.1)) * _sizeFactor),
+                              'PuristaSemiBold',
+                              "right"];
 
     } forEach (GVAR(drawHash) select 1);
 
@@ -80,8 +91,8 @@ if (GVAR(intraFireteamEnabled) && {(ctrlMapScale _mapControl) < 0.5}) then {
             private _size = -(3200/13)*(ctrlMapScale _mapControl) + (386/13);
             if (_size < 10) then {_size = 10};
             if (_size > 26) then {_size = 26};
-            _mapControl drawIcon [(_x call STHud_Icon),[0,0,0,1],_unitPosition,_size,_size,direction _x,_unitName,1,_textSize,'TahomaB',"left"];
-            _mapControl drawIcon [(_x call STHud_Icon),_color,_unitPosition,_size - 4,_size - 4,direction _x,_unitName,1,_textSize,'TahomaB',"left"];
+            _mapControl drawIcon [(_x call STHud_Icon),[0,0,0,1],_unitPosition,_size,_size,direction _x,_unitName,1,_textSize,'PuristaLight',"left"];
+            _mapControl drawIcon [(_x call STHud_Icon),_color,_unitPosition,_size - 4,_size - 4,direction _x,"",1,_textSize,'PuristaLight',"left"];
         };
 
         nil

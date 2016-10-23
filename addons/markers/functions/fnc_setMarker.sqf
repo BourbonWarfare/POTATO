@@ -39,6 +39,8 @@ if (_markerInfo isEqualType true && {_markerInfo}) exitWith { LOG("Marker not se
         case ("yellow"): { YELLOW_ARRAY };
         case ("pink"): { PINK_ARRAY };
         case ("black"): { BLACK_ARRAY };
+        case ("purple"): { PURPLE_ARRAY };
+        case ("grey"): { GREY_ARRAY };
         default { WHITE_ARRAY };
     };
 
