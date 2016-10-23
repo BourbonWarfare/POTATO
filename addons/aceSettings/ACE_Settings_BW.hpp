@@ -45,6 +45,10 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 1;
     };
+    class ace_medical_blood_enabledFor {
+        typeName = "SCALAR";
+        value = 0;
+    };
     class ace_overheating_enabled {
         typeName = "BOOL";
         value = 0;
