@@ -1,6 +1,7 @@
 /*
  * Author: AACO
  * Sets callsign (groupID) on a global level. (Hopefully BIS will fix this eventually)
+ * Note, depricated shim to CBA call
  *
  * Arguments:
  * 0: Group <GROUP>
@@ -16,11 +17,5 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-[
-    {
-        params ["_group","_value"];
-        _group setGroupIdGlobal [_value];
-    },
-    _this,
-    0
-] call CBA_fnc_waitAndExecute;
+WARNING("This method is depricated, and should be replaced with CBA_fnc_setCallsign");
+_this call CBA_fnc_setCallsign;
