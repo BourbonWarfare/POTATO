@@ -24,34 +24,48 @@ class CfgVehicles {
                 displayName = "Show to east:";
                 control = "Checkbox";
                 property = QGVAR(east);
+                expression = "_this setVariable [""%s"",_value];";
                 defaultValue = "(false)";
             };
             class west: east {
                 displayName = "Show to west:";
                 property = QGVAR(west);
+                expression = "_this setVariable [""%s"",_value];";
             };
             class independent: east {
                 displayName = "Show to independent:";
                 property = QGVAR(independent);
+                expression = "_this setVariable [""%s"",_value];";
             };
             class civilian: east {
                 displayName = "Show to civilians:";
                 property = QGVAR(civilian);
+                expression = "_this setVariable [""%s"",_value];";
             };
             class text {
                 displayName = "Marker text:";
                 control = "Edit";
                 property = QGVAR(text);
+                expression = "_this setVariable [""%s"",_value];";
                 defaultValue = "''";
+            };
+            class direction {
+                displayName = "Marker direction:";
+                control = QGVAR(sideMarkerDir);
+                property = QGVAR(direction);
+                expression = "_this setVariable [""%s"",_value];";
+                defaultValue = "0";
             };
             class color {
                 control = QGVAR(sideMarkerColor);
                 property = QGVAR(color);
+                expression = "_this setVariable [""%s"",_value];";
                 defaultValue = "'ColorBlack'";
             };
             class icon {
                 control = QGVAR(sideMarkerIcon);
                 property = QGVAR(icon);
+                expression = "_this setVariable [""%s"",_value];";
                 defaultValue = "'mil_dot_noShadow'";
             };
         };

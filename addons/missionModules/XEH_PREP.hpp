@@ -1,6 +1,5 @@
 TRACE_1("",QUOTE(ADDON));
 
-PREP(createLocalMarker);
 PREP(manInitEH);
 PREP(setSkillsLocal);
 PREP(sideMarker);
