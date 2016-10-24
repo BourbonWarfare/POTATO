@@ -27,7 +27,7 @@ if (_lead isEqualTo objNull) then {
     if (vehicle _lead != _lead) then {
       //in car
       _unit allowDamage false;
-      [{(_this select 0) allowDamage true;}, [_unit], 5] call CBA_fnc_waitAndExecute; //protect them in the case of fall damage or whatnot
+      [{(_this select 0) allowDamage true;}, [_unit], 5] spawn CBA_fnc_waitAndExecute; //protect them in the case of fall damage or whatnot
       _unit moveInCargo (vehicle _lead);
       [
         {
@@ -61,12 +61,13 @@ if (_lead isEqualTo objNull) then {
         0.2
       ] call CBA_fnc_waitAndExecute;
       sleep 0.2;
-      
+
     } else {
       //on foot
       _posPlant = _lead modelToWorld [0,-3,0]; //3 meters behind leader
       _posPlant set [2,0]; //ensure height atl = 0
-      _unit allowDamage false; [] spawn {sleep 5; _unit allowDamage true}; //protect them in the case of fall damage or whatnot
+      _unit allowDamage false;
+      [{(_this select 0) allowDamage true;}, [_unit], 5] spawn CBA_fnc_waitAndExecute; //protect them in the case of fall damage or whatnot
       _unit setPosATL _posPlant;
       [_unit] join (group _lead);
       hint ((name _unit) + ", you have been teleported to the mission commander (" + (name _lead) + "), please ask them for assignment!");
