@@ -37,6 +37,9 @@ private _vehicle = switch (tolower _simulation) do {
     };
 };
 
+// only dismount via scripting/zeus
+_vehicle setUnloadInCombat [false, false];
+
 //Set a good velocity in the correct direction.
 if (_simulation == "airplanex") then { _vehicle setVelocity [100, 100, 0]; };
 

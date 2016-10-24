@@ -3,11 +3,8 @@
 #define MAINPREFIX z
 #define PREFIX potato
 
-#define MAJOR 1
-#define MINOR 0
-#define PATCHLVL 16
-#define BUILD 2
-
+#include "script_version.hpp"
+ 
 #define VERSION MAJOR.MINOR.PATCHLVL.BUILD
 #define VERSION_AR MAJOR,MINOR,PATCHLVL,BUILD
 
