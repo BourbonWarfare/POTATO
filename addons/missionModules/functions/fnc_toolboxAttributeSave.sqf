@@ -1,13 +1,15 @@
 /*
  * Author: AACO
- * Function used to store the icon from the specified component
+ * Function used to store the toolbox attributes from the specified component
  * Should only be called from 3DEN
  *
  * Arguments:
  * 0: Control group of the marker component <CONTROL>
+ * 1: Control IDC <NUMBER>
+ * 2: The selection of values <ARRAY>
  *
  * Examples:
- * [_ctrlGroup] call potato_missionModules_fnc_iconAttributeSave;
+ * [_ctrlGroup. 12412, ['mil_dot_noShadow']] call potato_missionModules_fnc_toolboxAttributeSave;
  *
  * Public: No
  */
