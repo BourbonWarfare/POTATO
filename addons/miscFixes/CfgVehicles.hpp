@@ -1,11 +1,5 @@
 class CfgVehicles {
-     //ACRE uses this for vehicle sound attenuation (makes it easy to hear mortar gunners)
-    class LandVehicle;
-    class StaticWeapon: LandVehicle {
-        insideSoundCoef = 0;
-    };
-
-    // add SMAW box
+    // Add SMAW box
     class Box_NATO_Support_F;
     class GVAR(smawBox): Box_NATO_Support_F {
         scope = 1;
@@ -19,11 +13,13 @@ class CfgVehicles {
             MACRO_ADDWEAPON(rhs_weap_smaw,1);
         };
         class TransportMagazines {
-            MACRO_ADDMAGAZINE(rhs_mag_smaw_HEAA,2);
-            MACRO_ADDMAGAZINE(rhs_mag_smaw_HEDP,2);
-            MACRO_ADDMAGAZINE(rhs_mag_smaw_SR,4);
+            MACRO_ADDMAGAZINE(rhs_mag_smaw_HEAA,10);
+            MACRO_ADDMAGAZINE(rhs_mag_smaw_HEDP,10);
+            MACRO_ADDMAGAZINE(rhs_mag_smaw_SR,8);
         };
-        class TransportItems {};
+        class TransportItems {
+            MACRO_ADDITEM(rhs_weap_optic_smaw,1);
+        };
         class TransportBackpacks {};
     };
 
