@@ -17,7 +17,15 @@ class CfgPatches {
             QMSV(hmgg),QMSV(g),QMSV(sf_g),QMSV(matg),QMSV(hatg),QMSV(msamg),QMSV(coy),QMSV(acoy),QMSV(pol),
             QMSV(fac),QMSV(plt),QMSV(aplt),QMSV(sl),QMSV(sf_sl),QMSV(sf_ftl),QMSV(mmgl),QMSV(hmgl),
             QMSV(matl),QMSV(hatl),QMSV(msaml),QMSV(mtrl),QMSV(stl),QMSV(sr),QMSV(vicl),QMSV(engl),QMSV(cm),
-            QMSV(plm),QMSV(sm),QMSV(sf_sm),QMSV(eng),QMSV(demo),QMSV(vicc),QMSV(vicd),QMSV(pilot),QMSV(cc)
+            QMSV(plm),QMSV(sm),QMSV(sf_sm),QMSV(eng),QMSV(demo),QMSV(vicc),QMSV(vicd),QMSV(pilot),QMSV(cc),
+            QAIR(rifleman),QAIR(rifleman_02),QAIR(rifleman_03),QAIR(rifleman_04),QAIR(sf_rifleman),
+            QAIR(sniper),QAIR(aar),QAIR(sf_aar),QAIR(mmgag),QAIR(hmgag),QAIR(matag),
+            QAIR(hatag),QAIR(msamag),QAIR(mtrag),QAIR(mtrg),QAIR(ar),QAIR(sf_ar),
+            QAIR(mmgg),QAIR(hmgg),QAIR(lat),QAIR(sf_lat),QAIR(matg),QAIR(hatg),QAIR(msamg),
+            QAIR(coy),QAIR(xo),QAIR(fac),QAIR(plt),QAIR(sgt),QAIR(sl),QAIR(sf_sl),
+            QAIR(mmgl),QAIR(hmgl),QAIR(matl),QAIR(hatl),QAIR(msaml),QAIR(mtrl),QAIR(stl),
+            QAIR(ftl),QAIR(sf_ftl),QAIR(vicl),QAIR(cm),QAIR(plm),QAIR(sm),QAIR(sf_sm),
+            QAIR(engl),QAIR(eng),QAIR(demo),QAIR(vicc),QAIR(vicd),QAIR(pilot),QAIR(cc)
         };
         weapons[] = {"potato_fakeNVG"};
         requiredVersion = REQUIRED_VERSION;

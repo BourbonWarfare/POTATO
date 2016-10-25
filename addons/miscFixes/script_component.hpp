@@ -19,4 +19,7 @@
 #define QUSMC(var) QUOTE(USMC(var))
 
 #define MSV(var) TRIPLES(PREFIX,msv,var)
-#define QUSMC(var) QUOTE(MSV(var))
+#define QMSV(var) QUOTE(MSV(var))
+
+#define AIR(var) TRIPLES(PREFIX,airborne,var)
+#define QAIR(var) QUOTE(AIR(var))
