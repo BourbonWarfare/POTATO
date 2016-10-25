@@ -20,7 +20,7 @@
 #include "script_component.hpp"
 
 TRACE_1("params",_this);
-params [["_toConvert", 0 [0,""]]];
+params [["_toConvert", 0, [0,""]]];
 
 if (_toConvert isEqualType 0) then {
     if (_toConvert == -1) exitWith { sideEmpty };
