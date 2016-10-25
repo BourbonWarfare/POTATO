@@ -13,44 +13,61 @@ class CfgVehicles {
         author = QUOTE(PREFIX);
         category = QUOTE(PREFIX);
         scope = 2;
-        displayName = "Side Only Marker";
+        displayName = "Side Marker";
         icon = QUOTE(PATHTOF(UI\sideMarker_ca.paa));
         isGlobal = 2;
         isTriggerActivated = 0;
         function = QFUNC(sideMarker);
-        class Arguments {
-            class side {
-                displayName = "Side";
-                typeName = "NUMBER";
-                class values {
-                    class west { name = "West"; value = 0; default = 1; };
-                    class east { name = "East"; value = 1; };
-                    class resistance { name = "Independent/Resistance"; value = 2; };
-                    class civilian { name = "Civilian"; value = 3; };
-                    class all { name = "All"; value = 4; };
-                };
+
+        class Attributes {
+            class east {
+                displayName = "Show to east:";
+                control = "Checkbox";
+                property = QGVAR(east);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "(false)";
+            };
+            class west: east {
+                displayName = "Show to west:";
+                property = QGVAR(west);
+                expression = "_this setVariable ['%s',_value, true];";
+            };
+            class independent: east {
+                displayName = "Show to independent:";
+                property = QGVAR(independent);
+                expression = "_this setVariable ['%s',_value, true];";
+            };
+            class civilian: east {
+                displayName = "Show to civilians:";
+                property = QGVAR(civilian);
+                expression = "_this setVariable ['%s',_value, true];";
             };
             class text {
-                displayName = "Text";
-                description = "Marker text (can be blank)";
-                defaultValue = "";
-                typeName = "STRING";
+                displayName = "Marker text:";
+                control = "Edit";
+                property = QGVAR(text);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "''";
+            };
+            class direction {
+                displayName = "Marker direction:";
+                control = QGVAR(sideMarkerDir);
+                property = QGVAR(direction);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "0";
             };
             class color {
-                displayName = "Color";
-                typeName = "NUMBER";
-                class values {
-                    class black { name = "black"; value = 0; default = 1; };
-                    class red { name = "red"; value = 1; };
-                    class green { name = "green"; value = 2; };
-                    class blue { name = "blue"; value = 3; };
-                };
+                control = QGVAR(sideMarkerColor);
+                property = QGVAR(color);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "'ColorBlack'";
             };
-        };
-        class ModuleDescription: ModuleDescription {
-            position = 1;
-            description = "Adds a marker for only one side";
-            sync[] = {};
+            class icon {
+                control = QGVAR(sideMarkerIcon);
+                property = QGVAR(icon);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "'mil_dot_noShadow'";
+            };
         };
     };
 
