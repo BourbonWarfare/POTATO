@@ -14,3 +14,9 @@
 #endif
 
 #include "\z\potato\addons\core\script_macros.hpp"
+
+#define USMC(var) TRIPLES(PREFIX,usmc,var)
+#define QUSMC(var) QUOTE(USMC(var))
+
+#define MSV(var) TRIPLES(PREFIX,msv,var)
+#define QUSMC(var) QUOTE(MSV(var))

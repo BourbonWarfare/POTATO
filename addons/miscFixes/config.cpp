@@ -3,14 +3,14 @@
 class CfgPatches {
     class ADDON {
         units[] = {
-            "potato_usmc_rifleman","potato_usmc_rifleman_02","potato_usmc_rifleman_03","potato_usmc_rifleman_04","potato_usmc_sf_rifleman",
-            "potato_usmc_sniper","potato_usmc_aar","potato_usmc_sf_aar","potato_usmc_mmgag","potato_usmc_hmgag","potato_usmc_matag",
-            "potato_usmc_hatag","potato_usmc_msamag","potato_usmc_mtrag","potato_usmc_mtrg","potato_usmc_ar","potato_usmc_sf_ar",
-            "potato_usmc_mmgg","potato_usmc_hmgg","potato_usmc_lat","potato_usmc_sf_lat","potato_usmc_matg","potato_usmc_hatg","potato_usmc_msamg",
-            "potato_usmc_coy","potato_usmc_xo","potato_usmc_fac","potato_usmc_plt","potato_usmc_sgt","potato_usmc_sl","potato_usmc_sf_sl",
-            "potato_usmc_mmgl","potato_usmc_hmgl","potato_usmc_matl","potato_usmc_hatl","potato_usmc_msaml","potato_usmc_mtrl","potato_usmc_stl",
-            "potato_usmc_ftl","potato_usmc_sf_ftl","potato_usmc_vicl","potato_usmc_cm","potato_usmc_plm","potato_usmc_sm","potato_usmc_sf_sm",
-            "potato_usmc_eodl","potato_usmc_eod","potato_usmc_vicc","potato_usmc_vicd","potato_usmc_pilot","potato_usmc_cc"
+            QUSMC(rifleman),QUSMC(rifleman_02),QUSMC(rifleman_03),QUSMC(rifleman_04),QUSMC(sf_rifleman),
+            QUSMC(sniper),QUSMC(aar),QUSMC(sf_aar),QUSMC(mmgag),QUSMC(hmgag),QUSMC(matag),
+            QUSMC(hatag),QUSMC(msamag),QUSMC(mtrag),QUSMC(mtrg),QUSMC(ar),QUSMC(sf_ar),
+            QUSMC(mmgg),QUSMC(hmgg),QUSMC(lat),QUSMC(sf_lat),QUSMC(matg),QUSMC(hatg),QUSMC(msamg),
+            QUSMC(coy),QUSMC(xo),QUSMC(fac),QUSMC(plt),QUSMC(sgt),QUSMC(sl),QUSMC(sf_sl),
+            QUSMC(mmgl),QUSMC(hmgl),QUSMC(matl),QUSMC(hatl),QUSMC(msaml),QUSMC(mtrl),QUSMC(stl),
+            QUSMC(ftl),QUSMC(sf_ftl),QUSMC(vicl),QUSMC(cm),QUSMC(plm),QUSMC(sm),QUSMC(sf_sm),
+            QUSMC(eodl),QUSMC(eod),QUSMC(vicc),QUSMC(vicd),QUSMC(pilot),QUSMC(cc)
         };
         weapons[] = {"potato_fakeNVG"};
         requiredVersion = REQUIRED_VERSION;
@@ -68,7 +68,7 @@ class CfgWeapons {
     // Manually list all mags for HLC/RHS compat
     class rhs_weap_ak74m;
     class rhs_weap_akm : rhs_weap_ak74m {
-        magazines[] = {"rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer", "rhs_30Rnd_762x39mm_89", "rhs_30Rnd_762x39mm_U""hlc_30Rnd_762x39_b_ak", "hlc_30Rnd_762x39_t_ak", "hlc_45Rnd_762x39_m_rpk", "HLC_45rnd_762x39_T_RPK", "hlc_30rnd_762x39_s_ak"};
+        magazines[] = {"rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer", "rhs_30Rnd_762x39mm_89", "rhs_30Rnd_762x39mm_U", "hlc_30Rnd_762x39_b_ak", "hlc_30Rnd_762x39_t_ak", "hlc_45Rnd_762x39_m_rpk", "HLC_45rnd_762x39_T_RPK", "hlc_30rnd_762x39_s_ak"};
     };
 
     // shim the bugged uniform

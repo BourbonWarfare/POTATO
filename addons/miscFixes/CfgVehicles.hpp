@@ -29,184 +29,184 @@ class CfgVehicles {
 
     // add POTATO USMC
     class SoldierWB;
-    class potato_usmc_rifleman: SoldierWB {
+    class USMC(rifleman): SoldierWB {
         author = "AACO";
         displayName = "Rifleman"
         faction = "potato_usmc";
         role = "Rifleman";
         scope = 2;
     };
-    class potato_usmc_rifleman_02: potato_usmc_rifleman {
+    class USMC(rifleman_02): USMC(rifleman) {
         displayName = "Rifleman 2"
     };
-    class potato_usmc_rifleman_03: potato_usmc_rifleman {
+    class USMC(rifleman_03): USMC(rifleman) {
         displayName = "Rifleman 3"
     };
-    class potato_usmc_rifleman_04: potato_usmc_rifleman {
+    class USMC(rifleman_04): USMC(rifleman) {
         displayName = "Rifleman 4"
     };
-    class potato_usmc_sf_rifleman: potato_usmc_rifleman {
+    class USMC(sf_rifleman): USMC(rifleman) {
         displayName = "Force Recon Rifleman"
     };
-    class potato_usmc_sniper: potato_usmc_rifleman {
+    class USMC(sniper): USMC(rifleman) {
         displayName = "Sniper"
         role = "Marksman";
     };
-    class potato_usmc_aar: potato_usmc_rifleman {
+    class USMC(aar): USMC(rifleman) {
         displayName = "Assistant Automatic Rifleman"
         role = "Assistant";
     };
-    class potato_usmc_sf_aar: potato_usmc_aar {
+    class USMC(sf_aar): USMC(aar) {
         displayName = "Force Recon Assistant Automatic Rifleman"
     };
-    class potato_usmc_mmgag: potato_usmc_aar {
+    class USMC(mmgag): USMC(aar) {
         displayName = "MMG Assistant Gunner"
     };
-    class potato_usmc_hmgag: potato_usmc_aar {
+    class USMC(hmgag): USMC(aar) {
         displayName = "HMG Assistant Gunner"
     };
-    class potato_usmc_matag: potato_usmc_aar {
+    class USMC(matag): USMC(aar) {
         displayName = "MAT Assistant Gunner"
     };
-    class potato_usmc_hatag: potato_usmc_aar {
+    class USMC(hatag): USMC(aar) {
         displayName = "HAT Assistant Gunner"
     };
-    class potato_usmc_msamag: potato_usmc_aar {
+    class USMC(msamag): USMC(aar) {
         displayName = "MSAM Assistant Gunner"
     };
-    class potato_usmc_mtrag: potato_usmc_aar {
+    class USMC(mtrag): USMC(aar) {
         displayName = "Mortar Assistant Gunner"
     };
-    class potato_usmc_mtrg: potato_usmc_aar { // for some reason the gunner is considered an assistant
+    class USMC(mtrg): USMC(aar) { // for some reason the gunner is considered an assistant
         displayName = "Mortar Gunner"
     };
-    class potato_usmc_ar: potato_usmc_rifleman {
+    class USMC(ar): USMC(rifleman) {
         displayName = "Automatic Rifleman"
         icon = "iconManMG";
         role = "MachineGunner";
     };
-    class potato_usmc_sf_ar: potato_usmc_ar {
+    class USMC(sf_ar): USMC(ar) {
         displayName = "Force Recon Automatic Rifleman"
     };
-    class potato_usmc_mmgg: potato_usmc_ar {
+    class USMC(mmgg): USMC(ar) {
         displayName = "MMG Gunner"
     };
-    class potato_usmc_hmgg: potato_usmc_ar {
+    class USMC(hmgg): USMC(ar) {
         displayName = "HMG Gunner"
     };
-    class potato_usmc_lat: potato_usmc_rifleman {
+    class USMC(lat): USMC(rifleman) {
         displayName = "Rifleman Anti-Tank"
         icon = "iconManAT";
         role = "MissileSpecialist";
     };
-    class potato_usmc_sf_lat: potato_usmc_lat {
+    class USMC(sf_lat): USMC(lat) {
         displayName = "Force Recon Rifleman Anti-Tank"
     };
-    class potato_usmc_matg: potato_usmc_lat {
+    class USMC(matg): USMC(lat) {
         displayName = "MAT Gunner"
     };
-    class potato_usmc_hatg: potato_usmc_lat {
+    class USMC(hatg): USMC(lat) {
         displayName = "HAT Gunner"
     };
-    class potato_usmc_msamg: potato_usmc_lat {
+    class USMC(msamg): USMC(lat) {
         displayName = "MSAM Gunner"
     };
-    class potato_usmc_coy: potato_usmc_rifleman {
+    class USMC(coy): USMC(rifleman) {
         displayName = "Company Commander";
         icon = "iconManOfficer";
     };
-    class potato_usmc_xo: potato_usmc_coy {
+    class USMC(xo): USMC(coy) {
         displayName = "Company Executive Officer";
     };
-    class potato_usmc_fac: potato_usmc_coy {
+    class USMC(fac): USMC(coy) {
         displayName = "Forward Air Controller";
     };
-    class potato_usmc_plt: potato_usmc_coy {
+    class USMC(plt): USMC(coy) {
         displayName = "Platoon Leader";
     };
-    class potato_usmc_sgt: potato_usmc_coy {
+    class USMC(sgt): USMC(coy) {
         displayName = "Platoon Sergent";
         icon = "iconManOfficer";
     };
-    class potato_usmc_sl: potato_usmc_rifleman {
+    class USMC(sl): USMC(rifleman) {
         displayName = "Squad Leader";
         icon = "iconManLeader";
     };
-    class potato_usmc_sf_sl: potato_usmc_sl {
+    class USMC(sf_sl): USMC(sl) {
         displayName = "Force Recon Squad Leader";
     };
-    class potato_usmc_mmgl: potato_usmc_sl {
+    class USMC(mmgl): USMC(sl) {
         displayName = "MMG Leader";
     };
-    class potato_usmc_hmgl: potato_usmc_sl {
+    class USMC(hmgl): USMC(sl) {
         displayName = "HMG Leader";
     };
-    class potato_usmc_matl: potato_usmc_sl {
+    class USMC(matl): USMC(sl) {
         displayName = "MAT Leader";
     };
-    class potato_usmc_hatl: potato_usmc_sl {
+    class USMC(hatl): USMC(sl) {
         displayName = "HAT Leader";
     };
-    class potato_usmc_msaml: potato_usmc_sl {
+    class USMC(msaml): USMC(sl) {
         displayName = "MSAM Leader";
     };
-    class potato_usmc_mtrl: potato_usmc_sl {
+    class USMC(mtrl): USMC(sl) {
         displayName = "MTR Leader";
     };
-    class potato_usmc_stl: potato_usmc_sl {
+    class USMC(stl): USMC(sl) {
         displayName = "Scout Leader";
     };
-    class potato_usmc_ftl: potato_usmc_sl {
+    class USMC(ftl): USMC(sl) {
         displayName = "Fire Team Leader";
     };
-    class potato_usmc_sf_ftl: potato_usmc_sl {
+    class USMC(sf_ftl): USMC(sl) {
         displayName = "Force Recon Fire Team Leader";
     };
-    class potato_usmc_vicl: potato_usmc_sl {
+    class USMC(vicl): USMC(sl) {
         displayName = "Vehicle Leader";
         engineer = 1;
         role = "Crewman";
     };
-    class potato_usmc_cm: potato_usmc_rifleman {
+    class USMC(cm): USMC(rifleman) {
         attendant = 1;
         displayName = "Company Medic";
         icon = "iconManMedic";
         role = "CombatLifeSaver";
     };
-    class potato_usmc_plm: potato_usmc_cm {
+    class USMC(plm): USMC(cm) {
         displayName = "Platoon Medic";
     };
-    class potato_usmc_sm: potato_usmc_cm {
+    class USMC(sm): USMC(cm) {
         displayName = "Squad Medic";
     };
-    class potato_usmc_sf_sm: potato_usmc_cm {
+    class USMC(sf_sm): USMC(cm) {
         displayName = "Force Recon Squad Medic";
     };
-    class potato_usmc_eodl: potato_usmc_sl {
+    class USMC(eodl): USMC(sl) {
         displayName = "EOD Leader";
         engineer = 1;
         role = "Sapper";
     };
-    class potato_usmc_eod: potato_usmc_eodl {
+    class USMC(eod): USMC(eodl) {
         displayName = "EOD Technician";
         icon = "iconManExplosive";
     };
-    class potato_usmc_vicc: potato_usmc_vicl {
+    class USMC(vicc): USMC(vicl) {
         displayName = "Vehicle Crew";
         icon = "iconMan";
     };
-    class potato_usmc_vicd: potato_usmc_vicl {
+    class USMC(vicd): USMC(vicl) {
         displayName = "Vehicle Driver";
         icon = "iconManEngineer";
         role = "Sapper";
     };
-    class potato_usmc_pilot: potato_usmc_rifleman {
+    class USMC(pilot): USMC(rifleman) {
         ACE_GForceCoef = 0.55;
         displayName = "Pilot";
         engineer = 1;
         role = "Crewman";
     };
-    class potato_usmc_cc: potato_usmc_pilot {
+    class USMC(cc): USMC(pilot) {
         displayName = "Crew Chief";
         icon = "iconManEngineer";
         role = "Sapper";
