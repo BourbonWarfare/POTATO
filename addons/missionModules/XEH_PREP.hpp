@@ -1,7 +1,10 @@
 TRACE_1("",QUOTE(ADDON));
 
 PREP(manInitEH);
+PREP(setFog);
 PREP(setSkillsLocal);
+PREP(setTime);
+PREP(setWeather);
 PREP(sideMarker);
 PREP(skillDebug);
 PREP(toolboxAttributeLoad);
