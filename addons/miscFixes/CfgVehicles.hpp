@@ -149,7 +149,7 @@ class CfgVehicles {
         displayName = "MSAM Leader";
     };
     class USMC(mtrl): USMC(sl) {
-        displayName = "MTR Leader";
+        displayName = "Mortar Leader";
     };
     class USMC(stl): USMC(sl) {
         displayName = "Scout Leader";
@@ -344,7 +344,7 @@ class CfgVehicles {
         displayName = "MSAM Leader";
     };
     class MSV(mtrl): MSV(sl) {
-        displayName = "MTR Leader";
+        displayName = "Mortar Leader";
     };
     class MSV(stl): MSV(sl) {
         displayName = "Scout Leader";
@@ -532,7 +532,7 @@ class CfgVehicles {
         displayName = "MSAM Leader";
     };
     class AIR(mtrl): AIR(sl) {
-        displayName = "MTR Leader";
+        displayName = "Mortar Leader";
     };
     class AIR(stl): AIR(sl) {
         displayName = "Scout Leader";
