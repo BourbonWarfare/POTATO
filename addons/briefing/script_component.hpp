@@ -14,3 +14,5 @@
 #endif
 
 #include "\z\potato\addons\core\script_macros.hpp"
+
+#define TEXT_IDC 983734

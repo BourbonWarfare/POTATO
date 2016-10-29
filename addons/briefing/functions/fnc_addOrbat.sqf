@@ -1,5 +1,18 @@
+/*
+ * Author: PabstMirror
+ * Function used to add the order of battle to player's diary
+ *
+ * Arguments:
+ * 0: Unit to add to the OrBat to <OBJECT>
+ *
+ * Examples:
+ * [player] call potato_briefing_fnc_addOrbat;
+ *
+ * Public: Yes
+ */
+
 #include "script_component.hpp"
-//Pabst ORBAT
+
 TRACE_1("params",_this);
 
 _this spawn {
@@ -7,31 +20,29 @@ _this spawn {
 
     params ["_unit"];
     TRACE_1("",_unit);
-    
-    _diaryBuilder = [];
+
+    private _diaryBuilder = [];
     _diaryBuilder pushBack "<font size='8'>Only accurate at mission start.</font>";
 
     {
         if (({isPlayer _x} count (units _x)) > 0) then {
-            if (((side _x) getFriend playerside) > 0.6) then {
-                _color = switch (side _x) do {
-                case (west): {"#0088EE"};//0,0.45,0.9,1
-                case (east): {"#DD0000"};//[0.75,0,0,1]
-                case (resistance): {"#00DD00"};//[0,0.75,0,1]
-                case (civilian): {"#880099"};//[0.6,0,0.75,1]
-                    default {"#FFFFFF"};
+            if (((side _x) getFriend playerSide) >= 0.6) then {
+                private _color = switch (side _x) do {
+                    case (west): { "#0088EE" }; // use profile colors here
+                    case (east): { "#DD0000" };
+                    case (resistance): { "#00DD00" };
+                    case (civilian): { "#880099" };
+                    default { "#FFFFFF" };
                 };
-                _diaryBuilder pushBack format ["<br/><font color='%1' size='16'>%2</font><br/>", _color, (groupID _x)];
+                _diaryBuilder pushBack format ["<font color='%1' size='16'>%2</font>", _color, (groupID _x)];
                 {
-                    _xIcon = gettext (configfile >> "CfgVehicles" >> typeOf (vehicle _x) >> "icon");
-                    _image = gettext (configfile >> "CfgVehicleIcons" >> _xIcon);
-                    _diaryBuilder pushBack format ["<img image='%1' width='16' height='16'/><font size='14'>%2</font><br/>", _image, (name _x)];
-                    true;
-                } count (units _x);
+                    private _xIcon = gettext (configfile >> "CfgVehicles" >> typeOf (vehicle _x) >> "icon");
+                    private _image = gettext (configfile >> "CfgVehicleIcons" >> _xIcon);
+                    _diaryBuilder pushBack format ["<img image='%1' width='16' height='16'/><font size='14'>%2</font>", _image, (name _x)];
+                } forEach (units _x);
             };
         };
-        true;
-    } count allGroups;
+    } forEach allGroups;
 
-    _unit createDiaryRecord ["diary", ["ORBAT", _diaryBuilder joinString ""]];
+    _unit createDiaryRecord ["diary", ["ORBAT", _diaryBuilder joinString "<br/>"]];
 };

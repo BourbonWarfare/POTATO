@@ -1,3 +1,18 @@
+/*
+ * Author: PabstMirror
+ * Function used to add a briefing to a group/unit on the frame after init
+ *
+ * Arguments:
+ * 0: Object to add briefing to <OBJECT/GROUP>
+ * 1: Briefing to add <STRING>
+ *
+ * Examples:
+ * [player, "player brief"] call potato_briefing_fnc_setBriefingVar;
+ * [group player, "group brief"] call potato_briefing_fnc_setBriefingVar;
+ *
+ * Public: Yes
+ */
+
 #include "script_component.hpp"
 
 params ["_thing", "_briefing"];
