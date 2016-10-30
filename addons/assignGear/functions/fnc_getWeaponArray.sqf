@@ -26,11 +26,7 @@ TRACE_1("params",_this);
 params ["_weapon", "_attachments", "_configMagazines", ["_doOpticCheck", true, [true]]];
 
 private _weaponArray = [_weapon, "", "", "", [], [], ""];
-private _attachables = GVAR(weaponAttachmentCache) getVariable _weapon;
-if (isNil "_attachables") then { // cache attachement lookups
-    _attachables = [_weapon] call CBA_fnc_compatibleItems;
-    GVAR(weaponAttachmentCache) setVariable [_weapon, _attachables];
-};
+private _attachables = [_weapon] call CBA_fnc_compatibleItems;
 
 {
     (_x splitString ":") params [["_classname", ""]]; // count makes no sense for attachments, ignore

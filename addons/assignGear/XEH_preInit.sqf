@@ -9,7 +9,6 @@ GVAR(usePotato) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "usePotato"
 if (GVAR(usePotato)) then {
     GVAR(loadoutCache) = call CBA_fnc_createNamespace;
     GVAR(classnameCache) = call CBA_fnc_createNamespace;
-    GVAR(weaponAttachmentCache) = call CBA_fnc_createNamespace;
 
     GVAR(allowMagnifiedOptics) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "allowMagnifiedOptics")) == 1);
     GVAR(useFallback) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "useFallback")) == 1);
