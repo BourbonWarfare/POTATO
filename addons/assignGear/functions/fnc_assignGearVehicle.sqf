@@ -11,14 +11,16 @@
  *
  * Example:
  * [cursorTarget] call potato_assignGear_fnc_assignGearVehicle;
+ *
+ * Public: Yes
  */
 // #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
+TRACE_1("params",_this);
 params ["_theVehicle", "_defaultLoadout"];
-TRACE_2("params",_theVehicle,_defaultLoadout);
 
-if (!GVAR(usePotato)) exitWith {TRACE_1("disabled",GVAR(usePotato))};
+if (!GVAR(usePotato)) exitWith { LOG("asignGearVehicle disabled"); };
 
 private _typeOf = typeOf _theVehicle;
 private _loadout = _theVehicle getVariable ["F_Gear", _typeOf];
@@ -77,25 +79,25 @@ private _transportBackpacks = getArray(_path >> "TransportBackpacks");
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
     _theVehicle addMagazineCargoGlobal [_classname, parseNumber _amount];
     nil
-} count _transportMagazines;
+} count _transportMagazines; // count used here for speed, make sure nil is above this line
 
 // transportItems
 {
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
     _theVehicle addItemCargoGlobal [_classname, parseNumber _amount];
     nil
-} count _transportItems;
+} count _transportItems; // count used here for speed, make sure nil is above this line
 
 // transportWeapons
 {
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
     _theVehicle addWeaponCargoGlobal [_classname, parseNumber _amount];
     nil
-} count _transportWeapons;
+} count _transportWeapons; // count used here for speed, make sure nil is above this line
 
 // transportBackpacks
 {
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
     _theVehicle addBackpackCargoGlobal [_classname, parseNumber _amount];
     nil
-} count _transportBackpacks;
+} count _transportBackpacks; // count used here for speed, make sure nil is above this line
