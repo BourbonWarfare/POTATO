@@ -4,15 +4,14 @@
  *
  * Arguments:
  * 0: Array of containers to select <ARRAY>
- * 1: The array containing the container specific loadout array information <ARRAY>
- * 2: The array containing all the containers and their available space <ARRAY>
- * 3: Does the container class needed to be looked up in CfgWeapons (optional, default: true) <BOOL>
+ * 1: The array containing all the containers and their available space <ARRAY>
+ * 2: Does the container class needed to be looked up in CfgWeapons (optional, default: true) <BOOL>
  *
  * Return Value:
  * NONE
  *
  * Example:
- * [_configUniform, _uniformArray, _containersArray] call potato_assignGear_getContainerInfo;
+ * [_configUniform, _containersArray] call potato_assignGear_getContainerInfo;
  *
  * Public: No
  */
