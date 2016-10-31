@@ -15,7 +15,6 @@ _unit setVariable [VQGVAR(movedRecently),diag_tickTime];
 
 if ([_unit,_nearestEnemy] call VFUNC(canSee) && (_distance < VGVAR(maxEngagementDistance))) then {
     _unit setVariable [VQGVAR(canVisuallySee),true];
-    _unit forceSpeed 0;
     _unit setUnitPos "AUTO";
     _unit suppressFor 5;
 } else {

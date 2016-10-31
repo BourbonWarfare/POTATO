@@ -43,7 +43,6 @@ if (_groupLeader != _unit && {_groupLeader distance _unit > 150}) then {
                             sleep 2;
                         };
 
-                        _unit forcespeed 0;
                         _unit setVariable [VQGVAR(inCover),true];
                     } else {
                         _unit doMove _moveToPos;
