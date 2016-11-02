@@ -17,7 +17,6 @@
 #include "script_component.hpp"
 
 TRACE_1("params",_this);
-if (!GVAR(usePotato)) exitWith { LOG("asignGearMan disabled"); };
 
 params ["_unit"];
 TRACE_2("",_unit,local _unit);
