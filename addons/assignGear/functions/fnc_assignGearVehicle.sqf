@@ -14,13 +14,11 @@
  *
  * Public: Yes
  */
-// #define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 TRACE_1("params",_this);
 params ["_theVehicle", "_defaultLoadout"];
-
-if (!GVAR(usePotato)) exitWith { LOG("asignGearVehicle disabled"); };
 
 private _typeOf = typeOf _theVehicle;
 private _loadout = _theVehicle getVariable ["F_Gear", _typeOf];
@@ -45,22 +43,25 @@ if (!isClass _path) then {
     //No CfgLoadouts for exact loadout, try default
     private _vehConfigSide = [_theVehicle, true] call BIS_fnc_objectSide;
     private _vehConfigFaction = switch (_vehConfigSide) do {
-    case (west): {"blu_f"};
-    case (east): {"rhs_faction_msv"};
-    case (independent): {"ind_f"};
-        default {"CIV_F"};
+        case (west): { "blu_f" };
+        case (east): { "opf_f" };
+        case (independent): { "ind_f" };
+        default { "civ_f" };
     };
     _path = missionConfigFile >> "CfgLoadouts" >> _vehConfigFaction >> _defaultLoadout;
+
     if (!isClass _path) then {
-        if (_vehConfigSide == east) then {
-            _vehConfigFaction = "OPF_F";
-            _path = missionConfigFile >> "CfgLoadouts" >> _vehConfigFaction >> _defaultLoadout;
+        _vehConfigFaction = switch (_vehConfigSide) do { // note: will recheck civ_f here
+            case (west): { "potato_usmc" };
+            case (east): { "potato_msv" };
+            case (independent): { "potato_airborne" };
         };
+        _path = missionConfigFile >> "CfgLoadouts" >> _vehConfigFaction >> _defaultLoadout;
     };
 };
 
 if (!isClass _path) exitWith {
-    diag_log text format ["[POTATO-AssignGear] - No loadout found for %1 (typeOf %2) (kindOf %3)", _theVehicle, typeof _theVehicle, _loadout];
+    diag_log text format ["[POTATO-AssignGear] - No loadout found for %1 (typeOf %2) (kindOf %3) (defaultLoadout: %4)", _theVehicle, typeof _theVehicle, _loadout, _defaultLoadout];
 };
 
 //Clean out starting inventory (even if there is no class)
