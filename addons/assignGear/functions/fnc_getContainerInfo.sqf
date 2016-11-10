@@ -11,7 +11,7 @@
  * NONE
  *
  * Example:
- * [_configUniform, _containersArray] call potato_assignGear_getContainerInfo;
+ * [_configUniform, _containersArray] call potato_assignGear_fnc_getContainerInfo;
  *
  * Public: No
  */

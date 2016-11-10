@@ -12,7 +12,7 @@
  * NONE
  *
  * Example:
- * [_weaponArray, _config, _classname, _doOpticCheck] call potato_assignGear_setWeaponAttachement;
+ * [_weaponArray, _config, _classname, _doOpticCheck] call potato_assignGear_fnc_setWeaponAttachement;
  *
  * Public: No
  */

@@ -7,7 +7,6 @@ PREP(addOrbat);
 PREP(addResponsibilitiesDiary);
 PREP(addTreatmentDiary);
 PREP(addWoundDiary);
-PREP(addWoundDiary);
 PREP(briefingAttributeLoad);
 PREP(briefingAttributeSave);
 PREP(convertHTMLToNewLine);

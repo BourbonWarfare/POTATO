@@ -13,7 +13,7 @@
  * Weapon array <ARRAY>
  *
  * Example:
- * [_configWeapon, _configAttachments, _configMagazines] call potato_assignGear_getWeaponArray;
+ * [_configWeapon, _configAttachments, _configMagazines] call potato_assignGear_fnc_getWeaponArray;
  *
  * Public: No
  */

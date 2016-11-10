@@ -11,7 +11,7 @@
  * Index of the linked item <NUMBER>
  *
  * Example:
- * [_linkedItem, _binocularArray, _configMagazines] call potato_assignGear_getLinkedIndex;
+ * [_linkedItem, _binocularArray, _configMagazines] call potato_assignGear_fnc_getLinkedIndex;
  *
  * Public: No
  */

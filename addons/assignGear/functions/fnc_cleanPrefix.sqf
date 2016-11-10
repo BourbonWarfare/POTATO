@@ -3,16 +3,13 @@
  * Gets container information from an array of classnames
  *
  * Arguments:
- * 0: Array of containers to select <ARRAY>
- * 1: The array containing the container specific loadout array information <ARRAY>
- * 2: The array containing all the containers and their available space <ARRAY>
- * 3: Does the container class needed to be looked up in CfgWeapons (optional, default: true) <BOOL>
+ * 0: Unit classname <STRING>
  *
  * Return Value:
- * NONE
+ * Cleaned classname <STRING>
  *
  * Example:
- * [_configUniform, _uniformArray, _containersArray] call potato_assignGear_getContainerInfo;
+ * ["B_Soldier_F"] call potato_assignGear_fnc_cleanPrefix;
  *
  * Public: No
  */
@@ -27,8 +24,8 @@ if (isNil "_cleanedClassname") then { // cache classname lookups
     _cleanedClassname = _unitClassname;
     {
         private _prefixLength = count _x;
-        if ((toLower (_unitClassname select [0, _prefixLength])) == _x) exitWith {
-            _cleanedClassname = _unitClassname select [_prefixLength];
+        if ((_unitClassname select [0, _prefixLength]) == _x) exitWith {
+            _cleanedClassname = _unitClassname select [_prefixLength]; // Select everything after the prefix
         };
         nil
     } count GVAR(prefixes);  // count used here for speed, make sure nil is above this line
