@@ -13,3 +13,6 @@ private _selectedPerson = _listOfUnits select _selectedPersonIndex;
 if (isNull _selectedPerson) exitWith {};
 
 [QGVAR(resetGear), [_selectedPerson], [_selectedPerson]] call CBA_fnc_targetEvent;
+
+private _debugMsg = format ["Reseting Gear on %1", (name _selectedPerson)];
+["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
