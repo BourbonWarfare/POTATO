@@ -27,88 +27,88 @@ class CfgVehicles {
     class SoldierWB;
     class USMC(rifleman): SoldierWB {
         author = "AACO";
-        displayName = "Rifleman"
+        displayName = "Rifleman";
         faction = QUOTE(DOUBLES(PREFIX,usmc));
         role = "Rifleman";
         scope = 2;
     };
     class USMC(rifleman_02): USMC(rifleman) {
-        displayName = "Rifleman 2"
+        displayName = "Rifleman 2";
     };
     class USMC(rifleman_03): USMC(rifleman) {
-        displayName = "Rifleman 3"
+        displayName = "Rifleman 3";
     };
     class USMC(rifleman_04): USMC(rifleman) {
-        displayName = "Rifleman 4"
+        displayName = "Rifleman 4";
     };
     class USMC(sf_rifleman): USMC(rifleman) {
-        displayName = "Force Recon Rifleman"
+        displayName = "Force Recon Rifleman";
     };
     class USMC(sniper): USMC(rifleman) {
-        displayName = "Sniper"
+        displayName = "Sniper";
         role = "Marksman";
     };
     class USMC(aar): USMC(rifleman) {
-        displayName = "Assistant Automatic Rifleman"
+        displayName = "Assistant Automatic Rifleman";
         role = "Assistant";
     };
     class USMC(sf_aar): USMC(aar) {
-        displayName = "Force Recon Assistant Automatic Rifleman"
+        displayName = "Force Recon Assistant Automatic Rifleman";
     };
     class USMC(mmgag): USMC(aar) {
-        displayName = "MMG Assistant Gunner"
+        displayName = "MMG Assistant Gunner";
     };
     class USMC(hmgag): USMC(aar) {
-        displayName = "HMG Assistant Gunner"
+        displayName = "HMG Assistant Gunner";
     };
     class USMC(matag): USMC(aar) {
-        displayName = "MAT Assistant Gunner"
+        displayName = "MAT Assistant Gunner";
     };
     class USMC(hatag): USMC(aar) {
-        displayName = "HAT Assistant Gunner"
+        displayName = "HAT Assistant Gunner";
     };
     class USMC(msamag): USMC(aar) {
-        displayName = "MSAM Assistant Gunner"
+        displayName = "MSAM Assistant Gunner";
     };
     class USMC(mtrag): USMC(aar) {
-        displayName = "Mortar Assistant Gunner"
+        displayName = "Mortar Assistant Gunner";
     };
     class USMC(mtrg): USMC(aar) { // for some reason the gunner is considered an assistant
-        displayName = "Mortar Gunner"
+        displayName = "Mortar Gunner";
     };
     class USMC(spotter): USMC(aar) {
-        displayName = "Spotter"
+        displayName = "Spotter";
     };
     class USMC(ar): USMC(rifleman) {
-        displayName = "Automatic Rifleman"
+        displayName = "Automatic Rifleman";
         icon = "iconManMG";
         role = "MachineGunner";
     };
     class USMC(sf_ar): USMC(ar) {
-        displayName = "Force Recon Automatic Rifleman"
+        displayName = "Force Recon Automatic Rifleman";
     };
     class USMC(mmgg): USMC(ar) {
-        displayName = "MMG Gunner"
+        displayName = "MMG Gunner";
     };
     class USMC(hmgg): USMC(ar) {
-        displayName = "HMG Gunner"
+        displayName = "HMG Gunner";
     };
     class USMC(lat): USMC(rifleman) {
-        displayName = "Rifleman Anti-Tank"
+        displayName = "Rifleman Anti-Tank";
         icon = "iconManAT";
         role = "MissileSpecialist";
     };
     class USMC(sf_lat): USMC(lat) {
-        displayName = "Force Recon Rifleman Anti-Tank"
+        displayName = "Force Recon Rifleman Anti-Tank";
     };
     class USMC(matg): USMC(lat) {
-        displayName = "MAT Gunner"
+        displayName = "MAT Gunner";
     };
     class USMC(hatg): USMC(lat) {
-        displayName = "HAT Gunner"
+        displayName = "HAT Gunner";
     };
     class USMC(msamg): USMC(lat) {
-        displayName = "MSAM Gunner"
+        displayName = "MSAM Gunner";
     };
     class USMC(coy): USMC(rifleman) {
         displayName = "Company Commander";
@@ -214,90 +214,90 @@ class CfgVehicles {
     class SoldierEB;
     class MSV(rifleman): SoldierEB {
         author = "AACO";
-        displayName = "Rifleman"
+        displayName = "Rifleman";
         faction = QUOTE(DOUBLES(PREFIX,msv));
         role = "Rifleman";
         scope = 2;
     };
     class MSV(rifleman_02): MSV(rifleman) {
-        displayName = "Rifleman 2"
+        displayName = "Rifleman 2";
     };
     class MSV(rifleman_03): MSV(rifleman) {
-        displayName = "Rifleman 3"
+        displayName = "Rifleman 3";
     };
     class MSV(rifleman_04): MSV(rifleman) {
-        displayName = "Rifleman 4"
+        displayName = "Rifleman 4";
     };
     class MSV(sf_rifleman): MSV(rifleman) {
-        displayName = "Spetsnaz Rifleman"
+        displayName = "Spetsnaz Rifleman";
     };
     class MSV(marksman): MSV(rifleman) {
-        displayName = "Marksman"
+        displayName = "Marksman";
     };
     class MSV(sf_marksman): MSV(marksman) {
-        displayName = "Spetsnaz Marksman"
+        displayName = "Spetsnaz Marksman";
     };
     class MSV(aar): MSV(rifleman) {
-        displayName = "Assistant Automatic Rifleman"
+        displayName = "Assistant Automatic Rifleman";
         role = "Assistant";
     };
     class MSV(sf_aar): MSV(aar) {
-        displayName = "Spetsnaz Assistant Automatic Rifleman"
+        displayName = "Spetsnaz Assistant Automatic Rifleman";
     };
     class MSV(ag): MSV(aar) {
-        displayName = "Assistant Grenadier"
+        displayName = "Assistant Grenadier";
     };
     class MSV(mmgag): MSV(aar) {
-        displayName = "MMG Assistant Gunner"
+        displayName = "MMG Assistant Gunner";
     };
     class MSV(hmgag): MSV(aar) {
-        displayName = "HMG Assistant Gunner"
+        displayName = "HMG Assistant Gunner";
     };
     class MSV(matag): MSV(aar) {
-        displayName = "MAT Assistant Gunner"
+        displayName = "MAT Assistant Gunner";
     };
     class MSV(hatag): MSV(aar) {
-        displayName = "HAT Assistant Gunner"
+        displayName = "HAT Assistant Gunner";
     };
     class MSV(msamag): MSV(aar) {
-        displayName = "MSAM Assistant Gunner"
+        displayName = "MSAM Assistant Gunner";
     };
     class MSV(mtrag): MSV(aar) {
-        displayName = "Mortar Assistant Gunner"
+        displayName = "Mortar Assistant Gunner";
     };
     class MSV(mtrg): MSV(aar) { // for some reason the gunner is considered an assistant
-        displayName = "Mortar Gunner"
+        displayName = "Mortar Gunner";
     };
     class MSV(ar): MSV(rifleman) {
-        displayName = "Automatic Rifleman"
+        displayName = "Automatic Rifleman";
         icon = "iconManMG";
         role = "MachineGunner";
     };
     class MSV(sf_ar): MSV(ar) {
-        displayName = "Spetsnaz Automatic Rifleman"
+        displayName = "Spetsnaz Automatic Rifleman";
     };
     class MSV(mmgg): MSV(ar) {
-        displayName = "MMG Gunner"
+        displayName = "MMG Gunner";
     };
     class MSV(hmgg): MSV(ar) {
-        displayName = "HMG Gunner"
+        displayName = "HMG Gunner";
     };
     class MSV(g): MSV(rifleman) {
-        displayName = "Grenadier"
+        displayName = "Grenadier";
         icon = "iconManAT";
         role = "MissileSpecialist";
     };
     class MSV(sf_g): MSV(g) {
-        displayName = "Spetsnaz Grenadier"
+        displayName = "Spetsnaz Grenadier";
     };
     class MSV(matg): MSV(g) {
-        displayName = "MAT Gunner"
+        displayName = "MAT Gunner";
     };
     class MSV(hatg): MSV(g) {
-        displayName = "HAT Gunner"
+        displayName = "HAT Gunner";
     };
     class MSV(msamg): MSV(g) {
-        displayName = "MSAM Gunner"
+        displayName = "MSAM Gunner";
     };
     class MSV(coy): MSV(rifleman) {
         displayName = "Company Commander";
@@ -410,88 +410,88 @@ class CfgVehicles {
     class SoldierGB;
     class AIR(rifleman): SoldierGB {
         author = "AACO";
-        displayName = "Rifleman"
+        displayName = "Rifleman";
         faction = QUOTE(DOUBLES(PREFIX,airborne));
         role = "Rifleman";
         scope = 2;
     };
     class AIR(rifleman_02): AIR(rifleman) {
-        displayName = "Rifleman 2"
+        displayName = "Rifleman 2";
     };
     class AIR(rifleman_03): AIR(rifleman) {
-        displayName = "Rifleman 3"
+        displayName = "Rifleman 3";
     };
     class AIR(rifleman_04): AIR(rifleman) {
-        displayName = "Rifleman 4"
+        displayName = "Rifleman 4";
     };
     class AIR(sf_rifleman): AIR(rifleman) {
-        displayName = "SAS Rifleman"
+        displayName = "SAS Rifleman";
     };
     class AIR(sniper): AIR(rifleman) {
-        displayName = "Sniper"
+        displayName = "Sniper";
         role = "Marksman";
     };
     class AIR(aar): AIR(rifleman) {
-        displayName = "Assistant Automatic Rifleman"
+        displayName = "Assistant Automatic Rifleman";
         role = "Assistant";
     };
     class AIR(sf_aar): AIR(aar) {
-        displayName = "SAS Assistant Automatic Rifleman"
+        displayName = "SAS Assistant Automatic Rifleman";
     };
     class AIR(mmgag): AIR(aar) {
-        displayName = "MMG Assistant Gunner"
+        displayName = "MMG Assistant Gunner";
     };
     class AIR(hmgag): AIR(aar) {
-        displayName = "HMG Assistant Gunner"
+        displayName = "HMG Assistant Gunner";
     };
     class AIR(matag): AIR(aar) {
-        displayName = "MAT Assistant Gunner"
+        displayName = "MAT Assistant Gunner";
     };
     class AIR(hatag): AIR(aar) {
-        displayName = "HAT Assistant Gunner"
+        displayName = "HAT Assistant Gunner";
     };
     class AIR(msamag): AIR(aar) {
-        displayName = "MSAM Assistant Gunner"
+        displayName = "MSAM Assistant Gunner";
     };
     class AIR(mtrag): AIR(aar) {
-        displayName = "Mortar Assistant Gunner"
+        displayName = "Mortar Assistant Gunner";
     };
     class AIR(mtrg): AIR(aar) { // for some reason the gunner is considered an assistant
-        displayName = "Mortar Gunner"
+        displayName = "Mortar Gunner";
     };
     class AIR(spotter): AIR(aar) {
-        displayName = "Spotter"
+        displayName = "Spotter";
     };
     class AIR(ar): AIR(rifleman) {
-        displayName = "Automatic Rifleman"
+        displayName = "Automatic Rifleman";
         icon = "iconManMG";
         role = "MachineGunner";
     };
     class AIR(sf_ar): AIR(ar) {
-        displayName = "SAS Automatic Rifleman"
+        displayName = "SAS Automatic Rifleman";
     };
     class AIR(mmgg): AIR(ar) {
-        displayName = "MMG Gunner"
+        displayName = "MMG Gunner";
     };
     class AIR(hmgg): AIR(ar) {
-        displayName = "HMG Gunner"
+        displayName = "HMG Gunner";
     };
     class AIR(lat): AIR(rifleman) {
-        displayName = "Rifleman Anti-Tank"
+        displayName = "Rifleman Anti-Tank";
         icon = "iconManAT";
         role = "MissileSpecialist";
     };
     class AIR(sf_lat): AIR(lat) {
-        displayName = "SAS Rifleman Anti-Tank"
+        displayName = "SAS Rifleman Anti-Tank";
     };
     class AIR(matg): AIR(lat) {
-        displayName = "MAT Gunner"
+        displayName = "MAT Gunner";
     };
     class AIR(hatg): AIR(lat) {
-        displayName = "HAT Gunner"
+        displayName = "HAT Gunner";
     };
     class AIR(msamg): AIR(lat) {
-        displayName = "MSAM Gunner"
+        displayName = "MSAM Gunner";
     };
     class AIR(coy): AIR(rifleman) {
         displayName = "Company Commander";
