@@ -20,6 +20,10 @@
 #define VEST_ALLOWED_SLOTS 701
 #define UNIFORM_ALLOWED_SLOTS 801
 #define BACKPACK_ALLOWED_SLOTS 901
+#define PRIMARY_TYPE 1
+#define HANDGUN_TYPE 2
+#define LAUNCHER_TYPE 4
+#define BINO_TYPE 4096
 
 TRACE_1("params",_this);
 params ["_itemsToAddArray", "_containersArray", "_containerIndex"];
@@ -45,19 +49,21 @@ private _returnArray = [];
             [
                 getNumber (configFile >> "CfgMagazines" >> _classname >> "mass"),
                 getNumber (configFile >> "CfgMagazines" >> _classname >> "count"),
-                getArray (configFile >> "CfgMagazines" >> _classname >> "allowedSlots")
+                getArray (configFile >> "CfgMagazines" >> _classname >> "allowedSlots"),
+                false
             ]
         } else {
             if (isClass (configFile >> "CfgWeapons" >> _classname)) then {
                 [
                     getNumber (configFile >> "CfgWeapons" >> _classname >> "ItemInfo" >> "mass"),
                     -1,
-                    getArray (configFile >> "CfgWeapons" >> _classname >> "ItemInfo" >> "allowedSlots")
+                    getArray (configFile >> "CfgWeapons" >> _classname >> "ItemInfo" >> "allowedSlots"),
+                    (getNumber (configFile >> "CfgWeapons" >> _classname >> "type") in [PRIMARY_TYPE, HANDGUN_TYPE, LAUNCHER_TYPE, BINO_TYPE])
                 ]
             } else {
-                [-1, -1, []]
+                [-1, -1, [], false]
             }
-        } params ["_mass", "_count", "_allowedSlots"];
+        } params ["_mass", "_count", "_allowedSlots", "_isWeapon"];
 
         if (_mass < 0) exitWith {
             diag_log text format ["[POTATO-assignGear] Item Not Found [%1]", _itemToAdd];
@@ -74,10 +80,15 @@ private _returnArray = [];
         TRACE_6("",_classname,_mass,_count,_amountToAdd,_ammountThatWillFit,_ammountAdded);
 
         if (_ammountAdded == 0) exitWith { _itemToAdd };
+
         if (_count > 0) then {
             (_array select 1) pushBack [_classname, _ammountAdded, _count];
         } else {
-            (_array select 1) pushBack [_classname, _ammountAdded];
+            private _classnameToAdd = _classname;
+            if (_isWeapon) then {
+                _classnameToAdd = [_classname, [], []] call FUNC(getWeaponArray);
+            };
+            (_array select 1) pushBack [_classnameToAdd, _ammountAdded];
         };
 
         _sizeLeft = _sizeLeft - (_ammountAdded * _mass);
