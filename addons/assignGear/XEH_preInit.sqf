@@ -30,7 +30,7 @@ if (GVAR(usePotato)) then {
             [ // assign gear to vehicles
                 _x,
                 "init",
-                { [_this select 0, _x] call [FUNC(assignGearVehicle); },
+                { [_this select 0, _x] call FUNC(assignGearVehicle); },
                 true,
                 [],
                 true
