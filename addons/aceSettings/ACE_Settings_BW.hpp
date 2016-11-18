@@ -2,15 +2,15 @@
 class ACE_Settings {
     class ace_advanced_fatigue_performanceFactor {
         typeName = "SCALAR";
-        value = 1.3;  
+        value = 1.3;
     };
     class ace_advanced_fatigue_recoveryFactor {
         typeName = "SCALAR";
-        value = 2;  
+        value = 2;
     };
     class ace_cookoff_enable { // Disable cookoff until we verify it's working how we want
         typeName = "BOOL";
-        value = 0;  
+        value = 0;
     };
     class ace_frag_maxTrack {
         typeName = "SCALAR";
@@ -41,13 +41,13 @@ class ACE_Settings {
         value = 2;
         force = 1; // This overrides mission setting/module!!!
     };
-    class ace_medical_ai_enabledFor {
+    class ace_medical_ai_enabledFor { // disable medical AI
         typeName = "SCALAR";
-        value = 1;
+        value = 0;
     };
     class ace_medical_blood_enabledFor {
         typeName = "SCALAR";
-        value = 0;
+        value = 1;
     };
     class ace_overheating_enabled {
         typeName = "BOOL";
