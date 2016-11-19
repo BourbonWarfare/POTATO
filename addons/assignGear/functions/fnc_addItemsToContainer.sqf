@@ -58,7 +58,9 @@ private _returnArray = [];
                     getNumber (configFile >> "CfgWeapons" >> _classname >> "ItemInfo" >> "mass"),
                     -1,
                     getArray (configFile >> "CfgWeapons" >> _classname >> "ItemInfo" >> "allowedSlots"),
-                    (getNumber (configFile >> "CfgWeapons" >> _classname >> "type") in [PRIMARY_TYPE, HANDGUN_TYPE, LAUNCHER_TYPE, BINO_TYPE])
+
+                    (getNumber (configFile >> "CfgWeapons" >> _classname >> "type") in [PRIMARY_TYPE, HANDGUN_TYPE, LAUNCHER_TYPE]) ||
+                    {_itemToAdd isKindOf ["Binocular", configFile >> "CfgWeapons"]}
                 ]
             } else {
                 [-1, -1, [], false]

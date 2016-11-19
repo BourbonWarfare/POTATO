@@ -61,7 +61,10 @@ if (_x isKindOf ["NVGoggles", configFile >> "CfgWeapons"]) exitWith {
 
 // Binoculars (not actually treated as a linked item)
 if (_x isKindOf ["Binocular", configFile >> "CfgWeapons"]) exitWith {
-    _binocularArray = [_x, [], _configMagazines] call FUNC(getWeaponArray);
+    private _weaponArray = [_x, [], _configMagazines] call FUNC(getWeaponArray);
+    {
+        _binocularArray set [_forEachIndex, _x]; // copy to binoc array reference
+    } forEach _weaponArray;
     BINO_INDEX
 };
 
