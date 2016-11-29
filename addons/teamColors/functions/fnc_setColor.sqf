@@ -15,7 +15,4 @@
 
 TRACE_1("Params",_this);
 
-[{
-    params ["_unit", "_fireteam"];
-    _unit assignTeam _fireteam;
-}, _this, 1] call CBA_fnc_waitAndExecute;
+[{_this remoteExec ["assignTeam"];}, _this, 5] call CBA_fnc_waitAndExecute;
