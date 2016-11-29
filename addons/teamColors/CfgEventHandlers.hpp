@@ -10,8 +10,10 @@ class Extended_PreInit_EventHandlers {
     };
 };
 
-class Extended_PostInit_EventHandlers {
-    class ADDON {
-        clientInit = QUOTE(call COMPILE_FILE(XEH_postInit));
+class Extended_InitPost_EventHandlers {
+    class CAManBase {
+        class ADDON {
+            init = "(_this select 0) assignTeam ((_this select 0) getVariable [QGVAR(selectedTeam), 'MAIN']);";
+        };
     };
 };
