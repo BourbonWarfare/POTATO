@@ -4,9 +4,10 @@
  *
  * Arguments:
  * 0: Unit to assign team <OBJECT>
+ * 1: Fireteam coloe <STRING>
  *
  * Example:
- * [player] call potato_teamColors_fnc_setColor;
+ * [player, 'RED'] call potato_teamColors_fnc_setColor;
  *
  * Public: No
  */
@@ -15,7 +16,8 @@
 
 TRACE_1("Params",_this);
 
-[{
-    params ["_unit", "_fireteam"];
-    _unit assignTeam _fireteam;
-}, _this, 1] call CBA_fnc_waitAndExecute;
+[
+    {(_this select 0) assignTeam (_this select 1);},
+    {!isNull player},
+    _this
+] call CBA_fnc_waitUntilAndExecute;
