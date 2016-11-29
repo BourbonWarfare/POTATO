@@ -15,9 +15,9 @@
 #include "script_component.hpp"
 
 TRACE_1("Params",_this);
-
+if !(local (_this select 0)) exitWith { LOG("Non local unit, exiting"); };
 [
+    {!isNull player && {alive player}},
     {(_this select 0) assignTeam (_this select 1);},
-    {!isNull player},
     _this
 ] call CBA_fnc_waitUntilAndExecute;
