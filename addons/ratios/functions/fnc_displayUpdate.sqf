@@ -18,7 +18,7 @@ TRACE_1("params",_this);
 params ["_sideCount","_sideArray"];
 
 // get literal count from the player list, if override is filled out, use that instead
-private _numberOfPlayers = (lbSize PLAYER_LIST) / 3; // should just be able to use lnbSize, but no
+private _numberOfPlayers = (lnbSize PLAYER_LIST) select 0;
 private _override = parseNumber (ctrlText RATIO_PLAYER_OVERRIDE_INPUT);
 if (_override > 0) then {
     _numberOfPlayers = _override;
@@ -50,7 +50,7 @@ if (isNil "_nonPlayerTextureCache") then {
 // remove 'non players' from the player count
 private _nonPlayers = 0;
 for "_i" from 0 to (_numberOfPlayers - 1) do {
-    if ((PLAYER_LIST lbPicture _i) in _nonPlayerTextureCache) then {
+    if ((PLAYER_LIST lnbPicture [_i, 0]) in _nonPlayerTextureCache) then {
         INC(_nonPlayers);
     };
 };

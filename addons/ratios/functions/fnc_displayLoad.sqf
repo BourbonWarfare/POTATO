@@ -102,6 +102,7 @@ if ((!isNil "_ratioCanidate") && {(_ratioCanidate find ":") > -1}) then {
 };
 
 // while the display is loaded, update the display
-while {GET_UI_VAR(loaded)} do {
+waitUntil {
     [_sideCount,_sideArray] call FUNC(displayUpdate);
+    !GET_UI_VAR(loaded)
 };
