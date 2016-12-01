@@ -27,9 +27,33 @@ class CfgPatches {
             QAIR(ftl),QAIR(sf_ftl),QAIR(vicl),QAIR(cm),QAIR(plm),QAIR(sm),QAIR(sf_sm),
             QAIR(engl),QAIR(eng),QAIR(demo),QAIR(vicc),QAIR(vicd),QAIR(pilot),QAIR(cc)
         };
-        weapons[] = {"potato_fakeNVG"};
+        weapons[] = {
+            "potato_fakeNVG", "potato_arifle_RPK", // below are shimmed weapons, remove eventually
+            "hlc_rifle_rpk", "hlc_rifle_rpk74n",
+            "hlc_rifle_aks74u", "hlc_rifle_ak74_dirty",
+            "hlc_rifle_aks74_GL", "hlc_rifle_aks74",
+            "hlc_smg_mp5a4"
+        };
+        magazines[] = {
+            "potato_75Rnd_762x39mm_tracer", // below are shimmed mags, remove eventually
+            "hlc_75Rnd_762x39_m_rpk", "hlc_60Rnd_545x39_t_rpk",
+            "hlc_30Rnd_545x39_B_AK", "hlc_30Rnd_545x39_t_ak",
+            "hlc_45Rnd_545x39_t_rpk", "hlc_30Rnd_9x19_B_MP5",
+            "hlc_VOG25_AK", "hlc_GRD_White", "hlc_GRD_Red"
+        };
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "mbg_celle2", "ace_ui", "rhs_c_weapons", "Taliban_fighters", "BWA3_Common"};
+        requiredAddons[] = {
+            "potato_core", "mbg_celle2", "ace_ui",
+            "BWA3_Common", "BWA3_AssaultRifles", "BWA3_MachineGuns",
+            "rhs_c_weapons", "rhsgref_c_weapons", "rhsusf_c_weapons",
+            "CUP_Weapons_M16", "CUP_Weapons_AK", "CUP_Weapons_PK",
+            "CUP_Weapons_M249", "CUP_Weapons_M240", "CUP_Weapons_M60E4",
+            "CUP_Weapons_L85", "CUP_Weapons_FNFAL", "CUP_Weapons_L110",
+            "CUP_Weapons_SCAR", "CUP_Weapons_XM8", "CUP_Weapons_G36",
+            "CUP_Weapons_MP5", "CUP_Weapons_L129", "CUP_Weapons_M14",
+            "CUP_Weapons_M14_DMR", "CUP_Weapons_Mk48",
+            "UK3CB_BAF_Weapons_SmallArms", "Taliban_fighters"
+        };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
