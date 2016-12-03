@@ -199,7 +199,15 @@
 "rhs_100Rnd_762x54mmR_7N13", \
 "rhs_100Rnd_762x54mmR_7N26", \
 "rhs_100Rnd_762x54mmR_7BZ3", \
+"CUP_50Rnd_UK59_762x54R_Tracer", \
 "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M"
+
+#define AWP_338 \
+"UK3CB_BAF_338_5Rnd", \
+"UK3CB_BAF_338_5Rnd_Tracer", \
+"UK3CB_BAF_338_5Rnd_Blank", \
+"CUP_5Rnd_86x70_L115A1"
+
 
 class CfgWeapons {
     // Manually list all mags for CUP/RHS/BWA3/BAF compat
@@ -269,28 +277,28 @@ class CfgWeapons {
         magazines[] = { NATO_MMG_762 };
     };
     class BWA3_G36: Rifle_Base_F {
-        magazines[] = { PMAG_556 };
+        magazines[] = { NATO_PMAG_556 };
     };
     class BWA3_G38: Rifle_Base_F {
-        magazines[] = { PMAG_556 };
+        magazines[] = { NATO_PMAG_556 };
     };
     class BWA3_G36_LMG: BWA3_G36 {
-        magazines[] = { PMAG_556 };
+        magazines[] = { NATO_PMAG_556 };
     };
     class CUP_arifle_G36_Base: Rifle_Base_f {
-        magazines[] = { PMAG_556 };
+        magazines[] = { NATO_PMAG_556 };
     };
     class CUP_arifle_G36C: Rifle_Base_f {
-        magazines[] = { PMAG_556 };
+        magazines[] = { NATO_PMAG_556 };
     };
     class CUP_arifle_MG36: CUP_arifle_G36C {
-        magazines[] = { PMAG_556 };
+        magazines[] = { NATO_PMAG_556 };
     };
     class CUP_arifle_XM8_Base: Rifle_Base_f {
-        magazines[] = { PMAG_556 };
+        magazines[] = { NATO_PMAG_556 };
     };
     class CUP_arifle_XM8_Railed_Base: Rifle_Base_f {
-        magazines[] = { PMAG_556 };
+        magazines[] = { NATO_PMAG_556 };
     };
     class CUP_l85a2_base: Rifle_Base_F {
         magazines[] = { NATO_RIFLE_556 };
@@ -316,7 +324,7 @@ class CfgWeapons {
 
     class CUP_arifle_xm8_sharpshooter;
     class CUP_arifle_xm8_SAW: CUP_arifle_xm8_sharpshooter {
-        magazines[] = { PMAG_556 };
+        magazines[] = { NATO_PMAG_556 };
     };
 
     class CUP_arifle_AK74;
@@ -349,6 +357,12 @@ class CfgWeapons {
     class BWA3_MG5: Rifle_Long_Base_F {
         magazines[] = { NATO_MMG_762 };
     };
+    class CUP_lmg_UK59: Rifle_Long_Base_F {
+        magazines[] = { RU_MMG_762 };
+    };
+    class CUP_srifle_AWM_Base: Rifle_Long_Base_F {
+        magazines[] = { AWP_338 };
+    };
 
     class CUP_saw_base;
     class CUP_lmg_minimipara: CUP_saw_base {
@@ -369,5 +383,10 @@ class CfgWeapons {
     };
     class UK3CB_BAF_L110_762_Base: UK3CB_BAF_L110_Base {
         magazines[] = { NATO_MMG_762 };
+    };
+
+    class srifle_LRR_F;
+    class UK3CB_BAF_L115_Base: srifle_LRR_F {
+        magazines[] = { AWP_338 };
     };
 };
