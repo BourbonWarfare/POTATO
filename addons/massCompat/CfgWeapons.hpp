@@ -208,6 +208,10 @@
 "UK3CB_BAF_338_5Rnd_Blank", \
 "CUP_5Rnd_86x70_L115A1"
 
+#define M107_50 \
+"rhsusf_mag_10Rnd_STD_50BMG_M33", \
+"rhsusf_mag_10Rnd_STD_50BMG_mk211", \
+"CUP_10Rnd_127x99_m107"
 
 class CfgWeapons {
     // Manually list all mags for CUP/RHS/BWA3/BAF compat
@@ -363,6 +367,9 @@ class CfgWeapons {
     class CUP_srifle_AWM_Base: Rifle_Long_Base_F {
         magazines[] = { AWP_338 };
     };
+    class CUP_srifle_M107_Base: Rifle_Long_Base_F {
+        magazines[] = { M107_50 };
+    };
 
     class CUP_saw_base;
     class CUP_lmg_minimipara: CUP_saw_base {
@@ -388,5 +395,10 @@ class CfgWeapons {
     class srifle_LRR_F;
     class UK3CB_BAF_L115_Base: srifle_LRR_F {
         magazines[] = { AWP_338 };
+    };
+
+    class GM6_base_F;
+    class rhs_weap_M107_Base_F: GM6_base_F {
+        magazines[] = { M107_50 };
     };
 };
