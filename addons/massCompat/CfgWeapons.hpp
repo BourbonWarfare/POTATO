@@ -272,6 +272,9 @@ class CfgWeapons {
     class rhs_weap_asval: rhs_weap_ak74m {
         magazines[] = { VSS_9 };
     };
+    class rhs_weap_vss: rhs_weap_asval {
+        magazines[] = { VSS_9 };
+    };
 
     class UGL_F;
     class Rifle_Base_F;
