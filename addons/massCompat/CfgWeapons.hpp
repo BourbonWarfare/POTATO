@@ -1,4 +1,8 @@
 #define NATO_SMG_9 \
+"30Rnd_9x21_Mag_SMG_02", \
+"30Rnd_9x21_Mag_SMG_02_Tracer_Red", \
+"30Rnd_9x21_Mag_SMG_02_Tracer_Yellow", \
+"30Rnd_9x21_Mag_SMG_02_Tracer_Green", \
 "ACE_30Rnd_9x19_mag", \
 "UK3CB_BAF_9_30Rnd", \
 "CUP_30Rnd_9x19_MP5", \
