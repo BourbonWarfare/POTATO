@@ -28,6 +28,7 @@ class CfgWeapons {
     };
 
     // Create RPK from CUP RPK-74, just need to fill a gap
+    class CUP_arifle_RPK74;
     class potato_arifle_RPK: CUP_arifle_RPK74 {
         author = "POTATO";
         displayname = "RPK";
@@ -47,7 +48,6 @@ class CfgWeapons {
         author = "POTATO";
         displayname = "RPK (Shim)";
     };
-    class CUP_arifle_RPK74;
     class hlc_rifle_rpk74n: CUP_arifle_RPK74 {
         scope = 1;
         scopeArsenal = 1;
@@ -65,6 +65,9 @@ class CfgWeapons {
     };
     class CUP_arifle_AK74;
     class hlc_rifle_ak74_dirty: CUP_arifle_AK74 {
+        scope = 1;
+        scopeArsenal = 1;
+        scopeCurator = 1;
         author = "POTATO";
         displayname = "AK-74 (Shim)";
     };
