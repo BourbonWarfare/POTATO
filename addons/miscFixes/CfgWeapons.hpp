@@ -65,6 +65,9 @@ class CfgWeapons {
     };
     class CUP_arifle_AK74;
     class hlc_rifle_ak74_dirty: CUP_arifle_AK74 {
+        scope = 1;
+        scopeArsenal = 1;
+        scopeCurator = 1;
         author = "POTATO";
         displayname = "AK-74 (Shim)";
     };
