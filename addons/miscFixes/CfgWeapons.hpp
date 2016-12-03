@@ -27,10 +27,62 @@ class CfgWeapons {
         };
     };
 
-    // Manually list all mags for HLC/RHS compat
-    class rhs_weap_ak74m;
-    class rhs_weap_akm : rhs_weap_ak74m {
-        magazines[] = {"rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer", "rhs_30Rnd_762x39mm_89", "rhs_30Rnd_762x39mm_U", "hlc_30Rnd_762x39_b_ak", "hlc_30Rnd_762x39_t_ak", "hlc_45Rnd_762x39_m_rpk", "HLC_45rnd_762x39_T_RPK", "hlc_30rnd_762x39_s_ak"};
+    // Create RPK from CUP RPK-74, just need to fill a gap
+    class potato_arifle_RPK: CUP_arifle_RPK74 {
+        author = "POTATO";
+        displayname = "RPK";
+        magazines[] = {
+            "potato_75Rnd_762x39mm_tracer", "rhs_30Rnd_762x39mm",
+            "rhs_30Rnd_762x39mm_tracer", "rhs_30Rnd_762x39mm_89",
+            "rhs_30Rnd_762x39mm_U", "CUP_30Rnd_762x39_AK47_M",
+            "hlc_75Rnd_762x39_m_rpk" // shimmed mag, remve eventually
+        };
+    };
+
+    // shim HLC framework weapons
+    class hlc_rifle_rpk: POTATO_arifle_RPK {
+        scope = 1;
+        scopeArsenal = 1;
+        scopeCurator = 1;
+        author = "POTATO";
+        displayname = "RPK (Shim)";
+    };
+    class CUP_arifle_RPK74;
+    class hlc_rifle_rpk74n: CUP_arifle_RPK74 {
+        scope = 1;
+        scopeArsenal = 1;
+        scopeCurator = 1;
+        author = "POTATO";
+        displayname = "RPK-74 (Shim)";
+    };
+    class CUP_arifle_AKS74U;
+    class hlc_rifle_aks74u: CUP_arifle_AKS74U {
+        scope = 1;
+        scopeArsenal = 1;
+        scopeCurator = 1;
+        author = "POTATO";
+        displayname = "AKS-74U (Shim)";
+    };
+    class CUP_arifle_AK74;
+    class hlc_rifle_ak74_dirty: CUP_arifle_AK74 {
+        author = "POTATO";
+        displayname = "AK-74 (Shim)";
+    };
+    class CUP_arifle_AK74_GL;
+    class hlc_rifle_aks74_GL: CUP_arifle_AK74_GL {
+        scope = 1;
+        scopeArsenal = 1;
+        scopeCurator = 1;
+        author = "POTATO";
+        displayname = "AK-74 GP-25 (Shim)";
+    };
+    class CUP_arifle_AKS74;
+    class hlc_rifle_aks74: CUP_arifle_AKS74 {
+        scope = 1;
+        scopeArsenal = 1;
+        scopeCurator = 1;
+        author = "POTATO";
+        displayname = "AKS-74 (Shim)";
     };
 
     // shim the bugged uniform
