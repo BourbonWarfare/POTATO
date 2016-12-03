@@ -223,6 +223,14 @@
 "rhs_10Rnd_762x54mmR_7N1", \
 "CUP_10Rnd_762x54_SVD_M"
 
+#define VSS_9 \
+"rhs_10rnd_9x39mm_SP5", \
+"rhs_10rnd_9x39mm_SP6", \
+"rhs_20rnd_9x39mm_SP5", \
+"rhs_20rnd_9x39mm_SP6", \
+"CUP_10Rnd_9x39_SP5_VSS_M", \
+"CUP_20Rnd_9x39_SP5_VSS_M"
+
 class CfgWeapons {
     // Manually list all mags for CUP/RHS/BWA3/BAF compat
     class arifle_MX_Base_F;
@@ -260,6 +268,9 @@ class CfgWeapons {
     };
     class rhs_weap_svd: rhs_weap_ak74m {
         magazines[] = { SVD_762 };
+    };
+    class rhs_weap_asval: rhs_weap_ak74m {
+        magazines[] = { VSS_9 };
     };
 
     class UGL_F;
@@ -344,6 +355,9 @@ class CfgWeapons {
     class CUP_srifle_SVD: Rifle_Base_F {
         magazines[] = { SVD_762 };
     };
+    class CUP_srifle_VSSVintorez: Rifle_Base_F {
+        magazines[] = { VSS_9 };
+    };
 
     class CUP_arifle_xm8_sharpshooter;
     class CUP_arifle_xm8_SAW: CUP_arifle_xm8_sharpshooter {
@@ -422,7 +436,7 @@ class CfgWeapons {
     };
 
     class rhs_weap_XM2010_Base_F;
-    class class rhs_weap_m24sws: rhs_weap_XM2010_Base_F {
+    class rhs_weap_m24sws: rhs_weap_XM2010_Base_F {
         magazines[] = { M24_762 };
     };
 };

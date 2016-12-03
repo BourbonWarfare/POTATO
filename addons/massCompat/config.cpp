@@ -18,6 +18,7 @@ class CfgPatches {
             "CUP_Weapons_MP5", "CUP_Weapons_L129", "CUP_Weapons_M14",
             "CUP_Weapons_M14_DMR", "CUP_Weapons_Mk48", "CUP_Weapons_AWM",
             "CUP_Weapons_M107", "CUP_Weapons_M24", "CUP_Weapons_SVD",
+            "CUP_Weapons_VSS", 
             "hlcweapons_mp5", "hlcweapons_core",
             "UK3CB_BAF_Weapons_SmallArms"
         };
