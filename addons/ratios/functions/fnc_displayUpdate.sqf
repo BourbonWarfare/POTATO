@@ -58,7 +58,7 @@ for "_i" from 0 to (_numberOfPlayers - 1) do {
 private _players = _numberOfPlayers - _nonPlayers;
 
 // check if the input information has changed, if it hasn't, skip updating
-if ([_ratioInput1, _ratioInput2, _ratioInput3, _players, _ratioChecked1, _ratioChecked2, _ratioChecked3] call FUNC(skipUpdate)) exitWith {};
+if ([_ratioInput1, _ratioInput2, _ratioInput3, _players, _ratioChecked1, _ratioChecked2, _ratioChecked3] call (uiNamespace getVariable QFUNC(skipUpdate))) exitWith {};
 
 // parse the input into numbers
 private _ratioInputValue1 = parseNumber _ratioInput1;
