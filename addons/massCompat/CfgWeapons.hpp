@@ -213,6 +213,12 @@
 "rhsusf_mag_10Rnd_STD_50BMG_mk211", \
 "CUP_10Rnd_127x99_m107"
 
+#define M24_762 \
+"rhsusf_5Rnd_762x51_m118_special_Mag", \
+"rhsusf_5Rnd_762x51_m993_Mag", \
+"rhsusf_5Rnd_762x51_m62_Mag", \
+"CUP_5Rnd_762x51_M24"
+
 class CfgWeapons {
     // Manually list all mags for CUP/RHS/BWA3/BAF compat
     class arifle_MX_Base_F;
@@ -325,6 +331,9 @@ class CfgWeapons {
     class hlc_MP5_base : Rifle_Base_F {
         magazines[] = { NATO_SMG_9 };
     };
+    class CUP_srifle_M24_des: Rifle_Base_F {
+        magazines[] = { M24_762 };
+    };
 
     class CUP_arifle_xm8_sharpshooter;
     class CUP_arifle_xm8_SAW: CUP_arifle_xm8_sharpshooter {
@@ -400,5 +409,10 @@ class CfgWeapons {
     class GM6_base_F;
     class rhs_weap_M107_Base_F: GM6_base_F {
         magazines[] = { M107_50 };
+    };
+
+    class rhs_weap_XM2010_Base_F;
+    class class rhs_weap_m24sws: rhs_weap_XM2010_Base_F {
+        magazines[] = { M24_762 };
     };
 };
