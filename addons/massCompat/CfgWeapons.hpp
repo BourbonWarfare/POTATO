@@ -219,6 +219,10 @@
 "rhsusf_5Rnd_762x51_m62_Mag", \
 "CUP_5Rnd_762x51_M24"
 
+#define SVD_762 \
+"rhs_10Rnd_762x54mmR_7N1", \
+"CUP_10Rnd_762x54_SVD_M"
+
 class CfgWeapons {
     // Manually list all mags for CUP/RHS/BWA3/BAF compat
     class arifle_MX_Base_F;
@@ -253,6 +257,9 @@ class CfgWeapons {
     };
     class rhs_weap_ak103_base: rhs_weap_akm {
         magazines[] = { RU_RIFLE_762 };
+    };
+    class rhs_weap_svd: rhs_weap_ak74m {
+        magazines[] = { SVD_762 };
     };
 
     class UGL_F;
@@ -333,6 +340,9 @@ class CfgWeapons {
     };
     class CUP_srifle_M24_des: Rifle_Base_F {
         magazines[] = { M24_762 };
+    };
+    class CUP_srifle_SVD: Rifle_Base_F {
+        magazines[] = { SVD_762 };
     };
 
     class CUP_arifle_xm8_sharpshooter;
