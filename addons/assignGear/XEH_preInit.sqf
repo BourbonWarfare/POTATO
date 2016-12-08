@@ -22,7 +22,7 @@ if (GVAR(usePotato)) then {
         [ // assign gear to man
             "CAManBase",
             "init",
-            { [FUNC(assignGearMan), _this] call CBA_fnc_execNextFrame; },
+            FUNC(assignGearMan),
             true, // allow inheritence
             [], // don't exclude classes
             true // run on existing units (shouldn't be any, but belts/suspenders)
