@@ -21,9 +21,7 @@ TRACE_1("params",_this);
 params ["_unit"];
 TRACE_2("",_unit,local _unit);
 
-#ifdef DEBUG_MODE_FULL
-    private _startTime = diag_tickTime; // only define counter if debug mode is on
-#endif
+BEGIN_COUNTER(assignGearMan);
 
 private _faction = toLower faction _unit;
 private _unitClassname = [typeOf _unit] call FUNC(cleanPrefix);
@@ -37,7 +35,6 @@ if ((!isClass(_path)) && GVAR(useFallback)) then {
 if (!isClass(_path)) exitWith {
     TRACE_2("No Class Found",_unit,typeOf _unit);
     _unit setVariable [QGVAR(gearSetup), true, true];
-    _unit setVariable ["F_Gear_Setup", true, true]; //TODO: legacy variable sync for radios, remove eventually
 };
 
 private _randomIndex = floor (random GVAR(maxRandomization));
@@ -47,7 +44,9 @@ private _loadoutArray = GVAR(loadoutCache) getVariable _loadoutKey;
 
 if (isNil "_loadoutArray") then {
     TRACE_1("compiling new",_loadoutKey);
+    BEGIN_COUNTER(getLoadoutFromConfig);
     _loadoutArray = [_path] call FUNC(getLoadoutFromConfig);
+    END_COUNTER(getLoadoutFromConfig);
     TRACE_1("loadout array: ", _loadoutArray);
     GVAR(loadoutCache) setVariable [_loadoutKey, _loadoutArray];
 };
@@ -60,18 +59,22 @@ if (isText (_path >> "init")) then {
 };
 
 _unit setVariable [QGVAR(gearSetup), true, true];
-_unit setVariable ["F_Gear_Setup", true, true]; //TODO: legacy variable sync for radios, remove eventually
 
-#ifdef DEBUG_MODE_FULL
-    private _runTime = diag_tickTime - _startTime;
+END_COUNTER(assignGearMan);
 
-    if (isNil QGVAR(agmRunCount)) then {
-        GVAR(agmRunCount) = 0;
-        GVAR(agmRunTime) = 0;
+
+// Stupid hack to fix gear automaticly until we can sort out why setUnitLoadout ocasionly fails on JIPs
+[{
+    params ["_unit", "_loadoutArray"];
+    if (isNull _unit) exitWith {};
+    
+    private _arrayUniform = (_loadoutArray select 3) param [0, ""];
+    private _arrayVest = (_loadoutArray select 4) param [0, ""];
+    INFO_4("Checking loadout: Uniform [%1-%2] Vest [%3-%4]",_arrayUniform,uniform _unit,_arrayVest,vest _unit);
+
+    if ((_arrayUniform != (uniform _unit)) || {_arrayVest != (vest _unit)}) then {
+        ERROR_2("Mismatch [%1] [%2]",name _unit, typeOf _unit);
+        _unit setUnitLoadout _loadoutArray;
+        ["potato_adminMsg", [(format ["Auto-reset gear on %1", name _unit]), "Server"]] call CBA_fnc_globalEvent;
     };
-
-    INC(GVAR(agmRunCount));
-    GVAR(agmRunTime) = GVAR(agmRunTime) + _runTime;
-    diag_log format ["[POTATO-assignGear] - assignGearMan ran for class %1, with a run time of %2", _loadout, _runTime];
-    diag_log format ["[POTATO-assignGear] - assignGearMan ran %1 times, with an average run time of %2", GVAR(agmRunCount), GVAR(agmRunTime) / GVAR(agmRunCount)];
-#endif
+}, [_unit, _loadoutArray], 15] call CBA_fnc_waitAndExecute
