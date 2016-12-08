@@ -15,6 +15,9 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
+// if the display is no longer loaded, exit early
+if (!GET_UI_VAR(loaded)) exitWith { true };
+
 params ["_sideCount","_sideArray"];
 
 // get literal count from the player list, if override is filled out, use that instead
@@ -58,7 +61,7 @@ for "_i" from 0 to (_numberOfPlayers - 1) do {
 private _players = _numberOfPlayers - _nonPlayers;
 
 // check if the input information has changed, if it hasn't, skip updating
-if ([_ratioInput1, _ratioInput2, _ratioInput3, _players, _ratioChecked1, _ratioChecked2, _ratioChecked3] call (uiNamespace getVariable QFUNC(skipUpdate))) exitWith {};
+if ([_ratioInput1, _ratioInput2, _ratioInput3, _players, _ratioChecked1, _ratioChecked2, _ratioChecked3] call (uiNamespace getVariable QFUNC(skipUpdate))) exitWith { !GET_UI_VAR(loaded) };
 
 // parse the input into numbers
 private _ratioInputValue1 = parseNumber _ratioInput1;
@@ -74,6 +77,7 @@ if ((_ratioInputValue1 == 0 && {_ratioInput1 != "0"})
     if (_ratioInputValue2 == 0 && {_ratioInput2 != "0"}) then { RATIO_INPUT_2 ctrlSetText "";};
     if (_sideCount > 2 && {_ratioInputValue3 == 0} && {_ratioInput3 != "0"}) then { RATIO_INPUT_3 ctrlSetText ""; };
     LOG("Invalid input(s), exiting early");
+    !GET_UI_VAR(loaded)
 };
 
 // clear out the old ratio values
@@ -115,7 +119,10 @@ if (_ratioChecked3) then {
 };
 
 // exit if the denominator is zero to avoid blowing up the world
-if (_denominator == 0) exitWith { LOG("Please don't divide by zero"); };
+if (_denominator == 0) exitWith {
+    LOG("Please don't divide by zero");
+    !GET_UI_VAR(loaded)
+};
 
 private _teamCount1 = if (_ratioChecked1) then {
     _ratioInputValue1
@@ -148,3 +155,5 @@ if (_teamCount3 > 0) then {
     RATIO_OUTPUT_3 lbAdd (str _teamCount3);
     RATIO_OUTPUT_3 lbSetPicture [0, _playerTextureCache select 2];
 };
+
+!GET_UI_VAR(loaded)
