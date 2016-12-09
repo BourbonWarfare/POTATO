@@ -2,15 +2,22 @@
 #include "script_component.hpp"
 
 if (GVAR(allowChangeableOptics) && hasInterface) then {
-    private _opticOptions = getArray (
+    private _path = (
         missionConfigFile >>
         "CfgLoadouts" >>
         (toLower faction player) >>
-        (player getVariable ["F_Gear", [typeOf player] call FUNC(cleanPrefix)]) >>
-        "opticChoices"
+        (player getVariable ["F_Gear", [typeOf player] call FUNC(cleanPrefix)])
     );
 
+    private _opticOptions = getArray (_path >> "opticChoices");
     if (_opticOptions isEqualTo []) exitWith { LOG("No optic options found"); };
+
+    {
+        private _attachment = _x;
+        if (isText (configFile >> "CfgWeapons" >> _attachment >> "weaponInfoType") && {{ _x == _attachment} count _opticOptions < 1}) then {
+            _opticOptions pushBack _attachment;
+        };
+    } forEach (getArray (_path >> "attachments"));
 
     private _baseAction = [
         "BaseOpticChoice",
