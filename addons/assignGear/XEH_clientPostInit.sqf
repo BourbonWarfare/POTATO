@@ -9,20 +9,32 @@ if (GVAR(allowChangeableOptics) && hasInterface) then {
         (player getVariable ["F_Gear", [typeOf player] call FUNC(cleanPrefix)])
     );
 
-    private _opticOptions = getArray (_path >> "opticChoices");
-    if (_opticOptions isEqualTo []) exitWith { LOG("No optic options found"); };
-
+    private _opticOptions = [];
     {
-        private _attachment = _x;
-        if (isText (configFile >> "CfgWeapons" >> _attachment >> "weaponInfoType") && {{ _x == _attachment} count _opticOptions < 1}) then {
-            _opticOptions pushBack _attachment;
+        if (isText (configFile >> "CfgWeapons" >> _x >> "weaponInfoType")) then {
+            if (!GVAR(allowMagnifiedOptics)) then {
+                private _minZoom = 999; //FOV, so smaller is more zoomed in
+                {
+                    if (isNumber (_x >> "opticsZoomMin")) then { _minZoom = _minZoom min (getNumber (_x >> "opticsZoomMin")); };
+                    if (isText (_x >> "opticsZoomMin")) then { _minZoom = _minZoom min (call compile getText (_x >> "opticsZoomMin")); };
+                    nil
+                } count configProperties [configFile >> "CfgWeapons" >> _x >> "ItemInfo" >> "OpticsModes"]; // count used here for speed, make sure nil is above this line
+
+                if (_minZoom >= 0.25) then {
+                    _opticOptions pushBackUnique (toLower _x);
+                };
+            } else {
+                _opticOptions pushBackUnique (toLower _x);
+            };
         };
-    } forEach (getArray (_path >> "attachments"));
+    } forEach ((getArray (_path >> "opticChoices")) + (getArray (_path >> "attachments")));
+
+    if (_opticOptions isEqualTo []) exitWith { LOG("No optic options found"); };
 
     private _baseAction = [
         "BaseOpticChoice",
         "Choose Optic",
-        QPATHTOF(data\scope.paa), // TODO: create base optic image
+        QPATHTOF(data\scope.paa),
         {},
         {missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1}
     ] call ACEFUNC(interact_menu,createAction);
@@ -35,7 +47,7 @@ if (GVAR(allowChangeableOptics) && hasInterface) then {
 
     {
         if (isClass (configFile >> "CfgWeapons" >> _x)) then {
-            private _picture = QPATHTOF(data\scope.paa); // TODO: create base optic image
+            private _picture = QPATHTOF(data\scope.paa);
             if (isText (configFile >> "CfgWeapons" >> _x >> "picture")) then {
                 _picture = getText (configFile >> "CfgWeapons" >> _x >> "picture");
             };
@@ -52,7 +64,7 @@ if (GVAR(allowChangeableOptics) && hasInterface) then {
                 FUNC(setOptic),
                 FUNC(canSetOptic),
                 {},
-                _x
+                [_x, _opticOptions]
             ] call ACEFUNC(interact_menu,createAction);
 
             [
