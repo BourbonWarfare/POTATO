@@ -13,7 +13,7 @@ if (GVAR(usePotato)) then {
     GVAR(classnameCache) = call CBA_fnc_createNamespace;
 
     GVAR(allowMagnifiedOptics) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "allowMagnifiedOptics")) == 1);
-    GVAR(allowChangeableOptics) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "allowMagnifiedOptics")) == 1);
+    GVAR(allowChangeableOptics) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "allowChangeableOptics")) == 1);
     GVAR(useFallback) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "useFallback")) == 1);
     GVAR(maxRandomization) = if (isNumber (missionConfigFile >> "CfgLoadouts" >> "maxRandomization")) then { getNumber (missionConfigFile >> "CfgLoadouts" >> "maxRandomization") } else { 5 };
     GVAR(setVehicleLoadouts) = if (isNumber (missionConfigFile >> "CfgLoadouts" >> "setVehicleLoadouts")) then {getNumber (missionConfigFile >> "CfgLoadouts" >> "setVehicleLoadouts")} else { 1 };

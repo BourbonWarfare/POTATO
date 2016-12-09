@@ -15,7 +15,7 @@ if (GVAR(allowChangeableOptics) && hasInterface) then {
     private _baseAction = [
         "BaseOpticChoice",
         "Choose Optic",
-        "", // TODO: create base optic image
+        QPATHTOF(data\scope.paa), // TODO: create base optic image
         {},
         {missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1}
     ] call ACEFUNC(interact_menu,createAction);
@@ -28,7 +28,7 @@ if (GVAR(allowChangeableOptics) && hasInterface) then {
 
     {
         if (isClass (configFile >> "CfgWeapons" >> _x)) then {
-            private _picture = ""; // TODO: create base optic image
+            private _picture = QPATHTOF(data\scope.paa); // TODO: create base optic image
             if (isText (configFile >> "CfgWeapons" >> _x >> "picture")) then {
                 _picture = getText (configFile >> "CfgWeapons" >> _x >> "picture");
             };
@@ -39,7 +39,7 @@ if (GVAR(allowChangeableOptics) && hasInterface) then {
             };
 
             private _action = [
-                format ["OpticChoice%1",_forEachIndex];,
+                format ["OpticChoice%1",_forEachIndex],
                 _name,
                 _picture,
                 FUNC(setOptic),
@@ -54,7 +54,7 @@ if (GVAR(allowChangeableOptics) && hasInterface) then {
                 _action
             ] call ACEFUNC(interact_menu,addActionToClass);
         } else {
-            WARN_1("Optic option not a valid class", _x);
+            WARNING_1("Optic option not a valid class", _x);
         };
     } forEach _opticOptions;
 };

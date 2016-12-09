@@ -19,8 +19,8 @@
 TRACE_1("params",_this);
 params ["", "_player", "_opticClassname"];
 
-if (_opticClassname in [primaryWeapon _player] call CBA_fnc_compatibleItems) then {
-    _player = addPrimaryWeaponItem _opticClassname;
+if (_opticClassname in ([primaryWeapon _player] call CBA_fnc_compatibleItems)) then {
+    _player addPrimaryWeaponItem _opticClassname;
 } else {
-    WARN_2("Optic not compatible with player's weapon");
+    WARNING_2("Optic not compatible with player's weapon", primaryWeapon _player, _opticClassname);
 };

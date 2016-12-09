@@ -24,4 +24,4 @@ params ["", "_player", "_opticClassname"];
 
 missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1 &&
     {((primaryWeaponItems _player) select 2) != _opticClassname} &&
-    {_opticClassname in [primaryWeapon _player] call CBA_fnc_compatibleItems}
+    {_opticClassname in ([primaryWeapon _player] call CBA_fnc_compatibleItems)}
