@@ -1,4 +1,3 @@
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 if (GVAR(allowChangeableOptics) && hasInterface) then {
@@ -11,7 +10,7 @@ if (GVAR(allowChangeableOptics) && hasInterface) then {
 
     private _opticOptions = [];
     {
-        if (isText (configFile >> "CfgWeapons" >> _x >> "weaponInfoType")) then {
+        if (isNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "optics")) then {
             if (!GVAR(allowMagnifiedOptics)) then {
                 private _minZoom = 999; //FOV, so smaller is more zoomed in
                 {
