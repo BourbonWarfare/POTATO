@@ -9,7 +9,7 @@
  * 2: Optic classname <STRING>
  *
  * Example:
- * [objNull, player, "opticClassName"] call potato_assignGear_fnc_setOptic;
+ * [objNull, player, ["opticClassName", []]] call potato_assignGear_fnc_setOptic;
  *
  * Public: No
  */
