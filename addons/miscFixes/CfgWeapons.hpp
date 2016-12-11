@@ -3,7 +3,7 @@ class CfgWeapons {
     class NVGoggles;
     class potato_fakeNVG: NVGoggles {
         author = "PabstMirror";
-        modelOptics = QUOTE(PATHTOF(models\plotNVGs));
+        modelOptics = QPATHTOF(models\plotNVGs);
         model = "\A3\weapons_f\empty";
         displayName = "Fake NVGs (AI Only)";
         descriptionShort = "[Plot Googles] Do not attempt to use as a player, only to allow AI to have better vision";
@@ -21,10 +21,16 @@ class CfgWeapons {
     class Launcher_Base_F: Launcher {
         class WeaponSlotsInfo;
     };
-    class rhs_weap_smaw : Launcher_Base_F {
+    class rhs_weap_smaw: Launcher_Base_F {
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 70;
         };
+    };
+    class launch_NLAW_F;
+    class potato_nlaw_dumb: launch_NLAW_F {
+        author = "POTATO";
+        canLock = 0;
+        displayname = "NLAW (Dumb)";
     };
 
     // Create RPK from CUP RPK-74, just need to fill a gap

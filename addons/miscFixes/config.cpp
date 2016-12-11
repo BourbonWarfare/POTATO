@@ -69,6 +69,7 @@ class CfgUnitInsignia {
     delete BWA3_insignia_name_Tonic;
 };
 
+#include "CfgAmmo.hpp"
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgFactionClasses.hpp"

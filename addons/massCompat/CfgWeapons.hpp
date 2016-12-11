@@ -106,6 +106,16 @@
 "CUP_100Rnd_TE1_Green_Tracer_556x45_BetaCMag", \
 "CUP_100Rnd_TE1_Yellow_Tracer_556x45_BetaCMag"
 
+#define NATO_LMG_65 \
+"200Rnd_65x39_cased_Box", \
+"100Rnd_65x39_cased_Box_Tracer_Yellow", \
+"100Rnd_65x39_cased_Box_Tracer_Red", \
+"100Rnd_65x39_cased_Box_Tracer_Green", \
+"200Rnd_65x39_cased_Box_Tracer", \
+"200Rnd_65x39_cased_Box_Tracer_Red", \
+"200Rnd_65x39_cased_Box_Tracer_Green", \
+"ACE_200Rnd_65x39_cased_Box_Tracer_Dim"
+
 #define NATO_DMR_762 \
 "10Rnd_762x51_Mag", \
 "20Rnd_762x51_Mag", \
@@ -242,8 +252,13 @@
 "hlc_75Rnd_762x39_m_rpk" // shimmed mags remove eventually
 
 #define RU_MMG_762 \
+"100Rnd_762x54_Box_Tracer_Red", \
+"100Rnd_762x54_Box_Tracer_Green", \
+"100Rnd_762x54_Box_Tracer_Yellow", \
 "150Rnd_762x54_Box", \
 "150Rnd_762x54_Box_Tracer", \
+"150Rnd_762x54_Box_Tracer_Red", \
+"150Rnd_762x54_Box_Tracer_Yellow", \
 "rhs_100Rnd_762x54mmR", \
 "rhs_100Rnd_762x54mmR_green", \
 "rhs_100Rnd_762x54mmR_7N13", \
@@ -542,6 +557,15 @@ class CfgWeapons {
     class LMG_Zafir_F: Rifle_Long_Base_F {
         magazines[] = { RU_MMG_762 };
     };
+    class LMG_Mk200_F: Rifle_Long_Base_F {
+        magazines[] = { NATO_LMG_65 };
+    };
+    class rhs_weap_M249_base: LMG_Mk200_F {
+        magazines[] = { NATO_BASE_556, NATO_LMG_556 };
+    };
+    class rhs_weap_m240_base: rhs_weap_M249_base {
+        magazines[] = { NATO_MMG_762 };
+    };
     class CUP_lmg_PKM: Rifle_Long_Base_F {
         magazines[] = { RU_MMG_762 };
     };
@@ -579,14 +603,6 @@ class CfgWeapons {
     class CUP_saw_base;
     class CUP_lmg_minimipara: CUP_saw_base {
         magazines[] = { NATO_BASE_556, NATO_LMG_556 };
-    };
-
-    class LMG_Mk200_F;
-    class rhs_weap_M249_base: LMG_Mk200_F {
-        magazines[] = { NATO_BASE_556, NATO_LMG_556 };
-    };
-    class rhs_weap_m240_base: rhs_weap_M249_base {
-        magazines[] = { NATO_MMG_762 };
     };
 
     class UK3CB_BAF_L110_Base;
