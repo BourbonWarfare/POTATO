@@ -23,7 +23,7 @@ class CfgMagazines {
         author = "POTATO";
         descriptionShort = "6.5mm 200Rnd Tracer Box<br/>Caliber: 6.5x39 mm Tracer - Red<br/>Rounds: 200<br/>Used in: Mk200";
         displayName = "6.5mm 200Rnd Tracer Box (Red)";
-        displaynameshort = "Tracer";
+        displayNameShort = "Tracer";
         picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_red_ca.paa";
     };
     class 200Rnd_65x39_cased_Box_Tracer_Green: 200Rnd_65x39_cased_Box_Tracer {
@@ -31,7 +31,7 @@ class CfgMagazines {
         author = "POTATO";
         descriptionShort = "6.5mm 200Rnd Tracer Box<br/>Caliber: 6.5x39 mm Tracer - Green<br/>Rounds: 200<br/>Used in: Mk200";
         displayName = "6.5mm 200Rnd Tracer Box (Green)";
-        displaynameshort = "Tracer";
+        displayNameShort = "Tracer";
         picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_green_ca.paa";
     };
     class 100Rnd_65x39_cased_Box_Tracer_Yellow: 200Rnd_65x39_cased_Box_Tracer {
@@ -47,14 +47,14 @@ class CfgMagazines {
         ammo = "B_65x39_Case_red";
         descriptionShort = "6.5mm 100Rnd Tracer Box<br/>Caliber: 6.5x39 mm Tracer - Red<br/>Rounds: 100<br/>Used in: Mk200";
         displayName = "6.5mm 100Rnd Tracer Box (Red)";
-        displaynameshort = "6.5mm 100Rnd Tracer";
+        displaynameshort = "Tracer";
         picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_red_ca.paa";
     };
     class 100Rnd_65x39_cased_Box_Tracer_Green: 100Rnd_65x39_cased_Box_Tracer_Yellow {
         ammo = "B_65x39_Case_green";
         descriptionShort = "6.5mm 100Rnd Tracer Box<br/>Caliber: 6.5x39 mm Tracer - Green<br/>Rounds: 100<br/>Used in: Mk200";
         displayName = "6.5mm 100Rnd Tracer Box (Green)";
-        displaynameshort = "Tracer";
+        displayNameShort = "Tracer";
         picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_green_ca.paa";
     };
 
