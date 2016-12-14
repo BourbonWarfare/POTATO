@@ -21,6 +21,8 @@
 
 TRACE_1("Params",_this);
 
+BEGIN_COUNTER(GVAR(all));
+BEGIN_COUNTER(GVAR(message));
 if !(isNull MESSAGE_DISPLAY) then {
 
     // get all units in the player's group, check for changes in inPlayer for JIPs
@@ -74,7 +76,9 @@ if !(isNull MESSAGE_DISPLAY) then {
         };
     };
 };
+END_COUNTER(GVAR(message));
 
+BEGIN_COUNTER(GVAR(tags));
 if (GVAR(showTags)) then {
     private _playerPos = getPosVisual player;
     {
@@ -86,7 +90,7 @@ if (GVAR(showTags)) then {
                     private _unitDistance = _playerPos distance _unitPos;
                     if (_unitDistance < END_FADE_DISTANCE) then {
                         drawIcon3D [
-                            texture,
+                            "", // TODO: add custom recruit texture
                             [
                                 TAG_COLOR,
                                 ((FADE_DIFF - ((_unitDistance max START_FADE_DISTANCE) - START_FADE_DISTANCE)) / FADE_DIFF) * TAG_ALPHA
@@ -108,3 +112,5 @@ if (GVAR(showTags)) then {
         };
     } count allGroups; // count used for speed, ensure `nil` is above this line
 };
+END_COUNTER(GVAR(tags));
+END_COUNTER(GVAR(all));

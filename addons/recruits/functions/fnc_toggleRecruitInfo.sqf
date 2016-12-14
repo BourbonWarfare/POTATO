@@ -6,8 +6,8 @@
  * 0: Start displaying the recruit information <BOOL>
  *
  * Examples:
- * [true] call potato_safeStart_fnc_toggleRecruitInfo;
- * [false] call potato_safeStart_fnc_toggleRecruitInfo;
+ * [true] call potato_recruits_fnc_toggleRecruitInfo;
+ * [false] call potato_recruits_fnc_toggleRecruitInfo;
  *
  * Public: Yes
  */
