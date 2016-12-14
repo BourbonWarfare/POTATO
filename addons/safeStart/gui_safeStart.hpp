@@ -2,16 +2,16 @@ class RscStructuredText;
 
 //Safe Start Overlay:
 class RscTitles {
-    class GVAR(safeStartTimerRscTitle) {
+    class GVAR(timerRscTitle) {
         idd = -1;
-        onLoad = QUOTE( with uiNamespace do {GVAR(safeStartTimerRscTitle) = _this select 0;};);
+        onLoad = QUOTE(with uiNamespace do { GVAR(timerRscTitle) = _this select 0; };);
         movingEnable = "false";
         duration = 2147483647;
-        fadeIn = 1;
-        fadeOut = 1;
+        fadeIn = 0;
+        fadeOut = 0.5;
         class controls {
             class safeStartHint: RscStructuredText {
-                idc = 1100;
+                idc = HINT_IDC;
                 x = 0 * safezoneW + safezoneX;
                 y = 0.05 * safezoneH + safezoneY;
                 w = 0.2 * safezoneW;
@@ -19,16 +19,17 @@ class RscTitles {
             };
         };
     };
-    class GVAR(safeStartStartingRscTitle) {
+    class GVAR(startingRscTitle) {
         idd = -1;
-        onLoad = QUOTE( with uiNamespace do {GVAR(safeStartStartingRscTitle) = _this select 0;};);
+        onLoad = QUOTE(with uiNamespace do { GVAR(startingRscTitle) = _this select 0; };);
         movingEnable = "false";
-        duration = 2147483647;
-        fadeIn = 1;
-        fadeOut = 1;
+        duration = 8;
+        fadeIn = 0.5;
+        fadeOut = 0.5;
         class controls {
             class safeStartHint: RscStructuredText {
-                idc = 1100;
+                idc = HINT_IDC;
+                text = "<t align='center'>Safe Start Ending<br/><t color='#ff0000'>Start Mission</t></t>"
                 x = 0.4 * safezoneW + safezoneX;
                 y = 0.4 * safezoneH + safezoneY;
                 w = 0.2 * safezoneW;
