@@ -49,7 +49,8 @@ if (_createVic != "") then {
     if (_curatorCanAttach) then { //Paradrop / dismounts:
         // check for null attached vehicle, try to find nearest vic
         if (isNull _attachedVehicle) then {
-            private _nearestVehicles = _posATL nearEntities ["AllVehicles", 50];
+            private _nearestVehicles = nearestObjects [_posATL, ["Car", "Tank", "Air"], 50];
+            TRACE_1("not attached",_nearestVehicles);
             if !(_nearestVehicles isEqualTo []) then {
                 _attachedVehicle = _nearestVehicles select 0;
             };
