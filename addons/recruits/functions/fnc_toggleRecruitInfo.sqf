@@ -3,8 +3,7 @@
  * Function used to show recruit info to clients
  *
  * Arguments:
- * 0: Display the recruit message <BOOL>
- * 0: Display the recruit tags <BOOL>
+ * 0: Start displaying the recruit information <BOOL>
  *
  * Examples:
  * [true] call potato_safeStart_fnc_toggleRecruitInfo;
@@ -18,7 +17,7 @@ TRACE_1("Params",_this);
 
 params ["_enable"];
 
-if ((((squadParams player) select 0) select 1) != "Bourbon Warfare") exitWith { LOG("Player not in squad.xml, exiting"); };
+if ([player] call FUNC(isNotMember)) exitWith { LOG("Player not in squad.xml, exiting"); };
 
 if (_enable) then {
     if !(isNil QGVAR(drawId)) exitWith { LOG("Tried to start the recruit info tracker while it was already running"); };
@@ -34,7 +33,5 @@ if (_enable) then {
 
     removeMissionEventHandler ["Draw3D", GVAR(drawId)];
     GVAR(drawId) = nil;
-
-    GVAR(oldSquad) = [];
     QGVAR(message) cutFadeOut 1;
 };
