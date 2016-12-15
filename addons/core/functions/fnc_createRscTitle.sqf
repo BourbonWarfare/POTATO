@@ -2,6 +2,11 @@
  * Author: AACO
  * Function used to show rsc titles to clients
  *
+ * Note makes some assumptions:
+ * 1: Provided display class maps to a unique Rsctitle
+ * 2: Provided display class is a unique layer
+ * 3: Provided RscTitle stored itself into the uiNamespace
+ *
  * Arguments:
  * 0: Classname of RscTitle <STRING>
  * 1: Display the title over the map? <BOOL>

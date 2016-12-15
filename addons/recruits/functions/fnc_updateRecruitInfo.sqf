@@ -11,13 +11,13 @@
 
 #include "script_component.hpp"
 
-#define START_FADE_DISTANCE 150
-#define END_FADE_DISTANCE 200
+#define START_FADE_DISTANCE 50
+#define END_FADE_DISTANCE 100
 #define FADE_DIFF 50
 #define TAG_COLOR 0.15,0.451,0.94
 #define TAG_ALPHA 0.85
-#define TAG_WIDTH 1
-#define TAG_HEIGHT 1
+#define TAG_WIDTH 24
+#define TAG_HEIGHT 24
 
 TRACE_1("Params",_this);
 
@@ -40,8 +40,7 @@ if !(isNull MESSAGE_DISPLAY) then {
         private _recruits = [];
         private _recruitCount = {
             _x params ["_unit", "_isAlive", "_isPlayer"];
-            // _isPlayer left out for testing, make sure you don't leave it out for release
-            if (_isAlive && {[_unit] call FUNC(isNotMember)}) then {
+            if (_isAlive && _isPlayer && {[_unit] call FUNC(isNotMember)}) then {
                 _recruits pushBack (name _unit);
                 true
             } else {
@@ -84,32 +83,33 @@ if (GVAR(showTags)) then {
     {
         if (side _x == playerSide) then {
             {
-                //  && {isPlayer _x} left out for testing, add it back when tested
-                if (!isNull _x && {alive _x} && {[_x] call FUNC(isNotMember)}) then {
+                if (!isNull _x && {alive _x} && {isPlayer _x} && {[_x] call FUNC(isNotMember)}) then {
                     private _unitPos = getPosVisual _x;
                     private _unitDistance = _playerPos distance _unitPos;
+                    _unitPos set [2, (_unitPos select 2) + 2.25];
                     if (_unitDistance < END_FADE_DISTANCE) then {
                         drawIcon3D [
-                            "", // TODO: add custom recruit texture
+                            QPATHTOF(data\recruit.paa),
                             [
                                 TAG_COLOR,
                                 ((FADE_DIFF - ((_unitDistance max START_FADE_DISTANCE) - START_FADE_DISTANCE)) / FADE_DIFF) * TAG_ALPHA
                             ],
                             _unitPos,
-                            TAG_WIDTH,
-                            TAG_HEIGHT,
+                            TAG_WIDTH * ((END_FADE_DISTANCE - _unitDistance) / (END_FADE_DISTANCE * _unitDistance)),
+                            TAG_HEIGHT * ((END_FADE_DISTANCE - _unitDistance) / (END_FADE_DISTANCE * _unitDistance)),
                             0, // no angle
-                            format ["Hi, my name is:<br/>%1", name _x],
+                             name _x,
                             2, // outline
-                            0.5, // text size
+                            0.6 * ((END_FADE_DISTANCE - _unitDistance) / (END_FADE_DISTANCE * _unitDistance)), // text size
                             "RobotoCondensed",
                             "center"
                         ];
                     };
                 };
                 nil
-            } count (units (group player)); // count used for speed, ensure `nil` is above this line
+            } count (units _x); // count used for speed, ensure `nil` is above this line
         };
+        nil
     } count allGroups; // count used for speed, ensure `nil` is above this line
 };
 END_COUNTER(GVAR(tags));
