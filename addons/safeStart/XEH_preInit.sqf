@@ -25,9 +25,9 @@ GVAR(safeStartEnabled) = true;
 
     if (_name == QGVAR(showTimer) && missionNamespace getVariable [QGVAR(startTime_PV), -1] != -1) then {
         if (_value) then {
-            [TIMER_LAYER, QGVAR(safeStartTimerRscTitle)] call FUNC(createDisplay);
+            [QGVAR(timerRscTitle)] call CFUNC(createRscTitle);
         } else {
-            TIMER_LAYER cutFadeOut 0;
+            QGVAR(timerRscTitle) cutFadeOut 0;
         };
     };
 }] call CBA_fnc_addEventHandler;
