@@ -48,4 +48,18 @@ GVAR(availableLanguages) = [
 
 GVAR(initState) = 0;
 
+if ((getText (configFile >> "CfgPatches" >> "acre_main" >> "versionStr")) == "2.3.0.926") then {
+    [
+        "ACRE_SPECTATOR_VOLUME",
+        "SLIDER",
+        "Spectator Volume [pre297]",
+        "ACRE2",
+        [0, 1, 1, 2],
+        false,
+        {}
+    ] call CBA_Settings_fnc_init;
+} else {
+    ERROR_MSG("remove acre spectator cba_setting");
+};
+
 ADDON = true;
