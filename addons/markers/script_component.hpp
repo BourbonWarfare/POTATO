@@ -35,13 +35,13 @@
 #define GREY_ARRAY [0.8,0.8,0.8,1]
 
 #define DEFAULT_MARKER_TEXT ""
-#define DEFAULT_MARKER_ICON "\A3\ui_f\data\map\markers\nato\b_unknown.paa"
+#define INVISIBLE_TEXTURE "sc_mapmarkers\data\empty.paa"
+#define DEFAULT_MARKER_ICON INVISIBLE_TEXTURE
 #define DEFAULT_MARKER_COLOR_TEXT "white"
 #define DEFAULT_MARKER_COLOR WHITE_ARRAY
 #define DEFAULT_MARKER_SIZE 24
-#define INVISIBLE_TEXTURE "sc_mapmarkers\data\empty.paa"
 
-#define UNIT_MARKERS '\A3\ui_f\data\map\markers\nato\b_unknown.paa',\
+#define UNIT_MARKERS 'sc_mapmarkers\data\empty.paa',\
 'sc_mapmarkers\data\company_hq.paa',\
 'sc_mapmarkers\data\platoon_hq.paa',\
 'sc_mapmarkers\data\squad_hq.paa',\
@@ -59,7 +59,7 @@
 'sc_mapmarkers\data\u_medic.paa'
 
 
-#define UNIT_MARKERS_STRINGS "\A3\ui_f\data\map\markers\nato\b_unknown.paa",\
+#define UNIT_MARKERS_STRINGS "sc_mapmarkers\data\empty.paa",\
 "sc_mapmarkers\data\company_hq.paa",\
 "sc_mapmarkers\data\platoon_hq.paa",\
 "sc_mapmarkers\data\squad_hq.paa",\
