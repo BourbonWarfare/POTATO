@@ -29,7 +29,7 @@ class RscTitles {
         class controls {
             class safeStartHint: RscStructuredText {
                 idc = HINT_IDC;
-                text = "<t align='center'>Safe Start Ending<br/><t color='#ff0000'>Start Mission</t></t>"
+                text = "<t align='center'>Safe Start Ending<br/><t color='#ff0000'>Start Mission</t></t>";
                 x = 0.4 * safezoneW + safezoneX;
                 y = 0.4 * safezoneH + safezoneY;
                 w = 0.2 * safezoneW;
