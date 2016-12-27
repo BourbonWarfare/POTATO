@@ -57,7 +57,7 @@ switch (_side) do {
         _sideBriefAdministration = getMissionConfigValue [QGVAR(briefCivilianAdministration), ""];
     };
     default {
-        diag_log text format ["[POTATO] Unknown Side? %1", _side];
+        diag_log text format ["[POTATO-briefing] Unknown Side? %1", _side];
     };
 };
 
