@@ -6,7 +6,7 @@ private _debug = getMissionConfigValue ["enableDebugConsole", 0];
 
 // if you don't have access to the console, but you're an admin, add it
 if (!(_debug == 2 || (_debug == 1 && (isServer || serverCommandAvailable "#shutdown")))
-        && [] call CFUNC(isAuthorized)) then {
+        && [] call CFUNC(isTech)) then {
 
     DEBUG_CTRL ctrlshow true;
     DEBUG_CTRL ctrlenable true;
