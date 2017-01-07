@@ -44,6 +44,7 @@ acex_killTracker_outputText = "None";
     TRACE_2("kill eh",_name,_killInfo);
     GVAR(eventsArray) pushBack format ["Killed: %1 %2", _name, _killInfo];
     acex_killTracker_outputText = (GVAR(eventsArray) joinString "<br/>");
+    ACE_player setVariable [QGVAR(eventsArray), GVAR(eventsArray), true];
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(death), {
@@ -51,6 +52,7 @@ acex_killTracker_outputText = "None";
     TRACE_2("death eh",_name,_killInfo);
     GVAR(eventsArray) pushBack format ["Died: %1 %2", _name, _killInfo];
     acex_killTracker_outputText = (GVAR(eventsArray) joinString "<br/>");
+    ACE_player setVariable [QGVAR(eventsArray), GVAR(eventsArray), true];
 }] call CBA_fnc_addEventHandler;
 
 // Add Killed Event Handler - killed EH and lastDamageSource var are local only
