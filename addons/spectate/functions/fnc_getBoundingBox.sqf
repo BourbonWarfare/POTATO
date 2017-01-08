@@ -1,13 +1,17 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to find the max width/length/height (cached)
  *
  * Arguments:
+ * 0: Object to get max specs <OBJECT>
+ *
+ * Return Value:
+ * Max width/length/height of provided object <ARRAY>
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [my_car] call potato_spectate_fnc_getBoundingBox;
  *
- * Public: No
+ * Public: Yes
  */
 
 #include "script_component.hpp"

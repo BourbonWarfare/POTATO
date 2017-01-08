@@ -1,11 +1,15 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to select the camera mode
  *
  * Arguments:
+ * 0: Index of the camera selection <NUMBER>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [0] call potato_spectate_fnc_ui_changeCamera;
  *
  * Public: No
  */

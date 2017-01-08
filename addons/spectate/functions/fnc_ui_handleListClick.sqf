@@ -1,11 +1,16 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to handle list clicks
+ * Should only be called from events
  *
  * Arguments:
+ * 1: List index <NUMBER>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [nil,42] call potato_spectate_fnc_ui_handleListClick;
  *
  * Public: No
  */

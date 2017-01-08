@@ -1,11 +1,17 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to handle mouse moving events
+ * Should only be called from events
  *
  * Arguments:
+ * 1: Delta X <NUMBER>
+ * 2: Delta Y <NUMBER>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [nil,0,2] call potato_spectate_fnc_ui_handleMouseMoving;
  *
  * Public: No
  */

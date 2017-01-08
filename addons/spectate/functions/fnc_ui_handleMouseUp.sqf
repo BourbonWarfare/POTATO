@@ -1,11 +1,16 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to handle mouse up events
+ * Should only be called from events
  *
  * Arguments:
+ * 1: Button index <NUMBER>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [nil,0] call potato_spectate_fnc_ui_handleMouseUp;
  *
  * Public: No
  */

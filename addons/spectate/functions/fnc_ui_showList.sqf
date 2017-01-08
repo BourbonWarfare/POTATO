@@ -1,11 +1,16 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to show/hide the player list
+ * Should only be called from events
  *
  * Arguments:
+ * 0: Show list <BOOL>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [true] call potato_spectate_fnc_ui_showList;
  *
  * Public: No
  */

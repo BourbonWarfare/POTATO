@@ -1,11 +1,15 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to find a tree path of a unit
  *
  * Arguments:
+ * 0: data value to lookup <STRING>
+ *
+ * Return Value:
+ * Path of unit <ARRAY>
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * ["playerName"] call potato_spectate_fnc_findPathInList;
  *
  * Public: No
  */

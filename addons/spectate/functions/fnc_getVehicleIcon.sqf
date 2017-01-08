@@ -1,13 +1,17 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to get the vehicle icon for provided object (cached)
  *
  * Arguments:
+ * 0: Object to get icon of <OBJECT>
+ *
+ * Return Value:
+ * Icon of vehicle <STRING>
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [my_car] call potato_spectate_fnc_getBoundingBox;
  *
- * Public: No
+ * Public: Yes
  */
 
 #include "script_component.hpp"

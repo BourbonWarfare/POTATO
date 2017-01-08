@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * Function used
+ * Function used to start the spectate script
  * Should only be called from respawn template onPlayerRespawn
  *
  * Arguments:
@@ -10,11 +10,11 @@
  * 3: Respawn delay <NUMBER>
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_init;
  *
  * Public: No
  */
-#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL // debug left on for a raisin
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
@@ -102,6 +102,11 @@ GVAR(cam) camCommand "atl off";
 GVAR(cam) camCommand "surfaceSpeed on";
 cameraEffectEnableHUD true;
 
+// initilize projectile tracking
+GVAR(grenades) = [];
+GVAR(projectiles) = [];
+GVAR(drawProjectiles) = false;
+
 // Start ticking
 GVAR(curList) = [];
 GVAR(thingsToDraw) = [];
@@ -109,13 +114,6 @@ GVAR(showInfo) = false;
 GVAR(thingsToDrawEH) = [{_this spawn FUNC(ui_updateThingsToDraw)}, 0.2] call CBA_fnc_addPerFrameHandler;
 GVAR(straggleUpdateEH) = [{_this spawn FUNC(ui_straggleUpdate)}, 5] call CBA_fnc_addPerFrameHandler;
 GVAR(draw3DEH) = addMissionEventHandler ["Draw3D", FUNC(ui_handleDraw3D)];
-
-//addMissionEventHandler ["EntityKilled", FUNC(handleKilled)];
-
-// initilize projectile tracking
-GVAR(grenades) = [];
-GVAR(projectiles) = [];
-GVAR(drawProjectiles) = false;
 
 // init misc GVARS
 GVAR(mapOpen) = false;

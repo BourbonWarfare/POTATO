@@ -1,11 +1,15 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to prepare the spectator unit on all computer
  *
  * Arguments:
+ * 0: unit to prepare <OBJECT>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [player] call potato_spectate_fnc_prepareSpectator;
  *
  * Public: No
  */

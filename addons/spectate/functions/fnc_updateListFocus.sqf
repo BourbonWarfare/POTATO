@@ -1,11 +1,15 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to update the player list focus
  *
  * Arguments:
+ * Nothing
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_updateListFocus;
  *
  * Public: No
  */

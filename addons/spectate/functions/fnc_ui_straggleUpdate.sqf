@@ -1,16 +1,16 @@
 /*
  * Author: AACO
- * Function used
- * Should only be called from respawn template onPlayerRespawn
+ * Function used straggle update information
+ * Should only be called from events
  *
  * Arguments:
- * 0: Old unit <OBJECT>
- * 1: New unit <OBJECT>
- * 2: Respawn type https://community.bistudio.com/wiki/Arma_3_Respawn#Respawn_Types <NUMBER>
- * 3: Respawn delay <NUMBER>
+ * Nothing
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_ui_straggleUpdate;
  *
  * Public: No
  */

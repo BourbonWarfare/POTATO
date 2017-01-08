@@ -1,11 +1,18 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to handle map clicks
+ * Should only be called from events
  *
  * Arguments:
+ * 1: Button index <NUMBER>
+ * 2: X screen coordinate <NUMBER>
+ * 3: Y screen coordinate <NUMBER>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [nil,1,2,3] call potato_spectate_fnc_ui_handleMapClick;
  *
  * Public: No
  */

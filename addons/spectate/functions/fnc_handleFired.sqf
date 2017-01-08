@@ -1,11 +1,18 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to handle a unit firing it's weapon
+ * Should only be called by events
  *
  * Arguments:
+ * 0: Unit firing <OBJECT>
+ * 1: Fired weapon <STRING>
+ * 6: Fired projectile <OBJECT>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_handleFired;
  *
  * Public: No
  */

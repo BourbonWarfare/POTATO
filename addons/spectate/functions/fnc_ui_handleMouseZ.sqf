@@ -1,11 +1,16 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to handle mouse z events
+ * Should only be called from events
  *
  * Arguments:
+ * 1: Button movement <NUMBER>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [nil,1] call potato_spectate_fnc_ui_handleMouseZ;
  *
  * Public: No
  */

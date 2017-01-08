@@ -1,11 +1,15 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to set the camera focus
  *
  * Arguments:
+ * 0: unit to focus on <OBJECT>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_setFocus;
  *
  * Public: No
  */
@@ -31,5 +35,4 @@ if (_newFocus != GVAR(camTarget) && { !isNull _newFocus || { !isNull GVAR(camTar
     GVAR(lastKillFeed) = [-999];
     [] call FUNC(updateListFocus);
     [] call FUNC(updateInfo);
-    // ["UpdateControlsHelp"] call DISPLAY;
 };

@@ -1,11 +1,15 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to set the camera target
  *
  * Arguments:
+ * 0: unit to target on <OBJECT>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_setTarget;
  *
  * Public: No
  */

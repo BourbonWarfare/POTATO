@@ -1,11 +1,16 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to handle key presses
+ * Should only be called from events
  *
  * Arguments:
+ * 1: Key press <NUMBER>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [nil,54] call potato_spectate_fnc_ui_handleKeyDown;
  *
  * Public: No
  */
@@ -58,10 +63,9 @@ if (inputAction "nightVision" > 0) exitWith {
 
 // if the zeus key is pressed and unit is curator, open zeus interface
 if ((inputAction "CuratorInterface") > 0 && {!isNull (getAssignedCuratorLogic player)}) exitWith {
-    removeMissionEventHandler ["Draw3D", GVAR(draw3DEH)];
-    GVAR(draw3DEH) = nil;
-
+    GVAR(uiVisible) = false;
     OVERLAY closeDisplay 1;
+    GVAR(cam) camCommand "manual off";
     openCuratorInterface;
     true
 };

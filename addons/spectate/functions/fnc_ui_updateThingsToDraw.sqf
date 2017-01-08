@@ -1,11 +1,16 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used update the things to 3D draw
+ * Should only be called from events
  *
  * Arguments:
+ * Nothing
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_ui_updateThingsToDraw;
  *
  * Public: No
  */

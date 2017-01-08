@@ -1,11 +1,15 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to switch the camera focus
  *
  * Arguments:
+ * 0: Select the next or the previous focus <BOOL>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_switchFocus;
  *
  * Public: No
  */

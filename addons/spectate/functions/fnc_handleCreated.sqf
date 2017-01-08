@@ -1,11 +1,16 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to handle the creation of a unit
+ * Should only be called by events
  *
  * Arguments:
+ * Nothing
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_handleCreated;
  *
  * Public: No
  */

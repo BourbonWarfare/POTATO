@@ -7,17 +7,10 @@ class RscText;
 class RscTree;
 class RscButton;
 class RscPicture;
-class RscToolbox;
 class RscListBox;
-class RscListNBox;
 class RscMapControl;
 class RscPictureKeepAspect;
 class RscControlsGroupNoScrollbars;
-
-class helperListNBox: RscListNBox {
-    class ScrollBar;
-    class ListScrollBar;
-};
 
 class GVAR(overlay) {
     idd = OVERLAY_IDD;

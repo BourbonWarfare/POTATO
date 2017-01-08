@@ -1,11 +1,16 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to draw the 3D icons/do per-frame calculations
+ * Should only be called from events
  *
  * Arguments:
+ * Nothing
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_ui_handleDraw3D;
  *
  * Public: No
  */

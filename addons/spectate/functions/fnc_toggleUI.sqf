@@ -1,11 +1,15 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to toggle the UI
  *
  * Arguments:
+ * Nothing
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_toggleUI;
  *
  * Public: No
  */
@@ -16,7 +20,6 @@ TRACE_1("Params",_this);
 GVAR(uiVisible) = !GVAR(uiVisible);
 
 if (GVAR(uiVisible)) then {
-    //if (GVAR(showInfo)) then {
     FOCUS_GROUP ctrlSetFade 0;
     CAM_GROUP ctrlSetFade 0;
     TIMER ctrlSetFade 0;

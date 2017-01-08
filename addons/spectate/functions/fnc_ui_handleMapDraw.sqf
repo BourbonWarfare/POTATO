@@ -1,11 +1,16 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to handle map draw
+ * Should only be called from events
  *
  * Arguments:
+ * Nothing
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [] call potato_spectate_fnc_ui_handleMapDraw;
  *
  * Public: No
  */
@@ -68,13 +73,10 @@ private _handledVehicles = [];
 } count allUnits; // count used here for speed, ensure nil is above this line
 
 // set highlighted unit
-private _text = "";
-if !(isNull _nearestEntity) then {
-    if (isPlayer _nearestEntity) then {
-        _text = format ["%1 [%2 m]", [_nearestEntity, nil, NAME_MAX_CHARACTERS] call BIS_fnc_getName, round (_nearestEntity distance GVAR(cam))];
-    } else {
-        _text = format ["%1: %2 [%3 m]", "AI", [_nearestEntity, nil, NAME_MAX_CHARACTERS] call BIS_fnc_getName, round (_nearestEntity distance GVAR(cam))];
-    };
+private _text = if (isNull _nearestEntity) then {
+    ""
+} else {
+    format ["%1 [%2 m]", [_nearestEntity] call FUNC(getName), round (_nearestEntity distance GVAR(cam))]
 };
 
 GVAR(mapHighlighted) = _nearestEntity;

@@ -1,11 +1,15 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to prepare the camera to the target
  *
  * Arguments:
+ * 0: unit to prepare <OBJECT>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [player] call potato_spectate_fnc_prepareTarget;
  *
  * Public: No
  */

@@ -1,11 +1,16 @@
 /*
  * Author: AACO
- * Function used to
+ * Function used to check to see if the UI should close (ABORT selected)
+ * Should only be called from events
  *
  * Arguments:
+ * 2: Exit code <NUMBER>
+ *
+ * Return Value:
+ * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_;
+ * [nil,nil,104] call potato_spectate_fnc_ui_checkToClose;
  *
  * Public: No
  */
