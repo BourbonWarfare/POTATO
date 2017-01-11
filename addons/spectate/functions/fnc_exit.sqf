@@ -18,26 +18,32 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-// Handle cameras/lights
-GVAR(cam) cameraEffect ["Terminate", "BACK"];
-player switchCamera "INTERNAL";
-deleteVehicle GVAR(cam);
+if (GVAR(running)) then {
+    // Handle cameras/lights
+    GVAR(cam) cameraEffect ["Terminate", "BACK"];
+    player switchCamera "INTERNAL";
+    deleteVehicle GVAR(cam);
 
-{ deleteVehicle _x; } forEach GVAR(camLights);
-GVAR(camLights) = [];
+    { deleteVehicle _x; } forEach GVAR(camLights);
+    GVAR(camLights) = [];
 
-setViewDistance GVAR(oldViewDistance);
+    // reset spectator view distance
+    setViewDistance GVAR(oldViewDistance);
 
-[false] call acre_api_fnc_setSpectator;
+    // disable ACRE spectate
+    [false] call acre_api_fnc_setSpectator;
 
-[GVAR(thingsToDrawEH)] call CBA_fnc_removePerFrameHandler;
-GVAR(thingsToDrawEH) = nil;
+    // remove event handlers
+    [GVAR(thingsToDrawEH)] call CBA_fnc_removePerFrameHandler;
+    GVAR(thingsToDrawEH) = nil;
 
-[GVAR(straggleUpdateEH)] call CBA_fnc_removePerFrameHandler;
-GVAR(straggleUpdateEH) = nil;
+    [GVAR(straggleUpdateEH)] call CBA_fnc_removePerFrameHandler;
+    GVAR(straggleUpdateEH) = nil;
 
-removeMissionEventHandler ["Draw3D", GVAR(draw3DEH)];
-GVAR(draw3DEH) = nil;
+    removeMissionEventHandler ["Draw3D", GVAR(draw3DEH)];
+    GVAR(draw3DEH) = nil;
 
-OVERLAY closeDisplay 1;
-GVAR(running) = false;
+    // close display
+    OVERLAY closeDisplay 1;
+    GVAR(running) = false;
+};
