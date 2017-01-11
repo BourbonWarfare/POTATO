@@ -49,7 +49,7 @@ class ACE_Settings {
     class GVAR(westSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
         value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","Golf","Hotel","India","3rd Platoon","COY","Air","Armor","Fire Support"};
-    };3rd Platoon
+    };
     class GVAR(westPresetMR) {
         typeName = "STRING";
         value = "default2";
@@ -162,7 +162,7 @@ class ACE_Settings {
     };
     class GVAR(civSRChannelNames) { // order matters, really only used for UI/Briefing
         typeName = "ARRAY";
-        value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","COY","Air","Armor","Fire Support"};
+        value[] = {"Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","Golf","Hotel","India","3rd Platoon","COY","Air","Armor","Fire Support"};
     };
     class GVAR(civPresetMR) {
         typeName = "STRING";
