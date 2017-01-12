@@ -5,6 +5,7 @@ class CfgRespawnFactions {
         factionClassname = "blu_f";
         factionPrefix = "b_";
         groups[] = {
+            "Command",
             "PlatoonLead",
             "SquadLead",
             "FireTeamFull",

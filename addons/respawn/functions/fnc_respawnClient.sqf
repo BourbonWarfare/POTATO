@@ -21,6 +21,7 @@ params [
     ["_unitType", "", [""]],
     ["_position", [0,0,0], [[]]],
     ["_colorTeam", "MAIN", [""]],
+    ["_rank", "private", [""]],
     ["_isLeader", false, [false]],
     ["_isMedic", false, [false]]
 ];
@@ -40,6 +41,10 @@ if (EGVAR(spectate,running)) then {
 // create temp group and new unit
 private _tempGroup = createGroup (side _group);
 private _newUnit = _tempGroup createUnit [_unitType, _position, [], 75, "NONE"];
+
+// set new unit rank, fix rating
+_newUnit setRank _rank;
+_newUnit addRating (25000 - (rating _newUnit));
 
 // if unit is medic add marker attributes
 if (_isMedic) then {

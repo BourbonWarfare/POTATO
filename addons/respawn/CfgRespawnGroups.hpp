@@ -73,33 +73,78 @@ class CfgRespawnGroups {
         lrChannel = 3;
     };
 
-    // base unit all units inherit from, TODO: ranks
+    // base unit all units inherit from
     class BaseUnit {
         displayName = "Rifleman";
         type = "soldier_f";
+        rank = "private";
         colorTeam = 0;
         leader = 0;
         medic = 0;
     };
 
     // group configs
+    class Command { // if you need to respawn COY, you've fucked up
+        displayName = "Command";
+
+        class Units {
+            class CO: BaseUnit {
+                displayName = "Company Commander";
+                type = "officer_f";
+                rank = "captain";
+                leader = 1;
+            };
+            class COMedic: BaseUnit {
+                displayName = "Company Medic";
+                type = "medic_f";
+                rank = "corporal";
+                medic = 1;
+            };
+            class CXO: BaseUnit {
+                displayName = "Company Executive Officer";
+                type = "officer_f";
+                rank = "lieutenant";
+            };
+            class UAV: BaseUnit {
+                displayName = "Company UAV Operator";
+                type = "soldier_uav_f";
+            };
+        };
+
+        class Configurations {
+            class COY {
+                markerText = "COY";
+                markerColor[] = {0.9,0.9,0,1};
+                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerSize = 24;
+
+                srChannel = 12;
+                mrChannel = 3;
+                lrChannel = 3;
+            };
+        };
+    };
+
     class PlatoonLead {
         displayName = "Platoon Lead";
 
         class Units {
             class PlatoonLeader: BaseUnit {
-                displayName = "Platoon Leader"
+                displayName = "Platoon Leader";
                 type = "officer_f";
+                rank = "lieutenant";
                 leader = 1;
             };
             class PlatoonMedic: BaseUnit {
-                displayName = "Platoon Medic"
+                displayName = "Platoon Medic";
                 type = "medic_f";
+                rank = "corporal";
                 medic = 1;
             };
             class PlatoonSgt: BaseUnit {
-                displayName = "Platoon Sgt"
+                displayName = "Platoon Sgt";
                 type = "officer_f";
+                rank = "sergeant";
             };
         };
 
@@ -134,13 +179,15 @@ class CfgRespawnGroups {
 
         class Units {
             class SquadLeader: BaseUnit {
-                displayName = "Squad Leader"
+                displayName = "Squad Leader";
                 type = "soldier_sl_f";
+                rank = "sergeant";
                 leader = 1;
             };
             class SquadMedic: BaseUnit {
-                displayName = "Squad Medic"
+                displayName = "Squad Medic";
                 type = "medic_f";
+                rank = "corporal";
                 medic = 1;
             };
         };
@@ -194,31 +241,32 @@ class CfgRespawnGroups {
 
         class Units {
             class FireteamLeader: BaseUnit {
-                displayName = "Fireteam Leader"
+                displayName = "Fireteam Leader";
                 type = "soldier_tl_f";
+                rank = "corporal";
                 leader = 1;
             };
             class AutomaticRifleman: BaseUnit {
-                displayName = "Automatic Rifleman"
+                displayName = "Automatic Rifleman";
                 type = "soldier_ar_f";
                 colorTeam = 1;
             };
             class AssistantAutomaticRifleman: BaseUnit {
-                displayName = "Assistant Automatic Rifleman"
+                displayName = "Assistant Automatic Rifleman";
                 type = "soldier_aar_f";
                 colorTeam = 1;
             };
             class RiflemanAntiTank: BaseUnit {
-                displayName = "Rifleman Anti-Tank"
+                displayName = "Rifleman Anti-Tank";
                 type = "soldier_lat_f";
                 colorTeam = 2;
             };
             class Rifleman1: BaseUnit {
-                displayName = "Rifleman 1"
+                displayName = "Rifleman 1";
                 colorTeam = 2;
             };
             class Rifleman2: BaseUnit {
-                displayName = "Rifleman 2"
+                displayName = "Rifleman 2";
             };
         };
 
@@ -375,22 +423,23 @@ class CfgRespawnGroups {
 
         class Units {
             class FireteamLeader: BaseUnit {
-                displayName = "Fireteam Leader"
+                displayName = "Fireteam Leader";
                 type = "soldier_tl_f";
+                rank = "corporal";
                 leader = 1;
             };
             class AutomaticRifleman: BaseUnit {
-                displayName = "Automatic Rifleman"
+                displayName = "Automatic Rifleman";
                 type = "soldier_ar_f";
                 colorTeam = 1;
             };
             class AssistantAutomaticRifleman: BaseUnit {
-                displayName = "Assistant Automatic Rifleman"
+                displayName = "Assistant Automatic Rifleman";
                 type = "soldier_aar_f";
                 colorTeam = 1;
             };
             class RiflemanAntiTank: BaseUnit {
-                displayName = "Rifleman Anti-Tank"
+                displayName = "Rifleman Anti-Tank";
                 type = "soldier_lat_f";
             };
         };
@@ -548,16 +597,17 @@ class CfgRespawnGroups {
 
         class Units {
             class MMGLeader: BaseUnit {
-                displayName = "MMG Leader"
+                displayName = "MMG Leader";
                 type = "soldier_sl_f";
+                rank = "corporal";
                 leader = 1;
             };
             class MMGG: BaseUnit {
-                displayName = "MMG Gunner"
+                displayName = "MMG Gunner";
                 type = "support_mg_f";
             };
             class MMGAG: BaseUnit {
-                displayName = "MMG Assistant"
+                displayName = "MMG Assistant";
                 type = "soldier_a_f";
             };
         };
@@ -584,16 +634,17 @@ class CfgRespawnGroups {
 
         class Units {
             class MATLeader: BaseUnit {
-                displayName = "MAT Leader"
+                displayName = "MAT Leader";
                 type = "soldier_sl_f";
+                rank = "corporal";
                 leader = 1;
             };
             class MATG: BaseUnit {
-                displayName = "MAT Gunner"
+                displayName = "MAT Gunner";
                 type = "soldier_at_f";
             };
             class MATAG: BaseUnit {
-                displayName = "MAT Assistant"
+                displayName = "MAT Assistant";
                 type = "soldier_aat_f";
             };
         };
@@ -620,16 +671,17 @@ class CfgRespawnGroups {
 
         class Units {
             class MTRLeader: BaseUnit {
-                displayName = "Mortar Leader"
+                displayName = "Mortar Leader";
                 type = "soldier_sl_f";
+                rank = "corporal";
                 leader = 1;
             };
             class MTRG: BaseUnit {
-                displayName = "Mortar Gunner"
+                displayName = "Mortar Gunner";
                 type = "support_mort_f";
             };
             class MTRAG: BaseUnit {
-                displayName = "Mortar Assistant"
+                displayName = "Mortar Assistant";
                 type = "support_amort_f";
             };
         };
@@ -656,16 +708,17 @@ class CfgRespawnGroups {
 
         class Units {
             class MSAMLeader: BaseUnit {
-                displayName = "MSAM Leader"
+                displayName = "MSAM Leader";
                 type = "soldier_sl_f";
+                rank = "corporal";
                 leader = 1;
             };
             class MSAMG: BaseUnit {
-                displayName = "MSAM Gunner"
+                displayName = "MSAM Gunner";
                 type = "soldier_aa_f";
             };
             class MSAMAG: BaseUnit {
-                displayName = "MSAM Assistant"
+                displayName = "MSAM Assistant";
                 type = "soldier_aaa_f";
             };
         };
@@ -692,12 +745,13 @@ class CfgRespawnGroups {
 
         class Units {
             class Spotter: BaseUnit {
-                displayName = "Spotter"
+                displayName = "Spotter";
                 type = "spotter_F";
+                rank = "corporal";
                 leader = 1;
             };
             class Sniper: BaseUnit {
-                displayName = "Sniper"
+                displayName = "Sniper";
                 type = "sniper_F";
             };
         };
@@ -724,20 +778,21 @@ class CfgRespawnGroups {
 
         class Units {
             class ExpLead: BaseUnit {
-                displayName = "Engineer Lead (Exp)"
+                displayName = "Engineer Lead (Exp)";
                 type = "soldier_exp_f";
+                rank = "corporal";
                 leader = 1;
             };
             class Exp: BaseUnit {
-                displayName = "Engineer (Exp)"
+                displayName = "Engineer (Exp)";
                 type = "soldier_exp_f";
             };
             class Mine1: BaseUnit {
-                displayName = "Engineer (Mine)"
+                displayName = "Engineer (Mine)";
                 type = "engineer_f";
             };
             class Mine2: BaseUnit {
-                displayName = "Engineer (Mine)"
+                displayName = "Engineer (Mine)";
                 type = "engineer_f";
             };
         };
@@ -764,16 +819,18 @@ class CfgRespawnGroups {
 
         class Units {
             class ArmorLead: BaseUnit {
-                displayName = "Vehicle Commander"
+                displayName = "Vehicle Commander";
                 type = "crew_f";
+                rank = "sergeant";
                 leader = 1;
             };
             class ArmorGunner: BaseUnit {
-                displayName = "Vehicle Gunner"
+                displayName = "Vehicle Gunner";
                 type = "crew_f";
+                rank = "corporal";
             };
             class ArmorDriver: BaseUnit {
-                displayName = "Vehicle Driver"
+                displayName = "Vehicle Driver";
                 type = "soldier_repair_f";
             };
         };
@@ -838,21 +895,25 @@ class CfgRespawnGroups {
 
         class Units {
             class Pilot: BaseUnit {
-                displayName = "Pilot"
+                displayName = "Pilot";
                 type = "helipilot_f";
+                rank = "captain";
                 leader = 1;
             };
             class CoPilot: BaseUnit {
-                displayName = "Co-Pilot"
+                displayName = "Co-Pilot";
                 type = "helipilot_f";
+                rank = "lieutenant";
             };
             class CrewChief: BaseUnit {
-                displayName = "Crew Chief"
+                displayName = "Crew Chief";
                 type = "soldier_repair_f";
+                rank = "sergeant";
             };
             class Gunner: BaseUnit {
-                displayName = "Gunner"
+                displayName = "Gunner";
                 type = "helicrew_f";
+                rank = "corporal";
             };
         };
 
