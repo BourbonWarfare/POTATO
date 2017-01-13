@@ -65,7 +65,7 @@ class CfgRespawnGroups {
         mrChannel = 5;
         lrChannel = 3;
     };
-    class Air: Tank {
+    class Air: Armor {
         markerTexture = "\A3\ui_f\data\map\markers\nato\b_air.paa";
 
         srChannel = 13;

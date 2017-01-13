@@ -18,3 +18,4 @@ class CfgPatches {
 #include "CfgRespawnFactions.hpp"
 #include "CfgRespawnGroups.hpp"
 #include "CfgVehicles.hpp"
+#include "Displays.hpp"
