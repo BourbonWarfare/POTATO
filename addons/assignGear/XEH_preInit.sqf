@@ -33,7 +33,7 @@ if (GVAR(usePotato)) then {
             [ // assign gear to vehicles
                 _x,
                 "init",
-                { [FUNC(assignGearVehicle), _this select 0, _x] call CBA_fnc_execNextFrame; },
+                { [FUNC(assignGearVehicle), [_this select 0, _x]] call CBA_fnc_execNextFrame; },
                 true,
                 [],
                 true
