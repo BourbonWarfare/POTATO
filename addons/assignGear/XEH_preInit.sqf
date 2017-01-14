@@ -29,16 +29,50 @@ if (GVAR(usePotato)) then {
             true // run on existing units (shouldn't be any, but belts/suspenders)
         ] call CBA_fnc_addClassEventHandler;
 
-        {
-            [ // assign gear to vehicles
-                _x,
-                "init",
-                { [FUNC(assignGearVehicle), [_this select 0, _x]] call CBA_fnc_execNextFrame; },
-                true,
-                [],
-                true
-            ] call CBA_fnc_addClassEventHandler;
-        } forEach ['Car', 'Tank', 'Helicopter', 'Plane', 'Ship_F'];
+        [ // assign gear to car
+            "Car",
+            "init",
+            { [FUNC(assignGearVehicle), [_this select 0, "Car"]] call CBA_fnc_execNextFrame; },
+            true,
+            [],
+            true
+        ] call CBA_fnc_addClassEventHandler;
+
+        [ // assign gear to tank
+            "Tank",
+            "init",
+            { [FUNC(assignGearVehicle), [_this select 0, "Tank"]] call CBA_fnc_execNextFrame; },
+            true,
+            [],
+            true
+        ] call CBA_fnc_addClassEventHandler;
+
+        [ // assign gear to helicopter
+            "Helicopter",
+            "init",
+            { [FUNC(assignGearVehicle), [_this select 0, "Helicopter"]] call CBA_fnc_execNextFrame; },
+            true,
+            [],
+            true
+        ] call CBA_fnc_addClassEventHandler;
+
+        [ // assign gear to plane
+            "Plane",
+            "init",
+            { [FUNC(assignGearVehicle), [_this select 0, "Plane"]] call CBA_fnc_execNextFrame; },
+            true,
+            [],
+            true
+        ] call CBA_fnc_addClassEventHandler;
+
+        [ // assign gear to ship
+            "Ship_F",
+            "init",
+            { [FUNC(assignGearVehicle), [_this select 0, "Ship_F"]] call CBA_fnc_execNextFrame; },
+            true,
+            [],
+            true
+        ] call CBA_fnc_addClassEventHandler;
     };
 
     diag_log text format ["[POTATO-assignGear] Enabled [useFallback: %1, allowMagnifiedOptics: %2, allowChangeableOptics: %3, maxRandomization: %4, setVehicleLoadouts: %5, prefixes: %6]", GVAR(useFallback), GVAR(allowMagnifiedOptics), GVAR(allowChangeableOptics), GVAR(maxRandomization), GVAR(setVehicleLoadouts), GVAR(prefixes)];
