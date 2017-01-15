@@ -15,6 +15,9 @@ class RscControlsGroupNoScrollbars;
 class GVAR(adminRespawn) {
     idd = ADMIN_RESPAWN_IDD;
 
+    onLoad = QUOTE(_this call FUNC(ui_handleAdminLoad));
+    onUnload = QUOTE(_this call FUNC(ui_handleAdminUnload));
+
     class ControlsBackground {
         class BackGround: RscBackground {
             idc = ADMIN_BG_IDC;
