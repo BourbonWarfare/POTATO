@@ -1,7 +1,8 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_logic", "_units", "_activated"];
 TRACE_1("params",_this);
+params ["_logic", "_units", "_activated"];
 
 if (!_activated || !hasInterface) exitWith {};
 
@@ -23,6 +24,7 @@ switch (_logic getVariable ["side", -1]) do {
     case (4): {_sideArray = [east, west, independent, civilian];};
 };
 
+TRACE_1("sides",_sideArray);
 if (count _sideArray < 1) exitWith { ERROR("No sides in the side array - exiting"); };
 
 private _pos = getPos _logic;
