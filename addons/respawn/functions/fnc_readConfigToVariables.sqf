@@ -36,7 +36,6 @@ GVAR(factionsToInfo) = [] call CBA_fnc_createNamespace;
 // parse group info
 GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
 {
-    private _configName = configName _x;
     private _infoArray = [];
 
     _infoArray pushBack (getText (_x >> "displayName"));

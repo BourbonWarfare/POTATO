@@ -15,7 +15,7 @@ class RscControlsGroupNoScrollbars;
 class GVAR(adminRespawn) {
     idd = ADMIN_RESPAWN_IDD;
 
-    onLoad = QUOTE(_this call FUNC(ui_handleAdminLoad));
+    onLoad = QUOTE(_this spawn FUNC(ui_handleAdminLoad));
     onUnload = QUOTE(_this call FUNC(ui_handleAdminUnload));
 
     class ControlsBackground {
@@ -102,6 +102,7 @@ class GVAR(adminRespawn) {
         };
         class FactionCombo: RscCombo {
             idc = ADMIN_FACTION_COMBO_IDC;
+            onLBSelChanged = QUOTE(_this call FUNC(ui_handleFactionChange));
             x = 0.625 * safezoneW + safezoneX;
             y = 0.32 * safezoneH + safezoneY;
             w = 0.075 * safezoneW;
@@ -121,6 +122,7 @@ class GVAR(adminRespawn) {
         };
         class GroupCombo: RscCombo {
             idc = ADMIN_GROUP_COMBO_IDC;
+            onLBSelChanged = QUOTE(_this call FUNC(ui_handleGroupChange));
             x = 0.625 * safezoneW + safezoneX;
             y = 0.36 * safezoneH + safezoneY;
             w = 0.075 * safezoneW;
@@ -140,6 +142,7 @@ class GVAR(adminRespawn) {
         };
         class ConfigurationCombo: RscCombo {
             idc = ADMIN_CONFIG_COMBO_IDC;
+            //onLBSelChanged = QUOTE(_this call FUNC(ui_handleConfigChange));
             x = 0.625 * safezoneW + safezoneX;
             y = 0.4 * safezoneH + safezoneY;
             w = 0.075 * safezoneW;
