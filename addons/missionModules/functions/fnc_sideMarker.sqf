@@ -35,7 +35,7 @@ if (_color isEqualType 0) then {_color = "ColorBlack"}; // BWC
 private _icon = _logic getVariable ["icon", "mil_dot_noShadow"];
 
 [
-    { (!isNull player) && {alive player} },
+    { (!isNull player) && {alive player} && {diag_tickTime > _this select 6} },
     {
         TRACE_3("player ready",player,playerSide,_this);
         params ["_pos", "_dir", "_sideArray", "_text", "_color", "_icon"];
@@ -53,5 +53,5 @@ private _icon = _logic getVariable ["icon", "mil_dot_noShadow"];
         _markerName setMarkerColorLocal _color;
         _markerName setMarkerTypeLocal _icon;
     },
-    [_pos, _dir, _sideArray, _text, _color, _icon]
+    [_pos, _dir, _sideArray, _text, _color, _icon, diag_tickTime + 5]
 ] call CBA_fnc_waitUntilAndExecute;
