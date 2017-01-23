@@ -11,7 +11,8 @@ GVAR(activeGroups) = [];
 
 if (isServer) then {
     GVAR(groupCount) = 1;
-    [] spawn FUNC(readConfigToVariables);
 };
+
+[] spawn FUNC(readConfigToVariables);
 
 ADDON = true;
