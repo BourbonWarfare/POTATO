@@ -15,3 +15,21 @@ class Extended_PostInit_EventHandlers {
     init = QUOTE(call COMPILE_FILE(XEH_postInit));
   };
 };
+
+class Extended_DisplayLoad_EventHandlers {
+    class RscDisplayInterrupt {
+        ADDON = QUOTE([ARR_2('onLoad', _this)] call FUNC(checkForDebug));
+    };
+    class RscDisplayMPInterrupt {
+        ADDON = QUOTE([ARR_2('onLoad', _this)] call FUNC(checkForDebug));
+    };
+};
+
+class Extended_DisplayUnload_EventHandlers {
+    class RscDisplayInterrupt {
+        ADDON = QUOTE([ARR_2('onUnload', _this)] call FUNC(checkForDebug));
+    };
+    class RscDisplayMPInterrupt {
+        ADDON = QUOTE([ARR_2('onUnload', _this)] call FUNC(checkForDebug));
+    };
+};
