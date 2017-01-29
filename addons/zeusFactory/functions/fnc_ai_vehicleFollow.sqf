@@ -22,9 +22,9 @@ while {(alive _vehicle) && {alive _commander} && {(vehicle _commander) == _vehic
         _commander doMove ((leader _followGroup) getPos [50, _angle]);
         #ifdef DEBUG_MODE_FULL
         _dummy setPos ((leader _followGroup) getPos [50, _angle]);
-        #endif
     } else {
         TRACE_2("Holding",_vehicle,_leaderPos distance2d _vehicle);
+        #endif
     };
     sleep 10;
 };
