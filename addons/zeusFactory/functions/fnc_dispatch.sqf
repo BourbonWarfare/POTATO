@@ -66,8 +66,11 @@ if (_transportInfo isEqualTo []) then {
 
     // Create and cleanup a fake helipad so helicopter can land
     if (_transportType == TRANSPORT_HELI) then {
-        // private _dummyPad = "Land_HelipadEmpty_F" createVehicle (getPos _placeLogic);
+        #ifdef DEBUG_MODE_FULL
         private _dummyPad = "Land_HelipadCircle_F" createVehicle (getPos _placeLogic);
+        #else
+        private _dummyPad = "Land_HelipadEmpty_F" createVehicle (getPos _placeLogic);
+        #endif
         _vehicle setVariable [QGVAR(dummyPad), _dummyPad];
         _tUnload setWaypointStatements ["true", QUOTE(this call FUNC(ai_onHeliUnload))];
     };
