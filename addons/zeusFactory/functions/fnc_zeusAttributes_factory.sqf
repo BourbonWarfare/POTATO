@@ -1,9 +1,11 @@
 #include "script_component.hpp"
 
 #define SIDES_ARRAY [west, east, independent]
-#define CARS_ARRAY ["C_Offroad_01_F", "badTest", "B_MRAP_01_F", "O_T_MRAP_02_ghex_F"]
-#define APC_ARRAY ["B_APC_Wheeled_01_cannon_F", "O_APC_Wheeled_02_rcws_F", "rhsusf_m113_usarmy", "M1126_ICV_M2_DG1_NOSLATWOOD", "rhsgref_ins_g_uaz_dshkm_chdkz", "rhs_bmd1", "rhs_bmp1_vdv", "rhs_btr60_msv", "rhsgref_BRDM2_msv"]
-#define HELI_ARRAY ["B_Heli_Light_01_F", "B_Heli_Transport_01_F", "I_Heli_Transport_02_F", "B_Heli_Transport_03_F", "O_Heli_Transport_04_F"]
+#define CARS_ARRAY ["CUP_B_HMMWV_Transport_USA", "C_Offroad_01_F", "badTest", "B_MRAP_01_F", "O_T_MRAP_02_ghex_F", "B_T_LSV_01_unarmed_F", "CUP_C_SUV_TK", "CUP_B_UAZ_Unarmed_CDF", "CUP_O_Ural_Open_RU"]
+
+#define APC_ARRAY ["B_APC_Wheeled_01_cannon_F", "O_APC_Wheeled_02_rcws_F", "rhsusf_m113_usarmy", "M1126_ICV_M2_DG1_NOSLATWOOD", "rhsgref_ins_g_uaz_dshkm_chdkz", "CUP_I_BTR40_MG_TKG", "rhs_bmd1", "rhs_bmp1_vdv", "rhs_btr60_msv", "rhsgref_BRDM2_msv"]
+
+#define HELI_ARRAY ["CUP_B_UH1Y_UNA_USMC", "CUP_B_UH60M_Unarmed_US", "B_Heli_Light_01_F", "B_Heli_Transport_01_F", "I_Heli_Transport_02_F", "B_Heli_Transport_03_F", "O_Heli_Transport_04_F", "I_Heli_light_03_unarmed_F", "rhs_ka60_c", "CUP_C_Mi17_Civilian_RU", "CUP_C_Mi17_VIV_RU"]
 
 
 if (isNil QGVAR(lastSide)) then {GVAR(lastSide) = east};
