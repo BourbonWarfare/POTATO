@@ -12,6 +12,10 @@ class ACE_Settings {
         typeName = "BOOL";
         value = 0;
     };
+    class ace_cookoff_ammoCookoffDuration {
+        typeName = "SCALAR";
+        value = 0.15;
+    };
     class ace_frag_maxTrack {
         typeName = "SCALAR";
         value = 2;
