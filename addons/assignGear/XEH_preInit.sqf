@@ -52,7 +52,7 @@ if (GVAR(usePotato)) then {
             "init",
             { [FUNC(assignGearVehicle), [_this select 0, "Helicopter"]] call CBA_fnc_execNextFrame; },
             true,
-            [],
+            ["ace_fastroping_helper", "ACE_friesBase"],
             true
         ] call CBA_fnc_addClassEventHandler;
 
