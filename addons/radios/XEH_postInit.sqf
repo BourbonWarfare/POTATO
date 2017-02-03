@@ -35,5 +35,12 @@ INFO_1("Setting omnidirectional for acre post-904",true);
         };
         
         ["unit", {_this call FUNC(setupPlayer)}, true] call CBA_fnc_addPlayerEventHandler; 
+    } else {
+        INFO("Disabled");
+        if (isServer) then { // Warn if not enabled
+            [{
+                ["potato_adminMsg", ["Warning: Potato Radios Setting Disabled", "Server"]] call CBA_fnc_globalEvent;
+            }, [], 5] call CBA_fnc_waitAndExecute
+        };
     };
 }] call CBA_fnc_addEventHandler;
