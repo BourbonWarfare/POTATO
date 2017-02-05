@@ -7,10 +7,11 @@ PREP_RECOMPILE_START;
 PREP_RECOMPILE_END;
 
 GVAR(open) = false;
-GVAR(activeGroups) = [];
 
 if (isServer) then {
     GVAR(groupCount) = 1;
+    GVAR(activeGroups) = [];
+    GVAR(registeredClients) = [];
 };
 
 [] spawn FUNC(readConfigToVariables);

@@ -45,6 +45,8 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
     {
         private _unitArray = [];
 
+        // add config name
+        _unitArray pushBack (configName _x);
         _unitArray pushBack (getText (_x >> "displayName"));
         _unitArray pushBack (getText (_x >> "type"));
         _unitArray pushBack (getText (_x >> "rank"));
@@ -62,6 +64,9 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
     {
         private _config = _x;
         private _configArray = [];
+
+        // add config name
+        _configArray pushBack (configName _config);
 
         // pull marker info
         _configArray pushBack (getText (_config >> "markerText"));

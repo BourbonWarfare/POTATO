@@ -54,7 +54,7 @@ class GVAR(adminRespawn) {
             sizeEx = 0.5 * TEXT_SIZE_FACTOR;
         };
         class GroupsFrame: RscFrame {
-            idc = ADMIN_GROUP_FRAME_IDC;
+            idc = GROUP_FRAME_IDC;
             text = "Active Groups";
             x = 0.435 * safezoneW + safezoneX;
             y = 0.28 * safezoneH + safezoneY;
@@ -82,12 +82,14 @@ class GVAR(adminRespawn) {
             h = 0.44 * safezoneH;
             colorBackground[] = {0,0,0,0};
         };
-        class GroupTree: RscText {
-            idc = ADMIN_GROUP_TREE_IDC;
+        class GroupTree: RscTree {
+            idc = GROUP_TREE_IDC;
             x = 0.4375 * safezoneW + safezoneX;
             y = 0.3 * safezoneH + safezoneY;
             w = 0.1375 * safezoneW;
             h = 0.44 * safezoneH;
+            multiselectEnabled = 0;
+            colorBorder[] = {0,0,0,0};
             colorBackground[] = {0,0,0,0.75};
         };
         class FactionText: RscText {
@@ -152,6 +154,7 @@ class GVAR(adminRespawn) {
         };
         class AddButton: RscButton {
             idc = ADMIN_ADD_BUTTON_IDC;
+            onButtonClick = QUOTE(_this call FUNC(ui_handleAddClick));
             text = "Add";
             x = 0.6 * safezoneW + safezoneX;
             y = 0.44 * safezoneH + safezoneY;

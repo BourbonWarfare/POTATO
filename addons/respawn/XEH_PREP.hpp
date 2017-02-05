@@ -1,10 +1,19 @@
 LOG(QUOTE(ADDON));
 
+PREP(addGroup);
+PREP(addGroupClient);
+PREP(deregisterClientForUpdates);
+PREP(initGroups);
 PREP(openAdminRespawn);
 PREP(readConfigToVariables);
+PREP(registerClientForUpdates);
+PREP(resetGroupInfo);
+PREP(resetGroupInfoClient);
 PREP(respawnClient);
+PREP(ui_handleAddClick);
 PREP(ui_handleAdminLoad);
 PREP(ui_handleAdminUnload);
 PREP(ui_handleConfigChange);
 PREP(ui_handleFactionChange);
 PREP(ui_handleGroupChange);
+PREP(ui_updateAdminUI);

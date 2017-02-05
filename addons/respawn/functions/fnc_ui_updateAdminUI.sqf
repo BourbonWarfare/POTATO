@@ -13,9 +13,4 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("params",_this);
-
-[GVAR(adminUpdateEH)] call CBA_fnc_removePerFrameHandler;
-GVAR(adminUpdateEH) = nil;
-
-[clientOwner] call FUNC(deregisterClientForUpdates);
+//TRACE_1("params",_this);

@@ -15,7 +15,8 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-[GVAR(adminUpdateEH)] call CBA_fnc_removePerFrameHandler;
-GVAR(adminUpdateEH) = nil;
+params [["_groups", [], [[]]]];
 
-[clientOwner] call FUNC(deregisterClientForUpdates);
+{
+    _x call FUNC(addGroupClient);
+} forEach _groups;

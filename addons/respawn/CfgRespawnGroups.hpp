@@ -293,7 +293,7 @@ class CfgRespawnGroups {
                 colorTeam2 = "GREEN";
             };
             class B2: Bravo {
-                markerText = "B1";
+                markerText = "B2";
                 colorTeam1 = "BLUE";
                 colorTeam2 = "YELLOW";
             };
