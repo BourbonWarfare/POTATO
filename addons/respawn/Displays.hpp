@@ -42,7 +42,7 @@ class GVAR(adminRespawn) {
             y = 0.3 * safezoneH + safezoneY;
             w = 0.1375 * safezoneW;
             h = 0.44 * safezoneH;
-            colorBackground[] = {0,0,0,0.75};
+            colorBackground[] = {COLOR_BLACK};
         };
         class SpectatorFrame: RscFrame {
             idc = ADMIN_SPEC_FRAME_IDC;
@@ -80,7 +80,7 @@ class GVAR(adminRespawn) {
             y = 0.3 * safezoneH + safezoneY;
             w = 0.1375 * safezoneW;
             h = 0.44 * safezoneH;
-            colorBackground[] = {0,0,0,0};
+            colorBackground[] = {COLOR_EMPTY};
         };
         class GroupTree: RscTree {
             idc = GROUP_TREE_IDC;
@@ -89,8 +89,8 @@ class GVAR(adminRespawn) {
             w = 0.1375 * safezoneW;
             h = 0.44 * safezoneH;
             multiselectEnabled = 0;
-            colorBorder[] = {0,0,0,0};
-            colorBackground[] = {0,0,0,0.75};
+            colorBorder[] = {COLOR_EMPTY};
+            colorBackground[] = {COLOR_BLACK};
         };
         class FactionText: RscText {
             idc = ADMIN_FACTION_TEXT_IDC;
@@ -109,7 +109,7 @@ class GVAR(adminRespawn) {
             y = 0.32 * safezoneH + safezoneY;
             w = 0.075 * safezoneW;
             h = 0.03 * safezoneH;
-            colorBackground[] = {0,0,0,0.75};
+            colorBackground[] = {COLOR_BLACK};
             tooltip = "Select faction (Note: changing this will reset the active groups)";
         };
         class GroupText: RscText {
@@ -129,7 +129,7 @@ class GVAR(adminRespawn) {
             y = 0.36 * safezoneH + safezoneY;
             w = 0.075 * safezoneW;
             h = 0.03 * safezoneH;
-            colorBackground[] = {0,0,0,0.75};
+            colorBackground[] = {COLOR_BLACK};
             tooltip = "Select Group";
         };
         class ConfigurationText: RscText {
@@ -144,12 +144,11 @@ class GVAR(adminRespawn) {
         };
         class ConfigurationCombo: RscCombo {
             idc = ADMIN_CONFIG_COMBO_IDC;
-            //onLBSelChanged = QUOTE(_this call FUNC(ui_handleConfigChange));
             x = 0.625 * safezoneW + safezoneX;
             y = 0.4 * safezoneH + safezoneY;
             w = 0.075 * safezoneW;
             h = 0.03 * safezoneH;
-            colorBackground[] = {0,0,0,0.75};
+            colorBackground[] = {COLOR_BLACK};
             tooltip = "Select Group Configuration";
         };
         class AddButton: RscButton {
@@ -160,10 +159,10 @@ class GVAR(adminRespawn) {
             y = 0.44 * safezoneH + safezoneY;
             w = 0.03 * safezoneW;
             h = 0.04 * safezoneH;
-            colorFocused[] = {0.12,0.79,0.25,1};
-            colorBackground[] = {0.12,0.79,0.25,0.75};
-            colorBackgroundActive[] = {0.12,0.79,0.25,1};
-            colorBackgroundDisabled[] = {0,0,0,0.75};
+            colorFocused[] = {COLOR_GREEN_ACTIVE};
+            colorBackground[] = {COLOR_GREEN_INACTIVE};
+            colorBackgroundActive[] = {COLOR_GREEN_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
             tooltip = "Adds currently configured group to the active group list";
             sizeEx = 0.75 * TEXT_SIZE_FACTOR;
         };
@@ -174,10 +173,10 @@ class GVAR(adminRespawn) {
         	y = 0.44 * safezoneH + safezoneY;
         	w = 0.03 * safezoneW;
         	h = 0.04 * safezoneH;
-            colorFocused[] = {0.17,0.48,0.81,1};
-            colorBackground[] = {0.17,0.48,0.81,0.75};
-            colorBackgroundActive[] = {0.17,0.48,0.81,1};
-            colorBackgroundDisabled[] = {0,0,0,0.75};
+            colorFocused[] = {COLOR_BLUE_ACTIVE};
+            colorBackground[] = {COLOR_BLUE_INACTIVE};
+            colorBackgroundActive[] = {COLOR_BLUE_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
             tooltip = "Slots the selected spectator into the selected group";
             sizeEx = 0.75 * (safezoneH / 25);
         };
@@ -189,10 +188,10 @@ class GVAR(adminRespawn) {
             y = 0.44 * safezoneH + safezoneY;
             w = 0.03 * safezoneW;
             h = 0.04 * safezoneH;
-            colorFocused[] = {0.77,0.14,0.19,1};
-            colorBackground[] = {0.77,0.14,0.19,0.75};
-            colorBackgroundActive[] = {0.77,0.14,0.19,1};
-            colorBackgroundDisabled[] = {0,0,0,0.75};
+            colorFocused[] = {COLOR_RED_ACTIVE};
+            colorBackground[] = {COLOR_RED_INACTIVE};
+            colorBackgroundActive[] = {COLOR_RED_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
             tooltip = "Removes the selected active group from the list";
             sizeEx = 0.75 * TEXT_SIZE_FACTOR;
         };
@@ -203,10 +202,10 @@ class GVAR(adminRespawn) {
             y = 0.52 * safezoneH + safezoneY;
             w = 0.1 * safezoneW;
             h = 0.04 * safezoneH;
-            colorFocused[] = {0.12,0.79,0.25,0.75};
-            colorBackground[] = {0.12,0.79,0.25,0.75};
-            colorBackgroundActive[] = {0.12,0.79,0.25,1};
-            colorBackgroundDisabled[] = {0,0,0,0.75};
+            colorFocused[] = {COLOR_GREEN_INACTIVE};
+            colorBackground[] = {COLOR_GREEN_INACTIVE};
+            colorBackgroundActive[] = {COLOR_GREEN_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
             tooltip = "Open respawn to current spectators";
             sizeEx = 0.75 * TEXT_SIZE_FACTOR;
         };
@@ -217,10 +216,10 @@ class GVAR(adminRespawn) {
             y = 0.58 * safezoneH + safezoneY;
             w = 0.1 * safezoneW;
             h = 0.04 * safezoneH;
-            colorFocused[] = {0.17,0.48,0.81,0.75};
-            colorBackground[] = {0.17,0.48,0.81,0.75};
-            colorBackgroundActive[] = {0.17,0.48,0.81,1};
-            colorBackgroundDisabled[] = {0,0,0,0.75};
+            colorFocused[] = {COLOR_BLUE_ACTIVE};
+            colorBackground[] = {COLOR_BLUE_INACTIVE};
+            colorBackgroundActive[] = {COLOR_BLUE_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
             tooltip = "Trigger respawn with the players in the active groups";
             sizeEx = 0.75 * TEXT_SIZE_FACTOR;
         };
@@ -231,26 +230,34 @@ class GVAR(adminRespawn) {
             y = 0.64 * safezoneH + safezoneY;
             w = 0.1 * safezoneW;
             h = 0.04 * safezoneH;
-            colorFocused[] = {0.77,0.14,0.19,1};
-            colorBackground[] = {0.77,0.14,0.19,0.75};
-            colorBackgroundActive[] = {0.77,0.14,0.19,1};
-            colorBackgroundDisabled[] = {0,0,0,0.75};
+            colorFocused[] = {COLOR_RED_ACTIVE};
+            colorBackground[] = {COLOR_RED_INACTIVE};
+            colorBackgroundActive[] = {COLOR_RED_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
             tooltip = "Cancels the currently configured respawn";
             sizeEx = 0.75 * TEXT_SIZE_FACTOR;
         };
-        class ChatButton: RscButton {
-            idc = ADMIN_CHAT_BUTTON_IDC;
+        class ChatButtonOn: RscButton {
+            idc = ADMIN_CHAT_BUTTON_ON_IDC;
+            onButtonClick = QUOTE(_this call FUNC(ui_handleChatClick));
             text = "Chat";
             x = 0.6 * safezoneW + safezoneX;
             y = 0.7 * safezoneH + safezoneY;
             w = 0.0375 * safezoneW;
             h = 0.04 * safezoneH;
-            colorFocused[] = {0.77,0.14,0.19,1};
-            colorBackground[] = {0.77,0.14,0.19,0.75};
-            colorBackgroundActive[] = {0.77,0.14,0.19,1};
-            colorBackgroundDisabled[] = {0,0,0,0.75};
-            tooltip = "Sets ACRE to spectate chat (off)";
+            colorFocused[] = {COLOR_GREEN_ACTIVE};
+            colorBackground[] = {COLOR_GREEN_INACTIVE};
+            colorBackgroundActive[] = {COLOR_GREEN_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
+            tooltip = "Sets ACRE to spectate chat (on)";
             sizeEx = 0.75 * TEXT_SIZE_FACTOR;
+        };
+        class ChatButtonOff: ChatButtonOn {
+            idc = ADMIN_CHAT_BUTTON_OFF_IDC;
+            colorFocused[] = {COLOR_RED_ACTIVE};
+            colorBackground[] = {COLOR_RED_INACTIVE};
+            colorBackgroundActive[] = {COLOR_RED_ACTIVE};
+            tooltip = "Sets ACRE to spectate chat (off)";
         };
         class CloseButton: RscButton {
             idc = ADMIN_CLOSE_BUTTON_IDC;
@@ -259,10 +266,10 @@ class GVAR(adminRespawn) {
             y = 0.7 * safezoneH + safezoneY;
             w = 0.0375 * safezoneW;
             h = 0.04 * safezoneH;
-            colorFocused[] = {0.77,0.14,0.19,1};
-            colorBackground[] = {0.77,0.14,0.19,0.75};
-            colorBackgroundActive[] = {0.77,0.14,0.19,1};
-            colorBackgroundDisabled[] = {0,0,0,0.75};
+            colorFocused[] = {COLOR_RED_ACTIVE};
+            colorBackground[] = {COLOR_RED_INACTIVE};
+            colorBackgroundActive[] = {COLOR_RED_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
             tooltip = "Closes the dialog, but leaves the configuration in it's current state";
             sizeEx = 0.75 * TEXT_SIZE_FACTOR;
         };
