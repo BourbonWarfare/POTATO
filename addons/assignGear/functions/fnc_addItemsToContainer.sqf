@@ -60,7 +60,7 @@ private _returnArray = [];
                     getArray (configFile >> "CfgWeapons" >> _classname >> "ItemInfo" >> "allowedSlots"),
 
                     (getNumber (configFile >> "CfgWeapons" >> _classname >> "type") in [PRIMARY_TYPE, HANDGUN_TYPE, LAUNCHER_TYPE]) ||
-                    {_itemToAdd isKindOf ["Binocular", configFile >> "CfgWeapons"]}
+                    {(_itemToAdd isKindOf ["Binocular", configFile >> "CfgWeapons"]) && {!(_itemToAdd isKindOf ["NVGoggles", configFile >> "CfgWeapons"])}}
                 ]
             } else {
                 [-1, -1, [], false]
@@ -69,6 +69,7 @@ private _returnArray = [];
 
         if (_mass < 0) exitWith {
             diag_log text format ["[POTATO-assignGear] Item Not Found [%1]", _itemToAdd];
+            ERROR_MSG_1("[%1] Bad Item Classname", _itemToAdd);
             ""
         };
 
@@ -94,7 +95,7 @@ private _returnArray = [];
         };
 
         _sizeLeft = _sizeLeft - (_ammountAdded * _mass);
-        (_containersArray select _index) set [0, _sizeLeft];
+        (_containersArray select _containerIndex) set [0, _sizeLeft];
 
         if (_ammountAdded == _amountToAdd) exitWith { "" };
         (format ["%1:%2",_classname, (_amountToAdd - _ammountAdded)])

@@ -1,7 +1,8 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_logic", "_units", "_activated"];
 TRACE_1("params",_this);
+params ["_logic", "_units", "_activated"];
 
 if (!_activated || !hasInterface) exitWith {};
 
@@ -23,6 +24,7 @@ switch (_logic getVariable ["side", -1]) do {
     case (4): {_sideArray = [east, west, independent, civilian];};
 };
 
+TRACE_1("sides",_sideArray);
 if (count _sideArray < 1) exitWith { ERROR("No sides in the side array - exiting"); };
 
 private _pos = getPos _logic;
@@ -33,7 +35,7 @@ if (_color isEqualType 0) then {_color = "ColorBlack"}; // BWC
 private _icon = _logic getVariable ["icon", "mil_dot_noShadow"];
 
 [
-    { (!isNull player) && {alive player} },
+    { (!isNull player) && {alive player} && {diag_tickTime > _this select 6} },
     {
         TRACE_3("player ready",player,playerSide,_this);
         params ["_pos", "_dir", "_sideArray", "_text", "_color", "_icon"];
@@ -51,5 +53,5 @@ private _icon = _logic getVariable ["icon", "mil_dot_noShadow"];
         _markerName setMarkerColorLocal _color;
         _markerName setMarkerTypeLocal _icon;
     },
-    [_pos, _dir, _sideArray, _text, _color, _icon]
+    [_pos, _dir, _sideArray, _text, _color, _icon, diag_tickTime + 5]
 ] call CBA_fnc_waitUntilAndExecute;
