@@ -33,5 +33,3 @@ class CfgMods {
         description = "";
     };
 };
-
-// JOKE

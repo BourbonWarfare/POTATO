@@ -55,6 +55,7 @@ if (!isClass _path) then {
             case (west): { "potato_usmc" };
             case (east): { "potato_msv" };
             case (independent): { "potato_airborne" };
+            default { "civ_f" };
         };
         _path = missionConfigFile >> "CfgLoadouts" >> _vehConfigFaction >> _defaultLoadout;
     };

@@ -2,6 +2,7 @@
 
 GVAR(playerStartingSide) = sideUnknown;
 GVAR(playerAuth) = false;
+GVAR(playerTech) = false;
 
 if (hasInterface) then {
     ["unit", {
@@ -13,7 +14,13 @@ if (hasInterface) then {
         if ((getPlayerUID player) in AUTHORIZED_USERS) then {
             if (!GVAR(playerAuth)) then {
                 GVAR(playerAuth) = true;
-                diag_log text format ["[POTATO]: Player UID [%1] in list", getPlayerUID player];
+                diag_log text format ["[POTATO-core]: Player UID [%1] in admin list", getPlayerUID player];
+            };
+        };
+        if ((getPlayerUID player) in TECH_USERS) then {
+            if (!GVAR(playerTech)) then {
+                GVAR(playerTech) = true;
+                diag_log text format ["[POTATO-core]: Player UID [%1] in tech list", getPlayerUID player];
             };
         };
     }, true] call CBA_fnc_addPlayerEventHandler;
