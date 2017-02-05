@@ -28,6 +28,10 @@ params [
 // start spectate
 GVAR(running) = true;
 
+// check for zeus to transfer
+private _zeusModule = getAssignedCuratorLogic _oldUnit;
+TRACE_1("Curator", _zeusModule);
+
 // create spectator display
 MAIN_DISPLAY createDisplay QGVAR(overlay);
 
@@ -55,6 +59,14 @@ if (isNil QGVAR(group) || {isNull GVAR(group)}) then {
 };
 
 [GVAR(unit)] remoteExecCall [QFUNC(prepareSpectator), 0, true];
+
+// if the old unit had a curator, assign it to the new unit
+if !(isNull _zeusModule) then {
+    [GVAR(unit), _zeusModule] remoteExec [QFUNC(transferZeus), SERVER_CLIENT_ID];
+};
+
+// disable post process effects
+BIS_fnc_feedback_allowPP = false;
 
 // if new unit is a seagul, delete it
 if (_newUnit isKindOf "seagull") then {

@@ -19,6 +19,7 @@ PREP(switchFocus);
 PREP(toggleMap);
 PREP(toggleUI);
 PREP(toggleVisionMode);
+PREP(transferZeus);
 PREP(ui_changeCamera);
 PREP(ui_checkToClose);
 PREP(ui_handleDraw3D);
