@@ -24,3 +24,8 @@ GVAR(adminUpdateEH) = nil;
 if !(GVAR(currentSpecChat) isEqualTo GVAR(oldSpecChat)) then {
     [GVAR(oldSpecChat)] call acre_api_fnc_setSpectator;
 };
+
+// save current dropdown config
+GVAR(lastFactionIndex) = lbCurSel ADMIN_FACTION_COMBO_IDC;
+GVAR(lastGroupIndex) = lbCurSel ADMIN_GROUP_COMBO_IDC;
+GVAR(lastConfigIndex) = lbCurSel ADMIN_CONFIG_COMBO_IDC;

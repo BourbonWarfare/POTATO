@@ -3,7 +3,7 @@
  * Function used to get the vehicle icon for provided object (cached)
  *
  * Arguments:
- * 0: Object to get icon of <OBJECT>
+ * 0: Object to get icon of <OBJECT/STRING>
  *
  * Return Value:
  * Icon of vehicle <STRING>

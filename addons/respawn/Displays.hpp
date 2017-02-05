@@ -225,6 +225,7 @@ class GVAR(adminRespawn) {
         };
         class CancelButton: RscButton {
             idc = ADMIN_CANCEL_BUTTON_IDC;
+            onButtonClick = QUOTE(_this call FUNC(ui_handleCancelClick));
             text = "Cancel Respawn";
             x = 0.6 * safezoneW + safezoneX;
             y = 0.64 * safezoneH + safezoneY;
@@ -261,6 +262,7 @@ class GVAR(adminRespawn) {
         };
         class CloseButton: RscButton {
             idc = ADMIN_CLOSE_BUTTON_IDC;
+            onButtonClick = QUOTE(_this call FUNC(ui_handleCloseClick));
             text = "Close";
             x = 0.6625 * safezoneW + safezoneX;
             y = 0.7 * safezoneH + safezoneY;

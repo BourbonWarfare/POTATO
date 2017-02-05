@@ -57,7 +57,6 @@ private _configIndex = if !(isNil QGVAR(lastConfigIndex)) then {
     0
 };
 lbSetCurSel [ADMIN_CONFIG_COMBO_IDC, _configIndex];
-//[ADMIN_CONFIG_COMBO, _configIndex] call FUNC(ui_handleConfigChange);
 
 GVAR(adminUpdateEH) = [FUNC(ui_updateAdminUI), 0.1] call CBA_fnc_addPerFrameHandler;
 
