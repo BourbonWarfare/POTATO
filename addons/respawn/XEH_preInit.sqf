@@ -14,6 +14,16 @@ if (isServer) then {
     GVAR(registeredClients) = [];
 };
 
+// register event handler to detect state changes (would normally use publicVariable, but we're already sending this for spectate hooks)
+[QGVAR(respawnStateChanged), {
+    params [["_open", false, [false]]];
+    GVAR(open) = _open;
+
+    if !(isNull ADMIN_RESPAWN) then {
+        [] call FUNC(updateOpenButton);
+    };
+}] call CBA_fnc_addEventHandler;
+
 [] spawn FUNC(readConfigToVariables);
 
 ADDON = true;

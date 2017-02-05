@@ -25,6 +25,7 @@ waitUntil {dialog};
 // hide stage 2 spawn map
 ctrlShow [ADMIN_MAP_IDC, false];
 [] call FUNC(updateChatButton);
+[] call FUNC(updateOpenButton);
 
 {
     (GVAR(factionsToInfo) getVariable _x) params ["_displayName", "", "_factionClassname"];

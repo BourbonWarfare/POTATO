@@ -16,5 +16,5 @@
 TRACE_1("params",_this);
 
 [] call FUNC(resetGroupInfo);
-[] call FUNC(closeRespawn);
+[false] call FUNC(changeRespawnState);
 [] call FUNC(closeAdminRespawn);

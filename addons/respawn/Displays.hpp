@@ -195,8 +195,9 @@ class GVAR(adminRespawn) {
             tooltip = "Removes the selected active group from the list";
             sizeEx = 0.75 * TEXT_SIZE_FACTOR;
         };
-        class OpenButton: RscButton {
-            idc = ADMIN_OPEN_BUTTON_IDC;
+        class OpenRespawnButton: RscButton {
+            idc = ADMIN_OPEN_RESPAWN_BUTTON_IDC;
+            onButtonClick = QUOTE(_this call FUNC(ui_handleRespawnStateClick));
             text = "Open Respawn";
             x = 0.6 * safezoneW + safezoneX;
             y = 0.52 * safezoneH + safezoneY;
@@ -208,6 +209,14 @@ class GVAR(adminRespawn) {
             colorBackgroundDisabled[] = {COLOR_BLACK};
             tooltip = "Open respawn to current spectators";
             sizeEx = 0.75 * TEXT_SIZE_FACTOR;
+        };
+        class CloseRespawnButton: OpenRespawnButton {
+            idc = ADMIN_CLOSE_RESPAWN_BUTTON_IDC;
+            text = "Close Respawn";
+            colorFocused[] = {COLOR_RED_INACTIVE};
+            colorBackground[] = {COLOR_RED_INACTIVE};
+            colorBackgroundActive[] = {COLOR_RED_ACTIVE};
+            tooltip = "Close respawn to current spectators";
         };
         class TriggerButton: RscButton {
             idc = ADMIN_TRIGGER_BUTTON_IDC;
