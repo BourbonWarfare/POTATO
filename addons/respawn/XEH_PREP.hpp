@@ -2,6 +2,8 @@ LOG(QUOTE(ADDON));
 
 PREP(addGroup);
 PREP(addGroupClient);
+PREP(deleteGroup);
+PREP(deleteGroupClient);
 PREP(deregisterClientForUpdates);
 PREP(initGroups);
 PREP(openAdminRespawn);
@@ -14,6 +16,7 @@ PREP(ui_handleAddClick);
 PREP(ui_handleAdminLoad);
 PREP(ui_handleAdminUnload);
 PREP(ui_handleConfigChange);
+PREP(ui_handleDeleteClick);
 PREP(ui_handleFactionChange);
 PREP(ui_handleGroupChange);
 PREP(ui_updateAdminUI);

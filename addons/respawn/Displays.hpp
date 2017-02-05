@@ -183,6 +183,7 @@ class GVAR(adminRespawn) {
         };
         class DeleteButton: RscButton {
             idc = ADMIN_DELETE_BUTTON_IDC;
+            onButtonClick = QUOTE(_this call FUNC(ui_handleDeleteClick));
             text = "Delete";
             x = 0.670 * safezoneW + safezoneX;
             y = 0.44 * safezoneH + safezoneY;
