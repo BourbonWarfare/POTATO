@@ -9,6 +9,7 @@ PREP(ai_patrol);
 PREP(ai_search);
 PREP(ai_vehicleFollow);
 
+PREP(addVehiclesToArray);
 PREP(createGroup);
 PREP(createTransport);
 PREP(dispatch);
@@ -17,5 +18,6 @@ PREP(getTransportType);
 PREP(module_attackBeacon);
 PREP(module_factory);
 PREP(module_place);
+PREP(readConfigToVariables);
 PREP(zeusAttributes_factory);
 PREP(zeusAttributes_place);
