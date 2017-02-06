@@ -1,15 +1,17 @@
 /*
  * Author: AACO
- * desc
+ * Moves and validates a config array of vic classnames to a provided variable array of vic classnames
  *
  * Arguments:
- * Nothing
+ * 0: Array to store the vic classnames in <ARRAY>
+ * 1: Config array to lookup <STRING>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [GVAR(carArray), "cars"] call potato_zeusFactory_fnc_addVehiclesToArray;
+ * [GVAR(apcArray), "apcs"] call potato_zeusFactory_fnc_addVehiclesToArray;
  */
 
 #include "script_component.hpp"

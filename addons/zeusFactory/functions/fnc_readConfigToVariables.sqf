@@ -1,6 +1,7 @@
 /*
  * Author: AACO
- * desc
+ * Should only be run once per mission,
+ * stores zeusFaction vehicle information into GVARs so we can easily access them
  *
  * Arguments:
  * Nothing
@@ -9,7 +10,7 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_zeusFactory_fnc_readConfigToVariables;
  */
 
 #include "script_component.hpp"
