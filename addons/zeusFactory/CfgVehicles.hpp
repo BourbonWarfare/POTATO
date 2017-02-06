@@ -30,10 +30,10 @@
     };
     class GVAR(place_squad): GVAR(place_fireteam) {
         displayName = "Create Squad (8)";
-        GVAR(soldierList)[] = {"soldier_sl_f","soldier_m_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f"};
+        GVAR(soldierList)[] = {"soldier_sl_f","medic_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f"};
     };
     class GVAR(place_platoon): GVAR(place_fireteam) {
         displayName = "Create Platoon (14)";
-        GVAR(soldierList)[] = {"soldier_sl_f","soldier_m_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f"};
+        GVAR(soldierList)[] = {"soldier_sl_f","medic_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f"};
     };
 };
