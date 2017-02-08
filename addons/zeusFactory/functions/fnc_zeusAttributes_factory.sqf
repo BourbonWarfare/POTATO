@@ -2,6 +2,18 @@
 
 #define SIDES_ARRAY [west, east, independent]
 
+if (isNil QGVAR(carArray)) then { // init vehicle arrays if they don't exist
+    GVAR(carArray) = [];
+    [GVAR(carArray), "cars"] call FUNC(addVehiclesToArray);
+    GVAR(apcArray) = [];
+
+    [GVAR(apcArray), "apcs"] call FUNC(addVehiclesToArray);
+
+    GVAR(helicopterArray) = [];
+    [GVAR(helicopterArray), "helicopters"] call FUNC(addVehiclesToArray);
+    TRACE_3("", count GVAR(carArray), count GVAR(apcArray), count GVAR(helicopterArray));
+};
+
 if (isNil QGVAR(lastSide)) then {GVAR(lastSide) = east};
 if (isNil QGVAR(lastCar)) then {GVAR(lastCar) = (CARS_ARRAY select 0)};
 if (isNil QGVAR(lastAPC)) then {GVAR(lastAPC) = (APC_ARRAY select 0)};

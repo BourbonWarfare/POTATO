@@ -18,6 +18,5 @@ PREP(getTransportType);
 PREP(module_attackBeacon);
 PREP(module_factory);
 PREP(module_place);
-PREP(readConfigToVariables);
 PREP(zeusAttributes_factory);
 PREP(zeusAttributes_place);
