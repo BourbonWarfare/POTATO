@@ -21,7 +21,7 @@
         function = QFUNC(module_attackBeacon);
     };
     class GVAR(place_fireteam): GVAR(factory) {
-        displayName = "Create Fireteam (4)";
+        displayName = "(4) Create Fireteam";
         function = QFUNC(module_place);
         curatorInfoType = QGVAR(RscDisplayAttributes_place);
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
@@ -29,11 +29,11 @@
         GVAR(soldierList)[] = {"soldier_tl_f","soldier_ar_f","soldier_lat_f","soldier_f"};
     };
     class GVAR(place_squad): GVAR(place_fireteam) {
-        displayName = "Create Squad (8)";
+        displayName = "(8) Create Squad";
         GVAR(soldierList)[] = {"soldier_sl_f","medic_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f"};
     };
     class GVAR(place_platoon): GVAR(place_fireteam) {
-        displayName = "Create Platoon (14)";
+        displayName = "(14) Create Platoon";
         GVAR(soldierList)[] = {"soldier_sl_f","medic_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f"};
     };
 };
