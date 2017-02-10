@@ -9,6 +9,7 @@ PREP(ai_patrol);
 PREP(ai_search);
 PREP(ai_vehicleFollow);
 
+PREP(addVehiclesToArray);
 PREP(createGroup);
 PREP(createTransport);
 PREP(dispatch);
