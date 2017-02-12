@@ -37,11 +37,11 @@ class ACE_Settings {
         value = 0;
     };
     class ace_map_DefaultChannel {//ACE 3.4.0 - https://github.com/acemod/ACE3/pull/2650
-        typeName = "NUMBER";
+        typeName = "SCALAR";
         value = 1; //SIDE
     };
     class ace_medical_bleedingCoefficient {
-        typeName = "NUMBER";
+        typeName = "SCALAR";
         value = 2;
         force = 1; // This overrides mission setting/module!!!
     };
