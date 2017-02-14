@@ -1,12 +1,5 @@
 #include "script_component.hpp"
 
-/*
-if (isServer) then {
-    [] call FUNC(setAcreGlobalSettings);
-    [] call FUNC(setAcreSideSettings);
-};
-*/
-
 // Remove by october
 INFO_1("Setting omnidirectional for acre post-904",true);
 [true] call acre_api_fnc_ignoreAntennaDirection;
