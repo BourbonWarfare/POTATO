@@ -26,8 +26,8 @@ INFO_1("Setting omnidirectional for acre post-904",true);
             GVAR(initState) = 999;
             INFO_2("%1 - [InitState %2] DONE (Non Interface)", diag_frameNo, GVAR(initState));
         };
-        
-        ["unit", {_this call FUNC(setupPlayer)}, true] call CBA_fnc_addPlayerEventHandler; 
+
+        ["unit", {_this call FUNC(setupPlayer)}, true] call CBA_fnc_addPlayerEventHandler;
     } else {
         INFO("Disabled");
         if (isServer) then { // Warn if not enabled
@@ -39,6 +39,11 @@ INFO_1("Setting omnidirectional for acre post-904",true);
 }] call CBA_fnc_addEventHandler;
 
 if (hasInterface) then {
+    [{
+        if (acre_sys_core_ts3id < 0) then {
+            QGVAR(cutText) cutText [format ["Check ACRE plugin is running and is version %1", getText (configFile >> "CfgPatches" >> "acre_main" >> "versionStr")], "PLAIN", 2];
+        };
+    }, [], 5] call CBA_fnc_waitAndExecute;
     [{
         INFO("~~~~~~~~~~~~~~ ACRE Debug ~~~~~~~~~~~~~~");
         INFO_1("[ACRE_MAP_LOADED: %1]",ACRE_MAP_LOADED);
