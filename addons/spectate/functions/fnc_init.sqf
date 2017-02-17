@@ -125,7 +125,7 @@ GVAR(thingsToDraw) = [];
 GVAR(showInfo) = false;
 GVAR(thingsToDrawEH) = [{_this spawn FUNC(ui_updateThingsToDraw)}, 0.2] call CBA_fnc_addPerFrameHandler;
 GVAR(straggleUpdateEH) = [{_this spawn FUNC(ui_straggleUpdate)}, 5] call CBA_fnc_addPerFrameHandler;
-GVAR(draw3DEH) = addMissionEventHandler ["Draw3D", FUNC(ui_handleDraw3D)];
+GVAR(draw3DEH) = addMissionEventHandler ["Draw3D", {call FUNC(ui_handleDraw3D)}];
 
 // init misc GVARS
 GVAR(mapOpen) = false;

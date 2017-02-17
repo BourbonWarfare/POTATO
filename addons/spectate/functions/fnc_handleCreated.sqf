@@ -20,8 +20,8 @@ TRACE_1("Params",_this);
 
 params ["_unit"];
 
-_unit addEventHandler ["Fired", FUNC(handleFired)];
-_unit addEventHandler ["Killed", FUNC(handleKilled)];
+_unit addEventHandler ["Fired", {call FUNC(handleFired)}];
+_unit addEventHandler ["Killed", {call FUNC(handleKilled)}];
 
 if (GVAR(running)) then {
     [] call FUNC(updateList);
