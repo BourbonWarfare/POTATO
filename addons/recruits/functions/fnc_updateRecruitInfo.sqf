@@ -88,6 +88,7 @@ if (GVAR(showTags)) then {
                     private _unitDistance = _playerPos distance _unitPos;
                     _unitPos set [2, (_unitPos select 2) + 2.25];
                     if (_unitDistance < END_FADE_DISTANCE) then {
+                        if (_unitDistance == 0) exitWith {};
                         drawIcon3D [
                             QPATHTOF(data\recruit.paa),
                             [

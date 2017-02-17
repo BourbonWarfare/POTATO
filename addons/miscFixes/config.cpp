@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+#ifndef POTATO_LEAN_CONFIGS
+
 class CfgPatches {
     class ADDON {
         units[] = {
@@ -40,7 +42,7 @@ class CfgPatches {
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "potato_core", "mbg_celle2", "ace_ui", "BWA3_Common",
+            "potato_core", "mbg_celle2", "ace_ui", "ace_ai", "BWA3_Common",
             "rhs_c_weapons", "rhsusf_c_weapons", "CUP_Weapons_AK"
         };
         author = "Potato";
@@ -69,6 +71,7 @@ class CfgUnitInsignia {
     delete BWA3_insignia_name_Tonic;
 };
 
+#include "CfgAISkill.hpp"
 #include "CfgAmmo.hpp"
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
@@ -76,3 +79,5 @@ class CfgUnitInsignia {
 #include "CfgMagazines.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
+
+#endif

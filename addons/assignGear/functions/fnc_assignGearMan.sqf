@@ -70,7 +70,7 @@ END_COUNTER(assignGearMan);
     
     private _arrayUniform = (_loadoutArray select 3) param [0, ""];
     private _arrayVest = (_loadoutArray select 4) param [0, ""];
-    INFO_4("Checking loadout: Uniform [%1-%2] Vest [%3-%4]",_arrayUniform,uniform _unit,_arrayVest,vest _unit);
+    TRACE_4("Checking loadout: Uniform [%1-%2] Vest [%3-%4]",_arrayUniform,uniform _unit,_arrayVest,vest _unit);
 
     if ((_arrayUniform != (uniform _unit)) || {_arrayVest != (vest _unit)}) then {
         ERROR_2("Mismatch [%1] [%2]",name _unit, typeOf _unit);

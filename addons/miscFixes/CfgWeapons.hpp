@@ -16,6 +16,29 @@ class CfgWeapons {
         };
     };
 
+    // add predator NVGs
+    class O_NVGoggles_hex_F;
+    class potato_predatorHex: O_NVGoggles_hex_F {
+        author = "POTATO";
+        displayName = "Predator Vision (Hex)";
+        thermalMode[] = {7};
+        visionMode[] = {"Normal","NVG","TI"};
+    };
+    class O_NVGoggles_ghex_F;
+    class potato_predatorGHex: O_NVGoggles_ghex_F {
+        author = "POTATO";
+        displayName = "Predator Vision (Green Hex)";
+        thermalMode[] = {7};
+        visionMode[] = {"Normal","NVG","TI"};
+    };
+    class O_NVGoggles_urb_F;
+    class potato_predatorUrban: O_NVGoggles_urb_F {
+        author = "POTATO";
+        displayName = "Predator Vision (Urban)";
+        thermalMode[] = {7};
+        visionMode[] = {"Normal","NVG","TI"};
+    };
+
     // create lighter SMAWs for playability
     class Launcher;
     class Launcher_Base_F: Launcher {
