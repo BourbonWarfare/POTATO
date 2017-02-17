@@ -33,7 +33,7 @@ if (GVAR(running)) then {
     // disable ACRE spectate
     [false] call acre_api_fnc_setSpectator;
 
-    // remove event handlers
+    // remove sepectator event handlers
     [GVAR(thingsToDrawEH)] call CBA_fnc_removePerFrameHandler;
     GVAR(thingsToDrawEH) = nil;
 
@@ -48,5 +48,10 @@ if (GVAR(running)) then {
 
     // close display
     OVERLAY closeDisplay 1;
+
+    // mark spectator as stopped
     GVAR(running) = false;
+
+    // remove events from active units
+    [false] call FUNC(setEventsOnActiveUnits);
 };

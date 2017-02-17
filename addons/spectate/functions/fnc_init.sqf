@@ -28,6 +28,9 @@ params [
 // start spectate
 GVAR(running) = true;
 
+// add event handlers to all active units
+[] call FUNC(addEventsToActiveUnits);
+
 // check for zeus to transfer
 private _zeusModule = getAssignedCuratorLogic _oldUnit;
 TRACE_1("Curator", _zeusModule);
