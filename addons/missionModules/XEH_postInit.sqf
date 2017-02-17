@@ -36,6 +36,7 @@ GVAR(ehAdded) = false;
     _group setCombatMode "RED";
     _group setSpeedMode "FULL";
     _group setFormation "LINE";
+    _group allowFleeing 0;
 
     {
         TRACE_1("member",_x);
