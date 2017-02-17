@@ -27,7 +27,7 @@ if (_enable) then {
         [QGVAR(message)] call CFUNC(createRscTitle);
     };
 
-    GVAR(drawId) = addMissionEventHandler ["Draw3D", FUNC(updateRecruitInfo)];
+    GVAR(drawId) = addMissionEventHandler ["Draw3D", {call FUNC(updateRecruitInfo)}];
 } else {
     if (isNil QGVAR(drawId)) exitWith { LOG("Tried to stop the recruit info tracker while it was already stopped"); };
 

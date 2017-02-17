@@ -1,4 +1,4 @@
-#define DEBUG_MODE_FULL
+// #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 TRACE_1("params",_this);
@@ -44,7 +44,7 @@ private _icon = _logic getVariable ["icon", "mil_dot_noShadow"];
 
         private _nextIndex = missionNamespace getVariable [QGVAR(nextMarkerIndex), 0];
         missionNamespace setVariable [QGVAR(nextMarkerIndex), (_nextIndex + 1)];
-        private _markerName = createmarker [format [QGVAR(%1), _nextIndex], _pos];
+        private _markerName = createmarkerLocal [format [QGVAR(%1), _nextIndex], _pos];
 
         TRACE_1("Creating Marker",_markerName);
         _markerName setMarkerShapeLocal "ICON";

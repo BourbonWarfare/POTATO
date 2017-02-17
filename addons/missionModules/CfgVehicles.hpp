@@ -98,4 +98,16 @@ class CfgVehicles {
         class Arguments {};
         class Attributes {};
     };
+
+    class GVAR(zeus_banziCharge): Module_F {
+        author = QUOTE(PREFIX);
+        category = QUOTE(PREFIX);
+        scope = 1;
+        scopeCurator = 2;
+        isTriggerActivated = 0;
+        isGlobal = 2;
+        displayName = "Banzi Attack!";
+        function = QFUNC(zeus_banziCharge);
+        curatorCanAttach = 1;
+    };
 };
