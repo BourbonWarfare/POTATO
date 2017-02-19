@@ -53,7 +53,7 @@ class Cfg3DEN {
                 class GVAR(size): GVAR(set) {
                     idc = MARKER_SIZE_IDC;
                     y = 2.02 * SIZE_M * GRID_H;
-                    columns = 5;
+                    columns = 3;
                     strings[] = {UNIT_MARKER_SIZES_STRINGS};
                     values[] = {UNIT_MARKER_SIZES};
                 };
@@ -67,7 +67,7 @@ class Cfg3DEN {
                     h = 1.96 * SIZE_M * GRID_H;
 
                     rows = 2;
-                    columns = 5;
+                    columns = 4;
                     strings[] = {UNIT_MARKER_COLORS_STRINGS};
                     values[] = {UNIT_MARKER_COLORS};
                 };
@@ -81,26 +81,24 @@ class Cfg3DEN {
                     colorBackground[] = {0,0,0,0};
                     y = 5.02 * SIZE_M * GRID_H;
 
-                    columns = 8;
+                    columns = 7;
                     strings[] = {UNIT_MARKERS_STRINGS};
                     values[] = {UNIT_MARKERS};
                     tooltips[] = {
                         "Unknown",
-                        "Coy HQ",
-                        "Plt HQ",
-                        "Squad",
-                        "Fireteam",
-                        "MMG/MAT",
-                        "Engineer",
-                        "SAM",
-                        "Scout",
-                        "Armored",
-                        "Rotary",
-                        "Fixed",
+                        "Infantry",
+                        "HQ",
+                        "MMG",
+                        "MAT",
+                        "Recon",
                         "Mortar",
-						"FAC",
-						"XO",
-						"Medic"
+                        "Engineers",
+                        "APC/IFV",
+                        "Tank",
+                        "Helicopter",
+                        "Plane",
+                        "Artillery",
+                        "Medic"
                     };
                 };
             };

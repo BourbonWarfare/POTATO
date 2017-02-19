@@ -2,11 +2,12 @@
 
 ADDON = false;
 
+PREP_RECOMPILE_START;
 #include "XEH_PREP.hpp"
+PREP_RECOMPILE_END;
 
 // We Start game safe at preInit
 GVAR(safeStartEnabled) = true;
-GVAR(safeStartWarningEnabled) = true;
 
 // Register events
 ["potato_safeStartOn", {
@@ -24,9 +25,9 @@ GVAR(safeStartWarningEnabled) = true;
 
     if (_name == QGVAR(showTimer) && missionNamespace getVariable [QGVAR(startTime_PV), -1] != -1) then {
         if (_value) then {
-            [TIMER_LAYER, QGVAR(safeStartTimerRscTitle)] call FUNC(createDisplay);
+            [QGVAR(timerRscTitle)] call CFUNC(createRscTitle);
         } else {
-            TIMER_LAYER cutFadeOut 0;
+            QGVAR(timerRscTitle) cutFadeOut 0;
         };
     };
 }] call CBA_fnc_addEventHandler;

@@ -20,8 +20,7 @@ class GVAR(supplies) {
     class ACE_Box_Misc {};
     class ACE_medicalSupplyCrate {};
     class ACE_medicalSupplyCrate_advanced {};
-    
-    class EGVAR(miscFixes,acreBox) {};
+
     class EGVAR(miscFixes,smawBox) {};
     class EGVAR(vz99,box) {};
 
@@ -29,8 +28,8 @@ class GVAR(supplies) {
     class Box_East_Ammo_F {};
     class Box_IND_Ammo_F {};
     class Box_NATO_AmmoOrd_F {};
-    class HLC_AK_ammobox {};
-    class HLC_M14_ammobox {};
+    class CUP_RUBasicAmmunitionBox {};
+    class CUP_USBasicAmmunitionBox {};
 
     class C_Offroad_01_F {};
     class I_MRAP_03_hmg_F {};
