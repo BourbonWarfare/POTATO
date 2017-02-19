@@ -3,7 +3,6 @@ class RscListBox;
 class RscCheckBox;
 class RscStandardDisplay;
 
-
 class RscDisplayMultiplayerSetup: RscStandardDisplay {
     class controls {
         class TextListedPlayers;

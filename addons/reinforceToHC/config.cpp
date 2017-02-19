@@ -1,7 +1,5 @@
 #include "script_component.hpp"
 
-#ifndef POTATO_LEAN_CONFIGS
-
 class CfgPatches {
     class ADDON {
         units[] = {"Ares_Module_Reinforcements_Spawn_Units"};
@@ -43,5 +41,3 @@ class CfgVehicles {
 };
 
 #include "Displays.hpp"
-
-#endif

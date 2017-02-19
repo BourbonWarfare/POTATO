@@ -13,61 +13,44 @@ class CfgVehicles {
         author = QUOTE(PREFIX);
         category = QUOTE(PREFIX);
         scope = 2;
-        displayName = "Side Marker";
+        displayName = "Side Only Marker";
         icon = QUOTE(PATHTOF(UI\sideMarker_ca.paa));
         isGlobal = 2;
         isTriggerActivated = 0;
         function = QFUNC(sideMarker);
-
-        class Attributes {
-            class east {
-                displayName = "Show to east:";
-                control = "Checkbox";
-                property = QGVAR(east);
-                expression = "_this setVariable ['%s',_value, true];";
-                defaultValue = "(false)";
-            };
-            class west: east {
-                displayName = "Show to west:";
-                property = QGVAR(west);
-                expression = "_this setVariable ['%s',_value, true];";
-            };
-            class independent: east {
-                displayName = "Show to independent:";
-                property = QGVAR(independent);
-                expression = "_this setVariable ['%s',_value, true];";
-            };
-            class civilian: east {
-                displayName = "Show to civilians:";
-                property = QGVAR(civilian);
-                expression = "_this setVariable ['%s',_value, true];";
+        class Arguments {
+            class side {
+                displayName = "Side";
+                typeName = "NUMBER";
+                class values {
+                    class west { name = "West"; value = 0; default = 1; };
+                    class east { name = "East"; value = 1; };
+                    class resistance { name = "Independent/Resistance"; value = 2; };
+                    class civilian { name = "Civilian"; value = 3; };
+                    class all { name = "All"; value = 4; };
+                };
             };
             class text {
-                displayName = "Marker text:";
-                control = "Edit";
-                property = QGVAR(text);
-                expression = "_this setVariable ['%s',_value, true];";
-                defaultValue = "''";
-            };
-            class direction {
-                displayName = "Marker direction:";
-                control = QGVAR(sideMarkerDir);
-                property = QGVAR(direction);
-                expression = "_this setVariable ['%s',_value, true];";
-                defaultValue = "0";
+                displayName = "Text";
+                description = "Marker text (can be blank)";
+                defaultValue = "";
+                typeName = "STRING";
             };
             class color {
-                control = QGVAR(sideMarkerColor);
-                property = QGVAR(color);
-                expression = "_this setVariable ['%s',_value, true];";
-                defaultValue = "'ColorBlack'";
+                displayName = "Color";
+                typeName = "NUMBER";
+                class values {
+                    class black { name = "black"; value = 0; default = 1; };
+                    class red { name = "red"; value = 1; };
+                    class green { name = "green"; value = 2; };
+                    class blue { name = "blue"; value = 3; };
+                };
             };
-            class icon {
-                control = QGVAR(sideMarkerIcon);
-                property = QGVAR(icon);
-                expression = "_this setVariable ['%s',_value, true];";
-                defaultValue = "'mil_dot_noShadow'";
-            };
+        };
+        class ModuleDescription: ModuleDescription {
+            position = 1;
+            description = "Adds a marker for only one side";
+            sync[] = {};
         };
     };
 
@@ -97,17 +80,5 @@ class CfgVehicles {
         curatorCost = 0;
         class Arguments {};
         class Attributes {};
-    };
-
-    class GVAR(zeus_banziCharge): Module_F {
-        author = QUOTE(PREFIX);
-        category = QUOTE(PREFIX);
-        scope = 1;
-        scopeCurator = 2;
-        isTriggerActivated = 0;
-        isGlobal = 2;
-        displayName = "Banzi Attack!";
-        function = QFUNC(zeus_banziCharge);
-        curatorCanAttach = 1;
     };
 };

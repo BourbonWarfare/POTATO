@@ -30,7 +30,7 @@ if (time > 0) then {
             QFUNC(createEntityLocal)
         ] call FUNC(hcPassthrough);
     },
-    [_posATL, _typeOf, _attachedVehicle, _placerOwner, 5 + (random 15)]] call CBA_fnc_waitUntilAndExecute;
+    [_posATL, _typeOf, _attachedVehicle, _placerOwner, random 15]] call CBA_fnc_waitUntilAndExecute;
 };
 
 deleteVehicle _logic;

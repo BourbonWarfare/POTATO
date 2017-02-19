@@ -11,14 +11,14 @@
  *
  * Example:
  * [cursorTarget] call potato_assignGear_fnc_assignGearVehicle;
- *
- * Public: Yes
  */
 // #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-TRACE_1("params",_this);
 params ["_theVehicle", "_defaultLoadout"];
+TRACE_2("params",_theVehicle,_defaultLoadout);
+
+if (!GVAR(usePotato)) exitWith {TRACE_1("disabled",GVAR(usePotato))};
 
 private _typeOf = typeOf _theVehicle;
 private _loadout = _theVehicle getVariable ["F_Gear", _typeOf];
@@ -43,26 +43,22 @@ if (!isClass _path) then {
     //No CfgLoadouts for exact loadout, try default
     private _vehConfigSide = [_theVehicle, true] call BIS_fnc_objectSide;
     private _vehConfigFaction = switch (_vehConfigSide) do {
-        case (west): { "blu_f" };
-        case (east): { "opf_f" };
-        case (independent): { "ind_f" };
-        default { "civ_f" };
+    case (west): {"blu_f"};
+    case (east): {"rhs_faction_msv"};
+    case (independent): {"ind_f"};
+        default {"CIV_F"};
     };
     _path = missionConfigFile >> "CfgLoadouts" >> _vehConfigFaction >> _defaultLoadout;
-
     if (!isClass _path) then {
-        _vehConfigFaction = switch (_vehConfigSide) do { // note: will recheck civ_f here
-            case (west): { "potato_usmc" };
-            case (east): { "potato_msv" };
-            case (independent): { "potato_airborne" };
-            default { "civ_f" };
+        if (_vehConfigSide == east) then {
+            _vehConfigFaction = "OPF_F";
+            _path = missionConfigFile >> "CfgLoadouts" >> _vehConfigFaction >> _defaultLoadout;
         };
-        _path = missionConfigFile >> "CfgLoadouts" >> _vehConfigFaction >> _defaultLoadout;
     };
 };
 
 if (!isClass _path) exitWith {
-    diag_log text format ["[POTATO-AssignGear] - No loadout found for %1 (typeOf %2) (kindOf %3) (defaultLoadout: %4)", _theVehicle, typeof _theVehicle, _loadout, _defaultLoadout];
+    diag_log text format ["[POTATO-AssignGear] - No loadout found for %1 (typeOf %2) (kindOf %3)", _theVehicle, typeof _theVehicle, _loadout];
 };
 
 //Clean out starting inventory (even if there is no class)
@@ -81,21 +77,21 @@ private _transportBackpacks = getArray(_path >> "TransportBackpacks");
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
     _theVehicle addMagazineCargoGlobal [_classname, parseNumber _amount];
     nil
-} count _transportMagazines; // count used here for speed, make sure nil is above this line
+} count _transportMagazines;
 
 // transportItems
 {
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
     _theVehicle addItemCargoGlobal [_classname, parseNumber _amount];
     nil
-} count _transportItems; // count used here for speed, make sure nil is above this line
+} count _transportItems;
 
 // transportWeapons
 {
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
     _theVehicle addWeaponCargoGlobal [_classname, parseNumber _amount];
     nil
-} count _transportWeapons; // count used here for speed, make sure nil is above this line
+} count _transportWeapons;
 
 // transportBackpacks
 /*
@@ -103,9 +99,5 @@ private _transportBackpacks = getArray(_path >> "TransportBackpacks");
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
     _theVehicle addBackpackCargoGlobal [_classname, parseNumber _amount];
     nil
-<<<<<<< HEAD
 } count _transportBackpacks;
 */
-=======
-} count _transportBackpacks; // count used here for speed, make sure nil is above this line
->>>>>>> 41d3ae471fa68c936cf90e057aa94ee5ef0b918c

@@ -21,8 +21,7 @@ TRACE_1("params",_this);
 
 params [
     ["_side", civilian, [civilian]],
-    ["_numberOfUnits", 0, [0]],
-    ["_verbose", true, [false]]
+    ["_numberOfUnits", 0, [0]]
 ];
 
 // ensure we're not creating an empty group
@@ -34,14 +33,14 @@ if (_numberOfUnits < 1) exitWith {
 // ensure we're within our group limit
 private _currentSideGroupCount = { side _x == _side } count allGroups;
 if (_currentSideGroupCount >= GVAR(maxGroupCountPerSide)) exitWith {
-    if (_verbose) then {["Cannot create group, at side group limit"] call FUNC(sendCuratorHint);};
+    ["Cannot create group, at side group limit"] call FUNC(sendCuratorHint);
     false
 };
 
 // ensure we're within our AI limit
 private _currentAICount = count (allUnits - allPlayers);
 if ((_currentAICount + _numberOfUnits) > GVAR(maxAICount)) exitWith {
-    if (_verbose) then {["Cannot create group, would exceed the AI limit"] call FUNC(sendCuratorHint);};
+    ["Cannot create group, would exceed the AI limit"] call FUNC(sendCuratorHint);
     false
 };
 

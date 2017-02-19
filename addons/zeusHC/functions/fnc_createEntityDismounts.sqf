@@ -51,7 +51,6 @@ _modelOffset = _modelOffset vectorAdd ((vectorNormalized _modelOffset) vectorMul
 
     private _unitType = _createUnits deleteAt 0;
     private _posAGL = _attachedVehicle modelToWorld _modelOffset;
-    if ((_posAGL select 2) < 3) then {_posAGL set [2, 0]}; // prevent creating in mid-air for ground vehicles
     private _unit = _newGroup createUnit [_unitType, _posAGL, [], 0, "FORM"];
     TRACE_2("created unit",_unitType,_unit);
 

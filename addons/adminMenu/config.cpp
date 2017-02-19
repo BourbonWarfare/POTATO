@@ -20,12 +20,8 @@ class GVAR(supplies) {
     class ACE_Box_Misc {};
     class ACE_medicalSupplyCrate {};
     class ACE_medicalSupplyCrate_advanced {};
-<<<<<<< HEAD
     
     class EGVAR(miscFixes,acreBox) {};
-=======
-
->>>>>>> 41d3ae471fa68c936cf90e057aa94ee5ef0b918c
     class EGVAR(miscFixes,smawBox) {};
     class EGVAR(vz99,box) {};
 
@@ -33,8 +29,8 @@ class GVAR(supplies) {
     class Box_East_Ammo_F {};
     class Box_IND_Ammo_F {};
     class Box_NATO_AmmoOrd_F {};
-    class CUP_RUBasicAmmunitionBox {};
-    class CUP_USBasicAmmunitionBox {};
+    class HLC_AK_ammobox {};
+    class HLC_M14_ammobox {};
 
     class C_Offroad_01_F {};
     class I_MRAP_03_hmg_F {};

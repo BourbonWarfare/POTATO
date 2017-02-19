@@ -5,7 +5,7 @@
 
 #include "script_component.hpp"
 
-params ["_posATL", "_typeOf", ["_attachedVehicle", objNull, [objNull]], "_placerOwner"];
+params ["_posATL", "_typeOf", ["_attachedVehicle", objNull, [objnull]], "_placerOwner"];
 TRACE_4("params",_posATL,_typeOf,_attachedVehicle,_placerOwner);
 
 private _config = (configFile >> "CfgVehicles" >> _typeOf);
@@ -46,18 +46,10 @@ if (_createVic != "") then {
 
     [_side, _newVehicle, _crewType, true] spawn FUNC(createCrew);
 } else {
-    if (_curatorCanAttach) then { //Paradrop / dismounts:
-        // check for null attached vehicle, try to find nearest vic
-        if (isNull _attachedVehicle) then {
-            private _nearestVehicles = nearestObjects [_posATL, ["Car", "Tank", "Air"], 50];
-            TRACE_1("not attached",_nearestVehicles);
-            if !(_nearestVehicles isEqualTo []) then {
-                _attachedVehicle = _nearestVehicles select 0;
-            };
-        };
-
-        [_attachedVehicle, _side, _createUnits, _placerOwner] call FUNC(createEntityDismounts);
-    } else {
+    if (!_curatorCanAttach) then {
         [_side, _posATL, _createUnits, true, "FORM"] spawn FUNC(createGroup);
+    } else {
+        //Paradrop / dismounts:
+        [_attachedVehicle, _side, _createUnits, _placerOwner] call FUNC(createEntityDismounts);
     };
 };

@@ -15,9 +15,3 @@ class Extended_PostInit_EventHandlers {
         init = QUOTE(call COMPILE_FILE(XEH_kilTracker));
     };
 };
-
-class Extended_DisplayUnload_EventHandlers {
-    class RscDisplayCamera {
-        ADDON = QUOTE(showChat true);
-    };
-};

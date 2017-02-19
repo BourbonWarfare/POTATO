@@ -30,16 +30,12 @@ class Cfg3DEN {
             };
         };
         class GVAR(bigEdit): Edit {
-            attributeSave = QUOTE(_this call FUNC(briefingAttributeSave));
-            attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(briefingAttributeLoad));
-
             h = "5 * 5 * (pixelH * pixelGrid * 0.50)";
             class Controls: Controls {
                 class Title: Title {
                     h = "5 * 5 * (pixelH * pixelGrid * 0.50)";
                 };
                 class Value: Value {
-                    idc = TEXT_IDC;
                     style = 16; //multi line
                     h = "5 * 5 * (pixelH * pixelGrid * 0.50)";
                 };
@@ -72,7 +68,6 @@ class Cfg3DEN {
                 collapsed = 1;
                 class Attributes {
                     class GVAR(brief) {
-                        condition = "objectBrain";
                         displayName = "Unit Briefing";
                         tooltip = "";
                         property = QGVAR(brief);
