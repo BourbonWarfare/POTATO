@@ -39,6 +39,7 @@ INFO_1("Setting omnidirectional for acre post-904",true);
 }] call CBA_fnc_addEventHandler;
 
 if (hasInterface) then {
+    if (isServer) exitWith {}; // Non-Dedicated (probably just mission maker)
     [{
         if (acre_sys_core_ts3id < 0) then {
             QGVAR(cutText) cutText [format ["Check ACRE plugin is running and is version %1", getText (configFile >> "CfgPatches" >> "acre_main" >> "versionStr")], "PLAIN", 2];
@@ -52,7 +53,7 @@ if (hasInterface) then {
         INFO_1("[ACRE_CORE_INIT: %1]",ACRE_CORE_INIT);
         INFO_1("[acre_player: %1]",acre_player);
         if (!ACRE_CORE_INIT) then {
-            ace_player createDiaryRecord ["diary", ["SIGNALS", format ["~~~~~~~~~~~~~~ ACRE Debug ~~~~~~~~~~~~~~<br/>Map: %1<br/>Data: %2<br/>TSID: %3<br/>Core: %4", ACRE_MAP_LOADED, ACRE_DATA_SYNCED, acre_sys_core_ts3id, ACRE_CORE_INIT]]];
+            ace_player createDiaryRecord ["diary", ["ACRE ERROR", format ["~~~~~~~~~~~~~~ ACRE Debug ~~~~~~~~~~~~~~<br/>Map: %1<br/>Data: %2<br/>TSID: %3<br/>Core: %4", ACRE_MAP_LOADED, ACRE_DATA_SYNCED, acre_sys_core_ts3id, ACRE_CORE_INIT]]];
         };
     }, [], 15] call CBA_fnc_waitAndExecute;
 };
