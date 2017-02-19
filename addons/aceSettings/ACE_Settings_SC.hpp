@@ -40,11 +40,6 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 1; //SIDE
     };
-    class ace_medical_bleedingCoefficient {
-        typeName = "SCALAR";
-        value = 2;
-        force = 1; // This overrides mission setting/module!!!
-    };
     class ace_medical_ai_enabledFor { // disable medical AI
         typeName = "SCALAR";
         value = 0;
