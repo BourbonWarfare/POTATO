@@ -4,13 +4,13 @@
  * Should only be called by events
  *
  * Arguments:
- * Nothing
+ * 0: Unit to add event handlers to <OBJECT>
  *
  * Return Value:
  * Nothing
  *
  * Examples:
- * [] call potato_spectate_fnc_handleCreated;
+ * [player] call potato_spectate_fnc_handleCreated;
  *
  * Public: No
  */
@@ -20,9 +20,7 @@ TRACE_1("Params",_this);
 
 params ["_unit"];
 
-_unit addEventHandler ["Fired", FUNC(handleFired)];
-_unit addEventHandler ["Killed", FUNC(handleKilled)];
-
 if (GVAR(running)) then {
+    [_unit] call FUNC(addEventHandlers);
     [] call FUNC(updateList);
 };

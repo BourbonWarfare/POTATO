@@ -1,10 +1,10 @@
 /*
  * Author: AACO
- * Function used to handle a unit's death'
+ * Function used to handle a unit's death
  * Should only be called by events
  *
  * Arguments:
- * Nothing
+ * 0: Unit killed <OBJECT>
  *
  * Return Value:
  * Nothing
@@ -18,6 +18,8 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-if (GVAR(running)) then {
-    [] call FUNC(updateList);
-};
+params ["_unit"]
+
+[_unit] call FUNC(removeEventHandlers);
+
+[] call FUNC(updateList);

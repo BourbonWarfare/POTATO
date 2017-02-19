@@ -1,5 +1,6 @@
 LOG(QUOTE(ADDON));
 
+PREP(addEventHandlers);
 PREP(checkToReopen);
 PREP(exit);
 PREP(findPathInList);
@@ -12,7 +13,9 @@ PREP(handleKilled);
 PREP(init);
 PREP(prepareSpectator);
 PREP(prepareTarget);
+PREP(removeEventHandlers);
 PREP(resetTarget);
+PREP(setEventsOnActiveUnits);
 PREP(setFocus);
 PREP(setTarget);
 PREP(switchFocus);

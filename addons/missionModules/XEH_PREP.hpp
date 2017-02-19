@@ -9,6 +9,7 @@ PREP(sideMarker);
 PREP(skillDebug);
 PREP(toolboxAttributeLoad);
 PREP(toolboxAttributeSave);
+PREP(zeus_banziCharge);
 PREP(zeus_globalSetSkill);
 PREP(zeus_missionHint);
 PREP(zeusAttributes);
