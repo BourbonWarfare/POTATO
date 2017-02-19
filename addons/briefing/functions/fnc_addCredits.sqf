@@ -1,10 +1,22 @@
+/*
+ * Author: PabstMirror
+ * Function used to add credits to a player's diary
+ *
+ * Arguments:
+ * 0: Unit to add to the credits to <OBJECT>
+ *
+ * Examples:
+ * [player] call potato_briefing_fnc_addCredits;
+ *
+ * Public: Yes
+ */
+
 #include "script_component.hpp"
-//Auto add credits from description.ext:
 
-params ["_unit"];
 TRACE_1("params",_unit);
+params ["_unit"];
 
-private _missionName = getMissionConfigValue ["onLoadName", "???"];
+private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName", "???"]];
 private _authorName = getMissionConfigValue ["author", "???"];
 private _worldName = getText (configFile >> "CfgWorlds" >> worldName >> "description");
 

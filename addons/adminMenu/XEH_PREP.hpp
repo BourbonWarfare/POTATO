@@ -1,5 +1,6 @@
 TRACE_1("",QUOTE(ADDON));
 
+PREP(checkForDebug);
 PREP(checkMods);
 PREP(checkModsWriteDiary);
 PREP(endMission);
