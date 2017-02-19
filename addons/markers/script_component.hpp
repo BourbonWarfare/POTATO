@@ -40,35 +40,43 @@
 #define UNIT_MARKER_ICON "\A3\ui_f\data\map\markers\military\start_CA.paa"
 #define UNIT_MARKER_SIZE 12
 
-#define UNIT_MARKERS '\A3\ui_f\data\map\markers\nato\b_unknown.paa',\
-'\A3\ui_f\data\map\markers\nato\b_inf.paa',\
-'\A3\ui_f\data\map\markers\nato\b_hq.paa',\
-'\A3\ui_f\data\map\markers\nato\b_support.paa',\
-'\A3\ui_f\data\map\markers\nato\b_motor_inf.paa',\
-'\A3\ui_f\data\map\markers\nato\b_recon.paa',\
-'\A3\ui_f\data\map\markers\nato\b_mortar.paa',\
-'\A3\ui_f\data\map\markers\nato\b_maint.paa',\
-'\A3\ui_f\data\map\markers\nato\b_mech_inf.paa',\
-'\A3\ui_f\data\map\markers\nato\b_armor.paa',\
-'\A3\ui_f\data\map\markers\nato\b_air.paa',\
-'\A3\ui_f\data\map\markers\nato\b_plane.paa',\
-'\A3\ui_f\data\map\markers\nato\b_art.paa',\
-'\A3\ui_f\data\map\markers\nato\b_med.paa'
+#define UNIT_MARKERS 'PATHTOF(data\unknown.paa)',\
+'PATHTOF(data\infantry.paa)',\
+'PATHTOF(data\hq.paa)',\
+'PATHTOF(data\mmg.paa)',\
+'PATHTOF(data\mat.paa)',\
+'PATHTOF(data\msam.paa)',\
+'PATHTOF(data\mortar.paa)',\
+'PATHTOF(data\engineer.paa)',\
+'PATHTOF(data\maintenance.paa)',\
+'PATHTOF(data\recon.paa)',\
+'PATHTOF(data\support.paa)',\
+'PATHTOF(data\medical.paa)',\
+'PATHTOF(data\mechanized_infantry.paa)',\
+'PATHTOF(data\armor.paa)',\
+'PATHTOF(data\helicopter.paa)',\
+'PATHTOF(data\attack_helicopter.paa)',\
+'PATHTOF(data\fixed_wing.paa)',\
+'PATHTOF(data\attack_fixed_wing.paa)'
 
-#define UNIT_MARKERS_STRINGS "\A3\ui_f\data\map\markers\nato\b_unknown.paa",\
-"\A3\ui_f\data\map\markers\nato\b_inf.paa",\
-"\A3\ui_f\data\map\markers\nato\b_hq.paa",\
-"\A3\ui_f\data\map\markers\nato\b_support.paa",\
-"\A3\ui_f\data\map\markers\nato\b_motor_inf.paa",\
-"\A3\ui_f\data\map\markers\nato\b_recon.paa",\
-"\A3\ui_f\data\map\markers\nato\b_mortar.paa",\
-"\A3\ui_f\data\map\markers\nato\b_maint.paa",\
-"\A3\ui_f\data\map\markers\nato\b_mech_inf.paa",\
-"\A3\ui_f\data\map\markers\nato\b_armor.paa",\
-"\A3\ui_f\data\map\markers\nato\b_air.paa",\
-"\A3\ui_f\data\map\markers\nato\b_plane.paa",\
-"\A3\ui_f\data\map\markers\nato\b_art.paa",\
-"\A3\ui_f\data\map\markers\nato\b_med.paa"
+#define UNIT_MARKERS_STRINGS QPATHTOF(data\unknown.paa),\
+QPATHTOF(data\infantry.paa),\
+QPATHTOF(data\hq.paa),\
+QPATHTOF(data\mmg.paa),\
+QPATHTOF(data\mat.paa),\
+QPATHTOF(data\msam.paa),\
+QPATHTOF(data\mortar.paa),\
+QPATHTOF(data\engineer.paa),\
+QPATHTOF(data\maintenance.paa),\
+QPATHTOF(data\recon.paa),\
+QPATHTOF(data\support.paa),\
+QPATHTOF(data\medical.paa),\
+QPATHTOF(data\mechanized_infantry.paa),\
+QPATHTOF(data\armor.paa),\
+QPATHTOF(data\helicopter.paa),\
+QPATHTOF(data\attack_helicopter.paa),\
+QPATHTOF(data\fixed_wing.paa),\
+QPATHTOF(data\attack_fixed_wing.paa)
 
 #define UNIT_MARKER_SIZES 16,24,32
 #define UNIT_MARKER_SIZES_STRINGS "Small","Medium","Large"

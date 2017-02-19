@@ -16,7 +16,7 @@ class Cfg3DEN {
             onLoad = QUOTE(_this call FUNC(markerControlLoad));
             attributeSave = QUOTE(_this call FUNC(markerAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(markerAttributeLoad));
-            h = (7 * SIZE_M + 1) * GRID_H;
+            h = (8 * SIZE_M + 1) * GRID_H;
             class Controls: Controls {
                 class SetTitle: Title {
                     style = 1;
@@ -80,25 +80,31 @@ class Cfg3DEN {
                     style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
                     colorBackground[] = {0,0,0,0};
                     y = 5.02 * SIZE_M * GRID_H;
+                    h = 2.96 * SIZE_M * GRID_H;
 
-                    columns = 7;
+                    rows = 3;
+                    columns = 6;
                     strings[] = {UNIT_MARKERS_STRINGS};
                     values[] = {UNIT_MARKERS};
                     tooltips[] = {
                         "Unknown",
                         "Infantry",
-                        "HQ",
+                        "Headquarters",
                         "MMG",
                         "MAT",
-                        "Recon",
+                        "MSAM",
                         "Mortar",
-                        "Engineers",
-                        "APC/IFV",
-                        "Tank",
+                        "Enginner",
+                        "Maintenance",
+                        "Recon",
+                        "Support",
+                        "Medical",
+                        "Mehanized Infantry",
+                        "Armor",
                         "Helicopter",
-                        "Plane",
-                        "Artillery",
-                        "Medic"
+                        "Attack Helicopter",
+                        "Fixed Wing",
+                        "Attack Fixed Wing"
                     };
                 };
             };

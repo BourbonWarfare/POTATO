@@ -29,7 +29,7 @@ params [
 GVAR(running) = true;
 
 // add event handlers to all active units
-[] call FUNC(addEventsToActiveUnits);
+[] call FUNC(setEventsOnActiveUnits);
 
 // check for zeus to transfer
 private _zeusModule = getAssignedCuratorLogic _oldUnit;

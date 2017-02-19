@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-params ["_unit"]
+params ["_unit"];
 
 private _index = _unit getVariable [QGVAR(firedEHID), -1];
 if (_index > -1) then {
