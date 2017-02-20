@@ -5,13 +5,12 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core","ace_medical"};
+        requiredAddons[] = {"potato_core", "potato_safeStart"};
         author = "Potato";
-        authors[] = {"PabstMirror"};
-        authorUrl = "https://github.com/BourbonWarfare/POTATO";
+        authors[] = {"Bismarck"};
+        authorUrl = "https://github.com/SignalCommunity/POTATO";
         VERSION_CONFIG;
     };
 };
 
 #include "CfgEventHandlers.hpp"
-#include "ACE_Settings_SC.hpp"

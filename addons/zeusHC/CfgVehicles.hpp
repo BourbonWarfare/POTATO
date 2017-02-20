@@ -190,19 +190,19 @@ class CfgVehicles {
     };
     class GVAR(west_strykerGmgD): GVAR(west_rifleman) {
         displayName = "APC: Stryker GMG (Desert)";
-        GVAR(createVic) = "CUP_B_M1126_ICV_MK19_Desert";
+        GVAR(createVic) = "M1126_ICV_mk19_DG1_NOSLATDES";
     };
     class GVAR(west_strykerHmgD): GVAR(west_rifleman) {
         displayName = "APC: Stryker HMG (Desert)";
-        GVAR(createVic) = "CUP_B_M1126_ICV_M2_Desert";
+        GVAR(createVic) = "M1126_ICV_M2_DG1_NOSLATDES";
     };
     class GVAR(west_strykerGmgW): GVAR(west_rifleman) {
         displayName = "APC: Stryker GMG (Woodland)";
-        GVAR(createVic) = "CUP_B_M1126_ICV_MK19_Woodland";
+        GVAR(createVic) = "M1126_ICV_mk19_DG1_NOSLATWOOD";
     };
     class GVAR(west_strykerHmgW): GVAR(west_rifleman) {
         displayName = "APC: Stryker HMG (Woodland)";
-        GVAR(createVic) = "CUP_B_M1126_ICV_M2_Woodland";
+        GVAR(createVic) = "M1126_ICV_M2_DG1_NOSLATWOOD";
     };
     class GVAR(west_rhsHmmwvGmgD): GVAR(west_rifleman) {
         displayName = "Car: HMMWV GMG (Desert)";

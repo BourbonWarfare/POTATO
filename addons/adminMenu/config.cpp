@@ -28,8 +28,6 @@ class GVAR(supplies) {
     class Box_East_Ammo_F {};
     class Box_IND_Ammo_F {};
     class Box_NATO_AmmoOrd_F {};
-    class CUP_RUBasicAmmunitionBox {};
-    class CUP_USBasicAmmunitionBox {};
 
     class C_Offroad_01_F {};
     class I_MRAP_03_hmg_F {};

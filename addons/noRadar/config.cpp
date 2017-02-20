@@ -6,10 +6,10 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {"O_Heli_Light_02_F_R8","B_Heli_Attack_01_F_R8","O_Heli_Attack_02_F_R8","O_Heli_Attack_02_black_F_R8","I_Plane_Fighter_03_CAS_F_R8","I_Plane_Fighter_03_AA_F_R8","B_APC_Tracked_01_AA_F_R8","O_APC_Tracked_02_AA_F_R8","B_Plane_CAS_01_F_R8","O_Plane_CAS_02_F_R8","B_UAV_02_F_R8","O_UAV_02_F_R8","I_UAV_02_F_R8","B_UAV_02_CAS_F_R8","O_UAV_02_CAS_F_R8","I_UAV_02_CAS_F_R8","rhsusf_f22_R8","B_T_UAV_03_F_R8","O_T_UAV_04_CAS_F_R8","B_T_VTOL_01_infantry_F_R8","B_T_VTOL_01_vehicle_F_R8","B_T_VTOL_01_armed_F_R8","O_T_VTOL_02_infantry_F_R8","O_T_VTOL_02_vehicle_F_R8","B_T_APC_Tracked_01_AA_F_R8","O_T_APC_Tracked_02_AA_ghex_F_R8","RHS_Mi24P_vvs_R8","RHS_Mi24P_vvsc_R8","RHS_Mi24P_CAS_vvs_R8","RHS_Mi24P_CAS_vvsc_R8","RHS_Mi24P_CAS_vdv_R8","RHS_Mi24P_AT_vvs_R8","RHS_Mi24P_AT_vvsc_R8","RHS_Mi24P_AT_vdv_R8","RHS_Mi24P_vdv_R8","RHS_Mi24V_vvs_R8","RHS_Mi24V_vvsc_R8","RHS_Mi24V_FAB_vvs_R8","RHS_Mi24V_FAB_vvsc_R8","RHS_Mi24V_FAB_vdv_R8","RHS_Mi24V_UPK23_vvs_R8","RHS_Mi24V_UPK23_vvsc_R8","RHS_Mi24V_UPK23_vdv_R8","RHS_Mi24V_AT_vvs_R8","RHS_Mi24V_AT_vvsc_R8","RHS_Mi24V_AT_vdv_R8","RHS_Mi24Vt_vvs_R8","RHS_Mi24Vt_vvsc_R8","RHS_Mi24V_vdv_R8","RHS_Mi8mt_vvs_R8","RHS_Mi8mt_vvsc_R8","RHS_Mi8mt_vdv_R8","RHS_Mi8mt_vv_R8","RHS_Mi8mt_Cargo_vvs_R8","RHS_Mi8mt_Cargo_vvsc_R8","RHS_Mi8mt_Cargo_vdv_R8","RHS_Mi8mt_Cargo_vv_R8","RHS_Mi8MTV3_vvs_R8","RHS_Mi8MTV3_vvsc_R8","RHS_Mi8MTV3_vdv_R8","RHS_Mi8MTV3_UPK23_vvs_R8","RHS_Mi8MTV3_UPK23_vvsc_R8","RHS_Mi8MTV3_UPK23_vdv_R8","RHS_Mi8MTV3_FAB_vvs_R8","RHS_Mi8MTV3_FAB_vvsc_R8","RHS_Mi8MTV3_FAB_vdv_R8","RHS_Mi8AMT_vvs_R8","RHS_Mi8AMT_vvsc_R8","RHS_Mi8AMT_vdv_R8","RHS_Mi8AMTSh_vvs_R8","RHS_Mi8AMTSh_vvsc_R8","RHS_Mi8AMTSh_UPK23_vvs_R8","RHS_Mi8AMTSh_UPK23_vvsc_R8","RHS_Mi8AMTSh_FAB_vvs_R8","RHS_Mi8AMTSh_FAB_vvsc_R8","RHS_Mi8amt_civilian_R8","RHS_Su25SM_vvs_R8","RHS_Su25SM_KH29_vvs_R8","RHS_Su25SM_CAS_vvs_R8","RHS_Su25SM_vvsc_R8","RHS_Su25SM_KH29_vvsc_R8","RHS_Su25SM_CAS_vvsc_R8","RHS_Ka52_vvsc_R8","RHS_Ka52_vvs_R8","RHS_Ka52_UPK23_vvs_R8","RHS_Ka52_UPK23_vvsc_R8","rhs_pchela1t_vvs_R8","rhs_pchela1t_vvsc_R8","RHS_T50_vvs_051_R8","RHS_T50_vvs_052_R8","RHS_T50_vvs_053_R8","RHS_T50_vvs_054_R8","RHS_T50_vvs_blueonblue_R8","RHS_T50_vvs_generic_R8","rhs_l159_CDF_R8","rhs_l159_CDF_plamen_R8","rhs_l159_CDF_CAP_R8","rhs_l159_CDF_CAS_R8","rhs_l39_cdf_R8","rhs_l159_cdf_b_CDF_R8","rhs_l159_cdf_b_CDF_plamen_R8","rhs_l159_cdf_b_CDF_CAP_R8","rhs_l159_cdf_b_CDF_CAS_R8","rhs_l39_cdf_b_cdf_R8","RHS_AN2_R8","RHS_AN2_B_R8","rhsgref_cdf_Mi35_R8","rhsgref_mi24g_CAS_R8","rhsgref_mi24g_UPK23_R8","rhsgref_mi24g_FAB_R8","rhsgref_b_mi24g_CAS_R8","rhsgref_b_mi24g_UPK23_R8","rhsgref_b_mi24g_FAB_R8","rhs_zsu234_aa_R8","RHS_AH64D_R8","RHS_AH64D_GS_R8","RHS_AH64D_CS_R8","RHS_AH64D_wd_R8","RHS_AH64D_wd_GS_R8","RHS_AH64D_wd_CS_R8","RHS_AH64D_AA_R8","RHS_AH64D_wd_AA_R8","RHS_AH64DGrey_R8","RHS_C130J_R8","RHS_A10_R8","RHS_A10_AT_R8","rhsusf_CH53E_USMC_R8","rhsusf_CH53E_USMC_D_R8","rhsusf_mkvsoc_R8","rhsgref_cdf_zsu234_R8","rhsgref_cdf_reg_Mi8amt_R8","rhsgref_cdf_reg_Mi17Sh_R8","rhsgref_cdf_Mi35_UPK_R8","rhsgref_cdf_su25_R8","rhsgref_cdf_b_zsu234_R8","rhsgref_cdf_b_reg_Mi8amt_R8","rhsgref_cdf_b_reg_Mi17Sh_R8","rhsgref_cdf_b_Mi35_R8","rhsgref_cdf_b_Mi35_UPK_R8","rhsgref_cdf_b_su25_R8","rhsgref_ins_zsu234_R8","rhsgref_ins_Mi8amt_R8","rhsgref_ins_g_zsu234_R8","rhsgref_ins_g_Mi8amt_R8","rhsgref_un_Mi8amt_R8","rhsgref_un_Mi24V_R8","rhsgref_un_Mi24V_UPK_R8","BWA3_Tiger_RMK_PARS_R8","BWA3_Tiger_RMK_Universal_R8","BWA3_Tiger_RMK_FZ_R8","BWA3_Tiger_RMK_Heavy_R8","BWA3_Tiger_Gunpod_PARS_R8","BWA3_Tiger_Gunpod_FZ_R8","BWA3_Tiger_Gunpod_Heavy_R8"};
+        units[] = {"O_Heli_Light_02_F_R8","B_Heli_Attack_01_F_R8","O_Heli_Attack_02_F_R8","O_Heli_Attack_02_black_F_R8","I_Plane_Fighter_03_CAS_F_R8","I_Plane_Fighter_03_AA_F_R8","B_APC_Tracked_01_AA_F_R8","O_APC_Tracked_02_AA_F_R8","uns_Type55_MG_R8","uns_Type55_twinMG_R8","uns_Type55_patrol_R8","uns_Type55_LMG_R8","uns_Type55_RR57_R8","uns_Type55_RR73_R8","uns_Type55_M40_R8","uns_Type55_mortar_R8","uns_Type55_R8","uns_BTR152_DSHK_R8","uns_Type55_ZU_R8","uns_BTR152_ZPU_R8","uns_c1a_R8","uns_c1a2_R8","uns_c1a2cargo_R8","uns_c1a3_R8","uns_c1a3cargo_R8","uns_c1a4_R8","uns_c1a4cargo_R8","uns_c1a5_R8","uns_c1a5cargo_R8","uns_c1a6_R8","uns_c1a6cargo_R8","uns_c1a7_R8","uns_c1a7cargo_R8","uns_AC47_R8","uns_AC47_cia_R8","uns_m48a3_R8","uns_M67A_R8","uns_m551_R8","B_Plane_CAS_01_F_R8","O_Plane_CAS_02_F_R8","B_UAV_02_F_R8","O_UAV_02_F_R8","I_UAV_02_F_R8","B_UAV_02_CAS_F_R8","O_UAV_02_CAS_F_R8","I_UAV_02_CAS_F_R8","uns_UH1C_M21_M200_R8","uns_UH1C_M21_M158_R8","uns_UH1C_M21_M200_1AC_R8","uns_UH1C_M6_M158_R8","uns_UH1C_M6_M200_R8","uns_UH1C_M6_M200_1AC_R8","uns_UH1C_M21_M158_M134_R8","uns_UH1F_M21_M158_Hornet_R8","uns_UH1C_M6_M200_M134_R8","uns_UH1F_M6_M158_Hornet_R8","UNS_UH1C_M3_ARA_R8","UNS_UH1B_TOW_R8","uns_Type74_NVA_R8","uns_Type74_VC_R8","rhsusf_f22_R8","rhs_l159_CDF_R8","rhs_l159_CDF_plamen_R8","rhs_l159_CDF_CAP_R8","rhs_l159_CDF_CAS_R8","rhs_l39_cdf_R8","rhs_l159_cdf_b_CDF_R8","rhs_l159_cdf_b_CDF_plamen_R8","rhs_l159_cdf_b_CDF_CAP_R8","rhs_l159_cdf_b_CDF_CAS_R8","rhs_l39_cdf_b_cdf_R8","RHS_AN2_R8","RHS_AN2_B_R8","RHS_Mi24P_vvs_R8","RHS_Mi24P_vvsc_R8","RHS_Mi24P_CAS_vvs_R8","RHS_Mi24P_CAS_vvsc_R8","RHS_Mi24P_CAS_vdv_R8","RHS_Mi24P_AT_vvs_R8","RHS_Mi24P_AT_vvsc_R8","RHS_Mi24P_AT_vdv_R8","RHS_Mi24P_vdv_R8","RHS_Mi24V_vvs_R8","RHS_Mi24V_vvsc_R8","RHS_Mi24V_FAB_vvs_R8","RHS_Mi24V_FAB_vvsc_R8","RHS_Mi24V_FAB_vdv_R8","RHS_Mi24V_UPK23_vvs_R8","RHS_Mi24V_UPK23_vvsc_R8","RHS_Mi24V_UPK23_vdv_R8","RHS_Mi24V_AT_vvs_R8","RHS_Mi24V_AT_vvsc_R8","RHS_Mi24V_AT_vdv_R8","RHS_Mi24Vt_vvs_R8","RHS_Mi24Vt_vvsc_R8","RHS_Mi24V_vdv_R8","RHS_Mi8mt_vvs_R8","RHS_Mi8mt_vvsc_R8","RHS_Mi8mt_vdv_R8","RHS_Mi8mt_vv_R8","RHS_Mi8mt_Cargo_vvs_R8","RHS_Mi8mt_Cargo_vvsc_R8","RHS_Mi8mt_Cargo_vdv_R8","RHS_Mi8mt_Cargo_vv_R8","RHS_Mi8MTV3_vvs_R8","RHS_Mi8MTV3_vvsc_R8","RHS_Mi8MTV3_vdv_R8","RHS_Mi8MTV3_UPK23_vvs_R8","RHS_Mi8MTV3_UPK23_vvsc_R8","RHS_Mi8MTV3_UPK23_vdv_R8","RHS_Mi8MTV3_FAB_vvs_R8","RHS_Mi8MTV3_FAB_vvsc_R8","RHS_Mi8MTV3_FAB_vdv_R8","RHS_Mi8mtv3_Cargo_vvs_R8","RHS_Mi8mtv3_Cargo_vvsc_R8","RHS_Mi8mtv3_Cargo_vdv_R8","RHS_Mi8AMT_vvs_R8","RHS_Mi8AMT_vvsc_R8","RHS_Mi8AMT_vdv_R8","RHS_Mi8AMTSh_vvs_R8","RHS_Mi8AMTSh_vvsc_R8","RHS_Mi8AMTSh_UPK23_vvs_R8","RHS_Mi8AMTSh_UPK23_vvsc_R8","RHS_Mi8AMTSh_FAB_vvs_R8","RHS_Mi8AMTSh_FAB_vvsc_R8","RHS_Mi8amt_civilian_R8","RHS_Su25SM_vvs_R8","RHS_Su25SM_KH29_vvs_R8","RHS_Su25SM_CAS_vvs_R8","RHS_Su25SM_vvsc_R8","RHS_Su25SM_KH29_vvsc_R8","RHS_Su25SM_CAS_vvsc_R8","RHS_Ka52_vvsc_R8","RHS_Ka52_vvs_R8","RHS_Ka52_UPK23_vvs_R8","RHS_Ka52_UPK23_vvsc_R8","rhs_pchela1t_vvs_R8","rhs_pchela1t_vvsc_R8","RHS_T50_vvs_051_R8","RHS_T50_vvs_052_R8","RHS_T50_vvs_053_R8","RHS_T50_vvs_054_R8","RHS_T50_vvs_blueonblue_R8","RHS_T50_vvs_generic_R8","RHS_TU95MS_vvs_old_R8","RHS_TU95MS_vvs_dubna_R8","RHS_TU95MS_vvs_irkutsk_R8","RHS_TU95MS_vvs_tambov_R8","RHS_TU95MS_vvs_chelyabinsk_R8","rhs_mi28n_vvs_R8","rhs_mi28n_vvsc_R8","rhs_mi28n_s13_vvs_R8","rhs_mi28n_s13_vvsc_R8","rhsgref_cdf_Mi35_R8","rhsgref_mi24g_CAS_R8","rhsgref_mi24g_UPK23_R8","rhsgref_mi24g_FAB_R8","rhsgref_b_mi24g_CAS_R8","rhsgref_b_mi24g_UPK23_R8","rhsgref_b_mi24g_FAB_R8","B_T_UAV_03_F_R8","O_T_UAV_04_CAS_F_R8","B_T_VTOL_01_infantry_F_R8","B_T_VTOL_01_vehicle_F_R8","B_T_VTOL_01_armed_F_R8","O_T_VTOL_02_infantry_F_R8","O_T_VTOL_02_vehicle_F_R8","B_T_APC_Tracked_01_AA_F_R8","O_T_APC_Tracked_02_AA_ghex_F_R8","RHS_AH64D_R8","RHS_AH64D_GS_R8","RHS_AH64D_CS_R8","RHS_AH64D_AA_R8","RHS_AH64D_wd_R8","RHS_AH64D_wd_GS_R8","RHS_AH64D_wd_CS_R8","RHS_AH64D_wd_AA_R8","RHS_AH64DGrey_R8","RHS_C130J_R8","RHS_A10_R8","RHS_A10_AT_R8","rhsusf_CH53E_USMC_R8","rhsusf_CH53E_USMC_D_R8","rhsusf_mkvsoc_R8","rhs_zsu234_aa_R8","rhsgref_cdf_zsu234_R8","rhsgref_cdf_reg_Mi8amt_R8","rhsgref_cdf_reg_Mi17Sh_R8","rhsgref_cdf_reg_Mi17Sh_UPK_R8","rhsgref_cdf_reg_Mi17Sh_FAB_R8","rhsgref_cdf_Mi35_UPK_R8","rhsgref_cdf_Mi35_AT_R8","rhsgref_cdf_Mi24D_R8","rhsgref_cdf_Mi24D_early_R8","rhsgref_cdf_su25_R8","rhsgref_cdf_b_zsu234_R8","rhsgref_cdf_b_reg_Mi8amt_R8","rhsgref_cdf_b_reg_Mi17Sh_R8","rhsgref_cdf_b_reg_Mi17Sh_UPK_R8","rhsgref_cdf_b_reg_Mi17Sh_FAB_R8","rhsgref_cdf_b_Mi35_R8","rhsgref_cdf_b_Mi35_UPK_R8","rhsgref_cdf_b_Mi35_AT_R8","rhsgref_cdf_b_Mi24D_R8","rhsgref_cdf_b_Mi24D_Early_R8","rhsgref_cdf_b_su25_R8","rhsgref_ins_zsu234_R8","rhsgref_ins_Mi8amt_R8","rhsgref_ins_g_zsu234_R8","rhsgref_ins_g_Mi8amt_R8","rhsgref_un_Mi8amt_R8","rhsgref_un_Mi24V_R8","rhsgref_un_Mi24V_UPK_R8","bear_zsu234_aa_desert_R8"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core","A3_Air_F_Heli_Light_02","A3_Air_F_Beta_Heli_Attack_01","CuratorOnly_Air_F_Beta_Heli_Attack_01","A3_Air_F_Beta_Heli_Attack_02","CuratorOnly_Air_F_Beta_Heli_Attack_02","A3_Air_F_Gamma_Plane_Fighter_03","A3_Armor_F_Beta_APC_Tracked_01","CuratorOnly_Armor_F_Panther","A3_Armor_F_Beta_APC_Tracked_02","CuratorOnly_armor_f_beta_APC_Tracked_02","A3_Air_F_EPC_Plane_CAS_01","A3_Air_F_EPC_Plane_CAS_02","A3_Drones_F_Air_F_Gamma_UAV_02","rhsusf_c_f22","A3_Air_F_Exp_UAV_03","A3_Air_F_Exp_UAV_04","A3_Air_F_Exp_VTOL_01","A3_Air_F_Exp_VTOL_02","A3_Armor_F_Exp","A3_Armor_F_Exp_APC_Tracked_02","rhs_c_a2port_air","rhs_c_air","rhsgref_c_air","rhsgref_c_vehicles_ret","rhsgref_c_tohport_air","rhs_c_a2port_armor","RHS_US_A2_AirImport","rhsusf_c_ch53","rhsusf_c_markvsoc","BWA3_Tiger"};
+        requiredAddons[] = {"potato_core","A3_Air_F_Heli_Light_02","A3_Air_F_Beta_Heli_Attack_01","CuratorOnly_Air_F_Beta_Heli_Attack_01","A3_Air_F_Beta_Heli_Attack_02","CuratorOnly_Air_F_Beta_Heli_Attack_02","A3_Air_F_Gamma_Plane_Fighter_03","A3_Armor_F_Beta_APC_Tracked_01","CuratorOnly_Armor_F_Panther","A3_Armor_F_Beta_APC_Tracked_02","CuratorOnly_armor_f_beta_APC_Tracked_02","uns_btr_c","uns_c1a_c","uns_dc3_c","uns_m48a3_c","uns_sheridan_c","A3_Air_F_EPC_Plane_CAS_01","A3_Air_F_EPC_Plane_CAS_02","A3_Drones_F_Air_F_Gamma_UAV_02","CSJ_UH1Gun_c","uns_AAA_c","rhsusf_c_f22","rhsgref_c_air","rhs_c_a2port_air","rhs_c_air","rhs_c_mi28","rhsgref_c_vehicles_ret","rhsgref_c_tohport_air","A3_Air_F_Exp_UAV_03","A3_Air_F_Exp_UAV_04","A3_Air_F_Exp_VTOL_01","A3_Air_F_Exp_VTOL_02","A3_Armor_F_Exp_APC_Tracked_01","A3_Armor_F_Exp_APC_Tracked_02","RHS_US_A2_AirImport","rhsusf_c_ch53","rhsusf_c_markvsoc","rhs_c_a2port_armor","bear_desert_rhsafrf_vehicles_zsu234"};
         author = "Potato";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -63,6 +63,156 @@ class CfgVehicles {
         radarType = 8;
         displayName = "ZSU-35 Tigris[R8]";
     };
+    class uns_Type55_MG;
+    class uns_Type55_MG_R8: uns_Type55_MG {
+        radarType = 8;
+        displayName = "Type 55 APC (DShk)[R8]";
+    };
+    class uns_Type55_twinMG;
+    class uns_Type55_twinMG_R8: uns_Type55_twinMG {
+        radarType = 8;
+        displayName = "Type 55 APC (Twin DShk)[R8]";
+    };
+    class uns_Type55_patrol;
+    class uns_Type55_patrol_R8: uns_Type55_patrol {
+        radarType = 8;
+        displayName = "Type 55 APC (Patrol)[R8]";
+    };
+    class uns_Type55_LMG;
+    class uns_Type55_LMG_R8: uns_Type55_LMG {
+        radarType = 8;
+        displayName = "Type 55 APC (PK)[R8]";
+    };
+    class uns_Type55_RR57;
+    class uns_Type55_RR57_R8: uns_Type55_RR57 {
+        radarType = 8;
+        displayName = "Type 55 APC (57mm Type36)[R8]";
+    };
+    class uns_Type55_RR73;
+    class uns_Type55_RR73_R8: uns_Type55_RR73 {
+        radarType = 8;
+        displayName = "Type 55 APC (73mm SPG9)[R8]";
+    };
+    class uns_Type55_M40;
+    class uns_Type55_M40_R8: uns_Type55_M40 {
+        radarType = 8;
+        displayName = "Type 55 APC (M40)[R8]";
+    };
+    class uns_Type55_mortar;
+    class uns_Type55_mortar_R8: uns_Type55_mortar {
+        radarType = 8;
+        displayName = "Type 55 APC (82mm Mortar)[R8]";
+    };
+    class uns_Type55;
+    class uns_Type55_R8: uns_Type55 {
+        radarType = 8;
+        displayName = "Type 55 (Transport)[R8]";
+    };
+    class uns_BTR152_DSHK;
+    class uns_BTR152_DSHK_R8: uns_BTR152_DSHK {
+        radarType = 8;
+        displayName = "BTR 152 APC (DSHK)[R8]";
+    };
+    class uns_Type55_ZU;
+    class uns_Type55_ZU_R8: uns_Type55_ZU {
+        radarType = 8;
+        displayName = "Type 55 APC (Zu-23)[R8]";
+    };
+    class uns_BTR152_ZPU;
+    class uns_BTR152_ZPU_R8: uns_BTR152_ZPU {
+        radarType = 8;
+        displayName = "BTR152 (ZPU4 14.5mm)[R8]";
+    };
+    class uns_c1a;
+    class uns_c1a_R8: uns_c1a {
+        radarType = 8;
+        displayName = "C-1A Trader (COD)[R8]";
+    };
+    class uns_c1a2;
+    class uns_c1a2_R8: uns_c1a2 {
+        radarType = 8;
+        displayName = "C-1A Trader (VR24)[R8]";
+    };
+    class uns_c1a2cargo;
+    class uns_c1a2cargo_R8: uns_c1a2cargo {
+        radarType = 8;
+        displayName = "C-1A Trader Cargo (VR24)[R8]";
+    };
+    class uns_c1a3;
+    class uns_c1a3_R8: uns_c1a3 {
+        radarType = 8;
+        displayName = "C-1A Trader (NAS Alameda)[R8]";
+    };
+    class uns_c1a3cargo;
+    class uns_c1a3cargo_R8: uns_c1a3cargo {
+        radarType = 8;
+        displayName = "C-1A Trader Cargo (NAS Alameda)[R8]";
+    };
+    class uns_c1a4;
+    class uns_c1a4_R8: uns_c1a4 {
+        radarType = 8;
+        displayName = "C-1A Trader (VR24 DET)[R8]";
+    };
+    class uns_c1a4cargo;
+    class uns_c1a4cargo_R8: uns_c1a4cargo {
+        radarType = 8;
+        displayName = "C-1A Trader Cargo (VR24 DET)[R8]";
+    };
+    class uns_c1a5;
+    class uns_c1a5_R8: uns_c1a5 {
+        radarType = 8;
+        displayName = "C-1A Trader (Oriskany)[R8]";
+    };
+    class uns_c1a5cargo;
+    class uns_c1a5cargo_R8: uns_c1a5cargo {
+        radarType = 8;
+        displayName = "C-1A Trader Cargo (Oriskany)[R8]";
+    };
+    class uns_c1a6;
+    class uns_c1a6_R8: uns_c1a6 {
+        radarType = 8;
+        displayName = "C-1A Trader (America)[R8]";
+    };
+    class uns_c1a6cargo;
+    class uns_c1a6cargo_R8: uns_c1a6cargo {
+        radarType = 8;
+        displayName = "C-1A Trader Cargo (America)[R8]";
+    };
+    class uns_c1a7;
+    class uns_c1a7_R8: uns_c1a7 {
+        radarType = 8;
+        displayName = "C-1A Trader (Coral Sea)[R8]";
+    };
+    class uns_c1a7cargo;
+    class uns_c1a7cargo_R8: uns_c1a7cargo {
+        radarType = 8;
+        displayName = "C-1A Trader Cargo (Coral Sea)[R8]";
+    };
+    class uns_AC47;
+    class uns_AC47_R8: uns_AC47 {
+        radarType = 8;
+        displayName = "AC-47 (Camo)[R8]";
+    };
+    class uns_AC47_cia;
+    class uns_AC47_cia_R8: uns_AC47_cia {
+        radarType = 8;
+        displayName = "AC-47 (CIA)[R8]";
+    };
+    class uns_m48a3;
+    class uns_m48a3_R8: uns_m48a3 {
+        radarType = 8;
+        displayName = "M-48A3 Patton MBT[R8]";
+    };
+    class uns_M67A;
+    class uns_M67A_R8: uns_M67A {
+        radarType = 8;
+        displayName = "M-67A Flamethrower Tank[R8]";
+    };
+    class uns_m551;
+    class uns_m551_R8: uns_m551 {
+        radarType = 8;
+        displayName = "M-551 Sheridan[R8]";
+    };
     class B_Plane_CAS_01_F;
     class B_Plane_CAS_01_F_R8: B_Plane_CAS_01_F {
         radarType = 8;
@@ -103,55 +253,140 @@ class CfgVehicles {
         radarType = 8;
         displayName = "YABHON-R3 (CAS)[R8]";
     };
+    class uns_UH1C_M21_M200;
+    class uns_UH1C_M21_M200_R8: uns_UH1C_M21_M200 {
+        radarType = 8;
+        displayName = "UH-1C/M21 Iroquois (M200)[R8]";
+    };
+    class uns_UH1C_M21_M158;
+    class uns_UH1C_M21_M158_R8: uns_UH1C_M21_M158 {
+        radarType = 8;
+        displayName = "UH-1C/M21 Iroquois (M158)[R8]";
+    };
+    class uns_UH1C_M21_M200_1AC;
+    class uns_UH1C_M21_M200_1AC_R8: uns_UH1C_M21_M200_1AC {
+        radarType = 8;
+        displayName = "UH-1C/M21 Iroquois (1AC)[R8]";
+    };
+    class uns_UH1C_M6_M158;
+    class uns_UH1C_M6_M158_R8: uns_UH1C_M6_M158 {
+        radarType = 8;
+        displayName = "UH-1C/M6 Iroquois (M158)[R8]";
+    };
+    class uns_UH1C_M6_M200;
+    class uns_UH1C_M6_M200_R8: uns_UH1C_M6_M200 {
+        radarType = 8;
+        displayName = "UH-1C/M6 Iroquois (M200)[R8]";
+    };
+    class uns_UH1C_M6_M200_1AC;
+    class uns_UH1C_M6_M200_1AC_R8: uns_UH1C_M6_M200_1AC {
+        radarType = 8;
+        displayName = "UH-1C/M6 Iroquois (1AC/ Special)[R8]";
+    };
+    class uns_UH1C_M21_M158_M134;
+    class uns_UH1C_M21_M158_M134_R8: uns_UH1C_M21_M158_M134 {
+        radarType = 8;
+        displayName = "UH-1C/M21 Iroquois (M158/M134)[R8]";
+    };
+    class uns_UH1F_M21_M158_Hornet;
+    class uns_UH1F_M21_M158_Hornet_R8: uns_UH1F_M21_M158_Hornet {
+        radarType = 8;
+        displayName = "UH-1F/M21 Green Hornet (M158/M134)[R8]";
+    };
+    class uns_UH1C_M6_M200_M134;
+    class uns_UH1C_M6_M200_M134_R8: uns_UH1C_M6_M200_M134 {
+        radarType = 8;
+        displayName = "UH-1C/M6 Iroquois (M200/M134)[R8]";
+    };
+    class uns_UH1F_M6_M158_Hornet;
+    class uns_UH1F_M6_M158_Hornet_R8: uns_UH1F_M6_M158_Hornet {
+        radarType = 8;
+        displayName = "UH-1F/M6 Green Hornet (M200/M134)[R8]";
+    };
+    class UNS_UH1C_M3_ARA;
+    class UNS_UH1C_M3_ARA_R8: UNS_UH1C_M3_ARA {
+        radarType = 8;
+        displayName = "UH-1C/M3 Iroquois (ARA)[R8]";
+    };
+    class UNS_UH1B_TOW;
+    class UNS_UH1B_TOW_R8: UNS_UH1B_TOW {
+        radarType = 8;
+        displayName = "UH-1B Iroquois (TOW)[R8]";
+    };
+    class uns_Type74_NVA;
+    class uns_Type74_NVA_R8: uns_Type74_NVA {
+        radarType = 8;
+        displayName = "Type 65 Twin 37mm[R8]";
+    };
+    class uns_Type74_VC;
+    class uns_Type74_VC_R8: uns_Type74_VC {
+        radarType = 8;
+        displayName = "Type 65 Twin 37mm[R8]";
+    };
     class rhsusf_f22;
     class rhsusf_f22_R8: rhsusf_f22 {
         radarType = 8;
         displayName = "F-22A[R8]";
     };
-    class B_T_UAV_03_F;
-    class B_T_UAV_03_F_R8: B_T_UAV_03_F {
+    class rhs_l159_CDF;
+    class rhs_l159_CDF_R8: rhs_l159_CDF {
         radarType = 8;
-        displayName = "MQ-12 Falcon[R8]";
+        displayName = "L-159 ALCA[R8]";
     };
-    class O_T_UAV_04_CAS_F;
-    class O_T_UAV_04_CAS_F_R8: O_T_UAV_04_CAS_F {
+    class rhs_l159_CDF_plamen;
+    class rhs_l159_CDF_plamen_R8: rhs_l159_CDF_plamen {
         radarType = 8;
-        displayName = "Burraq UCAV[R8]";
+        displayName = "L-159 (Plamen)[R8]";
     };
-    class B_T_VTOL_01_infantry_F;
-    class B_T_VTOL_01_infantry_F_R8: B_T_VTOL_01_infantry_F {
+    class rhs_l159_CDF_CAP;
+    class rhs_l159_CDF_CAP_R8: rhs_l159_CDF_CAP {
         radarType = 8;
-        displayName = "V-44 X Blackfish (Infantry Transport)[R8]";
+        displayName = "L-159 (CAP)[R8]";
     };
-    class B_T_VTOL_01_vehicle_F;
-    class B_T_VTOL_01_vehicle_F_R8: B_T_VTOL_01_vehicle_F {
+    class rhs_l159_CDF_CAS;
+    class rhs_l159_CDF_CAS_R8: rhs_l159_CDF_CAS {
         radarType = 8;
-        displayName = "V-44 X Blackfish (Vehicle Transport)[R8]";
+        displayName = "L-159 (CAS)[R8]";
     };
-    class B_T_VTOL_01_armed_F;
-    class B_T_VTOL_01_armed_F_R8: B_T_VTOL_01_armed_F {
+    class rhs_l39_cdf;
+    class rhs_l39_cdf_R8: rhs_l39_cdf {
         radarType = 8;
-        displayName = "V-44 X Blackfish (Armed)[R8]";
+        displayName = "L-39C Albatros[R8]";
     };
-    class O_T_VTOL_02_infantry_F;
-    class O_T_VTOL_02_infantry_F_R8: O_T_VTOL_02_infantry_F {
+    class rhs_l159_cdf_b_CDF;
+    class rhs_l159_cdf_b_CDF_R8: rhs_l159_cdf_b_CDF {
         radarType = 8;
-        displayName = "Y-32 Xi'an (Infantry Transport)[R8]";
+        displayName = "L-159 ALCA[R8]";
     };
-    class O_T_VTOL_02_vehicle_F;
-    class O_T_VTOL_02_vehicle_F_R8: O_T_VTOL_02_vehicle_F {
+    class rhs_l159_cdf_b_CDF_plamen;
+    class rhs_l159_cdf_b_CDF_plamen_R8: rhs_l159_cdf_b_CDF_plamen {
         radarType = 8;
-        displayName = "Y-32 Xi'an (Vehicle Transport)[R8]";
+        displayName = "L-159 (Plamen)[R8]";
     };
-    class B_T_APC_Tracked_01_AA_F;
-    class B_T_APC_Tracked_01_AA_F_R8: B_T_APC_Tracked_01_AA_F {
+    class rhs_l159_cdf_b_CDF_CAP;
+    class rhs_l159_cdf_b_CDF_CAP_R8: rhs_l159_cdf_b_CDF_CAP {
         radarType = 8;
-        displayName = "Bardelas[R8]";
+        displayName = "L-159 (CAP)[R8]";
     };
-    class O_T_APC_Tracked_02_AA_ghex_F;
-    class O_T_APC_Tracked_02_AA_ghex_F_R8: O_T_APC_Tracked_02_AA_ghex_F {
+    class rhs_l159_cdf_b_CDF_CAS;
+    class rhs_l159_cdf_b_CDF_CAS_R8: rhs_l159_cdf_b_CDF_CAS {
         radarType = 8;
-        displayName = "ZSU-35 Tigris[R8]";
+        displayName = "L-159 (CAS)[R8]";
+    };
+    class rhs_l39_cdf_b_cdf;
+    class rhs_l39_cdf_b_cdf_R8: rhs_l39_cdf_b_cdf {
+        radarType = 8;
+        displayName = "L-39C Albatros[R8]";
+    };
+    class RHS_AN2;
+    class RHS_AN2_R8: RHS_AN2 {
+        radarType = 8;
+        displayName = "Antonov An-2[R8]";
+    };
+    class RHS_AN2_B;
+    class RHS_AN2_B_R8: RHS_AN2_B {
+        radarType = 8;
+        displayName = "Antonov An-2[R8]";
     };
     class RHS_Mi24P_vvs;
     class RHS_Mi24P_vvs_R8: RHS_Mi24P_vvs {
@@ -353,6 +588,21 @@ class CfgVehicles {
         radarType = 8;
         displayName = "Mi-8MTV-3 (FAB)[R8]";
     };
+    class RHS_Mi8mtv3_Cargo_vvs;
+    class RHS_Mi8mtv3_Cargo_vvs_R8: RHS_Mi8mtv3_Cargo_vvs {
+        radarType = 8;
+        displayName = "Mi-8MTV-3 (Cargo)[R8]";
+    };
+    class RHS_Mi8mtv3_Cargo_vvsc;
+    class RHS_Mi8mtv3_Cargo_vvsc_R8: RHS_Mi8mtv3_Cargo_vvsc {
+        radarType = 8;
+        displayName = "Mi-8MTV-3 (Cargo)[R8]";
+    };
+    class RHS_Mi8mtv3_Cargo_vdv;
+    class RHS_Mi8mtv3_Cargo_vdv_R8: RHS_Mi8mtv3_Cargo_vdv {
+        radarType = 8;
+        displayName = "Mi-8MTV-3 (Cargo)[R8]";
+    };
     class RHS_Mi8AMT_vvs;
     class RHS_Mi8AMT_vvs_R8: RHS_Mi8AMT_vvs {
         radarType = 8;
@@ -493,65 +743,50 @@ class CfgVehicles {
         radarType = 8;
         displayName = "Sukhoi T-50 obr. 2011[R8]";
     };
-    class rhs_l159_CDF;
-    class rhs_l159_CDF_R8: rhs_l159_CDF {
+    class RHS_TU95MS_vvs_old;
+    class RHS_TU95MS_vvs_old_R8: RHS_TU95MS_vvs_old {
         radarType = 8;
-        displayName = "L-159 ALCA[R8]";
+        displayName = "Tu-95MS6 Bear[R8]";
     };
-    class rhs_l159_CDF_plamen;
-    class rhs_l159_CDF_plamen_R8: rhs_l159_CDF_plamen {
+    class RHS_TU95MS_vvs_dubna;
+    class RHS_TU95MS_vvs_dubna_R8: RHS_TU95MS_vvs_dubna {
         radarType = 8;
-        displayName = "L-159 (Plamen)[R8]";
+        displayName = "Tu-95MS6 Bear 'Dubna'[R8]";
     };
-    class rhs_l159_CDF_CAP;
-    class rhs_l159_CDF_CAP_R8: rhs_l159_CDF_CAP {
+    class RHS_TU95MS_vvs_irkutsk;
+    class RHS_TU95MS_vvs_irkutsk_R8: RHS_TU95MS_vvs_irkutsk {
         radarType = 8;
-        displayName = "L-159 (CAP)[R8]";
+        displayName = "Tu-95MS6 Bear 'Irkutsk'[R8]";
     };
-    class rhs_l159_CDF_CAS;
-    class rhs_l159_CDF_CAS_R8: rhs_l159_CDF_CAS {
+    class RHS_TU95MS_vvs_tambov;
+    class RHS_TU95MS_vvs_tambov_R8: RHS_TU95MS_vvs_tambov {
         radarType = 8;
-        displayName = "L-159 (CAS)[R8]";
+        displayName = "Tu-95MS6 Bear 'Tambov'[R8]";
     };
-    class rhs_l39_cdf;
-    class rhs_l39_cdf_R8: rhs_l39_cdf {
+    class RHS_TU95MS_vvs_chelyabinsk;
+    class RHS_TU95MS_vvs_chelyabinsk_R8: RHS_TU95MS_vvs_chelyabinsk {
         radarType = 8;
-        displayName = "L-39C Albatros[R8]";
+        displayName = "Tu-95MS6 Bear 'Chelyabinsk'[R8]";
     };
-    class rhs_l159_cdf_b_CDF;
-    class rhs_l159_cdf_b_CDF_R8: rhs_l159_cdf_b_CDF {
+    class rhs_mi28n_vvs;
+    class rhs_mi28n_vvs_R8: rhs_mi28n_vvs {
         radarType = 8;
-        displayName = "L-159 ALCA[R8]";
+        displayName = "Mi-28N[R8]";
     };
-    class rhs_l159_cdf_b_CDF_plamen;
-    class rhs_l159_cdf_b_CDF_plamen_R8: rhs_l159_cdf_b_CDF_plamen {
+    class rhs_mi28n_vvsc;
+    class rhs_mi28n_vvsc_R8: rhs_mi28n_vvsc {
         radarType = 8;
-        displayName = "L-159 (Plamen)[R8]";
+        displayName = "Mi-28N[R8]";
     };
-    class rhs_l159_cdf_b_CDF_CAP;
-    class rhs_l159_cdf_b_CDF_CAP_R8: rhs_l159_cdf_b_CDF_CAP {
+    class rhs_mi28n_s13_vvs;
+    class rhs_mi28n_s13_vvs_R8: rhs_mi28n_s13_vvs {
         radarType = 8;
-        displayName = "L-159 (CAP)[R8]";
+        displayName = "Mi-28N (S-13)[R8]";
     };
-    class rhs_l159_cdf_b_CDF_CAS;
-    class rhs_l159_cdf_b_CDF_CAS_R8: rhs_l159_cdf_b_CDF_CAS {
+    class rhs_mi28n_s13_vvsc;
+    class rhs_mi28n_s13_vvsc_R8: rhs_mi28n_s13_vvsc {
         radarType = 8;
-        displayName = "L-159 (CAS)[R8]";
-    };
-    class rhs_l39_cdf_b_cdf;
-    class rhs_l39_cdf_b_cdf_R8: rhs_l39_cdf_b_cdf {
-        radarType = 8;
-        displayName = "L-39C Albatros[R8]";
-    };
-    class RHS_AN2;
-    class RHS_AN2_R8: RHS_AN2 {
-        radarType = 8;
-        displayName = "Antonov An-2[R8]";
-    };
-    class RHS_AN2_B;
-    class RHS_AN2_B_R8: RHS_AN2_B {
-        radarType = 8;
-        displayName = "Antonov An-2[R8]";
+        displayName = "Mi-28N (S-13)[R8]";
     };
     class rhsgref_cdf_Mi35;
     class rhsgref_cdf_Mi35_R8: rhsgref_cdf_Mi35 {
@@ -588,10 +823,50 @@ class CfgVehicles {
         radarType = 8;
         displayName = "Mi-24G (FAB)[R8]";
     };
-    class rhs_zsu234_aa;
-    class rhs_zsu234_aa_R8: rhs_zsu234_aa {
+    class B_T_UAV_03_F;
+    class B_T_UAV_03_F_R8: B_T_UAV_03_F {
         radarType = 8;
-        displayName = "ZSU-23-4V[R8]";
+        displayName = "MQ-12 Falcon[R8]";
+    };
+    class O_T_UAV_04_CAS_F;
+    class O_T_UAV_04_CAS_F_R8: O_T_UAV_04_CAS_F {
+        radarType = 8;
+        displayName = "Burraq UCAV[R8]";
+    };
+    class B_T_VTOL_01_infantry_F;
+    class B_T_VTOL_01_infantry_F_R8: B_T_VTOL_01_infantry_F {
+        radarType = 8;
+        displayName = "V-44 X Blackfish (Infantry Transport)[R8]";
+    };
+    class B_T_VTOL_01_vehicle_F;
+    class B_T_VTOL_01_vehicle_F_R8: B_T_VTOL_01_vehicle_F {
+        radarType = 8;
+        displayName = "V-44 X Blackfish (Vehicle Transport)[R8]";
+    };
+    class B_T_VTOL_01_armed_F;
+    class B_T_VTOL_01_armed_F_R8: B_T_VTOL_01_armed_F {
+        radarType = 8;
+        displayName = "V-44 X Blackfish (Armed)[R8]";
+    };
+    class O_T_VTOL_02_infantry_F;
+    class O_T_VTOL_02_infantry_F_R8: O_T_VTOL_02_infantry_F {
+        radarType = 8;
+        displayName = "Y-32 Xi'an (Infantry Transport)[R8]";
+    };
+    class O_T_VTOL_02_vehicle_F;
+    class O_T_VTOL_02_vehicle_F_R8: O_T_VTOL_02_vehicle_F {
+        radarType = 8;
+        displayName = "Y-32 Xi'an (Vehicle Transport)[R8]";
+    };
+    class B_T_APC_Tracked_01_AA_F;
+    class B_T_APC_Tracked_01_AA_F_R8: B_T_APC_Tracked_01_AA_F {
+        radarType = 8;
+        displayName = "Bardelas[R8]";
+    };
+    class O_T_APC_Tracked_02_AA_ghex_F;
+    class O_T_APC_Tracked_02_AA_ghex_F_R8: O_T_APC_Tracked_02_AA_ghex_F {
+        radarType = 8;
+        displayName = "ZSU-35 Tigris[R8]";
     };
     class RHS_AH64D;
     class RHS_AH64D_R8: RHS_AH64D {
@@ -608,6 +883,11 @@ class CfgVehicles {
         radarType = 8;
         displayName = "AH-64D (Close-Support)[R8]";
     };
+    class RHS_AH64D_AA;
+    class RHS_AH64D_AA_R8: RHS_AH64D_AA {
+        radarType = 8;
+        displayName = "AH-64D (AA)[R8]";
+    };
     class RHS_AH64D_wd;
     class RHS_AH64D_wd_R8: RHS_AH64D_wd {
         radarType = 8;
@@ -622,11 +902,6 @@ class CfgVehicles {
     class RHS_AH64D_wd_CS_R8: RHS_AH64D_wd_CS {
         radarType = 8;
         displayName = "AH-64D (Close-Support)[R8]";
-    };
-    class RHS_AH64D_AA;
-    class RHS_AH64D_AA_R8: RHS_AH64D_AA {
-        radarType = 8;
-        displayName = "AH-64D (AA)[R8]";
     };
     class RHS_AH64D_wd_AA;
     class RHS_AH64D_wd_AA_R8: RHS_AH64D_wd_AA {
@@ -668,6 +943,11 @@ class CfgVehicles {
         radarType = 8;
         displayName = "Mk.V SOC[R8]";
     };
+    class rhs_zsu234_aa;
+    class rhs_zsu234_aa_R8: rhs_zsu234_aa {
+        radarType = 8;
+        displayName = "ZSU-23-4V[R8]";
+    };
     class rhsgref_cdf_zsu234;
     class rhsgref_cdf_zsu234_R8: rhsgref_cdf_zsu234 {
         radarType = 8;
@@ -683,10 +963,35 @@ class CfgVehicles {
         radarType = 8;
         displayName = "Mi-8AMTSh[R8]";
     };
+    class rhsgref_cdf_reg_Mi17Sh_UPK;
+    class rhsgref_cdf_reg_Mi17Sh_UPK_R8: rhsgref_cdf_reg_Mi17Sh_UPK {
+        radarType = 8;
+        displayName = "Mi-8AMTSh (UPK)[R8]";
+    };
+    class rhsgref_cdf_reg_Mi17Sh_FAB;
+    class rhsgref_cdf_reg_Mi17Sh_FAB_R8: rhsgref_cdf_reg_Mi17Sh_FAB {
+        radarType = 8;
+        displayName = "Mi-8AMTSh (FAB)[R8]";
+    };
     class rhsgref_cdf_Mi35_UPK;
     class rhsgref_cdf_Mi35_UPK_R8: rhsgref_cdf_Mi35_UPK {
         radarType = 8;
         displayName = "Mi-24V (UPK)[R8]";
+    };
+    class rhsgref_cdf_Mi35_AT;
+    class rhsgref_cdf_Mi35_AT_R8: rhsgref_cdf_Mi35_AT {
+        radarType = 8;
+        displayName = "Mi-24V (AT)[R8]";
+    };
+    class rhsgref_cdf_Mi24D;
+    class rhsgref_cdf_Mi24D_R8: rhsgref_cdf_Mi24D {
+        radarType = 8;
+        displayName = "Mi-24D[R8]";
+    };
+    class rhsgref_cdf_Mi24D_early;
+    class rhsgref_cdf_Mi24D_early_R8: rhsgref_cdf_Mi24D_early {
+        radarType = 8;
+        displayName = "Mi-24D (early)[R8]";
     };
     class rhsgref_cdf_su25;
     class rhsgref_cdf_su25_R8: rhsgref_cdf_su25 {
@@ -708,6 +1013,16 @@ class CfgVehicles {
         radarType = 8;
         displayName = "Mi-8AMTSh[R8]";
     };
+    class rhsgref_cdf_b_reg_Mi17Sh_UPK;
+    class rhsgref_cdf_b_reg_Mi17Sh_UPK_R8: rhsgref_cdf_b_reg_Mi17Sh_UPK {
+        radarType = 8;
+        displayName = "Mi-8AMTSh (UPK)[R8]";
+    };
+    class rhsgref_cdf_b_reg_Mi17Sh_FAB;
+    class rhsgref_cdf_b_reg_Mi17Sh_FAB_R8: rhsgref_cdf_b_reg_Mi17Sh_FAB {
+        radarType = 8;
+        displayName = "Mi-8AMTSh (FAB)[R8]";
+    };
     class rhsgref_cdf_b_Mi35;
     class rhsgref_cdf_b_Mi35_R8: rhsgref_cdf_b_Mi35 {
         radarType = 8;
@@ -717,6 +1032,21 @@ class CfgVehicles {
     class rhsgref_cdf_b_Mi35_UPK_R8: rhsgref_cdf_b_Mi35_UPK {
         radarType = 8;
         displayName = "Mi-24V (UPK)[R8]";
+    };
+    class rhsgref_cdf_b_Mi35_AT;
+    class rhsgref_cdf_b_Mi35_AT_R8: rhsgref_cdf_b_Mi35_AT {
+        radarType = 8;
+        displayName = "Mi-24V (AT)[R8]";
+    };
+    class rhsgref_cdf_b_Mi24D;
+    class rhsgref_cdf_b_Mi24D_R8: rhsgref_cdf_b_Mi24D {
+        radarType = 8;
+        displayName = "Mi-24D[R8]";
+    };
+    class rhsgref_cdf_b_Mi24D_Early;
+    class rhsgref_cdf_b_Mi24D_Early_R8: rhsgref_cdf_b_Mi24D_Early {
+        radarType = 8;
+        displayName = "Mi-24D (early)[R8]";
     };
     class rhsgref_cdf_b_su25;
     class rhsgref_cdf_b_su25_R8: rhsgref_cdf_b_su25 {
@@ -758,40 +1088,10 @@ class CfgVehicles {
         radarType = 8;
         displayName = "Mi-24V (UPK)[R8]";
     };
-    class BWA3_Tiger_RMK_PARS;
-    class BWA3_Tiger_RMK_PARS_R8: BWA3_Tiger_RMK_PARS {
+    class bear_zsu234_aa_desert;
+    class bear_zsu234_aa_desert_R8: bear_zsu234_aa_desert {
         radarType = 8;
-        displayName = "UH Tiger RMK (PARS)[R8]";
-    };
-    class BWA3_Tiger_RMK_Universal;
-    class BWA3_Tiger_RMK_Universal_R8: BWA3_Tiger_RMK_Universal {
-        radarType = 8;
-        displayName = "UH Tiger RMK (Universal)[R8]";
-    };
-    class BWA3_Tiger_RMK_FZ;
-    class BWA3_Tiger_RMK_FZ_R8: BWA3_Tiger_RMK_FZ {
-        radarType = 8;
-        displayName = "UH Tiger RMK (FZ Rockets)[R8]";
-    };
-    class BWA3_Tiger_RMK_Heavy;
-    class BWA3_Tiger_RMK_Heavy_R8: BWA3_Tiger_RMK_Heavy {
-        radarType = 8;
-        displayName = "UH Tiger RMK (Heavy)[R8]";
-    };
-    class BWA3_Tiger_Gunpod_PARS;
-    class BWA3_Tiger_Gunpod_PARS_R8: BWA3_Tiger_Gunpod_PARS {
-        radarType = 8;
-        displayName = "UH Tiger Gunpod (PARS)[R8]";
-    };
-    class BWA3_Tiger_Gunpod_FZ;
-    class BWA3_Tiger_Gunpod_FZ_R8: BWA3_Tiger_Gunpod_FZ {
-        radarType = 8;
-        displayName = "UH Tiger Gunpod (FZ Rockets)[R8]";
-    };
-    class BWA3_Tiger_Gunpod_Heavy;
-    class BWA3_Tiger_Gunpod_Heavy_R8: BWA3_Tiger_Gunpod_Heavy {
-        radarType = 8;
-        displayName = "UH Tiger Gunpod (Heavy)[R8]";
+        displayName = "ZSU-23-4V[R8]";
     };
 };
 
