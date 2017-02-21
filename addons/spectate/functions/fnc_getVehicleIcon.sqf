@@ -9,7 +9,7 @@
  * Icon of vehicle <STRING>
  *
  * Examples:
- * [my_car] call potato_spectate_fnc_getBoundingBox;
+ * [my_car] call potato_spectate_fnc_getVehicleIcon;
  *
  * Public: Yes
  */

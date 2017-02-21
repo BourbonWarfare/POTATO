@@ -1,15 +1,15 @@
 /*
  * Author: AACO
- * Function used to get the vehicle icon for provided object (cached)
+ * Function used to get the group icon for provided group (cached)
  *
  * Arguments:
- * 0: Object to get icon of <OBJECT/STRING>
+ * 0: Group to get icon of <GROUP>
  *
  * Return Value:
- * Icon of vehicle <STRING>
+ * Icon of group <STRING>
  *
  * Examples:
- * [my_car] call potato_spectate_fnc_getBoundingBox;
+ * [group player] call potato_spectate_fnc_getGroupIcon;
  *
  * Public: Yes
  */
