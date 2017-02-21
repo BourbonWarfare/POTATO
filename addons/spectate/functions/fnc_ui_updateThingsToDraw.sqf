@@ -19,7 +19,7 @@
 #define FADE_DIST_LIST [[500, 1.0], [1000, 0.6], [1500, 0.3]]
 #define SIZE_DIST_LIST [[500, 3.5, -2.15, 0.035], [1000, 3.0, -1.9, 0.03], [1500, 2.5, -1.6, 0.025]]
 #define ICON_UNIT "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\UnitIcon_ca.paa"
-#define ICON_GROUP "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\GroupIcon_ca.paa"
+//#define ICON_GROUP "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\GroupIcon_ca.paa"
 
 TRACE_1("Params",_this);
 
@@ -113,7 +113,7 @@ private _thingsToDraw = [];
         if (_x == _groupLeader) then {
             // Group icon
             _thingsToDraw pushBack [_x, 0, [
-                ICON_GROUP,
+                [_group] call FUNC(getGroupIcon),
                 _groupColor,
                 ZERO_POS,
                 _sizeByDistance,

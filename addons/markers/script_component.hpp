@@ -32,7 +32,7 @@
 #define PINK_ARRAY [1,0.753,0.796,1]
 
 #define DEFAULT_MARKER_TEXT ""
-#define DEFAULT_MARKER_ICON "\A3\ui_f\data\map\markers\nato\b_unknown.paa"
+#define DEFAULT_MARKER_ICON QPATHTOF(data\unknown.paa)
 #define DEFAULT_MARKER_COLOR_TEXT "white"
 #define DEFAULT_MARKER_COLOR WHITE_ARRAY
 #define DEFAULT_MARKER_SIZE 24
@@ -42,6 +42,8 @@
 
 #define UNIT_MARKERS 'PATHTOF(data\unknown.paa)',\
 'PATHTOF(data\infantry.paa)',\
+'PATHTOF(data\motorized_infantry.paa)',\
+'PATHTOF(data\mechanized_infantry.paa)',\
 'PATHTOF(data\hq.paa)',\
 'PATHTOF(data\mmg.paa)',\
 'PATHTOF(data\mat.paa)',\
@@ -52,7 +54,7 @@
 'PATHTOF(data\recon.paa)',\
 'PATHTOF(data\support.paa)',\
 'PATHTOF(data\medical.paa)',\
-'PATHTOF(data\mechanized_infantry.paa)',\
+'PATHTOF(data\artillery.paa)',\
 'PATHTOF(data\armor.paa)',\
 'PATHTOF(data\helicopter.paa)',\
 'PATHTOF(data\attack_helicopter.paa)',\
@@ -61,6 +63,8 @@
 
 #define UNIT_MARKERS_STRINGS QPATHTOF(data\unknown.paa),\
 QPATHTOF(data\infantry.paa),\
+QPATHTOF(data\motorized_infantry.paa),\
+QPATHTOF(data\mechanized_infantry.paa),\
 QPATHTOF(data\hq.paa),\
 QPATHTOF(data\mmg.paa),\
 QPATHTOF(data\mat.paa),\
@@ -71,7 +75,7 @@ QPATHTOF(data\maintenance.paa),\
 QPATHTOF(data\recon.paa),\
 QPATHTOF(data\support.paa),\
 QPATHTOF(data\medical.paa),\
-QPATHTOF(data\mechanized_infantry.paa),\
+QPATHTOF(data\artillery.paa),\
 QPATHTOF(data\armor.paa),\
 QPATHTOF(data\helicopter.paa),\
 QPATHTOF(data\attack_helicopter.paa),\

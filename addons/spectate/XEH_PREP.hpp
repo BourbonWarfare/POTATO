@@ -5,6 +5,7 @@ PREP(checkToReopen);
 PREP(exit);
 PREP(findPathInList);
 PREP(getBoundingBox);
+PREP(getGroupIcon);
 PREP(getName);
 PREP(getVehicleIcon);
 PREP(handleCreated);
