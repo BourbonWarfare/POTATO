@@ -4,7 +4,7 @@ LOG("Post init start");
 
 [
     {
-        ACEGVAR(common,settingsInitFinished)
+        ACEGVAR(common,settingsInitFinished) && !isNil QEGVAR(miscFixes,groupCleanupRan)
     },
     {
         TRACE_2("ACE Settings initilized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
