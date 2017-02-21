@@ -25,6 +25,9 @@ if !(GVAR(currentSpecChat) isEqualTo GVAR(oldSpecChat)) then {
     [GVAR(oldSpecChat)] call acre_api_fnc_setSpectator;
 };
 
+// reset spectator array
+GVAR(currentSpectators) = [];
+
 // save current dropdown config
 GVAR(lastFactionIndex) = lbCurSel ADMIN_FACTION_COMBO_IDC;
 GVAR(lastGroupIndex) = lbCurSel ADMIN_GROUP_COMBO_IDC;

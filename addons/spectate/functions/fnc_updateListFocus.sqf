@@ -18,5 +18,5 @@
 TRACE_1("Params",_this);
 
 if (GVAR(uiVisible)) then {
-    LIST tvSetCurSel ([[GVAR(camTarget)] call BIS_fnc_objectVar] call FUNC(findPathInList));
+    LIST tvSetCurSel ([[GVAR(camTarget)] call BIS_fnc_objectVar, LIST_IDC] call FUNC(findPathInList));
 };

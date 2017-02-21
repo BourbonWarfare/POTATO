@@ -6,7 +6,7 @@ class RscTree;
 class RscCombo;
 class RscFrame;
 class RscButton;
-class RscListNBox;
+class RscListBox;
 class RscBackground;
 class RscMapControl;
 class RscControlsGroupNoScrollbars;
@@ -74,7 +74,7 @@ class GVAR(adminRespawn) {
     };
 
     class Controls {
-        class SpectatorList: RscListNBox {
+        class SpectatorList: RscListBox {
             idc = ADMIN_SPEC_LIST_IDC;
             x = 0.2875 * safezoneW + safezoneX;
             y = 0.3 * safezoneH + safezoneY;

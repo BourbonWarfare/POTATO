@@ -19,6 +19,9 @@ TRACE_1("params",_this);
 GVAR(oldSpecChat) = [] call acre_api_fnc_isSpectator;
 GVAR(currentSpecChat) = GVAR(oldSpecChat);
 
+// set spectator array
+GVAR(currentSpectators) = [];
+
 // wait until the dialog is created
 waitUntil {dialog};
 
@@ -59,6 +62,6 @@ private _configIndex = if !(isNil QGVAR(lastConfigIndex)) then {
 };
 lbSetCurSel [ADMIN_CONFIG_COMBO_IDC, _configIndex];
 
-GVAR(adminUpdateEH) = [FUNC(ui_updateAdminUI), 0.1] call CBA_fnc_addPerFrameHandler;
+GVAR(adminUpdateEH) = [FUNC(ui_updateAdminUI), 0.25] call CBA_fnc_addPerFrameHandler;
 
 [clientOwner] call FUNC(registerClientForUpdates);

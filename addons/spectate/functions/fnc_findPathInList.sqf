@@ -4,12 +4,13 @@
  *
  * Arguments:
  * 0: data value to lookup <STRING>
+ * 1: IDC of the control to look through <NUMBER>
  *
  * Return Value:
  * Path of unit <ARRAY>
  *
  * Examples:
- * ["playerName"] call potato_spectate_fnc_findPathInList;
+ * ["playerName", 6547] call potato_spectate_fnc_findPathInList;
  *
  * Public: No
  */
@@ -19,20 +20,20 @@ TRACE_1("Params",_this);
 
 scopeName QGVAR(findPathInList);
 
-params [["_data", "", [""]]];
+params [["_data", "", [""]], "_listIdc"];
 
 // Make sure data is not empty
 if (_data != "") then {
-    for "_sideIndex" from 0 to ((LIST tvCount []) - 1) do {
-        if (LIST tvData [_sideIndex] == _data) then {
+    for "_sideIndex" from 0 to ((tvCount [_listIdc, []]) - 1) do {
+        if (tvData [_listIdc, [_sideIndex]] == _data) then {
             [_sideIndex] breakOut QGVAR(findPathInList);
         };
-        for "_groupIndex" from 0 to ((LIST tvCount [_sideIndex]) - 1) do {
-            if (LIST tvData [_sideIndex, _groupIndex] == _data) then {
+        for "_groupIndex" from 0 to ((tvCount [_listIdc, [_sideIndex]]) - 1) do {
+            if (tvData [_listIdc, [_sideIndex, _groupIndex]] == _data) then {
                 [_sideIndex, _groupIndex] breakOut QGVAR(findPathInList);
             };
-            for "_unitIndex" from 0 to ((LIST tvCount [_sideIndex, _groupIndex]) - 1) do {
-                if (LIST tvData [_sideIndex, _groupIndex, _unitIndex] == _data) then {
+            for "_unitIndex" from 0 to ((tvCount [_listIdc, [_sideIndex, _groupIndex]]) - 1) do {
+                if (tvData [_listIdc, [_sideIndex, _groupIndex, _unitIndex]] == _data) then {
                     [_sideIndex, _groupIndex, _unitIndex] breakOut QGVAR(findPathInList);
                 };
             };

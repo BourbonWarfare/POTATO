@@ -2,11 +2,13 @@ LOG(QUOTE(ADDON));
 
 PREP(addGroup);
 PREP(addGroupClient);
+PREP(buildSpectators);
 PREP(changeRespawnState);
 PREP(closeAdminRespawn);
 PREP(deleteGroup);
 PREP(deleteGroupClient);
 PREP(deregisterClientForUpdates);
+PREP(getSpectators);
 PREP(initGroups);
 PREP(openAdminRespawn);
 PREP(readConfigToVariables);
@@ -27,3 +29,4 @@ PREP(ui_handleRespawnStateClick);
 PREP(ui_updateAdminUI);
 PREP(updateChatButton);
 PREP(updateOpenButton);
+PREP(updateSpectators);
