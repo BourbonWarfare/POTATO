@@ -168,6 +168,7 @@ class GVAR(adminRespawn) {
         };
         class SlotButton: RscButton {
             idc = ADMIN_SLOT_BUTTON_IDC;
+            onButtonClick = QUOTE(_this call FUNC(ui_handleSlotClick));
             text = "Slot";
             x = 0.635 * safezoneW + safezoneX;
         	y = 0.44 * safezoneH + safezoneY;
