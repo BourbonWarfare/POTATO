@@ -29,6 +29,7 @@ PREP(ui_handleFactionChange);
 PREP(ui_handleGroupChange);
 PREP(ui_handleRespawnStateClick);
 PREP(ui_handleSlotClick);
+PREP(ui_handleUnslotClick);
 PREP(ui_updateAdminUI);
 PREP(updateChatButton);
 PREP(updateOpenButton);

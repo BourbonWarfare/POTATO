@@ -29,7 +29,9 @@ if (isNull _spectator) then {
 
 tvSetText [GROUP_TREE_IDC, _slotPath, format ["%1 - %2", _displayName, _unitName]]
 tvSetTooltip [GROUP_TREE_IDC, _slotPath, _unitName];
-TRACE_1("Updated tooltip value", tvTooltip [ARR_2(GROUP_TREE_IDC, _slotPath)]);
+tvSetTooltip [GROUP_TREE_IDC, _slotPath, _unitName]; // hack, one invocation literary doesn't work for some stupid fucking reason
 tvSetData [GROUP_TREE_IDC, _slotPath, _unitVar];
 
-[] call FUNC(ui_updateAdminUI);
+if !(isNull ADMIN_RESPAWN) then {
+    [] call FUNC(ui_updateAdminUI);
+};

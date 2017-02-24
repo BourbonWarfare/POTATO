@@ -24,4 +24,4 @@ private _spectatorUnit = missionNamespace getVariable [lbData [ADMIN_SPEC_LIST_I
 
 if (isNil "_spectatorUnit" || {isNull _spectatorUnit} /*|| {!isPlayer _spectatorUnit}*/) exitWith { LOG("Bad spectator when trying to slot"); };
 
-[_spectatorUnit, _groupPath] call FUNC(slotUnit);
+[_spectatorUnit, _groupPath, true] call FUNC(slotUnit);

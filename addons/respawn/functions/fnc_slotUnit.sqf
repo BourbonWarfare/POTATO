@@ -26,7 +26,7 @@ if !(isServer) exitWith {
 params [
     "_spectator",
     "_slotPath",
-    ["_isAdmin", false, [false]]
+    ["_force", false, [false]]
 ];
 
 _slotPath params [
@@ -35,11 +35,7 @@ _slotPath params [
 ];
 
 private _currentlySlottedUnit = (((GVAR(activeGroups) select _groupIndex) select UNITS_INDEX) select _unitIndex) select UNIT_INDEX;
-if !(isNull _currentlySlottedUnit || _isAdmin) exitWith { LOG("Path is currently occupied"); };
-
-if (!isNull _currentlySlottedUnit) then {
-    //[_currentlySlottedUnit, _slotPath] call FUNC(unslotUnit);
-};
+if !(isNull _currentlySlottedUnit || _force) exitWith { LOG("Path is currently occupied"); };
 
 (((GVAR(activeGroups) select _groupIndex) select UNITS_INDEX) select _unitIndex) set [UNIT_INDEX, _spectator];
 private _displayName = (((GVAR(activeGroups) select _groupIndex) select UNITS_INDEX) select _unitIndex) select UNIT_DISPLAY_NAME_INDEX;
