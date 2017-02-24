@@ -29,8 +29,13 @@ lbClear ADMIN_CONFIG_COMBO_IDC;
         "_markerTexture"
     ];
     private _index = lbAdd [ADMIN_CONFIG_COMBO_IDC, _markerText];
-    lbSetPicture [ADMIN_CONFIG_COMBO_IDC, _index, _markerTexture];
-    lbSetPictureColor [ADMIN_CONFIG_COMBO_IDC, _index, _markerColor];
-    lbSetPictureColorSelected [ADMIN_CONFIG_COMBO_IDC, _index, _markerColor];
+    if !(_markerTexture isEqualTo "") then {
+        lbSetPicture [ADMIN_CONFIG_COMBO_IDC, _index, _markerTexture];
+        lbSetPictureColor [ADMIN_CONFIG_COMBO_IDC, _index, _markerColor];
+        lbSetPictureColorSelected [ADMIN_CONFIG_COMBO_IDC, _index, _markerColor];
+    } else {
+        _markerColor = [1,1,1,1];
+    };
+
     lbSetData [ADMIN_CONFIG_COMBO_IDC, _index, [_configName, _markerColor joinString ","] joinString ";"];
 } forEach ((GVAR(groupsToInfo) getVariable _lookUp) select 2);

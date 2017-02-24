@@ -35,5 +35,14 @@ class CfgRespawnFactions {
         factionPrefix = "i_";
     };
 
-    // TODO: civs
+    class civ_f {
+        displayName = "Civilian";
+        callsignPrefix = "Civ"
+        factionClassname = "civ_f";
+        factionPrefix = "";
+        groups[] = {
+            "MiscCivilians",
+            "PressTeam"
+        };
+    };
 };

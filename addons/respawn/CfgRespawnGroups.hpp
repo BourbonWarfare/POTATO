@@ -3,7 +3,7 @@ class CfgRespawnGroups {
     class Alpha {
         markerText = "";
         markerColor[] = {0.9,0,0,1};
-        markerTexture = "\A3\ui_f\data\map\markers\nato\b_inf.paa";
+        markerTexture =  QPATHTOEF(markers,data\infantry.paa);
         markerSize = 24;
 
         srChannel = 0;
@@ -58,7 +58,7 @@ class CfgRespawnGroups {
         lrChannel = 3;
     };
     class Armor: Alpha {
-        markerTexture = "\A3\ui_f\data\map\markers\nato\b_armor.paa";
+        markerTexture = QPATHTOEF(markers,data\armor.paa);
         markerSize = 32;
 
         srChannel = 14;
@@ -66,7 +66,7 @@ class CfgRespawnGroups {
         lrChannel = 3;
     };
     class Air: Armor {
-        markerTexture = "\A3\ui_f\data\map\markers\nato\b_air.paa";
+        markerTexture = QPATHTOEF(markers,data\attack_helicopter.paa);
 
         srChannel = 13;
         mrChannel = 4;
@@ -115,7 +115,7 @@ class CfgRespawnGroups {
             class COY {
                 markerText = "COY";
                 markerColor[] = {0.9,0.9,0,1};
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
                 markerSize = 24;
 
                 srChannel = 12;
@@ -152,7 +152,7 @@ class CfgRespawnGroups {
             class OnePlt {
                 markerText = "1PLT";
                 markerColor[] = {0.9,0.9,0,1};
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
                 markerSize = 24;
 
                 srChannel = 3;
@@ -195,43 +195,43 @@ class CfgRespawnGroups {
         class Configurations {
             class ASL: Alpha {
                 markerText = "ASL";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class BSL: Bravo {
                 markerText = "BSL";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class CSL: Charlie {
                 markerText = "CSL";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class DSL: Delta {
                 markerText = "DSL";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class ESL: Echo {
                 markerText = "ESL";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class FSL: Foxtrot {
                 markerText = "FSL";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class GSL: Golf {
                 markerText = "GSL";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class HSL: Hotel {
                 markerText = "HSL";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class ISL: India {
                 markerText = "ISL";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class WSL: Weapons {
                 markerText = "WSL";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
         };
     };
@@ -615,7 +615,7 @@ class CfgRespawnGroups {
         class Configurations {
             class MMG1: Weapons {
                 markerText = "MMG1";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_support.paa";
+                markerTexture = QPATHTOEF(markers,data\mmg.paa);
             };
             class MMG2: MMG1 {
                 markerText = "MMG2";
@@ -652,7 +652,7 @@ class CfgRespawnGroups {
         class Configurations {
             class MAT1: Weapons {
                 markerText = "MAT1";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_motor_inf.paa";
+                markerTexture = QPATHTOEF(markers,data\mat.paa);
             };
             class MAT2: MAT1 {
                 markerText = "MAT2";
@@ -689,7 +689,7 @@ class CfgRespawnGroups {
         class Configurations {
             class MTR1: Weapons {
                 markerText = "MTR1";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_mortar.paa";
+                markerTexture = QPATHTOEF(markers,data\mortar.paa);
             };
             class MTR2: MTR1 {
                 markerText = "MTR2";
@@ -726,7 +726,7 @@ class CfgRespawnGroups {
         class Configurations {
             class MSAM1: Weapons {
                 markerText = "MSAM1";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_motor_inf.paa";
+                markerTexture = QPATHTOEF(markers,data\msam.paa);
             };
             class MSAM2: MSAM1 {
                 markerText = "MSAM2";
@@ -759,7 +759,7 @@ class CfgRespawnGroups {
         class Configurations {
             class ST1: Weapons {
                 markerText = "ST1";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_recon.paa";
+                markerTexture = QPATHTOEF(markers,data\recon.paa);
             };
             class ST2: ST1 {
                 markerText = "ST2";
@@ -800,7 +800,7 @@ class CfgRespawnGroups {
         class Configurations {
             class ENG1: Weapons {
                 markerText = "ENG1";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_maint.paa";
+                markerTexture = QPATHTOEF(markers,data\maintenance.paa);
             };
             class ENG2: ENG1 {
                 markerText = "ENG2";
@@ -863,7 +863,7 @@ class CfgRespawnGroups {
             };
             class IFV1: Tank1 {
                 markerText = "IFV1";
-                markerTexture = "\A3\ui_f\data\map\markers\nato\b_mech_inf.paa";
+                markerTexture = QPATHTOEF(markers,data\mechanized_infantry.paa);
             };
             class IFV2: IFV1 {
                 markerText = "IFV2";
@@ -921,7 +921,7 @@ class CfgRespawnGroups {
             class AH1: Air {
                 markerText = "AH1";
             };
-            class AH2: Air {
+            class AH2: AH1 {
                 markerText = "AH2";
                 markerColor[] = {0,0,1,1};
             };
@@ -933,9 +933,11 @@ class CfgRespawnGroups {
             };
             class TH1: AH1 {
                 markerText = "TH1";
+                markerTexture = QPATHTOEF(markers,data\helicopter.paa);
             };
-            class TH2: AH2 {
+            class TH2: TH1 {
                 markerText = "TH2";
+                markerColor[] = {0,0,1,1};
             };
             class TH3: TH1 {
                 markerText = "TH3";
@@ -954,6 +956,66 @@ class CfgRespawnGroups {
             };
             class TH8: TH2 {
                 markerText = "TH8";
+            };
+        };
+    };
+
+    class MiscCivilians {
+        displayName = "Misc Civilians";
+
+        class Units {
+            class Civ1: BaseUnit {
+                displayName = "Civilian";
+                type = "c_man_1";
+                leader = 1;
+            };
+            class Civ2: BaseUnit {
+                displayName = "Civilian";
+                type = "c_man_1";
+            };
+            class Civ3: BaseUnit {
+                displayName = "Civilian";
+                type = "c_man_2";
+            };
+            class Civ4: BaseUnit {
+                displayName = "Civilian";
+                type = "c_man_2";
+            };
+            class Civ5: BaseUnit {
+                displayName = "Civilian";
+                type = "c_man_3";
+            };
+            class Civ6: BaseUnit {
+                displayName = "Civilian";
+                type = "c_man_3";
+            };
+        };
+
+        class Configurations {
+            class MiscCiv {
+                markerText = "Civilian";
+            };
+        };
+    };
+
+    class PressTeam {
+        displayName = "Press Team";
+
+        class Units {
+            class Reporter: BaseUnit {
+                displayName = "Reporter";
+                type = "c_journalist_f";
+                leader = 1;
+            };
+            class Cameraman: BaseUnit {
+                displayName = "Cameraman";
+                type = "c_journalist_f";
+            };
+        };
+
+        class Configurations {
+            class PT {
+                markerText = "Press Team";
             };
         };
     };

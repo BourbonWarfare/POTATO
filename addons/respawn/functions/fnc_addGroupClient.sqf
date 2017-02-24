@@ -28,8 +28,11 @@ params [
 ];
 
 private _groupIndex = tvAdd [GROUP_TREE_IDC, [], format ["%1 (%2)", _configText, _groupDisplayName]];
-tvSetPicture [GROUP_TREE_IDC, [_groupIndex], _configTexture];
-tvSetPictureColor [GROUP_TREE_IDC, [_groupIndex], _configColor];
+if !(_configTexture isEqualTo "") then {
+    tvSetPicture [GROUP_TREE_IDC, [_groupIndex], _configTexture];
+    tvSetPictureColor [GROUP_TREE_IDC, [_groupIndex], _configColor];
+};
+
 tvExpand [GROUP_TREE_IDC, [_groupIndex]];
 
 {
