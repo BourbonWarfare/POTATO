@@ -236,6 +236,7 @@ class GVAR(adminRespawn) {
         };
         class TriggerButton: RscButton {
             idc = ADMIN_TRIGGER_BUTTON_IDC;
+            onButtonClick = QUOTE(_this call FUNC(ui_handleTriggerClick));
             text = "Trigger Respawn";
             x = 0.6 * safezoneW + safezoneX;
             y = 0.58 * safezoneH + safezoneY;
