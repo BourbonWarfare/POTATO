@@ -9,6 +9,7 @@ PREP_RECOMPILE_END;
 GVAR(open) = false;
 
 if (isServer) then {
+    GVAR(respawnPointCount) = 1;
     GVAR(groupCount) = 1;
     GVAR(activeGroups) = [];
     GVAR(registeredClients) = [];

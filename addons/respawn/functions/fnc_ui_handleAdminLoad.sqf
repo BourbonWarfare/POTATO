@@ -19,6 +19,9 @@ TRACE_1("params",_this);
 GVAR(oldSpecChat) = [] call acre_api_fnc_isSpectator;
 GVAR(currentSpecChat) = GVAR(oldSpecChat);
 
+// set rp highlight
+GVAR(mapHighlighted) = objNull;
+
 // set spectator array
 GVAR(currentSpectators) = [];
 

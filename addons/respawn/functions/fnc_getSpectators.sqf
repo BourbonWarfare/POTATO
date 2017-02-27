@@ -18,7 +18,7 @@ TRACE_1("params",_this);
 private _spectators = [];
 
 {
-    if (!isNull _x && {_x isKindOf QEGVAR(spectate,spectator)}  && {alive _x} /* && {isPlayer _x} */
+    if (!isNull _x && {_x isKindOf QEGVAR(spectate,spectator)}  && {alive _x} && {isPlayer _x}
         && {[[_x] call BIS_fnc_objectVar, GROUP_TREE_IDC] call EFUNC(spectate,findPathInList) isEqualTo [-1]}) then {
         _spectators pushBack _x;
     };

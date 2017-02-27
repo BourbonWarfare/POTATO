@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {};
+        units[] = {QGVAR(placeRespawnPoint), QGVAR(openRespawnMenu)};
         weapons[] = {};
         magazines[] = {};
         requiredVersion = REQUIRED_VERSION;
@@ -15,6 +15,7 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgFactionClasses.hpp"
 #include "CfgRespawnFactions.hpp"
 #include "CfgRespawnGroups.hpp"
 #include "CfgVehicles.hpp"

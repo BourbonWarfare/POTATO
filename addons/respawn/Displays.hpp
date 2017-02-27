@@ -303,15 +303,12 @@ class GVAR(adminRespawn) {
         };
         class Map: RscMapControl {
             idc = ADMIN_MAP_IDC;
-
-            //onDraw = QUOTE(_this call FUNC(ui_handleMapDraw));
-            //onMouseButtonClick = QUOTE(_this call FUNC(ui_handleMapClick));
-
+            onDraw = QUOTE(_this call FUNC(ui_handleMapDraw));
+            onMouseButtonClick = QUOTE(_this call FUNC(ui_handleMapClick));
             x = 0.27 * safezoneW + safezoneX;
             y = 0.23 * safezoneH + safezoneY;
             w = 0.46 * safezoneW;
             h = 0.54 * safezoneH;
-
             maxSatelliteAlpha = 0.75;
             colorBackground[] = {1,1,1,1};
         };

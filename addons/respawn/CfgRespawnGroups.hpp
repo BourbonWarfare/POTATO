@@ -114,7 +114,7 @@ class CfgRespawnGroups {
         class Configurations {
             class COY {
                 markerText = "COY";
-                markerColor[] = {0.9,0.9,0,1};
+                markerColor[] = {1,0.647,0,1};
                 markerTexture = QPATHTOEF(markers,data\hq.paa);
                 markerSize = 24;
 
@@ -151,7 +151,7 @@ class CfgRespawnGroups {
         class Configurations {
             class OnePlt {
                 markerText = "1PLT";
-                markerColor[] = {0.9,0.9,0,1};
+                markerColor[] = {1,0.647,0,1};
                 markerTexture = QPATHTOEF(markers,data\hq.paa);
                 markerSize = 24;
 

@@ -28,6 +28,9 @@ if !(GVAR(currentSpecChat) isEqualTo GVAR(oldSpecChat)) then {
 // reset spectator array
 GVAR(currentSpectators) = [];
 
+// set rp highlight
+GVAR(mapHighlighted) = objNull;
+
 // save current dropdown config
 GVAR(lastFactionIndex) = lbCurSel ADMIN_FACTION_COMBO_IDC;
 GVAR(lastGroupIndex) = lbCurSel ADMIN_GROUP_COMBO_IDC;
