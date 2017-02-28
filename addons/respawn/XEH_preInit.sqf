@@ -13,6 +13,7 @@ if (isServer) then {
     GVAR(groupCount) = 1;
     GVAR(activeGroups) = [];
     GVAR(registeredClients) = [];
+    [] spawn FUNC(readConfigToVariables);
 };
 
 // register event handler to detect state changes (would normally use publicVariable, but we're already sending this for spectate hooks)
@@ -24,7 +25,5 @@ if (isServer) then {
         [] call FUNC(updateOpenButton);
     };
 }] call CBA_fnc_addEventHandler;
-
-[] spawn FUNC(readConfigToVariables);
 
 ADDON = true;

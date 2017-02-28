@@ -18,6 +18,11 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
+// build caches if needed
+if (isNil QGVAR(factionsToInfo)) then {
+    [] call FUNC(readConfigToVariables);
+};
+
 // get spectator chat status
 GVAR(oldSpecChat) = [] call acre_api_fnc_isSpectator;
 GVAR(currentSpecChat) = GVAR(oldSpecChat);
