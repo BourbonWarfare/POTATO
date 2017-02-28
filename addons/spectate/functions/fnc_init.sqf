@@ -114,7 +114,7 @@ GVAR(cam) setDir getDirVisual GVAR(camTarget);
 GVAR(cam) camCommand "maxPitch 89.0";
 GVAR(cam) camCommand "minPitch -89.0";
 GVAR(cam) camCommand "speedDefault 1.5";
-GVAR(cam) camCommand "speedMax 3.5";
+GVAR(cam) camCommand "speedMax 2.75";
 GVAR(cam) camCommand "ceilingHeight 5000";
 GVAR(cam) camCommand "atl off";
 GVAR(cam) camCommand "surfaceSpeed on";
