@@ -22,7 +22,7 @@ class CfgRespawnFactions {
     };
 
     class opf_f: blu_f {
-        displayName = "CAST";
+        displayName = "CSAT";
         callsignPrefix = "OpFor"
         factionClassname = "opf_f";
         factionPrefix = "o_";
