@@ -8,6 +8,7 @@ PREP_RECOMPILE_END;
 
 GVAR(enabled) = (QUOTE(ADDON) in getMissionConfigValue ["respawnTemplates", []]);
 GVAR(running) = false;
+GVAR(respawnOpen) = false;
 
 diag_log format ["[POTATO-spectate] Enabled: %1", GVAR(enabled)];
 

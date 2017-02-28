@@ -42,6 +42,9 @@ MAIN_DISPLAY createDisplay QGVAR(overlay);
 MAP_GROUP ctrlShow false;
 FOCUS_GROUP ctrlShow false;
 
+// set init state for respawn
+[GVAR(respawnOpen)] call FUNC(setRespawn);
+
 // hide whatever unit player was spawned into
 _newUnit setPos ZERO_POS;
 [_newUnit, true] remoteExecCall ["hideObjectGlobal", SERVER_CLIENT_ID];

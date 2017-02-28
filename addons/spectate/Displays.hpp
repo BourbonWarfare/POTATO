@@ -322,5 +322,19 @@ class GVAR(overlay) {
                 };
             };
         };
+        class RespawnButton: RscButton {
+            idc = RESPAWN_IDC;
+
+            onButtonClick = QUOTE([] spawn EFUNC(respawn,openClientRespawn));
+
+            x = safezoneX + safezoneW - 0.2;
+            y = safezoneY + safezoneH - 0.08;
+            w = 0.2;
+            h = 0.08;
+
+            text = "Open Respawn";
+            colorBackground[] = {0,0,0,0.5};
+            sizeEx = QUOTE(1.0 * YFACTOR);
+        };
     };
 };

@@ -18,6 +18,7 @@ PREP(removeEventHandlers);
 PREP(resetTarget);
 PREP(setEventsOnActiveUnits);
 PREP(setFocus);
+PREP(setRespawn);
 PREP(setTarget);
 PREP(switchFocus);
 PREP(toggleMap);

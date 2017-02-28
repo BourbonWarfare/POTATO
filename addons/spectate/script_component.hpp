@@ -113,4 +113,7 @@
 #define FOCUS_KILL_IDC 734296
 #define FOCUS_KILL (OVERLAY displayCtrl FOCUS_KILL_IDC)
 
+#define RESPAWN_IDC 751885
+#define RESPAWN (OVERLAY displayCtrl RESPAWN_IDC)
+
 #include "\z\potato\addons\core\script_macros.hpp"

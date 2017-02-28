@@ -28,6 +28,7 @@ params [
 
 // store the player pre-switch
 private _oldUnit = player;
+private _zeusModule = getAssignedCuratorLogic _oldUnit;
 
 // validate
 if (isNull _group) exitWith { WARNING("Respawn group null, exiting"); };
@@ -73,6 +74,11 @@ _newUnit setVariable [QEGVAR(spectate,cachedNamed), nil, true];
 // if the unit is the leader, force the selection
 if (_isLeader) then {
     _group selectLeader _newUnit;
+};
+
+// transfer zeus if spectator had it
+if !(isNull _zeusModule) then {
+    [_newUnit, _zeusModule] remoteExec [QEFUNC(spectate,transferZeus), SERVER_CLIENT_ID];
 };
 
 // assign the unit's color team

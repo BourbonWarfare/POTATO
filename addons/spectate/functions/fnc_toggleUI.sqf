@@ -24,6 +24,7 @@ if (GVAR(uiVisible)) then {
     CAM_GROUP ctrlSetFade 0;
     TIMER ctrlSetFade 0;
     LIST ctrlSetFade 0.8;
+    [GVAR(respawnOpen)] call FUNC(setRespawn);
 
     showChat true;
     playsound "HintCollapse";
@@ -32,6 +33,7 @@ if (GVAR(uiVisible)) then {
     CAM_GROUP ctrlSetFade 1;
     TIMER ctrlSetFade 1;
     LIST ctrlSetFade 1;
+    [false] call FUNC(setRespawn);
 
     showChat false;
     playsound "HintExpand";

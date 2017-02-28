@@ -46,4 +46,14 @@ if (GVAR(enabled) && hasInterface) then {
         [QPATHTOEF(markers,data\support.paa), QPATHTOF(data\support.paa)],
         [QPATHTOEF(markers,data\unknown.paa), QPATHTOF(data\unknown.paa)]
     ];
+
+    // register respawn EH
+    [QEGVAR(respawn,respawnStateChanged), {
+        params [["_open", false, [false]]];
+        GVAR(respawnOpen) = _open;
+
+        if (GVAR(running)) then {
+            [_open] call FUNC(setRespawn);
+        };
+    }] call CBA_fnc_addEventHandler;
 };

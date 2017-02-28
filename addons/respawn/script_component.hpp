@@ -43,14 +43,13 @@ If these rules and conditions are not met in full you or zeuses in general can a
 #define COLOR_BLUE_ACTIVE ARR_2(COLOR_BLUE,1)
 #define COLOR_BLUE_INACTIVE ARR_2(COLOR_BLUE,0.75)
 
-// define display components
+// common display defines
 #define MAIN_DISPLAY (findDisplay 46)
+#define GROUP_TREE_IDC 800009
 
+// admin display defines
 #define ADMIN_RESPAWN_IDD 800000
 #define ADMIN_RESPAWN (findDisplay ADMIN_RESPAWN_IDD)
-
-#define CLIENT_RESPAWN_IDD 850000
-#define CLIENT_RESPAWN (findDisplay CLIENT_RESPAWN_IDD)
 
 #define ADMIN_BG_IDC 800001
 #define ADMIN_BG (ADMIN_RESPAWN displayCtrl ADMIN_BG_IDC)
@@ -64,9 +63,8 @@ If these rules and conditions are not met in full you or zeuses in general can a
 #define ADMIN_SPEC_FRAME_IDC 800004
 #define ADMIN_SPEC_FRAME (ADMIN_RESPAWN displayCtrl ADMIN_SPEC_FRAME_IDC)
 
-#define GROUP_FRAME_IDC 800005
-#define ADMIN_GROUP_FRAME (ADMIN_RESPAWN displayCtrl GROUP_FRAME_IDC)
-#define CLIENT_GROUP_FRAME (CLIENT_RESPAWN displayCtrl GROUP_FRAME_IDC)
+#define ADMIN_GROUP_FRAME_IDC 800005
+#define ADMIN_GROUP_FRAME (ADMIN_RESPAWN displayCtrl ADMIN_GROUP_FRAME_IDC)
 
 #define ADMIN_CONFIG_FRAME_IDC 800007
 #define ADMIN_CONFIG_FRAME (ADMIN_RESPAWN displayCtrl ADMIN_CONFIG_FRAME_IDC)
@@ -74,9 +72,7 @@ If these rules and conditions are not met in full you or zeuses in general can a
 #define ADMIN_SPEC_LIST_IDC 800008
 #define ADMIN_SPEC_LIST (ADMIN_RESPAWN displayCtrl ADMIN_SPEC_LIST_IDC)
 
-#define GROUP_TREE_IDC 800009
 #define ADMIN_GROUP_TREE (ADMIN_RESPAWN displayCtrl GROUP_TREE_IDC)
-#define CLIENT_GROUP_TREE (CLIENT_RESPAWN displayCtrl GROUP_TREE_IDC)
 
 #define ADMIN_FACTION_TEXT_IDC 800010
 #define ADMIN_FACTION_TEXT (ADMIN_RESPAWN displayCtrl ADMIN_FACTION_TEXT_IDC)
@@ -150,5 +146,23 @@ If these rules and conditions are not met in full you or zeuses in general can a
 
 #define EULA_DECLINE_BUTTON_IDC 800105
 #define EULA_DECLINE_BUTTON (RESPAWN_EULA displayCtrl EULA_DECLINE_BUTTON_IDC)
+
+// client display defines
+#define CLIENT_RESPAWN_IDD 850000
+#define CLIENT_RESPAWN (findDisplay CLIENT_RESPAWN_IDD)
+
+#define CLIENT_BG_IDC 850001
+#define CLIENT_BG (CLIENT_RESPAWN displayCtrl CLIENT_BG_IDC)
+
+#define CLIENT_BGF_IDC 850002
+#define CLIENT_BGF (CLIENT_RESPAWN displayCtrl CLIENT_BGF_IDC)
+
+#define CLIENT_GROUP_TREE (CLIENT_RESPAWN displayCtrl GROUP_TREE_IDC)
+
+#define CLIENT_SLOT_BUTTON_IDC 850003
+#define CLIENT_SLOT_BUTTON (CLIENT_RESPAWN displayCtrl CLIENT_SLOT_BUTTON_IDC)
+
+#define CLIENT_UNSLOT_BUTTON_IDC 850004
+#define CLIENT_UNSLOT_BUTTON (CLIENT_RESPAWN displayCtrl CLIENT_UNSLOT_BUTTON_IDC)
 
 #include "\z\potato\addons\core\script_macros.hpp"
