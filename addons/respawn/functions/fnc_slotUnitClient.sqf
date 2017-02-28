@@ -1,15 +1,19 @@
 /*
  * Author: AACO
- * desc
+ * Adds the given spectator into the given path for the group tree
  *
  * Arguments:
- * Nothing
+ * 0: Spectator to slot <OBJECT>
+ * 1: The new slot display name <STRING>
+ * 2: Path to place the spectator into <ARRAY>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [player, 'Mr Cool Guy', [1,2]] call potato_respawn_fnc_slotUnitClient;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

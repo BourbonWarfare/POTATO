@@ -1,6 +1,8 @@
 /*
  * Author: AACO
- * desc
+ * Function called when respawn point placed in 3DEN/Zeus.
+ * Gives it a name if it needs one.
+ * Should only be called from the zeus module workflow
  *
  * Arguments:
  * Nothing
@@ -9,7 +11,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [logicObj] call potato_respawn_fnc_placeRespawnPointModule;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

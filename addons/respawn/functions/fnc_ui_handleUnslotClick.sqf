@@ -1,6 +1,7 @@
 /*
  * Author: AACO
- * desc
+ * Handles an admin unslotting a spectator
+ * Should only be called by UI events
  *
  * Arguments:
  * Nothing
@@ -9,7 +10,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_ui_handleUnslotClick;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

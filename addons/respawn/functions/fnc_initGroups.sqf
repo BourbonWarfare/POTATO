@@ -1,15 +1,17 @@
 /*
  * Author: AACO
- * desc
+ * After getting the initial batch of groups, add them to the client's tree
  *
  * Arguments:
- * Nothing
+ * 0: Array of all current groups <ARRAY>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [[]] call potato_respawn_fnc_initGroups;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

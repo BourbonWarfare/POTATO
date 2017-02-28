@@ -1,15 +1,17 @@
 /*
  * Author: AACO
- * desc
+ * Registers clients for updates, and sends them the current group state
  *
  * Arguments:
- * Nothing
+ * 0: Client ID to add to registry <NUMBER>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [2] call potato_respawn_fnc_registerClientForUpdates;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

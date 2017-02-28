@@ -1,6 +1,7 @@
 /*
  * Author: AACO
- * desc
+ * handles the load of the admin wave respawn tool. Will validate authorization
+ * Should only be called by UI events
  *
  * Arguments:
  * Nothing
@@ -9,7 +10,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_ui_handleAdminLoad;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

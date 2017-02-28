@@ -1,15 +1,17 @@
 /*
  * Author: AACO
- * desc
+ * Change the respawn state to either open or closed
  *
  * Arguments:
- * Nothing
+ * 0: Is respawn open <BOOL>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [true] call potato_respawn_fnc_changeRespawnState;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

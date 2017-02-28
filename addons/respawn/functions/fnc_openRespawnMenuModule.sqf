@@ -1,15 +1,18 @@
 /*
  * Author: AACO
- * desc
+ * Function called on the server when the respawn menu module is placed
+ * Should only be called from the zeus module workflow
  *
  * Arguments:
- * Nothing
+ * 0: Logic placed <OBJECT>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [logicObj] call potato_respawn_fnc_openRespawnMenuModule;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

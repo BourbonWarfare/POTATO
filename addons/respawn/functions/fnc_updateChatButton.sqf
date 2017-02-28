@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * desc
+ * Updates the state of the chat button based on the current spectator chat value
  *
  * Arguments:
  * Nothing
@@ -9,7 +9,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_updateChatButton;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

@@ -1,15 +1,17 @@
 /*
  * Author: AACO
- * desc
+ * Deletes a group from the master active group array, will trigger client deletions
  *
  * Arguments:
- * Nothing
+ * 0: Index of the group to delete <NUMBER>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [1] call potato_respawn_fnc_deleteGroup;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

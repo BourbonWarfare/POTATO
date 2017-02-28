@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * desc
+ * Resets the current respawn configuration
  *
  * Arguments:
  * Nothing
@@ -9,7 +9,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_resetGroupInfo;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

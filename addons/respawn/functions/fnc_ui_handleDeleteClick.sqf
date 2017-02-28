@@ -1,6 +1,7 @@
 /*
  * Author: AACO
- * desc
+ * Handles a user deleting a group
+ * Should only be called by UI events
  *
  * Arguments:
  * Nothing
@@ -9,7 +10,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_ui_handleDeleteClick;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

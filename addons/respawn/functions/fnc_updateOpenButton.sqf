@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * desc
+ * Updates the open respawn button based on the current open state
  *
  * Arguments:
  * Nothing
@@ -9,7 +9,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_updateOpenButton;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * desc
+ * Opens the wave respawn tool EULA
  *
  * Arguments:
  * Nothing
@@ -9,7 +9,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_openRespawnEULA;
+ *
+ * Public: Yes
  */
 
 #include "script_component.hpp"

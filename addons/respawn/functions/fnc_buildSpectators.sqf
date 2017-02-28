@@ -1,15 +1,17 @@
 /*
  * Author: AACO
- * desc
+ * Builds the spectator list from the given spectator array
  *
  * Arguments:
- * Nothing
+ * 0: Spectators to list <ARRAY>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [[player]] call potato_respawn_fnc_buildSpectators;
+ *
+ * Public: No
  */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"

@@ -1,6 +1,7 @@
 /*
  * Author: AACO
- * desc
+ * Reads the respawn configurations and loads them into cache variables.
+ * Should only be called once on server init/admin UI load
  *
  * Arguments:
  * Nothing
@@ -9,7 +10,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_readConfigToVariables;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

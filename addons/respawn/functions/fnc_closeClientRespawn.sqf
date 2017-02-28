@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * desc
+ * Closes the client respawn interface
  *
  * Arguments:
  * Nothing
@@ -9,10 +9,14 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_closeClientRespawn;
+ *
+ * Public: Yes
  */
 
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-closeDialog 1;
+if !(isNull CLIENT_RESPAWN) then {
+    closeDialog 1;
+};

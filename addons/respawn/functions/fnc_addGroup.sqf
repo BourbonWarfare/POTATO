@@ -1,15 +1,22 @@
 /*
  * Author: AACO
- * desc
+ * Adds a group to the master array and sends the update out to all the registered clients
  *
  * Arguments:
- * Nothing
+ * 0: Faction data lookup <STRING>
+ * 1: Group data lookup <STRING>
+ * 2: Config data lookup <STRING>
+ * 3: Config marker text <STRING>
+ * 4: Config marker color <ARRAY>
+ * 5: Config marker texture <STRING>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * ['blu_f', 'PlatoonLead', 'OnePlt', '1Plt', [1,1,1,1], '/A3/path/texture.paa'] call potato_respawn_fnc_addGroup;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

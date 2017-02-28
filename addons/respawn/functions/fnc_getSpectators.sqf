@@ -1,15 +1,17 @@
 /*
  * Author: AACO
- * desc
+ * Gets all an array of all spectators
  *
  * Arguments:
  * Nothing
  *
  * Return Value:
- * Nothing
+ * Array of all spectators not currently slotted
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_getSpectators;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

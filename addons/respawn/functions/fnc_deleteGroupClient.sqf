@@ -1,15 +1,17 @@
 /*
  * Author: AACO
- * desc
+ * Client method the server calls to remove a group from the tree
  *
  * Arguments:
- * Nothing
+ * 0: Group index <NUMBER>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [1] call potato_respawn_fnc_deleteGroupClient;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

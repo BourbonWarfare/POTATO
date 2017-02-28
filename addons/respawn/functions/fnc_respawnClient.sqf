@@ -1,16 +1,23 @@
 /*
  * Author: AACO
- * desc
+ * Respawns a player with the configuration given from the server.
  *
  * Arguments:
  * 0: Group <GROUP>
- *
+ * 1: Unit classname <STRING>
+ * 2: Unit position <ARRAY>
+ * 3: Color team to join <STRING>
+ * 4: Rank of the unit <STRING>
+ * 5: Is the unit a group leader <BOOL>
+ * 6: Is the unit a medic <BOOL>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_respawnClient;
+ * [createGroup west, 'b_soldier_f', [0,0,0], 'MAIN', 'private', false, false] call potato_respawn_fnc_respawnClient;
+ *
+ * Public: No
  */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"

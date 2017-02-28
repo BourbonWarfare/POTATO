@@ -1,7 +1,7 @@
 /*
  * Author: AACO
  * Function used to handle map clicks
- * Should only be called from events
+ * Should only be called by UI events
  *
  * Arguments:
  * 2: X screen coordinate <NUMBER>

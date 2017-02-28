@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * desc
+ * Client function to clear the group tree when the server clears the master group
  *
  * Arguments:
  * Nothing
@@ -9,7 +9,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_resetGroupInfoClient;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

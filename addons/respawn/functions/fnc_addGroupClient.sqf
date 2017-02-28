@@ -1,15 +1,30 @@
 /*
  * Author: AACO
- * desc
+ * Client function called when the server updates the underlying group
  *
  * Arguments:
- * Nothing
+ * 0: Faction data lookup <STRING>
+ * 1: Faction display name <STRING>
+ * 2: Group data lookup <STRING>
+ * 3: Group display name <STRING>
+ * 4: Config data lookup <STRING>
+ * 5: Config marker text <STRING>
+ * 6: Config marker color <ARRAY>
+ * 7: Config marker texture <STRING>
+ * 8: Units to add <ARRAY>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [
+ *     'blu_f', 'NATO',
+ *     'PlatoonLead', 'Platoon Lead',
+ *     'OnePlt', '1Plt', [1,1,1,1], '/A3/path/texture.paa',
+ *     ['Unit data lookup', 'Unit displayname', 'unit_classname_f', objNull]
+ * ] call potato_respawn_fnc_addGroupClient;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

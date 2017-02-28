@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * desc
+ * Kicks off the respawn process for the current active group array
  *
  * Arguments:
  * Nothing
@@ -9,7 +9,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_triggerRespawn;
+ *
+ * Public: No
  */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"

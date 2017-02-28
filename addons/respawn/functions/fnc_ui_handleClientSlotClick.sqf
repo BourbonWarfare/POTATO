@@ -1,6 +1,7 @@
 /*
  * Author: AACO
- * desc
+ * Handles when a client hits the slot button, or double clicks on the slot they want
+ * Should only be called by UI events
  *
  * Arguments:
  * Nothing
@@ -9,7 +10,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_ui_handleClientSlotClick;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

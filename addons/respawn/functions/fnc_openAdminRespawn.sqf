@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * desc
+ * Opens the admin wave respawn tool
  *
  * Arguments:
  * Nothing
@@ -9,7 +9,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_openAdminRespawn;
+ *
+ * Public: Yes
  */
 
 #include "script_component.hpp"

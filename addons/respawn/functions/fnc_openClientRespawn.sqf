@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * desc
+ * Opens the client respawn tool
  *
  * Arguments:
  * Nothing
@@ -9,7 +9,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_openClientRespawn;
+ *
+ * Public: Yes
  */
 
 #include "script_component.hpp"

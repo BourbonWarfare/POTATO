@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * desc
+ * Updates the current spectators with their current death timers
  *
  * Arguments:
  * Nothing
@@ -9,7 +9,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_updateSpectators;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

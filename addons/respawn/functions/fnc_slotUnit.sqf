@@ -1,15 +1,19 @@
 /*
  * Author: AACO
- * desc
+ * Slots the given sepctator into the given path
  *
  * Arguments:
- * Nothing
+ * 0: Spectator to slot <OBJECT>
+ * 1: Path to place the spectator into <ARRAY>
+ * 2: Should the unit be forced into the slot <BOOL>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [player, [1,2], true] call potato_respawn_fnc_slotUnit;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"

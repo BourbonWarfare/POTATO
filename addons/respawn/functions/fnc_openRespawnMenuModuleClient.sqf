@@ -1,6 +1,9 @@
 /*
  * Author: AACO
- * desc
+ * If the player is authorized, opens the respawn screen,
+ * if they still need to accept the eula it directs them there,
+ * otherwise it does nothing
+ * Should only be called from the zeus module workflow
  *
  * Arguments:
  * Nothing
@@ -9,7 +12,9 @@
  * Nothing
  *
  * Example:
- * [] call potato_respawn_fnc_;
+ * [] call potato_respawn_fnc_OpenRespawnMenuModuleClient;
+ *
+ * Public: No
  */
 
 #include "script_component.hpp"
