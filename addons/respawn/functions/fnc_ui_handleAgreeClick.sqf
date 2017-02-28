@@ -15,8 +15,6 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-private _groupPath = tvCurSel GROUP_TREE_IDC;
-
-if (count _groupPath != 2) exitWith { LOG("Bad selections when trying to unslot"); };
-
-[objNull, _groupPath, true] call FUNC(slotUnit);
+closeDialog 1;
+profileNamespace setVariable [EULA_CHECK, true];
+[] call FUNC(openAdminRespawn);

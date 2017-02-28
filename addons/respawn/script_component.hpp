@@ -15,7 +15,17 @@
 
 // define black-lists
 #define ZEUS_ENABLED true
-#define BLACK_LIST_UUIDS []
+#define BLACK_LIST_UIDS []
+
+// EULA info
+#define EULA_CHECK QGVAR(eula_v1) // note change this on change of eula text
+#define EULA_FULL_TEXT <t size='0.75'>\
+By clicking agree, you agree to the following rules and conditions unless otherwise authorized by a group administrator. <br/>\
+No respawns of players, outside premature transportation incidents or bringing in a reinforcement wave upon the completion of a concrete mission objective. <br/>\
+No respawns of players on forces opposing the player force. <br/>\
+No displays of nepotism when assigning slots and groups. <br/>\
+If these rules and conditions are not met in full you or zeuses in general can and will be black listed from using the respawn tool\
+</t>
 
 // define colors
 #define COLOR_BLACK ARR_4(0,0,0,0.75)
@@ -121,5 +131,24 @@
 
 #define ADMIN_MAP_IDC 800027
 #define ADMIN_MAP (ADMIN_RESPAWN displayCtrl ADMIN_MAP_IDC)
+
+// eula display defines
+#define RESPAWN_EULA_IDD 800100
+#define RESPAWN_EULA (findDisplay RESPAWN_EULA_IDD)
+
+#define EULA_BG_IDC 800101
+#define EULA_BG (RESPAWN_EULA displayCtrl EULA_BG_IDC)
+
+#define EULA_BGF_IDC 800102
+#define EULA_BGF (RESPAWN_EULA displayCtrl EULA_BGF_IDC)
+
+#define EULA_TEXT_IDC 800103
+#define EULA_TEXT (RESPAWN_EULA displayCtrl EULA_TEXT_IDC)
+
+#define EULA_AGREE_BUTTON_IDC 800104
+#define EULA_AGREE_BUTTON (RESPAWN_EULA displayCtrl EULA_AGREE_BUTTON_IDC)
+
+#define EULA_DECLINE_BUTTON_IDC 800105
+#define EULA_DECLINE_BUTTON (RESPAWN_EULA displayCtrl EULA_DECLINE_BUTTON_IDC)
 
 #include "\z\potato\addons\core\script_macros.hpp"

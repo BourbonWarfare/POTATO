@@ -9,6 +9,7 @@ class RscButton;
 class RscListBox;
 class RscBackground;
 class RscMapControl;
+class RscStructuredText;
 class RscControlsGroupNoScrollbars;
 
 // admin respawn tool
@@ -84,6 +85,7 @@ class GVAR(adminRespawn) {
         };
         class GroupTree: RscTree {
             idc = GROUP_TREE_IDC;
+            onTreeDblClick = QUOTE(_this call FUNC(ui_handleSlotClick));
             x = 0.4375 * safezoneW + safezoneX;
             y = 0.3 * safezoneH + safezoneY;
             w = 0.1375 * safezoneW;
@@ -311,6 +313,73 @@ class GVAR(adminRespawn) {
             h = 0.54 * safezoneH;
             maxSatelliteAlpha = 0.75;
             colorBackground[] = {1,1,1,1};
+        };
+    };
+};
+
+// respawn eula dialog
+class GVAR(respawnEula) {
+    idd = RESPAWN_EULA_IDD;
+
+    class ControlsBackground {
+        class BackGround: RscBackground {
+            idc = EULA_BG_IDC;
+            x = 0.42 * safezoneW + safezoneX;
+        	y = 0.36 * safezoneH + safezoneY;
+        	w = 0.135 * safezoneW;
+        	h = 0.325 * safezoneH;
+            colorBackground[] = {0,0,0,0.33};
+        };
+        class BackGroundFrame: RscFrame {
+            idc = EULA_BGF_IDC;
+            text = "Wave Respawn Tool End User License Agreement";
+            x = 0.425 * safezoneW + safezoneX;
+        	y = 0.36 * safezoneH + safezoneY;
+        	w = 0.125 * safezoneW;
+        	h = 0.32 * safezoneH;
+            sizeEx = 0.50 * TEXT_SIZE_FACTOR;
+        };
+    };
+
+    class Controls {
+        class EulaText: RscStructuredText {
+            idc = EULA_TEXT_IDC;
+            text = QUOTE(EULA_FULL_TEXT)
+            x = 0.43 * safezoneW + safezoneX;
+        	y = 0.38 * safezoneH + safezoneY;
+        	w = 0.115 * safezoneW;
+        	h = 0.24 * safezoneH;
+            colorBackground[] = {COLOR_EMPTY};
+        };
+        class AgreeButton: RscButton {
+            idc = EULA_AGREE_BUTTON_IDC;
+            onButtonClick = QUOTE(_this call FUNC(ui_handleAgreeClick));
+            text = "Agree";
+            x = 0.4375 * safezoneW + safezoneX;
+        	y = 0.64 * safezoneH + safezoneY;
+        	w = 0.0375 * safezoneW;
+        	h = 0.03 * safezoneH;
+            colorFocused[] = {COLOR_GREEN_ACTIVE};
+            colorBackground[] = {COLOR_GREEN_INACTIVE};
+            colorBackgroundActive[] = {COLOR_GREEN_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
+            tooltip = "Agree to the EULA as described above, and open the respawn tool";
+            sizeEx = 0.7 * TEXT_SIZE_FACTOR;
+        };
+        class DeclineButton: RscButton {
+            idc = EULA_DECLINE_BUTTON_IDC;
+            onButtonClick = QUOTE(_this call FUNC(ui_handleDeclineClick));
+            text = "Decline";
+            x = 0.5 * safezoneW + safezoneX;
+        	y = 0.64 * safezoneH + safezoneY;
+        	w = 0.0375 * safezoneW;
+        	h = 0.03 * safezoneH;
+            colorFocused[] = {COLOR_RED_ACTIVE};
+            colorBackground[] = {COLOR_RED_INACTIVE};
+            colorBackgroundActive[] = {COLOR_RED_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
+            tooltip = "Decline to the EULA as described above, and close the dialog";
+            sizeEx = 0.7 * TEXT_SIZE_FACTOR;
         };
     };
 };
