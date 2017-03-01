@@ -13,38 +13,28 @@
  *
  * Public: No
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
 if (GVAR(uiVisible) && GVAR(showInfo)) then {
     if (isNull GVAR(camTarget)) then {
-        [player, EGVAR(miscFixes,eventsArray)]
+        [player, acex_killTracker_outputText]
     } else {
-        [GVAR(camTarget), GVAR(camTarget) getVariable [QEGVAR(miscFixes,eventsArray), []]]
+        [GVAR(camTarget), GVAR(camTarget) getVariable [QEGVAR(miscFixes,eventsString), "None"]]
     } params ["_unit", "_killFeed"];
+    TRACE_1("Kill Feed", _killFeed);
 
     if !(ctrlShown FOCUS_GROUP) then {
         FOCUS_GROUP ctrlShow true;
     };
 
     FOCUS_NAME ctrlSetText ([_unit] call FUNC(getName));
-
-    if !(GVAR(lastKillFeed) isEqualTo _killFeed) then {
-        lbClear FOCUS_KILL;
-        if (_killFeed isEqualTo []) then {
-            FOCUS_KILL ctrlShow false;
-            FOCUS_DOWN_BG ctrlShow false;
-        } else {
-            {
-                FOCUS_KILL lbAdd _x;
-            } forEach _killFeed;
-
-            FOCUS_KILL ctrlShow true;
-            FOCUS_DOWN_BG ctrlShow true;
-        };
-        GVAR(lastKillFeed) = _killFeed;
-    };
+    FOCUS_KILL ctrlSetStructuredText parseText format ["%1%2%3", "<t size='0.75'>", _killFeed, "</t>"];
+    private _killPos = ctrlPosition FOCUS_KILL;
+    _killPos set [3, ctrlTextHeight FOCUS_KILL];
+    FOCUS_KILL ctrlSetPosition _killPos;
+    FOCUS_KILL ctrlCommit 0;
 
     if (vehicle _unit == _unit) then {
         FOCUS_UNIT ctrlSetText ([_unit] call FUNC(getVehicleIcon));

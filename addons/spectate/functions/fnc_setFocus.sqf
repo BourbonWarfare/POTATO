@@ -32,7 +32,6 @@ if (_newFocus != GVAR(camTarget) && { !isNull _newFocus || { !isNull GVAR(camTar
         [GVAR(currentCamIndex)] call FUNC(ui_changeCamera);
     };
 
-    GVAR(lastKillFeed) = [-999];
     [] call FUNC(updateListFocus);
     [] call FUNC(updateInfo);
 };

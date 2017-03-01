@@ -113,7 +113,30 @@
 #define FOCUS_KILL_IDC 734296
 #define FOCUS_KILL (OVERLAY displayCtrl FOCUS_KILL_IDC)
 
+#define FOCUS_KILL_CG_IDC 734297
+#define FOCUS_KILL_CG (OVERLAY displayCtrl FOCUS_KILL_CG_IDC)
+
 #define RESPAWN_IDC 751885
 #define RESPAWN (OVERLAY displayCtrl RESPAWN_IDC)
+
+#define HELP_IDC 751886
+#define HELP (OVERLAY displayCtrl HELP_IDC)
+#define HELP_TEXT \
+<t size='0.9'>Controls:<br/><br/></t>\
+<t size='0.78'>\
+'F1' to open/close this dialog<br/>\
+'Space' to switch the current camera<br/>\
+'Right Arrow' to switch focus to the next unit<br/>\
+'Left Arrow' to switch focus to the previous unit<br/>\
+'Backspace' to toggle the UI<br/>\
+Map toggle (default 'M') to open/close the map<br/>\
+Zero up (default 'Page Up') to increase client view distance<br/>\
+Zero down (default 'Page Down') to decrease client view distance<br/>\
+Night vision toggle (default 'N') to change image modes<br/>\
+Open curator (default 'Y') to open the curator interface (if assigned)<br/>\
+Light toggle (default 'L') to add local point lights<br/>\
+Lock target (default 'T') to add bullet tracking<br/>\
+Player stats (default 'P') to view the selected player's stats<br/>\
+</t>
 
 #include "\z\potato\addons\core\script_macros.hpp"

@@ -41,6 +41,7 @@ MAIN_DISPLAY createDisplay QGVAR(overlay);
 // hide elements
 MAP_GROUP ctrlShow false;
 FOCUS_GROUP ctrlShow false;
+HELP ctrlShow false;
 
 // set init state for respawn
 [GVAR(respawnOpen)] call FUNC(setRespawn);
@@ -140,4 +141,3 @@ GVAR(mapHighlighted) = objNull;
 GVAR(uiVisible) = true;
 GVAR(cursorObject) = objNull;
 GVAR(holdingRightMouse) = false;
-GVAR(lastKillFeed) = [-999];

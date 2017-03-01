@@ -33,6 +33,9 @@ params [
     ["_isMedic", false, [false]]
 ];
 
+// make sure respawn is closed
+[] call FUNC(closeClientRespawn);
+
 // store the player pre-switch
 private _oldUnit = player;
 private _zeusModule = getAssignedCuratorLogic _oldUnit;
@@ -50,10 +53,6 @@ if (EGVAR(spectate,running)) then {
 // create temp group and new unit
 private _tempGroup = createGroup (side _group);
 private _newUnit = _tempGroup createUnit [_unitType, _position, [], 75, "NONE"];
-
-// set new unit rank, fix rating
-_newUnit setRank _rank;
-_newUnit addRating (25000 - (rating _newUnit));
 
 // if unit is medic add marker attributes
 if (_isMedic) then {
@@ -78,15 +77,32 @@ if (typeOf _oldUnit == QEGVAR(spectate,spectator)) then {
 [_newUnit] call ACEFUNC(common,setName);
 _newUnit setVariable [QEGVAR(spectate,cachedNamed), nil, true];
 
-// if the unit is the leader, force the selection
-if (_isLeader) then {
-    _group selectLeader _newUnit;
-};
-
 // transfer zeus if spectator had it
 if !(isNull _zeusModule) then {
     [_newUnit, _zeusModule] remoteExec [QEFUNC(spectate,transferZeus), SERVER_CLIENT_ID];
 };
 
-// assign the unit's color team
-_newUnit assignTeam _colorTeam;
+// do anything else that needs a delay
+[_newUnit, _group, _rank, _isLeader] spawn {
+    sleep 10;
+    // validate objects
+    params [
+        ["_newUnit", objNull, [objNull]],
+        ["_group", grpNull, [grpNull]],
+        ["_rank", "private", [""]],
+        ["_isLeader", false, [false]]
+    ];
+    if (isNull _newUnit || isNull _group) exitWith { WARNING("Group or unit null on delayed execution"); };
+
+    // if the unit is the leader, force the selection
+    if (_isLeader) then {
+        _group selectLeader _newUnit;
+    };
+
+    // set new unit rank, fix rating
+    _newUnit setRank _rank; // note setRank will be EG in 1.68
+    _newUnit addRating (25000 - (rating _newUnit));
+
+    // assign the unit's color team
+    _newUnit assignTeam _colorTeam;
+};

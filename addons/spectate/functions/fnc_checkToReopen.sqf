@@ -26,10 +26,13 @@ if (GVAR(running)) then {
     // hide elements
     MAP_GROUP ctrlShow false;
     FOCUS_GROUP ctrlShow GVAR(showInfo);
+    HELP ctrlShow false;
+
+    // set init state for respawn
+    [GVAR(respawnOpen)] call FUNC(setRespawn);
 
     // force element refresh
     GVAR(curList) = [];
-    GVAR(lastKillFeed) = [-999];
     [] call FUNC(updateInfo);
     [] call FUNC(updateList);
     [GVAR(currentCamIndex)] call FUNC(ui_changeCamera);

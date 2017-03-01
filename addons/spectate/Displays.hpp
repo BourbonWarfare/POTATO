@@ -7,8 +7,9 @@ class RscText;
 class RscTree;
 class RscButton;
 class RscPicture;
-class RscListBox;
 class RscMapControl;
+class RscControlsGroup;
+class RscStructuredText;
 class RscPictureKeepAspect;
 class RscControlsGroupNoScrollbars;
 
@@ -309,16 +310,26 @@ class GVAR(overlay) {
                     shadow = 0;
                     sizeEx = QUOTE(1 * YFACTOR);
                 };
-                class Kill: RscListBox {
-                    idc = FOCUS_KILL_IDC;
+                class KillCG: RscControlsGroup {
+                    idc = FOCUS_KILL_CG_IDC;
 
                     x = QUOTE(3.5 * XFACTOR);
                     y = QUOTE(1.5 * YFACTOR);
                     w = QUOTE(12.4 * XFACTOR);
                     h = QUOTE(4 * YFACTOR);
 
-                    shadow = 0;
-                    sizeEx = QUOTE(0.8 * YFACTOR);
+                    class controls {
+                        class Kill: RscStructuredText {
+                            idc = FOCUS_KILL_IDC;
+
+                            x = QUOTE(0 * XFACTOR);
+                            y = QUOTE(0 * YFACTOR);
+                            w = QUOTE(12 * XFACTOR);
+                            h = QUOTE(10 * YFACTOR);
+
+                            shadow = 0;
+                        };
+                    };
                 };
             };
         };
@@ -336,5 +347,16 @@ class GVAR(overlay) {
             colorBackground[] = {0,0,0,0.5};
             sizeEx = QUOTE(1.0 * YFACTOR);
         };
+        class HelpText: RscStructuredText {
+            idc = HELP_IDC;
+
+            x = 0.25;
+            y = 0.25;
+            w = 0.5;
+            h = 0.5;
+
+            text = QUOTE(HELP_TEXT);
+            colorBackground[] = {0,0,0,0.5};
+        }
     };
 };

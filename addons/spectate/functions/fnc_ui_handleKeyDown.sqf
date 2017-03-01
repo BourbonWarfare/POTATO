@@ -104,7 +104,6 @@ if (inputAction "lockTarget" > 0) exitWith {
 // handle showing kill tracker
 if (inputAction "networkStats" > 0) exitWith {
     GVAR(showInfo) = !GVAR(showInfo);
-    GVAR(lastKillFeed) = [-999];
     [] call FUNC(updateInfo);
     true
 };
@@ -132,6 +131,11 @@ if (_key == DIK_LEFT) exitWith {
 // handle toggling the UI
 if (_key == DIK_BACKSPACE) exitWith {
     [] call FUNC(toggleUI);
+    true
+};
+
+if (_key == DIK_F1) exitWith {
+    HELP ctrlShow !(ctrlShown HELP);
     true
 };
 

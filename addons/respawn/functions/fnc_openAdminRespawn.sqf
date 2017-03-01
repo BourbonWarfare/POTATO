@@ -17,4 +17,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-createDialog QGVAR(adminRespawn);
+// only allow one screen open at once
+if (isNull ADMIN_RESPAWN && isNull CLIENT_RESPAWN) then {
+    createDialog QGVAR(adminRespawn);
+};
