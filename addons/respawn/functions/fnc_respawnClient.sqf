@@ -52,7 +52,7 @@ if (EGVAR(spectate,running)) then {
 
 // create temp group and new unit
 private _tempGroup = createGroup (side _group);
-private _newUnit = _tempGroup createUnit [_unitType, _position, [], 75, "NONE"];
+private _newUnit = _tempGroup createUnit [_unitType, _position, [], 0, "NONE"];
 
 // if unit is medic add marker attributes
 if (_isMedic) then {
