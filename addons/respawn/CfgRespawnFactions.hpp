@@ -1,7 +1,7 @@
 class CfgRespawnFactions {
     class blu_f {
         displayName = "NATO";
-        callsignPrefix = "BluFor"
+        callsignPrefix = "BluFor";
         factionClassname = "blu_f";
         factionPrefix = "b_";
         groups[] = {
@@ -23,21 +23,21 @@ class CfgRespawnFactions {
 
     class opf_f: blu_f {
         displayName = "CSAT";
-        callsignPrefix = "OpFor"
+        callsignPrefix = "OpFor";
         factionClassname = "opf_f";
         factionPrefix = "o_";
     };
 
     class ind_f: blu_f {
         displayName = "Independent";
-        callsignPrefix = "Indy"
+        callsignPrefix = "Indy";
         factionClassname = "ind_f";
         factionPrefix = "i_";
     };
 
     class civ_f {
         displayName = "Civilian";
-        callsignPrefix = "Civ"
+        callsignPrefix = "Civ";
         factionClassname = "civ_f";
         factionPrefix = "";
         groups[] = {

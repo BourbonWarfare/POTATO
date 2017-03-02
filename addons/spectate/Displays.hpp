@@ -357,6 +357,6 @@ class GVAR(overlay) {
 
             text = QUOTE(HELP_TEXT);
             colorBackground[] = {0,0,0,0.5};
-        }
+        };
     };
 };
