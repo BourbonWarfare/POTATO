@@ -45,19 +45,6 @@ class GVAR(overlay) {
     };
 
     class Controls {
-        class GameTimeText: RscText {
-            idc = TIMER_IDC;
-
-            x = QUOTE(16 * XFACTOR + XOFFSET);
-            y = QUOTE(0 * YFACTOR + safeZoneY);
-            w = QUOTE(8 * XFACTOR);
-            h = QUOTE(1.5 * YFACTOR);
-
-            style = 2;
-            text = "00:00:00";
-            colorBackground[] = {0,0,0,0.75};
-            sizeEx = QUOTE(1.0 * YFACTOR);
-        };
         class List: RscTree {
             idc = LIST_IDC;
 
@@ -194,6 +181,17 @@ class GVAR(overlay) {
 
                     style = 2;
                     colorBackground[] = {0,0,0,0.75};
+                    sizeEx = QUOTE(1.0 * YFACTOR);
+                };
+                class GameTimeText: RscText {
+                    idc = TIMER_IDC;
+
+                    x = 0.01;
+                    y = 0.76;
+                    w = 0.29;
+                    h = 0.03;
+
+                    text = "00:00:00";
                     sizeEx = QUOTE(1.0 * YFACTOR);
                 };
                 class MapTitle: RscText {

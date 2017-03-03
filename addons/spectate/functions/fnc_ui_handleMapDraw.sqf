@@ -23,6 +23,9 @@ TRACE_1("Params",_this);
 
 BEGIN_COUNTER(drawMap);
 
+// piggy back to update timer
+TIMER ctrlSetText format ["+%1", [CBA_missionTime / 3600] call BIS_fnc_timeToString];
+
 // Track nearest unit
 private _loc = MAP_DISPLAY ctrlMapScreenToWorld getMousePosition;
 private _nearestEntity = objNull;
