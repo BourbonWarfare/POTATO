@@ -39,6 +39,7 @@ TRACE_1("Curator", _zeusModule);
 MAIN_DISPLAY createDisplay QGVAR(overlay);
 
 // hide elements
+MAP_DISPLAY ctrlShow false;
 MAP_GROUP ctrlShow false;
 FOCUS_GROUP ctrlShow false;
 HELP ctrlShow false;

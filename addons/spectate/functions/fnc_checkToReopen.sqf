@@ -24,6 +24,7 @@ if (GVAR(running)) then {
     MAIN_DISPLAY createDisplay QGVAR(overlay);
 
     // hide elements
+    MAP_DISPLAY ctrlShow false;
     MAP_GROUP ctrlShow false;
     FOCUS_GROUP ctrlShow GVAR(showInfo);
     HELP ctrlShow false;

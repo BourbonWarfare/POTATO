@@ -18,6 +18,7 @@
 TRACE_1("Params",_this);
 
 if (GVAR(mapOpen)) then {
+    MAP_DISPLAY ctrlShow false;
     MAP_GROUP ctrlShow false;
 
     ctrlSetFocus LIST;
@@ -26,6 +27,7 @@ if (GVAR(mapOpen)) then {
         GVAR(cam) camCommand "manual on";
     };
 } else {
+    MAP_DISPLAY ctrlShow true;
     MAP_GROUP ctrlShow true;
 
     MAP_TITLE ctrlSetText (getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName", "???"]]);

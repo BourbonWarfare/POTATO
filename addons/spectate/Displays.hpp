@@ -166,43 +166,29 @@ class GVAR(overlay) {
         class MapGroup: RscControlsGroupNoScrollbars {
             idc = MAP_GROUP_IDC;
 
-            x = QUOTE(-0.8 * XFACTOR + XOFFSET);
-            y = QUOTE(-0.8 * YFACTOR + YOFFSET);
-            w = QUOTE(41.5962 * XFACTOR);
-            h = QUOTE(26.7 * YFACTOR);
+            x = 0;
+            y = 0.1;
+            w = 1;
+            h = 0.8;
 
             class controls {
-                class Map: RscMapControl {
-                    idc = MAP_IDC;
-
-                    onDraw = QUOTE(_this call FUNC(ui_handleMapDraw));
-                    onMouseButtonClick = QUOTE(_this call FUNC(ui_handleMapClick));
-
-                    x = QUOTE(-3.36 * XFACTOR);
-                    y = QUOTE(1.3 * YFACTOR);
-                    w = QUOTE(40.0 * XFACTOR);
-                    h = QUOTE(22.4 * YFACTOR);
-
-                    maxSatelliteAlpha = 0.75;
-                    colorBackground[] = {1,1,1,1};
-                };
                 class MapHeader: RscText {
                     idc = MAP_HEADER_IDC;
 
-                    x = QUOTE(0.8 * XFACTOR);
-                    y = QUOTE(0.8 * YFACTOR);
-                    w = QUOTE(40 * XFACTOR);
-                    h = QUOTE(1.3 * YFACTOR);
+                    x = 0;
+                    y = 0;
+                    w = 1;
+                    h = 0.05;
 
                     colorBackground[] = {0,0,0,0.75};
                 };
                 class MapFooter: RscText {
                     idc = MAP_FOOTER_IDC;
 
-                    x = QUOTE(0.8 * XFACTOR);
-                    y = QUOTE(24.5 * YFACTOR);
-                    w = QUOTE(40 * XFACTOR);
-                    h = QUOTE(1.3 * YFACTOR);
+                    x = 0;
+                    y = 0.75;
+                    w = 1;
+                    h = 0.05;
 
                     text = "";
 
@@ -213,10 +199,10 @@ class GVAR(overlay) {
                 class MapTitle: RscText {
                     idc = MAP_TITLE_IDC;
 
-                    x = QUOTE(1.1 * XFACTOR);
-                    y = QUOTE(0.9 * YFACTOR);
-                    w = QUOTE(36.5 * XFACTOR);
-                    h = QUOTE(1.1 * YFACTOR);
+                    x = 0.01;
+                    y = 0.01;
+                    w = 0.69; // heh
+                    h = 0.03;
 
                     text = "";
 
@@ -226,10 +212,10 @@ class GVAR(overlay) {
                 class SpectatorsCount: RscText {
                     idc = MAP_SPEC_COUNT_IDC;
 
-                    x = QUOTE(39.1 * XFACTOR);
-                    y = QUOTE(0.9 * YFACTOR);
-                    w = QUOTE(1.6 * XFACTOR);
-                    h = QUOTE(1.1 * YFACTOR);
+                    x = 0.97;
+                    y = 0.01;
+                    w = 0.03;
+                    h = 0.03;
 
                     text = "";
 
@@ -239,14 +225,28 @@ class GVAR(overlay) {
                 class SpectatorsIcon: RscPictureKeepAspect {
                     idc = MAP_SPEC_ICON_IDC;
 
-                    x = QUOTE(37.9 * XFACTOR);
-                    y = QUOTE(1.1 * YFACTOR);
-                    w = QUOTE(0.9 * XFACTOR);
-                    h = QUOTE(0.8 * YFACTOR);
+                    x = 0.94;
+                    y = 0.01;
+                    w = 0.03;
+                    h = 0.03;
 
                     text = CAM_ICON_FIRST;
                 };
             };
+        };
+        class Map: RscMapControl {
+            idc = MAP_IDC;
+
+            onDraw = QUOTE(_this call FUNC(ui_handleMapDraw));
+            onMouseButtonClick = QUOTE(_this call FUNC(ui_handleMapClick));
+
+            x = 0;
+            y = 0.15;
+            w = 1;
+            h = 0.7;
+
+            maxSatelliteAlpha = 0.75;
+            colorBackground[] = {1,1,1,1};
         };
         class FocusInfo: RscControlsGroupNoScrollbars {
             idc = FOCUS_GROUP_IDC;
