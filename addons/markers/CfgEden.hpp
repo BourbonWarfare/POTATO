@@ -16,7 +16,7 @@ class Cfg3DEN {
             onLoad = QUOTE(_this call FUNC(markerControlLoad));
             attributeSave = QUOTE(_this call FUNC(markerAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(markerAttributeLoad));
-            h = (7 * SIZE_M + 1) * GRID_H;
+            h = (9 * SIZE_M + 1) * GRID_H;
             class Controls: Controls {
                 class SetTitle: Title {
                     style = 1;
@@ -73,32 +73,40 @@ class Cfg3DEN {
                 };
                 class IconTitle: SetTitle {
                     text = "Marker Icon";
-                    y = 5.5 * SIZE_M * GRID_H;
+                    y = 7 * SIZE_M * GRID_H;
                 };
                 class GVAR(iconSelect): GVAR(color) {
                     idc = MARKER_ICON_IDC;
                     style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
                     colorBackground[] = {0,0,0,0};
                     y = 5.02 * SIZE_M * GRID_H;
+                    h = 3.96 * SIZE_M * GRID_H;
 
-                    columns = 7;
+                    rows = 4;
+                    columns = 5;
                     strings[] = {UNIT_MARKERS_STRINGS};
                     values[] = {UNIT_MARKERS};
                     tooltips[] = {
                         "Unknown",
                         "Infantry",
-                        "HQ",
+                        "Motorized Infantry",
+                        "Mechanized Infantry",
+                        "Headquarters",
                         "MMG",
                         "MAT",
-                        "Recon",
+                        "MSAM",
                         "Mortar",
-                        "Engineers",
-                        "APC/IFV",
-                        "Tank",
-                        "Helicopter",
-                        "Plane",
+                        "Enginner",
+                        "Maintenance",
+                        "Recon",
+                        "Support",
+                        "Medical",
                         "Artillery",
-                        "Medic"
+                        "Armor",
+                        "Helicopter",
+                        "Attack Helicopter",
+                        "Fixed Wing",
+                        "Attack Fixed Wing"
                     };
                 };
             };

@@ -3,13 +3,22 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-disableSerialization;
+(findDisplay 49) closeDisplay 1;
 
 if (!([] call EFUNC(core,isAuthorized))) exitWith {
     systemChat "Not Authorized";
 };
 
-private _debugMsg = format ["Opens Respawn"];
-["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
+private _debugMsg = [] call {
+    if (!isNil QEGVAR(spectate,enabled) && {EGVAR(spectate,enabled)}) exitWith {
+        [] call EFUNC(respawn,openAdminRespawn);
+        "Opens POTATO respawn"
+    };
+    if (isClass (missionConfigFile >> "respawnMenuDialog")) exitWith {
+        [] spawn { createDialog "respawnMenuDialog"; };
+        "Opens framework respawn"
+    };
+    "Fails to open respawn; POTATO and framework options not found"
+};
 
-createDialog "respawnMenuDialog";
+["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
