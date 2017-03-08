@@ -29,6 +29,8 @@ LOG("Post init start");
                 ["unit", {
                     params ["_newPlayer", "_oldPlayer"];
 
+                    [QFUNC(setMapMarkerColor), [_newPlayer]] call CBA_fnc_execNextFrame;
+
                     if (side _newPlayer != side _oldPlayer) then {
                         GVAR(drawHash) = [[],[]];
                         [] call FUNC(initMarkerHash);

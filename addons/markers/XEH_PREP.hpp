@@ -4,8 +4,10 @@ TRACE_1("",QUOTE(ADDON));
 PREP(drawMarkers);
 PREP(getSideArray);
 PREP(initMarkerHash);
+PREP(setMapMarkerColor);
 PREP(addMarkerInfoToHash);
 PREP(addMarkersToDisplay);
+PREP(checkForMapMarkerColor);
 PREP(handleCheckPlayerForMarkers);
 
 // 3den control functions
