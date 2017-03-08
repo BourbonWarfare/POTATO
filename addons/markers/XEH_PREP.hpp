@@ -9,6 +9,7 @@ PREP(addMarkersToDisplay);
 PREP(handleCheckPlayerForMarkers);
 
 // 3den control functions
+PREP(addGestureColor);
 PREP(setMarker);
 PREP(markerAttributeLoad);
 PREP(markerAttributeSave);
