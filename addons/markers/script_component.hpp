@@ -31,6 +31,28 @@
 #define BLACK_ARRAY [0,0,0,1]
 #define PINK_ARRAY [1,0.753,0.796,1]
 
+#define COLOR_TO_MARKER_HASH [\
+    [\
+        QUOTE(RED_ARRAY),\
+        QUOTE(YELLOW_ARRAY),\
+        QUOTE(GREEN_ARRAY),\
+        QUOTE(BLUE_ARRAY),\
+        QUOTE(WHITE_ARRAY),\
+        QUOTE(ORANGE_ARRAY),\
+        QUOTE(BLACK_ARRAY),\
+        QUOTE(PINK_ARRAY)\
+    ], [\
+        "Red",\
+        "Yellow",\
+        "Green",\
+        "Blue",\
+        "White",\
+        "Yellow",\
+        "Black",\
+        "White"\
+    ]\
+]
+
 #define DEFAULT_MARKER_TEXT ""
 #define DEFAULT_MARKER_ICON QPATHTOF(data\unknown.paa)
 #define DEFAULT_MARKER_COLOR_TEXT "white"

@@ -30,6 +30,8 @@ LOG("Post init start");
                 ["unit", {
                     params ["_newPlayer", "_oldPlayer"];
 
+                    [] call FUNC(checkForMapMarkerColor);
+
                     if (side _newPlayer != side _oldPlayer) then {
                         GVAR(drawHash) = [[],[]];
                         [] call FUNC(initMarkerHash);
@@ -39,6 +41,7 @@ LOG("Post init start");
                 }] call CBA_fnc_addPlayerEventHandler;
 
                 [] call FUNC(initMarkerHash);
+                [] call FUNC(checkForMapMarkerColor);
             };
         } else {
             GVAR(skipInstallingEH) = true; // skip installing marker EHs
