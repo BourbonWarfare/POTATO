@@ -4,10 +4,11 @@ LOG("Post init start");
 
 [
     {
-        ACEGVAR(common,settingsInitFinished)
+        ACEGVAR(common,settingsInitFinished) && {(missionNamespace getVariable [QEGVAR(miscFixes,groupCleanupRan), false]) || {diag_tickTime > (_this select 0)}}
     },
     {
         TRACE_2("ACE Settings initilized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
+        if (isNil QEGVAR(miscFixes,groupCleanupRan)) then {ERROR_1("Server never set %1", QEGVAR(miscFixes,groupCleanupRan));};
         if (hasInterface && {GVAR(groupAndUnitEnabled) || {GVAR(intraFireteamEnabled)}}) then {
             GVAR(skipInstallingEH) = false;
 
@@ -49,5 +50,6 @@ LOG("Post init start");
         {
             (_x select 1) call (_x select 0);
         } forEach GVAR(settingsDelayedFunctions);
-    }
+    },
+    [diag_tickTime + 5]
 ] call CBA_fnc_waitUntilAndExecute;

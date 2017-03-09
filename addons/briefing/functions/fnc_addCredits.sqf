@@ -30,7 +30,6 @@ _unit createDiaryRecord ["diary", ["Credits", format ["
 <br/>
 Bourbon Warfare Mission Framework<br/>
 BWMF Version: %4<br/>
-Based on F3 (http://www.ferstaberinde.com/f3/en/)<br/>
 <br/>
 <br/>
 POTATO Version: %5
