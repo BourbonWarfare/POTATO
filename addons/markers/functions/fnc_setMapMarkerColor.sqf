@@ -40,6 +40,8 @@ TRACE_4("vars", str _markerColor, _markerColorString, _lookup, ACEGVAR(markers,M
 
 if (_lookup < 0) exitWith { WARNING("Provided color doesn't have matching ace MarkerColorsCache"); };
 
+INFO_3("Setting Map Draw Color [Array:%1][Color:%2][Index:%3]",_markerColor,_markerColorString,_lookup);
+
 // brute force lb selection
 if !(isNull findDisplay 12) then { ((findDisplay 12) displayCtrl 1090) lbSetCurSel _lookup; };
 if !(isNull findDisplay 37) then { ((findDisplay 37) displayCtrl 1090) lbSetCurSel _lookup; };
