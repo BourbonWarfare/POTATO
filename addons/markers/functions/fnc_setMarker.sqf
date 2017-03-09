@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-params ["_object",["_markerInfo","",["",false]]];
+params ["_object", ["_markerInfo","",["",false]]];
 if (_markerInfo isEqualType true && {_markerInfo}) exitWith { LOG("Marker not set, or in strange state, exiting early"); };
 
 [{
@@ -43,6 +43,14 @@ if (_markerInfo isEqualType true && {_markerInfo}) exitWith { LOG("Marker not se
     };
 
     TRACE_5("Object properies",_object, _markerText, _markerIcon, _colorArray, _markerSize);
+
+    if (_object isEqualType grpNull) then {
+        [_object, _colorArray] remoteExecCall [QFUNC(addGestureColor), 0, true];
+    } else { // handle case where only the leader has a marker, SL/Helicopters
+        if (leader _object == _object) then {
+            [_object, _colorArray] remoteExecCall [QFUNC(addGestureColor), 0, true];
+        };
+    };
 
     _object setVariable [QGVAR(addMarker), true, true];
     _object setVariable [QGVAR(markerText), _markerText, true];
