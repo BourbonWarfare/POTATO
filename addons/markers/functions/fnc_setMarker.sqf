@@ -21,6 +21,8 @@ if (_markerInfo isEqualType true && {_markerInfo}) exitWith { LOG("Marker not se
 
 [{
     params ["_object","_markerInfo"];
+    if (isNull _object) exitWith {}; // probably deleted by miscFixes empty group cleanup
+
     (_markerInfo splitString ",") params [
         ["_markerText", DEFAULT_MARKER_TEXT, [""]],
         ["_markerSize", str DEFAULT_MARKER_SIZE, [""]],
