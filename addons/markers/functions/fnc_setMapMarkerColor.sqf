@@ -1,18 +1,17 @@
 /*
  * Author: AACO
- * Function used to add unit/group marker information into the marker hash
+ * Function used to set a map marker color on a unit
  *
  * Arguments:
- * 0: Unit or Group to add to the marker system <OBJECT/GROUP>
+ * 0: Marker color <ARRAY>
  *
  * Return Value:
- * True if the info was added to the hash, false otherwise <BOOL>
+ * None
  *
  * Examples:
- * [player] call potato_markers_fnc_addMarkerInfoToHash;
- * [group player] call potato_markers_fnc_addMarkerInfoToHash;
+ * [[0.9,0,0,1]] call potato_markers_fnc_setMapMarkerColor;
  *
- * Public: Yes
+ * Public: No
  */
 
 #include "script_component.hpp"
@@ -31,11 +30,20 @@ private _markerColorString = (COLOR_TO_MARKER_HASH select 1) select _lookup;
 _lookup = -1;
 
 {
+    TRACE_2("loop", _markerColorString, _x select 0);
     if (_markerColorString == (_x select 0)) exitWith {
         _lookup = _forEachIndex;
     };
 } forEach ACEGVAR(markers,MarkerColorsCache);
 
+TRACE_4("vars", str _markerColor, _markerColorString, _lookup, ACEGVAR(markers,MarkerColorsCache));
+
 if (_lookup < 0) exitWith { WARNING("Provided color doesn't have matching ace MarkerColorsCache"); };
+
+// brute force lb selection
+if !(isNull findDisplay 12) then { ((findDisplay 12) displayCtrl 1090) lbSetCurSel _lookup; };
+if !(isNull findDisplay 37) then { ((findDisplay 37) displayCtrl 1090) lbSetCurSel _lookup; };
+if !(isNull findDisplay 52) then { ((findDisplay 52) displayCtrl 1090) lbSetCurSel _lookup; };
+if !(isNull findDisplay 53) then { ((findDisplay 53) displayCtrl 1090) lbSetCurSel _lookup; };
 
 ACEGVAR(markers,curSelMarkerColor) = _lookup;

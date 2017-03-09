@@ -42,14 +42,14 @@
         QUOTE(BLACK_ARRAY),\
         QUOTE(PINK_ARRAY)\
     ], [\
-        "ColorRed",\
-        "ColorYellow",\
-        "ColorGreen",\
-        "ColorBlue",\
-        "ColorWhite",\
-        "ColorOrange",\
-        "ColorBlack",\
-        "ColorPink"\
+        "Red",\
+        "Yellow",\
+        "Green",\
+        "Blue",\
+        "White",\
+        "Yellow",\
+        "Black",\
+        "White"\
     ]\
 ]
 

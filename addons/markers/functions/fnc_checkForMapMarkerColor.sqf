@@ -1,32 +1,27 @@
 /*
  * Author: AACO
- * Function used to add unit/group marker information into the marker hash
+ * Function used to check a unit for a map marker color
  *
  * Arguments:
- * 0: Unit or Group to add to the marker system <OBJECT/GROUP>
+ * None
  *
  * Return Value:
- * True if the info was added to the hash, false otherwise <BOOL>
+ * None
  *
  * Examples:
- * [player] call potato_markers_fnc_addMarkerInfoToHash;
- * [group player] call potato_markers_fnc_addMarkerInfoToHash;
+ * [] call potato_markers_fnc_checkForMapMarkerColor;
  *
- * Public: Yes
+ * Public: No
  */
 
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-params [["_newPlayer", objNull, [objNull]]];
-
-if (isNull _newPlayer) exitWith { WARNING("Provided new player is null"); };
-
-if (_newPlayer getVariable [QGVAR(addMarker), false]) then {
-    [_newPlayer getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR]] call FUNC(setMapMarkerColor);
+private _group = group player;
+if (_group getVariable [QGVAR(addMarker), false]) then {
+    [_group getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR]] call FUNC(setMapMarkerColor);
 } else {
-    private _group = group _newPlayer;
-    if (_group getVariable [QGVAR(addMarker), false]) then {
-        [_group getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR]] call FUNC(setMapMarkerColor);
+    if ((leader _group) getVariable [QGVAR(addMarker), false]) then {
+        [(leader _group) getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR]] call FUNC(setMapMarkerColor);
     };
 };
