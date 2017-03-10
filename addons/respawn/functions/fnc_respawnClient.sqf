@@ -83,7 +83,7 @@ if !(isNull _zeusModule) then {
 };
 
 // do anything else that needs a delay
-[_newUnit, _group, _rank, _isLeader] spawn {
+[_newUnit, _group, _rank, _isLeader, _colorTeam] spawn {
     sleep 10;
     // validate objects
     params [
