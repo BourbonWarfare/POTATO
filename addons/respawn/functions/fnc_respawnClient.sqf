@@ -90,7 +90,7 @@ if !(isNull _zeusModule) then {
         ["_newUnit", objNull, [objNull]],
         ["_group", grpNull, [grpNull]],
         ["_rank", "private", [""]],
-        ["_isLeader", false, [false],
+        ["_isLeader", false, [false]],
         ["_colorTeam", "MAIN", [""]]
     ];
     if (isNull _newUnit || isNull _group) exitWith { WARNING("Group or unit null on delayed execution"); };
