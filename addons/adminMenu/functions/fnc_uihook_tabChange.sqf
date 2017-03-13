@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["", "_sel"];
@@ -137,10 +138,10 @@ case (6): {
         UI_TAB_MISSIONHINT_SIDE lbSetCurSel 0;
         {
             private _rankText = switch (_x) do {
-            case (0): {"Private or higher"};
-            case (1): {"Corporal or higher"};
-            case (2): {"Sergeant or higher"};
-            case (3): {"Lieutenant or higher"};
+                case (0): {"Private or higher"};
+                case (1): {"Corporal or higher"};
+                case (2): {"Sergeant or higher"};
+                case (3): {"Lieutenant or higher"};
                 default {"All Ranks"};
             };
             UI_TAB_MISSIONHINT_RANK lbAdd _rankText;
@@ -148,23 +149,38 @@ case (6): {
         UI_TAB_MISSIONHINT_RANK lbSetCurSel 0;
     };
 case (7): {
-        TRACE_1("showing reset gear hint tab", _sel);
-        lbClear UI_TAB_FIXGEAR_PERSON;
-        private _listOfUnits = [];
-        {
-            if ((isPlayer _x) && {alive _x} && {(uniform _x) == ""}) then {
-                _listOfUnits pushBack _x;
-                UI_TAB_FIXGEAR_PERSON lbAdd format ["%1 (NAKED)", (name _x)];
-            };
-        } forEach allUnits;
-        {
-            if ((isPlayer _x) && {alive _x} && {(uniform _x) != ""}) then {
-                _listOfUnits pushBack _x;
-                UI_TAB_FIXGEAR_PERSON lbAdd format ["%1", (name _x)];
-            };
-        } forEach allUnits;
-        UI_TAB_FIXGEAR_PERSON lbSetCurSel 0;
+        TRACE_1("showing fix unit tab", _sel);
+        lbClear UI_TAB_FIX_UNIT_LIST;
 
-        UI_TAB_FIXGEAR_PERSON setVariable ["listOfUnits", _listOfUnits];
+        {
+            if (alive _x) then {
+                if (_x isKindOf QEGVAR(spectate,spectator)) then {
+                    private _index = UI_TAB_FIX_UNIT_LIST lbAdd format ["%1 (SPECTATOR)", (name _x)];
+                    UI_TAB_FIX_UNIT_LIST lbSetValue [_index, 3];
+                    UI_TAB_FIX_UNIT_LIST lbSetData [_index, [_x] call BIS_fnc_objectVar];
+                    TRACE_4("Spec added", _x, name _x, _index, [_x] call BIS_fnc_objectVar);
+                } else {
+                    if (uniform _x == "") then {
+                        private _index = UI_TAB_FIX_UNIT_LIST lbAdd format ["%1 (NAKED)", (name _x)];
+                        UI_TAB_FIX_UNIT_LIST lbSetValue [_index, 0];
+                        UI_TAB_FIX_UNIT_LIST lbSetData [_index, [_x] call BIS_fnc_objectVar];
+                        TRACE_4("Nekkid added", _x, name _x, _index, [_x] call BIS_fnc_objectVar);
+                    } else {
+                        private _index = UI_TAB_FIX_UNIT_LIST lbAdd format ["%1", (name _x)];
+                        UI_TAB_FIX_UNIT_LIST lbSetValue [_index, 1];
+                        UI_TAB_FIX_UNIT_LIST lbSetData [_index, [_x] call BIS_fnc_objectVar];
+                        TRACE_4("Normie added", _x, name _x, _index, [_x] call BIS_fnc_objectVar);
+                    };
+                };
+            } else {
+                private _index = UI_TAB_FIX_UNIT_LIST lbAdd format ["%1 (DEAD)", [_x] call ACEFUNC(common,getName)];
+                UI_TAB_FIX_UNIT_LIST lbSetValue [_index, 2];
+                UI_TAB_FIX_UNIT_LIST lbSetData [_index, [_x] call BIS_fnc_objectVar];
+                TRACE_4("Dead added", _x, [_x] call ACEFUNC(common,getName), _index, [_x] call BIS_fnc_objectVar);
+            };
+        } forEach allPlayers; // note, while this is desync'd at the start of the mission, it's needed to properly pull dead/spec'd players :\
+
+        lbSortByValue UI_TAB_FIX_UNIT_LIST;
+        UI_TAB_FIX_UNIT_LIST lbSetCurSel 0;
     };
 };

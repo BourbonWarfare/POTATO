@@ -47,7 +47,7 @@ class POTATO_EscapeButton_Base1: RscShortcutButton {
     y = "2.3 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
     w = "13.4 * (((safezoneW / safezoneH) min 1.2) / 40)";
     h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-    action = QUOTE((findDisplay 49) closeDisplay 0; [] spawn FUNC(openAdminMenu););
+    action = QUOTE((findDisplay 49) closeDisplay 0; [] call FUNC(openAdminMenu););
 };
 class POTATO_EscapeButton_Base2: RscShortcutButton {
     class ShortcutPos {
@@ -419,7 +419,7 @@ class GVAR(adminMenuDialog) {
                 };
             };
         };
-        class CONTROL_FIXLOADOUTS: RscControlsGroup {
+        class CONTROL_FIX_UNITS: RscControlsGroup {
             idc = 2308;
             x = 0.35 * safezoneW + safezoneX;
             y = 0.205 * safezoneH + safezoneY;
@@ -436,12 +436,21 @@ class GVAR(adminMenuDialog) {
                 };
                 class ResetGearButton: RscButton {
                     idc = -1;
-                    text = "Reset Gear"; //--- ToDo: Localize;
+                    text = "Reset Gear";
                     x = 0.255 * safezoneW;
                     y = 0.52 * safezoneH;
                     w = 0.26 * safezoneW;
                     h = 0.05 * safezoneH;
                     action = QUOTE(_this call FUNC(uihook_resetGearButton));
+                };
+                class ResetSpectatorButton: RscButton {
+                    idc = -1;
+                    text = "Reset Spectator";
+                    x = 0.255 * safezoneW;
+                    y = 0.42 * safezoneH;
+                    w = 0.26 * safezoneW;
+                    h = 0.05 * safezoneH;
+                    action = QUOTE(_this call FUNC(uihook_resetSpectateButton));
                 };
             };
         };

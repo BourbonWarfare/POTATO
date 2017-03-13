@@ -22,8 +22,10 @@ params [
     ["_newUnit", objNull, [objNull]],
     ["_oldUnit", objNull, [objNull]],
     ["_respawnType", 1, [0]],
-    ["_respawnDelay", 3, [0]]
+    ["_respawnDelay", 0, [0]]
 ];
+
+sleep _respawnDelay;
 
 // start spectate
 GVAR(running) = true;
@@ -43,6 +45,23 @@ MAP_DISPLAY ctrlShow false;
 MAP_GROUP ctrlShow false;
 FOCUS_GROUP ctrlShow false;
 HELP ctrlShow false;
+
+// watch dog, hope it isn't needed
+[] spawn {
+    while {isNull OVERLAY} do {
+        WARNING("Watchdog active");
+        sleep 1;
+        if (isNull OVERLAY) then {
+            WARNING("Watchdog resetting spectate");
+            ["potato_adminMsg", [format ["Reseting spectate on %1", profileName], "Watchdog"]] call CBA_fnc_globalEvent;
+            [] call FUNC(exit);
+            sleep 0.25;
+            // call should be safe here, as sleep will be 0
+            [player] call FUNC(init);
+        };
+        sleep 2;
+    };
+};
 
 // set init state for respawn
 [GVAR(respawnOpen)] call FUNC(setRespawn);
@@ -77,7 +96,7 @@ if !(isNull _zeusModule) then {
 BIS_fnc_feedback_allowPP = false;
 
 // if new unit is a seagul, delete it
-if (_newUnit isKindOf "seagull") then {
+if (_newUnit isKindOf "seagull" || _newUnit isKindOf QGVAR(spectator)) then {
     deleteVehicle _newUnit;
 };
 
@@ -86,7 +105,15 @@ if !(isNil "_oldUnit" || {isNull _oldUnit}) then {
     _oldUnit setVariable [QGVAR(deadName), profileName, true];
 };
 
+// set ACRE spectator
 [true] call acre_api_fnc_setSpectator;
+
+// disable ACE hearing
+ACEGVAR(hearing,deafnessDV) = 0;
+ACEGVAR(hearing,disableVolumeUpdate) = true;
+
+// disable ACE goggles
+[GVAR(unit)] call ACEFUNC(goggles,handleKilled);
 
 showCinemaBorder false;
 

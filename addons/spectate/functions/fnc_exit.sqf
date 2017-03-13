@@ -33,6 +33,9 @@ if (GVAR(running)) then {
     // disable ACRE spectate
     [false] call acre_api_fnc_setSpectator;
 
+    // enable ACE hearing
+    ACEGVAR(hearing,disableVolumeUpdate) = false;
+
     // remove sepectator event handlers
     [GVAR(thingsToDrawEH)] call CBA_fnc_removePerFrameHandler;
     GVAR(thingsToDrawEH) = nil;

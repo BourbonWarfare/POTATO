@@ -86,9 +86,11 @@ GVAR(mapHighlighted) = _nearestEntity;
 MAP_FOOTER ctrlSetText _text;
 
 // Draw camera icon
-private _cameraPos = getPosASLVisual GVAR(cam);
-private _cameraDir = getDirVisual GVAR(cam);
-MAP_DISPLAY drawIcon [ICON_CAMERA, [0.5, 1.0, 0.5, 1.0], _cameraPos, 32.0, 48.0, _cameraDir, "", 1, 0.05, "TahomaB", "right"];
-MAP_DISPLAY drawArrow [_cameraPos, (_cameraPos getPos [300, _cameraDir]), [0.5, 1.0, 0.5, 1.0]];
+if !(isNil QGVAR(cam)) then {
+    private _cameraPos = getPosASLVisual GVAR(cam);
+    private _cameraDir = getDirVisual GVAR(cam);
+    MAP_DISPLAY drawIcon [ICON_CAMERA, [0.5, 1.0, 0.5, 1.0], _cameraPos, 32.0, 48.0, _cameraDir, "", 1, 0.05, "TahomaB", "right"];
+    MAP_DISPLAY drawArrow [_cameraPos, (_cameraPos getPos [300, _cameraDir]), [0.5, 1.0, 0.5, 1.0]];
+};
 
 END_COUNTER(drawMap);
