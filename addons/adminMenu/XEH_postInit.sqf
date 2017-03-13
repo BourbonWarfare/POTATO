@@ -5,10 +5,6 @@
     diag_log text format ["[POTATO] Reseting Gear on %1 [%2]", (name _unit), _unit];
     if ((isNull _unit) || {!alive _unit} || {!local _unit}) exitWith {};
 
-    // set unit loadout overrides our sick shades :(
-    private _goggles = goggles _unit;
-
-    removeGoggles _unit;
     removeAllWeapons _unit;
     removeHeadgear _unit;
     removeVest _unit;
@@ -17,17 +13,18 @@
     removeBackpack _unit;
 
     [{
-        params ["_unit", "_goggles"];
         if (missionNamespace getVariable [QEGVAR(assignGear,usePotato), false]) then {
             diag_log text format ["[POTATO] Calling potato_assignGear_fnc_assignGearMan"];
-            [_unit] call potato_assignGear_fnc_assignGearMan;
-            _unit addGoggles _goggles;
+            // set unit loadout overrides our sick shades :(
+            private _goggles = goggles _this;
+            removeGoggles _this;
+            [_this] call potato_assignGear_fnc_assignGearMan;
+            _this addGoggles _goggles;
         } else {
             diag_log text format ["[POTATO] Calling F_fnc_assignGearMan"];
-            [_unit] call F_fnc_assignGearMan;
-            _unit addGoggles _goggles;
+            [_this] call F_fnc_assignGearMan;
         };
-    }, [_unit, _goggles], 0.5] call CBA_fnc_waitAndExecute;
+    }, _unit, 0.5] call CBA_fnc_waitAndExecute;
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(resetSpectator), {
