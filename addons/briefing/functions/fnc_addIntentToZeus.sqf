@@ -1,13 +1,12 @@
 /*
- * Author: PabstMirror
- * Function used to add unit and group briefings as well as the OrBat
- * and credits to a player's diary
+ * Author: PabstMirror, AACO
+ * Function used to add zeus intent to a player's diary
  *
  * Arguments:
- * 0: Unit to add to the briefings to <OBJECT>
+ * 0: Unit to add to the intent to <OBJECT>
  *
  * Examples:
- * [player] call potato_briefing_fnc_addBriefingToUnit;
+ * [player] call potato_briefing_fnc_addIntentToZeus;
  *
  * Public: Yes
  */
