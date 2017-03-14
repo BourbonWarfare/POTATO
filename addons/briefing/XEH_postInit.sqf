@@ -1,15 +1,14 @@
 #include "script_component.hpp"
 
 if (hasInterface) then {
-    ["potato_becomeZeus", {
-        params ["_unit"];
-        systemChat "You have been assigned zeus";
-        private _zeusIntent = getMissionConfigValue [QGVAR(zeusIntent), ""];
-        if (_zeusIntent == "") exitWith {};
+    // listen for admin menu assignments
+    ["potato_becomeZeus", FUNC(addIntentToZeus)] call CBA_fnc_addEventHandler;
 
-        _zeusIntent = [_zeusIntent] call FUNC(convertNewLineToHTML);
-        systemChat "Mission has custom zeus briefing";
-        _unit createDiaryRecord ["diary", ["Zeus",_zeusIntent]];
+    // listen for mission start assignment
+    [QACEGVAR(zeus,zeusUnitAssigned), {
+        params ["", ["_unit", objNull, [objNull]]];
+        if (isNull _unit || {!local _unit}) exitWith {};
+        [_unit] call FUNC(addIntentToZeus);
     }] call CBA_fnc_addEventHandler;
 
     ["unit", {

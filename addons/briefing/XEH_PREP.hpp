@@ -2,6 +2,7 @@ TRACE_1("",QUOTE(ADDON));
 
 PREP(addBriefingToUnit);
 PREP(addCredits);
+PREP(addIntentToZeus);
 PREP(addMedicalNotes);
 PREP(addOrbat);
 PREP(addResponsibilitiesDiary);

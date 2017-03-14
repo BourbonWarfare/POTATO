@@ -46,6 +46,9 @@ MAP_GROUP ctrlShow false;
 FOCUS_GROUP ctrlShow false;
 HELP ctrlShow false;
 
+// set init state for respawn
+[GVAR(respawnOpen)] call FUNC(setRespawn);
+
 // watch dog, hope it isn't needed
 [] spawn {
     while {isNull OVERLAY} do {
@@ -62,9 +65,6 @@ HELP ctrlShow false;
         sleep 2;
     };
 };
-
-// set init state for respawn
-[GVAR(respawnOpen)] call FUNC(setRespawn);
 
 // hide whatever unit player was spawned into
 _newUnit setPos ZERO_POS;
@@ -107,13 +107,6 @@ if !(isNil "_oldUnit" || {isNull _oldUnit}) then {
 
 // set ACRE spectator
 [true] call acre_api_fnc_setSpectator;
-
-// disable ACE hearing
-ACEGVAR(hearing,deafnessDV) = 0;
-ACEGVAR(hearing,disableVolumeUpdate) = true;
-
-// disable ACE goggles
-[GVAR(unit)] call ACEFUNC(goggles,handleKilled);
 
 showCinemaBorder false;
 
