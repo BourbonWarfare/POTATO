@@ -20,7 +20,7 @@ TRACE_1("params",_this);
 params ["", "_player", "_params"];
 _params params ["_opticClassname", "_opticClassnames"];
 
-if (({toLower _x == _opticClassname} count ([primaryWeapon _player] call CBA_fnc_compatibleItems)) > 0) then {
+if (({_x == _opticClassname} count ([primaryWeapon _player] call CBA_fnc_compatibleItems)) > 0) then {
     {
         if ((toLower _x) in _opticClassnames) then {
             _player removeItemFromUniform _x;
