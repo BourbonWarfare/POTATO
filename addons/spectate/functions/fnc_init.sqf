@@ -51,7 +51,7 @@ HELP ctrlShow false;
 
 // watch dog, hope it isn't needed
 [] spawn {
-    while {isNull OVERLAY} do {
+    while {isNull OVERLAY && GVAR(running)} do {
         WARNING("Watchdog active");
         sleep 1;
         if (isNull OVERLAY) then {
