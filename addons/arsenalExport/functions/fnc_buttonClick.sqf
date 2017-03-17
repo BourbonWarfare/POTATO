@@ -18,26 +18,42 @@ case ("rifle"): {
         GVAR(loadout_rifleMags) = [];
         GVAR(loadout_rifleAttachments) = primaryWeaponItems player;
         {
-            if (_x in getArray (configFile >> "CfgWeapons" >> GVAR(loadout_rifle) >> "magazines")) then {
-                GVAR(loadout_rifleMags) pushBackUnique _x;
+            private _mag = _x;
+            if (({_mag == _x} count getArray (configFile >> "CfgWeapons" >> GVAR(loadout_rifle) >> "magazines")) > 0) then {
+                GVAR(loadout_rifleMags) pushBackUnique _mag;
             };
         } forEach (magazines player);
         systemChat format ["[Set %1]: %2 %3 %4", _fncString, GVAR(loadout_rifle), GVAR(loadout_rifleMags), GVAR(loadout_rifleAttachments)];
     };
 case ("glrifle"): {
-        GVAR(loadout_glrifle) = primaryWeapon player;
-        systemChat format ["[Set %1]: %2", _fncString, GVAR(loadout_glrifle)];
+        GVAR(loadout_glrifle) = primaryWeapon player;        
+        GVAR(loadout_glRifleMags) = [];
+        {
+            private _mag = _x;
+            if (({_mag == _x} count getArray (configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> "magazines")) > 0) then {
+                GVAR(loadout_glRifleMags) pushBackUnique _mag;
+            };
+        } forEach (magazines player);
+        systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_glrifle), GVAR(loadout_glRifleMags)];
     };
 case ("carbine"): {
         GVAR(loadout_carbine) = primaryWeapon player;
-        systemChat format ["[Set %1]: %2", _fncString, GVAR(loadout_carbine)];
+        GVAR(loadout_carbineMags) = [];
+        {
+            private _mag = _x;
+            if (({_mag == _x} count getArray (configFile >> "CfgWeapons" >> GVAR(loadout_carbine) >> "magazines")) > 0) then {
+                GVAR(loadout_carbineMags) pushBackUnique _mag;
+            };
+        } forEach (magazines player);
+        systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_carbine), GVAR(loadout_carbineMags)];
     };
 case ("ar"): {
         GVAR(loadout_ar) = primaryWeapon player;
         GVAR(loadout_arMags) = [];
         {
-            if (_x in getArray (configFile >> "CfgWeapons" >> GVAR(loadout_ar) >> "magazines")) then {
-                GVAR(loadout_arMags) pushBackUnique _x;
+            private _mag = _x;
+            if (({_mag == _x} count getArray (configFile >> "CfgWeapons" >> GVAR(loadout_ar) >> "magazines")) > 0) then {
+                GVAR(loadout_arMags) pushBackUnique _mag;
             };
         } forEach (magazines player);
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_ar), GVAR(loadout_arMags)];
@@ -46,8 +62,9 @@ case ("mmg"): {
         GVAR(loadout_mmg) = primaryWeapon player;
         GVAR(loadout_mmgMags) = [];
         {
-            if (_x in getArray (configFile >> "CfgWeapons" >> GVAR(loadout_mmg) >> "magazines")) then {
-                GVAR(loadout_mmgMags) pushBackUnique _x;
+            private _mag = _x;
+            if (({_mag == _x} count getArray (configFile >> "CfgWeapons" >> GVAR(loadout_mmg) >> "magazines")) > 0) then {
+                GVAR(loadout_mmgMags) pushBackUnique _mag;
             };
         } forEach (magazines player);
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_mmg), GVAR(loadout_mmgMags)];
@@ -56,8 +73,9 @@ case ("at"): {
         GVAR(loadout_at) = secondaryWeapon player;
         GVAR(loadout_atMags) = [];
         {
-            if (_x in getArray (configFile >> "CfgWeapons" >> GVAR(loadout_at) >> "magazines")) then {
-                GVAR(loadout_atMags) pushBackUnique _x;
+            private _mag = _x;
+            if (({_mag == _x} count getArray (configFile >> "CfgWeapons" >> GVAR(loadout_at) >> "magazines")) > 0) then {
+                GVAR(loadout_atMags) pushBackUnique _mag;
             };
         } forEach (magazines player);
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_at), GVAR(loadout_atMags)];
@@ -66,8 +84,9 @@ case ("mat"): {
         GVAR(loadout_mat) = secondaryWeapon player;
         GVAR(loadout_matMags) = [];
         {
-            if (_x in getArray (configFile >> "CfgWeapons" >> GVAR(loadout_mat) >> "magazines")) then {
-                GVAR(loadout_matMags) pushBackUnique _x;
+            private _mag = _x;
+            if (({_mag == _x} count getArray (configFile >> "CfgWeapons" >> GVAR(loadout_mat) >> "magazines")) > 0) then {
+                GVAR(loadout_matMags) pushBackUnique _mag;
             };
         } forEach (magazines player);
         GVAR(loadout_matAttachments) = secondaryWeaponItems player;

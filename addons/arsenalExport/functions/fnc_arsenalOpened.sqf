@@ -30,8 +30,8 @@ private _fnc_createButton = {
 
 ["Set Uniform", "uniform", [QGVAR(loadout_uniform), QGVAR(loadout_vest), QGVAR(loadout_backpack), QGVAR(loadout_headgear)]] call _fnc_createButton;
 ["Set Rifle", "rifle", [QGVAR(loadout_rifle), QGVAR(loadout_rifleMags), QGVAR(loadout_rifleAttachments)]] call _fnc_createButton;
-["Set GL Rifle", "glrifle", [QGVAR(loadout_glrifle)]] call _fnc_createButton;
-["Set Carbine", "carbine", [QGVAR(loadout_carbine)]] call _fnc_createButton;
+["Set GL Rifle", "glrifle", [QGVAR(loadout_glrifle), QGVAR(loadout_glRifleMags)]] call _fnc_createButton;
+["Set Carbine", "carbine", [QGVAR(loadout_carbine), QGVAR(loadout_carbineMags)]] call _fnc_createButton;
 ["Set AR", "ar", [QGVAR(loadout_ar), QGVAR(loadout_arMags)]] call _fnc_createButton;
 ["Set MMG", "mmg", [QGVAR(loadout_mmg), QGVAR(loadout_mmgMags)]] call _fnc_createButton;
 ["Set AT", "at", [QGVAR(loadout_at), QGVAR(loadout_atMags)]] call _fnc_createButton;
