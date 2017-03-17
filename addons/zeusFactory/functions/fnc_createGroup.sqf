@@ -28,7 +28,7 @@ if (!([_side, count _soldierList, false] call EFUNC(zeusHC,canCreateGroup))) exi
     []
 };
 
-private _group = createGroup _side;
+private _group = createGroup [_side, true]; // explicitly mark for cleanup
 
 private _unitType = _soldierList deleteAt 0; // Create Leader Now
 private _unit = _group createUnit [_unitType, (_factoryLogic getPos [10, random 360]), [], 0, "NONE"];

@@ -23,7 +23,7 @@ if !([_side, count _createUnits] call FUNC(canCreateGroup)) exitWith {
     ["Cannot create a new group at this time", _placerOwner] call FUNC(sendCuratorHint);
 };
 
-private _newGroup = createGroup _side;
+private _newGroup = createGroup [_side, true]; // explicitly mark for cleanup
 
 private _cargoSelection = getText (configFile >> "CfgVehicles" >> (typeOf _attachedVehicle) >> "memoryPointsGetInCargo");
 if (_cargoSelection == "") then {

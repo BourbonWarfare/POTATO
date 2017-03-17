@@ -47,7 +47,7 @@ private _crewCount = {
 TRACE_1("",_crew);
 
 if ([_side, _crewCount] call FUNC(canCreateGroup)) then {
-    private _group = createGroup _side;
+    private _group = createGroup [_side, true]; // explicitly mark for cleanup
 
     {
         private _unit = _group createUnit [_crewType, [0,0,0], [], 0, "NONE"];

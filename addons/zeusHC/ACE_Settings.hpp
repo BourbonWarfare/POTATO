@@ -5,11 +5,11 @@ class ACE_Settings {
     };
     class GVAR(maxGroupCountPerSide) {
         typeName = "SCALAR";
-        value = 140;
+        value = 280;
     };
     class GVAR(delayBetweenUnitCreation) {
         typeName = "SCALAR";
-        value = 0.25;
+        value = 0.3;
     };
     class GVAR(delayBetweenGroupCreation) {
         typeName = "SCALAR";
