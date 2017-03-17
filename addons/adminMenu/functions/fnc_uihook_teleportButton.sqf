@@ -2,11 +2,14 @@
 
 TRACE_1("params",_this);
 
-private _selectedPersonIndex = lbCurSel UI_TAB_TELEPORT_PERSON;
-if ((_selectedPersonIndex < 0) || (_selectedPersonIndex >= (count GVAR(teleportPersonList)))) exitWith {};
+private _selectedUnit = missionNamespace getVariable [
+    UI_TAB_FIX_UNIT_LIST lbData (lbCurSel UI_TAB_TELEPORT_PERSON),
+    objNull
+];
 
-private _selectedPerson = GVAR(teleportPersonList) select _selectedPersonIndex;
-if (isNull _selectedPerson) exitWith {};
+TRACE_1("Selected unit: ",_selectedUnit);
+
+if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit, disconnect?", _selectedUnit);};
 
 private _selectedGroupIndex = lbCurSel UI_TAB_TELEPORT_GROUP;
 if ((_selectedGroupIndex < 0) || (_selectedGroupIndex >= (count GVAR(groupsArray)))) exitWith {};
@@ -23,13 +26,13 @@ if ((vehicle _leader) == _leader) then {
     if (_freeSpot isEqualTo []) then {
         _return = "No empty Pos";
     } else {
-        _selectedPerson setPos _freeSpot;
+        _selectedUnit setPos _freeSpot;
         _return = "Moving to pos";
     };
 } else {
-    [_selectedPerson, (vehicle _leader)] remoteExec ["moveInAny", _selectedPerson];
+    [_selectedUnit, (vehicle _leader)] remoteExec ["moveInAny", _selectedUnit];
     _return = "Moving In Vic (no guarentes)";
 };
 
-private _debugMsg = format ["Teleporting %1 to group %2 [%3]", (name _selectedPerson), _selectedGroup, _return];
+private _debugMsg = format ["Teleporting %1 to group %2 [%3]", (name _selectedUnit), _selectedGroup, _return];
 ["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;

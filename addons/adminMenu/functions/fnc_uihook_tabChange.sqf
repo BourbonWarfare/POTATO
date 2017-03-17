@@ -5,6 +5,50 @@ TRACE_1("params",_sel);
 
 disableSerialization;
 
+private _fnc_setListOfPlayers = {
+    params [
+        ["_listCtrl", controlNull, [controlNull]],
+        ["_nameCode", {[[_this] call ACEFUNC(common,getName), 0]}, [{}]],
+        ["_condition", {true}, [{}]]
+    ];
+
+    lbClear _listCtrl;
+
+    private _playerList = if (time > 120) then {
+        (allPlayers - (entities "HeadlessClient_F"))
+    } else {
+        ((entities [["CAManBase"], ["HeadlessClient_F"], true, true]) select { isPlayer _x })
+    };
+
+    {
+        if (_x call _condition) then {
+            (_x call _nameCode) params [
+                ["_name", "", [""]],
+                ["_weight", 0, [0]]
+            ];
+
+            private _recentMessages = [];
+            {
+                _x params ["_time", "_message", "_from"];
+                if ((_from == [_x] call ACEFUNC(common,getName)) && {(time - _time) < 300}) then {
+                    _recentMessages pushBack _message;
+                };
+            } forEach (missionNamespace getVariable [QEGVAR(adminComs,logs), []]);
+
+             private _index = _listCtrl lbAdd _name;
+             _listCtrl lbSetValue [_index, _weight];
+             _listCtrl lbSetData [_index, [_x] call BIS_fnc_objectVar];
+             _listCtrl lbSetColor [_index, [[1,0,0,1], [1,1,1,1]] select (_recentMessages isEqualTo [])];
+             _listCtrl lbSetTooltip [_index, _recentMessages joinString "\n"];
+
+             TRACE_6("Item added to list", _listCtrl, _x, _name, _weight, [_x] call BIS_fnc_objectVar, _recentMessages);
+        };
+    } forEach _playerList;
+
+    lbSortByValue _listCtrl;
+    _listCtrl lbSetCurSel 0;
+};
+
 {
     _x ctrlShow (_forEachIndex == _sel);
 } forEach UI_TABS_CONTROLS;
@@ -12,32 +56,20 @@ disableSerialization;
 switch (_sel) do {
 case (0): {
         TRACE_1("showing zeus tab", _sel);
-
-        GVAR(ui_zeusTargets) = [];
-
-        private _fnc_addPlayerToList = {
-            params ["_unit"];
-
-            private _name = if (isNull (getAssignedCuratorLogic _unit)) then {
-                format ["%1", name _unit]
-            } else {
-                format ["[ZEUS] %1", name _unit]
-            };
-
-            lbAdd [UI_TAB_ZEUS_PLAYERS_ID, _name];
-            GVAR(ui_zeusTargets) pushBack _unit;
-        };
-
-        lbClear UI_TAB_ZEUS_PLAYERS_ID;
-
-        [player] call _fnc_addPlayerToList;
-        {
-            if (alive _x && {isPlayer _x} && {_x != player}) then {
-                [_x] call _fnc_addPlayerToList;
-            };
-        } forEach allUnits;
-
-        lbSetCurSel [UI_TAB_ZEUS_PLAYERS_ID, 0];
+        [
+            UI_TAB_ZEUS_PLAYERS,
+            {
+                private _isNotZeus = isNull (getAssignedCuratorLogic _this);
+                [
+                    format [
+                        "%1%2",
+                        [_this] call ACEFUNC(common,getName),
+                        [" [ZEUS]", ""] select _isNotZeus
+                    ],
+                    [1, 0] select _isNotZeus
+                ]
+            }
+        ] call _fnc_setListOfPlayers;
     };
 case (1): {
         TRACE_1("showing supplies tab", _sel);
@@ -93,21 +125,12 @@ case (2): {
     };
 case (3): {
         TRACE_1("showing teleport tab", _sel);
-        lbClear UI_TAB_TELEPORT_PERSON;
-        GVAR(teleportPersonList) = [];
-        {
-            if ((isPlayer _x) && {alive _x} && {_x getVariable [QGVAR(didJip), false]}) then {
-                GVAR(teleportPersonList) pushBack _x;
-                UI_TAB_TELEPORT_PERSON lbAdd format ["JIP: %1", (name _x)];
-            };
-        } forEach allUnits;
-        {
-            if ((isPlayer _x) && {alive _x} && {!(_x getVariable [QGVAR(didJip), false])}) then {
-                GVAR(teleportPersonList) pushBack _x;
-                UI_TAB_TELEPORT_PERSON lbAdd format ["%1", (name _x)];
-            };
-        } forEach allUnits;
-        UI_TAB_TELEPORT_PERSON lbSetCurSel 0;
+        [
+            UI_TAB_TELEPORT_PERSON,
+            nil, // default to ace name
+            {alive _this}
+        ] call _fnc_setListOfPlayers;
+
         lbClear UI_TAB_TELEPORT_GROUP;
         GVAR(groupsArray) = [];
         {
@@ -149,37 +172,24 @@ case (6): {
     };
 case (7): {
         TRACE_1("showing fix unit tab", _sel);
-        lbClear UI_TAB_FIX_UNIT_LIST;
 
-        {
-            if (alive _x) then {
-                if (_x isKindOf QEGVAR(spectate,spectator)) then {
-                    private _index = UI_TAB_FIX_UNIT_LIST lbAdd format ["%1 (SPECTATOR)", (name _x)];
-                    UI_TAB_FIX_UNIT_LIST lbSetValue [_index, 3];
-                    UI_TAB_FIX_UNIT_LIST lbSetData [_index, [_x] call BIS_fnc_objectVar];
-                    TRACE_4("Spec added", _x, name _x, _index, [_x] call BIS_fnc_objectVar);
-                } else {
-                    if (uniform _x == "") then {
-                        private _index = UI_TAB_FIX_UNIT_LIST lbAdd format ["%1 (NAKED)", (name _x)];
-                        UI_TAB_FIX_UNIT_LIST lbSetValue [_index, 0];
-                        UI_TAB_FIX_UNIT_LIST lbSetData [_index, [_x] call BIS_fnc_objectVar];
-                        TRACE_4("Nekkid added", _x, name _x, _index, [_x] call BIS_fnc_objectVar);
+        [
+            UI_TAB_FIX_UNIT_LIST,
+            {
+                if (alive _this) then {
+                    if (_this isKindOf QEGVAR(spectate,spectator)) then {
+                        [format ["%1 (SPECTATOR)", name _this], 3]
                     } else {
-                        private _index = UI_TAB_FIX_UNIT_LIST lbAdd format ["%1", (name _x)];
-                        UI_TAB_FIX_UNIT_LIST lbSetValue [_index, 1];
-                        UI_TAB_FIX_UNIT_LIST lbSetData [_index, [_x] call BIS_fnc_objectVar];
-                        TRACE_4("Normie added", _x, name _x, _index, [_x] call BIS_fnc_objectVar);
-                    };
-                };
-            } else {
-                private _index = UI_TAB_FIX_UNIT_LIST lbAdd format ["%1 (DEAD)", [_x] call ACEFUNC(common,getName)];
-                UI_TAB_FIX_UNIT_LIST lbSetValue [_index, 2];
-                UI_TAB_FIX_UNIT_LIST lbSetData [_index, [_x] call BIS_fnc_objectVar];
-                TRACE_4("Dead added", _x, [_x] call ACEFUNC(common,getName), _index, [_x] call BIS_fnc_objectVar);
-            };
-        } forEach allPlayers; // note, while this is desync'd at the start of the mission, it's needed to properly pull dead/spec'd players :\
-
-        lbSortByValue UI_TAB_FIX_UNIT_LIST;
-        UI_TAB_FIX_UNIT_LIST lbSetCurSel 0;
+                        if (uniform _x == "") then {
+                            [format ["%1 (NAKED)", name _this], 0]
+                        } else {
+                            [name _this, 1]
+                        }
+                    }
+                } else {
+                    [format ["%1 (DEAD)", [_this] call ACEFUNC(common,getName)], 2]
+                }
+            }
+        ] call _fnc_setListOfPlayers;
     };
 };

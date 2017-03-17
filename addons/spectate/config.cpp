@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+#ifndef POTATO_LEAN_CONFIGS
+
 class CfgPatches {
     class ADDON {
         units[] = {};
@@ -17,3 +19,5 @@ class CfgPatches {
 #include "CfgRespawnTemplates.hpp"
 #include "CfgVehicles.hpp"
 #include "Displays.hpp"
+
+#endif

@@ -31,7 +31,7 @@ private _attachables = [_weapon] call CBA_fnc_compatibleItems;
 {
     (_x splitString ":") params [["_classname", ""]]; // count makes no sense for attachments, ignore
     private _config = configFile >> "CfgWeapons" >> _classname;
-    if (_classname in _attachables) then {
+    if ({_x == _opticClassname} count _attachables > 0) then {
         [_weaponArray, _config, _classname, _doOpticCheck] call FUNC(setWeaponAttachment);
     } else {
         diag_log text format ["[POTATO-assignGear] - Attachment [%1] not compatible with [%2]", _classname, _weapon];
