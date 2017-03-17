@@ -6,7 +6,7 @@ TRACE_1("",QUOTE(ADDON));
     "arsenalOpened",
     {
         INFO("arsenalOpened EH");
-        call ACE_PREP_RECOMPILE;
+        // call ACE_PREP_RECOMPILE;
         _this call FUNC(arsenalOpened);
     }
 ] call bis_fnc_addscriptedeventhandler;

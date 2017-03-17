@@ -38,7 +38,7 @@ private _fnc_createButton = {
 
 private _rscButton = _display ctrlCreate ["RscButton", 77777];
 _rscButton ctrlSetText "Export";
-_rscButton ctrlSetEventHandler ["ButtonClick", 'call ACE_PREP_RECOMPILE; call FUNC(export)'];
+_rscButton ctrlSetEventHandler ["ButtonClick", 'call FUNC(export)'];
 _rscButton ctrlSetPosition [_xPos + (1 * _height), _yPos + _height * (_y + 0.25), 8 * _height, _height];
 _rscButton ctrlCommit 1;
 

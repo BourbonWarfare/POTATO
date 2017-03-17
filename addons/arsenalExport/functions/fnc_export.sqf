@@ -51,11 +51,28 @@ _lines pushBack format ['#define ALT_OPTICS "optic_Aco","rhsusf_acc_compm4","rhs
 
 _lines pushBack format ["// GL Rifle"];
 _lines pushBack format ['#define GLRIFLE "%1"', GVAR(loadout_glrifle)];
-_lines pushBack format ['#define CARBINE_MAG %1', [GVAR(loadout_glrifle), GVAR(loadout_rifleMags), 300] call _fnc_getMags];
-// ToDo:
-_lines pushBack format ['#define GLRIFLE_MAG_SMOKE "1Rnd_Smoke_Grenade_shell:2","1Rnd_SmokeRed_Grenade_shell:2"'];
-_lines pushBack format ['#define GLRIFLE_MAG_HE "1Rnd_HE_Grenade_shell:5"'];
-_lines pushBack format ['#define GLRIFLE_MAG_FLARE "UGL_FlareYellow_F:4"'];
+_lines pushBack format ['#define GLRIFLE_MAG %1', [GVAR(loadout_glrifle), GVAR(loadout_rifleMags), 300] call _fnc_getMags];
+
+private _glMuzzle = (getArray (configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> "muzzles")) param [1, "no2ndMuzzle"];
+private _glMags = getArray (configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> _glMuzzle >> "magazines");
+switch (true) do {
+    case (({"1Rnd_Smoke_Grenade_shell" == _x} count _glMags) > 0):{
+        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "1Rnd_Smoke_Grenade_shell:2","1Rnd_SmokeRed_Grenade_shell:2"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_HE "1Rnd_HE_Grenade_shell:5"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_FLARE "UGL_FlareYellow_F:4"'];
+    };
+    case (({"rhs_GRD40_White" == _x} count _glMags) > 0):{
+        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "rhs_GRD40_White:2","rhs_GRD40_Red:2"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_HE "rhs_VOG25:5"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_FLARE "rhs_VG40OP_red:4"'];
+    };
+    default {
+        _lines pushBack format ["// WARNING - Unknown GL Muzzle [%1->%2->%3]", GVAR(loadout_glrifle), _glMuzzle, _glMags];
+        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "TODO:2","TODO:2"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_HE "TODO:5"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_FLARE "TODO:4"'];
+    };
+};
 
 _lines pushBack format ["// Carbine"];
 _lines pushBack format ['#define CARBINE "%1"', GVAR(loadout_carbine)];
@@ -85,3 +102,5 @@ _lines pushBack format ['#define MAT_OPTIC %1', [GVAR(loadout_matAttachments)] c
 ";
 } forEach _lines;
 "ace_clipboard" callExtension "--COMPLETE--";
+systemChat format ["Copied @ %1", CBA_missionTime];
+
