@@ -4,6 +4,7 @@ TRACE_2("export",_this);
 
 private _fnc_formatList = {
     params ["_list"];
+    if (!(_list isEqualType [])) exitWith {""};
     private _return = "";
     _list = _list select {_x != ""};
     {
@@ -16,6 +17,7 @@ private _fnc_formatList = {
 };
 private _fnc_getMags = {
     params ["_weapon", "_mags", ["_wantedRounds", -1]];
+    if (!(_mags isEqualType [])) exitWith {""};
     _mags = _mags select {_x in getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines")};
     private _magRounds = getNumber (configFile >> "CfgMagazines" >> (_mags param [0, ""]) >> "count");
     if (_magRounds == 0) exitWith {'"ERROR_no_valid_mags"'};
@@ -67,10 +69,10 @@ switch (true) do {
         _lines pushBack format ['#define GLRIFLE_MAG_FLARE "rhs_VG40OP_red:4"'];
     };
     default {
-        _lines pushBack format ["// WARNING - Unknown GL Muzzle [%1->%2->%3]", GVAR(loadout_glrifle), _glMuzzle, _glMags];
-        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "TODO:2","TODO:2"'];
-        _lines pushBack format ['#define GLRIFLE_MAG_HE "TODO:5"'];
-        _lines pushBack format ['#define GLRIFLE_MAG_FLARE "TODO:4"'];
+        _lines pushBack format ["// WARNING - Unknown GL Muzzle [%1->%2]", GVAR(loadout_glrifle), _glMuzzle];
+        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE ""'];
+        _lines pushBack format ['#define GLRIFLE_MAG_HE ""'];
+        _lines pushBack format ['#define GLRIFLE_MAG_FLARE ""'];
     };
 };
 

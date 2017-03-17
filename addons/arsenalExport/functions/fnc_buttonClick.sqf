@@ -76,22 +76,12 @@ case ("mat"): {
     default {ERROR_1("bad fnc [%1]",_fncString);};
 };
 
-private _fnc_setDisplay = {
-    params ["_idc"];
+{
+    private _ctrlText = _x;
     private _output = "";
-    for "_index" from 1 to ((count _this) - 1) do {
-        _output = _output + format ["%1 ", missionNamespace getVariable [_this select _index, "Not Set"]];
-    };
-    (_display displayCtrl (_idc + 1)) ctrlSetText _output;
-    (_display displayCtrl (_idc + 1)) ctrlSetTooltip _output;
-};
-
-[77000, QGVAR(loadout_uniform), QGVAR(loadout_vest), QGVAR(loadout_backpack), QGVAR(loadout_headgear)] call _fnc_setDisplay;
-[77010, QGVAR(loadout_rifle), QGVAR(loadout_rifleMags), QGVAR(loadout_rifleAttachments)] call _fnc_setDisplay;
-[77020, QGVAR(loadout_glrifle)] call _fnc_setDisplay;
-[77030, QGVAR(loadout_carbine)] call _fnc_setDisplay;
-[77040, QGVAR(loadout_ar), QGVAR(loadout_arMags)] call _fnc_setDisplay;
-[77050, QGVAR(loadout_mmg), QGVAR(loadout_mmgMags)] call _fnc_setDisplay;
-[77060, QGVAR(loadout_at), QGVAR(loadout_atMags)] call _fnc_setDisplay;
-[77070, QGVAR(loadout_mat), QGVAR(loadout_matMags)] call _fnc_setDisplay;
-
+    {
+        _output = _output + format ["%1 ", missionNamespace getVariable [_x, "err"]];
+    } forEach (_ctrlText getVariable [QGVAR(vars), []]);
+    _ctrlText ctrlSetText _output;
+    _ctrlText ctrlSetTooltip _output;
+} forEach (_display getVariable [QGVAR(ctrlsToUpdate), []]);
