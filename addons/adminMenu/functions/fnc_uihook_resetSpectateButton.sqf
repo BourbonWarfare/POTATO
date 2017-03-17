@@ -11,6 +11,6 @@ TRACE_1("Selected unit: ",_selectedUnit);
 
 if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit, disconnect?", _selectedUnit);};
 
-[QGVAR(resetGear), [_selectedUnit], [_selectedUnit]] call CBA_fnc_targetEvent;
+[QGVAR(resetSpectator), [_selectedUnit], [_selectedUnit]] call CBA_fnc_targetEvent;
 
-["potato_adminMsg", [format ["Reseting gear on %1", (name _selectedUnit)], profileName]] call CBA_fnc_globalEvent;
+["potato_adminMsg", [format ["Reseting spectate on %1", [_selectedUnit] call ACEFUNC(common,getName)], profileName]] call CBA_fnc_globalEvent;
