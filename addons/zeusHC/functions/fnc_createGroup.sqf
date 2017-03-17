@@ -37,7 +37,7 @@ private _numUnitsToSpawn = count _classNames;
 if !([_side, _numUnitsToSpawn] call FUNC(canCreateGroup)) exitWith { grpNull };
 
 private _unitInitFunction = compile _code;
-private _newGroup = createGroup _side;
+private _newGroup = createGroup [_side, true]; // explicitly mark for cleanup
 
 {
     private _newUnit = _newGroup createUnit [_x, _position, [], 0, _special];

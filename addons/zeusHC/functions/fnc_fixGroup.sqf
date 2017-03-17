@@ -28,7 +28,7 @@ _this spawn {
         ["_group", grpNull, [grpNull]]
     ];
 
-    private _newGroup = createGroup (side _group);
+    private _newGroup = createGroup [side _group, true]; // explicitly mark for cleanup
     _newGroup copyWaypoints _group;
 
     private _index = (count (units _group)) - 1;
