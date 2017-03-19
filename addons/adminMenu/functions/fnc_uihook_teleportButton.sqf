@@ -3,7 +3,7 @@
 TRACE_1("params",_this);
 
 private _selectedUnit = missionNamespace getVariable [
-    UI_TAB_FIX_UNIT_LIST lbData (lbCurSel UI_TAB_TELEPORT_PERSON),
+    UI_TAB_TELEPORT_PERSON lbData (lbCurSel UI_TAB_TELEPORT_PERSON),
     objNull
 ];
 

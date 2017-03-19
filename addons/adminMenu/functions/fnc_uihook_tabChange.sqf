@@ -22,7 +22,8 @@ private _fnc_setListOfPlayers = {
 
     {
         if (_x call _condition) then {
-            (_x call _nameCode) params [
+            private _unit = _x;
+            (_unit call _nameCode) params [
                 ["_name", "", [""]],
                 ["_weight", 0, [0]]
             ];
@@ -30,18 +31,18 @@ private _fnc_setListOfPlayers = {
             private _recentMessages = [];
             {
                 _x params ["_time", "_message", "_from"];
-                if ((_from == [_x] call ACEFUNC(common,getName)) && {(time - _time) < 300}) then {
+                if ((_from == [_unit] call ACEFUNC(common,getName)) && {(time - _time) < 300}) then {
                     _recentMessages pushBack _message;
                 };
             } forEach (missionNamespace getVariable [QEGVAR(adminComs,logs), []]);
 
              private _index = _listCtrl lbAdd _name;
              _listCtrl lbSetValue [_index, _weight];
-             _listCtrl lbSetData [_index, [_x] call BIS_fnc_objectVar];
+             _listCtrl lbSetData [_index, [_unit] call BIS_fnc_objectVar];
              _listCtrl lbSetColor [_index, [[1,0,0,1], [1,1,1,1]] select (_recentMessages isEqualTo [])];
              _listCtrl lbSetTooltip [_index, _recentMessages joinString "\n"];
 
-             TRACE_6("Item added to list", _listCtrl, _x, _name, _weight, [_x] call BIS_fnc_objectVar, _recentMessages);
+             TRACE_6("Item added to list", _listCtrl, _unit, _name, _weight, [_unit] call BIS_fnc_objectVar, _recentMessages);
         };
     } forEach _playerList;
 
