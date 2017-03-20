@@ -81,7 +81,7 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
                 "_colorTeamArray"
             ];
 
-            private _newRespawnGroup = createGroup _factionSide;
+            private _newRespawnGroup = createGroup [_factionSide, true]; // explicitly mark for cleanup
             TRACE_2("new group", _factionSide, _newRespawnGroup);
 
             if (_markerTexture != "") then {

@@ -10,7 +10,7 @@ if ((_vehType == "") || {_crewType == ""}) exitWith {ERROR_2("bad data[%1-%2]",_
 
 private _vehicle = _vehType createVehicle ((leader _group) getRelPos [5, 0]);
 
-private _group = createGroup _side;
+private _group = createGroup [_side, true]; // explicitly mark for cleanup
 private _driver = _group createUnit [_crewType, (getPos _vehicle), [], 0, "NONE"];
 
 [{

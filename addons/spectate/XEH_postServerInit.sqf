@@ -11,7 +11,7 @@ if (GVAR(enabled)) then {
             missionNamespace getVariable [QEGVAR(miscFixes,groupCleanupRan), false] || diag_tickTime > (_this select 0)
         },
         {
-            GVAR(group) = createGroup sideLogic;
+            GVAR(group) = createGroup [sideLogic, false]; // explicitly mark for persistence
             publicVariable QGVAR(group);
             GVAR(holderUnit) = GVAR(group) createUnit [QGVAR(holder), ZERO_POS, [], 200, "NONE"];
             GVAR(holderUnit) setVariable [QACEGVAR(zeus,addObject), false, true];

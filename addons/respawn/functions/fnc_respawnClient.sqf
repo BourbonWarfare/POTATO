@@ -51,7 +51,7 @@ if (EGVAR(spectate,running)) then {
 };
 
 // create temp group and new unit
-private _tempGroup = createGroup (side _group);
+private _tempGroup = createGroup [side _group, true]; // explicitly mark for cleanup (even though we delete below)
 private _newUnit = _tempGroup createUnit [_unitType, _position, [], 0, "NONE"];
 
 // if unit is medic add marker attributes
