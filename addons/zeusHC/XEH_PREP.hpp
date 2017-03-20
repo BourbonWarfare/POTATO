@@ -47,6 +47,3 @@ PREP(ungarrisonGroup);
 PREP(ungarrisonGroupBulk);
 PREP(ungarrisonAllGroupsZeus);
 PREP(ungarrisonNearestGroupZeus);
-
-PREP(fixGroup);
-PREP(fixNearestGroupZeus);

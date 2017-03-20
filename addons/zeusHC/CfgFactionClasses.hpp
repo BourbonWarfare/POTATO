@@ -9,9 +9,6 @@ class CfgFactionClasses {
     class GVAR(ind): PREFIX {
         displayName = "POTATO HC: Independents";
     };
-    class GVAR(msv): PREFIX {
-        displayName = "POTATO HC: Russian";
-    };
     class GVAR(util): PREFIX {
         displayName = "POTATO HC: Utilities";
     };
