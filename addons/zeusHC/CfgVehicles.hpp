@@ -773,7 +773,7 @@ class CfgVehicles {
     class GVAR(ind_cupDatsunMmg): GVAR(ind_rifleman) {
         displayName = "Car: Datsun MMG (CUP)";
         GVAR(createVic) = "CUP_I_Datsun_PK_TK_Random";
-    }
+    };
     class GVAR(ind_cupLandRoverHmg): GVAR(ind_rifleman) {
         displayName = "Car: Land Rover HMG (CUP)";
         GVAR(createVic) = "CUP_I_LR_MG_RACS";
