@@ -28,6 +28,7 @@ lbAdd [REINFORCEMENT_VEHICLE_IDC, "Random"];
     private _vicIndex = lbAdd [REINFORCEMENT_VEHICLE_IDC, _name];
     lbSetPicture [REINFORCEMENT_VEHICLE_IDC, _vicIndex,  _icon];
     lbSetData [REINFORCEMENT_VEHICLE_IDC, _vicIndex, _x];
+    lbSetToolTip [REINFORCEMENT_VEHICLE_IDC, _vicIndex, _x];
 
     nil
 } count ((GVAR(validPools) select _factionIndex) select (VEHICLE_POOL_START_INDEX + _typeIndex));
