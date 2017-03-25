@@ -41,7 +41,7 @@ waitUntil {dialog}; // wait until the dialog is fully loaded before we do any po
 // Setup faction list
 GVAR(validPools) = [];
 {
-    if ((_x select ADDON_CLASS_INDEX) == "" || isClass(configFile >> "CfgPatches" >> (_x select ADDON_CLASS_INDEX))) then {
+    if ((_x select ADDON_CLASS_INDEX) == "" || isClass (configFile >> "CfgPatches" >> (_x select ADDON_CLASS_INDEX))) then {
         lbAdd [REINFORCEMENT_FACTIONS_IDC, _x select DISPLAY_NAME_INDEX];
         GVAR(validPools) pushBack _x;
     };

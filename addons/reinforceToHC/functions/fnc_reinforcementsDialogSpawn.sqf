@@ -52,9 +52,12 @@ private _vehicleClassname = if (_vehicleIndex < 1) then {
 private _lzSize = 20;
 private _rpSize = 20;
 
-// give helicopters bigger LZs to (hopefully) avoid crashes
-if (_vehicleTypeIndex == UNARMED_HELO_UNIT_POOL_INDEX || _vehicleTypeIndex == ARMED_HELO_UNIT_POOL_INDEX) then {
-    _lzSize = 150;
+private _crewClass = _selectedPool select SOFT_CREW;
+switch (true) do {
+    case (_vehicleClassname isKindOf "Air"): {_lzSize = 150; _crewClass = _selectedPool select HELI_CREW;};
+    case (_vehicleClassname isKindOf "Wheeled_APC"
+            || {_vehicleClassname isKindOf "Wheeled_APC_F"}
+            || {_vehicleClassname isKindOf "Tank"}): {_crewClass = _selectedPool select ARMORED_CREW;};
 };
 
 private _lz = [GVAR(allLzs), _vehicleLZIndex, "Ares_Lz_Count", GVAR(reinforcementLocation)] call FUNC(reinforcementsSelectWaypoint);
@@ -78,6 +81,7 @@ GVAR(lastUnitBehaviorIndex) = _unitBehaviorIndex;
 [
     [
         _side,
+        _crewClass,
         _vehicleClassname,
         _vehicleBehaviorIndex,
         _lz,

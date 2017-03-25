@@ -5,19 +5,21 @@
  *
  * Arguments:
  * 0: side of the reinforcements <SIDE>
- * 1: classname of the vehicle to spawn <STRING>
- * 2: vehicle behavior (index) <NUMBER>
- * 3: placed LZ logic object <OBJECT>
- * 4: LZ size <NUMBER>
- * 5: Pool of units to use as reinforcments<ARRAY>
- * 6: unit behavior (index) <NUMBER>
- * 7: placed PZ logic object (can be nil) <OBJECT>
- * 8: RP size <NUMBER>
- * 9: position to spawn reinforcement <ARRAY>
+ * 1: classname of the cre to spawn <STRING>
+ * 2: classname of the vehicle to spawn <STRING>
+ * 3: vehicle behavior (index) <NUMBER>
+ * 4: placed LZ logic object <OBJECT>
+ * 5: LZ size <NUMBER>
+ * 6: Pool of units to use as reinforcments<ARRAY>
+ * 7: unit behavior (index) <NUMBER>
+ * 8: placed PZ logic object (can be nil) <OBJECT>
+ * 9: RP size <NUMBER>
+ * 10: position to spawn reinforcement <ARRAY>
  *
  * Example:
  * [
  *         _side,
+ *         _crewClass,
  *         _vehicleClassname,
  *         _vehicleBehaviorIndex,
  *         _lz,
@@ -37,6 +39,7 @@ TRACE_1("params",_this);
 
 params [
     "_side",
+    "_crewClass",
     "_vehicleClassname",
     "_vehicleBehaviorIndex",
     "_lz",
@@ -48,7 +51,10 @@ params [
     "_spawnPosition"
 ];
 
-private _vehicleGroup = [_spawnPosition, _vehicleClassname, _side] call EFUNC(zeusHC,spawnAVicSpawnLocal);
+private _vehicle = createVehicle [_vehicleClassname, _spawnPosition, [], 0, ["NONE", "FLY"] select (_vehicleClassname isKindOf "AIR")];
+_vehicle setVariable ["F_Gear", "Empty", true]; //Clear gear on these [BWMF]
+_vehicle setUnloadInCombat [false, false]; // only dismount via scripting/zeus
+private _vehicleGroup = [_side, _vehicle, _crewClass, true] call EFUNC(zeusHC,createCrew);
 
 if (isNull _vehicleGroup) exitWith {};
 
@@ -56,14 +62,11 @@ private _vehicleDummyWp = _vehicleGroup addWaypoint [position (leader _vehicleGr
 private _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
 _vehicleUnloadWp setWaypointType "TR UNLOAD";
 
-private _vehicle = vehicle (leader _vehicleGroup);
-
 // Make the driver full skill. This makes him less likely to do dumb things when they take contact.
 (driver _vehicle) setSkill 1;
 
 {
     _x allowFleeing 0;
-    _x setVariable ["potato_aiFrameworks_vcom_disabledUnit", true];
 } forEach (crew _vehicle);
 
 if (_lzSize == 150) then {
