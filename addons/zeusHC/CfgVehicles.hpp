@@ -106,6 +106,10 @@ class CfgVehicles {
         displayName = "Car: Offroad HMG (A3)";
         GVAR(createVic) = "O_G_Offroad_01_armed_F";
     };
+    class GVAR(east_a3QilinHmg): GVAR(east_rifleman) {
+        displayName = "Car: Qilin Minigun (A3)";
+        GVAR(createVic) = "O_LSV_02_armed_F";
+    };
     class GVAR(east_carModernGmg): GVAR(east_rifleman) {
         displayName = "Car: Punisher GMG (A3)";
         GVAR(createVic) = "O_MRAP_02_gmg_F";
@@ -416,6 +420,10 @@ class CfgVehicles {
         displayName = "APC: AAVP (Woodland) (CUP)";
         GVAR(createVic) = "CUP_B_AAV_USMC";
     };
+    class GVAR(west_a3ProwlerHmg): GVAR(west_rifleman) {
+        displayName = "Car: Prowler HMG (A3)";
+        GVAR(createVic) = "B_LSV_01_armed_F";
+    };
     class GVAR(west_rhsHmmwvGmgD): GVAR(west_rifleman) {
         displayName = "Car: HMMWV GMG (Desert) (RHS)";
         GVAR(createVic) = "rhsusf_m1025_d_mk19";
@@ -461,7 +469,7 @@ class CfgVehicles {
         GVAR(createVic) = "CUP_B_LR_Special_GMG_GB_D";
     };
     class GVAR(west_cupLandRoverHmgD): GVAR(west_rifleman) {
-        displayName = "Car:Land Rover HMG (Desert) (CUP)";
+        displayName = "Car: Land Rover HMG (Desert) (CUP)";
         GVAR(createVic) = "CUP_B_LR_Special_M2_GB_D";
     };
     class GVAR(west_cupLandRoverGmgW): GVAR(west_rifleman) {
