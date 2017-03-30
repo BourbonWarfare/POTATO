@@ -11,7 +11,7 @@ if (GVAR(initState) != 1) then {
     INFO_1("Reseting init state from %1 back to 1", GVAR(initState));
     GVAR(initState) = 1;
 };
-INFO_3("%1 - [InitState %2] Setting up new player [%3]", diag_frameNo, GVAR(initState), _player);
+INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]", diag_frameNo, GVAR(initState), _player, typeOf _player);
 
 [
 {
