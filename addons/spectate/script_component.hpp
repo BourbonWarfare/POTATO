@@ -129,6 +129,7 @@
 'Right Arrow' to switch focus to the next unit<br/>\
 'Left Arrow' to switch focus to the previous unit<br/>\
 'Backspace' to toggle the UI<br/>\
+'Back Slash' to toggle the Tags<br/>\
 Map toggle (default 'M') to open/close the map<br/>\
 Zero up (default 'Page Up') to increase client view distance<br/>\
 Zero down (default 'Page Down') to decrease client view distance<br/>\

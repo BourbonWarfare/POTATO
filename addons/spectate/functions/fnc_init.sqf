@@ -147,6 +147,15 @@ GVAR(grenades) = [];
 GVAR(projectiles) = [];
 GVAR(drawProjectiles) = false;
 
+// init misc GVARS
+GVAR(mapOpen) = false;
+GVAR(oldViewDistance) = viewDistance;
+GVAR(mapHighlighted) = objNull;
+GVAR(uiVisible) = true;
+GVAR(tagsVisible) = true;
+GVAR(cursorObject) = objNull;
+GVAR(holdingRightMouse) = false;
+
 // Start ticking
 GVAR(curList) = [];
 GVAR(thingsToDraw) = [];
@@ -154,11 +163,3 @@ GVAR(showInfo) = false;
 GVAR(thingsToDrawEH) = [LINKFUNC(ui_updateThingsToDraw), 0.2] call CBA_fnc_addPerFrameHandler;
 GVAR(straggleUpdateEH) = [LINKFUNC(ui_straggleUpdate), 5] call CBA_fnc_addPerFrameHandler;
 GVAR(draw3DEH) = addMissionEventHandler ["Draw3D", {call FUNC(ui_handleDraw3D)}];
-
-// init misc GVARS
-GVAR(mapOpen) = false;
-GVAR(oldViewDistance) = viewDistance;
-GVAR(mapHighlighted) = objNull;
-GVAR(uiVisible) = true;
-GVAR(cursorObject) = objNull;
-GVAR(holdingRightMouse) = false;
