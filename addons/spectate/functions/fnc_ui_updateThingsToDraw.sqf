@@ -24,15 +24,17 @@ TRACE_1("Params",_this);
 private _thingsToDraw = [];
 
 {
+    private _vehicle = vehicle _x;
+    private _notInVehicle = (_vehicle == _x);
     private _distanceToCamera = GVAR(cam) distance _x;
 
-    private _group = group _x;
-    private _groupSide = side _group;
-    private _groupName = groupId _group;
-    private _groupLeader = leader _group;
-    private _groupColor = [_groupSide] call BIS_fnc_sideColor;
+    if (_distanceToCamera <= 3000.0 && { _notInVehicle || { _x == effectiveCommander _vehicle } }) then {
+        private _group = group _x;
+        private _groupSide = side _group;
+        private _groupName = groupId _group;
+        private _groupLeader = leader _group;
+        private _groupColor = [_groupSide] call BIS_fnc_sideColor;
 
-    if (_distanceToCamera <= 3000.0 && { vehicle _x == _x || { _x == driver vehicle _x } }) then {
         // Calculate distance fade
         (_distanceToCamera call {
             if (_this <= 500) exitWith {
@@ -56,6 +58,14 @@ private _thingsToDraw = [];
         // Apply color fade
         _groupColor set [3, _fadeByDistance];
 
+        private _name = [_x] call FUNC(getName);
+        if !(_notInVehicle) then {
+            private _crewCount = (({alive _x} count (crew _vehicle)) - 1);
+            if (_crewCount > 0) then {
+                _name = format ["%1 (+%2)", _name, _crewCount];
+            };
+        };
+
         // Show unit name only if camera is near enough
         if (_distanceToCamera < DISTANCE_NAMES) then {
             // Unit name
@@ -66,7 +76,7 @@ private _thingsToDraw = [];
                 0.0,
                 _heightByDistance,
                 0.0,
-                [_x] call FUNC(getName),
+                _name,
                 2,
                 _fontSizeByDistance,
                 "PuristaMedium",
@@ -91,7 +101,7 @@ private _thingsToDraw = [];
             };
         };
 
-        if (_x == _groupLeader) then {
+        if (_x == _groupLeader || { !_notInVehicle && { _x == effectiveCommander _vehicle } }) then {
             // Group icon
             _thingsToDraw pushBack [_x, 0, [
                 [_group] call FUNC(getGroupIcon),

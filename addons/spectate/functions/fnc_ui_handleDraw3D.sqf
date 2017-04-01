@@ -16,7 +16,7 @@
  */
 
 #include "script_component.hpp"
-#define HEIGHT_OFFSET 1.0
+#define HEIGHT_OFFSET 1.5
 #define GRENADE_ICON "A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_connect_ca.paa"
 #define ICON_BACKGROUND_UNIT "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\UnitName_ca.paa"
 
@@ -34,9 +34,7 @@ if (count _intersections > 0) then {
 };
 
 if !(_cursorObject isKindOf "Man") then {
-    if (count crew _cursorObject > 0) then {
-        _cursorObject = (crew _cursorObject) select 0;
-    } else {
+    if (count crew _cursorObject < 1) then {
         _cursorObject = objNull;
     };
 };
@@ -104,13 +102,13 @@ if !(GVAR(mapOpen)) then {
             private _position = _unit modelToWorldVisual (_unit selectionPosition "Head");
             _position set [2, (_position select 2) + HEIGHT_OFFSET];
 
-            if (_type == 2 && { _unit distance GVAR(cam) < DISTANCE_NAMES } && {GVAR(camTarget) == _unit || GVAR(cursorObject) == _unit}) then {
+            if (_type == 2 && { _unit distance GVAR(cam) < DISTANCE_NAMES } && {_unit in GVAR(camTarget) || _unit in GVAR(cursorObject)}) then {
                 drawIcon3D [
                     ICON_BACKGROUND_UNIT,
-                    [0,0,0,if (GVAR(camTarget) == _unit) then { 0.8 } else { 0.4 }],
+                    [0, 0, 0, if (_unit in GVAR(camTarget)) then { 0.8 } else { 0.4 }],
                     _position,
                     5.0,
-                    3.5,
+                    4,
                     0.0,
                     "",
                     0,

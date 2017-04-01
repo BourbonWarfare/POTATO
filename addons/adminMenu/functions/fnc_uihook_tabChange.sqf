@@ -67,7 +67,7 @@ case (0): {
                         [_this] call ACEFUNC(common,getName),
                         [" [ZEUS]", ""] select _isNotZeus
                     ],
-                    [1, 0] select _isNotZeus
+                    [0, 1] select _isNotZeus
                 ]
             }
         ] call _fnc_setListOfPlayers;

@@ -20,6 +20,7 @@ PREP(setEventsOnActiveUnits);
 PREP(setFocus);
 PREP(setRespawn);
 PREP(setTarget);
+PREP(setup);
 PREP(switchFocus);
 PREP(toggleMap);
 PREP(toggleUI);
