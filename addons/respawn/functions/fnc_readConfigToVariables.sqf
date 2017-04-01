@@ -78,9 +78,9 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
         _configArray pushBack (getNumber (_config >> "markerSize"));
 
         // pull radio info
-        _configArray pushBack (getNumber (_config >> "srChannel"));
-        _configArray pushBack (getNumber (_config >> "mrChannel"));
-        _configArray pushBack (getNumber (_config >> "lrChannel"));
+        _configArray pushBack ((getNumber (_config >> "srChannel")) + 1);
+        _configArray pushBack ((getNumber (_config >> "mrChannel")) + 1);
+        _configArray pushBack ((getNumber (_config >> "lrChannel")) + 1);
 
         // pull color team info
         private _colorTeamArray = ["MAIN"];
