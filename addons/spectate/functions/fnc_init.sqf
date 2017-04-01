@@ -30,6 +30,9 @@ sleep _respawnDelay;
 // start spectate
 GVAR(running) = true;
 
+// set current spectate list
+GVAR(curList) = [];
+
 // add event handlers to all active units
 [] call FUNC(setEventsOnActiveUnits);
 
@@ -157,7 +160,6 @@ GVAR(cursorObject) = objNull;
 GVAR(holdingRightMouse) = false;
 
 // Start ticking
-GVAR(curList) = [];
 GVAR(thingsToDraw) = [];
 GVAR(showInfo) = false;
 GVAR(thingsToDrawEH) = [LINKFUNC(ui_updateThingsToDraw), 0.2] call CBA_fnc_addPerFrameHandler;
