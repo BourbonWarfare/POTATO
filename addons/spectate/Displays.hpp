@@ -50,7 +50,8 @@ class GVAR(overlay) {
 
             onMouseExit = QUOTE([false] call FUNC(ui_showList));
             onMouseEnter = QUOTE([true] call FUNC(ui_showList));
-            onTreeSelChanged = QUOTE(_this call FUNC(ui_handleListClick));
+            onTreeLButtonDown = QUOTE([true] call FUNC(ui_handleListClick));
+            onTreeDblClick = QUOTE([false] call FUNC(ui_handleListClick));
 
             x = "safeZoneX";
             y = "safeZoneY";

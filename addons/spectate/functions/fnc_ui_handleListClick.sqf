@@ -14,14 +14,35 @@
  *
  * Public: No
  */
-
+#define DEBUG_MODE_TRUE
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-params ["", "_index"];
-private _object	= missionNamespace getVariable [LIST tvData _index, objNull];
+params ["_isSingleClick"];
 
-if (!isNull _object && {_object != GVAR(camTarget)}) then {
-    [_object] call FUNC(setFocus);
-    playsound "ReadoutClick";
+private _handled = false;
+private _object	= missionNamespace getVariable [LIST tvData (tvCurSel LIST), objNull];
+
+if !(isNull _object) then {
+    if (_isSingleClick) then {
+        if (_object != GVAR(camTarget)) then {
+            [_object] call FUNC(setFocus);
+            playsound "ReadoutClick";
+
+            _handled = true;
+        };
+    } else {
+        private _pos = getPosASLVisual _object;
+        {
+            _pos set [_forEachIndex, _x + 1 + random 10];
+        } forEach _pos;
+        GVAR(cam) setPosASL _pos;
+
+        [_object] call FUNC(setFocus);
+        playsound "ReadoutClick";
+
+        _handled = true;
+    };
 };
+
+_handled
