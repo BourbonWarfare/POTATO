@@ -21,7 +21,7 @@ if (GVAR(mapOpen)) then {
     MAP_DISPLAY ctrlShow false;
     MAP_GROUP ctrlShow false;
 
-    ctrlSetFocus LIST;
+    ctrlSetFocus MOUSE;
 
     if (GVAR(currentCamIndex) == FREE_CAMERA) then {
         GVAR(cam) camCommand "manual on";
