@@ -135,7 +135,7 @@ GVAR(cam) setPosASL eyePos GVAR(camTarget);
 GVAR(cam) setDir getDirVisual GVAR(camTarget);
 GVAR(cam) camCommand "maxPitch 89.0";
 GVAR(cam) camCommand "minPitch -89.0";
-GVAR(cam) camCommand "speedDefault 1.25";
+GVAR(cam) camCommand "speedDefault 1.2";
 GVAR(cam) camCommand "speedMax 2.35";
 GVAR(cam) camCommand "ceilingHeight 5000";
 GVAR(cam) camCommand "atl off";
