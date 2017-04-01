@@ -16,8 +16,7 @@
  */
 
 #include "script_component.hpp"
-#define FADE_DIST_LIST [[500, 1.0], [1000, 0.6], [1500, 0.3]]
-#define SIZE_DIST_LIST [[500, 3.5, -2.15, 0.035], [1000, 3.0, -1.9, 0.03], [1500, 2.5, -1.6, 0.025]]
+
 #define ICON_UNIT "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\UnitIcon_ca.paa"
 
 TRACE_1("Params",_this);
@@ -33,40 +32,26 @@ private _thingsToDraw = [];
     private _groupLeader = leader _group;
     private _groupColor = [_groupSide] call BIS_fnc_sideColor;
 
-    if (_distanceToCamera <= 1500.0 && { vehicle _x == _x || { _x == driver vehicle _x } }) then {
+    if (_distanceToCamera <= 3000.0 && { vehicle _x == _x || { _x == driver vehicle _x } }) then {
         // Calculate distance fade
-        private _fadeByDistance = (_distanceToCamera) call {
-            if (_this <= (FADE_DIST_LIST select 0) select 0) exitWith {
-                (FADE_DIST_LIST select 0) select 1
-            };
-            if (_this <= (FADE_DIST_LIST select 1) select 0) exitWith {
-                (FADE_DIST_LIST select 1) select 1
-            };
-            (FADE_DIST_LIST select 2) select 1
-        };
-
-        // Calculate distance sizes
         (_distanceToCamera call {
-            if (_this <= (SIZE_DIST_LIST select 0) select 0) exitWith {
-                [
-                    (SIZE_DIST_LIST select 0) select 1,
-                    (SIZE_DIST_LIST select 0) select 2,
-                    (SIZE_DIST_LIST select 0) select 3
-                ]
+            if (_this <= 500) exitWith {
+                [1.0, 4.0, -2.5, 0.04]
             };
-            if (_this <= (SIZE_DIST_LIST select 1) select 0) exitWith {
-                [
-                    (SIZE_DIST_LIST select 1) select 1,
-                    (SIZE_DIST_LIST select 1) select 2,
-                    (SIZE_DIST_LIST select 1) select 3
-                ]
+            if (_this <= 1000) exitWith {
+                [0.75, 3.5, -2.2, 0.035]
             };
-            [
-                (SIZE_DIST_LIST select 2) select 1,
-                (SIZE_DIST_LIST select 2) select 2,
-                (SIZE_DIST_LIST select 2) select 3
-            ]
-        }) params ["_sizeByDistance", "_heightByDistance", "_fontSizeByDistance"];
+            if (_this <= 1500) exitWith {
+                [0.5, 3.0, -1.9, 0.03]
+            };
+            if (_this <= 2000) exitWith {
+                [0.3, 2.5, -1.6, 0.025]
+            };
+            if (_this <= 2500) exitWith {
+                [0.2, 2.0, -1.3, 0.02]
+            };
+            [0.15, 1.5, -1.0, 0.015]
+        }) params ["_fadeByDistance", "_sizeByDistance", "_heightByDistance", "_fontSizeByDistance"];
 
         // Apply color fade
         _groupColor set [3, _fadeByDistance];
