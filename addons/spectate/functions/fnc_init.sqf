@@ -108,6 +108,9 @@ if !(isNil "_oldUnit" || {isNull _oldUnit}) then {
     _oldUnit setVariable [QGVAR(deadName), profileName, true];
 };
 
+// reset spectator unit name
+GVAR(unit) setVariable [QGVAR(cachedNamed), "", true];
+
 // set ACRE spectator
 [true] call acre_api_fnc_setSpectator;
 
