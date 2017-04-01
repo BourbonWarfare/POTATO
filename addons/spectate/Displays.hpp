@@ -350,9 +350,9 @@ class GVAR(overlay) {
             idc = HELP_IDC;
 
             x = 0.25;
-            y = 0.25;
+            y = 0.245;
             w = 0.5;
-            h = 0.5;
+            h = 0.6;
 
             text = QUOTE(HELP_TEXT);
             colorBackground[] = {0,0,0,0.5};
