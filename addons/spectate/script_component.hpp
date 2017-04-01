@@ -13,7 +13,7 @@
     #define DEBUG_SETTINGS DEBUG_SETTINGS_SPECTATE
 #endif
 
-#define DISTANCE_NAMES 150.0
+#define DISTANCE_NAMES 175.0
 #define NAME_MAX_CHARACTERS 17
 
 #define MAX_TRACKED_GRENADES 15
@@ -129,6 +129,7 @@
 'Right Arrow' to switch focus to the next unit<br/>\
 'Left Arrow' to switch focus to the previous unit<br/>\
 'Backspace' to toggle the UI<br/>\
+'Back Slash' to toggle the Tags<br/>\
 Map toggle (default 'M') to open/close the map<br/>\
 Zero up (default 'Page Up') to increase client view distance<br/>\
 Zero down (default 'Page Down') to decrease client view distance<br/>\

@@ -7,17 +7,15 @@ class CfgVehicles {
         scope = 1;
         scopeArsenal = 0;
         scopeCurator = 0;
+
+        weapons[] = {}; // empty weapons array
+
         delete ACE_Actions;
         delete ACE_SelfActions;
     };
 
     // add spectator
-    class GVAR(spectator): VirtualMan_F {
+    class GVAR(spectator): GVAR(holder) {
         author = "POTATO";
-        scope = 1;
-        scopeArsenal = 0;
-        scopeCurator = 0;
-        delete ACE_Actions;
-        delete ACE_SelfActions;
     };
 };

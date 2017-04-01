@@ -20,7 +20,7 @@ TRACE_1("Params",_this);
 params [["_newFocus", objNull, [objNull]]];
 
 if (_newFocus != GVAR(camTarget) && { !isNull _newFocus || { !isNull GVAR(camTarget) } }) then {
-    GVAR(camTarget) = _newFocus;
+    GVAR(camTarget) = vehicle _newFocus;
 
     if (isNull GVAR(camTarget)) then {
         if (GVAR(currentCamIndex) == FREE_CAMERA) then {

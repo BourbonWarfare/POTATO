@@ -50,7 +50,8 @@ class GVAR(overlay) {
 
             onMouseExit = QUOTE([false] call FUNC(ui_showList));
             onMouseEnter = QUOTE([true] call FUNC(ui_showList));
-            onTreeSelChanged = QUOTE(_this call FUNC(ui_handleListClick));
+            onTreeLButtonDown = QUOTE([true] call FUNC(ui_handleListClick));
+            onTreeDblClick = QUOTE([false] call FUNC(ui_handleListClick));
 
             x = "safeZoneX";
             y = "safeZoneY";
@@ -349,9 +350,9 @@ class GVAR(overlay) {
             idc = HELP_IDC;
 
             x = 0.25;
-            y = 0.25;
+            y = 0.245;
             w = 0.5;
-            h = 0.5;
+            h = 0.6;
 
             text = QUOTE(HELP_TEXT);
             colorBackground[] = {0,0,0,0.5};

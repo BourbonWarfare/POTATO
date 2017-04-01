@@ -134,6 +134,13 @@ if (_key == DIK_BACKSPACE) exitWith {
     true
 };
 
+// handle toggling the Tags
+if (_key == DIK_BACKSLASH) exitWith {
+    GVAR(tagsVisible) = !GVAR(tagsVisible);
+    true
+};
+
+// handle displaying help
 if (_key == DIK_F1) exitWith {
     HELP ctrlShow !(ctrlShown HELP);
     true

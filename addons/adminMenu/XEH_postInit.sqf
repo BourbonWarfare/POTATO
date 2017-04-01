@@ -39,7 +39,7 @@
     [] call EFUNC(spectate,exit);
 
     diag_log text format ["[POTATO] Calling potato_spectate_fnc_init"];
-    [_unit] call EFUNC(spectate,init);
+    [_unit] call EFUNC(spectate,setup);
 }] call CBA_fnc_addEventHandler;
 
 

@@ -16,7 +16,7 @@
  */
 
 #include "script_component.hpp"
-#define HEIGHT_OFFSET 1.0
+#define HEIGHT_OFFSET 1.5
 #define GRENADE_ICON "A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_connect_ca.paa"
 #define ICON_BACKGROUND_UNIT "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\UnitName_ca.paa"
 
@@ -34,9 +34,7 @@ if (count _intersections > 0) then {
 };
 
 if !(_cursorObject isKindOf "Man") then {
-    if (count crew _cursorObject > 0) then {
-        _cursorObject = (crew _cursorObject) select 0;
-    } else {
+    if (count crew _cursorObject < 1) then {
         _cursorObject = objNull;
     };
 };
@@ -95,103 +93,109 @@ if (count GVAR(camLights) > 1) then {
 };
 END_COUNTER(camTick);
 
-if (GVAR(uiVisible) && !GVAR(mapOpen)) then {
-    BEGIN_COUNTER(drawTags);
-    // Groups and Units
-    {
-        _x params ["_unit", "_type", "_icon"];
-        private _position = _unit modelToWorldVisual (_unit selectionPosition "Head");
-        _position set [2, (_position select 2) + HEIGHT_OFFSET];
-
-        if (_type == 2 && { _unit distance GVAR(cam) < DISTANCE_NAMES } && {GVAR(camTarget) == _unit || GVAR(cursorObject) == _unit}) then {
-            drawIcon3D [
-                ICON_BACKGROUND_UNIT,
-                [0,0,0,if (GVAR(camTarget) == _unit) then { 0.8 } else { 0.4 }],
-                _position,
-                5.0,
-                3.5,
-                0.0,
-                "",
-                0,
-                0.035,
-                "PuristaMedium",
-                "center"
-            ];
-        };
-
-        // Apply modifiers
-        if (_type == 1 && { time <= _unit getVariable [QGVAR(highlightTime), 0] }) then {
-            _icon set [1, [1,1,1, ((_icon select 1) select 3)]];
-        };
-        _icon set [2, _position];
-
-        // Draw icon
-        drawIcon3D _icon;
-
-        nil
-    } count GVAR(thingsToDraw); // count used here for speed, ensure nil above this line
-
-    // Draw projectiles and grenades paths
-    if (GVAR(drawProjectiles)) then {
-        private _projectilesNew = [];
-        private _grenadesNew = [];
-
-        // Draw projectiles if there are any
+if !(GVAR(mapOpen)) then {
+    if (GVAR(tagsVisible)) then {
+        BEGIN_COUNTER(drawTags);
+        // Groups and Units
         {
-            _x params [
-                ["_projectile", objNull, [objNull]],
-                ["_segments", [], [[]]]
-            ];
+            _x params ["_unit", "_type", "_icon"];
+            private _position = _unit modelToWorldVisual (_unit selectionPosition "Head");
+            _position set [2, (_position select 2) + HEIGHT_OFFSET];
 
-            if !(isNull _projectile) then {
-                private _newestIndex = _segments pushBack [
-                    getPosVisual _projectile,
-                    (vectorMagnitude velocity _projectile) call {
-                        if (_this < 250) exitWith { [0,0,1,1] };
-                        if (_this < 250) exitWith { [0,1,0,1] };
-                        [1,0,0,1]
-                    }
+            if (_type == 2 && { _unit distance GVAR(cam) < DISTANCE_NAMES } && {_unit in GVAR(camTarget) || _unit in GVAR(cursorObject)}) then {
+                drawIcon3D [
+                    ICON_BACKGROUND_UNIT,
+                    [0, 0, 0, if (_unit in GVAR(camTarget)) then { 0.8 } else { 0.4 }],
+                    _position,
+                    5.0,
+                    4,
+                    0.0,
+                    "",
+                    0,
+                    0.035,
+                    "PuristaMedium",
+                    "center"
+                ];
+            };
+
+            // Apply modifiers
+            if (_type == 1 && { time <= _unit getVariable [QGVAR(highlightTime), 0] }) then {
+                _icon set [1, [1,1,1, ((_icon select 1) select 3)]];
+            };
+            _icon set [2, _position];
+
+            // Draw icon
+            drawIcon3D _icon;
+
+            nil
+        } count GVAR(thingsToDraw); // count used here for speed, ensure nil above this line
+        END_COUNTER(drawTags);
+    };
+
+    if (GVAR(drawProjectiles)) then {
+        BEGIN_COUNTER(drawTracers);
+        // Draw projectiles and grenades paths
+        if (GVAR(drawProjectiles)) then {
+            private _projectilesNew = [];
+            private _grenadesNew = [];
+
+            // Draw projectiles if there are any
+            {
+                _x params [
+                    ["_projectile", objNull, [objNull]],
+                    ["_segments", [], [[]]]
                 ];
 
-                if (_newestIndex > MAX_TRACKED_PROJECTILE_SEGMENTS) then {
-                    _segments deleteAt 0;
-                    _newestIndex = _newestIndex - 1;
+                if !(isNull _projectile) then {
+                    private _newestIndex = _segments pushBack [
+                        getPosVisual _projectile,
+                        (vectorMagnitude velocity _projectile) call {
+                            if (_this < 250) exitWith { [0,0,1,1] };
+                            if (_this < 250) exitWith { [0,1,0,1] };
+                            [1,0,0,1]
+                        }
+                    ];
+
+                    if (_newestIndex > MAX_TRACKED_PROJECTILE_SEGMENTS) then {
+                        _segments deleteAt 0;
+                        _newestIndex = _newestIndex - 1;
+                    };
+
+                    private _oldLoc = [];
+                    {
+                        _x params ["_locNew", "_colorNew"];
+                        if !(_oldLoc isEqualTo []) then {
+                            drawLine3D [_oldLoc, _locNew, _colorNew];
+                        };
+                        _oldLoc = _locNew;
+
+                        nil
+                    } count _segments; // count used here for speed, ensure nil above this line
+
+                    _projectilesNew pushBack [_projectile, _segments];
                 };
 
-                private _oldLoc = [];
-                {
-                    _x params ["_locNew", "_colorNew"];
-                    if !(_oldLoc isEqualTo []) then {
-                        drawLine3D [_oldLoc, _locNew, _colorNew];
-                    };
-                    _oldLoc = _locNew;
+                nil
+            } count GVAR(projectiles); // count used here for speed, ensure nil above this line
+            GVAR(projectiles) = _projectilesNew;
 
-                    nil
-                } count _segments; // count used here for speed, ensure nil above this line
+            {
+                if !(isNull _x) then {
+                    private _grenadeVelocityMagnitude = vectorMagnitude velocity _x;
 
-                _projectilesNew pushBack [_projectile, _segments];
-            };
+                    // Draw grenade
+                    drawIcon3D [GRENADE_ICON, [1,0,0,1], getPosVisual _x, 0.6, 0.6, if (_grenadeVelocityMagnitude > 0) then { time * 100 * _grenadeVelocityMagnitude } else { 0 }, "", 0, 0.05, "TahomaB"];
 
-            nil
-        } count GVAR(projectiles); // count used here for speed, ensure nil above this line
-        GVAR(projectiles) = _projectilesNew;
+                    // Store grenade for next frame
+                    _grenadesNew pushBack _x;
+                };
 
-        {
-            if !(isNull _x) then {
-                private _grenadeVelocityMagnitude = vectorMagnitude velocity _x;
-
-                // Draw grenade
-                drawIcon3D [GRENADE_ICON, [1,0,0,1], getPosVisual _x, 0.6, 0.6, if (_grenadeVelocityMagnitude > 0) then { time * 100 * _grenadeVelocityMagnitude } else { 0 }, "", 0, 0.05, "TahomaB"];
-
-                // Store grenade for next frame
-                _grenadesNew pushBack _x;
-            };
-
-            nil
-        }  count GVAR(grenades); // count used here for speed, ensure nil above this line
-        GVAR(grenades) = _grenadesNew;
+                nil
+            }  count GVAR(grenades); // count used here for speed, ensure nil above this line
+            GVAR(grenades) = _grenadesNew;
+        };
+        END_COUNTER(drawTracers);
     };
-    END_COUNTER(drawTags);
 };
 
 END_COUNTER(draw3D);

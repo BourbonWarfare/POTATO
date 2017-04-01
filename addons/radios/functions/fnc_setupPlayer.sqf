@@ -22,8 +22,6 @@ INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]", diag_frameNo, GVAR(
 
     if (GVAR(initState) == 1) then {
         INFO_2("%1 - [InitState %2] Setting player presets", diag_frameNo, GVAR(initState));
-        private _groupLanguages = (group _player) getVariable [QGVAR(assignedLanguages),[]];
-        GVAR(playerLanguages) = _player getVariable [QGVAR(assignedLanguages), _groupLanguages];
 
         private _presetArray = switch ((getNumber (configFile >> "CfgVehicles" >> (typeOf _player) >> "side"))) do {
         case 1: { [WEST_SR, WEST_MR, WEST_LR, GVAR(westDefaultLanguages)] };
