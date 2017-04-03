@@ -255,7 +255,7 @@ class CfgVehicles {
         GVAR(createVic) = "CUP_O_T72_SLA";
     };
     class GVAR(east_rhsT80): GVAR(east_rifleman) {
-        displayName = "Tank: T-80UE (CUP)";
+        displayName = "Tank: T-80UE (RHS)";
         GVAR(createVic) = "rhs_t80ue1";
     };
     class GVAR(east_rhsT90): GVAR(east_rifleman) {
