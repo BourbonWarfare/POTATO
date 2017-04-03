@@ -8,13 +8,15 @@
  *
  * Public: No
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-private _sideArray = [] call FUNC(getSideArray);
+params [["_player", player, [objNull]]];
 
-TRACE_2("sides",_sideArray,playerSide);
+private _sideArray = [side (group _player)] call FUNC(getSideArray);
+
+TRACE_2("sides",_sideArray,side group _player);
 
 {
     if (!(isNull _x) && {side _x in _sideArray}) then {
