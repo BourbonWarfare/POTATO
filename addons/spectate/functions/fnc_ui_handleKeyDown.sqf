@@ -108,7 +108,7 @@ if (inputAction "networkStats" > 0) exitWith {
     true
 };
 
-params ["", "_key"];
+private _key = _this select 1;
 
 // handle perspective changes
 if (_key == DIK_SPACE) exitWith {
@@ -143,6 +143,12 @@ if (_key == DIK_BACKSLASH) exitWith {
 // handle displaying help
 if (_key == DIK_F1) exitWith {
     HELP ctrlShow !(ctrlShown HELP);
+    true
+};
+
+// handle spectate headset down
+if ([_key, _this select [2, 3]] isEqualTo ((["ACRE2", "HeadSet"] call CBA_fnc_getKeybind) select 5)) exitWith {
+    [] call acre_sys_core_fnc_toggleHeadset;
     true
 };
 
