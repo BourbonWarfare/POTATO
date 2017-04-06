@@ -82,28 +82,30 @@ if !(isNull _zeusModule) then {
     [_newUnit, _zeusModule] remoteExec [QEFUNC(spectate,transferZeus), SERVER_CLIENT_ID];
 };
 
-// do anything else that needs a delay
-[_newUnit, _group, _rank, _isLeader, _colorTeam] spawn {
-    sleep 10;
-    // validate objects
-    params [
-        ["_newUnit", objNull, [objNull]],
-        ["_group", grpNull, [grpNull]],
-        ["_rank", "private", [""]],
-        ["_isLeader", false, [false]],
-        ["_colorTeam", "MAIN", [""]]
-    ];
-    if (isNull _newUnit || isNull _group) exitWith { WARNING("Group or unit null on delayed execution"); };
+[
+    {
+        params [
+            ["_newUnit", objNull, [objNull]],
+            ["_group", grpNull, [grpNull]],
+            ["_rank", "private", [""]],
+            ["_isLeader", false, [false]],
+            ["_colorTeam", "MAIN", [""]]
+        ];
 
-    // if the unit is the leader, force the selection
-    if (_isLeader) then {
-        _group selectLeader _newUnit;
-    };
+        if (isNull _newUnit || isNull _group) exitWith { WARNING("Group or unit null on delayed execution"); };
 
-    // set new unit rank, fix rating
-    _newUnit setRank _rank; // note setRank will be EG in 1.68
-    _newUnit addRating (25000 - (rating _newUnit));
+        // if the unit is the leader, force the selection
+        if (_isLeader) then {
+            [_group, _newUnit] remoteExecCall ["selectLeader", _group];
+        };
 
-    // assign the unit's color team
-    _newUnit assignTeam _colorTeam;
-};
+        // set new unit rank, fix rating
+        _newUnit setRank _rank;
+        _newUnit addRating (25000 - (rating _newUnit));
+
+        // assign the unit's color team
+        _newUnit assignTeam _colorTeam;
+    },
+    [_newUnit, _group, _rank, _isLeader, _colorTeam],
+    10
+] call CBA_fnc_waitAndExecute;
