@@ -103,25 +103,46 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
                 private _unit = _x select 3;
 
                 if !(isNull _unit) then {
-                    (_unitsArray select _forEachIndex) params [
-                        "",
-                        "",
-                        ["_unitType", "soldier_f", [""]],
-                        ["_unitRank", "private", [""]],
-                        ["_unitColorTeamIndex", 0, [0]],
-                        ["_isUnitLeader", false, [false]],
-                        ["_isUnitMedic", false, [false]]
-                    ];
-
                     [
-                        _newRespawnGroup,
-                        format ["%1%2", _factionPrefix, _unitType],
-                        _position,
-                        _colorTeamArray select _unitColorTeamIndex,
-                        _unitRank,
-                        _isUnitLeader,
-                        _isUnitMedic
-                    ] remoteExecCall [QFUNC(respawnClient), _unit];
+                        {
+                            params [
+                                "_newRespawnGroup",
+                                "_unit",
+                                "_factionPrefix",
+                                "_colorTeamArray",
+                                "_position",
+                                "_unitArray"
+                            ];
+
+                            _unitArray params [
+                                "",
+                                "",
+                                ["_unitType", "soldier_f", [""]],
+                                ["_unitRank", "private", [""]],
+                                ["_unitColorTeamIndex", 0, [0]],
+                                ["_isUnitLeader", false, [false]],
+                                ["_isUnitMedic", false, [false]]
+                            ];
+
+                            [
+                                _newRespawnGroup,
+                                format ["%1%2", _factionPrefix, _unitType],
+                                _position,
+                                _colorTeamArray select _unitColorTeamIndex,
+                                _unitRank,
+                                _isUnitLeader,
+                                _isUnitMedic
+                            ] remoteExecCall [QFUNC(respawnClient), _unit];
+                        }, [
+                            _newRespawnGroup,
+                            _unit,
+                            _factionPrefix,
+                            _colorTeamArray,
+                            _position,
+                            _unitsArray select _forEachIndex
+                        ],
+                        1
+                    ] call CBA_fnc_waitAndExecute;
 
                     _position set [0, (_position select 0) + UNIT_SPACING];
                 };
