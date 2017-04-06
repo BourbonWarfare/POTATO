@@ -11,7 +11,7 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-private [["_side", sideLogic, [west]]];
+params [["_side", sideLogic, [west]]];
 
 switch (_side) do {
     case west: { GVAR(viewBluForMarkers) };
