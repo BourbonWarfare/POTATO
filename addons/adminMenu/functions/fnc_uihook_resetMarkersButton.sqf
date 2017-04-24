@@ -11,6 +11,6 @@ TRACE_1("Selected unit: ",_selectedUnit);
 
 if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit, disconnect?", _selectedUnit);};
 
-[QGVAR(resetGear), [_selectedUnit], [_selectedUnit]] call CBA_fnc_targetEvent;
+[QGVAR(resetMarkers), [_selectedUnit], [_selectedUnit]] call CBA_fnc_targetEvent;
 
-["potato_adminMsg", [format ["Resetting gear on %1", (name _selectedUnit)], profileName]] call CBA_fnc_globalEvent;
+["potato_adminMsg", [format ["Resetting markers on %1", [_selectedUnit] call ACEFUNC(common,getName)], profileName]] call CBA_fnc_globalEvent;

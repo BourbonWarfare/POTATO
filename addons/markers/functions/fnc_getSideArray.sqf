@@ -11,7 +11,7 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-switch (playerSide) do {
+switch (side (group player)) do {
     case west: { GVAR(viewBluForMarkers) };
     case east: { GVAR(viewOpForMarkers) };
     case resistance: { GVAR(viewIndyMarkers) };

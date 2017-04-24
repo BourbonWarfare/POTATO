@@ -4,7 +4,10 @@ LOG("Post init start");
 
 [
     {
-        ACEGVAR(common,settingsInitFinished) && {(missionNamespace getVariable [QEGVAR(miscFixes,groupCleanupRan), false]) || {diag_tickTime > (_this select 0)}}
+        ACEGVAR(common,settingsInitFinished)
+            && {!isNull player}
+            && {!isNull (group player)}
+            && {(missionNamespace getVariable [QEGVAR(miscFixes,groupCleanupRan), false]) || {diag_tickTime > (_this select 0)}}
     },
     {
         TRACE_2("ACE Settings initilized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
@@ -32,8 +35,7 @@ LOG("Post init start");
 
                     [] call FUNC(checkForMapMarkerColor);
 
-                    if (side _newPlayer != side _oldPlayer) then {
-                        GVAR(drawHash) = [[],[]];
+                    if (side (group _newPlayer) != side (group _oldPlayer)) then {
                         [] call FUNC(initMarkerHash);
                     };
 
