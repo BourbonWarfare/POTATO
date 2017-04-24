@@ -18,7 +18,7 @@ TRACE_1("Params",_this);
 params ["_newPlayer"];
 private _newPlayerGroup = group _newPlayer;
 
-private _sideArray = [] call FUNC(getSideArray);
+private _sideArray = [side (group player)] call FUNC(getSideArray);
 
 if (!(isNull _newPlayerGroup) && {side _newPlayerGroup in _sideArray}) then {
     [_newPlayerGroup] call FUNC(addMarkerInfoToHash);

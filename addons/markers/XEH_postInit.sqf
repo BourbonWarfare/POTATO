@@ -32,16 +32,13 @@ LOG("Post init start");
 
                     [] call FUNC(checkForMapMarkerColor);
 
-                    if (side _newPlayer != side _oldPlayer) then {
+                    if (side (group _newPlayer) != side (group _oldPlayer)) then {
                         GVAR(drawHash) = [[],[]];
-                        [] call FUNC(initMarkerHash);
+                        [_newPlayer] call FUNC(initMarkerHash);
                     };
 
                     [QGVAR(checkPlayerForMarkers), [_newPlayer]] call CBA_fnc_globalEvent;
-                }] call CBA_fnc_addPlayerEventHandler;
-
-                [] call FUNC(initMarkerHash);
-                [] call FUNC(checkForMapMarkerColor);
+                }, true] call CBA_fnc_addPlayerEventHandler;
             };
         } else {
             GVAR(skipInstallingEH) = true; // skip installing marker EHs

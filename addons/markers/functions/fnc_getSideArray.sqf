@@ -11,7 +11,9 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-switch (playerSide) do {
+params [["_side", sideLogic, [west]]];
+
+switch (_side) do {
     case west: { GVAR(viewBluForMarkers) };
     case east: { GVAR(viewOpForMarkers) };
     case resistance: { GVAR(viewIndyMarkers) };
