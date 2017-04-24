@@ -25,4 +25,8 @@ params [
     ["_respawnDelay", 0, [0]]
 ];
 
+// hide whatever unit player was spawned into
+_newUnit setPos ZERO_POS;
+[_newUnit, true] remoteExecCall ["hideObjectGlobal", SERVER_CLIENT_ID];
+
 [FUNC(setup), _this, _respawnDelay] call CBA_fnc_waitAndExecute;

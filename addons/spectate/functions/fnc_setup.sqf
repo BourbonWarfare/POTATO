@@ -60,10 +60,6 @@ HELP ctrlShow false;
     };
 };
 
-// hide whatever unit player was spawned into
-_newUnit setPos ZERO_POS;
-[_newUnit, true] remoteExecCall ["hideObjectGlobal", SERVER_CLIENT_ID];
-
 // create spectator unit
 private _tempGroup = createGroup [sideLogic, true]; // explicitly mark for cleanup (even though we delete below)
 GVAR(unit) = _tempGroup createUnit [QGVAR(spectator), ZERO_POS, [], 200, "NONE"];
