@@ -13,4 +13,4 @@ if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit, disconnect?", _selected
 
 [QGVAR(resetSpectator), [_selectedUnit], [_selectedUnit]] call CBA_fnc_targetEvent;
 
-["potato_adminMsg", [format ["Reseting spectate on %1", [_selectedUnit] call ACEFUNC(common,getName)], profileName]] call CBA_fnc_globalEvent;
+["potato_adminMsg", [format ["Resetting spectate on %1", [_selectedUnit] call ACEFUNC(common,getName)], profileName]] call CBA_fnc_globalEvent;

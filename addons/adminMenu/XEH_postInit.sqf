@@ -14,11 +14,13 @@
 
     [{
         if (missionNamespace getVariable [QEGVAR(assignGear,usePotato), false]) then {
-            diag_log text format ["[POTATO] Calling potato_assignGear_fnc_assignGearMan"];
             // set unit loadout overrides our sick shades :(
             private _goggles = goggles _this;
             removeGoggles _this;
-            [_this] call potato_assignGear_fnc_assignGearMan;
+
+            diag_log text format ["[POTATO] Calling %1", QEFUNC(assignGear,assignGearMan)];
+            [_this] call EFUNC(assignGear,assignGearMan);
+
             _this addGoggles _goggles;
         } else {
             diag_log text format ["[POTATO] Calling F_fnc_assignGearMan"];
@@ -35,13 +37,22 @@
     diag_log text format ["[POTATO] Reseting spectator on %1 [%2]", (name _unit), _unit];
     if (isNull _unit || {!local _unit} || {alive _unit && !(_unit isKindOf QEGVAR(spectate,spectator))}) exitWith {};
 
-    diag_log text format ["[POTATO] Calling potato_spectate_fnc_exit"];
+    diag_log text format ["[POTATO] Calling %1", QEFUNC(spectate,exit)];
     [] call EFUNC(spectate,exit);
 
-    diag_log text format ["[POTATO] Calling potato_spectate_fnc_init"];
+    diag_log text format ["[POTATO] Calling %1", QEFUNC(spectate,setup)];
     [_unit] call EFUNC(spectate,setup);
 }] call CBA_fnc_addEventHandler;
 
+[QGVAR(resetMarkers), {
+    params [["_unit", objNull, [objNull]]];
+
+    diag_log text format ["[POTATO] Reseting markers on %1 [%2]", (name _unit), _unit];
+    if (isNull _unit || {!local _unit}) exitWith {};
+
+    diag_log text format ["[POTATO] Calling %1", QEFUNC(markers,initMarkerHash)];
+    [] call EFUNC(markers,initMarkerHash);
+}] call CBA_fnc_addEventHandler;
 
 GVAR(openEndMission) = false;
 
