@@ -24,11 +24,11 @@ TRACE_1("params",_this);
 
 params ["_input"];
 
-if (_input isEqualType "" && {toLower _input == "true" || _input == "1"}) exitWith {
+if (_input isEqualType 0 && {_input == 1}) exitWith {
     true
 };
 
-if (_input isEqualType 0 && {_input == 1}) exitWith {
+if (_input isEqualType "" && {_input == "true" || _input == "1"}) exitWith {
     true
 };
 
