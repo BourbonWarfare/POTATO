@@ -3,74 +3,74 @@ class CfgRespawnGroups {
     class Alpha {
         markerText = "";
         markerColor[] = {0.9,0,0,1};
-        markerTexture =  QPATHTOEF(markers,data\infantry.paa);
+        markerTexture = QPATHTOEF(markers,data\infantry.paa);
         markerSize = 24;
 
-        srChannel = 0;
-        mrChannel = 0;
-        lrChannel = 0;
+        srChannel = 1;
+        mrChannel = 1;
+        lrChannel = 1;
     };
     class Bravo: Alpha {
         markerColor[] = {0,0,1,1};
 
-        srChannel = 1;
+        srChannel = 2;
     };
     class Charlie: Alpha {
         markerColor[] = {0,0.8,0,1};
 
-        srChannel = 2;
+        srChannel = 3;
     };
     class Delta: Alpha {
-        srChannel = 4;
-        mrChannel = 1;
-        lrChannel = 1;
+        srChannel = 5;
+        mrChannel = 2;
+        lrChannel = 2;
     };
     class Echo: Delta {
         markerColor[] = {0,0,1,1};
 
-        srChannel = 5;
+        srChannel = 6;
     };
     class Foxtrot: Delta {
         markerColor[] = {0,0.8,0,1};
 
-        srChannel = 6;
+        srChannel = 7;
     };
     class Golf: Alpha {
-        srChannel = 8;
-        mrChannel = 2;
-        lrChannel = 2;
+        srChannel = 9;
+        mrChannel = 3;
+        lrChannel = 3;
     };
     class Hotel: Golf {
         markerColor[] = {0,0,1,1};
 
-        srChannel = 9;
+        srChannel = 10;
     };
     class India: Golf {
         markerColor[] = {0,0.8,0,1};
 
-        srChannel = 10;
+        srChannel = 11;
     };
     class Weapons: Alpha {
         markerColor[] = {1,0.647,0,1};
 
-        srChannel = 15;
-        mrChannel = 6;
-        lrChannel = 3;
+        srChannel = 16;
+        mrChannel = 7;
+        lrChannel = 4;
     };
     class Armor: Alpha {
         markerTexture = QPATHTOEF(markers,data\armor.paa);
         markerSize = 32;
 
-        srChannel = 14;
-        mrChannel = 5;
-        lrChannel = 3;
+        srChannel = 15;
+        mrChannel = 6;
+        lrChannel = 4;
     };
     class Air: Armor {
         markerTexture = QPATHTOEF(markers,data\attack_helicopter.paa);
 
-        srChannel = 13;
-        mrChannel = 4;
-        lrChannel = 3;
+        srChannel = 14;
+        mrChannel = 5;
+        lrChannel = 4;
     };
 
     // base unit all units inherit from
@@ -81,6 +81,11 @@ class CfgRespawnGroups {
         colorTeam = 0;
         leader = 0;
         medic = 0;
+
+        markerText = "";
+        markerColor[] = {0,0,0,0};
+        markerTexture = "";
+        markerSize = 12;
     };
 
     // group configs
@@ -118,9 +123,9 @@ class CfgRespawnGroups {
                 markerTexture = QPATHTOEF(markers,data\hq.paa);
                 markerSize = 24;
 
-                srChannel = 12;
-                mrChannel = 3;
-                lrChannel = 3;
+                srChannel = 13;
+                mrChannel = 4;
+                lrChannel = 4;
             };
         };
     };
@@ -155,21 +160,21 @@ class CfgRespawnGroups {
                 markerTexture = QPATHTOEF(markers,data\hq.paa);
                 markerSize = 24;
 
-                srChannel = 3;
-                mrChannel = 0;
-                lrChannel = 3;
+                srChannel = 4;
+                mrChannel = 1;
+                lrChannel = 4;
             };
             class TwoPlt: OnePlt {
                 markerText = "2PLT";
 
-                srChannel = 7;
-                mrChannel = 1;
+                srChannel = 8;
+                mrChannel = 2;
             };
             class ThreePlt: OnePlt {
                 markerText = "3PLT";
 
-                srChannel = 11;
-                mrChannel = 2;
+                srChannel = 12;
+                mrChannel = 3;
             };
         };
     };

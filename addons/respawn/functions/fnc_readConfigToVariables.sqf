@@ -23,11 +23,11 @@ GVAR(factionsToInfo) = [] call CBA_fnc_createNamespace;
 {
     private _infoArray = [];
 
-    _infoArray pushBack (getText (_x >> "displayName"));
-    _infoArray pushBack (getText (_x >> "callsignPrefix"));
-    _infoArray pushBack (getText (_x >> "factionClassname"));
-    _infoArray pushBack (getText (_x >> "factionPrefix"));
-    _infoArray pushBack (getArray (_x >> "groups"));
+    _infoArray pushBack ([_x >> "displayName"] call CFUNC(getText));
+    _infoArray pushBack ([_x >> "callsignPrefix"] call CFUNC(getText));
+    _infoArray pushBack ([_x >> "factionClassname"] call CFUNC(getText));
+    _infoArray pushBack ([_x >> "factionPrefix"] call CFUNC(getText));
+    _infoArray pushBack ([_x >> "groups"] call CFUNC(getArray));
 
     TRACE_2("Faction info", configName _x, _infoArray);
     GVAR(factionsToInfo) setVariable [configName _x, _infoArray]; // possible to override mission side
@@ -41,7 +41,7 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
 {
     private _infoArray = [];
 
-    _infoArray pushBack (getText (_x >> "displayName"));
+    _infoArray pushBack ([_x >> "displayName"] call CFUNC(getText));
 
     // parse the units in the group
     private _unitsArray = [];
@@ -50,12 +50,18 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
 
         // add config name
         _unitArray pushBack (configName _x);
-        _unitArray pushBack (getText (_x >> "displayName"));
-        _unitArray pushBack (getText (_x >> "type"));
-        _unitArray pushBack (getText (_x >> "rank"));
-        _unitArray pushBack (getNumber (_x >> "colorTeam"));
-        _unitArray pushBack ((getNumber (_x >> "leader")) == 1);
-        _unitArray pushBack ((getNumber (_x >> "medic")) == 1);
+        _unitArray pushBack ([_x >> "displayName", "Rifleman"] call CFUNC(getText));
+        _unitArray pushBack ([_x >> "type", "soldier_f"] call CFUNC(getText));
+        _unitArray pushBack ([_x >> "rank", "private"] call CFUNC(getText));
+        _unitArray pushBack ([_x >> "colorTeam"] call CFUNC(getNumber));
+        _unitArray pushBack ([_x >> "leader"] call CFUNC(getBoolean));
+        _unitArray pushBack ([_x >> "medic"] call CFUNC(getBoolean));
+
+        // pull marker info
+        _configArray pushBack ([_x >> "markerText"] call CFUNC(getText));
+        _configArray pushBack ([_x >> "markerColor", [0,0,0,0]] call CFUNC(getArray));
+        _configArray pushBack ([_x >> "markerTexture"] call CFUNC(getText));
+        _configArray pushBack ([_x >> "markerSize", 24] call CFUNC(getNumber));
 
         _unitsArray pushBack _unitArray;
     } forEach ("true" configClasses (_x >> "Units"));
@@ -72,25 +78,20 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
         _configArray pushBack (configName _config);
 
         // pull marker info
-        _configArray pushBack (getText (_config >> "markerText"));
-        _configArray pushBack (getArray (_config >> "markerColor"));
-        _configArray pushBack (getText (_config >> "markerTexture"));
-        _configArray pushBack (getNumber (_config >> "markerSize"));
+        _configArray pushBack ([_x >> "markerText"] call CFUNC(getText));
+        _configArray pushBack ([_x >> "markerColor", [0,0,0,0]] call CFUNC(getArray));
+        _configArray pushBack ([_x >> "markerTexture"] call CFUNC(getText));
+        _configArray pushBack ([_x >> "markerSize", 24] call CFUNC(getNumber));
 
         // pull radio info
-        _configArray pushBack ((getNumber (_config >> "srChannel")) + 1);
-        _configArray pushBack ((getNumber (_config >> "mrChannel")) + 1);
-        _configArray pushBack ((getNumber (_config >> "lrChannel")) + 1);
+        _configArray pushBack ([_x >> "srChannel"] call CFUNC(getNumber));
+        _configArray pushBack ([_x >> "mrChannel"] call CFUNC(getNumber));
+        _configArray pushBack ([_x >> "lrChannel"] call CFUNC(getNumber));
 
         // pull color team info
         private _colorTeamArray = ["MAIN"];
         {
-            private _colorTeamProperty = format ["colorTeam%1", _x];
-            if (isText (_config >> _colorTeamProperty)) then {
-                _colorTeamArray pushBack (getText (_config >> _colorTeamProperty));
-            } else {
-                _colorTeamArray pushBack "MAIN";
-            };
+            _colorTeamArray pushBack ([_config >> (format ["colorTeam%1", _x]), "MAIN"] call CFUNC(getText));
         } forEach [1, 2, 3, 4];
         _configArray pushBack _colorTeamArray;
 
