@@ -48,20 +48,19 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
     {
         private _unitArray = [];
 
-        // add config name
+        // add top level info
         _unitArray pushBack (configName _x);
         _unitArray pushBack ([_x >> "displayName", "Rifleman"] call CFUNC(getText));
         _unitArray pushBack ([_x >> "type", "soldier_f"] call CFUNC(getText));
         _unitArray pushBack ([_x >> "rank", "private"] call CFUNC(getText));
         _unitArray pushBack ([_x >> "colorTeam"] call CFUNC(getNumber));
         _unitArray pushBack ([_x >> "leader"] call CFUNC(getBoolean));
-        _unitArray pushBack ([_x >> "medic"] call CFUNC(getBoolean));
 
         // pull marker info
-        _configArray pushBack ([_x >> "markerText"] call CFUNC(getText));
-        _configArray pushBack ([_x >> "markerColor", [0,0,0,0]] call CFUNC(getArray));
-        _configArray pushBack ([_x >> "markerTexture"] call CFUNC(getText));
-        _configArray pushBack ([_x >> "markerSize", 24] call CFUNC(getNumber));
+        _unitArray pushBack ([_x >> "markerText"] call CFUNC(getText));
+        _unitArray pushBack ([_x >> "markerColor", [0,0,0,0]] call CFUNC(getArray));
+        _unitArray pushBack ([_x >> "markerTexture"] call CFUNC(getText));
+        _unitArray pushBack ([_x >> "markerSize", 16] call CFUNC(getNumber));
 
         _unitsArray pushBack _unitArray;
     } forEach ("true" configClasses (_x >> "Units"));
@@ -77,7 +76,11 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
         // add config name
         _configArray pushBack (configName _config);
 
+        // add display name
+        _configArray pushBack ([_x >> "displayName"] call CFUNC(getText));
+
         // pull marker info
+        _configArray pushBack ([_x >> "markerPrefix"] call CFUNC(getText));
         _configArray pushBack ([_x >> "markerText"] call CFUNC(getText));
         _configArray pushBack ([_x >> "markerColor", [0,0,0,0]] call CFUNC(getArray));
         _configArray pushBack ([_x >> "markerTexture"] call CFUNC(getText));

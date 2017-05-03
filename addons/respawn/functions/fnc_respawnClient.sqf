@@ -9,7 +9,10 @@
  * 3: Color team to join <STRING>
  * 4: Rank of the unit <STRING>
  * 5: Is the unit a group leader <BOOL>
- * 6: Is the unit a medic <BOOL>
+ * 6: Unit marker text <STRING>
+ * 7: Unit marker color <ARRAY>
+ * 8: Unit marker texture <STRING>
+ * 9: Unit marker size <NUMBER>
  *
  * Return Value:
  * Nothing
@@ -30,7 +33,10 @@ params [
     ["_colorTeam", "MAIN", [""]],
     ["_rank", "private", [""]],
     ["_isLeader", false, [false]],
-    ["_isMedic", false, [false]]
+    ["_markerText", "", [""]],
+    ["_markerColor", [0,0,0,0], [[]], 4],
+    ["_markerTexture", "", [""]],
+    ["_markerSize", 16, [0]]
 ];
 
 // make sure respawn is closed
@@ -54,13 +60,13 @@ if (EGVAR(spectate,running)) then {
 private _tempGroup = createGroup [side _group, true]; // explicitly mark for cleanup (even though we delete below)
 private _newUnit = _tempGroup createUnit [_unitType, _position, [], 0, "NONE"];
 
-// if unit is medic add marker attributes
-if (_isMedic) then {
+// add unit marker if exists
+if (_markerTexture != "") then {
     _newUnit setVariable [QEGVAR(markers,addMarker), true, true];
-    _newUnit setVariable [QEGVAR(markers,markerText), "M", true];
-    _newUnit setVariable [QEGVAR(markers,markerTexture), QPATHTOEF(markers,data\medical.paa), true];
-    _newUnit setVariable [QEGVAR(markers,markerColor), [1,0.753,0.796,1], true];
-    _newUnit setVariable [QEGVAR(markers,markerSize), 16, true];
+    _newUnit setVariable [QEGVAR(markers,markerText), _markerText, true];
+    _newUnit setVariable [QEGVAR(markers,markerTexture), _markerTexture, true];
+    _newUnit setVariable [QEGVAR(markers,markerColor), _markerColor, true];
+    _newUnit setVariable [QEGVAR(markers,markerSize), _markerSize, true];
 };
 
 // do the swap
@@ -69,7 +75,7 @@ selectPlayer _newUnit;
 deleteGroup _tempGroup;
 
 // if the old unit was a spectator, remove it
-if (typeOf _oldUnit == QEGVAR(spectate,spectator)) then {
+if (_oldUnit isKindOf QEGVAR(spectate,spectator)) then {
     deleteVehicle _oldUnit;
 };
 

@@ -21,24 +21,59 @@ TRACE_1("params",_this);
 params ["", "_index"];
 
 private _lookUp = lbData [ADMIN_GROUP_COMBO_IDC, _index];
+(GVAR(groupsToInfo) getVariable _lookUp) params ["", "_units", "_configurations"];
+
+// agressively look ahead into the units for a leader marker/color
+private _unitMarkerColor = [0,0,0,0];
+private _unitMarkerTexture = "";
+
+{
+    _x params [
+        "", // display name
+        "", // type
+        "", // rank
+        "", // color team
+        ["_isLeader", false [false]],
+        "", // marker text
+        ["_markerColor", [0,0,0,0], [[]], 4],
+        ["_markerTexture", "" [""]]
+    ];
+
+    if (_isLeader) exitWith {
+        if !(_markerTexture != "") then {
+            _unitMarkerColor = _markerColor;
+            _unitMarkerTexture = _markerTexture;
+        };
+    };
+} forEach _units;
 
 lbClear ADMIN_CONFIG_COMBO_IDC;
 
 {
     _x params [
-        "_configName",
-        "_markerText",
-        "_markerColor",
-        "_markerTexture"
+        ["_configName", "", [""]],
+        ["_displayName", "", [""]],
+        "", // marker prefix
+        "", // marker text
+        ["_markerColor", [0,0,0,0], [[]], 4],
+        ["_markerTexture", "", [""]]
     ];
-    private _index = lbAdd [ADMIN_CONFIG_COMBO_IDC, _markerText];
-    if !(_markerTexture isEqualTo "") then {
-        lbSetPicture [ADMIN_CONFIG_COMBO_IDC, _index, _markerTexture];
-        lbSetPictureColor [ADMIN_CONFIG_COMBO_IDC, _index, _markerColor];
-        lbSetPictureColorSelected [ADMIN_CONFIG_COMBO_IDC, _index, _markerColor];
-    } else {
-        _markerColor = [1,1,1,1];
+
+    private _index = lbAdd [ADMIN_CONFIG_COMBO_IDC, _displayName];
+
+    // if the configuration marker texture is blank, look at the units
+    if (_markerTexture == "") then {
+        if (_unitMarkerTexture != "") then {
+            _markerTexture = _unitMarkerTexture;
+        };
+
+        if !(_unitMarkerColor isEqualTo [0,0,0,0]) then {
+            _markerColor = _unitMarkerColor;
+        };
     };
 
+    lbSetPicture [ADMIN_CONFIG_COMBO_IDC, _index, _markerTexture];
+    lbSetPictureColor [ADMIN_CONFIG_COMBO_IDC, _index, _markerColor];
+    lbSetPictureColorSelected [ADMIN_CONFIG_COMBO_IDC, _index, _markerColor];
     lbSetData [ADMIN_CONFIG_COMBO_IDC, _index, [_configName, _markerColor joinString ","] joinString ";"];
-} forEach ((GVAR(groupsToInfo) getVariable _lookUp) select 2);
+} forEach _configurations;
