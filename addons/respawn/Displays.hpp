@@ -101,7 +101,7 @@ class GVAR(adminRespawn) {
             y = 0.32 * safezoneH + safezoneY;
             w = 0.0375 * safezoneW;
             h = 0.03 * safezoneH;
-            sizeEx = 0.75 * TEXT_SIZE_FACTOR;
+            sizeEx = 0.6 * TEXT_SIZE_FACTOR;
             style = 1;
         };
         class FactionCombo: RscCombo {
@@ -121,7 +121,7 @@ class GVAR(adminRespawn) {
             y = 0.36 * safezoneH + safezoneY;
             w = 0.0375 * safezoneW;
             h = 0.03 * safezoneH;
-            sizeEx = 0.75 * TEXT_SIZE_FACTOR;
+            sizeEx = 0.6 * TEXT_SIZE_FACTOR;
             style = 1;
         };
         class GroupCombo: RscCombo {
@@ -141,7 +141,7 @@ class GVAR(adminRespawn) {
             y = 0.4 * safezoneH + safezoneY;
             w = 0.0375 * safezoneW;
             h = 0.03 * safezoneH;
-            sizeEx = 0.75 * TEXT_SIZE_FACTOR;
+            sizeEx = 0.6 * TEXT_SIZE_FACTOR;
             style = 1;
         };
         class ConfigurationCombo: RscCombo {
