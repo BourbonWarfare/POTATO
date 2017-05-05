@@ -105,56 +105,34 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
                 private _unit = _x select 3;
 
                 if !(isNull _unit) then {
+                    (_unitsArray select _forEachIndex) params [
+                        "", // config name
+                        "", // display name
+                        ["_unitType", "soldier_f", [""]],
+                        ["_unitRank", "private", [""]],
+                        ["_unitColorTeamIndex", 0, [0]],
+                        ["_isUnitLeader", false, [false]],
+                        ["_unitMarkerText", "", [""]],
+                        ["_unitMarkerColor", [0,0,0,0], [[]], 4],
+                        ["_unitMarkerTexture", "", [""]],
+                        ["_unitMarkerSize", 16, [0]]
+                    ];
+
                     [
-                        {
-                            params [
-                                "_newRespawnGroup",
-                                "_groupMarkerPrefix",
-                                "_groupMarkerColor",
-                                "_unit",
-                                "_factionPrefix",
-                                "_colorTeamArray",
-                                "_position",
-                                "_unitArray"
-                            ];
-
-                            _unitArray params [
-                                "", // config name
-                                "", // display name
-                                ["_unitType", "soldier_f", [""]],
-                                ["_unitRank", "private", [""]],
-                                ["_unitColorTeamIndex", 0, [0]],
-                                ["_isUnitLeader", false, [false]],
-                                ["_unitMarkerText", "", [""]],
-                                ["_unitMarkerColor", [0,0,0,0], [[]], 4],
-                                ["_unitMarkerTexture", "", [""]],
-                                ["_unitMarkerSize", 16, [0]]
-                            ];
-
-                            [
-                                _newRespawnGroup,
-                                format ["%1%2", _factionPrefix, _unitType],
-                                _position,
-                                _colorTeamArray select _unitColorTeamIndex,
-                                _unitRank,
-                                _isUnitLeader,
-                                format ["%1%2", _groupMarkerPrefix, _unitMarkerText],
-                                [_unitMarkerColor, _groupMarkerColor] select (_unitMarkerColor isEqualTo [0,0,0,0]),
-                                _unitMarkerTexture,
-                                _unitMarkerSize
-                            ] remoteExecCall [QFUNC(respawnClient), _unit];
-                        }, [
-                            _newRespawnGroup,
-                            _markerPrefix,
-                            _markerColor,
-                            _unit,
-                            _factionPrefix,
-                            _colorTeamArray,
-                            _position,
-                            _unitsArray select _forEachIndex
-                        ],
-                        1
-                    ] call CBA_fnc_waitAndExecute;
+                        _newRespawnGroup,
+                        format ["%1%2", _factionPrefix, _unitType],
+                        _position,
+                        _colorTeamArray select _unitColorTeamIndex,
+                        _unitRank,
+                        _isUnitLeader,
+                        _srChannel,
+                        _mrChannel,
+                        _lrChannel,
+                        format ["%1%2", _markerPrefix, _unitMarkerText],
+                        [_unitMarkerColor, _markerColor] select (_unitMarkerColor isEqualTo [0,0,0,0]),
+                        _unitMarkerTexture,
+                        _unitMarkerSize
+                    ] remoteExecCall [QFUNC(respawnClient), _unit];
 
                     _position set [0, (_position select 0) + UNIT_SPACING];
                 };

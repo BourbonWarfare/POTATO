@@ -3,22 +3,25 @@
  * Respawns a player with the configuration given from the server.
  *
  * Arguments:
- * 0: Group <GROUP>
- * 1: Unit classname <STRING>
- * 2: Unit position <ARRAY>
- * 3: Color team to join <STRING>
- * 4: Rank of the unit <STRING>
- * 5: Is the unit a group leader <BOOL>
- * 6: Unit marker text <STRING>
- * 7: Unit marker color <ARRAY>
- * 8: Unit marker texture <STRING>
- * 9: Unit marker size <NUMBER>
+ * 0 : Group <GROUP>
+ * 1 : Unit classname <STRING>
+ * 2 : Unit position <ARRAY>
+ * 3 : Color team to join <STRING>
+ * 4 : Rank of the unit <STRING>
+ * 5 : Is the unit a group leader <BOOL>
+ * 6 : Unit short range channel <NUMBER>
+ * 7 : Unit medium range channel <NUMBER>
+ * 8 : Unit long range channel <NUMBER>
+ * 9 : Unit marker text <STRING>
+ * 10: Unit marker color <ARRAY>
+ * 11: Unit marker texture <STRING>
+ * 12: Unit marker size <NUMBER>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * [createGroup west, 'b_soldier_f', [0,0,0], 'MAIN', 'private', false, false] call potato_respawn_fnc_respawnClient;
+ * [createGroup west, 'b_soldier_f', [0,0,0], 'MAIN', 'private', false] call potato_respawn_fnc_respawnClient;
  *
  * Public: No
  */
@@ -33,6 +36,9 @@ params [
     ["_colorTeam", "MAIN", [""]],
     ["_rank", "private", [""]],
     ["_isLeader", false, [false]],
+    ["_srChannel", 1, [0]],
+    ["_mrChannel", 1, [0]],
+    ["_lrChannel", 1, [0]],
     ["_markerText", "", [""]],
     ["_markerColor", [0,0,0,0], [[]], 4],
     ["_markerTexture", "", [""]],
@@ -59,6 +65,11 @@ if (EGVAR(spectate,running)) then {
 // create temp group and new unit
 private _tempGroup = createGroup [side _group, true]; // explicitly mark for cleanup (even though we delete below)
 private _newUnit = _tempGroup createUnit [_unitType, _position, [], 0, "NONE"];
+
+// set neys directly on the new unit
+_newUnit setVariable [QEGVAR(radios,srChannel), _srChannel];
+_newUnit setVariable [QEGVAR(radios,mrChannel), _mrChannel];
+_newUnit setVariable [QEGVAR(radios,lrChannel), _lrChannel];
 
 // add unit marker if exists
 if (_markerTexture != "") then {
