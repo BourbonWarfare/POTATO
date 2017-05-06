@@ -1263,7 +1263,7 @@ class CfgRespawnGroups {
                 rank = "lieutenant";
                 leader = 1;
             };
-            class PlatoonLeader: BaseMSVUnit {
+            class AssistantPlatoonLeader: BaseMSVUnit {
                 displayName = "Platoon Assistant Leader";
                 type = "aplt";
                 rank = "sergeant";
@@ -1788,7 +1788,7 @@ class CfgRespawnGroups {
         };
     };
 
-    class THGroup {
+    class MSVTH {
         displayName = "Air Transport";
 
         class Units {
@@ -1847,7 +1847,7 @@ class CfgRespawnGroups {
         };
     };
 
-    class AHGroup {
+    class MSVAH {
         displayName = "Air Attack";
 
         class Units {
