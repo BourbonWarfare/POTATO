@@ -5,7 +5,7 @@ PREP(ensureBoundedMinMax);
 PREP(ensureMinMax);
 PREP(ensureRange);
 PREP(getArray);
-PREP(getBoolean);
+PREP(getBool);
 PREP(getBoundedRandom);
 PREP(getNumber);
 PREP(getText);

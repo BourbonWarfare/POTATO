@@ -14,7 +14,7 @@
  *
  * Public: No
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
@@ -29,18 +29,19 @@ private _unitMarkerTexture = "";
 
 {
     _x params [
+        "", // config name
         "", // display name
         "", // type
         "", // rank
         "", // color team
-        ["_isLeader", false [false]],
+        ["_isLeader", false, [false]],
         "", // marker text
         ["_markerColor", [0,0,0,0], [[]], 4],
-        ["_markerTexture", "" [""]]
+        ["_markerTexture", "", [""]]
     ];
 
     if (_isLeader) exitWith {
-        if !(_markerTexture != "") then {
+        if (_markerTexture != "") then {
             _unitMarkerColor = _markerColor;
             _unitMarkerTexture = _markerTexture;
         };

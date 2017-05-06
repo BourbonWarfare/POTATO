@@ -54,7 +54,7 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
         _unitArray pushBack ([_x >> "type", "soldier_f"] call CFUNC(getText));
         _unitArray pushBack ([_x >> "rank", "private"] call CFUNC(getText));
         _unitArray pushBack ([_x >> "colorTeam"] call CFUNC(getNumber));
-        _unitArray pushBack ([_x >> "leader"] call CFUNC(getBoolean));
+        _unitArray pushBack ([_x >> "leader"] call CFUNC(getBool));
 
         // pull marker info
         _unitArray pushBack ([_x >> "markerText"] call CFUNC(getText));
