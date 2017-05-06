@@ -14,7 +14,7 @@
  *
  * Public: No
  */
-#define DEBUG_MODE_FULL // debug left on for a raisin
+
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 

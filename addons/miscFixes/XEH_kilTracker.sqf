@@ -16,7 +16,7 @@
  *
  * Public: No
  */
-// #define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 // place the following in a misison's description.ext:
