@@ -2,8 +2,8 @@ class CfgFactionClasses {
     class BLU_F;
     class DOUBLES(PREFIX,usmc): BLU_F {
         displayName = "POTATO: USMC";
-        flag = "a3\data\Flags\flag_us_co.paa"
-        icon = QPATHTOF(data\icon_msv.paa);
+        flag = "a3\data_f\Flags\flag_us_co.paa";
+        icon = QPATHTOF(data\icon_usmc.paa);
     };
 
     class OPF_F;
