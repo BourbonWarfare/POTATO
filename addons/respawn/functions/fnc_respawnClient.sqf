@@ -66,7 +66,7 @@ if (EGVAR(spectate,running)) then {
 private _tempGroup = createGroup [side _group, true]; // explicitly mark for cleanup (even though we delete below)
 private _newUnit = _tempGroup createUnit [_unitType, _position, [], 0, "NONE"];
 
-// set neys directly on the new unit
+// set nets directly on the new unit
 _newUnit setVariable [QEGVAR(radios,srChannel), _srChannel];
 _newUnit setVariable [QEGVAR(radios,mrChannel), _mrChannel];
 _newUnit setVariable [QEGVAR(radios,lrChannel), _lrChannel];
