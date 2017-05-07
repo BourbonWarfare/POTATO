@@ -5,15 +5,16 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core"};
+        requiredAddons[] = {"potato_core", "A3_Functions_F"};
         author = "Potato";
-        authors[] = {"PabstMirror"};
+        authors[] = {"PabstMirror", "AACO"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgFunctions.hpp"
 #include "Interrupt_adminMenu.hpp"
 
 class GVAR(supplies) {
