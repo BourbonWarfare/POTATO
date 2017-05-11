@@ -70,14 +70,16 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
             ERROR_1("Could not find a matching configuration for the given classname", _configData);
         } else {
             _configArray params [
-                "",
+                "", // config name
+                "", // display name
+                ["_markerPrefix", "", [""]],
                 ["_markerText", "", [""]],
-                ["_markerColor", [0, 0, 0, 0], [[]], [4]],
+                ["_markerColor", [0,0,0,0], [[]], [4]],
                 ["_markerTexture", "", [""]],
                 ["_markerSize", 24, [0]],
-                ["_srChannel", 0, [0]],
-                ["_mrChannel", 0, [0]],
-                ["_lrChannel", 0, [0]],
+                ["_srChannel", 1, [0]],
+                ["_mrChannel", 1, [0]],
+                ["_lrChannel", 1, [0]],
                 "_colorTeamArray"
             ];
 
@@ -86,7 +88,7 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
 
             if (_markerTexture != "") then {
                 _newRespawnGroup setVariable [QEGVAR(markers,addMarker), true, true];
-                _newRespawnGroup setVariable [QEGVAR(markers,markerText), _markerText, true];
+                _newRespawnGroup setVariable [QEGVAR(markers,markerText), format ["%1%2", _markerPrefix, _markerText], true];
                 _newRespawnGroup setVariable [QEGVAR(markers,markerTexture), _markerTexture, true];
                 _newRespawnGroup setVariable [QEGVAR(markers,markerColor), _markerColor, true];
                 _newRespawnGroup setVariable [QEGVAR(markers,markerSize), _markerSize, true];
@@ -103,46 +105,34 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
                 private _unit = _x select 3;
 
                 if !(isNull _unit) then {
+                    (_unitsArray select _forEachIndex) params [
+                        "", // config name
+                        "", // display name
+                        ["_unitType", "soldier_f", [""]],
+                        ["_unitRank", "private", [""]],
+                        ["_unitColorTeamIndex", 0, [0]],
+                        ["_isUnitLeader", false, [false]],
+                        ["_unitMarkerText", "", [""]],
+                        ["_unitMarkerColor", [0,0,0,0], [[]], 4],
+                        ["_unitMarkerTexture", "", [""]],
+                        ["_unitMarkerSize", 16, [0]]
+                    ];
+
                     [
-                        {
-                            params [
-                                "_newRespawnGroup",
-                                "_unit",
-                                "_factionPrefix",
-                                "_colorTeamArray",
-                                "_position",
-                                "_unitArray"
-                            ];
-
-                            _unitArray params [
-                                "",
-                                "",
-                                ["_unitType", "soldier_f", [""]],
-                                ["_unitRank", "private", [""]],
-                                ["_unitColorTeamIndex", 0, [0]],
-                                ["_isUnitLeader", false, [false]],
-                                ["_isUnitMedic", false, [false]]
-                            ];
-
-                            [
-                                _newRespawnGroup,
-                                format ["%1%2", _factionPrefix, _unitType],
-                                _position,
-                                _colorTeamArray select _unitColorTeamIndex,
-                                _unitRank,
-                                _isUnitLeader,
-                                _isUnitMedic
-                            ] remoteExecCall [QFUNC(respawnClient), _unit];
-                        }, [
-                            _newRespawnGroup,
-                            _unit,
-                            _factionPrefix,
-                            _colorTeamArray,
-                            _position,
-                            _unitsArray select _forEachIndex
-                        ],
-                        1
-                    ] call CBA_fnc_waitAndExecute;
+                        _newRespawnGroup,
+                        format ["%1%2", _factionPrefix, _unitType],
+                        _position,
+                        _colorTeamArray select _unitColorTeamIndex,
+                        _unitRank,
+                        _isUnitLeader,
+                        _srChannel,
+                        _mrChannel,
+                        _lrChannel,
+                        format ["%1%2", _markerPrefix, _unitMarkerText],
+                        [_unitMarkerColor, _markerColor] select (_unitMarkerColor isEqualTo [0,0,0,0]),
+                        _unitMarkerTexture,
+                        _unitMarkerSize
+                    ] remoteExecCall [QFUNC(respawnClient), _unit];
 
                     _position set [0, (_position select 0) + UNIT_SPACING];
                 };

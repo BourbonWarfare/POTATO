@@ -1,13 +1,17 @@
 TRACE_1("",QUOTE(ADDON));
 
-PREP(isTech);
-PREP(toSide);
-PREP(parseBool);
-PREP(ensureRange);
-PREP(ensureMinMax);
-PREP(isAuthorized);
 PREP(createRscTitle);
-PREP(setControlFade);
-PREP(getBoundedRandom);
 PREP(ensureBoundedMinMax);
+PREP(ensureMinMax);
+PREP(ensureRange);
+PREP(getArray);
+PREP(getBool);
+PREP(getBoundedRandom);
+PREP(getNumber);
+PREP(getText);
+PREP(isAuthorized);
+PREP(isTech);
+PREP(parseBool);
+PREP(setControlFade);
 PREP(stringArrayToSideArray);
+PREP(toSide);

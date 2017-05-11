@@ -17,7 +17,8 @@ class CfgRespawnFactions {
             "ST",
             "ENG",
             "ArmorGroup",
-            "AirGroup"
+            "THGroup",
+            "AHGroup"
         };
     };
 
@@ -33,6 +34,27 @@ class CfgRespawnFactions {
         callsignPrefix = "Indy";
         factionClassname = "ind_f";
         factionPrefix = "i_";
+    };
+
+    class msv {
+        displayName = "MSV";
+        callsignPrefix = "MSV";
+        factionClassname = "potato_msv";
+        factionPrefix = "potato_msv_";
+        groups[] = {
+            "MSVCommand",
+            "MSVPlatoonLead",
+            "MSVSquad",
+            "MSVSquadMarksman",
+            "MSVMMG",
+            "MSVMAT",
+            "MSVMSAM",
+            "MSVEng",
+            "MSVSF",
+            "MSVArmor",
+            "MSVTH",
+            "MSVAH"
+        };
     };
 
     class civ_f {
