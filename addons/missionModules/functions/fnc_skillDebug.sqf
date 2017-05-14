@@ -48,7 +48,7 @@ private _aiCount = {
 
     _skill = [skill _unit, _skill] call _fnc_getSkillArray;
     {
-     _newValue = [_unit skill _x, _values select _forEachIndex] call _fnc_getSkillArray;
+     private _newValue = [_unit skill _x, _values select _forEachIndex] call _fnc_getSkillArray;
      _values set [_forEachIndex, _newValue];
     } forEach _skills;
 

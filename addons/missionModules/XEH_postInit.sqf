@@ -31,7 +31,7 @@ GVAR(ehAdded) = false;
     params ["_group"];
     TRACE_1("banzi eh", _group);
 
-    TRACE_4("",behaviour _unit,combatMode _group,speedMode _group,formation _group);
+    TRACE_4("",behaviour leader _group,combatMode _group,speedMode _group,formation _group);
     _group setBehaviour "AWARE";
     _group setCombatMode "RED";
     _group setSpeedMode "FULL";
@@ -43,5 +43,5 @@ GVAR(ehAdded) = false;
         _x disableAI "AUTOCOMBAT";
         _x disableAI "COVER";
         _x setUnitPosWeak "UP";
-    } forEach (units group _unit);
+    } forEach (units _group);
 }] call CBA_fnc_addEventHandler;

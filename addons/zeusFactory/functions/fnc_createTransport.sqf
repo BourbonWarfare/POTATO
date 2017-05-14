@@ -1,8 +1,8 @@
 // createTransport
 #include "script_component.hpp"
 
-params ["_factory", "_transportType", "_group", "_side"];
-TRACE_4("createTransport",_factory,_transportType,_group,_side);
+params ["_factoryLogic", "_transportType", "_group", "_side"];
+TRACE_4("createTransport",_factoryLogic,_transportType,_group,_side);
 
 ([_factoryLogic,_transportType,_side] call FUNC(getTransportType)) params ["_vehType", "_crewType", "_maxCargoRoom", "_addGunner"];
 TRACE_4("getTransportType",_vehType,_crewType,_maxCargoRoom,_addGunner);

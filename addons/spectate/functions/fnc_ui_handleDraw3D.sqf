@@ -24,7 +24,7 @@ TRACE_1("Params",_this);
 
 BEGIN_COUNTER(draw3D);
 
-BEGIN_COUNTER(updateCursor)
+BEGIN_COUNTER(updateCursor);
 private _cursorObject = objNull;
 
 private _intersections = [getMousePosition select 0, getMousePosition select 1, GVAR(camTarget), vehicle GVAR(camTarget)] call BIS_fnc_getIntersectionsUnderCursor;
@@ -40,7 +40,7 @@ if !(_cursorObject isKindOf "Man") then {
 };
 
 GVAR(cursorObject) = _cursorObject;
-END_COUNTER(updateCursor)
+END_COUNTER(updateCursor);
 
 BEGIN_COUNTER(camTick);
 // Calculate delta time

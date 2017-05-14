@@ -1,7 +1,7 @@
 // dispatch
 #include "script_component.hpp"
 
-params ["_factoryLogic", "_placeLogic", "_group"];
+params ["_factoryLogic", "_placeLogic", "_group", "_side"];
 TRACE_3("dispatch",_factoryLogic,_placeLogic,_group);
 if (isNull _factoryLogic || {isNull _placeLogic} || {isNull _group}) exitWith {ERROR("bad dispatch");};
 
@@ -29,7 +29,7 @@ if (_transportInfo isEqualTo []) then {
 } else {
     _transportInfo params ["_vehicle", "_vehicleGroup"];
 
-    _vehicle setDir (_factory getDir _placeLogic);
+    _vehicle setDir (_factoryLogic getDir _placeLogic);
 
     TRACE_3("transport",_vehicleGroup,_vehicle,typeOf _vehicle);
     while {(count (waypoints _vehicleGroup)) > 0} do {
@@ -119,10 +119,10 @@ case (ORDERS_ATTACK): {
 };
 
 // Update queue and delete place logic
-private _dispatchQueue = _factory getVariable [QGVAR(dispatchQueue), []];
+private _dispatchQueue = _factoryLogic getVariable [QGVAR(dispatchQueue), []];
 _dispatchQueue deleteAt (_dispatchQueue find _placeLogic);
-_factory setVariable [QGVAR(dispatchQueue), _dispatchQueue, true];
-[QGVAR(updateFactory), [_factory], [_placeLogic, _factory]] call CBA_fnc_targetEvent;
+_factoryLogic setVariable [QGVAR(dispatchQueue), _dispatchQueue, true];
+[QGVAR(updateFactory), [_factoryLogic], [_placeLogic, _factoryLogic]] call CBA_fnc_targetEvent;
 
 deleteVehicle _placeLogic;
 
