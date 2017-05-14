@@ -40,7 +40,7 @@ if ((abs(_neededElev - (_mortarVeh animationPhase "level"))) > 0.01) then {
 if (_desiredAngle isEqualType 0) then {
     private _angDiff = {
         params ["_a", "_b"];
-        _ret = _a - _b;
+        private _ret = _a - _b;
         while {_ret < -180} do {_ret = _ret + 360};
         while {_ret > 180} do {_ret = _ret - 360};
         _ret

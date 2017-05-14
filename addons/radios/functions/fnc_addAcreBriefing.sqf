@@ -52,7 +52,7 @@ private _addNetToBriefing = {
 
 private _group = group ace_player;
 
-(switch ((getNumber (configFile >> "CfgVehicles" >> (typeOf _player) >> "side"))) do {
+(switch ((getNumber (configFile >> "CfgVehicles" >> (typeOf ace_player) >> "side"))) do {
     case (1): {
         [
             GVAR(westDefaultLanguages),

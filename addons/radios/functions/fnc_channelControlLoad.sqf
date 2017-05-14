@@ -32,9 +32,9 @@ _ctrlGroup setVariable [QGVAR(setChannel), false];
 _ctrlGroup setVariable [QGVAR(selectedChannels), [0,0,0]];
 
 // there's either nothing selected, or a mix of sides, bail out
-if (_ctrlGroup getVariable QGVAR(channelsInvalid) || {count _selected < 0}) exitWith {
+if (_ctrlGroup getVariable QGVAR(channelsInvalid) || {count _selected <= 0}) exitWith {
     [false, [
-        _ctrlChannel,
+        _ctrlChannels,
         _ctrlRadio,
         _ctrlSet
     ]] call EFUNC(core,setControlFade);

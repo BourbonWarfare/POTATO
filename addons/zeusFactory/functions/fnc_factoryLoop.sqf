@@ -20,7 +20,7 @@ if (!(_newGroupParams isEqualTo [])) exitWith {
 
     if (_soldierList isEqualTo []) then {
         _args set [2, []]; // clear _newGroupParams
-        [_factory, _placeLogic, _group] call FUNC(dispatch);
+        [_factory, _placeLogic, _group, _side] call FUNC(dispatch);
         _activeGroups pushBack _group;
     } else {
         private _unitType = _soldierList deleteAt 0;
