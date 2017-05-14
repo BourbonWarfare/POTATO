@@ -22,7 +22,7 @@ def analyze(filename, writer=sys.stdout):
         except SQFParserError as e:
             print("{}:".format(filename))
             writer.write('    [%d,%d]:%s\n' % (e.position[0], e.position[1] - 1, e.message))
-            return 0, -1
+            return 0, 1
 
         exceptions = sqf.analyzer.analyze(result).exceptions
         if (exceptions): 
