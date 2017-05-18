@@ -16,3 +16,4 @@ class CfgPatches {
 #include "ACE_Settings.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgEden.hpp"
+#include "Displays.hpp"
