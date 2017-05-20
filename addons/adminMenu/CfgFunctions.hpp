@@ -3,7 +3,6 @@ class CfgFunctions {
         class Debug {
             class isDebugConsoleAllowed {
                 file = QPATHTOF(functions\DOUBLES(fnc,isDebugConsoleAllowed).sqf);
-                recompile = 1;
             };
         };
     };
