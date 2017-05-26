@@ -11,4 +11,14 @@ class CfgWeapons {
             mass = 1;
         };
     };
+    class potato_serverBox: ACE_ItemCore {
+        scope = 2;
+        model = QPATHTOF(data\server.p3d);
+        picture = QPATHTOF(ui\server_ca.paa);
+        displayName = "Dedicated Server";
+        descriptionShort = "Server";
+        class ItemInfo: InventoryItem_Base_F {
+            mass = 1;
+        };
+    };
 };
