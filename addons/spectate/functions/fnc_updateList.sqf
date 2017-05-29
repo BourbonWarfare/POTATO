@@ -39,7 +39,7 @@ private _newList = [
             _unitsInfo pushBack [
                 _x,
                 alive _x,
-                alive _x && { _x getVariable ["ACE_isUnconscious", false] },
+                _x getVariable ["ACE_isUnconscious", false],
                 [_x] call FUNC(getName)
             ];
         };
@@ -120,14 +120,14 @@ if !(GVAR(curList) isEqualTo _newList) then {
 
                 if (_group getVariable [QEGVAR(markers,addMarker), false]) then {
                     LIST tvSetPicture [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerTexture), ""]];
-                    LIST tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
-                    LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
+                    LIST tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                    LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
                 } else {
                     private _leader = leader _group;
                     if (_leader getVariable [QEGVAR(markers,addMarker), false]) then {
                         LIST tvSetPicture [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerTexture), ""]];
-                        LIST tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
-                        LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
+                        LIST tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                        LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
                     };
                 };
 
@@ -143,14 +143,14 @@ if !(GVAR(curList) isEqualTo _newList) then {
 
                 if (_group getVariable [QEGVAR(markers,addMarker), false]) then {
                     LIST tvSetPicture [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerTexture), ""]];
-                    LIST tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
-                    LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
+                    LIST tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                    LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
                 } else {
                     private _leader = leader _group;
                     if (_leader getVariable [QEGVAR(markers,addMarker), false]) then {
                         LIST tvSetPicture [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerTexture), ""]];
-                        LIST tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
-                        LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
+                        LIST tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                        LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
                     };
                 };
             };
