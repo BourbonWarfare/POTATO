@@ -119,15 +119,15 @@ if !(GVAR(curList) isEqualTo _newList) then {
                 LIST tvSetTooltip [[_sideIndex, _groupIndex], _groupId];
 
                 if (_group getVariable [QEGVAR(markers,addMarker), false]) then {
-                    LIST tvSetPicture [[_sideIndex, _groupIndex], _group getVariable QEGVAR(markers,markerTexture)];
-                    LIST tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable QEGVAR(markers,markerColor)];
-                    LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable QEGVAR(markers,markerColor)];
+                    LIST tvSetPicture [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerTexture), ""]];
+                    LIST tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
+                    LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
                 } else {
                     private _leader = leader _group;
                     if (_leader getVariable [QEGVAR(markers,addMarker), false]) then {
-                        LIST tvSetPicture [[_sideIndex, _groupIndex], _leader getVariable QEGVAR(markers,markerTexture)];
-                        LIST tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable QEGVAR(markers,markerColor)];
-                        LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable QEGVAR(markers,markerColor)];
+                        LIST tvSetPicture [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerTexture), ""]];
+                        LIST tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
+                        LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
                     };
                 };
 
@@ -142,15 +142,15 @@ if !(GVAR(curList) isEqualTo _newList) then {
                 LIST tvSetTooltip [_path, _groupId];
 
                 if (_group getVariable [QEGVAR(markers,addMarker), false]) then {
-                    LIST tvSetPicture [[_sideIndex, _groupIndex], _group getVariable QEGVAR(markers,markerTexture)];
-                    LIST tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable QEGVAR(markers,markerColor)];
-                    LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable QEGVAR(markers,markerColor)];
+                    LIST tvSetPicture [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerTexture), ""]];
+                    LIST tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
+                    LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
                 } else {
                     private _leader = leader _group;
                     if (_leader getVariable [QEGVAR(markers,addMarker), false]) then {
-                        LIST tvSetPicture [[_sideIndex, _groupIndex], _leader getVariable QEGVAR(markers,markerTexture)];
-                        LIST tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable QEGVAR(markers,markerColor)];
-                        LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable QEGVAR(markers,markerColor)];
+                        LIST tvSetPicture [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerTexture), ""]];
+                        LIST tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
+                        LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [1,1,1,1]]];
                     };
                 };
             };
