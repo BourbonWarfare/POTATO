@@ -6,7 +6,7 @@ class CfgPatches {
     class ADDON {
         units[] = {"Ares_Module_Reinforcements_Spawn_Units"};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core","potato_zeusHC","Ares"};
+        requiredAddons[] = {"potato_core","potato_zeusHC","achilles_modules_f_ares"};
         author = "Potato";
         authors[] = {"AACO"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
