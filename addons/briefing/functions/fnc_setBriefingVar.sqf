@@ -15,7 +15,7 @@
 
 #include "script_component.hpp"
 
-params ["_thing", "_briefing"];
+params ["_thing", ["_briefing", "", [""]]];
 TRACE_2("params",_thing,_briefing);
 
 if (_briefing == "") exitWith {};
