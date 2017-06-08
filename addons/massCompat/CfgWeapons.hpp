@@ -331,15 +331,18 @@ class CfgWeapons {
     class UGL_F: GrenadeLauncher {
         magazines[] = { NATO_GL_40 };
     };
+
     class GP25_Base: UGL_F {
         magazines[] = { RU_GL_40 };
     };
-    class arifle_MX_Base_F;
-    class arifle_MX_GL_F: arifle_MX_Base_F {
+
+    class Rifle_Base_F;
+    class arifle_MX_Base_F: Rifle_Base_F {
         class GL_3GL_F: UGL_F {
             magazines[] = { NATO_GL_40 };
         };
     };
+
     class rhs_weap_m4_Base: arifle_MX_Base_F {
         magazines[] = { NATO_RIFLE_556 };
         class M203_GL: UGL_F {
@@ -404,7 +407,6 @@ class CfgWeapons {
         magazines[] = { NATO_SMG_9 };
     };
 
-    class Rifle_Base_F;
     class arifle_SPAR_03_base_F: Rifle_Base_F {
         magazines[] = { NATO_DMR_762 };
     };
