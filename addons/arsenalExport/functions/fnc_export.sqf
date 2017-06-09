@@ -93,9 +93,9 @@ _lines pushBack format ['#define MMG "%1"', GVAR(loadout_mmg)];
 _lines pushBack format ['#define MMG_MAG %1', [GVAR(loadout_mmg), GVAR(loadout_mmgMags), 500] call _fnc_getMags];
 
 _lines pushBack format ["// MAT"];
-_lines pushBack format ['#define MAT "%1"', GVAR(loadout_at)];
-_lines pushBack format ['#define MAT_MAG %1', [GVAR(loadout_at), GVAR(loadout_atMags), -1] call _fnc_getMags];
-_lines pushBack format ['#define MAT_MAG2 %1', [GVAR(loadout_at), GVAR(loadout_atMags), -1] call _fnc_getMags];
+_lines pushBack format ['#define MAT "%1"', GVAR(loadout_mat)];
+_lines pushBack format ['#define MAT_MAG %1', [GVAR(loadout_mat), GVAR(loadout_matMags), -1] call _fnc_getMags];
+_lines pushBack format ['#define MAT_MAG2 %1', [GVAR(loadout_mat), GVAR(loadout_matMags), -1] call _fnc_getMags];
 _lines pushBack format ['#define MAT_OPTIC %1', [GVAR(loadout_matAttachments)] call _fnc_formatList];
 
 {
