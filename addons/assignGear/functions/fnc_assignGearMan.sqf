@@ -62,19 +62,19 @@ _unit setVariable [QGVAR(gearSetup), true, true];
 
 END_COUNTER(assignGearMan);
 
-
 // Stupid hack to fix gear automaticly until we can sort out why setUnitLoadout ocasionly fails on JIPs
 [{
     params ["_unit", "_loadoutArray"];
     if (isNull _unit) exitWith {};
-    
+
     private _arrayUniform = (_loadoutArray select 3) param [0, ""];
     private _arrayVest = (_loadoutArray select 4) param [0, ""];
-    TRACE_4("Checking loadout: Uniform [%1-%2] Vest [%3-%4]",_arrayUniform,uniform _unit,_arrayVest,vest _unit);
+    private _arrayBackpack = (_loadoutArray select 5) param [0, ""];
+    TRACE_6("Checking loadout: Uniform [%1-%2] Vest [%3-%4] Backpack [%5-%6]",_arrayUniform, uniform _unit, _arrayVest, vest _unit, _arrayBackpack, backpack _unit);
 
-    if ((_arrayUniform != (uniform _unit)) || {_arrayVest != (vest _unit)}) then {
-        ERROR_2("Mismatch [%1] [%2]",name _unit, typeOf _unit);
+    if ((_arrayUniform != (uniform _unit)) || {_arrayVest != (vest _unit)} || {_arrayBackpack != (backpack _unit)}) then {
+        ERROR_2("Mismatch [%1] [%2]", name _unit, typeOf _unit);
         _unit setUnitLoadout _loadoutArray;
         ["potato_adminMsg", [(format ["Auto-reset gear on %1", name _unit]), "Server"]] call CBA_fnc_globalEvent;
     };
-}, [_unit, _loadoutArray], 15] call CBA_fnc_waitAndExecute
+}, [_unit, _loadoutArray], 15] call CBA_fnc_waitAndExecute;
