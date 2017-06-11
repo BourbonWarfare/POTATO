@@ -42,27 +42,28 @@ private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
 if (!isClass _path) then {
     //No CfgLoadouts for exact loadout, try default
     private _vehConfigSide = [_theVehicle, true] call BIS_fnc_objectSide;
-    private _vehConfigFaction = switch (_vehConfigSide) do {
-        case (west): { "blu_f" };
-        case (east): { "opf_f" };
-        case (independent): { "ind_f" };
-        default { "civ_f" };
+    private _vehConfigFactions = switch (_vehConfigSide) do {
+        case (west): { ["blu_f", "potato_usmc"] };
+        case (east): { ["opf_f", "potato_msv"] };
+        case (independent): { ["ind_f", "potato_airborne"] };
+        default { ["civ_f"] };
     };
-    _path = missionConfigFile >> "CfgLoadouts" >> _vehConfigFaction >> _defaultLoadout;
 
-    if (!isClass _path) then {
-        _vehConfigFaction = switch (_vehConfigSide) do { // note: will recheck civ_f here
-            case (west): { "potato_usmc" };
-            case (east): { "potato_msv" };
-            case (independent): { "potato_airborne" };
-            default { "civ_f" };
-        };
-        _path = missionConfigFile >> "CfgLoadouts" >> _vehConfigFaction >> _defaultLoadout;
-    };
+    {
+        private _break = false;
+        private _loadoutToCheck = _x;
+
+        {
+            _path = missionConfigFile >> "CfgLoadouts" >> _x >> _loadoutToCheck;
+            if (isClass _path) exitWith { _break = true; };
+        } forEach _vehConfigFactions;
+
+        if (_break) exitWith {};
+    } forEach [_loadout, _defaultLoadout];
 };
 
 if (!isClass _path) exitWith {
-    diag_log text format ["[POTATO-AssignGear] - No loadout found for %1 (typeOf %2) (kindOf %3) (defaultLoadout: %4)", _theVehicle, typeof _theVehicle, _loadout, _defaultLoadout];
+    diag_log text format ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2) (kindOf %3) (defaultLoadout: %4)", _theVehicle, typeof _theVehicle, _loadout, _defaultLoadout];
 };
 
 //Clean out starting inventory (even if there is no class)
