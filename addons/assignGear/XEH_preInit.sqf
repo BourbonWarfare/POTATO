@@ -6,18 +6,20 @@ PREP_RECOMPILE_START;
 #include "XEH_PREP.hpp"
 PREP_RECOMPILE_END;
 
-GVAR(usePotato) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "usePotato")) == 1);
+GVAR(usePotato) = [missionConfigFile >> "CfgLoadouts" >> "usePotato"] call CFUNC(getBool);
 
 if (GVAR(usePotato)) then {
+    GVAR(preInitRan) = true;
+
     GVAR(loadoutCache) = call CBA_fnc_createNamespace;
     GVAR(classnameCache) = call CBA_fnc_createNamespace;
 
-    GVAR(allowMagnifiedOptics) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "allowMagnifiedOptics")) == 1);
-    GVAR(allowChangeableOptics) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "allowChangeableOptics")) == 1);
-    GVAR(useFallback) = ((getNumber (missionConfigFile >> "CfgLoadouts" >> "useFallback")) == 1);
-    GVAR(maxRandomization) = if (isNumber (missionConfigFile >> "CfgLoadouts" >> "maxRandomization")) then { getNumber (missionConfigFile >> "CfgLoadouts" >> "maxRandomization") } else { 5 };
-    GVAR(setVehicleLoadouts) = if (isNumber (missionConfigFile >> "CfgLoadouts" >> "setVehicleLoadouts")) then {getNumber (missionConfigFile >> "CfgLoadouts" >> "setVehicleLoadouts")} else { 1 };
-    GVAR(prefixes) = if (isArray (missionConfigFile >> "CfgLoadouts" >> "prefixes")) then { getArray (missionConfigFile >> "CfgLoadouts" >> "prefixes") } else { [] };
+    GVAR(allowMagnifiedOptics) = [missionConfigFile >> "CfgLoadouts" >> "allowMagnifiedOptics"] call CFUNC(getBool);
+    GVAR(allowChangeableOptics) = [missionConfigFile >> "CfgLoadouts" >> "allowChangeableOptics"] call CFUNC(getBool);
+    GVAR(useFallback) = [missionConfigFile >> "CfgLoadouts" >> "useFallback"] call CFUNC(getBool);
+    GVAR(maxRandomization) = [missionConfigFile >> "CfgLoadouts" >> "maxRandomization", 5] call CFUNC(getNumber);
+    GVAR(setVehicleLoadouts) = [missionConfigFile >> "CfgLoadouts" >> "setVehicleLoadouts", 1] call CFUNC(getNumber);
+    GVAR(prefixes) = [missionConfigFile >> "CfgLoadouts" >> "prefixes"] call CFUNC(getArray);
 
     if (isServer) then {
         [ // assign gear to man
@@ -31,8 +33,8 @@ if (GVAR(usePotato)) then {
 
         [ // assign gear to car
             "Car",
-            "init",
-            { [FUNC(assignGearVehicle), [_this select 0, "Car"]] call CBA_fnc_execNextFrame; },
+            "initPost",
+            { [_this select 0, "Car"] call FUNC(assignGearVehicle); },
             true,
             [],
             true
@@ -40,8 +42,8 @@ if (GVAR(usePotato)) then {
 
         [ // assign gear to tank
             "Tank",
-            "init",
-            { [FUNC(assignGearVehicle), [_this select 0, "Tank"]] call CBA_fnc_execNextFrame; },
+            "initPost",
+            { [_this select 0, "Tank"] call FUNC(assignGearVehicle); },
             true,
             [],
             true
@@ -49,8 +51,8 @@ if (GVAR(usePotato)) then {
 
         [ // assign gear to helicopter
             "Helicopter",
-            "init",
-            { [FUNC(assignGearVehicle), [_this select 0, "Helicopter"]] call CBA_fnc_execNextFrame; },
+            "initPost",
+            { [_this select 0, "Helicopter"] call FUNC(assignGearVehicle); },
             true,
             ["ace_fastroping_helper", "ACE_friesBase"],
             true
@@ -58,8 +60,8 @@ if (GVAR(usePotato)) then {
 
         [ // assign gear to plane
             "Plane",
-            "init",
-            { [FUNC(assignGearVehicle), [_this select 0, "Plane"]] call CBA_fnc_execNextFrame; },
+            "initPost",
+            { [_this select 0, "Plane"] call FUNC(assignGearVehicle); },
             true,
             [],
             true
@@ -67,16 +69,27 @@ if (GVAR(usePotato)) then {
 
         [ // assign gear to ship
             "Ship_F",
-            "init",
-            { [FUNC(assignGearVehicle), [_this select 0, "Ship_F"]] call CBA_fnc_execNextFrame; },
+            "initPost",
+            { [_this select 0, "Ship_F"] call FUNC(assignGearVehicle); },
             true,
             [],
             true
         ] call CBA_fnc_addClassEventHandler;
+
+        if (is3DEN) then {
+            diag_log text format ["[POTATO-assignGear] Running assign gear for the 3den entities at load"];
+
+            {
+                if (_x isKindOf "CAManBase") then {
+                    [_x] call FUNC(assignGearMan);
+                };
+            } forEach (all3DENEntities select 0);
+        };
     };
 
     diag_log text format ["[POTATO-assignGear] Enabled [useFallback: %1, allowMagnifiedOptics: %2, allowChangeableOptics: %3, maxRandomization: %4, setVehicleLoadouts: %5, prefixes: %6]", GVAR(useFallback), GVAR(allowMagnifiedOptics), GVAR(allowChangeableOptics), GVAR(maxRandomization), GVAR(setVehicleLoadouts), GVAR(prefixes)];
 } else {
+    GVAR(allowChangeableOptics) = false;
     diag_log text format ["[POTATO-assignGear] Disabled"];
 };
 
