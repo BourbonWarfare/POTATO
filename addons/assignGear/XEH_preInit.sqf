@@ -9,8 +9,6 @@ PREP_RECOMPILE_END;
 GVAR(usePotato) = [missionConfigFile >> "CfgLoadouts" >> "usePotato"] call CFUNC(getBool);
 
 if (GVAR(usePotato)) then {
-    GVAR(preInitRan) = true;
-
     GVAR(loadoutCache) = call CBA_fnc_createNamespace;
     GVAR(classnameCache) = call CBA_fnc_createNamespace;
 
