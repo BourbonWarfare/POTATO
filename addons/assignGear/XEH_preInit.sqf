@@ -24,7 +24,7 @@ if (GVAR(usePotato)) then {
     if (isServer) then {
         [ // assign gear to man
             "CAManBase",
-            "init",
+            "initPost",
             FUNC(assignGearMan),
             true, // allow inheritence
             [], // don't exclude classes
