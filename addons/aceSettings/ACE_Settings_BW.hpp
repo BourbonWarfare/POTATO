@@ -45,6 +45,10 @@ class ACE_Settings {
         value = 2;
         force = 1; // This overrides mission setting/module!!!
     };
+     class ace_medical_healHitPointAfterAdvBandage {
+         typeName = "BOOL";
+         value = 1;
+     };
     class ace_medical_ai_enabledFor { // disable medical AI
         typeName = "SCALAR";
         value = 0;
