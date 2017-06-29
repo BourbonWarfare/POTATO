@@ -446,7 +446,8 @@ class CfgWeapons {
             magazines[] = { NATO_GL_40 };
         };
     };
-    class CUP_M60E4_base: Rifle_Base_F {
+    class Rifle_Long_Base_F;
+    class CUP_M60E4_base: Rifle_Long_Base_F {
         magazines[] = { NATO_MMG_762 };
     };
     class BWA3_G36: Rifle_Base_F {
@@ -543,7 +544,6 @@ class CfgWeapons {
         magazines[] = { RU_LMG_545 };
     };
 
-    class Rifle_Long_Base_F;
     class EBR_base_F: Rifle_Long_Base_F {
         magazines[] = { NATO_DMR_762 };
     };
