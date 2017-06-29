@@ -15,9 +15,9 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("params",_this);
 
 params ["_unitClassname"];
+TRACE_1("cleanPrefix",_unitClassname);
 
 private _cleanedClassname = GVAR(classnameCache) getVariable _unitClassname;
 if (isNil "_cleanedClassname") then { // cache classname lookups
@@ -30,6 +30,7 @@ if (isNil "_cleanedClassname") then { // cache classname lookups
         nil
     } count GVAR(prefixes);  // count used here for speed, make sure nil is above this line
 
+    if (_unitClassname == "") exitWith {ERROR("_unitClassname is empty string");};
     GVAR(classnameCache) setVariable [_unitClassname, _cleanedClassname];
 };
 
