@@ -9,7 +9,14 @@ diag_log text "------------------------------------------------------";
 
 private _allMissionObjects = (all3DENEntities select 0);
 private _allUnits = _allMissionObjects select {_x isKindOf "CaManBase"};
-INFO_2("Placed on mission: [Units: %1] [Non-unit Objects: %2]", count _allUnits, (count _allMissionObjects) - (count _allUnits));
+private _sideCounts = [west, east, resistance] apply {
+    private _side = _x;
+    {((side _x) == _side) && {(_x get3DENAttribute "ControlMP") isEqualTo [true]}} count _allUnits;
+};
+private _sortedCounts = +_sideCounts;
+_sortedCounts sort false;
+private _isTVT = (_sortedCounts select 1) > 10;
+INFO_3("Placed on mission: [Units: %1] [Non-unit Objects: %2][Playable Slots: %3]", count _allUnits, (count _allMissionObjects) - (count _allUnits), _sideCounts);
 
 private _bwmfDate = getText (missionConfigFile >> "bwmfDate");
 if (_bwmfDate == "") exitWith {
@@ -33,7 +40,7 @@ private _slottingInfo = "Intel" get3DENMissionAttribute "IntelOverviewText";
 if (_slottingInfo == "*** Insert mission description here. ***") then {
     _problems pushBackUnique ["Need to set slotting mission description", ["Attributes -> Multiplayer -> Summary"]];
 } else {
-    if ((parseNumber (_slottingInfo select [0,1])) == 0) then { // very basic ratio detection
+    if (_isTVT && {(parseNumber (_slottingInfo select [0,1])) == 0}) then { // very basic ratio detection
         _problems pushBackUnique ["Should add ratio", ["Attributes -> Multiplayer -> Summary"]];
     };
 };
