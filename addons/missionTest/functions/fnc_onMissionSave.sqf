@@ -1,6 +1,9 @@
 #include "script_component.hpp"
 
+private _startTime = diag_tickTime;
+
 diag_log text "";
+diag_log text "------------------------------------------------------";
 diag_log text "[POTATO] Saving - Doing mission test:";
 diag_log text "------------------------------------------------------";
 
@@ -10,16 +13,35 @@ INFO_2("Placed on mission: [Units: %1] [Non-unit Objects: %2]", count _allUnits,
 
 private _bwmfDate = getText (missionConfigFile >> "bwmfDate");
 if (_bwmfDate == "") exitWith {
-    systemChat "Non-framework mission (missing description.ext?)";
+    ["Saving: Non-framework mission (missing description.ext?)"] call BIS_fnc_3DENNotification;
     WARNING("Non-framework mission (missing description.ext?)");
 };
 if (!(missionNamespace getVariable [QEGVAR(assignGear,usePotato), false])) exitWith {
-    systemChat "Potato Gear is off (missing description.ext?)";
-    WARNING("Potato Gear is off (missing description.ext?)");
+    ["Saving: Potato Gear is disabled"] call BIS_fnc_3DENNotification;
+    WARNING("Potato Gear is disabled");
 };
 
-
 private _problems = [];
+
+
+// Check briefing/author/onLoad attributies:
+private _author = "Scenario" get3DENMissionAttribute "author";
+if (_author == "*** Insert author name here. ***") then {
+    _problems pushBackUnique ["Need to set author", ["Attributes -> General -> Author"]];
+};
+private _slottingInfo = "Intel" get3DENMissionAttribute "IntelOverviewText";
+if (_slottingInfo == "*** Insert mission description here. ***") then {
+    _problems pushBackUnique ["Need to set slotting mission description", ["Attributes -> Multiplayer -> Summary"]];
+} else {
+    if ((parseNumber (_slottingInfo select [0,1])) == 0) then { // very basic ratio detection
+        _problems pushBackUnique ["Should add ratio", ["Attributes -> Multiplayer -> Summary"]];
+    };
+};
+private _onLoadName = getText (missionConfigFile >> "onLoadName");
+if (_onLoadName == "*** Insert mission name here. ***") then {
+    _problems pushBackUnique ["Minor: Need to set loading screen info", ["description.ext -> onLoadName"]];
+};
+
 
 // Floating units / Fall Damage:
 private _floatingUnits = [];
@@ -45,10 +67,11 @@ private _classesNone= [];
     if ((!isClass(_path)) && EGVAR(assignGear,useFallback)) then {
         _path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
         if (isClass _path) then {
-            WARNING_1("[%1] is using fallback", typeOf _x);
+            if ((typeOf _x) == "O_helicrew_f") exitWith {}; // todo: fix framework
+            TRACE_1("using fallback",typeOf _x);
             _classesFallback pushBackUnique (typeOf _x);
         } else {
-            WARNING_1("[%1] is has no fallback", typeOf _x);
+            TRACE_1("has no fallback",typeOf _x);
             _classesNone pushBackUnique (typeOf _x);
         };
     };
@@ -62,18 +85,28 @@ if (!(_classesNone isEqualTo [])) then {
 };
 
 
-// Verify units have weapons:
+// Verify units have weapons and enough magazines:
 private _checkWeapons = [];
 private _checkMagazines = [];
+private _checkMedical = [];
 {
     private _unit = _x;
-    if ((side _unit) != civilian) then {
+    private _typeOf = toLower typeOf _unit;
+    if ((side _unit) != civilian) then { // Ignore all civilians
+        // Check all units have a primary weapon:
         if ((primaryWeapon _unit) == "") then {
-            if ((typeOf _unit) == "potato_msv_pol") exitWith {};
-            WARNING_1("[%1] has no rifle", typeOf _unit);
-            _checkWeapons pushBackUnique (typeOf _unit);
+            if (_typeOf == "potato_msv_pol") exitWith {};
+            TRACE_1("no rifle",_typeOf);
+            _checkWeapons pushBackUnique format ["%1 has no primaryWeapon", _typeOf];
         };
-        {
+        // Check AT actualy have some kind of AT
+        if ((_typeOf find "soldier_at_f" > 0) || {_typeOf find "soldier_lat_f" > 0} || {_typeOf find "msv_g" > 0} || {_typeOf find "msv_matg" > 0}) then {
+            if ((secondaryWeapon _unit) == "") then {
+                TRACE_1("no AT",_typeOf);
+                _checkWeapons pushBackUnique format ["%1 has no secondaryWeapon", _typeOf];
+            };
+        };
+        {// Check ammo count for all weapons:
             private _weapon = _x;
             if (_x != "") then {
                 private _ammoCount = 0;
@@ -86,56 +119,76 @@ private _checkMagazines = [];
                 } forEach (magazinesAmmoFull _unit);
                 if (_ammoCount == 0) then {
                     if ((toLower _weapon) in ["rhs_weap_rpg26", "rhs_weap_m136", "launch_nlaw_f"]) then {
-                        // TRACE_1("ignoring special AT reloads",_weapon);
+                        TRACE_1("ignoring special AT reloads",_weapon);
                     } else {
-                        WARNING_2("[%1]'s %2 has zero ammo", typeOf _unit, _weapon);
-                        _checkMagazines pushBackUnique (typeOf _unit);
+                        TRACE_2("has zero ammo",_typeOf,_weapon);
+                        _checkMagazines pushBackUnique format ["%1 has no ammo for %2", _typeOf, _weapon];
                     };
                 };
                 if (_weapon == (primaryWeapon _unit)) then {
-                    private _desiredAmmo = switch (true) do {
-                    case (((toLower typeOf _unit) find "marksman") > 0);
-                    case (((toLower typeOf _unit) find "spotter") > 0);
-                    case (((toLower typeOf _unit) find "sniper") > 0): { 10 };
-                    case (((toLower typeOf _unit) find "_ar") > 0);
-                    case (((toLower typeOf _unit) find "_mg") > 0): { 250 };
-                        default { 100 };
+                    private _desiredAmmo = call {
+                        // allow low ammo count for long range gunners
+                        if ((_typeOf find "marksman" > 0) || {_typeOf find "spotter" > 0} || {_typeOf find "sniper" > 0}) exitWith { 20 };
+                        // suggest hight ammo count for MGs
+                        if ((_typeOf find "_ar" > 0) || {_typeOf find "_mg" > 0} || {_typeOf find "_mmgg" > 0}) exitWith { 250 };
+                        // default rifleman case
+                        100
                     };
                     if (_ammoCount <= _desiredAmmo) then {
-                        WARNING_4("[%1]'s %2 has limited rifle ammo [%3/%4]", typeOf _unit, _weapon, _ammoCount, _desiredAmmo);
-                        _checkMagazines pushBackUnique (typeOf _unit);
+                        TRACE_4("limited rifle ammo",_typeOf,_weapon,_ammoCount,_desiredAmmo);
+                        _checkMagazines pushBackUnique format ["%1 only has %2", _typeOf, _ammoCount];
                     };
                 };
             };
         } forEach [primaryWeapon _x, secondaryWeapon _x, handgunWeapon _x];
+
+        // Check medical gear:
+        private _bandageCount = {(_x == "ACE_fieldDressing") || {_x == "ACE_packingBandage"} || {_x == "ACE_elasticBandage"}} count (items _unit);
+        if ((getNumber (configFile >> "CfgVehicles" >> _typeOf >> "attendant")) > 0) then {
+            if (_bandageCount < 15) then {
+                TRACE_1("no bandages (medic)",_typeOf);
+                _checkMedical pushBackUnique format ["%1", _typeOf];
+            };
+        } else {
+            if (_bandageCount < 1) then {
+                TRACE_1("no bandages (soldier)",_typeOf);
+                _checkMedical pushBackUnique format ["%1", _typeOf];
+            };
+        };
     };
 } forEach _allUnits;
 if (!(_checkWeapons isEqualTo [])) then {
-    _problems pushBack ["Units with no rifle (primaryWeapon)", _checkWeapons];
+    _problems pushBack ["Units missing weapons", _checkWeapons];
 };
 if (!(_checkMagazines isEqualTo [])) then {
-    _problems pushBack ["Units with magazine problems", _checkMagazines];
+    _problems pushBack ["Units missing magazines", _checkMagazines];
+};
+if (!(_checkMedical isEqualTo [])) then {
+    _problems pushBack ["Units missing medical", _checkMedical];
 };
 
 
-systemChat "Mission test results::";
+TRACE_1("",_problems);
+INFO_2("Finished test with %1 problems in %2 ms:", count _problems, ((diag_ticktime - _startTime) * 1000) toFixed 1);
+
 if (_problems isEqualTo []) then {
-    private _msg = "No Problems Detected!";
+    private _msg = "Saved: No Problems Detected!";
     systemChat _msg;
     [_msg] call BIS_fnc_3DENNotification;
+    INFO_1("%1",_msg);
 } else {
     [_problems] spawn {
         params ["_problems"];
         disableSerialization;
         {
-            private _msg =  format ["[%1/%2] %3", (_forEachIndex + 1), count _problems, _x];
+            _x params ["_errorCode", "_errorArray"];
+            private _msg = format ["[%1/%2] %3:%4", (_forEachIndex + 1), count _problems, _errorCode, _errorArray];
             systemChat _msg;
             [_msg] call BIS_fnc_3DENNotification;
+            INFO_1("%1",_msg);
             uiSleep 1.5;
         } forEach _problems;
     };
 };
 
-TRACE_1("",_problems);
-INFO_1("Finished test with %1 problems", count _problems);
 nil
