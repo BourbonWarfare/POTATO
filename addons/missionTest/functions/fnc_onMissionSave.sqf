@@ -100,7 +100,7 @@ private _checkMedical = [];
             _checkWeapons pushBackUnique format ["%1 has no primaryWeapon", _typeOf];
         };
         // Check AT actualy have some kind of AT
-        if ((_typeOf find "soldier_at_f" > 0) || {_typeOf find "soldier_lat_f" > 0} || {_typeOf find "msv_g" > 0} || {_typeOf find "msv_matg" > 0}) then {
+        if ((_typeOf find "soldier_at_f" > -1) || {_typeOf find "soldier_lat_f" > -1} || {_typeOf find "msv_g" > -1} || {_typeOf find "msv_matg" > -1}) then {
             if ((secondaryWeapon _unit) == "") then {
                 TRACE_1("no AT",_typeOf);
                 _checkWeapons pushBackUnique format ["%1 has no secondaryWeapon", _typeOf];
@@ -128,9 +128,9 @@ private _checkMedical = [];
                 if (_weapon == (primaryWeapon _unit)) then {
                     private _desiredAmmo = call {
                         // allow low ammo count for long range gunners
-                        if ((_typeOf find "marksman" > 0) || {_typeOf find "spotter" > 0} || {_typeOf find "sniper" > 0}) exitWith { 20 };
+                        if ((_typeOf find "marksman" > -1) || {_typeOf find "spotter" > -1} || {_typeOf find "sniper" > -1}) exitWith { 20 };
                         // suggest hight ammo count for MGs
-                        if ((_typeOf find "_ar" > 0) || {_typeOf find "_mg" > 0} || {_typeOf find "_mmgg" > 0}) exitWith { 250 };
+                        if ((_typeOf find "_ar" > -1) || {_typeOf find "_mg" > -1} || {_typeOf find "_mmgg" > -1}) exitWith { 250 };
                         // default rifleman case
                         100
                     };
