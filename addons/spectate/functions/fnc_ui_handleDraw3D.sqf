@@ -151,7 +151,7 @@ if !(GVAR(mapOpen)) then {
                         getPosVisual _projectile,
                         (vectorMagnitude velocity _projectile) call {
                             if (_this < 250) exitWith { [0,0,1,1] };
-                            if (_this < 250) exitWith { [0,1,0,1] };
+                            if (_this < 500) exitWith { [0,1,0,1] };
                             [1,0,0,1]
                         }
                     ];
