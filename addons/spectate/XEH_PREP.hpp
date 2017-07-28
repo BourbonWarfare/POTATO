@@ -1,6 +1,7 @@
 LOG(QUOTE(ADDON));
 
 PREP(addEventHandlers);
+PREP(camTick);
 PREP(checkToReopen);
 PREP(exit);
 PREP(findPathInList);

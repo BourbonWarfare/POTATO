@@ -155,6 +155,7 @@ GVAR(thingsToDraw) = [];
 GVAR(showInfo) = false;
 GVAR(thingsToDrawEH) = [LINKFUNC(ui_updateThingsToDraw), 0.2] call CBA_fnc_addPerFrameHandler;
 GVAR(straggleUpdateEH) = [LINKFUNC(ui_straggleUpdate), 5] call CBA_fnc_addPerFrameHandler;
+GVAR(camTick) = addMissionEventHandler ["EachFrame", {call FUNC(camTick)}];
 GVAR(draw3DEH) = addMissionEventHandler ["Draw3D", {call FUNC(ui_handleDraw3D)}];
 
 // add event handlers to all active units

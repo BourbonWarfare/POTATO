@@ -43,6 +43,9 @@ if (GVAR(running)) then {
     removeMissionEventHandler ["Draw3D", GVAR(draw3DEH)];
     GVAR(draw3DEH) = nil;
 
+    removeMissionEventHandler ["EachFrame", GVAR(camTick)];
+    GVAR(camTick) = nil;
+
     // enable post process effects
     BIS_fnc_feedback_allowPP = true;
 
