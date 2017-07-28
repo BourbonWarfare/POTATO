@@ -1,5 +1,12 @@
 #include "script_component.hpp"
-TRACE_1("moduleInit",_this);
+
+params ["_logic"];
+TRACE_1("moduleInit",_logic);
+
+private _addPrePlacedUnits = _logic getVariable ["addPrePlacedUnits", false];
+
+INFO_1("Zeus Recon Enabled [AddPrePlacedUnits: %1]",_addPrePlacedUnits);
+GVAR(enabled) = true;
 
 if (isServer) then {
     ["ace_zeus_autoAddObjects", false, true, true] call ace_common_fnc_setSetting;
@@ -15,12 +22,23 @@ if (isServer) then {
         TRACE_2("",_curator,_removeFromCurator);
         _curator removeCuratorEditableObjects [_removeFromCurator, false];
     }] call CBA_fnc_addEventHandler;
+
+    if (_addPrePlacedUnits) then {
+        [{
+            private _prePlacedUnits = [];
+            {
+                if ((!(_x in playableUnits)) && {!(_x in switchableUnits)}) then {
+                    _prePlacedUnits pushBackUnique _x;
+                    _prePlacedUnits pushBackUnique (vehicle _x);
+                };
+            } forEach allUnits;
+            INFO_1("Adding [%1] preplaced units to zeus",count _prePlacedUnits);
+            TRACE_1("",_prePlacedUnits);
+            _prePlacedUnits call EFUNC(core,addToCurator);
+        }, [], 1] call CBA_fnc_waitAndExecute;
+
+    };
 };
-
-INFO("Zeus Recon Enabled");
-GVAR(enabled) = true;
-
-
 
 
 #ifdef DEBUG_MODE_FULL

@@ -64,7 +64,7 @@ if (GVAR(state) == 1) exitWith { // Search for targets on each friendly unit
 
                 if (_lastSeen > _globalLastSeen) then {
                     // Sometimes the estimated position is really far off for things like rocket lauchers, just ignore
-                    if ((_estPosASL distance2d (getPos _x)) > 50) exitWith {TRACE_1("badbeef",_estPosASL distance2d (getPos _x));};
+                    if ((_estPosASL distance2d (getPos _x)) > 50) exitWith {TRACE_1("estimated pos is bad",_estPosASL distance2d (getPos _x));};
                     _globalInfo set [0, _globalLastSeen max _lastSeen];
                     _globalInfo set [2, _estPosASL];
                 };
@@ -194,13 +194,13 @@ if (GVAR(state) == 3) exitWith {
         } forEach _grpPositionList;
         TRACE_2("random collapse test",_countInRangeOfOtherGroups,_unitsInGroup);
         if (_countInRangeOfOtherGroups == _unitsInGroup) then {
-            TRACE_1("badbeef collapsing",_groupArray);
+            TRACE_1("collapsing",_groupArray);
             _removeGroup = true;
         };
     };
 
     if (_removeGroup) then { // Remove Null or Dead from track
-        TRACE_1("badbeef Removing Group",_groupArray);
+        TRACE_1("Removing Group",_groupArray);
         _groupArray resize 0; // Arrays are references, so this will force a group rescan on all targets using this group
         GVAR(targetGroups) deleteAt GVAR(stateSubIndex);
     } else {

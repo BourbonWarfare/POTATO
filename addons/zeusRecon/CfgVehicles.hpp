@@ -8,6 +8,13 @@ class CfgVehicles {
         scope = 2;
         isGlobal = 1;
         // icon = QPATHTOF(UI\Icon_Module_Respawn_ca.paa);
-        class Arguments {};
+        class Arguments {
+            class addPrePlacedUnits {
+                displayName = "Add pre-placed units";
+                description = "Auto add non-playable units to zeus";
+                typeName = "BOOL";
+                defaultValue = 0;
+            };
+        };
     };
 };

@@ -24,4 +24,4 @@
 #define FADE_DISABLED 0.7
 
 // Dev Ony: Enabling this will skip configs from any potato addons that require external mods
-#define POTATO_LEAN_CONFIGS
+// #define POTATO_LEAN_CONFIGS
