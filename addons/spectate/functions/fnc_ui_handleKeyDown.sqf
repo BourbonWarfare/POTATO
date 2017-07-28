@@ -67,6 +67,15 @@ if ((inputAction "CuratorInterface") > 0 && {!isNull (getAssignedCuratorLogic pl
     OVERLAY closeDisplay 1;
     GVAR(cam) camCommand "manual off";
     openCuratorInterface;
+
+    [
+        {!isNull curatorCamera},
+        {
+            curatorCamera setPosASL (getPosASL GVAR(cam));
+            curatorCamera setDir (getDirVisual GVAR(cam));
+        }
+    ] call CBA_fnc_waitUntilAndExecute;
+
     true
 };
 
