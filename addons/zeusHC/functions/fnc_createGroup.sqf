@@ -41,6 +41,7 @@ private _newGroup = createGroup [_side, true]; // explicitly mark for cleanup
 
 {
     private _newUnit = _newGroup createUnit [_x, _position, [], 0, _special];
+    [_newUnit] call EFUNC(core,addToCurator);
     _newUnit call _unitInitFunction;
 
     if (_delayed && {_forEachIndex < (_numUnitsToSpawn - 1)}) then {

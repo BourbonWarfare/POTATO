@@ -32,6 +32,7 @@ private _group = createGroup [_side, true]; // explicitly mark for cleanup
 
 private _unitType = _soldierList deleteAt 0; // Create Leader Now
 private _unit = _group createUnit [_unitType, (_factoryLogic getPos [10, random 360]), [], 0, "NONE"];
+[_unit] call EFUNC(core,addToCurator);
 _group selectLeader _unit;
 _unit setDir (_factoryLogic getDir _placeLogic);
 

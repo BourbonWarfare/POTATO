@@ -1,5 +1,7 @@
 TRACE_1("",QUOTE(ADDON));
 
+PREP(addToCurator);
+PREP(addToCuratorServer);
 PREP(createRscTitle);
 PREP(ensureBoundedMinMax);
 PREP(ensureMinMax);

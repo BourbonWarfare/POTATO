@@ -1,5 +1,9 @@
 #include "script_component.hpp"
 
+if (isServer) then {
+    [QGVAR(addToCurator), LINKFUNC(addToCuratorServer)] call CBA_fnc_addEventHandler;
+};
+
 GVAR(playerStartingSide) = sideUnknown;
 GVAR(playerAuth) = false;
 GVAR(playerTech) = false;

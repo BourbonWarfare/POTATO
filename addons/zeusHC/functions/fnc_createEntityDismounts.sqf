@@ -53,6 +53,7 @@ _modelOffset = _modelOffset vectorAdd ((vectorNormalized _modelOffset) vectorMul
     private _posAGL = _attachedVehicle modelToWorld _modelOffset;
     if ((_posAGL select 2) < 3) then {_posAGL set [2, 0]}; // prevent creating in mid-air for ground vehicles
     private _unit = _newGroup createUnit [_unitType, _posAGL, [], 0, "FORM"];
+    [_unit] call EFUNC(core,addToCurator);
     TRACE_2("created unit",_unitType,_unit);
 
     if (_attachedVehicle isKindOf "Air") then { //Add velocity and move into parachute
@@ -72,6 +73,7 @@ _modelOffset = _modelOffset vectorAdd ((vectorNormalized _modelOffset) vectorMul
 
             private _chute = "NonSteerable_Parachute_F" createVehicle _posASL;
             TRACE_2("",_unit,_chute);
+            [_chute] call EFUNC(core,addToCurator);
 
             _unit moveInAny _chute;
             //make sure the idiots don't get out
