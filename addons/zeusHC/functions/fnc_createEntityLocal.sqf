@@ -43,6 +43,7 @@ if (_createVic != "") then {
 
     private _newVehicle = createVehicle [_createVic, _posATL, [], 0, _createArg];
     _newVehicle setVariable ["F_Gear", "Empty", true]; //Clear gear on these [BWMF]
+    [_newVehicle] call EFUNC(core,addToCurator);
 
     [_side, _newVehicle, _crewType, true] spawn FUNC(createCrew);
 } else {

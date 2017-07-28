@@ -9,9 +9,11 @@ TRACE_4("getTransportType",_vehType,_crewType,_maxCargoRoom,_addGunner);
 if ((_vehType == "") || {_crewType == ""}) exitWith {ERROR_2("bad data[%1-%2]",_vehType,_crewType);};
 
 private _vehicle = _vehType createVehicle ((leader _group) getRelPos [5, 0]);
+[_vehicle] call EFUNC(core,addToCurator);
 
 private _group = createGroup [_side, true]; // explicitly mark for cleanup
 private _driver = _group createUnit [_crewType, (getPos _vehicle), [], 0, "NONE"];
+[_driver] call EFUNC(core,addToCurator);
 
 [{
     params ["_driver"];
@@ -30,6 +32,7 @@ _driver moveInDriver _vehicle;
 
 if (_addGunner) then {
     private _gunner = _group createUnit [_crewType, (getPos _vehicle), [], 0, "NONE"];
+    [_gunner] call EFUNC(core,addToCurator);
     _gunner moveInGunner _vehicle;
 };
 

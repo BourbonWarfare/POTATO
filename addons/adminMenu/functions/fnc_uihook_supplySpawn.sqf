@@ -11,6 +11,7 @@ if ((_selectedGroupIndex < 0) || (_selectedGroupIndex >= (count GVAR(groupsArray
 
 private _selectedGroup = GVAR(groupsArray) select _selectedGroupIndex;
 private _spawnedSupport = createVehicle [_selectedClass,(getPos leader _selectedGroup), [], 0, "NONE"];
+[_spawnedSupport] call EFUNC(core,addToCurator);
 
 private _debugMsg = format ["Supply dropping %1 to %2", _selectedClass, _selectedGroup];
 ["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
