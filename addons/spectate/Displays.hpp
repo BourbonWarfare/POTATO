@@ -59,6 +59,7 @@ class GVAR(overlay) {
             h = "safeZoneH";
 
             multiselectEnabled = 0;
+            disableKeyboardSearch = 1;
             colorBorder[] = {0,0,0,0};
             colorBackground[] = {0,0,0,0.75};
             expandOnDoubleclick = 1;
