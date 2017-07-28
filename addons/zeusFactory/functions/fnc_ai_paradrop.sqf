@@ -43,6 +43,7 @@ TRACE_2("Starting Unload",_altitude,count _crewToUnload);
 
         private _chute = "NonSteerable_Parachute_F" createVehicle _posASL;
         TRACE_2("opening chute",_unit,_chute);
+        [_chute] call EFUNC(core,addToCurator);
 
         _unit moveInAny _chute;
         //make sure the idiots don't get out

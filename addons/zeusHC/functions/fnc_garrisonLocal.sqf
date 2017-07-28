@@ -30,9 +30,10 @@ _this spawn {
         private _unit = _x;
         private _position = _unitPositions select _forEachIndex;
         _unit setPos _position;
-        _unit setVariable ["potato_aiFrameworks_vcom_garrisoned", true];
 
+        // nail the dude to the floor
         doStop _unit;
+        _unit disableAI "PATH";
 
         if (isNull _building) then {
             _building = (nearestObjects [_position, ["house"], 50]) select 0;

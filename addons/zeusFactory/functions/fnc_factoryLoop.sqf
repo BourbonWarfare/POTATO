@@ -25,6 +25,7 @@ if (!(_newGroupParams isEqualTo [])) exitWith {
     } else {
         private _unitType = _soldierList deleteAt 0;
         private _unit = _group createUnit [_unitType, (getPos leader _group), [], 0, "FORM"];
+        [_unit] call EFUNC(core,addToCurator);
         TRACE_3("added unit",_unit,_unitType,_group);
     };
 };

@@ -23,9 +23,10 @@ params [
 // if the group is not local, exit
 if (isNull _group || !(local _group)) exitWith { ERROR("Group is null/not local, can not ungarrison"); };
 
-// unset any doWatches, remove VCOM garrisoned flag
+// unset any doWatches, re enables AI
 {
     _x doWatch objNull;
+    _unit enableAI "PATH";
     _x doMove (getPos _x);
-    _x setVariable ["potato_aiFrameworks_vcom_garrisoned", false];
+    _x doFollow (leader _group);
 } forEach (units _group);

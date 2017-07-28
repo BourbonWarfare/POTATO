@@ -51,6 +51,7 @@ if ([_side, _crewCount] call FUNC(canCreateGroup)) then {
 
     {
         private _unit = _group createUnit [_crewType, [0,0,0], [], 0, "NONE"];
+        [_unit] call EFUNC(core,addToCurator);
 
         switch (_x) do {
             case ("driver"): {
