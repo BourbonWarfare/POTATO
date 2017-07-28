@@ -212,7 +212,7 @@ class GVAR(overlay) {
                 class SpectatorsCount: RscText {
                     idc = MAP_SPEC_COUNT_IDC;
 
-                    x = 0.97;
+                    x = 0.965;
                     y = 0.01;
                     w = 0.03;
                     h = 0.03;
