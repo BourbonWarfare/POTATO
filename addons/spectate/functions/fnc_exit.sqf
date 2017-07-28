@@ -19,6 +19,13 @@
 TRACE_1("Params",_this);
 
 if (GVAR(running)) then {
+    // remove spectate chat channel
+    setCurrentChannel SIDE_CHANNEL_INDEX;
+    (missionNamespace getVariable QGVAR(channel)) radioChannelRemove [GVAR(unit)];
+
+    // enable other chats
+    [true] call FUNC(setChannels);
+
     // Handle cameras/lights
     GVAR(cam) cameraEffect ["Terminate", "BACK"];
     player switchCamera "INTERNAL";

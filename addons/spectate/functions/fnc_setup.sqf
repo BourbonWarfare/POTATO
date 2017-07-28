@@ -101,6 +101,14 @@ GVAR(unit) setVariable [QGVAR(cachedNamed), "", true];
 // set ACRE spectator
 [true] call acre_api_fnc_setSpectator;
 
+// add and set spectate chat channel
+private _spectateChannel = missionNamespace getVariable QGVAR(channel);
+_spectateChannel radioChannelAdd [GVAR(unit)];
+setCurrentChannel (DIRECT_CHANNEL_INDEX + _spectateChannel);
+
+// disable other chats
+[false] call FUNC(setChannels);
+
 showCinemaBorder false;
 
 // initilize camera

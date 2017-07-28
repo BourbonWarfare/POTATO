@@ -19,4 +19,11 @@ if (GVAR(enabled)) then {
         },
         [diag_tickTime + 5]
     ] call CBA_fnc_waitUntilAndExecute;
+
+    // add spectator chat channel
+    missionNamespace setVariable [
+        QGVAR(channel),
+        radioChannelCreate [[0.729,0.149,0.098,1], "Spectator", "Spectator (%UNIT_NAME)", []],
+        true
+    ];
 };

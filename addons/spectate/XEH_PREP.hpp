@@ -17,6 +17,7 @@ PREP(prepareSpectator);
 PREP(prepareTarget);
 PREP(removeEventHandlers);
 PREP(resetTarget);
+PREP(setChannels);
 PREP(setEventsOnActiveUnits);
 PREP(setFocus);
 PREP(setRespawn);
