@@ -125,7 +125,8 @@ private _checkMedical = [];
                     };
                 } forEach (magazinesAmmoFull _unit);
                 if (_ammoCount == 0) then {
-                    if ((toLower _weapon) in ["rhs_weap_rpg26", "rhs_weap_m136", "launch_nlaw_f"]) then {
+                    // Ignore launchers that auto load ammo via script
+                    if (((toLower _weapon) in ["rhs_weap_rpg26", "rhs_weap_m136"]) || {getText (configFile >> "CfgWeapons" >> _weapon >> "ACE_UsedTube") != ""}) then {
                         TRACE_1("ignoring special AT reloads",_weapon);
                     } else {
                         TRACE_2("has zero ammo",_typeOf,_weapon);
