@@ -34,6 +34,7 @@ private _attachables = [_weapon] call CBA_fnc_compatibleItems;
     if ({_x == _classname} count _attachables > 0) then {
         [_weaponArray, _config, _classname, _doOpticCheck] call FUNC(setWeaponAttachment);
     } else {
+        if (_x == "") exitWith {TRACE_1("empty string - ignoring",_itemToAdd);};
         diag_log text format ["[POTATO-assignGear] - Attachment [%1] not compatible with [%2]", _classname, _weapon];
     };
     nil

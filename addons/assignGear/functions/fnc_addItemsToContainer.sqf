@@ -41,9 +41,12 @@ private _returnArray = [];
     private _itemLeft = [] call {
         // exit if there's no room left in the container
         if (_sizeLeft <= 0) exitWith { TRACE_1("no room",_itemToAdd); _itemToAdd };
+        if (_itemToAdd == "") exitWith {TRACE_1("empty string - ignoring",_itemToAdd); ""};
 
         (_itemToAdd splitString ":") params ["_classname", ["_amountToAdd", "1", [""]]];
         _amountToAdd = parseNumber _amountToAdd;
+
+        if (_amountToAdd < 1) exitWith {TRACE_1("item count is zero - ignoring",_itemToAdd); ""};
 
         if (isClass (configFile >> "CfgMagazines" >> _classname)) then {
             [
