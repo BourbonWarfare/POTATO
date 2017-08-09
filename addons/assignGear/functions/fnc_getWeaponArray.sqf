@@ -29,12 +29,16 @@ private _weaponArray = [_weapon, "", "", "", [], [], ""];
 private _attachables = [_weapon] call CBA_fnc_compatibleItems;
 
 {
-    (_x splitString ":") params [["_classname", ""]]; // count makes no sense for attachments, ignore
-    private _config = configFile >> "CfgWeapons" >> _classname;
-    if ({_x == _classname} count _attachables > 0) then {
-        [_weaponArray, _config, _classname, _doOpticCheck] call FUNC(setWeaponAttachment);
+    if (_x != "") then {
+        (_x splitString ":") params [["_classname", ""]]; // count makes no sense for attachments, ignore
+        private _config = configFile >> "CfgWeapons" >> _classname;
+        if ({_x == _classname} count _attachables > 0) then {
+            [_weaponArray, _config, _classname, _doOpticCheck] call FUNC(setWeaponAttachment);
+        } else {
+            diag_log text format ["[POTATO-assignGear] - Attachment [%1] not compatible with [%2]", _classname, _weapon];
+        };
     } else {
-        diag_log text format ["[POTATO-assignGear] - Attachment [%1] not compatible with [%2]", _classname, _weapon];
+        TRACE_1("Empty string for weapon attachment - ignoring",_weapon);
     };
     nil
 } count _attachments; // count used here for speed, make sure nil is above this line
