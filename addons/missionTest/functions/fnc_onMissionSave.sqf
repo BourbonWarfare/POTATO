@@ -30,6 +30,12 @@ if (!(missionNamespace getVariable [QEGVAR(assignGear,usePotato), false])) exitW
 
 private _problems = [];
 
+// Check weather:
+("Intel" get3DENMissionAttribute "IntelFogStart") params ["_fog"];
+if (_fog > 0.25) then {
+    _problems pushBackUnique [(format ["Verify visibility in high fog (%1%2)", (_fog * 100) toFixed 1, "%"]), ["Attributes -> Enviroment"]];
+};
+
 
 // Check briefing/author/onLoad attributies:
 private _author = "Scenario" get3DENMissionAttribute "author";
