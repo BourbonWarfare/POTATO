@@ -29,16 +29,9 @@ class CfgPatches {
             QAIR(ftl),QAIR(sf_ftl),QAIR(vicl),QAIR(cm),QAIR(plm),QAIR(sm),QAIR(sf_sm),
             QAIR(engl),QAIR(eng),QAIR(demo),QAIR(vicc),QAIR(vicd),QAIR(pilot),QAIR(cc)
         };
-        weapons[] = {
-            "potato_fakeNVG", "potato_arifle_RPK", // below are shimmed weapons, remove eventually
-            "hlc_rifle_rpk", "hlc_rifle_rpk74n",
-            "hlc_rifle_aks74u", "hlc_rifle_ak74_dirty",
-            "hlc_rifle_aks74_GL", "hlc_rifle_aks74"
-        };
+        weapons[] = { "potato_fakeNVG", "potato_arifle_RPK" };
         magazines[] = {
-            "potato_75Rnd_762x39mm_tracer", // below are shimmed mags, remove eventually
-            "hlc_75Rnd_762x39_m_rpk", "hlc_60Rnd_545x39_t_rpk",
-            "hlc_VOG25_AK", "hlc_GRD_White", "hlc_GRD_Red"
+            "potato_75Rnd_762x39mm_tracer"
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
