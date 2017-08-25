@@ -226,15 +226,10 @@
 "CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M", \
 "CUP_30Rnd_TE1_Red_Tracer_545x39_AK_M", \
 "CUP_30Rnd_TE1_White_Tracer_545x39_AK_M", \
-"CUP_30Rnd_TE1_Yellow_Tracer_545x39_AK_M", \
-"hlc_30Rnd_545x39_B_AK", \
-"hlc_30Rnd_545x39_t_ak", \
-"hlc_30Rnd_545x39_EP_ak", \
-"hlc_45Rnd_545x39_t_rpk" // shimmed mag remove eventually
+"CUP_30Rnd_TE1_Yellow_Tracer_545x39_AK_M"
 
 #define RU_LMG_545 RU_RIFLE_545, \
-"CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M", \
-"hlc_60Rnd_545x39_t_rpk" // shimmed mags remove eventually
+"CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M"
 
 #define RU_RIFLE_762 \
 "30Rnd_762x39_Mag_F", \
@@ -248,8 +243,7 @@
 "CUP_30Rnd_762x39_AK47_M"
 
 #define RU_LMG_762 RU_RIFLE_762, \
-"potato_75Rnd_762x39mm_tracer", \
-"hlc_75Rnd_762x39_m_rpk" // shimmed mags remove eventually
+"potato_75Rnd_762x39mm_tracer"
 
 #define RU_MMG_762 \
 "100Rnd_762x54_Box_Tracer_Red", \
@@ -293,8 +287,7 @@
 "CUP_1Rnd_SMOKE_GP25_M", \
 "CUP_1Rnd_SMOKERED_GP25_M", \
 "CUP_1Rnd_SMOKEGREEN_GP25_M", \
-"CUP_1Rnd_SMOKEYELLOW_GP25_M", \
-"hlc_VOG25_AK", "hlc_GRD_White", "hlc_GRD_Red" // shimmed mags
+"CUP_1Rnd_SMOKEYELLOW_GP25_M"
 
 #define AWP_338 \
 "UK3CB_BAF_338_5Rnd", \
@@ -430,7 +423,7 @@ class CfgWeapons {
     };
     class CUP_arifle_AK_Base: Rifle_Base_F {
         magazines[] = { RU_RIFLE_545 };
-        class GP25Muzzle : UGL_F { // HLC GP shim, remove eventually
+        class GP25Muzzle : UGL_F {
             magazines[] = { RU_GL_40 };
         };
     };
