@@ -31,7 +31,12 @@ class CfgPatches {
         };
         weapons[] = { "potato_fakeNVG", "potato_arifle_RPK" };
         magazines[] = {
-            "potato_75Rnd_762x39mm_tracer"
+            "potato_75Rnd_762x39mm_tracer", "200Rnd_65x39_cased_Box_Tracer_Red",
+            "200Rnd_65x39_cased_Box_Tracer_Green", "100Rnd_65x39_cased_Box_Tracer_Yellow",
+            "100Rnd_65x39_cased_Box_Tracer_Red", "100Rnd_65x39_cased_Box_Tracer_Green",
+            "150Rnd_762x54_Box_Tracer_Red", "150Rnd_762x54_Box_Tracer_Yellow",
+            "100Rnd_762x54_Box_Tracer_Green", "100Rnd_762x54_Box_Tracer_Red",
+            "100Rnd_762x54_Box_Tracer_Yellow"
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
