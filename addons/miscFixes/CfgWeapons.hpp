@@ -54,6 +54,7 @@ class CfgWeapons {
         author = "POTATO";
         canLock = 0;
         displayname = "NLAW (Dumb)";
+        scope = 1;
     };
 
     // Create RPK from CUP RPK-74, just need to fill a gap
