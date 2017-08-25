@@ -8,6 +8,8 @@ class CfgVehicles {
         scopeArsenal = 0;
         scopeCurator = 0;
 
+        icon = "iconManDead";
+
         weapons[] = {}; // empty weapons array
 
         delete ACE_Actions;

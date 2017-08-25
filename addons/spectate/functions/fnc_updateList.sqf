@@ -13,7 +13,7 @@
  *
  * Public: No
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 #define ICON_DEAD "a3\Ui_F_Curator\Data\CfgMarkers\kia_ca.paa"
 TRACE_1("Params",_this);
@@ -24,7 +24,8 @@ private _newList = [
     [west, "west", localize "str_west", []],
     [east, "east", localize "str_east", []],
     [independent, "indy", localize "str_guerrila", []],
-    [civilian, "civ", localize "str_civilian", []]
+    [civilian, "civ", localize "str_civilian", []],
+    [sideLogic, "spectators", "Spectators", []]
 ];
 
 {
@@ -34,7 +35,7 @@ private _newList = [
     private _unitsInfo = [];
 
     {
-        if (simulationEnabled _x && {!isObjectHidden _x} && {simulationEnabled vehicle _x} && {!isObjectHidden vehicle _x}) then {
+        if ((_x isKindOf QGVAR(spectator) && {isPlayer _x}) || (simulationEnabled _x && {!isObjectHidden _x} && {simulationEnabled vehicle _x} && {!isObjectHidden vehicle _x})) then {
             _newUnits pushBack ([_x] call BIS_fnc_objectVar);
             _unitsInfo pushBack [
                 _x,
@@ -56,13 +57,15 @@ private _newList = [
         } forEach _newList;
     };
     nil
-} count allGroups; // count used for speed, ensure nil above this line
+} count (allGroups + [GVAR(group)]); // count used for speed, ensure nil above this line
+
+TRACE_1("New List:", _newList);
 
 if !(GVAR(curList) isEqualTo _newList) then {
     // Remove groups/units that are no longer there
-    for "_sideIndex" from (LIST tvCount []) to 1 do {
-        for "_groupIndex" from (LIST tvCount [_sideIndex - 1]) to 1 do {
-            for "_unitIndex" from (LIST tvCount [_sideIndex - 1, _groupIndex - 1]) to 1 do {
+    for "_sideIndex" from (LIST tvCount []) to 1 step -1 do {
+        for "_groupIndex" from (LIST tvCount [_sideIndex - 1]) to 1  step -1 do {
+            for "_unitIndex" from (LIST tvCount [_sideIndex - 1, _groupIndex - 1]) to 1 step -1 do {
                 private _lookup = _newUnits find (LIST tvData [_sideIndex - 1, _groupIndex - 1, _unitIndex - 1]);
                 if (_lookup < 0) then {
                     LIST tvDelete [_sideIndex - 1, _groupIndex - 1, _unitIndex - 1];

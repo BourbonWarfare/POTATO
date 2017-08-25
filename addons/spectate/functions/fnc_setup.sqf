@@ -28,10 +28,6 @@ params [
 // start spectate
 GVAR(running) = true;
 
-// check for zeus to transfer
-private _zeusModule = getAssignedCuratorLogic _oldUnit;
-TRACE_1("Curator", _zeusModule);
-
 // create spectator display
 MAIN_DISPLAY createDisplay QGVAR(overlay);
 
@@ -62,7 +58,7 @@ HELP ctrlShow false;
 
 // create spectator unit
 private _tempGroup = createGroup [sideLogic, true]; // explicitly mark for cleanup (even though we delete below)
-GVAR(unit) = _tempGroup createUnit [QGVAR(spectator), ZERO_POS, [], 200, "NONE"];
+GVAR(unit) = _tempGroup createUnit [QGVAR(spectator), ZERO_POS, [], 100, "NONE"];
 GVAR(unit) setVariable [QEGVAR(radios,assignedLanguages), GVAR(availableLanguages)];
 selectPlayer GVAR(unit);
 
@@ -75,11 +71,18 @@ if (isNil QGVAR(group) || {isNull GVAR(group)}) then {
     deleteGroup _tempGroup;
 };
 
-[GVAR(unit)] remoteExecCall [QFUNC(prepareSpectator), 0, true];
+[GVAR(unit), _oldUnit] remoteExecCall [QFUNC(prepareSpectator), 0, true];
 
-// if the old unit had a curator, assign it to the new unit
-if !(isNull _zeusModule) then {
-    [GVAR(unit), _zeusModule] remoteExec [QFUNC(transferZeus), SERVER_CLIENT_ID];
+// set name on old unit / check for zeus to transfer
+if !(isNull _oldUnit) then {
+    GVAR(unit) setPos (getPos _oldUnit);
+    _oldUnit setVariable [QGVAR(deadName), profileName, true];
+
+    // if the old unit had a curator, assign it to the new unit
+    private _zeusModule = getAssignedCuratorLogic _oldUnit;
+    if !(isNull _zeusModule) then {
+        [GVAR(unit), _zeusModule] remoteExec [QFUNC(transferZeus), SERVER_CLIENT_ID];
+    };
 };
 
 // disable post process effects
@@ -88,11 +91,6 @@ BIS_fnc_feedback_allowPP = false;
 // if new unit is a seagul, delete it
 if (_newUnit isKindOf "seagull" || _newUnit isKindOf QGVAR(spectator)) then {
     deleteVehicle _newUnit;
-};
-
-// set name on old unit
-if !(isNil "_oldUnit" || {isNull _oldUnit}) then {
-    _oldUnit setVariable [QGVAR(deadName), profileName, true];
 };
 
 // reset spectator unit name

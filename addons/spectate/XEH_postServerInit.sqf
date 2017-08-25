@@ -12,9 +12,12 @@ if (GVAR(enabled)) then {
         },
         {
             GVAR(group) = createGroup [sideLogic, false]; // explicitly mark for persistence
+            GVAR(group) setGroupIdGlobal ["Spectator Group"];
             publicVariable QGVAR(group);
             GVAR(holderUnit) = GVAR(group) createUnit [QGVAR(holder), ZERO_POS, [], 200, "NONE"];
             GVAR(holderUnit) setVariable [QACEGVAR(zeus,addObject), false, true];
+            GVAR(holderUnit) enableSimulationGlobal false;
+            GVAR(holderUnit) hideObjectGlobal true;
             diag_log format ["[POTATO-spectate] Spectate group: %1, spectate unit: %2", GVAR(group), GVAR(holderUnit)];
         },
         [diag_tickTime + 5]
