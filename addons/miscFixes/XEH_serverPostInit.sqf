@@ -1,4 +1,3 @@
-// Can eventually remove if this shows no problems
 #include "script_component.hpp"
 
 // clean up empty groups
