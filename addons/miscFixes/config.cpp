@@ -43,5 +43,6 @@ class RscChatListDefault {
 #include "CfgMagazines.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
+#include "CfgFontFamilies.hpp"
 
 #endif
