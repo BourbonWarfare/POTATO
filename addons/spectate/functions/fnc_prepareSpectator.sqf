@@ -31,5 +31,12 @@ if !(isNull _unit) then {
     if !(isNull _oldUnit) then {
         _unit setVariable [QGVAR(oldUnit), _oldUnit];
         _unit setVariable [QEGVAR(miscFixes,eventsString), _oldUnit getVariable [QEGVAR(miscFixes,eventsString), "None"]];
+
+        // hack to hopefully keep dead STHUD names longer
+        private _stNameArray = _oldUnit getVariable ["sth_name", []];
+        if !(_stNameArray isEqualTo []) then {
+            _stNameArray set [0, false];
+            _oldUnit getVariable ["sth_name", _stNameArray];
+        };
     };
 };
