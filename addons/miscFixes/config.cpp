@@ -4,6 +4,7 @@
 
 class CfgPatches {
     class ADDON {
+        units[] = {};
         weapons[] = { "potato_fakeNVG", "potato_arifle_RPK" };
         magazines[] = {
             "potato_75Rnd_762x39mm_tracer", "200Rnd_65x39_cased_Box_Tracer_Red",
