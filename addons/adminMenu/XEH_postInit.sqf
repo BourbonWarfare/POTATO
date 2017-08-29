@@ -14,14 +14,8 @@
 
     [{
         if (missionNamespace getVariable [QEGVAR(assignGear,usePotato), false]) then {
-            // set unit loadout overrides our sick shades :(
-            private _goggles = goggles _this;
-            removeGoggles _this;
-
-            diag_log text format ["[POTATO] Calling %1", QEFUNC(assignGear,assignGearMan)];
-            [_this] call EFUNC(assignGear,assignGearMan);
-
-            _this addGoggles _goggles;
+            diag_log text format ["[POTATO] Calling %1", QEFUNC(assignGear,requestPlayerGear)];
+            [_this] call EFUNC(assignGear,requestPlayerGear);
         } else {
             diag_log text format ["[POTATO] Calling F_fnc_assignGearMan"];
             [_this] call F_fnc_assignGearMan;

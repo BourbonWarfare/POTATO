@@ -18,8 +18,8 @@
 
 TRACE_1("params",_this);
 
-params ["_unit"];
-TRACE_2("",_unit,local _unit);
+params ["_unit", ["_request", false, [false]]];
+TRACE_3("",_unit, local _unit,_request);
 
 BEGIN_COUNTER(assignGearMan);
 
@@ -51,7 +51,10 @@ if (isNil "_loadoutArray") then {
     GVAR(loadoutCache) setVariable [_loadoutKey, _loadoutArray];
 };
 
+// set unit loadout overrides our sick shades :(
+private _goggles = goggles _unit;
 _unit setUnitLoadout _loadoutArray;
+_unit addGoggles _goggles;
 
 if (isText (_path >> "init")) then {
     TRACE_1("calling init code",getText (_path >> "init"));
@@ -62,6 +65,7 @@ _unit setVariable [QGVAR(gearSetup), true, true];
 
 END_COUNTER(assignGearMan);
 
+if (_request) exitWith {}; // don't run hack on requests
 // Stupid hack to fix gear automaticly until we can sort out why setUnitLoadout ocasionly fails on JIPs
 [{
     params ["_unit", "_loadoutArray"];
@@ -74,7 +78,9 @@ END_COUNTER(assignGearMan);
 
     if ((_arrayUniform != (uniform _unit)) || {_arrayVest != (vest _unit)} || {_arrayBackpack != (backpack _unit)}) then {
         ERROR_2("Mismatch [%1] [%2]", name _unit, typeOf _unit);
+        private _goggles = goggles _unit;
         _unit setUnitLoadout _loadoutArray;
+        _unit addGoggles _goggles;
         ["potato_adminMsg", [(format ["Auto-reset gear on %1", name _unit]), "Server"]] call CBA_fnc_globalEvent;
     };
 }, [_unit, _loadoutArray], 15] call CBA_fnc_waitAndExecute;

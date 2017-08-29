@@ -9,5 +9,6 @@ PREP(getContainerInfo);
 PREP(getLinkedIndex);
 PREP(getLoadoutFromConfig);
 PREP(getWeaponArray);
+PREP(requestPlayerGear);
 PREP(setOptic);
 PREP(setWeaponAttachment);
