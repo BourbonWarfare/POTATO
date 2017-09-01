@@ -167,13 +167,14 @@ if !(GVAR(curList) isEqualTo _newList) then {
                     if (_this select 1) exitWith { ICON_REVIVE };
                     [_this select 2] call FUNC(getVehicleIcon)
                 };
+                private _unitColor = _unit getVariable [QGVAR(oldSideColor), _sideColor];
 
                 private _lookup = (_unitDataToPathHash select 0) find ([_unit] call BIS_fnc_objectVar);
                 if (_lookup < 0) then {
                     private _unitIndex = LIST tvAdd [[_sideIndex, _groupIndex], _name];
                     LIST tvSetData [[_sideIndex, _groupIndex, _unitIndex], [_unit] call BIS_fnc_objectVar];
                     LIST tvSetPicture [[_sideIndex, _groupIndex, _unitIndex], _texture];
-                    LIST tvSetPictureColor [[_sideIndex, _groupIndex, _unitIndex], _sideColor];
+                    LIST tvSetPictureColor [[_sideIndex, _groupIndex, _unitIndex], _unitColor];
                     LIST tvSetTooltip [[_sideIndex, _groupIndex, _unitIndex], _tooltip];
                 } else {
                     // pop data out of hash to improve later lookups
@@ -181,7 +182,7 @@ if !(GVAR(curList) isEqualTo _newList) then {
                     private _path = (_unitDataToPathHash select 1) deleteAt _lookup;
                     LIST tvSetText [_path, _name];
                     LIST tvSetPicture [_path, _texture];
-                    LIST tvSetPictureColor [_path, _sideColor];
+                    LIST tvSetPictureColor [_path, _unitColor];
                     LIST tvSetTooltip [_path, _tooltip];
                 };
                 nil
