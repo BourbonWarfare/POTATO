@@ -64,4 +64,8 @@ if (GVAR(running)) then {
 
     // remove events from active units
     [false] call FUNC(setEventsOnActiveUnits);
+
+    // remove advanced throwing EH
+    [QACEGVAR(advanced_throwing,throwFiredXEH), GVAR(advancedThrowingEH)] call CBA_fnc_removeEventHandler;
+    GVAR(advancedThrowingEH) = nil;
 };

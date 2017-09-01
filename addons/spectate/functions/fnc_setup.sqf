@@ -167,3 +167,6 @@ GVAR(draw3DEH) = addMissionEventHandler ["Draw3D", {call FUNC(ui_handleDraw3D)}]
 
 // add event handlers to all active units
 [] call FUNC(setEventsOnActiveUnits);
+
+// register advanced throwing EH
+GVAR(advancedThrowingEH) = [QACEGVAR(advanced_throwing,throwFiredXEH), FUNC(handleFired)] call CBA_fnc_addEventHandler;
