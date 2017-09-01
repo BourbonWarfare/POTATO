@@ -117,6 +117,13 @@ if (inputAction "networkStats" > 0) exitWith {
     true
 };
 
+// handle toggling cam ground speed
+if (inputAction "getOver" > 0) exitWith {
+    GVAR(surfaceSpeed) = !GVAR(surfaceSpeed);
+    GVAR(cam) camCommand (["surfaceSpeed off", "surfaceSpeed on"] select GVAR(surfaceSpeed));
+    true
+};
+
 private _key = _this select 1;
 
 // handle perspective changes

@@ -124,6 +124,7 @@ GVAR(thirdPersonCamDirTemp) = 0.0;
 GVAR(thirdPersonCamZoomTemp) = 0.0;
 
 GVAR(hasTarget) = true;
+GVAR(surfaceSpeed) = false;
 GVAR(camTarget) = _oldUnit;
 GVAR(targetInVehicle) = (vehicle GVAR(camTarget) != GVAR(camTarget));
 GVAR(dummy) = "Logic" createVehicleLocal getPosASLVisual GVAR(camTarget);
@@ -134,11 +135,11 @@ GVAR(cam) setPosASL eyePos GVAR(camTarget);
 GVAR(cam) setDir getDirVisual GVAR(camTarget);
 GVAR(cam) camCommand "maxPitch 89.0";
 GVAR(cam) camCommand "minPitch -89.0";
-GVAR(cam) camCommand "speedDefault 1.2";
-GVAR(cam) camCommand "speedMax 2.35";
+GVAR(cam) camCommand "speedDefault 1.1";
+GVAR(cam) camCommand "speedMax 2.4";
 GVAR(cam) camCommand "ceilingHeight 5000";
 GVAR(cam) camCommand "atl off";
-GVAR(cam) camCommand "surfaceSpeed on";
+GVAR(cam) camCommand "surfaceSpeed off";
 cameraEffectEnableHUD true;
 
 // initilize projectile tracking
