@@ -24,7 +24,9 @@ class CfgVehicles {
     // add playable spectator
     class GVAR(playableSpectator): GVAR(spectator) {
         author = "POTATO";
+        displayName = "POTATO Spectator";
+        displayNameShort = "Spectator";
+        icon = "iconPotatoSpectate";
         scope = 2;
-        icon = "iconManVirtual";
     };
 };
