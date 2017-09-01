@@ -49,4 +49,11 @@ if (GVAR(enabled) && hasInterface) then {
             [_open] call FUNC(setRespawn);
         };
     }] call CBA_fnc_addEventHandler;
+
+    // register advanced throwing EH
+    [QACEGVAR(advanced_throwing,throwFiredXEH), {
+        if (GVAR(running)) then {
+            _this call FUNC(handleFired);
+        };
+    }] call CBA_fnc_addEventHandler;
 };
