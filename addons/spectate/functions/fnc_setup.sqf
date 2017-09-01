@@ -40,22 +40,6 @@ HELP ctrlShow false;
 // set init state for respawn
 [GVAR(respawnOpen)] call FUNC(setRespawn);
 
-// watch dog, hope it isn't needed
-[] spawn {
-    while {isNull OVERLAY && GVAR(running)} do {
-        WARNING("Watchdog active");
-        sleep 1;
-        if (isNull OVERLAY) then {
-            WARNING("Watchdog resetting spectate");
-            ["potato_adminMsg", [format ["Reseting spectate on %1", profileName], "Watchdog"]] call CBA_fnc_globalEvent;
-            [] call FUNC(exit);
-            sleep 0.25;
-            [player] call FUNC(setup);
-        };
-        sleep 2;
-    };
-};
-
 // create spectator unit
 private _tempGroup = createGroup [sideLogic, true]; // explicitly mark for cleanup (even though we delete below)
 GVAR(unit) = _tempGroup createUnit [QGVAR(spectator), ZERO_POS, [], 100, "NONE"];
