@@ -22,3 +22,9 @@ class Extended_DisplayUnload_EventHandlers {
         ADDON = QUOTE(_this spawn FUNC(checkToReopen));
     };
 };
+
+class Extended_InitPost_EventHandlers {
+    class GVAR(playableSpectator) {
+        class ADDON { init = QUOTE(if (local (_this select 0)) then { [_this select 0] call COMPILE_FILE(functions\fnc_setup); };); };
+    };
+};

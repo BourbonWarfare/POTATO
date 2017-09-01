@@ -20,4 +20,11 @@ class CfgVehicles {
     class GVAR(spectator): GVAR(holder) {
         author = "POTATO";
     };
+
+    // add playable spectator
+    class GVAR(playableSpectator): GVAR(spectator) {
+        author = "POTATO";
+        scope = 2;
+        icon = "iconManVirtual";
+    };
 };

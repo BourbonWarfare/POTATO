@@ -14,7 +14,7 @@
  *
  * Public: No
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
@@ -89,7 +89,7 @@ if !(isNull _oldUnit) then {
 BIS_fnc_feedback_allowPP = false;
 
 // if new unit is a seagul, delete it
-if (_newUnit isKindOf "seagull" || _newUnit isKindOf QGVAR(spectator)) then {
+if (_newUnit isKindOf "seagull" || _newUnit isKindOf QGVAR(spectator) || _newUnit isKindOf QGVAR(playableSpectator)) then {
     deleteVehicle _newUnit;
 };
 
