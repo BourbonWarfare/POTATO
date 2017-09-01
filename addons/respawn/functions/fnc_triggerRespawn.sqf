@@ -98,7 +98,7 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
             _newRespawnGroup setVariable [QEGVAR(radios,mrChannel), _mrChannel, true];
             _newRespawnGroup setVariable [QEGVAR(radios,lrChannel), _lrChannel, true];
 
-            _newRespawnGroup setGroupIdGlobal [format ["RG %1: %2 %3", GVAR(groupCount), _callsignPrefix, _markerText]];
+            _newRespawnGroup setGroupIdGlobal [format ["RG %1: %2 %3%4", GVAR(groupCount), _callsignPrefix, _markerPrefix, _markerText]];
             GVAR(groupCount) = GVAR(groupCount) + 1;
 
             {
