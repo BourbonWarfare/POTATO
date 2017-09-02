@@ -18,7 +18,7 @@ class CfgVehicles {
     class ACE_Module;
     class GVAR(setupModule): ACE_Module {
         author = ACECSTRING(common,ACETeam);
-        category = "ACEX";
+        category = "POTATO";
         displayName = CSTRING(Fortify);
         function = QFUNC(setupModule);
         scope = 2;
