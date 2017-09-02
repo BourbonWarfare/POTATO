@@ -2,6 +2,16 @@
 
 if (isServer) then {
     [QGVAR(registerObjects), LINKFUNC(registerObjects)] call CBA_fnc_addEventHandler;
+
+
+    // ** Potato specific Events **
+    // Can only use fority durring safe start, might make this a setting if people want to build mid-mission
+    ["potato_safeStartOn", {
+        missionNamespace setVariable [QGVAR(fortifyAllowed), true, true];
+    }] call CBA_fnc_addEventHandler;
+    ["potato_safeStartOff", {
+        missionNamespace setVariable [QGVAR(fortifyAllowed), false, true];
+    }] call CBA_fnc_addEventHandler;
 };
 
 if (!hasInterface) exitWith {};
