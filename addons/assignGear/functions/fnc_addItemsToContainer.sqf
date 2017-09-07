@@ -17,13 +17,6 @@
  */
 
 #include "script_component.hpp"
-#define VEST_ALLOWED_SLOTS 701
-#define UNIFORM_ALLOWED_SLOTS 801
-#define BACKPACK_ALLOWED_SLOTS 901
-#define PRIMARY_TYPE 1
-#define HANDGUN_TYPE 2
-#define LAUNCHER_TYPE 4
-#define BINO_TYPE 4096
 
 TRACE_1("params",_this);
 params ["_itemsToAddArray", "_containersArray", "_containerIndex"];

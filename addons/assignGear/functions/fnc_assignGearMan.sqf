@@ -1,6 +1,6 @@
 /*
  * Author: PabstMirror
- * Applies a loadout to a unit
+ * Applies a loadout to a unit (cached)
  *
  * Arguments:
  * 0: Unit <OBJECT>
@@ -52,12 +52,11 @@ if (isNil "_loadoutArray") then {
 };
 
 // set unit loadout overrides our sick shades :(
-private _goggles = goggles _unit;
+_loadoutArray set [LA_FACEWARE_INDEX, goggles _unit];
 _unit setUnitLoadout _loadoutArray;
-_unit addGoggles _goggles;
 
 if (isText (_path >> "init")) then {
-    TRACE_1("calling init code",getText (_path >> "init"));
+    TRACE_1("calling init code", getText (_path >> "init"));
     _unit call compile ("this = _this;"+ getText (_path >> "init"));
 };
 
@@ -71,16 +70,14 @@ if (_request) exitWith {}; // don't run hack on requests
     params ["_unit", "_loadoutArray"];
     if (isNull _unit) exitWith {};
 
-    private _arrayUniform = (_loadoutArray select 3) param [0, ""];
-    private _arrayVest = (_loadoutArray select 4) param [0, ""];
-    private _arrayBackpack = (_loadoutArray select 5) param [0, ""];
-    TRACE_6("Checking loadout: Uniform [%1-%2] Vest [%3-%4] Backpack [%5-%6]",_arrayUniform, uniform _unit, _arrayVest, vest _unit, _arrayBackpack, backpack _unit);
+    private _arrayUniform = (_loadoutArray select LA_UNIFORM_INDEX) param [0, ""];
+    private _arrayVest = (_loadoutArray select LA_VEST_INDEX) param [0, ""];
+    private _arrayBackpack = (_loadoutArray select LA_BACKPACK_INDEX) param [0, ""];
+    TRACE_6("Checking loadout: Uniform [%1-%2] Vest [%3-%4] Backpack [%5-%6]", _arrayUniform, uniform _unit, _arrayVest, vest _unit, _arrayBackpack, backpack _unit);
 
     if ((_arrayUniform != (uniform _unit)) || {_arrayVest != (vest _unit)} || {_arrayBackpack != (backpack _unit)}) then {
         ERROR_2("Mismatch [%1] [%2]", name _unit, typeOf _unit);
-        private _goggles = goggles _unit;
         _unit setUnitLoadout _loadoutArray;
-        _unit addGoggles _goggles;
         ["potato_adminMsg", [(format ["Auto-reset gear on %1", name _unit]), "Server"]] call CBA_fnc_globalEvent;
     };
 }, [_unit, _loadoutArray], 15] call CBA_fnc_waitAndExecute;

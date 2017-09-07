@@ -15,21 +15,9 @@ if (GVAR(usePotato) && hasInterface) then {
 
         private _opticOptions = [];
         {
-            if (isNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "optics")) then {
-                if (!GVAR(allowMagnifiedOptics)) then {
-                    private _minZoom = 999; //FOV, so smaller is more zoomed in
-                    {
-                        if (isNumber (_x >> "opticsZoomMin")) then { _minZoom = _minZoom min (getNumber (_x >> "opticsZoomMin")); };
-                        if (isText (_x >> "opticsZoomMin")) then { _minZoom = _minZoom min (call compile getText (_x >> "opticsZoomMin")); };
-                        nil
-                    } count configProperties [configFile >> "CfgWeapons" >> _x >> "ItemInfo" >> "OpticsModes"]; // count used here for speed, make sure nil is above this line
-
-                    if (_minZoom >= 0.25) then {
-                        _opticOptions pushBackUnique (toLower _x);
-                    };
-                } else {
-                    _opticOptions pushBackUnique (toLower _x);
-                };
+            if (isNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "optics")
+                    && (GVAR(allowMagnifiedOptics) || {!([_x] call FUNC(isOpticMagnified))})) then {
+                _opticOptions pushBackUnique (toLower _x);
             };
         } forEach ((getArray (_path >> "opticChoices")) + (getArray (_path >> "attachments")));
 

@@ -1,6 +1,6 @@
 /*
  * Author: AACO
- * Gets container information from an array of classnames
+ * Gets container information from an array of classnames (cached)
  *
  * Arguments:
  * 0: Unit classname <STRING>
@@ -16,8 +16,10 @@
 
 #include "script_component.hpp"
 
-params ["_unitClassname"];
+params [["_unitClassname", "", [""]]];
 TRACE_1("cleanPrefix",_unitClassname);
+
+if (_unitClassname == "") exitWith {ERROR("_unitClassname is empty string"); _unitClassname };
 
 private _cleanedClassname = GVAR(classnameCache) getVariable _unitClassname;
 if (isNil "_cleanedClassname") then { // cache classname lookups
@@ -30,7 +32,6 @@ if (isNil "_cleanedClassname") then { // cache classname lookups
         nil
     } count GVAR(prefixes);  // count used here for speed, make sure nil is above this line
 
-    if (_unitClassname == "") exitWith {ERROR("_unitClassname is empty string");};
     GVAR(classnameCache) setVariable [_unitClassname, _cleanedClassname];
 };
 

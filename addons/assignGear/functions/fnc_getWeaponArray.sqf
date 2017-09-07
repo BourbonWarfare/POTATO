@@ -19,8 +19,6 @@
  */
 
 #include "script_component.hpp"
-#define GUN_INDEX 4
-#define UNDERSLUNG_INDEX 5
 
 TRACE_1("params",_this);
 params ["_weapon", "_attachments", "_configMagazines", ["_doOpticCheck", true, [true]]];
@@ -38,16 +36,16 @@ private _attachables = [_weapon] call CBA_fnc_compatibleItems;
             diag_log text format ["[POTATO-assignGear] - Attachment [%1] not compatible with [%2]", _classname, _weapon];
         };
     } else {
-        TRACE_1("Empty string for weapon attachment - ignoring",_weapon);
+        TRACE_1("Empty string for weapon attachment - ignoring", _weapon);
     };
     nil
 } count _attachments; // count used here for speed, make sure nil is above this line
 
 {
     if (_x == "this") then { // main gun magazines
-        [GUN_INDEX, getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines")]
+        [LAW_PRIMARY_MUZZLE_MAG_INDEX, getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines")]
     } else { // underslung weapon magazines
-        [UNDERSLUNG_INDEX, getArray (configFile >> "CfgWeapons" >> _weapon >> _x >> "magazines")]
+        [LAW_SECONDARY_MUZZLE_MAG_INDEX, getArray (configFile >> "CfgWeapons" >> _weapon >> _x >> "magazines")]
     } params ["_arrayIndex", "_magazines"];
 
     {
