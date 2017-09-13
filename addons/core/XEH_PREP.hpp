@@ -1,7 +1,10 @@
 TRACE_1("",QUOTE(ADDON));
 
+PREP(addContainerArrayToContainer);
 PREP(addToCurator);
 PREP(addToCuratorServer);
+PREP(addUnitLoadoutToContainer);
+PREP(addWeaponArrayToContainer);
 PREP(createRscTitle);
 PREP(ensureBoundedMinMax);
 PREP(ensureMinMax);
