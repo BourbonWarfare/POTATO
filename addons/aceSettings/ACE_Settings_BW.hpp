@@ -57,6 +57,14 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 1;
     };
+    class ace_nightvision_effectScaling {
+        typeName = "SCALAR";
+        value = 0.5;
+    };
+    class ace_nightvision_fogScaling {
+        typeName = "SCALAR";
+        value = 0.5;
+    };
     class ace_overheating_enabled {
         typeName = "BOOL";
         value = 0;

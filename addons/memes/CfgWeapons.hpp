@@ -1,5 +1,5 @@
 class CfgWeapons {
-    class InventoryItem_Base_F;
+    class CBA_MiscItem_ItemInfo;
     class ACE_ItemCore;
     class potato_cheezItBox: ACE_ItemCore {
         scope = 2;
@@ -7,7 +7,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\cheezItBox_ca.paa);
         displayName = "Box of Cheez-It";
         descriptionShort = "Cheddar";
-        class ItemInfo: InventoryItem_Base_F {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 1;
         };
     };
@@ -17,7 +17,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\server_ca.paa);
         displayName = "Dedicated Server";
         descriptionShort = "Server";
-        class ItemInfo: InventoryItem_Base_F {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 1;
         };
     };
