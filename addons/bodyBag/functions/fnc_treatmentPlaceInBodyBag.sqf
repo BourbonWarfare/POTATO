@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [player, cursorTarget] call potato_bodyBag_fnc_actionPlaceInBodyBag
+ * [player, cursorTarget] call potato_bodyBag_fnc_treatmentPlaceInBodyBag
  *
  * Public: No
  */

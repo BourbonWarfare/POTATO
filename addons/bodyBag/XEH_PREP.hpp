@@ -1,4 +1,4 @@
-TRACE_1("",QUOTE(ADDON));
+LOG(QUOTE(ADDON));
 
 PREP(actionPlaceInBodyBag);
 PREP(failurePlaceInBodyBag);
