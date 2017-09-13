@@ -1,19 +1,16 @@
 /*
- * Author: KoffeinFlummi, Glowbal
- * Callback when the treatment fails
+ * Author: AACO
+ * Callback when putting in a body bag succeeds. Mainly reset animation and handles the body
  *
  * Arguments:
- * 0: The medic <OBJECT>
- * 1: The patient <OBJECT>
- * 2: SelectionName <STRING>
- * 3: Treatment classname <STRING>
- * 4: Items available <ARRAY<STRING>>
+ * 0: The mortician <OBJECT>
+ * 1: The dead <OBJECT>
  *
  * Return Value:
  * None
  *
  * Example:
- * [bob, kevin, "selectionname", "classname", ["bandage"]] call ACE_medical_fnc_treatment_failure
+ * [player, cursorTarget] call potato_bodyBag_fnc_successPlaceInBodyBag
  *
  * Public: No
  */

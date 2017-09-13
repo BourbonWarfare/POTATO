@@ -15,7 +15,7 @@
  * None
  *
  * Example:
- * [["arifle_MX_GL_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Aco", ["30Rnd_65x39_caseless_mag", 30], ["1Rnd_HE_Grenade_shell", 1], ""], "ACE_bodyBagHolderObject" createVehicle (getPos player)] call POTATO_core_fnc_addWeaponArrayToContainer
+ * [["arifle_MX_GL_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Aco", ["30Rnd_65x39_caseless_mag", 30], ["1Rnd_HE_Grenade_shell", 1], ""], "ACE_bodyBagHolderObject" createVehicle (getPos player)] call potato_core_fnc_addWeaponArrayToContainer
  *
  * Public: No
  */

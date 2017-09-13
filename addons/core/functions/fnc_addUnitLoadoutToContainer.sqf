@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [player, "ACE_bodyBagHolderObject" createVehicle (getPos player)] call POTATO_core_fnc_addUnitLoadoutToContainer
+ * [player, "ACE_bodyBagHolderObject" createVehicle (getPos player)] call potato_core_fnc_addUnitLoadoutToContainer
  *
  * Public: Yes
  */

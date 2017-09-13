@@ -13,7 +13,7 @@
  * None
  *
  * Example:
- * [["U_B_CombatUniform_mcam", [["FirstAidKit", 1], ["30Rnd_65x39_caseless_mag", 30, 2]]], "ACE_bodyBagHolderObject" createVehicle (getPos player), false] call POTATO_core_fnc_addContainerArrayToContainer
+ * [["U_B_CombatUniform_mcam", [["FirstAidKit", 1], ["30Rnd_65x39_caseless_mag", 30, 2]]], "ACE_bodyBagHolderObject" createVehicle (getPos player), false] call potato_core_fnc_addContainerArrayToContainer
  *
  * Public: No
  */

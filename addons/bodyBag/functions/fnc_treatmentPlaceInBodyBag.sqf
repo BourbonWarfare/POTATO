@@ -1,18 +1,18 @@
 /*
- * Author: Glowbal
- * Replace a (dead) body by a body bag
+ * Author: AACO
+ * Replace a corpse by a body bag
  *
  * Arguments:
- * 0: The actor <OBJECT>
- * 1: The patient <OBJECT>
+ * 0: The mortician <OBJECT>
+ * 1: The dead <OBJECT>
  *
  * Return Value:
- * body bag (will return objNull when run where target is not local) <OBJECT>
+ * None
  *
  * Example:
- * [player, cursorTarget] call ace_medical_fnc_actionPlaceInBodyBag
+ * [player, cursorTarget] call potato_bodyBag_fnc_actionPlaceInBodyBag
  *
- * Public: Yes
+ * Public: No
  */
 
 #include "script_component.hpp"
