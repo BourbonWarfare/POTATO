@@ -1,5 +1,5 @@
 #define POTATO_PlaceInBodyBag {\
-    displayName = "Place body in bodybag";\
+    displayName = "Place body in body bag";\
     distance = 2.0;\
     condition = QUOTE([ARR_4(_player, _target, 'body', 'BodyBag')] call DACEFUNC(medical,canTreatCached));\
     statement = QUOTE([ARR_2(_player, _target)] call FUNC(treatmentPlaceInBodyBag));\
