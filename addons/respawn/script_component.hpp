@@ -165,4 +165,10 @@ If these rules and conditions are not met in full you or zeuses in general can a
 #define CLIENT_UNSLOT_BUTTON_IDC 850004
 #define CLIENT_UNSLOT_BUTTON (CLIENT_RESPAWN displayCtrl CLIENT_UNSLOT_BUTTON_IDC)
 
+#define CLIENT_CLOSE_TEXT_IDC 850005
+#define CLIENT_CLOSE_TEXT (CLIENT_RESPAWN displayCtrl CLIENT_CLOSE_TEXT_IDC)
+
+#define CLIENT_CLOSE_BUTTON_IDC 850006
+#define CLIENT_CLOSE_BUTTON (CLIENT_RESPAWN displayCtrl CLIENT_CLOSE_BUTTON_IDC)
+
 #include "\z\potato\addons\core\script_macros.hpp"
