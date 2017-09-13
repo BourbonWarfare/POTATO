@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project name="POTATO">
+    <Package name="Fortify">
+        <Key ID="STR_POTATO_Fortify_Fortify">
+            <English>Fortify</English>
+        </Key>
+        <Key ID="STR_POTATO_Fortify_FortifyItem_name">
+            <English>Fortify Tool</English>
+        </Key>
+        <Key ID="STR_POTATO_Fortify_Budget">
+            <English>Budget</English>
+        </Key>
+        <Key ID="STR_POTATO_Fortify_addToolItem">
+            <English>Auto add fortify item</English>
+        </Key>
+    </Package>
+</Project>
