@@ -153,7 +153,7 @@ class Cfg3DEN {
             onLoad = QUOTE(_this call FUNC(acreGlobalControlLoad));
             attributeSave = QUOTE(_this call FUNC(acreGlobalAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(acreGlobalAttributeLoad));
-            h = (9 * SIZE_M + 1) * GRID_H;
+            h = (6 * SIZE_M + 1) * GRID_H;
 
             class Controls: Controls {
                 class SetMasterTitle: Title {
@@ -166,66 +166,24 @@ class Cfg3DEN {
                     strings[] = {"Off", "On"};
                     tooltips[] = {"Turn Off", "Turn On"};
                 };
-                class SetRadioInterferenceTitle: SetMasterTitle {
-                    y = 1 * SIZE_M * GRID_H;
-                    text = "Radio to Radio Interference";
-                };
-                class SetRadioInterferenceControl: SetMasterControl {
-                    idc = CFG_G_RI_IDC;
-                    y = 1.02 * SIZE_M * GRID_H;
-                };
-                class SetOmnidirectionalRadiosTitle: SetMasterTitle {
-                    y = 2 * SIZE_M * GRID_H;
-                    text = "Omnidirectional Radio Antenna";
-                };
-                class SetOmnidirectionalRadiosControl: SetMasterControl {
-                    idc = CFG_G_OMNI_IDC;
-                    y = 2.02 * SIZE_M * GRID_H;
-                };
-                class SetTerrainInterferenceTitle: SetMasterTitle {
-                    y = 3 * SIZE_M * GRID_H;
-                    text = "Terrain Interference";
-                };
-                class SetTerrainInterferenceSlider: ctrlXSliderH {
-                    idc = CFG_G_TI_SLIDER_IDC;
-                    y = 3.02 * SIZE_M * GRID_H;
-                    x = (ATTRIBUTE_TITLE_W + SIZE_XXS) * GRID_W;
-                    w = (ATTRIBUTE_CONTENT_W - SIZE_XXS - EDIT_W - 0.75) * GRID_W;
-                    h = 0.96 * SIZE_M * GRID_H;
-
-                    sliderRange[] = {0,1};
-                    sliderPosition = 0;
-                    lineSize = 0.1;
-
-                    color[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",1};
-                    colorActive[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",1};
-                    colorDisabled[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",0.5};
-                };
-                class SetTerrainInterferenceEdit: ctrlEdit {
-                    idc = CFG_G_TI_EDIT_IDC;
-                    y = 3.02 * SIZE_M * GRID_H;
-                    x = (ATTRIBUTE_TITLE_W + ATTRIBUTE_CONTENT_W - EDIT_W) * GRID_W;
-                    w = EDIT_W * GRID_W;
-                    h = 0.96 * SIZE_M * GRID_H;
-                };
                 class SetCommonChannelNameTitle: SetMasterTitle {
-                    y = 4 * SIZE_M * GRID_H;
+                    y = 1 * SIZE_M * GRID_H;
                     text = "Shared Channel Name";
                 };
                 class SetCommonChannelNameControl: ctrlEdit {
                     idc = CFG_G_CC_NAME_IDC;
                     x = (ATTRIBUTE_TITLE_W + SIZE_XXS) * GRID_W;
-                    y = 4.02 * SIZE_M * GRID_H;
+                    y = 1.02 * SIZE_M * GRID_H;
                     w = ATTRIBUTE_CONTENT_W * GRID_W;
                     h = 0.96 * SIZE_M * GRID_H;
                 };
                 class SetCommonChannelNumberTitle: SetMasterTitle {
-                    y = 5.5 * SIZE_M * GRID_H;
+                    y = 2.5 * SIZE_M * GRID_H;
                     text = "Shared Channel Number";
                 };
                 class SetCommonChannelNumberControl: SetMasterControl {
                     idc = CFG_G_CC_NUMBER_IDC;
-                    y = 5.02 * SIZE_M * GRID_H;
+                    y = 2.02 * SIZE_M * GRID_H;
                     h = 1.96 * SIZE_M * GRID_H;
 
                     rows = 2;
@@ -250,20 +208,20 @@ class Cfg3DEN {
                     };
                 };
                 class SetSharedMRTitle: SetMasterTitle {
-                    y = 7 * SIZE_M * GRID_H;
+                    y = 4 * SIZE_M * GRID_H;
                     text = "Global Shared 148 Channel";
                 };
                 class SetSharedMRControl: SetMasterControl {
                     idc = CFG_G_CC_MR_IDC;
-                    y = 7.02 * SIZE_M * GRID_H;
+                    y = 4.02 * SIZE_M * GRID_H;
                 };
                 class SetSharedLRTitle: SetMasterTitle {
-                    y = 8 * SIZE_M * GRID_H;
+                    y = 5 * SIZE_M * GRID_H;
                     text = "Global Shared 117 Channel";
                 };
                 class SetSharedLRControl: SetMasterControl {
                     idc = CFG_G_CC_LR_IDC;
-                    y = 8.02 * SIZE_M * GRID_H;
+                    y = 5.02 * SIZE_M * GRID_H;
                 };
             };
         };
