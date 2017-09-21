@@ -452,6 +452,15 @@ class GVAR(adminMenuDialog) {
                     h = 0.05 * safezoneH;
                     action = QUOTE(_this call FUNC(uihook_resetSpectateButton));
                 };
+                class ResetMedicalButton: RscButton {
+                    idc = -1;
+                    text = "Reset Medical (Full Heal)";
+                    x = 0.255 * safezoneW;
+                    y = 0.22 * safezoneH;
+                    w = 0.26 * safezoneW;
+                    h = 0.05 * safezoneH;
+                    action = QUOTE(_this call FUNC(uihook_resetMedicalButton));
+                };
                 class ResetMarkersButton: RscButton {
                     idc = -1;
                     text = "Reset Markers";
