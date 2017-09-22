@@ -49,7 +49,7 @@ _lines pushBack format ['#define RIFLE "%1"', GVAR(loadout_rifle)];
 _lines pushBack format ['#define RIFLE_MAG %1', [GVAR(loadout_rifle), GVAR(loadout_rifleMags), 300] call _fnc_getMags];
 _lines pushBack format ['#define RIFLE_ATTACHMENTS %1', [GVAR(loadout_rifleAttachments)] call _fnc_formatList];
 _lines pushBack format ['#define AAR_ATTACHMENTS RIFLE_ATTACHMENTS'];
-_lines pushBack format ['#define ALT_OPTICS "optic_Aco","rhsusf_acc_compm4","rhsusf_acc_eotech_xps3","CUP_optic_CompM2_Black","CUP_optic_TrijiconRx01_black","BWA3_optic_RSAS","RKSL_optic_RMR_MS19"'];
+_lines pushBack format ['#define ALT_OPTICS "optic_Aco","rhsusf_acc_compm4","rhsusf_acc_eotech_xps3","CUP_optic_CompM2_Black","CUP_optic_TrijiconRx01_black","CUP_optic_MRad"'];
 
 _lines pushBack format ["// GL Rifle"];
 _lines pushBack format ['#define GLRIFLE "%1"', GVAR(loadout_glrifle)];
@@ -105,4 +105,3 @@ _lines pushBack format ['#define MAT_OPTIC %1', [GVAR(loadout_matAttachments)] c
 } forEach _lines;
 "ace_clipboard" callExtension "--COMPLETE--";
 systemChat format ["Copied @ %1", CBA_missionTime];
-
