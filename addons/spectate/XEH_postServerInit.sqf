@@ -19,4 +19,8 @@ if (GVAR(enabled)) then {
         },
         [diag_tickTime + 5]
     ] call CBA_fnc_waitUntilAndExecute;
+} else {
+    [{
+        ["potato_adminMsg", ["Warning: Spectate/Respawn Disabled (This should never happen on a BWMF mission)", "Server"]] call CBA_fnc_globalEvent;
+    }, [], 5] call CBA_fnc_waitAndExecute
 };

@@ -32,7 +32,7 @@ INFO_1("Setting omnidirectional for acre post-904",true);
         INFO("Disabled");
         if (isServer) then { // Warn if not enabled
             [{
-                ["potato_adminMsg", ["Warning: Potato Radios Setting Disabled", "Server"]] call CBA_fnc_globalEvent;
+                ["potato_adminMsg", ["Warning: Potato Radios Setting Disabled (This should never happen on a BWMF mission)", "Server"]] call CBA_fnc_globalEvent;
             }, [], 5] call CBA_fnc_waitAndExecute
         };
     };
