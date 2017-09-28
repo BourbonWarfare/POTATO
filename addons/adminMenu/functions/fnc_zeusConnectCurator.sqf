@@ -2,9 +2,10 @@
 #define ZEUS_DC_TIMEOUT 5
 
 params ["_unit", "_giveZeus"];
+TRACE_2("zeusConnectCurator",_unit,_giveZeus);
 
 if (!isServer) exitWith {};
-if (isNull _unit) exitWith {};
+if (isNull _unit) exitWith {WARNING("Unit wasn null");};
 
 private _zeusModule = getAssignedCuratorLogic _unit;
 
@@ -22,6 +23,7 @@ if (_giveZeus) then {
                 if !(isPlayer _assignedUnit) then {
                     _nonPlayerZeuses pushBack _x;
                     unassignCurator _x;
+                    diag_log text format ["[POTATO] Unassigning non-player [%1](%2) from zeus [%3]", _assignedUnit, typeOf _assignedUnit, _x];
                 };
             };
         } forEach allCurators;
