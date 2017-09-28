@@ -2,7 +2,12 @@
 
 if (isServer) then {
     [QGVAR(registerObjects), LINKFUNC(registerObjects)] call CBA_fnc_addEventHandler;
-
+    [QGVAR(addActionToObject_server), {
+        params ["_side", "_object"];
+        TRACE_2("addActionToObject_server",_side,_object);
+        private _jipID = [QGVAR(addActionToObject), _this] call CBA_fnc_globalEventJIP;
+        [_jipID, _object] call CBA_fnc_removeGlobalEventJIP; // idealy this function should be called on the server
+    }] call CBA_fnc_addEventHandler;
 
     // ** Potato specific Events **
     // Can only use fority durring safe start, might make this a setting if people want to build mid-mission
@@ -38,6 +43,7 @@ GVAR(objectRotationZ) = 0;
 [QGVAR(addActionToObject), {
     params ["_side", "_object"];
     TRACE_2("addActionToObject EH",_side,_object);
+    if (isNull _object) exitWith {};
     if (_side isEqualTo side group ace_player) then {
         private _budget = [_side] call FUNC(getBudget);
         private _cost = [_side, typeOf _object] call FUNC(getCost);
