@@ -102,6 +102,7 @@ if (!(_classesNone isEqualTo [])) then {
 private _checkWeapons = [];
 private _checkMagazines = [];
 private _checkMedical = [];
+private _checkDeprecatedGear = [];
 {
     private _unit = _x;
     private _typeOf = toLower typeOf _unit;
@@ -171,7 +172,21 @@ private _checkMedical = [];
             };
         };
     };
+
+    // Check deprecated gear:
+    private _gear = (weapons _unit);
+    _gear append [uniform _unit, vest _unit, backpack _unit];
+    {
+        if ((_x select [0, 5]) == "BWA3_") then {
+            _checkDeprecatedGear pushBackUnique _x;
+        };
+        if ((_x select [0, 6]) == "UK3CB_") then {
+            _checkDeprecatedGear pushBackUnique _x;
+        };
+    } forEach _gear;
+
 } forEach _allUnits;
+
 if (!(_checkWeapons isEqualTo [])) then {
     _problems pushBack ["Units missing weapons", _checkWeapons];
 };
@@ -180,6 +195,9 @@ if (!(_checkMagazines isEqualTo [])) then {
 };
 if (!(_checkMedical isEqualTo [])) then {
     _problems pushBack ["Units missing medical", _checkMedical];
+};
+if (!(_checkDeprecatedGear isEqualTo [])) then {
+    _problems pushBack ["Units using gear from mod we will drop", _checkDeprecatedGear];
 };
 
 
