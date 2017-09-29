@@ -22,13 +22,16 @@ if (!alive _leader) exitWith { TRACE_1("dead leader",_leader); };
 private _vehicle = vehicle _leader;
 
 private _return = if (_vehicle == _leader) then {
-    private _freeSpot = (getPos _leader) findEmptyPosition [1,30];
-
-    if (_freeSpot isEqualTo []) then {
-        "No empty position for teleport"
-    } else {
-        _selectedUnit setVehiclePosition [_freeSpot, [], 0];
+    private _success = _selectedUnit setVehiclePosition [_leader, [], 5];
+    if (_success) then {
         "Teleporting to position"
+    } else {
+        _success = _selectedUnit setVehiclePosition [_leader, [], 15];
+        if (_success) then {
+            "No empty position for teleport"
+        } else {
+            "Teleporting to position"
+        }
     }
 } else {
     private _fullCrewCount = 0;
