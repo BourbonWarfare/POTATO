@@ -19,20 +19,31 @@ private _selectedGroup = GVAR(groupsArray) select _selectedGroupIndex;
 private _leader = leader _selectedGroup;
 if (!alive _leader) exitWith { TRACE_1("dead leader",_leader); };
 
-private _return = "null";
+private _vehicle = vehicle _leader;
 
-if ((vehicle _leader) == _leader) then {
+private _return = if (_vehicle == _leader) then {
     private _freeSpot = (getPos _leader) findEmptyPosition [1,30];
+
     if (_freeSpot isEqualTo []) then {
-        _return = "No empty Pos";
+        "No empty position for teleport"
     } else {
-        _selectedUnit setPos _freeSpot;
-        _return = "Moving to pos";
-    };
+        _selectedUnit setVehiclePosition [_freeSpot, [], 0];
+        "Teleporting to position"
+    }
 } else {
-    [_selectedUnit, (vehicle _leader)] remoteExec ["moveInAny", _selectedUnit];
-    _return = "Moving In Vic (no guarentes)";
+    private _fullCrewCount = 0;
+    private _aliveCrewCount = {
+        _fullCrewCount = _fullCrewCount + 1;
+        private _crewMember = _x select 0;
+        !isNull _crewMember && {alive _crewMember}
+    } count (fullCrew [_vehicle, "", true]);
+
+    if (_fullCrewCount > _aliveCrewCount) then {
+        [_selectedUnit, _vehicle] remoteExec ["moveInAny", _selectedUnit];
+        "Teleporting to vehicle (no guarantees)"
+    } else {
+        "No empty seats for vehicle teleport"
+    }
 };
 
-private _debugMsg = format ["Teleporting %1 to group %2 [%3]", (name _selectedUnit), _selectedGroup, _return];
-["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
+["potato_adminMsg", [format ["Teleporting %1 to group %2 [%3]", name _selectedUnit, _selectedGroup, _return], profileName]] call CBA_fnc_globalEvent;
