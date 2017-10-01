@@ -49,13 +49,6 @@ class CfgWeapons {
             mass = 70;
         };
     };
-    class launch_NLAW_F;
-    class potato_nlaw_dumb: launch_NLAW_F {
-        author = "POTATO";
-        canLock = 0;
-        displayname = "NLAW (Dumb)";
-        scope = 1;
-    };
 
     // Create RPK from CUP RPK-74, just need to fill a gap
     class CUP_arifle_RPK74;

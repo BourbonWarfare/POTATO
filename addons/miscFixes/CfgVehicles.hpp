@@ -1,3 +1,5 @@
+class CBA_Extended_EventHandlers;
+
 class CfgVehicles {
     // Add SMAW box
     class Box_NATO_Support_F;
@@ -46,6 +48,14 @@ class CfgVehicles {
     class rhsusf_RQ11RAVEN_B_STATIC: rq11_base_object { SLX_XEH_DISABLED = 1; }; // @RHSUSAF -> [RQ-11] Raven B (static)
     class ThingX;
     class rhs_2P3_1: ThingX { SLX_XEH_DISABLED = 1; }; // @RHSAFRF -> 2-P-3 (1)
+    
+    class Plane_Base_F;
+    class rhs_mig29s_base: Plane_Base_F {
+        class Eventhandlers {
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
+        };
+    };
+    
     class Logic;
     class CUP_satcom: Logic { SLX_XEH_DISABLED = 1; }; // @CUP_Vehicles -> (CUP) SatCom
     class CUP_crewduke: Logic { SLX_XEH_DISABLED = 1; }; // @CUP_Vehicles -> (CUP) CREW Duke
