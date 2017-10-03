@@ -21,68 +21,78 @@ if (GVAR(usePotato)) then {
     GVAR(prefixes) = [missionConfigFile >> "CfgLoadouts" >> "prefixes"] call CFUNC(getArray);
 
     if (isServer) then {
-        [ // assign gear to man
-            "CAManBase",
-            "initPost",
-            FUNC(assignGearMan),
-            true, // allow inheritence
-            [], // don't exclude classes
-            true // run on existing units (shouldn't be any, but belts/suspenders)
-        ] call CBA_fnc_addClassEventHandler;
-
-        [ // assign gear to car
-            "Car",
-            "initPost",
-            { [_this select 0, "Car"] call FUNC(assignGearVehicle); },
-            true,
-            [],
-            true
-        ] call CBA_fnc_addClassEventHandler;
-
-        [ // assign gear to tank
-            "Tank",
-            "initPost",
-            { [_this select 0, "Tank"] call FUNC(assignGearVehicle); },
-            true,
-            [],
-            true
-        ] call CBA_fnc_addClassEventHandler;
-
-        [ // assign gear to helicopter
-            "Helicopter",
-            "initPost",
-            { [_this select 0, "Helicopter"] call FUNC(assignGearVehicle); },
-            true,
-            ["ace_fastroping_helper", "ACE_friesBase"],
-            true
-        ] call CBA_fnc_addClassEventHandler;
-
-        [ // assign gear to plane
-            "Plane",
-            "initPost",
-            { [_this select 0, "Plane"] call FUNC(assignGearVehicle); },
-            true,
-            [],
-            true
-        ] call CBA_fnc_addClassEventHandler;
-
-        [ // assign gear to ship
-            "Ship_F",
-            "initPost",
-            { [_this select 0, "Ship_F"] call FUNC(assignGearVehicle); },
-            true,
-            [],
-            true
-        ] call CBA_fnc_addClassEventHandler;
-
         if (is3DEN) then {
             diag_log text format ["[POTATO-assignGear] Running assign gear for the 3den entities at load"];
+
+            [ // assign gear to man
+                "CAManBase",
+                "init",
+                FUNC(assignGearMan),
+                true, // allow inheritence
+                [], // don't exclude classes
+                false // don't run on existing units
+            ] call CBA_fnc_addClassEventHandler;
 
             {
                 if (_x isKindOf "CAManBase") then {
                     [_x] call FUNC(assignGearMan);
                 };
             } forEach (all3DENEntities select 0);
+
+        } else {
+            [ // assign gear to man
+                "CAManBase",
+                "initPost",
+                FUNC(assignGearMan),
+                true, // allow inheritence
+                [], // don't exclude classes
+                true // run on existing units (shouldn't be any, but belts/suspenders)
+            ] call CBA_fnc_addClassEventHandler;
+
+            [ // assign gear to car
+                "Car",
+                "initPost",
+                { [_this select 0, "Car"] call FUNC(assignGearVehicle); },
+                true,
+                [],
+                true
+            ] call CBA_fnc_addClassEventHandler;
+
+            [ // assign gear to tank
+                "Tank",
+                "initPost",
+                { [_this select 0, "Tank"] call FUNC(assignGearVehicle); },
+                true,
+                [],
+                true
+            ] call CBA_fnc_addClassEventHandler;
+
+            [ // assign gear to helicopter
+                "Helicopter",
+                "initPost",
+                { [_this select 0, "Helicopter"] call FUNC(assignGearVehicle); },
+                true,
+                ["ace_fastroping_helper", "ACE_friesBase"],
+                true
+            ] call CBA_fnc_addClassEventHandler;
+
+            [ // assign gear to plane
+                "Plane",
+                "initPost",
+                { [_this select 0, "Plane"] call FUNC(assignGearVehicle); },
+                true,
+                [],
+                true
+            ] call CBA_fnc_addClassEventHandler;
+
+            [ // assign gear to ship
+                "Ship_F",
+                "initPost",
+                { [_this select 0, "Ship_F"] call FUNC(assignGearVehicle); },
+                true,
+                [],
+                true
+            ] call CBA_fnc_addClassEventHandler;
         };
     };
 
