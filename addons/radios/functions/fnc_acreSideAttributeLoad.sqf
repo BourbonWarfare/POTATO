@@ -3,7 +3,7 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("params",_this);
+TRACE_1("acreSideAttributeLoad",_this);
 
 params ["_ctrlGroup",["_paramsStrings", [], [[],true]]];
 if (isNil "_ctrlGroup" && !isServer) exitWith { LOG("Skip settings running on clients"); };
