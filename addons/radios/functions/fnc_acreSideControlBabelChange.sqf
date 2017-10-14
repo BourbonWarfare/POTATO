@@ -1,7 +1,7 @@
 /*
  *
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
@@ -24,8 +24,6 @@ private _languages = [];
 
 TRACE_1("selected languages",_languages);
 
-TRACE_4("pre languages",GVAR(westDefaultLanguages),GVAR(eastDefaultLanguages),GVAR(indyDefaultLanguages),GVAR(civDefaultLanguages));
-
 if !(_languages isEqualTo []) then {
     switch (lbcurSel _ctrlSide) do {
         case (0): { GVAR(westDefaultLanguages) = _languages; };
@@ -34,5 +32,3 @@ if !(_languages isEqualTo []) then {
         default { GVAR(civDefaultLanguages) = _languages; };
     };
 };
-
-TRACE_4("post languages",GVAR(westDefaultLanguages),GVAR(eastDefaultLanguages),GVAR(indyDefaultLanguages),GVAR(civDefaultLanguages));
