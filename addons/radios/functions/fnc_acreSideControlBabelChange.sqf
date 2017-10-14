@@ -1,9 +1,13 @@
 /*
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("params",_this);
+
+disableSerialization;
+uiSleep 0.1;
+
 params ["_ctrlBabel","_index"];
 
 private _ctrlGroup = ctrlParentControlsGroup _ctrlBabel;
@@ -18,6 +22,10 @@ private _languages = [];
     _languages pushBack (_ctrlBabel lnbText [_x,0]);
 } forEach _selectedIndices;
 
+TRACE_1("selected languages",_languages);
+
+TRACE_4("pre languages",GVAR(westDefaultLanguages),GVAR(eastDefaultLanguages),GVAR(indyDefaultLanguages),GVAR(civDefaultLanguages));
+
 if !(_languages isEqualTo []) then {
     switch (lbcurSel _ctrlSide) do {
         case (0): { GVAR(westDefaultLanguages) = _languages; };
@@ -26,3 +34,5 @@ if !(_languages isEqualTo []) then {
         default { GVAR(civDefaultLanguages) = _languages; };
     };
 };
+
+TRACE_4("post languages",GVAR(westDefaultLanguages),GVAR(eastDefaultLanguages),GVAR(indyDefaultLanguages),GVAR(civDefaultLanguages));
