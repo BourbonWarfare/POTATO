@@ -55,10 +55,5 @@ class CfgVehicles {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
         };
     };
-    
-    class Logic;
-    class CUP_satcom: Logic { SLX_XEH_DISABLED = 1; }; // @CUP_Vehicles -> (CUP) SatCom
-    class CUP_crewduke: Logic { SLX_XEH_DISABLED = 1; }; // @CUP_Vehicles -> (CUP) CREW Duke
-    class CUP_boomerang: Logic { SLX_XEH_DISABLED = 1; }; // @CUP_Vehicles -> (CUP) Boomerang
 
 };
