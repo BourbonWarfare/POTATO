@@ -21,4 +21,4 @@ if !(isServer) exitWith { _this remoteExecCall [QFUNC(requestPlayerGear), SERVER
 params [["_unit", objNull, [objNull]]];
 
 if (isNull _unit) exitWith { WARNING("Provided unit is null"); };
-[_unit, true] call FUNC(assignGearMan);
+[_unit] call FUNC(assignGearMan);
