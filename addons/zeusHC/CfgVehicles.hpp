@@ -576,10 +576,6 @@ class CfgVehicles {
         displayName = "Heli-Attack (Heavy): AH-64D Apache (CUP)";
         GVAR(createVic) = "CUP_B_AH64D_USA";
     };
-    class GVAR(west_bwa3Tiger): GVAR(west_rifleman) {
-        displayName = "Heli-Attack (Heavy): Tiger (BWA3)";
-        GVAR(createVic) = "BWA3_Tiger_Gunpod_Heavy";
-    };
     class GVAR(west_heliAttack): GVAR(west_rifleman) {
         displayName = "Heli-Attack (Light): AH-9 Littlebird (A3)";
         GVAR(createVic) = "B_Heli_Light_01_armed_F";
@@ -632,14 +628,6 @@ class CfgVehicles {
         displayName = "IFV: M2A2 Bradley (Woodland) (CUP)";
         GVAR(createVic) = "CUP_B_M2Bradley_USA_W";
     };
-    class GVAR(west_bwa3PumaD): GVAR(west_rifleman) {
-        displayName = "IFV: Puma (Desert) (BWA3)";
-        GVAR(createVic) = "BWA3_Puma_Tropen";
-    };
-    class GVAR(west_bwa3PumaW): GVAR(west_rifleman) {
-        displayName = "IFV: Puma (Woodland) (BWA3)";
-        GVAR(createVic) = "BWA3_Puma_Fleck";
-    };
     class GVAR(west_ifvModern): GVAR(west_rifleman) {
         displayName = "IFV: Marshall (A3)";
         GVAR(createVic) = "B_APC_Wheeled_01_cannon_F";
@@ -667,14 +655,6 @@ class CfgVehicles {
     class GVAR(west_cupChallengerW): GVAR(west_rifleman) {
         displayName = "Tank: FV4034 Challenger 2 (Woodland) (CUP)";
         GVAR(createVic) = "CUP_B_Challenger2_Woodland_BAF";
-    };
-    class GVAR(west_bwa3LeopardD): GVAR(west_rifleman) {
-        displayName = "Tank: 2A6M Leopard (Desert) (BWA3)";
-        GVAR(createVic) = "BWA3_Leopard2A6M_Tropen";
-    };
-    class GVAR(west_bwa3LeopardW): GVAR(west_rifleman) {
-        displayName = "Tank: 2A6M Leopard (Woodland) (BWA3)";
-        GVAR(createVic) = "BWA3_Leopard2A6M_Fleck";
     };
     class GVAR(west_tankModern): GVAR(west_rifleman) {
         displayName = "Tank: Merkava TUSK (A3)";

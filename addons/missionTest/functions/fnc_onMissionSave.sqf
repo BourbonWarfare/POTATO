@@ -174,16 +174,15 @@ private _checkDeprecatedGear = [];
     };
 
     // Check deprecated gear:
+    /*
     private _gear = (weapons _unit);
     _gear append [uniform _unit, vest _unit, backpack _unit];
     {
-        if ((_x select [0, 5]) == "BWA3_") then {
-            _checkDeprecatedGear pushBackUnique _x;
-        };
-        if ((_x select [0, 6]) == "UK3CB_") then {
+        if ((_x select [0, 5]) == "XXX_") then {
             _checkDeprecatedGear pushBackUnique _x;
         };
     } forEach _gear;
+    */
 
 } forEach _allUnits;
 
