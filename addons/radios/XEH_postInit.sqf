@@ -1,14 +1,9 @@
 #include "script_component.hpp"
 
-// Remove by october
-INFO_1("Setting omnidirectional for acre post-904",true);
-[true] call acre_api_fnc_ignoreAntennaDirection;
-
-
 // set global settings, see script_component.hpp for default values
 
 ["ace_settingsInitialized", {
-    TRACE_3("",GVAR(enabled),hasInterface,EGVAR(assignGear,usePotato));
+    TRACE_3("", GVAR(enabled), hasInterface, EGVAR(assignGear,usePotato));
 
     if (GVAR(enabled)) then {
         if !(missionNamespace getVariable [QEGVAR(assignGear,usePotato), false]) exitWith {
