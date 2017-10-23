@@ -4,12 +4,13 @@
  *
  * Arguments:
  * 0: Config Path <CONFIG>
+ * 1: Faction (lowercase) <STRING>
  *
  * Return Value:
  * Loadout array (https://community.bistudio.com/wiki/Talk:getUnitLoadout) <ARRAY>
  *
  * Example:
- * [missionConfigFile >> "CfgLoadouts" >> (faction player) >> (typeOf player)] call potato_assignGear_fnc_getLoadoutFromConfig
+ * [missionConfigFile >> "CfgLoadouts" >> (faction player) >> "soldier_UAV_F", "ind_f"] call potato_assignGear_fnc_getLoadoutFromConfig
  *
  * Public: No
  */
@@ -19,8 +20,8 @@
 #define VEST_INDEX 1
 #define BACKPACK_INDEX 2
 
-TRACE_1("params",_this);
-params ["_path"];
+params ["_path", "_faction"];
+TRACE_2("getLoadoutFromConfig",_path,_faction);
 
 private _configUniform = getArray (_path >> "uniform");
 private _configVest = getArray (_path >> "vest");
@@ -36,6 +37,21 @@ private _configLinkedItems = getArray (_path >> "linkedItems");
 private _configAttachments = getArray (_path >> "attachments");
 private _configSecondaryAttachments = getArray (_path >> "secondaryAttachments");
 private _configHandgunAttachments = getArray (_path >> "handgunAttachments");
+
+// Handle side specific UAV loadouts (e.g. give opfor uav a O_UavTerminal)
+if ((configName _path) == "soldier_UAV_F") then { INFO("badbeef");
+    (switch (_faction) do {
+    case ("blu_f"): { ["B_UAV_01_backpack_F", "B_UavTerminal"] };
+    case ("ind_f"): { ["I_UAV_01_backpack_F", "I_UavTerminal"] };
+    default { ["O_UAV_01_backpack_F", "O_UavTerminal"] };
+    }) params [["_sideBackpack", ""], ["_sideTerminal", ""]];
+    _configBackpack = _configBackpack apply {
+        if ((_x select [1]) == "_UAV_01_backpack_F") then {_sideBackpack} else {_x};
+    };
+    _configLinkedItems = _configLinkedItems apply {
+        if ((_x select [1]) == "_UavTerminal") then {_sideTerminal} else {_x};
+    };
+};
 
 private _containersArray = [];
 
