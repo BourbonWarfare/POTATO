@@ -415,12 +415,11 @@ class GVAR(clientRespawn) {
         class CloseText: RscText {
             idc = CLIENT_CLOSE_TEXT_IDC;
             text = "You may close this window post slotting";
-            x = 0.36 * safezoneW + safezoneX;
+            x = 0.38 * safezoneW + safezoneX;
             y = 0.38 * safezoneH + safezoneY;
-            w = 0.115 * safezoneW;
+            w = 0.135 * safezoneW;
             h = 0.025 * safezoneH;
             sizeEx = 0.5 * TEXT_SIZE_FACTOR;
-            style = 1;
         };
         class CloseButton: RscButton {
             idc = CLIENT_CLOSE_BUTTON_IDC;
