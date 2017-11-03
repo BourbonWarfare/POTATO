@@ -2,7 +2,13 @@
 
 if (GVAR(usePotato) && hasInterface) then {
     if (didJIP) then {
-        [FUNC(requestPlayerGear), [player]] call CBA_fnc_execNextFrame;
+        if (time > 0) then {
+            diag_log "[POTATO-assignGear] Ran post start code";
+            [FUNC(requestPlayerGear), [player]] call CBA_fnc_execNextFrame;
+        } else {
+            diag_log "[POTATO-assignGear] Ran pre start code";
+            [{time > 0}, CBA_fnc_execNextFrame, [FUNC(requestPlayerGear), [player]]] call CBA_fnc_waitUntilAndExecute;
+        };
     };
 
     if (GVAR(allowChangeableOptics)) then {
