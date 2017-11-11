@@ -21,25 +21,25 @@ GVAR(addCommonChannelCivMR),GVAR(addCommonChannelCivLR));
 
 private _side = switch (_index) do {
     case (0): {
-        _ctrlGroup setVariable [QGVAR(selectedLanguages), GVAR(westDefaultLanguages)];
+        _ctrlGroup setVariable [QGVAR(selectedLanguages), missionNamespace getVariable [QGVAR(westDefaultLanguages), ["en"]]];
         _ctrlSharedMR lbSetCurSel (parseNumber GVAR(addCommonChannelWestMR));
         _ctrlSharedLR lbSetCurSel (parseNumber GVAR(addCommonChannelWestLR));
         west
     };
     case (1): {
-        _ctrlGroup setVariable [QGVAR(selectedLanguages), GVAR(eastDefaultLanguages)];
+        _ctrlGroup setVariable [QGVAR(selectedLanguages), missionNamespace getVariable [QGVAR(eastDefaultLanguages), ["ru"]]];
         _ctrlSharedMR lbSetCurSel (parseNumber GVAR(addCommonChannelEastMR));
         _ctrlSharedLR lbSetCurSel (parseNumber GVAR(addCommonChannelEastLR));
         east
     };
     case (2): {
-        _ctrlGroup setVariable [QGVAR(selectedLanguages), GVAR(indyDefaultLanguages)];
+        _ctrlGroup setVariable [QGVAR(selectedLanguages), missionNamespace getVariable [QGVAR(indyDefaultLanguages), ["ar"]]];
         _ctrlSharedMR lbSetCurSel (parseNumber GVAR(addCommonChannelIndyMR));
         _ctrlSharedLR lbSetCurSel (parseNumber GVAR(addCommonChannelIndyLR));
         independent
     };
     default {
-        _ctrlGroup setVariable [QGVAR(selectedLanguages), GVAR(civDefaultLanguages)];
+        _ctrlGroup setVariable [QGVAR(selectedLanguages), missionNamespace getVariable [QGVAR(civDefaultLanguages), ["ar"]]];
         _ctrlSharedMR lbSetCurSel (parseNumber GVAR(addCommonChannelCivMR));
         _ctrlSharedLR lbSetCurSel (parseNumber GVAR(addCommonChannelCivLR));
         civilian

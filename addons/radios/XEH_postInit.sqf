@@ -10,6 +10,16 @@
             ERROR("Radios enabled, but gear assign is not running");
         };
 
+        // Error checking that arrays are defined:
+        if ((isNil QGVAR(westDefaultLanguages))
+                || {!(GVAR(westDefaultLanguages) isEqualType [])}
+                || {isNil QGVAR(eastSRChannelNames)}
+                || {!(GVAR(eastSRChannelNames) isEqualType [])}
+                ) then {
+            ERROR_MSG("Potato Arrays Not Loaded");
+        };
+
+
         // Make sure to create presets all machines;    from ACRE API:
         // Warning All presets must exist and match on all clients and especially the server; regardless of where the presets are used.
         // If you create a preset, copy a preset or modify a presets data information; these changes must occur on all clients and the server.

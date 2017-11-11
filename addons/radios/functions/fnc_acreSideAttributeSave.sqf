@@ -3,7 +3,7 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("params",_this);
+TRACE_1("acreSideAttributeSave",_this);
 
 [
     format [

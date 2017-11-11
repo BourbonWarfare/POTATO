@@ -4,6 +4,10 @@
 
 #include "script_component.hpp"
 TRACE_1("params",_this);
+
+disableSerialization;
+uiSleep 0.1;
+
 params ["_ctrlBabel","_index"];
 
 private _ctrlGroup = ctrlParentControlsGroup _ctrlBabel;
@@ -17,6 +21,8 @@ private _languages = [];
 {
     _languages pushBack (_ctrlBabel lnbText [_x,0]);
 } forEach _selectedIndices;
+
+TRACE_1("selected languages",_languages);
 
 if !(_languages isEqualTo []) then {
     switch (lbcurSel _ctrlSide) do {
