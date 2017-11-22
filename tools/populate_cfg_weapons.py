@@ -543,16 +543,19 @@ def read_config(filepath):
 
 @timer
 def main():
-    output_file_name = "cfgWeapons.hpp"
+    output_file_name = "CfgWeapons.hpp"
     path_to_cfg_weapons = os.path.dirname(sys.argv[0])
-    path_to_unpacked_pbos = "E:\Desktop_Files\C++\ARMA_Addons\ARMA2PBOs"
+    path_to_unpacked_pbos = ""
+    path_to_weapons_txt = "weapons.txt"
 
     if len(sys.argv) > 1:
         path_to_unpacked_pbos = sys.argv[1]
     if len(sys.argv) > 2:
-        path_to_cfg_weapons = os.path.dirname(sys.argv[2])
+        path_to_cfg_weapons = sys.argv[2]
     if len(sys.argv) > 3:
-        output_file_name = sys.argv[3]
+        path_to_weapons_txt = sys.argv[3] + '/weapons.txt'
+    if len(sys.argv) > 4:
+        output_file_name = sys.argv[4]
 
     if not path_to_cfg_weapons:
         print("Error: No path to desired cfgWeapons. Current Path Input: " + path_to_cfg_weapons)
@@ -570,7 +573,7 @@ def main():
     disallowed_directories = ["001_Omit", "ca\\", "x\\", "CUP_Weapons_ACE_compat"]
     iterations = 0
 
-    config_file = read_config("weapons.txt")
+    config_file = read_config(path_to_weapons_txt)
 
     f = open(path_to_cfg_weapons, 'a')
     f.close()
