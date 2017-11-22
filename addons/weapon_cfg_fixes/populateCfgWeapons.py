@@ -34,15 +34,15 @@ def timer(func):
 
 
 class ConfigData:
-    aliases = {}
     weapons = {}
+    new_modes = []
 
     def __init__(self):
-        self.aliases = {}
         self.weapons = {}
+        self.new_modes = []
 
-    def add_alias(self, alias_name, alias_index):
-        self.aliases[alias_name] = alias_index
+    def add_mode(self, mode):
+        self.new_modes.append(mode)
 
     def add_weapon(self, weapon, values):
         self.weapons[weapon] = values
@@ -167,7 +167,7 @@ def remove_bad_lines(mode_str):
     for line in mode_list:
         if not ('-1' in line):
             new_mode_list.append(line)
-    if new_mode_list:
+    if len(new_mode_list) > 2:  # class definition start, and end bracket == 2
         return ''.join(new_mode_list)
     else:
         return ""
@@ -194,41 +194,86 @@ def write_modes(weapon, config_str, config_file):
         warnings.append(
             weapon.baseClass + ": " + weapon.inheritClass + " not defined in weapons.txt! Nothing generated")
         return ""
+
     weapon_value_arr = config_file.weapons[weapon.baseClass + ": " + weapon.inheritClass]
-    for mode in weapon.modeArr:
-        mode_type = mode.split(':', 1)[0]
-        weapon_modes_str += '"' + mode_type + '",'
-        if not mode_type.lower() in config_file.aliases:
-            warnings.append(mode_type.lower() + " not a defined alias in weapons.txt")
-            continue
-        mode_alias_index = config_file.aliases[mode_type.lower()]
+    all_new_modes = ""
+    new_modes = ""
+    for mode in config_file.new_modes:
+        mode_name = mode[0]
+        mode_def = mode[1]
+        mode_index = mode[2]
+        if mode_index >= len(weapon_value_arr):
+            break
 
-        if len(weapon_value_arr) <= mode_alias_index:
-            warnings.append("Mode index not avaliable for weapon \"" + weapon.baseClass + "\". Did you miss a bracket?")
-            continue
-        mode_values = weapon_value_arr[mode_alias_index]
+        previous_all_new_mode = all_new_modes
+        all_new_modes += '"' + mode_name.split(':', 1)[0] + '",'
 
-        while len(mode_values) < 9:
-            mode_values.append("-1")
+        mode_data = weapon_value_arr[mode_index]
+        while len(mode_data) < 9:
+            mode_data.append('-1')
 
         mode_str = MODE_TEMPLATE
-        mode_str = mode_str.replace('#Burst', mode_values[0])
-        mode_str = mode_str.replace('#RateOfFire', mode_values[1])
-        mode_str = mode_str.replace('#ROFDist', mode_values[2])
-        mode_str = mode_str.replace('#MinimumRange', mode_values[3])
-        mode_str = mode_str.replace('#MinRangeProb', mode_values[4])
-        mode_str = mode_str.replace('#MediumRange', mode_values[5])
-        mode_str = mode_str.replace('#MidRangeProb', mode_values[6])
-        mode_str = mode_str.replace('#MaximumRange', mode_values[7])
-        mode_str = mode_str.replace('#MaxRangeProb', mode_values[8])
-        mode_str = mode_str.replace('#InheritMode', mode)
+        mode_str = mode_str.replace('#Burst', mode_data[0])
+        mode_str = mode_str.replace('#RateOfFire', mode_data[1])
+        mode_str = mode_str.replace('#ROFDist', mode_data[2])
+        mode_str = mode_str.replace('#MinimumRange', mode_data[3])
+        mode_str = mode_str.replace('#MinRangeProb', mode_data[4])
+        mode_str = mode_str.replace('#MediumRange', mode_data[5])
+        mode_str = mode_str.replace('#MidRangeProb', mode_data[6])
+        mode_str = mode_str.replace('#MaximumRange', mode_data[7])
+        mode_str = mode_str.replace('#MaxRangeProb', mode_data[8])
+        mode_str = mode_str.replace('#InheritMode', mode_name.replace('InheritMode', weapon.modeArr[0].split(':', 1)[0]))
 
         mode_str = remove_bad_lines(mode_str)
+        mode_str_lines = [e + '\n' for e in mode_str.split('\n') if e]
+        if not mode_str:
+            all_new_modes = previous_all_new_mode
+        elif mode_def:
+            mode_def = mode_def.replace('{', '').replace('}', '')
+            mode_def_arr = mode_def.split(';')
+            for definition in mode_def_arr:
+                mode_str_lines.insert(len(mode_str_lines) - 1, '            ' + definition + ';\n')
 
-        weapon_str += mode_str
+        if mode_str:
+            mode_str_lines.insert(len(mode_str_lines) - 1, '            ' + 'showToPlayer=0;\n')
+            mode_str = ''.join(mode_str_lines)
+
+        new_modes += mode_str
+
+    prev_modes = ""
+    if all_new_modes:
+        for mode in weapon.modeArr:
+            mode_type = mode.split(':', 1)[0]
+            weapon_modes_str += '"' + mode_type + '",'
+
+            mode_str = MODE_TEMPLATE
+            mode_str = mode_str.replace('#Burst', '-1')
+            mode_str = mode_str.replace('#RateOfFire', '-1')
+            mode_str = mode_str.replace('#ROFDist', '-1')
+            mode_str = mode_str.replace('#MinimumRange', '-1')
+            mode_str = mode_str.replace('#MinRangeProb', '0')
+            mode_str = mode_str.replace('#MediumRange', '-1')
+            mode_str = mode_str.replace('#MidRangeProb', '0')
+            mode_str = mode_str.replace('#MaximumRange', '-1')
+            mode_str = mode_str.replace('#MaxRangeProb', '0')
+            mode_str = mode_str.replace('#Extra', '-1')
+            mode_str = mode_str.replace('#InheritMode', mode)
+
+            mode_str = remove_bad_lines(mode_str)
+            prev_modes += mode_str
+
+    weapon_str += prev_modes + new_modes
 
     weapon_str = weapon_str.replace('#classname', weapon.baseClass + ': ' + weapon.inheritClass)
-    weapon_str = weapon_str.replace('#Modes', weapon_modes_str[:-1])
+    if not all_new_modes:
+        weapon_modes_str = weapon_modes_str[:-1]
+
+    if not weapon_modes_str:
+        weapon_str_arr = [e + '\n' for e in weapon_str.split('\n') if e]
+        weapon_str_arr.remove(weapon_str_arr[-1])
+        weapon_str = ''.join(weapon_str_arr)
+    else:
+        weapon_str = weapon_str.replace('#Modes', weapon_modes_str + all_new_modes[:-1])
     weapon_str += "    };\n\n"
     return weapon_str
 
@@ -379,29 +424,34 @@ def read_config(filepath):
         READING_VALUES = 0
         READING_WEAPONS = 1
 
+    class ModeReadState(Enum):
+        READING_COMMENT = 0
+        READING_MODE = 1
+        READING_MODE_DEF = 2
+
     config = open(filepath, 'r')
     total_config = ""
     for line in config:
         total_config += line
     config.close()
 
+    mode_str = ""
+    reading_mode_data = False
     count = 0
-    alias_str = ""
-    reading_alias_data = False
     iteration = 0
     for c in total_config:
-        if not reading_alias_data:
-            if c == "(alias)"[count]:
+        if not reading_mode_data:
+            if c == "(modes)"[count]:
                 count += 1
             else:
-                count = 0
-            if count == len("(alias)"):
-                reading_alias_data = True
+                count = 0;
+            if count == len("(modes)"):
+                reading_mode_data = True
         else:
-            if c == '[':
+            if c == '[' or c == '(':
                 break
             else:
-                alias_str += c
+                mode_str += c
         iteration += 1
 
     config_file = ConfigData
@@ -461,35 +511,38 @@ def read_config(filepath):
             if c == '\n':
                 reading_comment = False
 
-    mode_alias = ""
-    index = 0
-    reading_alias = False
-    reading_comment = False
-    for c in alias_str[1:]:
+    index = -1
+    custom_mode = ""
+    custom_mode_def = ""
+    mode_state = ModeReadState.READING_MODE
+    for c in mode_str[1:]:
         if c == '#':
-            reading_comment = True
-        if not reading_comment:
-            if c == ',':
-                config_file.add_alias(config_file, mode_alias.lower(), index)
-                mode_alias = ""
+            mode_state = ModeReadState.READING_COMMENT
+        elif c == '\n':
+            index += 1
+        if mode_state == ModeReadState.READING_MODE:
+            if c == '=':
+                mode_state = ModeReadState.READING_MODE_DEF
             elif c == '\n':
-                config_file.add_alias(config_file, mode_alias.lower(), index)
-                index += 1
-                mode_alias = ""
+                if custom_mode:
+                    config_file.add_mode(config_file, [custom_mode, custom_mode_def, index])
+                custom_mode = ""
+                custom_mode_def = ""
             else:
-                mode_alias += c
-        else:
+                custom_mode += c
+        elif mode_state == ModeReadState.READING_MODE_DEF:
+            if c == '}':
+                mode_state = ModeReadState.READING_MODE
+            custom_mode_def += c
+        elif mode_state == ModeReadState.READING_COMMENT:
             if c == '\n':
-                reading_comment = False
+                mode_state = ModeReadState.READING_MODE
 
     return config_file
 
 
 @timer
 def main():
-    out = open("classnames.txt", 'w')
-    out.close()
-
     output_file_name = "cfgWeapons.hpp"
     path_to_cfg_weapons = os.path.dirname(sys.argv[0])
     path_to_unpacked_pbos = "E:\Desktop_Files\C++\ARMA_Addons\ARMA2PBOs"
@@ -550,4 +603,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-	

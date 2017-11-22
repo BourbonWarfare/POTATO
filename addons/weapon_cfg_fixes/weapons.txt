@@ -1,25 +1,28 @@
-# alias's for all modes a weapon has. A few weird ones because of HLC and RHS
-# index the mode is will correspond to the bracket that represents it
-(alias)
-single,manual,single_close_optics1,single_medium,scar_l_single,scar_h_single,single2
-burst,burst_medium
-FullAuto,fullauto_medium,fullautoslow,fullautofast,scar_l_fullauto,scar_h_fullauto,full
-close,AI_Burst_Close
-short
-medium
-far,AI_far
-MediumOptic,MediumOptics1,MediumOptics2,single_medium_optics1,medium_optic2,single_medium_optics2
-FarOptic,FarOptics1,FarOptics2,single_far_optics1,single_far_optics2,far_optic1,far_optic2
-safe
+# New modes that each weapon will be able to use
+(modes)
+potato_Single: InheritMode
+potato_Burst: InheritMode
+potato_FullAuto: InheritMode
+potato_close: InheritMode
+potato_short: InheritMode
+potato_medium: InheritMode
+potato_far1: InheritMode
+potato_far2: InheritMode
+potato_mediumOptic: InheritMode={requiredOpticType=1}
+potato_farOptic1: InheritMode={requiredOpticType=2}
 
-# Order followed the order that is defined in the 'alias' sectionEach
+# Order followed the order that is defined in the 'modes' section
 # Each array is in the format:
-# {burst,ROF,ROF Distance,minRange,minRangeProb,midRange,midRangeProb,maxRange,maxRangeProb}.
+#	burst
+#	ROF
+#	ROF Distance
+#	minRange,minRangeProb
+#	midRange,midRangeProb
+#	maxRange,maxRangeProb}.
 # All values that are -1 means that they arent added
-# If a mode isnt present on the gun, it will be ignored. If an array is left empty it will not be added if present
-# Base Bracket Layout: {}{}{}{}{}{}{}{}{}
+# If an array is left empty it will not be added if present
 # Individual weapons can have their own definitions provided. Following the same format, put an `=` past the weapon classname and define the modes the weapon has.
-[rifles]={-1,1.0,550,0,0.7,200,0.5,500,0.1}{-1,1.0,200,0,0.8,150,0.7,250,0.1}{-1,0.1,50,0,0.9,60,0.7,120,0.1}{}{}{}{}{-1,2.0,800,0,0.7,200,0.6,650,0.1}{-1,6.0,1100,0,0.4,500,0.8,1100,0.1}{}
+[rifles]={-1,1.0,200,0,0.7,200,0.5,500,0.1}{-1,1.0,200,0,0.8,150,0.7,250,0.1}{-1,0.1,50,0,0.9,60,0.7,120,0.1}{}{}{}{}{}{-1,2.0,800,0,0.7,200,0.6,650,0.1}{-1,2.0,800,0,0.7,200,0.6,650,0.1}
 arifle_Katiba_Base_F: Rifle_Base_F
 mk20_base_F: Rifle_Base_F
 arifle_MX_Base_F: Rifle_Base_F
@@ -89,12 +92,16 @@ CUP_arifle_AK74_GL: CUP_arifle_AK_Base
 CUP_arifle_AKS: CUP_arifle_AKM
 CUP_arifle_Mk17_CQC: CUP_arifle_Mk17_Base
 CUP_arifle_XM8_Railed_Base: Rifle_Base_f
+rhs_weap_kar98k_Base_F: Rifle_Base_F
+rhs_weap_savz58_base: Rifle_Base_F
+rhs_weap_stgw57_base: Rifle_Base_F
+hlc_STGW_base: Rifle_Base_F
 
-[carbines]={-1,1,400,0,0.7,150,0.5,400,0.1}{-1,1,200,0,0.8,100,0.7,200,0.1}{-1,0.1,50,0,0.9,60,0.7,120,0.1}{}{}{}{}{-1,1,500,0,0.7,250,0.5,500,0.1}{-1,6.0,600,0,0.4,300,0.8,600,0.1}{}
+[carbines]={-1,1.0,200,0,0.7,200,0.5,500,0.1}{-1,1.0,200,0,0.8,150,0.7,250,0.1}{-1,0.1,50,0,0.9,60,0.7,120,0.1}{}{}{}{}{}{-1,2.0,800,0,0.7,200,0.6,650,0.1}{-1,2.0,800,0,0.7,200,0.6,650,0.1}
 rhs_weap_aks74u: rhs_weap_aks74
 CUP_arifle_AKS74U: CUP_arifle_AKS_Base
 
-[smg]={}{}{}{}{}{}{}{}{}
+[smg]={-1,1.0,200,0,0.7,75,0.5,150,0.05}{-1,1.0,100,0,0.8,50,0.7,100,0.1}{-1,0.1,50,0,0.9,10,0.7,40,0.1}{}{}{}{}{}{}{}
 pdw2000_base_F: Rifle_Short_Base_F
 SMG_01_Base: Rifle_Short_Base_F
 SMG_02_base_F: Rifle_Short_Base_F
@@ -107,13 +114,9 @@ hlc_smg_mp5k: hlc_smg_mp5k_PDW
 hlc_smg_9mmar: hlc_smg_MP5N
 hlc_smg_mp510: hlc_smg_MP5N
 rhsusf_weap_MP7A1_base_f: SMG_02_base_F
-hlc_STGW_base: Rifle_Base_F
 CUP_smg_MP5A5: CUP_smg_MP5SD6
-rhs_weap_kar98k_Base_F: Rifle_Base_F
-rhs_weap_savz58_base: Rifle_Base_F
-rhs_weap_stgw57_base: Rifle_Base_F
 
-[lmg]={-1,0.1,50,0,0.9,20,0.7,"30+random 20",0.1}{}{-1,0.1,50,0,0.9,60,0.7,120,0.1}{"6+round random 4",1,200,30,0.8,"50+random 50",0.7,"100+random 50",0.1}{"4+round random 6",2,400,50,0.8,"100+random 50",0.7,"300+random 50",0.1}{"4+round random 4",2,600,100,0.8,"300+random 50",0.7,"400+random 50",0.1}{"2+round random 4",3,800,300,0.8,"500+random 50",0.7,"600+random 50",0.1}{"3+random 2",4.5,800,0,0.5,"500+random 50",0.7,"700+random 50",0.4}{"2+random 2",6,1100,0,0.3,"650+random 50",0.7,"1000+random 100",0.3}{}
+[lmg]={-1,0.1,50,0,0.9,20,0.7,"30+random 20",0.1}{}{}{"5+round random 4",1.0,200,30,0.8,"50+random 50",0.7,"100+random 50",0.1}{"4+round random 6",2.0,400,50,0.8,"100+random 50",0.7,"300+random 50",0.1}{"4+round random 4",2.0,600,100,0.8,"300+random 50",0.7,"400+random 50",0.1}{"2+round random 4",3.0,800,300,0.8,"500+random 50",0.7,"600+random 50",0.1}{"8+round random 6",4.0,1000,400,0.8,"700+random 50",0.2,800,0.1}{"2+round random 3",3.0,1000,400,0.8,"700+random 50",0.6,800,0.3}{"2+round random 3",3.0,1000,400,0.3,"700+random 50",0.6,800,0.5}
 LMG_Mk200_F: Rifle_Long_Base_F
 LMG_Zafir_F: Rifle_Long_Base_F
 CUP_arifle_MG36: CUP_arifle_G36C
@@ -130,7 +133,7 @@ CUP_arifle_RPK74: CUP_arifle_AK74
 CUP_arifle_xm8_SAW: CUP_arifle_xm8_sharpshooter
 rhs_weap_saw_base: Rifle_Base_F
 
-[mmg]={-1,0.1,50,0,0.9,20,0.7,"30+random 20",0.1}{-1,0.1,50,0,0.9,60,0.7,120,0.1}{"6+round random 4",1,200,30,0.8,"50+random 50",0.7,"100+random 50",0.1}{"4+round random 6",2,400,50,0.8,"100+random 50",0.7,"300+random 50",0.1}{"4+round random 4",2,600,100,0.8,"300+random 50",0.7,"400+random 50",0.1}{"2+round random 4",3,800,300,0.8,"500+random 50",0.7,"600+random 50",0.1}{}{"3+random 2",4.5,800,0,0.5,"500+random 50",0.7,"700+random 50",0.4}{"2+random 2",6,1100,0,0.3,"650+random 50",0.7,"1000+random 100",0.3}{}
+[mmg]={-1,0.1,50,0,0.9,20,0.7,"30+random 20",0.1}{}{}{"5+round random 4",1.0,200,30,0.8,"50+random 50",0.7,"100+random 50",0.1}{"4+round random 6",2.0,400,50,0.8,"100+random 50",0.7,"300+random 50",0.1}{"4+round random 4",2.0,600,100,0.8,"300+random 50",0.7,"400+random 50",0.1}{"2+round random 4",3.0,800,300,0.8,"500+random 50",0.7,"600+random 50",0.1}{"8+round random 6",4.0,1000,400,0.8,"700+random 50",0.2,800,0.1}{"2+round random 3",3.0,1000,400,0.8,"700+random 50",0.6,800,0.3}{"2+round random 3",3.0,1000,400,0.3,"700+random 50",0.6,800,0.5}
 rhs_weap_m240_base: rhs_weap_M249_base
 MMG_01_base_F: Rifle_Long_Base_F
 MMG_02_base_F: Rifle_Long_Base_F
@@ -143,7 +146,7 @@ CUP_lmg_PKM: Rifle_Long_Base_F
 CUP_lmg_Pecheneg: CUP_lmg_PKM
 rhs_weap_pkm: rhs_weap_pkp
 
-[dmrs]={}{}{}{}{}{}{}{}{}{}
+[dmrs]={-1,1.0,200,0,0.7,200,0.5,500,0.1}{}{}{}{}{}{}{}{}{-1,6.0,1100,0,0.4,500,0.8,1100,0.1}
 rhs_weap_sr25: rhs_weap_m14ebrri
 CUP_arifle_Mk17_Base: CUP_arifle_SCAR_Base
 rhs_weap_svdp: rhs_weap_svd
@@ -165,7 +168,7 @@ rhs_weap_m14ebrri: srifle_EBR_F
 CUP_arifle_xm8_sharpshooter: CUP_arifle_XM8_Base
 rhs_weap_svd: rhs_weap_ak74m
 
-[snipers]={}{}{}{}{}{}{}{}{}{}
+[snipers]={-1,1.0,200,0,0.7,200,0.5,500,0.1}{}{}{}{}{}{}{}{}{-1,10,1500,1,0.4,500,0.8,1800,0.1}
 rhs_weap_M107_Base_F: GM6_base_F
 hlc_rifle_psg1: hlc_g3_base
 rhs_weap_orsis_Base_F: Rifle_Base_F
@@ -188,7 +191,7 @@ CUP_srifle_M40A3: CUP_srifle_M24_des
 rhs_weap_asval: rhs_weap_ak74m
 rhs_weap_vss: rhs_weap_asval
 
-[pistol]={}{}{}{}{}{}{}{}{}{}
+[pistol]={-1,0.6,50,0,0.5,20,0.3,80,0.01}{}{}{}{}{}{}{}{}{}
 CUP_hgun_BallisticShield_Armed: Rifle_Base_F
 CUP_hgun_Glock17: Pistol_Base_F
 hgun_ACPC2_F: Pistol_Base_F
@@ -206,7 +209,7 @@ CUP_hgun_Colt1911: Pistol_Base_F
 CUP_hgun_Compact: Pistol_Base_F
 CUP_hgun_Duty: Pistol_Base_F
 
-[machinepistol]={}{}{}{}{}{}{}{}{}{}
+[machinepistol]={-1,0.6,50,0,0.5,20,0.3,80,0.01}{}{-1,0.4,50,0,0.6,10,0.4,20,0.05}{}{}{}{}{}{}{}
 rhs_weap_savz61: SMG_01_F
 CUP_hgun_SA61: Pistol_Base_F
 CUP_smg_SA61: Rifle_Base_F
@@ -224,14 +227,14 @@ launch_RPG7_F: Launcher_Base_F
 rhs_weap_smaw_sr
 CUP_launch_Mk153Mod0: Launcher_Base_F
 
-[shotguns]={}{}{}{}{}{}{}{}{}{}
+[shotguns]={-1,1,550,0,0.7,60,0.2,120,0.05}{}{}{}{}{}{}{}{}{}
 CUP_sgun_Saiga12K: Rifle_Base_F
-CUP_sgun_AA12: Rifle_Base_F
+CUP_sgun_AA12: Rifle_Base_F={-1,1,550,0,0.7,60,0.2,120,0.05}{}{-1,1,550,0,0.8,40,0.5,60,0.1}{}{}{}{}{}{}{}
 rhs_weap_Izh18: Rifle_Base_F
 CUP_sgun_M1014: Rifle_Base_F
 rhs_weap_M590_5RD: Rifle_Base_F
 
-[omit]={}{}{}{}{}{}{}{}{}{}
+[omit]={}
 RHSUSF_SAFE_BASE: Rifle_Base_F
 SDAR_base_F: Rifle_Base_F
 hgun_Pistol_Signal_F: Pistol_Base_F
