@@ -14,6 +14,8 @@
  * Public: Yes
  */
 #include "script_component.hpp"
+#define LOWEST_BASE_CLASS -2
+
 private _br = toString[13,10];
 private _indent = "    ";
 
@@ -71,6 +73,13 @@ systemChat "Generating...";
             private _prevInherited = [];
             _prevInherited pushBack [_weaponTypeID, _weaponCfg];
             while {count _inherited > 0} do {
+                // If the immediate class above this one does not have any modes defined, that means that it is a base of a base class and we can
+                // ignore it
+                if (getArray(inheritsFrom(_inherited) >> "modes") select 0 == "this" && getArray(_inherited >> "modes") select 0 == "this") exitwith {
+                    // we flag this as the lowest base class
+                    _prevInherited pushBack [LOWEST_BASE_CLASS, _inherited];
+                    true
+                };
                 _procStr = _indent + "Inherited From: " + str(_inherited);
                 diag_log _procStr;
                 _weaponCfg = _inherited;
@@ -111,9 +120,10 @@ private _alreadyDefined = [];
         if (_alreadyDefinedIndex >= 0) then {
             private _weaponStr = "";
             private _weaponClassStr = _indent + "class " + configName(_x select 1) + ": " + configName(inheritsFrom(_x select 1)) + " {";
+            // if the index is -1, it is a base class
             if (_x select 0 < 0) then {
                 // don't define data, just use as a base class
-                if (count configName(inheritsFrom(_x select 1)) <= 0) then {
+                if (count configName(inheritsFrom(_x select 1)) <= 0 || _x select 0 == LOWEST_BASE_CLASS) then {
                     _weaponClassStr = _indent + "class " + configName(_x select 1) + ";";
                     _baseClasses = _baseClasses + _weaponClassStr + _br;
                 } else {
@@ -217,3 +227,4 @@ private _finalStr = "class Mode_FullAuto;" + _br + "class Mode_Burst;" + _br + "
 copyToClipboard _finalStr;
 systemChat "Done Generating CfgWeapons";
 systemChat "Finished";
+
