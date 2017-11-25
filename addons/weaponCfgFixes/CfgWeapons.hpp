@@ -39,13 +39,13 @@ class CfgWeapons {
         };
         class potato_farOptic: Single {
             showToPlayer = 0;
-            aiRateOfFire = 10;
-            aiRateOfFireDistance = 1500;
+            aiRateOfFire = 7;
+            aiRateOfFireDistance = 1800;
             minRange = 1;
             minRangeProbab = 0.4;
             midRange = 500;
             midRangeProbab = 0.8;
-            maxRange = 1800;
+            maxRange = 1500;
             maxRangeProbab = 0.1;
         };
     };
@@ -330,7 +330,7 @@ class CfgWeapons {
         };
     };
     class LMG_Mk200_F: Rifle_Long_Base_F {
-        modes[] = {"manual","Single","close","short","medium","far_optic1","far_optic2","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_close","potato_short","potato_medium","potato_far1","potato_far2","potato_mediumOptic","potato_farOptic"};
+        modes[] = {"manual","Single","close","short","medium","far_optic1","far_optic2","ACE_Burst_far","potato_single","potato_close","potato_short","potato_medium","potato_far1","potato_far2","potato_mediumOptic","potato_farOptic"};
         class manual: Mode_FullAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -452,7 +452,7 @@ class CfgWeapons {
         };
     };
     class LMG_Zafir_F: Rifle_Long_Base_F {
-        modes[] = {"FullAuto","Single","close","short","medium","far_optic1","far_optic2","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_close","potato_short","potato_medium","potato_far1","potato_far2","potato_mediumOptic","potato_farOptic"};
+        modes[] = {"FullAuto","Single","close","short","medium","far_optic1","far_optic2","ACE_Burst_far","potato_single","potato_close","potato_short","potato_medium","potato_far1","potato_far2","potato_mediumOptic","potato_farOptic"};
         class FullAuto: Mode_FullAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -659,7 +659,7 @@ class CfgWeapons {
         };
     };
     class arifle_Katiba_Base_F: Rifle_Base_F {
-        modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_burst","potato_fullAuto","potato_mediumOptic","potato_farOptic"};
+        modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium","ACE_Burst_far","potato_single","potato_burst","potato_fullAuto","potato_mediumOptic","potato_farOptic"};
         class Single: Mode_SemiAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -811,7 +811,7 @@ class CfgWeapons {
         };
     };
     class mk20_base_F: Rifle_Base_F {
-        modes[] = {"Single","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_burst","potato_fullAuto","potato_mediumOptic","potato_farOptic"};
+        modes[] = {"Single","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2","ACE_Burst_far","potato_single","potato_burst","potato_fullAuto","potato_mediumOptic","potato_farOptic"};
         class Single: Mode_SemiAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -963,7 +963,7 @@ class CfgWeapons {
         };
     };
     class arifle_MX_Base_F: Rifle_Base_F {
-        modes[] = {"Single","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_burst","potato_fullAuto","potato_mediumOptic","potato_farOptic"};
+        modes[] = {"Single","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2","ACE_Burst_far","potato_single","potato_burst","potato_fullAuto","potato_mediumOptic","potato_farOptic"};
         class Single: Mode_SemiAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -1377,7 +1377,7 @@ class CfgWeapons {
         };
     };
     class Tavor_base_F: Rifle_Base_F {
-        modes[] = {"Single","FullAuto","single_medium_optics1","single_medium_optics2","fullauto_medium","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_burst","potato_fullAuto","potato_mediumOptic","potato_farOptic"};
+        modes[] = {"Single","FullAuto","single_medium_optics1","single_medium_optics2","fullauto_medium","ACE_Burst_far","potato_single","potato_burst","potato_fullAuto","potato_mediumOptic","potato_farOptic"};
         class Single: Mode_SemiAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -2270,18 +2270,18 @@ class CfgWeapons {
         };
         class potato_farOptic: Single {
             showToPlayer = 0;
-            aiRateOfFire = 10;
-            aiRateOfFireDistance = 1500;
+            aiRateOfFire = 7;
+            aiRateOfFireDistance = 1800;
             minRange = 1;
             minRangeProbab = 0.4;
             midRange = 500;
             midRangeProbab = 0.8;
-            maxRange = 1800;
+            maxRange = 1500;
             maxRangeProbab = 0.1;
         };
     };
     class DMR_03_base_F: Rifle_Long_Base_F {
-        modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_farOptic"};
+        modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium","ACE_Burst_far","potato_single","potato_farOptic"};
         class Single: Mode_SemiAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -2316,13 +2316,13 @@ class CfgWeapons {
         };
         class potato_farOptic: Single {
             showToPlayer = 0;
-            aiRateOfFire = 10;
-            aiRateOfFireDistance = 1500;
+            aiRateOfFire = 7;
+            aiRateOfFireDistance = 1800;
             minRange = 1;
             minRangeProbab = 0.4;
             midRange = 500;
             midRangeProbab = 0.8;
-            maxRange = 1800;
+            maxRange = 1500;
             maxRangeProbab = 0.1;
         };
     };
@@ -2353,18 +2353,18 @@ class CfgWeapons {
         };
         class potato_farOptic: Single {
             showToPlayer = 0;
-            aiRateOfFire = 10;
-            aiRateOfFireDistance = 1500;
+            aiRateOfFire = 7;
+            aiRateOfFireDistance = 1800;
             minRange = 1;
             minRangeProbab = 0.4;
             midRange = 500;
             midRangeProbab = 0.8;
-            maxRange = 1800;
+            maxRange = 1500;
             maxRangeProbab = 0.1;
         };
     };
     class DMR_05_base_F: Rifle_Long_Base_F {
-        modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_farOptic"};
+        modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium","ACE_Burst_far","potato_single","potato_farOptic"};
         class Single: Mode_SemiAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -2399,18 +2399,18 @@ class CfgWeapons {
         };
         class potato_farOptic: Single {
             showToPlayer = 0;
-            aiRateOfFire = 10;
-            aiRateOfFireDistance = 1500;
+            aiRateOfFire = 7;
+            aiRateOfFireDistance = 1800;
             minRange = 1;
             minRangeProbab = 0.4;
             midRange = 500;
             midRangeProbab = 0.8;
-            maxRange = 1800;
+            maxRange = 1500;
             maxRangeProbab = 0.1;
         };
     };
     class DMR_06_base_F: Rifle_Long_Base_F {
-        modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_farOptic"};
+        modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium","ACE_Burst_far","potato_single","potato_farOptic"};
         class Single: Mode_SemiAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -2445,18 +2445,18 @@ class CfgWeapons {
         };
         class potato_farOptic: Single {
             showToPlayer = 0;
-            aiRateOfFire = 10;
-            aiRateOfFireDistance = 1500;
+            aiRateOfFire = 7;
+            aiRateOfFireDistance = 1800;
             minRange = 1;
             minRangeProbab = 0.4;
             midRange = 500;
             midRangeProbab = 0.8;
-            maxRange = 1800;
+            maxRange = 1500;
             maxRangeProbab = 0.1;
         };
     };
     class MMG_01_base_F: Rifle_Long_Base_F {
-        modes[] = {"manual","burst","close","short","medium","far_optic1","far_optic2","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_close","potato_short","potato_medium","potato_far1","potato_far2","potato_mediumOptic","potato_farOptic"};
+        modes[] = {"manual","burst","close","short","medium","far_optic1","far_optic2","ACE_Burst_far","potato_single","potato_close","potato_short","potato_medium","potato_far1","potato_far2","potato_mediumOptic","potato_farOptic"};
         class manual: Mode_FullAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -2578,7 +2578,7 @@ class CfgWeapons {
         };
     };
     class MMG_02_base_F: Rifle_Long_Base_F {
-        modes[] = {"manual","close","short","medium","far_optic1","far_optic2","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","ACE_Burst_far","potato_single","potato_close","potato_short","potato_medium","potato_far1","potato_far2","potato_mediumOptic","potato_farOptic"};
+        modes[] = {"manual","close","short","medium","far_optic1","far_optic2","ACE_Burst_far","potato_single","potato_close","potato_short","potato_medium","potato_far1","potato_far2","potato_mediumOptic","potato_farOptic"};
         class manual: Mode_FullAuto {
             minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;
         };
@@ -7135,13 +7135,13 @@ class CfgWeapons {
         };
         class potato_farOptic: Single {
             showToPlayer = 0;
-            aiRateOfFire = 10;
-            aiRateOfFireDistance = 1500;
+            aiRateOfFire = 7;
+            aiRateOfFireDistance = 1800;
             minRange = 1;
             minRangeProbab = 0.4;
             midRange = 500;
             midRangeProbab = 0.8;
-            maxRange = 1800;
+            maxRange = 1500;
             maxRangeProbab = 0.1;
         };
     };
@@ -7929,13 +7929,13 @@ class CfgWeapons {
         };
         class potato_farOptic: Single {
             showToPlayer = 0;
-            aiRateOfFire = 10;
-            aiRateOfFireDistance = 1500;
+            aiRateOfFire = 7;
+            aiRateOfFireDistance = 1800;
             minRange = 1;
             minRangeProbab = 0.4;
             midRange = 500;
             midRangeProbab = 0.8;
-            maxRange = 1800;
+            maxRange = 1500;
             maxRangeProbab = 0.1;
         };
     };
@@ -11053,13 +11053,13 @@ class CfgWeapons {
         };
         class potato_farOptic: Single {
             showToPlayer = 0;
-            aiRateOfFire = 10;
-            aiRateOfFireDistance = 1500;
+            aiRateOfFire = 7;
+            aiRateOfFireDistance = 1800;
             minRange = 1;
             minRangeProbab = 0.4;
             midRange = 500;
             midRangeProbab = 0.8;
-            maxRange = 1800;
+            maxRange = 1500;
             maxRangeProbab = 0.1;
         };
     };
@@ -12085,13 +12085,13 @@ class CfgWeapons {
         };
         class potato_farOptic: Single {
             showToPlayer = 0;
-            aiRateOfFire = 10;
-            aiRateOfFireDistance = 1500;
+            aiRateOfFire = 7;
+            aiRateOfFireDistance = 1800;
             minRange = 1;
             minRangeProbab = 0.4;
             midRange = 500;
             midRangeProbab = 0.8;
-            maxRange = 1800;
+            maxRange = 1500;
             maxRangeProbab = 0.1;
         };
     };

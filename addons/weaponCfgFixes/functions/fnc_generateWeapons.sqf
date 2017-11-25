@@ -31,7 +31,7 @@ private _customModes = [["potato_single", ""], ["potato_burst", ""], ["potato_fu
 private _rifleData =        [[-1,1.0,200,0,0.7,200,0.5,500,0.1],[-1,1.0,200,0,0.8,150,0.7,250,0.1],[-1,0.1,50,0,0.9,60,0.7,120,0.1],[],[],[],[],[],[-1,2.0,800,0,0.7,200,0.6,650,0.1],[-1,2.0,800,0,0.7,200,0.6,650,0.1]];
 private _shotgunData =      [[-1,1,550,0,0.7,60,0.2,120,0.05],[],[],[],[],[],[],[],[],[]];
 private _machineGunData =   [[-1,0.1,50,0,0.9,20,0.7,"30+random 20",0.1],[],[],["5+round random 4",1.0,200,30,0.8,"50+random 50",0.7,"100+random 50",0.1],["4+round random 6",2.0,400,50,0.8,"100+random 50",0.7,"300+random 50",0.1],["4+round random 4",2.0,600,100,0.8,"300+random 50",0.7,"400+random 50",0.1],["2+round random 4",3.0,800,300,0.8,"500+random 50",0.7,"600+random 50",0.1],["8+round random 6",4.0,1000,400,0.8,"700+random 50",0.2,800,0.1],["2+round random 3",3.0,1000,400,0.8,"700+random 50",0.6,800,0.3],["2+round random 3",3.0,1000,400,0.3,"700+random 50",0.6,800,0.5]];
-private _sniperData =       [[-1,1.0,200,0,0.7,200,0.5,500,0.1],[],[],[],[],[],[],[],[],[-1,10,1500,1,0.4,500,0.8,1800,0.1]];
+private _sniperData =       [[-1,1.0,200,0,0.7,200,0.5,500,0.1],[],[],[],[],[],[],[],[],[-1,7,1800,1,0.4,500,0.8,1500,0.1]];
 private _handgunData =      [[-1,0.6,50,0,0.5,20,0.3,80,0.01],[],[],[],[],[],[],[],[],[]];
 private _smgData =          [[-1,1.0,200,0,0.7,75,0.5,150,0.05],[-1,1.0,100,0,0.8,50,0.7,100,0.1],[-1,0.1,50,0,0.9,10,0.7,40,0.1],[],[],[],[],[],[],[]];
 
@@ -49,6 +49,8 @@ systemChat "Generating...";
 {
     private _weaponCfg = _x;
     private _weapon = toLower configName _weaponCfg;
+    // Because of how ARMA figures out what type of weapon a weapon is, some weapons (i.e rhs_weap_m107 as of 24/11/17) are defined as "rifles" (cursor="arifle")
+    // and as such don't get the proper definitions. Can't figure out better way to determine weapon type so we have to deal with that
     private _weaponType = (_weapon call bis_fnc_itemType);
     private _weaponTypeCategory = _weaponType select 0;
     private _weaponTypeSpecific = _weaponType select 1;
@@ -136,6 +138,7 @@ private _alreadyDefined = [];
                     private _weaponCfg = _x select 1;
                     private _modes = "modes[] = {";
                     private _inheritMode = "";
+                    private _addedModes = [];
                     private _predefinedModes = [];
                     {
                         if (_x find "potato" < 0 && configName(inheritsFrom(_weaponCfg >> _x)) != "") then {
@@ -148,7 +151,11 @@ private _alreadyDefined = [];
                             };
                             private _modeDef = _indent + _indent + _indent + "minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;" + _br;
                             _predefinedModes pushBack [_x, configName(inheritsFrom(_weaponCfg >> _x)), (_modeName + _modeDef + _indent + _indent + "};" + _br)];
-                            _modes = _modes + '"' + _x + '"' + ",";
+                            private _uniqueIndex = _addedModes pushBackUnique _x;
+                            // "Fix" bug where ACE modes would be duplicated endlessly
+                            if (_uniqueIndex >= 0) then {
+                                _modes = _modes + '"' + _x + '"' + ",";
+                            };
                             if (_inheritMode == "") then {
                                 // What all of our modes inherit off of. The first mode defined should be the one that works
                                 _inheritMode = _x;
