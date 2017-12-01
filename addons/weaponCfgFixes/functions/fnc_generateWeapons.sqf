@@ -30,24 +30,20 @@ private _types = [  ["AssaultRifle", "Rifle"],
                     ["Handgun"],
                     ["SubmachineGun"]];
 
-private _customModes = [["potato_single", ""], ["potato_burst", ""], ["potato_fullAuto", ""], ["potato_close", ""], ["potato_short", ""], ["potato_medium", ""], ["potato_far1", ""], ["potato_far2", ""], ["potato_mediumOptic", "requiredOpticType = 1;"], ["potato_farOptic", "requiredOpticType = 2;"]];
-                    
-private _rifleData =        [[-1,1.0,200,0,0.7,200,0.5,500,0.1],[-1,1.0,200,0,0.8,150,0.7,250,0.1],[-1,0.1,50,0,0.9,60,0.7,120,0.1],[],[],[],[],[],[-1,2.0,800,0,0.7,200,0.6,650,0.1],[-1,2.0,800,0,0.7,200,0.6,650,0.1]];
-private _shotgunData =      [[-1,1,550,0,0.7,60,0.2,120,0.05],[],[],[],[],[],[],[],[],[]];
-private _machineGunData =   [[-1,0.1,50,0,0.9,20,0.7,"30+random 20",0.1],[],[],["5+round random 4",1.0,200,30,0.8,"50+random 50",0.7,"100+random 50",0.1],["4+round random 6",2.0,400,50,0.8,"100+random 50",0.7,"300+random 50",0.1],["4+round random 4",2.0,600,100,0.8,"300+random 50",0.7,"400+random 50",0.1],["2+round random 4",3.0,800,300,0.8,"500+random 50",0.7,"600+random 50",0.1],["8+round random 6",4.0,1000,400,0.8,"700+random 50",0.2,800,0.1],["2+round random 3",3.0,1000,400,0.8,"700+random 50",0.6,800,0.3],["2+round random 3",3.0,1000,400,0.3,"700+random 50",0.6,800,0.5]];
-private _sniperData =       [[-1,1.0,200,0,0.7,200,0.5,500,0.1],[],[],[],[],[],[],[],[],[-1,7,1800,1,0.4,500,0.8,1500,0.1]];
-private _handgunData =      [[-1,0.6,50,0,0.5,20,0.3,80,0.01],[],[],[],[],[],[],[],[],[]];
-private _smgData =          [[-1,1.0,200,0,0.7,75,0.5,150,0.05],[-1,1.0,100,0,0.8,50,0.7,100,0.1],[-1,0.1,50,0,0.9,10,0.7,40,0.1],[],[],[],[],[],[],[]];
-
-// parallel array to _types
-private _typeDefines = [_rifleData,
-                        _shotgunData,
-                        _machineGunData,
-                        _sniperData,
-                        _handgunData,
-                        _smgData];
-
 private _allWeapons = [];
+
+private _removeDuplicates = {
+    params["_array"];
+    private _newArray = _array;
+    for "_i" from 0 to (count _array) - 1 do {
+        for "_j" from (_i + 1) to (count _array) - 1 do {
+            if ((_array select _i) == (_array select _j)) exitWith {
+                _newArray deleteAt _i;
+            };
+        };
+    };
+    _newArray
+};
 
 systemChat "Generating...";
 {
@@ -64,9 +60,9 @@ systemChat "Generating...";
     } foreach _types;
     
     private _weaponDefinedConfig = configProperties[_weaponCfg, "isClass _x", false];
-    private _allModes = getArray(_weaponCfg >> "modes");
+    private _allModes = [getArray(_weaponCfg >> "modes")] call _removeDuplicates;
     private _hasDefinedMode = {
-        if (configName(_x) find "potato" < 0 && configName(_x) in _allModes) exitWith {true};
+        if (configName(_x) in _allModes) exitWith {true};
     } foreach _weaponDefinedConfig;
     
     if (!isNil {_hasDefinedMode} && _weaponTypeCategory != "VehicleWeapon" && _weaponTypeID >= 0) then {
@@ -144,9 +140,10 @@ private _alreadyDefined = [];
                     private _inheritMode = "";
                     private _addedModes = [];
                     private _predefinedModes = [];
-                    private _allModes = getArray(_weaponCfg >> "modes");
+                    private _allModes = [getArray(_weaponCfg >> "modes")] call _removeDuplicates;
                     {
                         // if the possible config is in the "muzzles" array, that means we have to ignore it. Muzzles and modes are very similar
+                        // We don't generate any values for a config that has the word "optic" in it, because scopes are harder to generate valeus for and arent used in our sessions
                         if (count getArray(_x >> "sounds") > 0 && !(configName(_x) in _allModes) && !(configName(_x) in getArray(_weaponCfg >> "muzzles"))) then {
                             private _currentTestModeName = configName _x;
                             // narrow-phase checking to ensure that the mode has not already been defined, even if the wrong capitalization
@@ -157,7 +154,7 @@ private _alreadyDefined = [];
                                 _allModes pushBack configName(_x);
                                 // we pushBack the mode so we don't add it to the mode list in the next loop
                                 // We are sure that this works since we check if the configName is in allModes
-                                _addedModes pushBackUnique configName(_x);
+                                _addedModes pushBackUnique (toLower configName(_x));
                                 private _procStr = "Manually Adding '" + configName(_x) + "' to '" + str(_weaponCfg);
                                 systemChat _procStr;
                                 diag_log _procStr;
@@ -166,8 +163,8 @@ private _alreadyDefined = [];
                     } foreach configProperties[_weaponCfg, "isClass _x", false];
                     
                     {
-                        // _x = inherited_classname::modes
-                        if (_x find "potato" < 0 && configName(inheritsFrom(_weaponCfg >> _x)) != "") then {
+                        // _x = inherited_classname::modes (string)
+                        if (configName(inheritsFrom(_weaponCfg >> _x)) != "") then {
                             private _modeClass = INDENT + INDENT + "class " + _x + ": " + configName(inheritsFrom(_weaponCfg >> _x)) + " {" + LINE_BREAK;
                             // if the parent does not have any modes or the only one defined is 'this', that means that
                             // this is inheriting off of another weapon and we have to inherit the previous mode to get
@@ -175,6 +172,7 @@ private _alreadyDefined = [];
                             if (_x in getArray(inheritsFrom(_weaponCfg) >> "modes")) then {
                                 _modeClass = INDENT + INDENT + "class " + _x + ": " + _x + " {" + LINE_BREAK;
                             } else {
+                                // If the mode does not exist in the array, create a new one
                                 private _configClasses = configProperties[inheritsFrom(_weaponCfg), "isClass _x", false];
                                 private _modeName = _x;
                                 {
@@ -184,13 +182,38 @@ private _alreadyDefined = [];
                                     };
                                 } foreach _configClasses;
                             };
-                            private _modeDef = DEFAULT_MODE_VALUES;
-                            _predefinedModes pushBack [_x, configName(inheritsFrom(_weaponCfg >> _x)), (_modeClass + _modeDef + INDENT + INDENT + "};" + LINE_BREAK)];
-                            private _uniqueIndex = _addedModes pushBackUnique _x;
+                            private _modeDef = "";
+                            {
+                                if ((isText _x && getText(_x) != "") || isNumber(_x)) then {
+                                    if (isNumber(_x)) then {
+                                        _modeDef = _modeDef + MODE_DATA(configName(_x) + " = ", getNumber(_x));
+                                    } else {
+                                        _modeDef = _modeDef + MODE_DATA(configName(_x) + " = ", getText(_x));
+                                    };
+                                };
+                            } foreach configProperties[_weaponCfg >> _x,   'configName(_x) == "burst" ||
+                                                                            configName(_x) == "aiRateOfFire" ||
+                                                                            configName(_x) == "aiRateOfFireDistance" ||
+                                                                            configName(_x) == "minRange" ||
+                                                                            configName(_x) == "minRangeProbab" ||
+                                                                            configName(_x) == "midRange" ||
+                                                                            configName(_x) == "midRangeProbab" ||
+                                                                            configName(_x) == "maxRange" ||
+                                                                            configName(_x) == "maxRangeProbab"', true];
+                                                                            
+                            private _uniqueIndex = _addedModes pushBackUnique (toLower _x);
                             // "Fix" bug where ACE modes would be duplicated endlessly
                             if (_uniqueIndex >= 0) then {
                                 _modes = _modes + '"' + _x + '"' + ",";
+                            } else {
+                                _modeDef = LINE_BREAK;
                             };
+                            
+                            if ((toLower _x) find "optic" >= 0) then {
+                                _modeDef = LINE_BREAK;
+                            };
+                            
+                            _predefinedModes pushBack [_x, configName(inheritsFrom(_weaponCfg >> _x)), (_modeClass + _modeDef + INDENT + INDENT + "};" + LINE_BREAK)];
                             if (_inheritMode == "") then {
                                 // What all of our modes inherit off of. The first mode defined should be the one that works
                                 _inheritMode = _x;
@@ -215,46 +238,12 @@ private _alreadyDefined = [];
                     reverse _predefinedModesCorrect;
                     _weaponStr = _weaponStr + (_predefinedModesCorrect joinString "");
                     
-                    private _customModeDat = _typeDefines select (_x select 0);
-                    private _customModeDef = "";
-                    
-                    {
-                        // _x = {burst,rof,rof_dist,minRange,minRangeProb,midRange,midRangeProb,maxRange,maxRangeProb}
-                        private _modeData = _x;
-                        while {count _modeData < 9} do {
-                            _modeData pushBack -1;
-                        };
-                        
-                        private _hasData = {
-                            if (str(_x) != "-1") exitWith { true };
-                        } foreach _modeData;
-
-                        if (!isNil {_hasData}) then {
-                            private _customMode = _customModes select _foreachindex;
-                            _modes = _modes + '"' + (_customMode select 0) + '"' + ",";
-                            
-                            _customModeDef = _customModeDef + INDENT + INDENT + "class " + (_customMode select 0) + ": " + _inheritMode + " {" + LINE_BREAK;
-                            _customModeDef = _customModeDef + INDENT + INDENT + INDENT + "showToPlayer = 0;" + LINE_BREAK;
-                            if (str(_modeData select 0) != "-1") then { _customModeDef = _customModeDef + MODE_DATA("burst = ",                 _modeData select 0); };
-                            if (str(_modeData select 1) != "-1") then { _customModeDef = _customModeDef + MODE_DATA("aiRateOfFire = ",          _modeData select 1); };
-                            if (str(_modeData select 2) != "-1") then { _customModeDef = _customModeDef + MODE_DATA("aiRateOfFireDistance = ",  _modeData select 2); };
-                            if (str(_modeData select 3) != "-1") then { _customModeDef = _customModeDef + MODE_DATA("minRange = ",              _modeData select 3); };
-                            if (str(_modeData select 4) != "-1") then { _customModeDef = _customModeDef + MODE_DATA("minRangeProbab = ",        _modeData select 4); };
-                            if (str(_modeData select 5) != "-1") then { _customModeDef = _customModeDef + MODE_DATA("midRange = ",              _modeData select 5); };
-                            if (str(_modeData select 6) != "-1") then { _customModeDef = _customModeDef + MODE_DATA("midRangeProbab = ",        _modeData select 6); };
-                            if (str(_modeData select 7) != "-1") then { _customModeDef = _customModeDef + MODE_DATA("maxRange = ",              _modeData select 7); };
-                            if (str(_modeData select 8) != "-1") then { _customModeDef = _customModeDef + MODE_DATA("maxRangeProbab = ",        _modeData select 8); };
-                            _customModeDef = _customModeDef + INDENT + INDENT + "};" + LINE_BREAK;
-                        };
-                        
-                    } foreach _customModeDat;
-                    
                     private _modesArr = _modes splitString ",";
                     _modes = _modesArr joinString ",";
                     _modes = INDENT + INDENT + _modes + "};" + LINE_BREAK;
                     
                     _weaponClassStr = _weaponClassStr + LINE_BREAK;
-                    _weaponClasses = _weaponClasses + _weaponClassStr + _modes + _weaponStr + _customModeDef + INDENT + "};" + LINE_BREAK;
+                    _weaponClasses = _weaponClasses + _weaponClassStr + _modes + _weaponStr + INDENT + "};" + LINE_BREAK;
                 } else {
                     // Base class
                     _baseClasses = _baseClasses + _weaponClassStr + "};" + LINE_BREAK;
