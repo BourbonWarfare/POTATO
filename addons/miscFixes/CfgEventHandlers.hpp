@@ -4,9 +4,3 @@ class Extended_PostInit_EventHandlers {
         serverInit = QUOTE(call COMPILE_FILE(XEH_serverPostInit));
     };
 };
-
-class Extended_DisplayUnload_EventHandlers {
-    class RscDisplayCamera {
-        ADDON = QUOTE(showChat true);
-    };
-};
