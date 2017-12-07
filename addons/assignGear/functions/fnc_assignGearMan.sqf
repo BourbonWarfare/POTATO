@@ -45,7 +45,7 @@ private _loadoutArray = GVAR(loadoutCache) getVariable _loadoutKey;
 if (isNil "_loadoutArray") then {
     TRACE_1("compiling new",_loadoutKey);
     BEGIN_COUNTER(getLoadoutFromConfig);
-    _loadoutArray = [_path] call FUNC(getLoadoutFromConfig);
+    _loadoutArray = [_path, _faction] call FUNC(getLoadoutFromConfig);
     END_COUNTER(getLoadoutFromConfig);
     TRACE_1("loadout array: ", _loadoutArray);
     GVAR(loadoutCache) setVariable [_loadoutKey, _loadoutArray];
