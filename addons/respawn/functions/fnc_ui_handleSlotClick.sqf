@@ -25,6 +25,6 @@ if (_spectatorIndex < 0 || count _groupPath != 2) exitWith { LOG("Bad selections
 
 private _spectatorUnit = missionNamespace getVariable [lbData [ADMIN_SPEC_LIST_IDC, _spectatorIndex], objNull];
 
-if (isNil "_spectatorUnit" || {isNull _spectatorUnit} || {!isPlayer _spectatorUnit}) exitWith { LOG("Bad spectator when trying to slot"); };
+// if (isNil "_spectatorUnit" || {isNull _spectatorUnit} || {!isPlayer _spectatorUnit}) exitWith { LOG("Bad spectator when trying to slot"); };
 
 [_spectatorUnit, _groupPath, true] call FUNC(slotUnit);
