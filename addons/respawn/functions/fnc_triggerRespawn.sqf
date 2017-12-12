@@ -30,6 +30,7 @@ params [["_position", [-999, -999], [[]], [2, 3]]];
 _position resize 2;
 
 if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given to trigger respawn script"); };
+private _positionX = _position select 0;
 
 {
     _x params [
@@ -150,7 +151,7 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
                 };
             } forEach _newUnits;
         };
-        _position set [1, (_position select 1) + UNIT_SPACING];
+        _position = [_positionX, (_position select 1) + UNIT_SPACING];
     };
 } forEach GVAR(activeGroups);
 
