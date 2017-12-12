@@ -123,8 +123,7 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
                     [
                         {
                             private _unit = _this deleteAt 13;
-                            // if (isNull _unit || {!isPlayer _unit}) exitWith {}; // should only happen on DC/deletion
-                            if (isNull _unit) exitWith {};
+                            if (isNull _unit || {!isPlayer _unit}) exitWith {}; // should only happen on DC/deletion
                             _this remoteExecCall [QFUNC(respawnClient), _unit];
                         },
                         [
