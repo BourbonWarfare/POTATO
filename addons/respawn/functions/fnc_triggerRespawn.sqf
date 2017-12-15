@@ -15,7 +15,8 @@
  */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
-#define UNIT_SPACING 5
+#define UNIT_DELAY 1
+#define UNIT_SPACING 4
 TRACE_1("params",_this);
 
 // if we're not on the server, pass to the server
@@ -29,6 +30,7 @@ params [["_position", [-999, -999], [[]], [2, 3]]];
 _position resize 2;
 
 if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given to trigger respawn script"); };
+private _positionX = _position select 0;
 
 {
     _x params [
@@ -100,6 +102,7 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
 
             _newRespawnGroup setGroupIdGlobal [format ["RG %1: %2 %3%4", GVAR(groupCount), _callsignPrefix, _markerPrefix, _markerText]];
             GVAR(groupCount) = GVAR(groupCount) + 1;
+            private _delay = 0;
 
             {
                 private _unit = _x select 3;
@@ -119,26 +122,36 @@ if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given t
                     ];
 
                     [
-                        _newRespawnGroup,
-                        format ["%1%2", _factionPrefix, _unitType],
-                        _position,
-                        _colorTeamArray select _unitColorTeamIndex,
-                        _unitRank,
-                        _isUnitLeader,
-                        _srChannel,
-                        _mrChannel,
-                        _lrChannel,
-                        format ["%1%2", _markerPrefix, _unitMarkerText],
-                        [_unitMarkerColor, _markerColor] select (_unitMarkerColor isEqualTo [0,0,0,0]),
-                        _unitMarkerTexture,
-                        _unitMarkerSize
-                    ] remoteExecCall [QFUNC(respawnClient), _unit];
+                        {
+                            private _unit = _this deleteAt 13;
+                            if (isNull _unit || {!isPlayer _unit}) exitWith {}; // should only happen on DC/deletion
+                            _this remoteExecCall [QFUNC(respawnClient), _unit];
+                        },
+                        [
+                            _newRespawnGroup,
+                            format ["%1%2", _factionPrefix, _unitType],
+                            +_position,
+                            _colorTeamArray select _unitColorTeamIndex,
+                            _unitRank,
+                            _isUnitLeader,
+                            _srChannel,
+                            _mrChannel,
+                            _lrChannel,
+                            format ["%1%2", _markerPrefix, _unitMarkerText],
+                            [_unitMarkerColor, _markerColor] select (_unitMarkerColor isEqualTo [0,0,0,0]),
+                            _unitMarkerTexture,
+                            _unitMarkerSize,
+                            _unit
+                        ],
+                        _delay
+                    ] call CBA_fnc_waitAndExecute;
 
                     _position set [0, (_position select 0) + UNIT_SPACING];
+                    _delay = _delay + UNIT_DELAY;
                 };
             } forEach _newUnits;
         };
-        _position set [1, (_position select 1) + UNIT_SPACING];
+        _position = [_positionX, (_position select 1) + UNIT_SPACING];
     };
 } forEach GVAR(activeGroups);
 
