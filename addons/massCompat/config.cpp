@@ -19,7 +19,7 @@ class CfgPatches {
             "CUP_Weapons_MP5", "CUP_Weapons_L129", "CUP_Weapons_M14",
             "CUP_Weapons_M14_DMR", "CUP_Weapons_Mk48", "CUP_Weapons_AWM",
             "CUP_Weapons_M107", "CUP_Weapons_M24", "CUP_Weapons_SVD",
-            "hlcweapons_mp5", "hlcweapons_core"
+            "hlcweapons_mp5", "hlcweapons_core", "hlcweapons_G36"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};

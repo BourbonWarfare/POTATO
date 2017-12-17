@@ -17,7 +17,8 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "potato_core", "mbg_celle2", "ace_ui",
-            "rhs_c_weapons", "rhsusf_c_weapons", "CUP_Weapons_AK"
+            "rhs_c_weapons", "rhsusf_c_weapons",
+            "CUP_Weapons_AK", "hlcweapons_G36"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};
