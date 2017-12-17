@@ -50,6 +50,30 @@ class CfgWeapons {
         };
     };
 
+    // add zeroing to iron sighted G36es
+    class hlc_rifle_G36E1;
+    class hlc_rifle_G36V : hlc_rifle_G36E1 {
+        class OpticsModes {
+            class Kolimator {
+                distancezoommax = 100;
+                distancezoommin = 500;
+                discreteDistance[] = {100, 200, 300, 400, 500};
+                discreteDistanceInitIndex = 1;
+            };
+        };
+    };
+    class hlc_rifle_G36KE1;
+    class hlc_rifle_G36KV : hlc_rifle_G36KE1 {
+        class OpticsModes {
+            class Kolimator {
+                distancezoommax = 100;
+                distancezoommin = 500;
+                discreteDistance[] = {100, 200, 300, 400, 500};
+                discreteDistanceInitIndex = 1;
+            };
+        };
+    };
+
     // Create RPK from CUP RPK-74, just need to fill a gap
     class CUP_arifle_RPK74;
     class potato_arifle_RPK: CUP_arifle_RPK74 {
