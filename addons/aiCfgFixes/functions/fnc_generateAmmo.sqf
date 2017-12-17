@@ -31,10 +31,9 @@ private _baseClasses = [];
         private _prevInherited = [];
         _prevInherited pushBack [_x, inheritsFrom(_x)];
         while {count _inherited > 0} do {
-            if (inheritsFrom(_inherited) isEqualTo "") exitWith {
+            if (configName(inheritsFrom(_inherited)) isEqualTo "") then {
                 _baseClasses pushBackUnique _inherited;
-                true
-            }
+            };
             _prevInherited pushBack [_inherited, inheritsFrom(_inherited)];
             _inherited = inheritsFrom(_inherited);
         };
@@ -70,8 +69,7 @@ private _finalStr = "class CfgAmmo {" + LINE_BREAK;
     // _x = ammo_config
     if (!(configName(_x) isEqualTo "")) then {
         if (configName(inheritsFrom(_x)) isEqualTo "") then {
-            _finalStr = _finalStr + INDENT + "class " + configName(_x) + ";" + LINE_BREAK;
-            systemChat "Never Encounter This";
+            // nothing
         } else {
             private _inherit = ": " + configName(inheritsFrom(_x));
             private _classText = INDENT + "class " + configName(_x) + _inherit + " {" + LINE_BREAK;
