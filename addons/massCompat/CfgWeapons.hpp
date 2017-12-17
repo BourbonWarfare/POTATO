@@ -418,10 +418,10 @@ class CfgWeapons {
     class hlc_rifle_G36A1AG36: hlc_rifle_G36A1 {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36A1AG36_CMAG);
     };
-    class hlc_rifle_G36E1AG36 : hlc_rifle_G36A1AG36 {
+    class hlc_rifle_G36E1AG36: hlc_rifle_G36A1AG36 {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36E1AG36_CMAG);
     };
-    class hlc_rifle_G36E1AG36_Romi : hlc_rifle_G36E1AG36 {
+    class hlc_rifle_G36E1AG36_Romi: hlc_rifle_G36E1AG36 {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36E1AG36_Romi_CMAG);
     };
     class hlc_rifle_G36KA1: hlc_rifle_G36A1 {
@@ -433,7 +433,7 @@ class CfgWeapons {
     class hlc_rifle_G36E1: hlc_rifle_g36A1 {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36E1_CMAG);
     };
-    class hlc_rifle_G36V : hlc_rifle_G36E1 {
+    class hlc_rifle_G36V: hlc_rifle_G36E1 {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36V_CMAG);
     };
     class hlc_rifle_G36VAG36: hlc_rifle_G36V {
@@ -460,7 +460,7 @@ class CfgWeapons {
     class hlc_rifle_G36KA1KSK: hlc_rifle_G36KV {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36KA1KSK_CMAG);
     };
-    class HLC_Rifle_G36KSKAG36 : hlc_rifle_G36KA1KSK {
+    class HLC_Rifle_G36KSKAG36: hlc_rifle_G36KA1KSK {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36KSKAG36_CMAG);
     };
     class CUP_arifle_XM8_Base: Rifle_Base_f {

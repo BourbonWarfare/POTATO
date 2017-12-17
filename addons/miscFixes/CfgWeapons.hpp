@@ -58,7 +58,7 @@ class CfgWeapons {
                 distancezoommax = 100;
                 distancezoommin = 500;
                 discreteDistance[] = {100, 200, 300, 400, 500};
-                discreteDistanceInitIndex = 1
+                discreteDistanceInitIndex = 1;
             };
         };
     };
@@ -69,7 +69,7 @@ class CfgWeapons {
                 distancezoommax = 100;
                 distancezoommin = 500;
                 discreteDistance[] = {100, 200, 300, 400, 500};
-                discreteDistanceInitIndex = 1
+                discreteDistanceInitIndex = 1;
             };
         };
     };
