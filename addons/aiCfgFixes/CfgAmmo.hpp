@@ -396,6 +396,8 @@ class CfgAmmo {
     class SubmunitionBullet: SubmunitionBase {
     };
     class RocketBase: RocketCore {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
     class rhs_ammo_maaws_ILLUM: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
@@ -442,6 +444,14 @@ class CfgAmmo {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
+    class CUP_R_SMAW_HEDP: RocketBase {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class CUP_R_SMAW_HEDP_N: RocketBase {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
     class CUP_R_M136_AT: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
@@ -473,6 +483,8 @@ class CfgAmmo {
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
     class MissileBase: MissileCore {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
     class rhs_ammo_M_fgm148_AT: MissileBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
