@@ -1,20 +1,16 @@
 class CfgAmmo {
     class Default;
     class ShellCore: Default {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+        audibleFire = 16;
     };
     class BulletCore: Default {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+        audibleFire = 16;
     };
     class SubmunitionCore: Default {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+        audibleFire = 16;
     };
     class RocketCore: Default {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+        audibleFire = 32;
     };
     class MissileCore: Default {
         audibleFire = 32;
@@ -32,12 +28,10 @@ class CfgAmmo {
         audibleFire = 0;
     };
     class ShotDeployCore: Default {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+        audibleFire = 16;
     };
     class ShotgunCore: Default {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+        audibleFire = 16;
     };
     class ShellBase: ShellCore {
         audibleFire = AI_AUDIBLE_FIRE_0;
@@ -423,16 +417,16 @@ class CfgAmmo {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
-    class rhs_ammo_smaw_HEAA : RocketBase {
-		audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_ammo_smaw_HEDP : RocketBase {
-		audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
     class rhs_ammo_smaw_SR: RocketBase {
         audibleFire = 3;
+    };
+    class rhs_ammo_smaw_HEDP: RocketBase {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class rhs_ammo_smaw_HEAA: RocketBase {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
     class rhs_ammo_M136_rocket: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
