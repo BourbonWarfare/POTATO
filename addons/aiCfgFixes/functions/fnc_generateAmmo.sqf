@@ -14,10 +14,6 @@
  * Public: Yes
  */
 #include "script_component.hpp"
-#define LOWEST_BASE_CLASS -2
-
-#define CFG_WEAPONS_HEADER "class Mode_FullAuto;" + LINE_BREAK + "class Mode_Burst;" + LINE_BREAK + "class Mode_SemiAuto;" + LINE_BREAK + "class CfgWeapons {" + LINE_BREAK
-#define DEFAULT_MODE_VALUES INDENT + INDENT + INDENT + "minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;" + LINE_BREAK
 #define SEARCH_CONFIG "configName(_x) isEqualTo 'audibleFire'"
 
 systemChat "Generating...";
