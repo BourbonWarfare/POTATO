@@ -73,9 +73,16 @@ private _finalStr = "class CfgAmmo {" + LINE_BREAK;
         } else {
             private _inherit = ": " + configName(inheritsFrom(_x));
             private _classText = INDENT + "class " + configName(_x) + _inherit + " {" + LINE_BREAK;
+            private _currentAmmo = _x;
             {
-                _classText = _classText + CFG_CLASS_DATA(configName(_x), getNumber(_x));
-            } forEach configProperties[_x, SEARCH_CONFIG, true];
+                if (count configProperties[_currentAmmo, "configName(_x) isEqualTo 'potato_aiCfgFixes_macroUsed'", false] <= 0) then {
+                    _classText = _classText + CFG_CLASS_DATA(configName(_x), str(getNumber(_x)));
+                } else {
+                    private _macro = getText(configProperties[_currentAmmo, "configName(_x) isEqualTo 'potato_aiCfgFixes_macroUsed'", false] select 0);
+                    _classText = _classText + CFG_CLASS_DATA(configName(_x), _macro);
+                    _classText = _classText + CFG_CLASS_DATA("GVAR(macroUsed)", str(_macro));
+                };
+            } forEach configProperties[_x, SEARCH_CONFIG, false];
             _finalStr = _finalStr + _classText + INDENT + "};" + LINE_BREAK;
         };
     };

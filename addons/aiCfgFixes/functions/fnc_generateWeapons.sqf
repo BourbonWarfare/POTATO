@@ -182,9 +182,9 @@ private _alreadyDefined = [];
                             {
                                 if ((isText _x && getText(_x) != "") || isNumber(_x)) then {
                                     if (isNumber(_x)) then {
-                                        _modeDef = _modeDef + CFG_CLASS_DATA(INDENT + configName(_x), getNumber(_x));
+                                        _modeDef = _modeDef + CFG_CLASS_DATA(INDENT + configName(_x), str(getNumber(_x)));
                                     } else {
-                                        _modeDef = _modeDef + CFG_CLASS_DATA(INDENT + configName(_x), getText(_x));
+                                        _modeDef = _modeDef + CFG_CLASS_DATA(INDENT + configName(_x), str(getText(_x)));
                                     };
                                 };
                             } foreach configProperties[_weaponCfg >> _x,   'configName(_x) == "burst" ||
