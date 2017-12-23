@@ -168,10 +168,4 @@ if (_key == DIK_F1) exitWith {
     true
 };
 
-// handle spectate headset down
-if ([_key, _this select [2, 3]] isEqualTo ((["ACRE2", "HeadSet"] call CBA_fnc_getKeybind) select 5)) exitWith {
-    [] call acre_sys_core_fnc_toggleHeadset;
-    true
-};
-
 false // default to unhandled

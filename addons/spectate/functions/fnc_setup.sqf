@@ -31,6 +31,9 @@ GVAR(running) = true;
 // create spectator display
 MAIN_DISPLAY createDisplay QGVAR(overlay);
 
+// add ACRE passthrough to display
+[OVERLAY] call acre_api_fnc_addDisplayPassthroughKeys;
+
 // hide elements
 COMPASS ctrlShow false;
 MAP_DISPLAY ctrlShow false;
