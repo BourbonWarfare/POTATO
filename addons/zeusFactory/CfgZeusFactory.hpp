@@ -123,10 +123,6 @@ class CfgZeusFactory {
         "rhs_bmp2_msv", // BMP 2M IFV
         "rhs_bmp3_msv", // BMP 3 IFV
 
-        // BWA3
-        "BWA3_Puma_Fleck", // Woodland Puma IFV
-        "BWA3_Puma_Tropen", // Desert Puma IFV
-
         // CUP APCs
         "CUP_B_M1126_ICV_M2_Woodland", // Woodland Styker HMG
         "CUP_B_M1126_ICV_M2_Desert", // Desert Styker HMG

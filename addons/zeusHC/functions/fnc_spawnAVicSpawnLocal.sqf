@@ -37,6 +37,8 @@ private _vehicle = switch (tolower _simulation) do {
     };
 };
 
+[_vehicle] call EFUNC(core,addToCurator);
+
 // only dismount via scripting/zeus
 _vehicle setUnloadInCombat [false, false];
 

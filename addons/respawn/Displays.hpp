@@ -412,13 +412,37 @@ class GVAR(clientRespawn) {
     };
 
     class Controls {
+        class CloseText: RscText {
+            idc = CLIENT_CLOSE_TEXT_IDC;
+            text = "You may close this window post slotting";
+            x = 0.38 * safezoneW + safezoneX;
+            y = 0.38 * safezoneH + safezoneY;
+            w = 0.135 * safezoneW;
+            h = 0.025 * safezoneH;
+            sizeEx = 0.5 * TEXT_SIZE_FACTOR;
+        };
+        class CloseButton: RscButton {
+            idc = CLIENT_CLOSE_BUTTON_IDC;
+            onButtonClick = QUOTE([] call FUNC(closeClientRespawn));
+            text = "x";
+            x = 0.595 * safezoneW + safezoneX;
+            y = 0.36 * safezoneH + safezoneY;
+            w = 0.01 * safezoneW;
+            h = 0.015 * safezoneH;
+            colorFocused[] = {COLOR_RED_ACTIVE};
+            colorBackground[] = {COLOR_RED_INACTIVE};
+            colorBackgroundActive[] = {COLOR_RED_ACTIVE};
+            colorBackgroundDisabled[] = {COLOR_BLACK};
+            tooltip = "Close";
+            sizeEx = 0.4 * TEXT_SIZE_FACTOR;
+        };
         class GroupTree: RscTree {
             idc = GROUP_TREE_IDC;
             onTreeDblClick = QUOTE(_this call FUNC(ui_handleClientSlotClick));
             x = 0.38 * safezoneW + safezoneX;
-            y = 0.385 * safezoneH + safezoneY;
+            y = 0.405 * safezoneH + safezoneY;
             w = 0.215 * safezoneW;
-            h = 0.24 * safezoneH;
+            h = 0.23 * safezoneH;
             multiselectEnabled = 0;
             colorBorder[] = {COLOR_EMPTY};
             colorBackground[] = {COLOR_BLACK};

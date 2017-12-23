@@ -92,4 +92,15 @@ if (((count _configItems) + (count _configBackpackItems) + (count _configMagazin
 TRACE_1("Adding Items End: ",_containersArray);
 
 // return array, to spec of https://community.bistudio.com/wiki/Talk:getUnitLoadout
-[_primaryWeaponArray, _launcherWeaponArray, _handgunWeaponArray, (_containersArray select UNIFORM_INDEX) select 1, (_containersArray select VEST_INDEX) select 1, (_containersArray select BACKPACK_INDEX) select 1, _headgear, "", _binocularArray, _assignedItems]
+[
+    _primaryWeaponArray,
+    _launcherWeaponArray,
+    _handgunWeaponArray,
+    (_containersArray select UNIFORM_INDEX) select 1,
+    (_containersArray select VEST_INDEX) select 1,
+    (_containersArray select BACKPACK_INDEX) select 1,
+    _headgear,
+    "",
+    _binocularArray,
+    _assignedItems
+]

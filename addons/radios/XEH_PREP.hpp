@@ -1,4 +1,4 @@
-TRACE_1("",QUOTE(ADDON));
+LOG(QUOTE(ADDON));
 
 // radio config
 PREP(setChannel);
@@ -10,7 +10,6 @@ PREP(reinitializeRadios);
 PREP(setupPlayer);
 
 // 3den global mission config
-PREP(acreGlobalTIChange);
 PREP(acreGlobalControlLoad);
 PREP(acreGlobalAttributeLoad);
 PREP(acreGlobalAttributeSave);

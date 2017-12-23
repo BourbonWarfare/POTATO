@@ -20,7 +20,6 @@
 "30Rnd_9x21_Mag_SMG_02_Tracer_Yellow", \
 "30Rnd_9x21_Mag_SMG_02_Tracer_Green", \
 "ACE_30Rnd_9x19_mag", \
-"UK3CB_BAF_9_30Rnd", \
 "CUP_30Rnd_9x19_MP5", \
 "hlc_30Rnd_9x19_B_MP5", \
 "hlc_30Rnd_9x19_GD_MP5", \
@@ -45,9 +44,6 @@
 "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green", \
 "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow", \
 "rhs_mag_30Rnd_556x45_M200_Stanag", \
-"UK3CB_BAF_556_30Rnd", \
-"UK3CB_BAF_556_30Rnd_T", \
-"UK3CB_BAF_556_30Rnd_Blank", \
 "CUP_20Rnd_556x45_Stanag", \
 "CUP_30Rnd_556x45_Stanag", \
 "hlc_30rnd_556x45_EPR", \
@@ -70,14 +66,6 @@
 "rhsusf_100Rnd_556x45_soft_pouch", \
 "rhsusf_200Rnd_556x45_soft_pouch", \
 "rhsusf_100Rnd_556x45_M200_soft_pouch", \
-"BWA3_200Rnd_556x45", \
-"BWA3_200Rnd_556x45_Tracer", \
-"UK3CB_BAF_556_100Rnd", \
-"UK3CB_BAF_556_100Rnd_T", \
-"UK3CB_BAF_556_100Rnd_Blank", \
-"UK3CB_BAF_556_200Rnd", \
-"UK3CB_BAF_556_200Rnd_Blank", \
-"UK3CB_BAF_556_200Rnd_T", \
 "CUP_200Rnd_TE4_Red_Tracer_556x45_M249", \
 "CUP_200Rnd_TE4_Yellow_Tracer_556x45_M249", \
 "CUP_200Rnd_TE4_Green_Tracer_556x45_M249", \
@@ -90,13 +78,6 @@
 "CUP_200Rnd_TE4_Yellow_Tracer_556x45_L110A1"
 
 #define NATO_PMAG_556 \
-"BWA3_30Rnd_556x45_G36", \
-"BWA3_30Rnd_556x45_G36_Tracer", \
-"BWA3_30Rnd_556x45_G36_Tracer_Dim", \
-"BWA3_30Rnd_556x45_G36_SD", \
-"BWA3_30Rnd_556x45_G36_AP", \
-"BWA3_100Rnd_556x45_G36", \
-"BWA3_100Rnd_556x45_G36_Tracer", \
 "CUP_30Rnd_556x45_G36", \
 "CUP_30Rnd_TE1_Red_Tracer_556x45_G36", \
 "CUP_30Rnd_TE1_Green_Tracer_556x45_G36", \
@@ -104,7 +85,25 @@
 "CUP_100Rnd_556x45_BetaCMag", \
 "CUP_100Rnd_TE1_Red_Tracer_556x45_BetaCMag", \
 "CUP_100Rnd_TE1_Green_Tracer_556x45_BetaCMag", \
-"CUP_100Rnd_TE1_Yellow_Tracer_556x45_BetaCMag"
+"CUP_100Rnd_TE1_Yellow_Tracer_556x45_BetaCMag", \
+"hlc_30rnd_556x45_S", \
+"hlc_30rnd_556x45_Tracers_G36", \
+"hlc_30rnd_556x45_TDIM_G36", \
+"hlc_30rnd_556x45_MDIM_G36", \
+"hlc_30rnd_556x45_EPR_G36", \
+"hlc_30rnd_556x45_SOST_G36", \
+"hlc_30rnd_556x45_SPR_G36", \
+"hlc_100rnd_556x45_EPR_G36", \
+"hlc_100rnd_556x45_M_G36", \
+"hlc_100rnd_556x45_Mdim_G36"
+
+#define HLC_G36_SWITCH_CLASS(CMAG_GUN) \
+class nia_magSwitch { \
+    CUP_100Rnd_556x45_BetaCMag = QUOTE(CMAG_GUN); \
+    CUP_100Rnd_TE1_Red_Tracer_556x45_BetaCMag =  QUOTE(CMAG_GUN); \
+    CUP_100Rnd_TE1_Green_Tracer_556x45_BetaCMag = QUOTE(CMAG_GUN); \
+    CUP_100Rnd_TE1_Yellow_Tracer_556x45_BetaCMag = QUOTE(CMAG_GUN); \
+}
 
 #define NATO_LMG_65 \
 "200Rnd_65x39_cased_Box", \
@@ -135,9 +134,6 @@
 "rhsusf_20Rnd_762x51_m118_special_Mag", \
 "rhsusf_20Rnd_762x51_m993_Mag", \
 "rhsusf_20Rnd_762x51_m62_Mag", \
-"UK3CB_BAF_762_20Rnd", \
-"UK3CB_BAF_762_20Rnd_T", \
-"UK3CB_BAF_762_20Rnd_Blank", \
 "CUP_20Rnd_762x51_DMR", \
 "CUP_20Rnd_TE1_Yellow_Tracer_762x51_DMR", \
 "CUP_20Rnd_TE1_Red_Tracer_762x51_DMR", \
@@ -159,14 +155,6 @@
 "rhsusf_100Rnd_762x51_m82_blank", \
 "rhsusf_50Rnd_762x51_m993", \
 "rhsusf_100Rnd_762x51_m993", \
-"BWA3_120Rnd_762x51", \
-"BWA3_120Rnd_762x51_Tracer", \
-"UK3CB_BAF_762_100Rnd", \
-"UK3CB_BAF_762_100Rnd_T", \
-"UK3CB_BAF_762_100Rnd_Blank", \
-"UK3CB_BAF_762_200Rnd", \
-"UK3CB_BAF_762_200Rnd_T", \
-"UK3CB_BAF_762_200Rnd_Blank", \
 "CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M", \
 "CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M", \
 "hlc_100Rnd_762x51_B_M60E4", \
@@ -226,15 +214,10 @@
 "CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M", \
 "CUP_30Rnd_TE1_Red_Tracer_545x39_AK_M", \
 "CUP_30Rnd_TE1_White_Tracer_545x39_AK_M", \
-"CUP_30Rnd_TE1_Yellow_Tracer_545x39_AK_M", \
-"hlc_30Rnd_545x39_B_AK", \
-"hlc_30Rnd_545x39_t_ak", \
-"hlc_30Rnd_545x39_EP_ak", \
-"hlc_45Rnd_545x39_t_rpk" // shimmed mag remove eventually
+"CUP_30Rnd_TE1_Yellow_Tracer_545x39_AK_M"
 
 #define RU_LMG_545 RU_RIFLE_545, \
-"CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M", \
-"hlc_60Rnd_545x39_t_rpk" // shimmed mags remove eventually
+"CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M"
 
 #define RU_RIFLE_762 \
 "30Rnd_762x39_Mag_F", \
@@ -248,8 +231,7 @@
 "CUP_30Rnd_762x39_AK47_M"
 
 #define RU_LMG_762 RU_RIFLE_762, \
-"potato_75Rnd_762x39mm_tracer", \
-"hlc_75Rnd_762x39_m_rpk" // shimmed mags remove eventually
+"potato_75Rnd_762x39mm_tracer"
 
 #define RU_MMG_762 \
 "100Rnd_762x54_Box_Tracer_Red", \
@@ -293,13 +275,9 @@
 "CUP_1Rnd_SMOKE_GP25_M", \
 "CUP_1Rnd_SMOKERED_GP25_M", \
 "CUP_1Rnd_SMOKEGREEN_GP25_M", \
-"CUP_1Rnd_SMOKEYELLOW_GP25_M", \
-"hlc_VOG25_AK", "hlc_GRD_White", "hlc_GRD_Red" // shimmed mags
+"CUP_1Rnd_SMOKEYELLOW_GP25_M"
 
 #define AWP_338 \
-"UK3CB_BAF_338_5Rnd", \
-"UK3CB_BAF_338_5Rnd_Tracer", \
-"UK3CB_BAF_338_5Rnd_Blank", \
 "CUP_5Rnd_86x70_L115A1"
 
 #define M107_50 \
@@ -326,7 +304,7 @@
 "CUP_20Rnd_9x39_SP5_VSS_M"
 
 class CfgWeapons {
-    // Manually list all mags for CUP/RHS/BWA3/BAF compat
+    // Manually list all mags for CUP/RHS compat
     class GrenadeLauncher;
     class UGL_F: GrenadeLauncher {
         magazines[] = { NATO_GL_40 };
@@ -353,36 +331,9 @@ class CfgWeapons {
         };
     };
 
-    class arifle_Mk20_plain_F;
-    class UK3CB_BAF_L85A2: arifle_Mk20_plain_F {
-        magazines[] = { NATO_RIFLE_556 };
-        class UK3CB_BAF_L123A2: UGL_F {
-            magazines[] = { NATO_GL_40 };
-        };
-        class UK3CB_BAF_L123A3_V2: UGL_F {
-            magazines[] = { NATO_GL_40 };
-        };
-    };
-    class UK3CB_BAF_L119_Base: arifle_Mk20_plain_F {
-        magazines[] = { NATO_RIFLE_556 };
-    };
-    class UK3CB_BAF_L119A1_UKUGL: UK3CB_BAF_L119_Base {
-        class UK3CB_BAF_L123A2: UGL_F {
-            magazines[] = { NATO_GL_40 };
-        };
-    };
-
     class srifle_EBR_F;
-    class UK3CB_BAF_L129A1: srifle_EBR_F {
-        magazines[] = { NATO_DMR_762 };
-    };
     class rhs_weap_m14ebrri: srifle_EBR_F {
         magazines[] = { NATO_DMR_762 };
-    };
-
-    class SMG_02_F;
-    class UK3CB_BAF_L91A1: SMG_02_F {
-        magazines[] = { NATO_SMG_9 };
     };
 
     class rhs_weap_ak74m;
@@ -430,7 +381,7 @@ class CfgWeapons {
     };
     class CUP_arifle_AK_Base: Rifle_Base_F {
         magazines[] = { RU_RIFLE_545 };
-        class GP25Muzzle : UGL_F { // HLC GP shim, remove eventually
+        class GP25Muzzle : UGL_F {
             magazines[] = { RU_GL_40 };
         };
     };
@@ -446,25 +397,6 @@ class CfgWeapons {
             magazines[] = { NATO_GL_40 };
         };
     };
-    class Rifle_Long_Base_F;
-    class CUP_M60E4_base: Rifle_Long_Base_F {
-        magazines[] = { NATO_MMG_762 };
-    };
-    class BWA3_G36: Rifle_Base_F {
-        magazines[] = { NATO_PMAG_556 };
-        class AG40: UGL_F {
-            magazines[] = { NATO_GL_40 };
-        };
-    };
-    class BWA3_G38: Rifle_Base_F {
-        magazines[] = { NATO_PMAG_556 };
-        class AG40: UGL_F {
-            magazines[] = { NATO_GL_40 };
-        };
-    };
-    class BWA3_G36_LMG: BWA3_G36 {
-        magazines[] = { NATO_PMAG_556 };
-    };
     class CUP_arifle_G36_Base: Rifle_Base_f {
         magazines[] = { NATO_PMAG_556 };
     };
@@ -473,6 +405,63 @@ class CfgWeapons {
     };
     class CUP_arifle_MG36: CUP_arifle_G36C {
         magazines[] = { NATO_PMAG_556 };
+    };
+    class hlc_G36_base: Rifle_Base_F {
+        magazines[] = { NATO_PMAG_556 };
+    };
+    class hlc_rifle_MG36: hlc_G36_base {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_MG36);
+    };
+    class hlc_rifle_G36A1: hlc_G36_base {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36A1_CMAG);
+    };
+    class hlc_rifle_G36A1AG36: hlc_rifle_G36A1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36A1AG36_CMAG);
+    };
+    class hlc_rifle_G36E1AG36: hlc_rifle_G36A1AG36 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36E1AG36_CMAG);
+    };
+    class hlc_rifle_G36E1AG36_Romi: hlc_rifle_G36E1AG36 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36E1AG36_Romi_CMAG);
+    };
+    class hlc_rifle_G36KA1: hlc_rifle_G36A1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36KA1_CMAG);
+    };
+    class hlc_rifle_G36KE1: hlc_rifle_g36KA1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36KE1_CMAG);
+    };
+    class hlc_rifle_G36E1: hlc_rifle_g36A1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36E1_CMAG);
+    };
+    class hlc_rifle_G36V: hlc_rifle_G36E1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36V_CMAG);
+    };
+    class hlc_rifle_G36VAG36: hlc_rifle_G36V {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36VAG36_CMAG);
+    };
+    class hlc_rifle_G36TAC: hlc_rifle_G36V {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36TAC_CMAG);
+    };
+    class hlc_rifle_G36C: hlc_G36_base {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36C_CMAG);
+    };
+    class hlc_rifle_G36CV: hlc_rifle_G36C {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36CV_CMAG);
+    };
+    class hlc_rifle_G36CTac: hlc_rifle_G36CV {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36CTac_CMAG);
+    };
+    class hlc_rifle_G36KV: hlc_rifle_G36KE1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36KV_CMAG);
+    };
+    class hlc_rifle_g36KTac: hlc_rifle_G36KV {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_g36KTac_CMAG);
+    };
+    class hlc_rifle_G36KA1KSK: hlc_rifle_G36KV {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36KA1KSK_CMAG);
+    };
+    class HLC_Rifle_G36KSKAG36: hlc_rifle_G36KA1KSK {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36KSKAG36_CMAG);
     };
     class CUP_arifle_XM8_Base: Rifle_Base_f {
         magazines[] = { NATO_PMAG_556 };
@@ -544,6 +533,10 @@ class CfgWeapons {
         magazines[] = { RU_LMG_545 };
     };
 
+    class Rifle_Long_Base_F;
+    class CUP_M60E4_base: Rifle_Long_Base_F {
+        magazines[] = { NATO_MMG_762 };
+    };
     class EBR_base_F: Rifle_Long_Base_F {
         magazines[] = { NATO_DMR_762 };
     };
@@ -580,16 +573,7 @@ class CfgWeapons {
     class CUP_lmg_L110A1: Rifle_Long_Base_F {
         magazines[] = { NATO_BASE_556, NATO_LMG_556 };
     };
-    class UK3CB_BAF_L7A2: Rifle_Long_Base_F {
-        magazines[] = { NATO_MMG_762 };
-    };
     class CUP_lmg_Mk48_Base: Rifle_Long_Base_F {
-        magazines[] = { NATO_MMG_762 };
-    };
-    class BWA3_MG4: Rifle_Long_Base_F {
-        magazines[] = { NATO_LMG_556 };
-    };
-    class BWA3_MG5: Rifle_Long_Base_F {
         magazines[] = { NATO_MMG_762 };
     };
     class CUP_lmg_UK59: Rifle_Long_Base_F {
@@ -607,19 +591,6 @@ class CfgWeapons {
         magazines[] = { NATO_BASE_556, NATO_LMG_556 };
     };
 
-    class UK3CB_BAF_L110_Base;
-    class UK3CB_BAF_L110_556_Base: UK3CB_BAF_L110_Base {
-        magazines[] = { NATO_BASE_556, NATO_LMG_556 };
-    };
-    class UK3CB_BAF_L110_762_Base: UK3CB_BAF_L110_Base {
-        magazines[] = { NATO_MMG_762 };
-    };
-
-    class srifle_LRR_F;
-    class UK3CB_BAF_L115_Base: srifle_LRR_F {
-        magazines[] = { AWP_338 };
-    };
-
     class GM6_base_F;
     class rhs_weap_M107_Base_F: GM6_base_F {
         magazines[] = { M107_50 };
@@ -633,13 +604,6 @@ class CfgWeapons {
     class CUP_arifle_M16A4_Base;
     class CUP_arifle_M4_Base: CUP_arifle_M16A4_Base {
         class M203: UGL_F {
-            magazines[] = { NATO_GL_40 };
-        };
-    };
-
-    class BWA3_G27;
-    class BWA3_G27_AG: BWA3_G27 {
-        class AG40: UGL_F {
             magazines[] = { NATO_GL_40 };
         };
     };

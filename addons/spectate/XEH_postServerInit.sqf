@@ -29,4 +29,8 @@ if (GVAR(enabled)) then {
         radioChannelCreate [[0.729,0.149,0.098,1], "Spectator", "Spectator (%UNIT_NAME)", []],
         true
     ];
+} else {
+    [{
+        ["potato_adminMsg", ["Warning: Spectate/Respawn Disabled (This should never happen on a BWMF mission)", "Server"]] call CBA_fnc_globalEvent;
+    }, [], 5] call CBA_fnc_waitAndExecute
 };

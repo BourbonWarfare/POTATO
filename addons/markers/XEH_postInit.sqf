@@ -15,11 +15,13 @@ LOG("Post init start");
         if (hasInterface && {GVAR(groupAndUnitEnabled) || {GVAR(intraFireteamEnabled)}}) then {
             GVAR(skipInstallingEH) = false;
 
-            // convert all the string arrays, to arrays of type side
-            [GVAR(viewBluForMarkers)] call EFUNC(core,stringArrayToSideArray);
-            [GVAR(viewOpForMarkers)] call EFUNC(core,stringArrayToSideArray);
-            [GVAR(viewIndyMarkers)] call EFUNC(core,stringArrayToSideArray);
-            [GVAR(viewCivMarkers)] call EFUNC(core,stringArrayToSideArray);
+            // To custom define these for your mission just define them in init.sqf:
+            // e.g.: potato_markers_viewBluForMarkers = [west, civilian]
+
+            if (isNil QGVAR(viewBluForMarkers)) then {GVAR(viewBluForMarkers) = [west]};
+            if (isNil QGVAR(viewOpForMarkers)) then {GVAR(viewOpForMarkers) = [east]};
+            if (isNil QGVAR(viewIndyMarkers)) then {GVAR(viewIndyMarkers) = [resistance]};
+            if (isNil QGVAR(viewCivMarkers)) then {GVAR(viewCivMarkers) = [civilian]};
 
             // add draw marker eh to the microdagr, the GPS/Map are handled by adding XEHs to their displays
             ACEGVAR(microDAGR,miniMapDrawHandlers) pushBack {_this call FUNC(drawMarkers)};

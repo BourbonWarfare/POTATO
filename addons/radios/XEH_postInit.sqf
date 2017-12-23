@@ -1,19 +1,24 @@
 #include "script_component.hpp"
 
-// Remove by october
-INFO_1("Setting omnidirectional for acre post-904",true);
-[true] call acre_api_fnc_ignoreAntennaDirection;
-
-
 // set global settings, see script_component.hpp for default values
 
 ["ace_settingsInitialized", {
-    TRACE_3("",GVAR(enabled),hasInterface,EGVAR(assignGear,usePotato));
+    TRACE_3("", GVAR(enabled), hasInterface, EGVAR(assignGear,usePotato));
 
     if (GVAR(enabled)) then {
         if !(missionNamespace getVariable [QEGVAR(assignGear,usePotato), false]) exitWith {
             ERROR("Radios enabled, but gear assign is not running");
         };
+
+        // Error checking that arrays are defined:
+        if ((isNil QGVAR(westDefaultLanguages))
+                || {!(GVAR(westDefaultLanguages) isEqualType [])}
+                || {isNil QGVAR(eastSRChannelNames)}
+                || {!(GVAR(eastSRChannelNames) isEqualType [])}
+                ) then {
+            ERROR_MSG("Potato Arrays Not Loaded");
+        };
+
 
         // Make sure to create presets all machines;    from ACRE API:
         // Warning All presets must exist and match on all clients and especially the server; regardless of where the presets are used.
@@ -32,7 +37,7 @@ INFO_1("Setting omnidirectional for acre post-904",true);
         INFO("Disabled");
         if (isServer) then { // Warn if not enabled
             [{
-                ["potato_adminMsg", ["Warning: Potato Radios Setting Disabled", "Server"]] call CBA_fnc_globalEvent;
+                ["potato_adminMsg", ["Warning: Potato Radios Setting Disabled (This should never happen on a BWMF mission)", "Server"]] call CBA_fnc_globalEvent;
             }, [], 5] call CBA_fnc_waitAndExecute
         };
     };

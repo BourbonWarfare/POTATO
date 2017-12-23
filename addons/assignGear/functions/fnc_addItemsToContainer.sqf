@@ -17,13 +17,6 @@
  */
 
 #include "script_component.hpp"
-#define VEST_ALLOWED_SLOTS 701
-#define UNIFORM_ALLOWED_SLOTS 801
-#define BACKPACK_ALLOWED_SLOTS 901
-#define PRIMARY_TYPE 1
-#define HANDGUN_TYPE 2
-#define LAUNCHER_TYPE 4
-#define BINO_TYPE 4096
 
 TRACE_1("params",_this);
 params ["_itemsToAddArray", "_containersArray", "_containerIndex"];
@@ -41,9 +34,12 @@ private _returnArray = [];
     private _itemLeft = [] call {
         // exit if there's no room left in the container
         if (_sizeLeft <= 0) exitWith { TRACE_1("no room",_itemToAdd); _itemToAdd };
+        if (_itemToAdd == "") exitWith {TRACE_1("empty string - ignoring",_itemToAdd); ""};
 
         (_itemToAdd splitString ":") params ["_classname", ["_amountToAdd", "1", [""]]];
         _amountToAdd = parseNumber _amountToAdd;
+
+        if (_amountToAdd < 1) exitWith {TRACE_1("item count is zero - ignoring",_itemToAdd); ""};
 
         if (isClass (configFile >> "CfgMagazines" >> _classname)) then {
             [

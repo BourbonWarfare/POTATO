@@ -1,5 +1,3 @@
-// Can eventually remove if this shows no problems
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 // clean up empty groups
