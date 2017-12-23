@@ -32,6 +32,7 @@ GVAR(running) = true;
 MAIN_DISPLAY createDisplay QGVAR(overlay);
 
 // hide elements
+COMPASS ctrlShow false;
 MAP_DISPLAY ctrlShow false;
 MAP_GROUP ctrlShow false;
 FOCUS_GROUP ctrlShow false;

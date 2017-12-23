@@ -124,6 +124,12 @@ if (inputAction "getOver" > 0) exitWith {
     true
 };
 
+// handle showing the compass
+if (inputAction "compass" > 0) exitWith {
+    COMPASS ctrlShow !(ctrlShown COMPASS);
+    true
+};
+
 private _key = _this select 1;
 
 // handle perspective changes

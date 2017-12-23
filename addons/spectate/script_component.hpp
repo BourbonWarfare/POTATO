@@ -60,6 +60,9 @@
 #define LIST_IDC 769790
 #define LIST (OVERLAY displayCtrl LIST_IDC)
 
+#define COMPASS_IDC 769795
+#define COMPASS (OVERLAY displayCtrl COMPASS_IDC)
+
 #define MAP_GROUP_IDC 735450
 #define MAP_GROUP (OVERLAY displayCtrl MAP_GROUP_IDC)
 

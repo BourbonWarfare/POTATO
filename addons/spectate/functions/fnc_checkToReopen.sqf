@@ -24,6 +24,7 @@ if (GVAR(running) && {isNull (GETMVAR(bis_fnc_moduleRemoteControl_unit,objNull))
     MAIN_DISPLAY createDisplay QGVAR(overlay);
 
     // hide elements
+    COMPASS ctrlShow false;
     MAP_DISPLAY ctrlShow false;
     MAP_GROUP ctrlShow false;
     FOCUS_GROUP ctrlShow GVAR(showInfo);

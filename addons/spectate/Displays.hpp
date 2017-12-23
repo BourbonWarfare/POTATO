@@ -12,6 +12,7 @@ class RscControlsGroup;
 class RscStructuredText;
 class RscPictureKeepAspect;
 class RscControlsGroupNoScrollbars;
+class ACEGVAR(common,CompassControl);
 
 class GVAR(overlay) {
     idd = OVERLAY_IDD;
@@ -151,6 +152,11 @@ class GVAR(overlay) {
                     colorFocused[] = {0,0,0,0};
                 };
             };
+        };
+        class Compass: ACEGVAR(common,CompassControl) {
+            idc = COMPASS_IDC;
+
+            y = "safeZoneY";
         };
         class MapGroup: RscControlsGroupNoScrollbars {
             idc = MAP_GROUP_IDC;
