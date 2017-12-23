@@ -17,7 +17,6 @@
 
 #include "script_component.hpp"
 #define HEIGHT_OFFSET 1.5
-#define GRENADE_ICON "A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_connect_ca.paa"
 #define ICON_BACKGROUND_UNIT "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\UnitName_ca.paa"
 
 TRACE_1("Params",_this);
@@ -129,11 +128,13 @@ if !(GVAR(mapOpen)) then {
         GVAR(projectiles) = _projectilesNew;
 
         {
-            if !(isNull _x) then {
-                private _grenadeVelocityMagnitude = vectorMagnitude velocity _x;
+            TRACE_1("grenade",_x);
+            _x params ["_projectile", "_icon", "_color"];
+            if !(isNull _projectile) then {
+                private _grenadeVelocityMagnitude = vectorMagnitude velocity _projectile;
 
                 // Draw grenade
-                drawIcon3D [GRENADE_ICON, [1,0,0,1], getPosVisual _x, 0.6, 0.6, if (_grenadeVelocityMagnitude > 0) then { time * 100 * _grenadeVelocityMagnitude } else { 0 }, "", 0, 0.05, "TahomaB"];
+                drawIcon3D [_icon, _color, (getPosVisual _projectile) vectorAdd [0,0,0.25], 0.4, 0.4, 0, "", 0, 0.05, "TahomaB"];
 
                 // Store grenade for next frame
                 _grenadesNew pushBack _x;
