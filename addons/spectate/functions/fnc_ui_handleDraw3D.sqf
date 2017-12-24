@@ -41,7 +41,7 @@ if !(_cursorObject isKindOf "Man") then {
 GVAR(cursorObject) = _cursorObject;
 END_COUNTER(updateCursor);
 
-if !(GVAR(mapOpen)) then {
+if !(GVAR(mapOpen) || GVAR(fullMapOpen)) then {
     if (GVAR(tagsVisible)) then {
         BEGIN_COUNTER(drawTags);
         // Groups and Units

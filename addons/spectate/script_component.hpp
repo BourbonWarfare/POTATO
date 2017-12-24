@@ -83,6 +83,9 @@
 #define MAP_SPEC_ICON_IDC 735456
 #define MAP_SPEC_ICON (OVERLAY displayCtrl MAP_SPEC_ICON_IDC)
 
+#define FULL_MAP_IDC 735460
+#define FULL_MAP (OVERLAY displayCtrl FULL_MAP_IDC)
+
 #define CAM_GROUP_IDC 776270
 #define CAM_GROUP (OVERLAY displayCtrl CAM_GROUP_IDC)
 

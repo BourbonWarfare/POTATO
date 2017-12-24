@@ -339,6 +339,14 @@ class GVAR(overlay) {
                 };
             };
         };
+        class FullMap: Map {
+            idc = FULL_MAP_IDC;
+
+            x = "safeZoneXAbs";
+            y = "safeZoneY";
+            w = "safeZoneWAbs";
+            h = "safeZoneH";
+        };
         class RespawnButton: RscButton {
             idc = RESPAWN_IDC;
 

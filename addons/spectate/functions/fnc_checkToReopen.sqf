@@ -20,6 +20,8 @@ TRACE_1("Params",_this);
 
 if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull])}) then {
     GVAR(uiVisible) = true;
+    GVAR(tagsVisible) = true;
+
     // create spectator display
     MAIN_DISPLAY createDisplay QGVAR(overlay);
 
@@ -27,6 +29,7 @@ if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemot
     COMPASS ctrlShow false;
     MAP_DISPLAY ctrlShow false;
     MAP_GROUP ctrlShow false;
+    FULL_MAP ctrlShow false;
     FOCUS_GROUP ctrlShow GVAR(showInfo);
     HELP ctrlShow false;
 

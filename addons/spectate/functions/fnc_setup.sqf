@@ -39,6 +39,7 @@ COMPASS ctrlShow false;
 MAP_DISPLAY ctrlShow false;
 MAP_GROUP ctrlShow false;
 FOCUS_GROUP ctrlShow false;
+FULL_MAP ctrlShow false;
 HELP ctrlShow false;
 
 // set init state for respawn
@@ -82,7 +83,7 @@ if (_newUnit isKindOf "seagull" || _newUnit isKindOf QGVAR(spectator) || _newUni
 };
 
 // reset spectator unit name
-GVAR(unit) setVariable [QGVAR(cachedNamed), "", true];
+GVAR(unit) setVariable [QGVAR(cachedName), "", true];
 
 // set ACRE spectator
 [true] call acre_api_fnc_setSpectator;
@@ -138,6 +139,7 @@ GVAR(drawProjectiles) = false;
 // init misc GVARS
 GVAR(curList) = [];
 GVAR(mapOpen) = false;
+GVAR(fullMapOpen) = false;
 GVAR(uiVisible) = true;
 GVAR(oldViewDistance) = viewDistance;
 GVAR(mapHighlighted) = objNull;

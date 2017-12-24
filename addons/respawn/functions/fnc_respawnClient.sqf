@@ -92,7 +92,7 @@ if (_oldUnit isKindOf QEGVAR(spectate,spectator)) then {
 
 // clean out possibly cached names
 [_newUnit] call ACEFUNC(common,setName);
-_newUnit setVariable [QEGVAR(spectate,cachedNamed), nil, true];
+_newUnit setVariable [QEGVAR(spectate,cachedName), "", true];
 
 // transfer zeus if spectator had it
 if !(isNull _zeusModule) then {

@@ -23,15 +23,21 @@
 TRACE_1("Params",_this);
 
 // handle map toggle
-if (inputAction "ShowMap" > 0 || inputAction "HideMap" > 0) exitWith {
-    [] call FUNC(toggleMap);
+if (inputAction "minimap" > 0 || {inputAction "minimapToggle" > 0}) exitWith {
+    [!GVAR(mapOpen), false] call FUNC(toggleMap);
+    true
+};
+
+// handle full map toggle
+if (inputAction "ShowMap" > 0 || {inputAction "HideMap" > 0}) exitWith {
+    [false, !GVAR(fullMapOpen)] call FUNC(toggleMap);
     true
 };
 
 // handle interrupt
 if (inputAction "ingamePause" > 0) exitWith {
-    if (GVAR(mapOpen)) then {
-        [] call FUNC(toggleMap);
+    if (GVAR(mapOpen) || GVAR(fullMapOpen)) then {
+        [false, false] call FUNC(toggleMap);
     } else {
         GVAR(cam) camCommand "manual off";
         if (isMultiplayer) then {
@@ -64,6 +70,8 @@ if (inputAction "nightVision" > 0) exitWith {
 // if the zeus key is pressed and unit is curator, open zeus interface
 if ((inputAction "CuratorInterface") > 0 && {!isNull (getAssignedCuratorLogic player)}) exitWith {
     GVAR(uiVisible) = false;
+    GVAR(tagsVisible) = false;
+    GVAR(drawProjectiles) = false;
     OVERLAY closeDisplay 1;
     GVAR(cam) camCommand "manual off";
     openCuratorInterface;
