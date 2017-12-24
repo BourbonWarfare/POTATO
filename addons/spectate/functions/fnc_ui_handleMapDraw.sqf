@@ -24,7 +24,7 @@ TRACE_1("Params",_this);
 BEGIN_COUNTER(drawMap);
 
 // piggy back to update timer
-TIMER ctrlSetText format ["+%1", [CBA_missionTime / 3600] call BIS_fnc_timeToString];
+TIMER ctrlSetText format ["%1 (+%2)", [daytime * 3600] call CFUNC(getTimeText), [] call CFUNC(getTimeText)];
 
 // Track nearest unit
 private _loc = MAP_DISPLAY ctrlMapScreenToWorld getMousePosition;
