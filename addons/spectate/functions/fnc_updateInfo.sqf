@@ -19,7 +19,7 @@ TRACE_1("Params",_this);
 
 if (GVAR(uiVisible) && GVAR(showInfo)) then {
     if (isNull GVAR(camTarget)) then {
-        [player, acex_killTracker_outputText]
+        [player getVariable [QGVAR(oldUnit), player], acex_killTracker_outputText]
     } else {
         [GVAR(camTarget), GVAR(camTarget) getVariable [QEGVAR(miscFixes,eventsString), "None"]]
     } params ["_unit", "_killFeed"];
@@ -74,8 +74,10 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
                     (OVERLAY displayCtrl _idc) ctrlSetTextColor [1, _greenAndBlue, _greenAndBlue, 1];
                 } else {
                     private _redAndGreen = (0.9 - _bloodLoss) max 0;
-                    (OVERLAY displayCtrl _idc) ctrlSetTextColor [ _redAndGreen, _redAndGreen, 1, 1];
+                    (OVERLAY displayCtrl _idc) ctrlSetTextColor [_redAndGreen, _redAndGreen, 1, 1];
                 };
+            } else {
+                (OVERLAY displayCtrl _idc) ctrlSetTextColor [1, 1, 1, 1];
             };
             nil
         } count _bodyInfo; // count used here for speed, ensure nil above this line
