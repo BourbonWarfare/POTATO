@@ -164,7 +164,7 @@ if !(GVAR(curList) isEqualTo _newList) then {
                 private _tooltip = format ["%1 - %2", _name, _groupId];
                 private _texture = [_isAlive, _isIncapacitated, _unit] call {
                     if !(_this select 0) exitWith { ICON_DEAD };
-                    if (_this select 1) exitWith { ICON_REVIVE };
+                    if (_this select 1) exitWith { QPATHTOF(data\revive_icon.paa) };
                     [_this select 2] call ACEFUNC(common,getVehicleIcon)
                 };
                 private _unitColor = _unit getVariable [QGVAR(oldSideColor), _sideColor];

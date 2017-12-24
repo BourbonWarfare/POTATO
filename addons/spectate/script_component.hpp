@@ -38,7 +38,6 @@
 #define SP_PAUSE_CLASS "RscDisplayInterrupt"
 #define MP_PAUSE_CLASS "RscDisplayMPInterrupt"
 
-#define ICON_REVIVE "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\ReviveIcon_ca.paa"
 #define CAM_ICON_FREE "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\FreeSelected.paa"
 #define CAM_ICON_FREE_SELECTED "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\Free.paa"
 #define CAM_ICON_THIRD "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\FollowSelected.paa"

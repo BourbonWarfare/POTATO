@@ -62,8 +62,8 @@ private _handledVehicles = [];
         };
 
         if (_vehicle getVariable ["ACE_isUnconscious", false]) then {
-            _vehicleTexture = ICON_REVIVE;
-            _sideColor = [0.5, 0, 0, 1];
+            _vehicleTexture = QPATHTOF(data\revive_icon.paa);
+            _sideColor = [1, 0.753, 0.796, 1];
         };
 
         if (time <= _vehicle getVariable [QGVAR(highlightTime), 0]) then {
