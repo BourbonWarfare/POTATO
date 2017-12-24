@@ -23,6 +23,7 @@ PREP(setRespawn);
 PREP(setTarget);
 PREP(setup);
 PREP(switchFocus);
+PREP(toggleBriefing);
 PREP(toggleMap);
 PREP(toggleUI);
 PREP(toggleVisionMode);

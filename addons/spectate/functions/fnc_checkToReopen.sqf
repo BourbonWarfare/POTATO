@@ -30,6 +30,7 @@ if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemot
     MAP_DISPLAY ctrlShow false;
     MAP_GROUP ctrlShow false;
     FULL_MAP ctrlShow false;
+    BRIEFING_GROUP ctrlShow false;
     FOCUS_GROUP ctrlShow GVAR(showInfo);
     HELP ctrlShow false;
 

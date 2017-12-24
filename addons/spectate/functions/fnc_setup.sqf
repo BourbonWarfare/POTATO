@@ -40,6 +40,7 @@ MAP_DISPLAY ctrlShow false;
 MAP_GROUP ctrlShow false;
 FOCUS_GROUP ctrlShow false;
 FULL_MAP ctrlShow false;
+BRIEFING_GROUP ctrlShow false;
 HELP ctrlShow false;
 
 // set init state for respawn

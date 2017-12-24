@@ -138,6 +138,12 @@ if (inputAction "compass" > 0) exitWith {
     true
 };
 
+// handle showing the briefing
+if (inputAction "tasks" > 0 || {inputAction "diary" > 0}) exitWith {
+    [] call FUNC(toggleBriefing);
+    true
+};
+
 private _key = _this select 1;
 
 // handle perspective changes

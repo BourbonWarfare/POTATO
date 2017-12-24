@@ -347,6 +347,37 @@ class GVAR(overlay) {
             w = "safeZoneWAbs";
             h = "safeZoneH";
         };
+        class BriefingGroup: RscControlsGroupNoScrollbars {
+            idc = BRIEFING_GROUP_IDC;
+
+            x = 0;
+            y = 0;
+            w = 1;
+            h = 1;
+
+            class controls {
+                class BriefingBackground: RscText {
+                    idc = BRIEFING_BG_IDC;
+
+                    x = 0;
+                    y = 0;
+                    w = 1;
+                    h = 1;
+
+                    colorBackground[] = {0,0,0,0.75};
+                };
+                class BriefingGroup: RscControlsGroup {
+                    idc = BRIEFINGS_GROUP_IDC;
+
+                    x = 0;
+                    y = 0;
+                    w = 1;
+                    h = 1;
+
+                    class controls {};
+                };
+            };
+        };
         class RespawnButton: RscButton {
             idc = RESPAWN_IDC;
 
