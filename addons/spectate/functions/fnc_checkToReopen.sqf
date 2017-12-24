@@ -18,7 +18,7 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull)}) then {
+if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull])}) then {
     GVAR(uiVisible) = true;
     // create spectator display
     MAIN_DISPLAY createDisplay QGVAR(overlay);
