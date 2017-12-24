@@ -168,14 +168,15 @@
 #define HELP (OVERLAY displayCtrl HELP_IDC)
 #define HELP_TEXT \
 <t size='0.9'>Controls:<br/><br/></t>\
-<t size='0.78'>\
+<t size='0.76'>\
 'F1' to open/close this dialog<br/>\
 'Space' to switch the current camera<br/>\
 'Right Arrow' to switch focus to the next unit<br/>\
 'Left Arrow' to switch focus to the previous unit<br/>\
 'Backspace' to toggle the UI<br/>\
 'Back Slash' to toggle the Tags<br/>\
-Map toggle (default 'M') to open/close the map<br/>\
+Map toggle (default 'M') to open/close the full map<br/>\
+GPS toggle (default 'Ctrl + M') to open/close the mini map<br/>\
 Zero up (default 'Page Up') to increase client view distance<br/>\
 Zero down (default 'Page Down') to decrease client view distance<br/>\
 Night vision toggle (default 'N') to change image modes<br/>\
@@ -183,6 +184,9 @@ Open curator (default 'Y') to open the curator interface (if assigned)<br/>\
 Light toggle (default 'L') to add local point lights<br/>\
 Lock target (default 'T') to add bullet tracking<br/>\
 Player stats (default 'P') to view the selected player's stats<br/>\
+Get over (default 'V') to toggle camera speed at ground level<br/>\
+Tasks/diary (default 'J') to open/close the briefings<br/>\
+Compass (default 'k') to open/close the compass<br/>\
 </t>
 
 #include "\z\potato\addons\core\script_macros.hpp"
