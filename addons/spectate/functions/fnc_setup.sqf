@@ -141,6 +141,7 @@ GVAR(drawProjectiles) = false;
 GVAR(curList) = [];
 GVAR(mapOpen) = false;
 GVAR(fullMapOpen) = false;
+GVAR(needToAddBriefings) = true;
 GVAR(uiVisible) = true;
 GVAR(oldViewDistance) = viewDistance;
 GVAR(mapHighlighted) = objNull;
