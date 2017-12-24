@@ -45,7 +45,7 @@ private _handledVehicles = [];
     if (!(_vehicle in _handledVehicles) && { alive _vehicle } && { simulationEnabled _vehicle } && { !isObjectHidden _vehicle }) then {
         _handledVehicles pushBack _vehicle;
 
-        private _vehicleTexture = [_vehicle] call FUNC(getVehicleIcon);
+        private _vehicleTexture = [_vehicle] call ACEFUNC(common,getVehicleIcon);
 
         private _sideColor = _vehicle getVariable QGVAR(sideColor);
         if (isNil "_sideColor") then {

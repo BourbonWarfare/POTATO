@@ -37,7 +37,7 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
     FOCUS_KILL ctrlCommit 0;
 
     if (vehicle _unit == _unit) then {
-        FOCUS_UNIT ctrlSetText ([_unit] call FUNC(getVehicleIcon));
+        FOCUS_UNIT ctrlSetText ([_unit] call ACEFUNC(common,getVehicleIcon));
         FOCUS_UNIT ctrlShow true;
 
         FOCUS_VEHICLE ctrlSetText "";

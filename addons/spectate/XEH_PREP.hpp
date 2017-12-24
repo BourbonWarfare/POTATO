@@ -7,7 +7,6 @@ PREP(findPathInList);
 PREP(getBoundingBox);
 PREP(getGroupIcon);
 PREP(getName);
-PREP(getVehicleIcon);
 PREP(handleCreated);
 PREP(handleFired);
 PREP(handleKilled);
