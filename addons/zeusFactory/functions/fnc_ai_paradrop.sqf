@@ -2,6 +2,7 @@
 
 params [["_vehicleGroup", grpNull, [grpNull]], ["_wpPos", [0, 0, 0], [[]], 3]];
 TRACE_2("ai_paradrop",_vehicleGroup,_wpPos);
+if (!local _vehicleGroup) exitWith { WARNING_1("Waypoint script ran on non-local group [%1]",_vehicleGroup); };
 
 _wpPos = _wpPos vectorAdd [0,0,125];
 private _vehicle = vehicle leader _vehicleGroup;
@@ -32,7 +33,7 @@ TRACE_2("Starting Unload",_altitude,count _crewToUnload);
     // Handle Parachute:
     [{
         params ["_vehicle", "_unit"];
-        ((isTouchingGround _unit) || {!alive _unit}) || {(((getPosATL _unit) select 2) < 200) && {(_vehicle distance _unit) > 6}}
+        ((isTouchingGround _unit) || {!alive _unit}) || {(((getPosATL _unit) select 2) < 200) && {(_vehicle distance _unit) > 10}}
     }, {
         params ["_vehicle", "_unit"];
         if ((isTouchingGround _unit) || {!alive _unit}) exitWith {};
@@ -45,9 +46,17 @@ TRACE_2("Starting Unload",_altitude,count _crewToUnload);
         TRACE_2("opening chute",_unit,_chute);
         [_chute] call EFUNC(core,addToCurator);
 
-        _unit moveInAny _chute;
         //make sure the idiots don't get out
-        [{(_this select 0) moveInAny (_this select 1)}, [_unit, _chute], 1] call CBA_fnc_waitAndExecuteute;
+        _unit moveInAny _chute;
+        [{
+            params ["_unit", "_chute"];
+            if ((!alive _unit) || {!alive _chute} || {isTouchingGround _unit}) exitWith {true};
+            if ((vehicle _unit) == _chute) then {
+                _unit moveInAny _chute;
+                TRACE_1("moving into chute",_unit,_chute);
+            };
+            false
+        }, {TRACE_1("finished",_this);}, [_unit, _chute], 5, {TRACE_1("timeout",_this);}] call CBA_fnc_waitUntilAndExecute;
 
         _chute setPosASL _posASL;
         _chute setVelocity _vel;

@@ -133,7 +133,9 @@ class CfgZeusFactory {
         "CUP_B_AAV_USMC", // AAVP Amtrac
         "CUP_I_T34_NAPA", // T 34 'MBT'
         "CUP_I_T55_TK_GUE", // T 55 'MBT'
-        "CUP_O_BTR90_RU" // BTR 90 IFV
+        "CUP_O_BTR90_RU", // BTR 90 IFV
+        "CUP_O_BRDM2_RUS", // BRDM
+        "CUP_O_BTR60_SLA" // BTR 60
     };
 
     helicopters[] = {

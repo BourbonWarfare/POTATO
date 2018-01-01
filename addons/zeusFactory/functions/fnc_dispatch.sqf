@@ -97,7 +97,7 @@ TRACE_1("Adding Orders",_ordersType,_radius);
 
 private _ordersWP = _group addWaypoint [getPos _placeLogic, 0];
 _ordersWP setWaypointType "MOVE";
-private _readyCondition = "diag_log format ['ready Check %1', thisList]; ((count thisList) == ({(!alive _x) || {isTouchingGround _x}} count thisList));";
+private _readyCondition = "(count thisList) == ({isTouchingGround _x} count thisList)";
 
 switch (_ordersType) do {
 case (ORDERS_MOVE): {}; // nothing

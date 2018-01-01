@@ -4,6 +4,7 @@
 
 params [["_vehicleGroup", grpNull, [grpNull]], ["_position", [0, 0, 0], [[]], 3]];
 TRACE_2("ai_vehicleFollow",_vehicleGroup,_position);
+if (!local _vehicleGroup) exitWith { WARNING_1("Waypoint script ran on non-local group [%1]",_vehicleGroup); };
 
 private _vehicle = vehicle leader _vehicleGroup;
 private _commander = effectiveCommander _vehicle;
