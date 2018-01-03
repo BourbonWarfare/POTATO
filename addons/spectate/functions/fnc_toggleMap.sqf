@@ -33,7 +33,7 @@ if (GVAR(mapOpen) && {!_openMap}) then {
         MAP_TITLE ctrlSetText (getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName", "???"]]);
         MAP_SPEC_COUNT ctrlSetText str ({_x isKindOf QGVAR(spectator)} count allPlayers);
 
-        MAP_DISPLAY ctrlMapAnimAdd [0, 0.05, getPosASLVisual GVAR(cam)];
+        MAP_DISPLAY ctrlMapAnimAdd [0, 0.05, positionCameraToWorld [0,0,0]];
         ctrlMapAnimCommit MAP_DISPLAY;
         ctrlSetFocus MAP_DISPLAY;
 
@@ -51,7 +51,7 @@ if (GVAR(fullMapOpen) && {!_openFullMap}) then {
 } else {
     if (_openFullMap && {!GVAR(fullMapOpen)}) then {
         FULL_MAP ctrlShow true;
-        FULL_MAP ctrlMapAnimAdd [0, 0.05, getPosASLVisual GVAR(cam)];
+        FULL_MAP ctrlMapAnimAdd [0, 0.05, positionCameraToWorld [0,0,0]];
         ctrlMapAnimCommit FULL_MAP;
         ctrlSetFocus FULL_MAP;
 
