@@ -79,7 +79,7 @@ if ((inputAction "CuratorInterface") > 0 && {!isNull (getAssignedCuratorLogic pl
     [
         {!isNull curatorCamera},
         {
-            curatorCamera setPosASL (getPosASL GVAR(cam));
+            curatorCamera setPosASL positionCameraToWorld [0,0,0]);
             curatorCamera setDir (getDirVisual GVAR(cam));
         }
     ] call CBA_fnc_waitUntilAndExecute;
