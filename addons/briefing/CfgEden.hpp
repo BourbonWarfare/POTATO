@@ -1,6 +1,5 @@
 #include "\a3\3den\UI\macros.inc"
 #include "\a3\3den\UI\resincl.inc"
-#define EDIT_W 10
 #define SIZE_XXS 1
 
 class ctrlToolbox;
@@ -15,6 +14,7 @@ class GVAR(setAttribute): ctrlToolbox {
     rows = 1;
     columns = 2;
     strings[] = {"Off", "On"};
+    tooltips[] = {"Turn Off", "Turn On"};
     values[] = {0, 1};
 };
 
@@ -81,8 +81,6 @@ class Cfg3DEN {
                 };
                 class SetCreditsControl: GVAR(setAttribute) {
                     idc = AUTO_CREDS_SET_IDC;
-                    strings[] = {"Off", "On"};
-                    tooltips[] = {"Turn Off", "Turn On"};
                 };
                 class SetOrbatTitle: SetCreditsTitle {
                     style = 1;
@@ -92,8 +90,6 @@ class Cfg3DEN {
                 class SetOrbatControl: GVAR(setAttribute) {
                     idc = ORBAT_SET_IDC;
                     y = 1 * SIZE_M * GRID_H;
-                    strings[] = {"Off", "On"};
-                    tooltips[] = {"Turn Off", "Turn On"};
                 };
             };
         };
@@ -140,7 +136,7 @@ class Cfg3DEN {
 
     class Mission {
         class GVAR(briefings) {// Custom section class, everything inside will be opened in one window
-            displayName = "Side Briefings (SHIFT + Enter to add a new line)"; // Text visible in the window title as "Edit <displayName>"
+            displayName = "Settings and Side Briefings (SHIFT + Enter to add a new line)"; // Text visible in the window title as "Edit <displayName>"
             display = "Display3DENEditAttributes"; // Optional - display for attributes window. Must have the same structure and IDCs as the default Display3DENEditAttributes
             class AttributeCategories {
                 class Settings {
