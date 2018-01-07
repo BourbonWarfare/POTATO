@@ -1,11 +1,15 @@
 #include "script_component.hpp"
 
-LOG("Setting STUI settings");
-STUI_Occlusion = false; // Default: true
-// STHud_ShowBearingInVehicle = true; // Default: true
-STHud_NoSquadBarMode = true; // Default: false
-// STUI_RemoveDeadViaProximity = true; // Default: true
-
+// handle RHS engine startup script
+[
+    QGVAR(rhsEngineStartup),
+    "CHECKBOX",
+    ["RHS Engine startup script", "True on, false off"],
+    "POTATO Misc",
+    false,
+    1,
+    { diag_log _this; RHS_ENGINE_STARTUP_OFF = ([0, nil] select _this); }
+] call cba_settings_fnc_init;
 
 // Settings Test:
 if (isServer) then {
