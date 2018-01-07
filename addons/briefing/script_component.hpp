@@ -16,3 +16,5 @@
 #include "\z\potato\addons\core\script_macros.hpp"
 
 #define TEXT_IDC 983734
+#define AUTO_CREDS_SET_IDC 983735
+#define ORBAT_SET_IDC 983736
