@@ -1,15 +1,7 @@
 #include "script_component.hpp"
 
-// handle RHS engine startup script
-[
-    QGVAR(rhsEngineStartup),
-    "CHECKBOX",
-    ["RHS Engine startup script", "True on, false off"],
-    "POTATO Misc",
-    false,
-    1,
-    { diag_log _this; RHS_ENGINE_STARTUP_OFF = ([0, nil] select _this); }
-] call cba_settings_fnc_init;
+// turn off RHS engine startup script
+RHS_ENGINE_STARTUP_OFF = 1; // any non-nil value turns this off
 
 // Settings Test:
 if (isServer) then {
