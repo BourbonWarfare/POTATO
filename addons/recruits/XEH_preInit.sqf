@@ -6,32 +6,46 @@ PREP_RECOMPILE_START;
 #include "XEH_PREP.hpp"
 PREP_RECOMPILE_END;
 
-if !(hasInterface) exitWith { ADDON = true; };
+if (hasInterface) then {
+    [
+        QGVAR(showMessage),
+        "CHECKBOX",
+        ["Show Recuit Message", "Show the recruit message dialog."],
+        "POTATO UI",
+        true,
+        0,
+        {
+            if (missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1) exitWith {
+                [_this] call FUNC(toggleRecruitInfo);
+            };
+        }
+    ] call cba_settings_fnc_init;
 
-// Register events
-["potato_safeStartOn", {
-    [GVAR(showMessage) || GVAR(showTags)] call FUNC(toggleRecruitInfo);
-}] call CBA_fnc_addEventHandler;
+    [
+        QGVAR(showTags),
+        "CHECKBOX",
+        ["Show Recuit Tags", "Show recruit tags above their heads."],
+        "POTATO UI",
+        true,
+        0,
+        {
+            if (missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1) exitWith {
+                [_this] call FUNC(toggleRecruitTags);
+            };
+        }
+    ] call cba_settings_fnc_init;
 
-["potato_safeStartOff", {
-    [false] call FUNC(toggleRecruitInfo);
-}] call CBA_fnc_addEventHandler;
 
-["ace_settingChanged", {
-    params ["_name", "_value"];
+    // Register events
+    ["potato_safeStartOn", {
+        [GVAR(showMessage)] call FUNC(toggleRecruitInfo);
+        [GVAR(showTags)] call FUNC(toggleRecruitTags);
+    }] call CBA_fnc_addEventHandler;
 
-    if (_name == QGVAR(showMessage) && missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1) exitWith {
-        if (_value) then {
-            GVAR(oldSquad) = [];
-            [QGVAR(message)] call CFUNC(createRscTitle);
-        } else {
-            QGVAR(message) cutFadeOut 1;
-        };
-        [_value || GVAR(showTags)] call FUNC(toggleRecruitInfo);
-    };
-    if (_name == QGVAR(showTags) && missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1) exitWith {
-        [GVAR(showMessage) || _value] call FUNC(toggleRecruitInfo);
-    };
-}] call CBA_fnc_addEventHandler;
+    ["potato_safeStartOff", {
+        [false] call FUNC(toggleRecruitInfo);
+        [false] call FUNC(toggleRecruitTags);
+    }] call CBA_fnc_addEventHandler;
+};
 
 ADDON = true;
