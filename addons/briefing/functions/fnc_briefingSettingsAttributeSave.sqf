@@ -1,7 +1,17 @@
 /*
+ * Author: AACO
+ * Function used to store the briefing settings from the specified component
+ * Should only be called from 3DEN
  *
+ * Arguments:
+ * 0: Control group of the briefing component <CONTROL>
+ *
+ * Examples:
+ * [_ctrlGroup] call potato_briefing_fnc_briefingSettingsAttributeSave;
+ *
+ * Public: No
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
