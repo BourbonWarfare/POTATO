@@ -27,9 +27,9 @@ PREP_RECOMPILE_END;
 [
     QGVAR(enabled),
     "CHECKBOX",
-    ["Enable safe start at mission start", "Enables safe start at mission start."],
+    ["Enable safe start at mission start", "Enables safe start at the start of the mission."],
     "POTATO Admin",
-    true,
+    false,
     1
 ] call cba_settings_fnc_init;
 

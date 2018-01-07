@@ -1,6 +1,12 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 if (isServer) then {
+    // TODO: BWC, remove this a while after
+    if (isClass (missionConfigFile >> "ACE_Settings" >> QGVAR(enabled))) then {
+        [QGVAR(enabled), getNumber (missionConfigFile >> "ACE_Settings" >> QGVAR(enabled) >> "value") == 1, 2, "mission"] call CBA_settings_fnc_set;
+    };
+
     [
         {time > 0},
         { [GVAR(enabled)] call FUNC(toggleSafeStart); }
