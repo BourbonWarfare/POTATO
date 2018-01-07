@@ -1,11 +1,7 @@
 #include "script_component.hpp"
 
-LOG("Setting STUI settings");
-STUI_Occlusion = false; // Default: true
-// STHud_ShowBearingInVehicle = true; // Default: true
-STHud_NoSquadBarMode = true; // Default: false
-// STUI_RemoveDeadViaProximity = true; // Default: true
-
+// turn off RHS engine startup script
+RHS_ENGINE_STARTUP_OFF = 1; // any non-nil value turns this off
 
 // Settings Test:
 if (isServer) then {
