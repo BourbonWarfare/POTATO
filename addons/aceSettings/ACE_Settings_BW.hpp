@@ -65,6 +65,10 @@ class ACE_Settings {
         typeName = "SCALAR";
         value = 0.5;
     };
+    class ace_nightvision_aimDownSightsBlur {
+        typeName = "SCALAR";
+        value = 0.5;
+    };
     class ace_overheating_enabled {
         typeName = "BOOL";
         value = 0;
