@@ -22,7 +22,7 @@ params [["_unit", objNull, [objNull]]];
 private _returnName = "";
 
 if !(isNull _unit) then {
-    _returnName = _unit getVariable [QGVAR(cachedNamed), ""];
+    _returnName = _unit getVariable [QGVAR(cachedName), ""];
     if (_returnName == "") then {
         if (_unit getVariable [QGVAR(deadName), ""] != "") then {
             _returnName = _unit getVariable QGVAR(deadName);

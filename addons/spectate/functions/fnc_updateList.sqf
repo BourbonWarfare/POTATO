@@ -24,7 +24,8 @@ private _newList = [
     [west, "west", localize "str_west", []],
     [east, "east", localize "str_east", []],
     [independent, "indy", localize "str_guerrila", []],
-    [civilian, "civ", localize "str_civilian", []]
+    [civilian, "civ", localize "str_civilian", []],
+    [sideLogic, "spectators", "Spectators", []]
 ];
 
 {
@@ -34,7 +35,7 @@ private _newList = [
     private _unitsInfo = [];
 
     {
-        if (simulationEnabled _x && {!isObjectHidden _x} && {simulationEnabled vehicle _x} && {!isObjectHidden vehicle _x}) then {
+        if ((_x isKindOf QGVAR(spectator) && {isPlayer _x}) || (simulationEnabled _x && {!isObjectHidden _x} && {simulationEnabled vehicle _x} && {!isObjectHidden vehicle _x})) then {
             _newUnits pushBack ([_x] call BIS_fnc_objectVar);
             _unitsInfo pushBack [
                 _x,
@@ -56,13 +57,15 @@ private _newList = [
         } forEach _newList;
     };
     nil
-} count allGroups; // count used for speed, ensure nil above this line
+} count (allGroups + [GVAR(group)]); // count used for speed, ensure nil above this line
+
+TRACE_1("New List:", _newList);
 
 if !(GVAR(curList) isEqualTo _newList) then {
     // Remove groups/units that are no longer there
-    for "_sideIndex" from (LIST tvCount []) to 1 do {
-        for "_groupIndex" from (LIST tvCount [_sideIndex - 1]) to 1 do {
-            for "_unitIndex" from (LIST tvCount [_sideIndex - 1, _groupIndex - 1]) to 1 do {
+    for "_sideIndex" from (LIST tvCount []) to 1 step -1 do {
+        for "_groupIndex" from (LIST tvCount [_sideIndex - 1]) to 1  step -1 do {
+            for "_unitIndex" from (LIST tvCount [_sideIndex - 1, _groupIndex - 1]) to 1 step -1 do {
                 private _lookup = _newUnits find (LIST tvData [_sideIndex - 1, _groupIndex - 1, _unitIndex - 1]);
                 if (_lookup < 0) then {
                     LIST tvDelete [_sideIndex - 1, _groupIndex - 1, _unitIndex - 1];
@@ -161,16 +164,17 @@ if !(GVAR(curList) isEqualTo _newList) then {
                 private _tooltip = format ["%1 - %2", _name, _groupId];
                 private _texture = [_isAlive, _isIncapacitated, _unit] call {
                     if !(_this select 0) exitWith { ICON_DEAD };
-                    if (_this select 1) exitWith { ICON_REVIVE };
+                    if (_this select 1) exitWith { QPATHTOF(data\revive_icon.paa) };
                     [_this select 2] call ACEFUNC(common,getVehicleIcon)
                 };
+                private _unitColor = _unit getVariable [QGVAR(oldSideColor), _sideColor];
 
                 private _lookup = (_unitDataToPathHash select 0) find ([_unit] call BIS_fnc_objectVar);
                 if (_lookup < 0) then {
                     private _unitIndex = LIST tvAdd [[_sideIndex, _groupIndex], _name];
                     LIST tvSetData [[_sideIndex, _groupIndex, _unitIndex], [_unit] call BIS_fnc_objectVar];
                     LIST tvSetPicture [[_sideIndex, _groupIndex, _unitIndex], _texture];
-                    LIST tvSetPictureColor [[_sideIndex, _groupIndex, _unitIndex], _sideColor];
+                    LIST tvSetPictureColor [[_sideIndex, _groupIndex, _unitIndex], _unitColor];
                     LIST tvSetTooltip [[_sideIndex, _groupIndex, _unitIndex], _tooltip];
                 } else {
                     // pop data out of hash to improve later lookups
@@ -178,7 +182,7 @@ if !(GVAR(curList) isEqualTo _newList) then {
                     private _path = (_unitDataToPathHash select 1) deleteAt _lookup;
                     LIST tvSetText [_path, _name];
                     LIST tvSetPicture [_path, _texture];
-                    LIST tvSetPictureColor [_path, _sideColor];
+                    LIST tvSetPictureColor [_path, _unitColor];
                     LIST tvSetTooltip [_path, _tooltip];
                 };
                 nil

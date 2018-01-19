@@ -17,6 +17,7 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgRespawnTemplates.hpp"
+#include "CfgVehicleIcons.hpp"
 #include "CfgVehicles.hpp"
 #include "Displays.hpp"
 
