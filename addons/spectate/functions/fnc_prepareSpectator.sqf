@@ -37,7 +37,7 @@ if !(isNull _unit) then {
         private _stNameArray = _oldUnit getVariable ["sth_name", []];
         if !(_stNameArray isEqualTo []) then {
             _stNameArray set [0, false];
-            _oldUnit getVariable ["sth_name", _stNameArray];
+            _oldUnit setVariable ["sth_name", _stNameArray];
         };
     };
 };
