@@ -19,6 +19,13 @@
 TRACE_1("Params",_this);
 
 if (GVAR(running)) then {
+    // remove spectate chat channel
+    setCurrentChannel SIDE_CHANNEL_INDEX;
+    (missionNamespace getVariable QGVAR(channel)) radioChannelRemove [GVAR(unit)];
+
+    // enable other chats
+    [true] call FUNC(setChannels);
+
     // Handle cameras/lights
     GVAR(cam) cameraEffect ["Terminate", "BACK"];
     player switchCamera "INTERNAL";
@@ -43,6 +50,9 @@ if (GVAR(running)) then {
     removeMissionEventHandler ["Draw3D", GVAR(draw3DEH)];
     GVAR(draw3DEH) = nil;
 
+    removeMissionEventHandler ["EachFrame", GVAR(camTick)];
+    GVAR(camTick) = nil;
+
     // enable post process effects
     BIS_fnc_feedback_allowPP = true;
 
@@ -54,4 +64,8 @@ if (GVAR(running)) then {
 
     // remove events from active units
     [false] call FUNC(setEventsOnActiveUnits);
+
+    // remove advanced throwing EH
+    [QACEGVAR(advanced_throwing,throwFiredXEH), GVAR(advancedThrowingEH)] call CBA_fnc_removeEventHandler;
+    GVAR(advancedThrowingEH) = nil;
 };

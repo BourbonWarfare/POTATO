@@ -1,6 +1,7 @@
 LOG(QUOTE(ADDON));
 
 PREP(addEventHandlers);
+PREP(camTick);
 PREP(checkToReopen);
 PREP(exit);
 PREP(findPathInList);
@@ -15,12 +16,14 @@ PREP(prepareSpectator);
 PREP(prepareTarget);
 PREP(removeEventHandlers);
 PREP(resetTarget);
+PREP(setChannels);
 PREP(setEventsOnActiveUnits);
 PREP(setFocus);
 PREP(setRespawn);
 PREP(setTarget);
 PREP(setup);
 PREP(switchFocus);
+PREP(toggleBriefing);
 PREP(toggleMap);
 PREP(toggleUI);
 PREP(toggleVisionMode);
