@@ -186,7 +186,7 @@ Lock target (default 'T') to add bullet tracking<br/>\
 Player stats (default 'P') to view the selected player's stats<br/>\
 Get over (default 'V') to toggle camera speed at ground level<br/>\
 Tasks/diary (default 'J') to open/close the briefings<br/>\
-Compass (default 'k') to open/close the compass<br/>\
+Compass (default 'K') to open/close the compass<br/>\
 </t>
 
 #include "\z\potato\addons\core\script_macros.hpp"
