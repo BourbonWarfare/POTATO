@@ -6,7 +6,6 @@ RHS_ENGINE_STARTUP_OFF = 1; // any non-nil value turns this off
 if (isServer) then {
     // set STUI settings for the BW experience (occlusion set mission side)
     ["sthud_settings_squadbar", false, 0, "server"] call CBA_settings_fnc_set;
-    ["sthud_settings_removedeadviaproximity", true, 0, "server"] call CBA_settings_fnc_set;
 
     // set ACE settings for the BW experience
     [QACEGVAR(advanced_fatigue,performanceFactor), 1.3, 0, "server"] call CBA_settings_fnc_set;
