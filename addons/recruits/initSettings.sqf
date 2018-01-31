@@ -6,6 +6,7 @@
     true,
     0,
     {
+        if (!hasInterface) exitWith {};
         if (missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1) exitWith {
             [_this] call FUNC(toggleRecruitInfo);
         };
@@ -20,6 +21,7 @@
     true,
     0,
     {
+        if (!hasInterface) exitWith {};
         if (missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1) exitWith {
             [_this] call FUNC(toggleRecruitTags);
         };
