@@ -1,13 +1,20 @@
 #include "script_component.hpp"
 
-params ["_display","_toggleSpace"];
-TRACE_2("arsenalOpened",_display,isNull _display);
+#define PIXELSCALE  0.25
+#define GRID_W (pixelW * pixelGridNoUIScale * PIXELSCALE)
+    
+    
+params ["_display", ["_shiftLeft", false]];
+TRACE_2("arsenalOpened",_display,_shiftLeft);
 
 private _y = 0;
 private _ctrlsToUpdate = [];
 
 private _height = (((safezoneW / safezoneH) min 1.2) / 1.2) / 25;
 private _xPos = safezoneX + safezoneW - 10 * _height;
+if (_shiftLeft) then {
+    _xPos = _xPos - 93 * GRID_W;
+};
 private _yPos = (safezoneY + 1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)) + 16 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25);
 
 private _fnc_createButton = {
