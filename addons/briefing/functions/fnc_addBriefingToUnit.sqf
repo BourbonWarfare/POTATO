@@ -26,8 +26,8 @@ if (_side == sideLogic) exitWith {};
 
 _newPlayer setVariable [QGVAR(briefingAdded), true];
 
-if (GVAR(brief_addCredits)) then { [_newPlayer] call FUNC(addCredits); };
-if (GVAR(brief_addOrbat)) then { [_newPlayer] call FUNC(addOrbat); };
+if (missionNamespace getVariable [QGVAR(brief_addCredits), false]) then { [_newPlayer] call FUNC(addCredits); };
+if (missionNamespace getVariable [QGVAR(brief_addOrbat), false]) then { [_newPlayer] call FUNC(addOrbat); };
 if (ACEGVAR(medical,level) == 2) then { [_newPlayer] call FUNC(addMedicalNotes); };
 
 private _sideBriefMission = "";
