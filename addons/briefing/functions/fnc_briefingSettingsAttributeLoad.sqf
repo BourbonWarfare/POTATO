@@ -23,6 +23,7 @@ if (_paramsStrings isEqualType true && {_paramsStrings}) exitWith { LOG("Briefin
 private _paramsArray = _paramsStrings splitString ",";
 missionNamespace setVariable [QGVAR(brief_addCredits), [_paramsArray select 0] call CFUNC(parseBool), true];
 missionNamespace setVariable [QGVAR(brief_addOrbat), [_paramsArray select 1] call CFUNC(parseBool), true];
+INFO_2("Broadcasting: Credits: [%1] Orbat: [%2]",GVAR(brief_addCredits),GVAR(brief_addOrbat));
 
 if !(isNil "_ctrlGroup") then {
     [_ctrlGroup] call FUNC(briefingSettingsSetControlsFromGVars);

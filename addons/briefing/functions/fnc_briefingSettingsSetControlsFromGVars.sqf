@@ -17,5 +17,5 @@ TRACE_1("params",_this);
 
 params ["_ctrlGroup"];
 
-(_ctrlGroup controlsGroupCtrl AUTO_CREDS_SET_IDC) lbSetCurSel (parseNumber GVAR(brief_addCredits));
-(_ctrlGroup controlsGroupCtrl ORBAT_SET_IDC) lbSetCurSel (parseNumber GVAR(brief_addOrbat));
+(_ctrlGroup controlsGroupCtrl AUTO_CREDS_SET_IDC) lbSetCurSel (parseNumber (missionNamespace getVariable [QGVAR(brief_addCredits), true]));
+(_ctrlGroup controlsGroupCtrl ORBAT_SET_IDC) lbSetCurSel (parseNumber (missionNamespace getVariable [QGVAR(brief_addOrbat), true]));
