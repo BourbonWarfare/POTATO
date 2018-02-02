@@ -50,7 +50,7 @@ private _attachables = [_weapon] call CBA_fnc_compatibleItems;
 
     {
         (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-        if (_classname in _magazines) exitWith {
+        if ({_classname == _x} count _magazines > 0) exitWith {
             private _count = getNumber (configFile >> "CfgMagazines" >> _classname >> "count");
             _weaponArray set [_arrayIndex, [_classname, _count]];
             _configMagazines set [_forEachIndex, format ["%1:%2", _classname, ((parseNumber _amount) - 1)]];

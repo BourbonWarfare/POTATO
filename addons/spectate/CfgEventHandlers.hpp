@@ -22,3 +22,9 @@ class Extended_DisplayUnload_EventHandlers {
         ADDON = QUOTE(_this spawn FUNC(checkToReopen));
     };
 };
+
+class Extended_InitPost_EventHandlers {
+    class GVAR(playableSpectator) {
+        class ADDON { init = QUOTE( if (local (_this select 0)) then { [ARR_3({time > 0}, FUNC(setup), [_this select 0])] call CBA_fnc_waitUntilAndExecute; }; ); };
+    };
+};

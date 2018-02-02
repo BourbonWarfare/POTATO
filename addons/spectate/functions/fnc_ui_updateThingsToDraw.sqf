@@ -18,6 +18,7 @@
 #include "script_component.hpp"
 
 #define ICON_UNIT "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\UnitIcon_ca.paa"
+#define ICON_REVIVE_3D "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\ReviveIcon_ca.paa"
 
 TRACE_1("Params",_this);
 
@@ -120,7 +121,7 @@ private _thingsToDraw = [];
 
         // Draw unit icon
         _thingsToDraw pushBack [_x, 1, [
-            if (_x getVariable ["ACE_isUnconscious", false]) then { ICON_REVIVE } else { ICON_UNIT },
+            if (_x getVariable ["ACE_isUnconscious", false]) then { ICON_REVIVE_3D } else { ICON_UNIT },
             _groupColor,
             ZERO_POS,
             _sizeByDistance,

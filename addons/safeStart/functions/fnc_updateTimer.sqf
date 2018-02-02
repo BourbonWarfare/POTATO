@@ -17,4 +17,4 @@ private _serverStartTimePV = missionNamespace getVariable [QGVAR(startTime_PV), 
 
 if (_serverStartTimePV == -1 || isNull (uiNamespace getVariable [QGVAR(timerRscTitle), displayNull])) exitWith { TRACE_2("Bad values: time: %1, display %2", _serverStartTimePV, uiNamespace getVariable [QGVAR(timerRscTitle), displayNull]); };
 
-((uiNamespace getVariable [QGVAR(timerRscTitle), displayNull]) displayCtrl HINT_IDC) ctrlSetStructuredText parseText ([_serverStartTimePV] call FUNC(getTimeText));
+((uiNamespace getVariable [QGVAR(timerRscTitle), displayNull]) displayCtrl HINT_IDC) ctrlSetStructuredText parseText ([_serverStartTimePV] call FUNC(getFormattedTimeText));

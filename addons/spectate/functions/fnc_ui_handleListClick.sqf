@@ -23,7 +23,10 @@ params ["_isSingleClick"];
 private _handled = false;
 private _object	= missionNamespace getVariable [LIST tvData (tvCurSel LIST), objNull];
 
+
 if !(isNull _object) then {
+    _object = _object getVariable [QGVAR(oldUnit), _object];
+
     if (_isSingleClick) then {
         if (_object != GVAR(camTarget)) then {
             [_object] call FUNC(setFocus);

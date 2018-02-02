@@ -22,10 +22,10 @@ TRACE_1("Params",_this);
 
 params [
     "_unit",
-    ["_weapon", "", [""]],
+    "_weapon",
     "", // muzzle (ignored)
     "", // mode (ignored)
-    "", // ammo (ignored)
+    "_ammo",
     "", // magazine (ignored)
     ["_projectile", objNull, [objNull]]
 ];
@@ -33,11 +33,26 @@ params [
 // Fire time used for highlighting
 _unit setVariable [QGVAR(highlightTime), time + FIRE_HIGHLIGHT_TIME];
 
+// expensive, but any non local units might have this as null for 'global' projectiles
+if (isNull _projectile) then {
+    _projectile = nearestObject [_unit, _ammo];
+};
+
+TRACE_1("Projectile",_projectile);
+
 // Store projectiles / grenades for drawing
 if (GVAR(drawProjectiles) && {!isNull _projectile}) then {
     if (_weapon == "Throw") then {
         if (count GVAR(grenades) > MAX_TRACKED_GRENADES) then { GVAR(grenades) deleteAt 0; };
-        GVAR(grenades) pushBack _projectile;
+
+        private _grenade = if (_ammo isKindOf "SmokeShell") then {
+            [_projectile, QPATHTOF(data\smoke.paa), [1,1,1,1]]
+        } else {
+            [_projectile, QPATHTOF(data\grenade.paa), [1,0,0,1]]
+        };
+
+        TRACE_1("Grenade",_grenade);
+        GVAR(grenades) pushBack _grenade;
     } else {
         if (count GVAR(projectiles) > MAX_TRACKED_PROJECTILES) then { GVAR(projectiles) deleteAt 0; };
         GVAR(projectiles) pushBack [_projectile, [[getPosVisual _projectile, [1,0,0,0]]]];

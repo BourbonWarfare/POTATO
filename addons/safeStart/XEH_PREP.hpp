@@ -1,8 +1,7 @@
 LOG(QUOTE(ADDON));
 
-PREP(getTimeText);
+PREP(getFormattedTimeText);
 PREP(handleFired);
 PREP(toggleTimer);
 PREP(updateTimer);
 PREP(toggleSafeStart);
-PREP(getTimeStrFromNum);

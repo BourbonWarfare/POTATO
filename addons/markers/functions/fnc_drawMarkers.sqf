@@ -19,7 +19,7 @@ BEGIN_COUNTER(drawMarkers);
 
 params ["_mapControl"];
 
-if ((player != player) || {!alive player}) exitWith {};
+if ((player != player) || {!alive player} || {side player == sideLogic}) exitWith {};
 
 //Map's height / Screen height:
 private _mapSize = ((ctrlPosition _mapControl) select 3) / (getResolution select 4);
