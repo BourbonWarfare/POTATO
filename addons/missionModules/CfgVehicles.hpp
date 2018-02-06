@@ -90,10 +90,9 @@ class CfgVehicles {
         category = QUOTE(PREFIX);
         scope = 1;
         scopeCurator = 2;
-        isTriggerActivated = 1;
+        isGlobal = 1;
         displayName = "Global Set AI Skill";
-        function = QFUNC(zeus_globalSetSkill);
-        curatorInfoType = QGVAR(RscDisplayAttributes_globalSetSkill);
+        function = QFUNC(setSkillsModule);
         curatorCost = 0;
         class Arguments {};
         class Attributes {};
