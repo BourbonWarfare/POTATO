@@ -26,7 +26,8 @@ TRACE_1("Params",_this);
     [format [QGVAR(aiSkill_%1), _behavior], cbChecked GET_CTRL(_idc), 2, "server"] remoteExecCall ["CBA_settings_fnc_set", SERVER_CLIENT_ID];
 } forEach AI_BEHAVIORS;
 
-[QGVAR(updateAISettings), []] call CBA_fnc_globalEvent;
+// send to server for closer race
+[QGVAR(updateAISettings), []] remoteExecCall ["CBA_fnc_globalEvent", SERVER_CLIENT_ID];
 
 // last thing, close dialog with success
 closeDialog 1;
