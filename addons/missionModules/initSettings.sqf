@@ -12,7 +12,7 @@
     "SLIDER",
     ["Aiming Accuracy Floor", "Minimum aiming accuracy for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.75, 2],
+    [0, 1, 0.55, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -21,7 +21,7 @@
     "SLIDER",
     ["Aiming Accuracy Ceiling", "Maximum aiming accuracy for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.95, 2],
+    [0, 1, 0.85, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -48,7 +48,7 @@
     "SLIDER",
     ["Aiming Speed Floor", "Minimum aiming speed for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.65, 2],
+    [0, 1, 0.55, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -57,7 +57,7 @@
     "SLIDER",
     ["Aiming Speed Ceiling", "Maximum aiming speed for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.85, 2],
+    [0, 1, 0.75, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -102,7 +102,7 @@
     "SLIDER",
     ["General Floor", "Minimum 'general' for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.65, 2],
+    [0, 1, 1, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -111,7 +111,7 @@
     "SLIDER",
     ["General Ceiling", "Maximum 'general' for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.95, 2],
+    [0, 1, 1, 2],
     1
 ] call cba_settings_fnc_init;
 

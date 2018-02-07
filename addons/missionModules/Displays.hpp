@@ -11,13 +11,11 @@ class RscButtonMenuOK;
 class RscCheckBox;
 class RscControlsGroup;
 class RscControlsGroupNoScrollbars;
-class RscFrame;
-class RscText;
-class RscListbox;
 class RscEdit;
+class RscFrame;
+class RscListbox;
+class RscText;
 class RscXSliderH;
-
-class RscSlider;
 
 class RscDisplayAttributes {
     class Controls {
@@ -112,7 +110,7 @@ class GVAR(setSkills) {
                     idc = SET_SKILLS_MASTER_BX_IDC;
                     x = 22 * GUI_GRID_W + GUI_GRID_X;
                     y = 3 * GUI_GRID_H + GUI_GRID_Y;
-                    w = 1 * GUI_GRID_W;
+                    w = 1.25 * GUI_GRID_W;
                     h = 1 * GUI_GRID_H;
                     tooltip = "Enable/disable setting AI skills/behaviors on unit creation";
                     style = 0; // Left
@@ -122,10 +120,10 @@ class GVAR(setSkills) {
                     text = "Aiming Accuracy Floor"
                     tooltip = "Minimum aiming accuracy for a spawned unit";
                 };
-                class GVAR(setSkills_aimingAccuracy_min_slider): RscSlider {
+                class GVAR(setSkills_aimingAccuracy_min_slider): RscXSliderH {
                     idc = SET_SKILLS_AIM_ACC_MIN_SLIDER_IDC;
                     x = 22 * GUI_GRID_W + GUI_GRID_X;
-                    y = 4.75 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
                     w = 24.5 * GUI_GRID_W;
                     h = 1 * GUI_GRID_H;
                     colorText[] = {1,1,1,1};
@@ -139,7 +137,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingAccuracy_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_AIM_ACC_MAX_SLIDER_IDC;
-                    y = 6.25 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 6 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'aimingAccuracy',true)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_aimingShake_min_txt): GVAR(setSkills_master_txt) {
@@ -149,7 +147,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingShake_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_AIM_SHK_MIN_SLIDER_IDC;
-                    y = 7.75 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 7.5 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'aimingShake',false)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_aimingShake_max_txt): GVAR(setSkills_master_txt) {
@@ -159,7 +157,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingShake_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_AIM_SHK_MAX_SLIDER_IDC;
-                    y = 9.25 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 9 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'aimingShake',true)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_aimingSpeed_min_txt): GVAR(setSkills_master_txt) {
@@ -169,7 +167,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingSpeed_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_AIM_SPD_MIN_SLIDER_IDC;
-                    y = 10.75 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'aimingSpeed',false)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_aimingSpeed_max_txt): GVAR(setSkills_master_txt) {
@@ -179,7 +177,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingSpeed_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_AIM_SPD_MAX_SLIDER_IDC;
-                    y = 12.25 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 12 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'aimingSpeed',true)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_commanding_min_txt): GVAR(setSkills_master_txt) {
@@ -189,7 +187,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_commanding_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_CMDING_MIN_SLIDER_IDC;
-                    y = 13.75 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'commanding',false)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_commanding_max_txt): GVAR(setSkills_master_txt) {
@@ -199,7 +197,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_commanding_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_CMDING_MAX_SLIDER_IDC;
-                    y = 15.25 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 15 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'commanding',true)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_courage_min_txt): GVAR(setSkills_master_txt) {
@@ -209,7 +207,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_courage_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_CRG_MIN_SLIDER_IDC;
-                    y = 16.75 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'courage',false)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_courage_max_txt): GVAR(setSkills_master_txt) {
@@ -219,7 +217,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_courage_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_CRG_MAX_SLIDER_IDC;
-                    y = 18.25 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 18 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'courage',true)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_general_min_txt): GVAR(setSkills_master_txt) {
@@ -229,7 +227,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_general_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_GNRL_MIN_SLIDER_IDC;
-                    y = 19.75 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'general',false)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_general_max_txt): GVAR(setSkills_master_txt) {
@@ -239,7 +237,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_general_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_GNRL_MAX_SLIDER_IDC;
-                    y = 21.25 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 21 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'general',true)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_reloadSpeed_min_txt): GVAR(setSkills_master_txt) {
@@ -249,7 +247,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_reloadSpeed_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_RLD_SPD_MIN_SLIDER_IDC;
-                    y = 22.75 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 22.5 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'reloadSpeed',false)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_reloadSpeed_max_txt): GVAR(setSkills_master_txt) {
@@ -259,7 +257,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_reloadSpeed_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_RLD_SPD_MAX_SLIDER_IDC;
-                    y = 24.25 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 24 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'reloadSpeed',true)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_spotDistance_min_txt): GVAR(setSkills_master_txt) {
@@ -269,7 +267,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_spotDistance_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_SPT_DST_MIN_SLIDER_IDC;
-                    y = 25.75 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 25.5 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'spotDistance',false)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_spotDistance_max_txt): GVAR(setSkills_master_txt) {
@@ -279,7 +277,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_spotDistance_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_SPT_DST_MAX_SLIDER_IDC;
-                    y = 27.25 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 27 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'spotDistance',true)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_spotTime_min_txt): GVAR(setSkills_master_txt) {
@@ -289,7 +287,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_spotTime_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_SPT_TM_MIN_SLIDER_IDC;
-                    y = 28.75 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 28.5 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'spotTime',false)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_spotTime_max_txt): GVAR(setSkills_master_txt) {
@@ -299,7 +297,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_spotTime_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
                     idc = SET_SKILLS_SPT_TM_MAX_SLIDER_IDC;
-                    y = 30.25 * GUI_GRID_H + GUI_GRID_Y;
+                    y = 30 * GUI_GRID_H + GUI_GRID_Y;
                     onSliderPosChanged = QUOTE([ARR_3(_this select 1,'spotTime',true)] call FUNC(setSkillsDialogSliderChange));
                 };
                 class GVAR(setSkills_autocombat_txt): GVAR(setSkills_master_txt) {
