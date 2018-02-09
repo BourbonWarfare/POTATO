@@ -6298,7 +6298,7 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 3;
+            burst = "3+round random 3";
         };
     };
     class CUP_hgun_Colt1911: Pistol_Base_F {
@@ -7718,7 +7718,7 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = "3 + round random 5";
+            burst = 3;
         };
         class Fullauto: Mode_FullAuto {
             aiRateOfFire = 0.1;
@@ -7754,7 +7754,7 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = "3 + round random 5";
+            burst = 3;
         };
         class Fullauto: Mode_FullAuto {
             aiRateOfFire = 0.1;
@@ -7790,7 +7790,7 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = "3 + round random 5";
+            burst = 3;
         };
         class Fullauto: Fullauto {
             aiRateOfFire = 0.1;
@@ -7895,7 +7895,7 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 200;
             maxRangeProbab = 0.1;
-            burst = "3 + round random 5";
+            burst = 3;
         };
         class Fullauto: Fullauto {
             aiRateOfFire = 0.1;
