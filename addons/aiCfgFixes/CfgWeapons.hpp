@@ -17,7 +17,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -29,7 +28,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 80;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -56,7 +54,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -86,7 +83,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: single_close_optics1 {
@@ -110,7 +106,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: Single {
@@ -134,7 +129,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: Single {
@@ -159,11 +153,9 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class Single: manual {
             showToPlayer = 1;
-            burst = 1;
             aiRateOfFire = 0.1;
             aiRateOfFireDistance = 50;
             minRange = 0;
@@ -264,7 +256,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class Single: Mode_SemiAuto {
             showToPlayer = 1;
@@ -275,7 +266,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
         };
         class close: FullAuto {
@@ -368,7 +358,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -383,7 +372,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -398,7 +386,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -413,7 +400,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -428,7 +414,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -439,7 +424,6 @@ class CfgWeapons {
             aiRateOfFireDistance = 550;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.7;
             midRange = 300;
@@ -455,7 +439,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -487,7 +470,6 @@ class CfgWeapons {
             aiRateOfFireDistance = 550;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.5;
             midRange = 250;
@@ -503,7 +485,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -538,7 +519,6 @@ class CfgWeapons {
             aiRateOfFireDistance = 550;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.7;
             midRange = 250;
@@ -553,7 +533,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 0;
             showToPlayer = 1;
         };
@@ -585,7 +564,6 @@ class CfgWeapons {
             aiRateOfFire = 1;
             aiRateOfFireDistance = 550;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.7;
             midRange = 250;
@@ -601,7 +579,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 0;
             showToPlayer = 1;
         };
@@ -641,7 +618,6 @@ class CfgWeapons {
             maxRangeProbab = 0.3;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 550;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -653,7 +629,6 @@ class CfgWeapons {
             maxRangeProbab = 0.05;
             aiRateOfFire = 1e-006;
             aiRateOfFireDistance = 50;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -688,7 +663,6 @@ class CfgWeapons {
             aiRateOfFireDistance = 550;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.7;
             midRange = 300;
@@ -704,7 +678,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -736,7 +709,6 @@ class CfgWeapons {
             aiRateOfFireDistance = 550;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.5;
             midRange = 250;
@@ -752,7 +724,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -790,7 +761,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             showToPlayer = 1;
         };
@@ -861,7 +831,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class far: close {
 
@@ -877,7 +846,6 @@ class CfgWeapons {
             aiRateOfFireDistance = 550;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.7;
             midRange = 350;
@@ -893,7 +861,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -928,7 +895,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             minRange = 10;
             showToPlayer = 1;
         };
@@ -941,7 +907,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -954,7 +919,6 @@ class CfgWeapons {
             aiRateOfFire = 1;
             aiRateOfFireDistance = 550;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.7;
             midRange = 250;
@@ -970,7 +934,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 0;
             showToPlayer = 1;
         };
@@ -1002,7 +965,6 @@ class CfgWeapons {
             aiRateOfFire = 1;
             aiRateOfFireDistance = 550;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.7;
             midRange = 300;
@@ -1018,7 +980,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 0;
             showToPlayer = 1;
         };
@@ -1054,7 +1015,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             minRange = 100;
             showToPlayer = 1;
         };
@@ -1067,7 +1027,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -1085,7 +1044,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -1097,7 +1055,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1111,12 +1068,10 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             minRange = 50;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
-            burst = 2;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 100;
             minRangeProbab = 0.8;
@@ -1136,7 +1091,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1151,7 +1105,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -1163,7 +1116,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 2;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -1175,7 +1127,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1189,12 +1140,10 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             minRange = 50;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
-            burst = 3;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 100;
             minRangeProbab = 0.8;
@@ -1214,7 +1163,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1229,7 +1177,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1244,7 +1191,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1259,7 +1205,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: Single {
@@ -1283,7 +1228,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1298,7 +1242,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1313,7 +1256,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1328,7 +1270,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -1352,7 +1293,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1367,7 +1307,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1382,7 +1321,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -1397,7 +1335,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -1418,7 +1355,6 @@ class CfgWeapons {
             midRange = 200;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.7;
             midRangeProbab = 0.3;
@@ -1433,7 +1369,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -1472,7 +1407,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -1493,7 +1427,6 @@ class CfgWeapons {
             midRange = 200;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.7;
             midRangeProbab = 0.3;
@@ -1508,7 +1441,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -1544,7 +1476,6 @@ class CfgWeapons {
             midRange = 200;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             minRange = 120;
             minRangeProbab = 0.7;
             midRangeProbab = 0.3;
@@ -1559,7 +1490,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -1598,11 +1528,9 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class burst: Mode_Burst {
-            burst = 3;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 200;
             minRange = 30;
@@ -1703,7 +1631,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class close: manual {
@@ -1794,7 +1721,6 @@ class CfgWeapons {
             midRangeProbab = 0.2;
             maxRange = 120;
             maxRangeProbab = 0.05;
-            burst = 1;
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
             showToPlayer = 1;
@@ -1806,7 +1732,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 60;
             maxRangeProbab = 0.1;
-            burst = 1;
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
             showToPlayer = 1;
@@ -1838,7 +1763,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -1850,7 +1774,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -1877,7 +1800,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -1889,7 +1811,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -1913,7 +1834,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -1925,7 +1845,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -1949,7 +1868,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -1961,7 +1879,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -1985,7 +1902,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -1997,7 +1913,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -2024,7 +1939,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -2036,7 +1950,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -2060,7 +1973,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -2081,7 +1993,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -2093,7 +2004,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -2114,7 +2024,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -2126,7 +2035,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -2150,7 +2058,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -2162,7 +2069,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -2186,7 +2092,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -2198,7 +2103,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -2222,7 +2126,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -2246,7 +2149,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: single_close_optics1 {
@@ -2270,7 +2172,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: Single {
@@ -2294,7 +2195,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -2306,7 +2206,6 @@ class CfgWeapons {
             midRangeProbab = 0.4;
             maxRange = 20;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -2321,7 +2220,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -2337,7 +2235,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class Single: Mode_SemiAuto {
             showToPlayer = 0;
@@ -2429,7 +2326,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -2523,7 +2419,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: close {
             showToPlayer = 0;
@@ -2604,7 +2499,6 @@ class CfgWeapons {
             maxRangeProbab = 0;
             aiRateOfFire = 0.1;
             aiRateOfFireDistance = 50;
-            burst = 1;
         };
         class manual: Mode_FullAuto {
             showToPlayer = 1;
@@ -2616,7 +2510,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: close {
             showToPlayer = 0;
@@ -2696,7 +2589,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: Single {
@@ -2720,7 +2612,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: Single {
@@ -2744,7 +2635,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: far_optic1 {
@@ -2768,7 +2658,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: far_optic1 {
@@ -2792,7 +2681,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: far_optic1 {
@@ -2816,7 +2704,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: Single {
@@ -2840,7 +2727,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -2852,7 +2738,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -2876,7 +2761,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -2888,7 +2772,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -2912,7 +2795,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -2933,7 +2815,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -2945,7 +2826,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -2969,7 +2849,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -2981,7 +2860,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -3005,7 +2883,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -3017,7 +2894,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -3041,7 +2917,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -3053,7 +2928,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -3077,7 +2951,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -3089,7 +2962,6 @@ class CfgWeapons {
             midRangeProbab = 0.4;
             maxRange = 20;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -3104,7 +2976,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -3116,7 +2987,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -3140,7 +3010,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -3155,7 +3024,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -3167,7 +3035,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -3191,7 +3058,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -3221,7 +3087,6 @@ class CfgWeapons {
             maxRangeProbab = 0.04;
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -3242,7 +3107,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: far_optic1 {
@@ -3266,7 +3130,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: far_optic1 {
@@ -3290,7 +3153,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -3302,7 +3164,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -3332,7 +3193,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -3344,7 +3204,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -3365,7 +3224,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -3377,7 +3235,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -3398,7 +3255,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -3410,7 +3266,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -3431,11 +3286,9 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
-            burst = 1;
             aiRateOfFire = 3;
             aiRateOfFireDistance = 800;
             minRange = 300;
@@ -3464,7 +3317,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class close: close {
@@ -3545,7 +3397,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class close: FullAuto {
@@ -3626,7 +3477,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class close: close {
@@ -3708,7 +3558,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: close {
             showToPlayer = 0;
@@ -3782,7 +3631,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: single_close_optics1 {
@@ -3806,7 +3654,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: single_close_optics1 {
@@ -3830,7 +3677,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: far_optic1 {
@@ -3852,7 +3698,6 @@ class CfgWeapons {
             midRangeProbab = 0.2;
             maxRange = 120;
             maxRangeProbab = 0.05;
-            burst = 1;
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
             showToPlayer = 1;
@@ -3867,7 +3712,6 @@ class CfgWeapons {
             midRangeProbab = 0.2;
             maxRange = 120;
             maxRangeProbab = 0.05;
-            burst = 1;
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
             showToPlayer = 1;
@@ -3884,7 +3728,6 @@ class CfgWeapons {
             maxRangeProbab = 0.04;
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: Single {
@@ -3908,7 +3751,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -3920,7 +3762,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -3935,7 +3776,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -3950,7 +3790,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -3975,7 +3814,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class FullAutoFast: FullAutoSlow {
             aiRateOfFire = 0.1;
@@ -3986,7 +3824,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class close: FullAutoFast {
@@ -4067,7 +3904,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4082,11 +3918,9 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
-            burst = 2;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 200;
             minRange = 0;
@@ -4106,7 +3940,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -4130,7 +3963,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Mode_SemiAuto {
@@ -4142,7 +3974,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto_medium: FullAuto {
@@ -4160,7 +3991,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Mode_SemiAuto {
@@ -4172,7 +4002,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto_medium: FullAuto {
@@ -4190,7 +4019,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -4202,7 +4030,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -4226,7 +4053,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -4238,7 +4064,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -4262,7 +4087,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Mode_SemiAuto {
@@ -4274,7 +4098,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -4298,7 +4121,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -4310,7 +4132,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -4334,7 +4155,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Mode_SemiAuto {
@@ -4346,7 +4166,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -4370,7 +4189,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -4382,7 +4200,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -4409,7 +4226,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -4421,7 +4237,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4436,7 +4251,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4451,7 +4265,6 @@ class CfgWeapons {
             maxRangeProbab = 0.04;
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4466,7 +4279,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class far_optic1: Single {
@@ -4490,7 +4302,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4505,7 +4316,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4520,7 +4330,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -4532,7 +4341,6 @@ class CfgWeapons {
             midRangeProbab = 0.4;
             maxRange = 20;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4547,7 +4355,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -4559,7 +4366,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -4571,7 +4377,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4586,7 +4391,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -4598,7 +4402,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -4610,7 +4413,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4625,7 +4427,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4640,7 +4441,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4653,7 +4453,6 @@ class CfgWeapons {
             midRangeProbab = 0.2;
             maxRange = 120;
             maxRangeProbab = 0.05;
-            burst = 1;
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
             showToPlayer = 1;
@@ -4670,7 +4469,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4685,7 +4483,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4701,7 +4498,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: manual {
             showToPlayer = 0;
@@ -4775,7 +4571,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Full: Mode_FullAuto {
@@ -4787,7 +4582,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -4802,7 +4596,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -4814,7 +4607,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -4847,7 +4639,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -4859,7 +4650,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -4886,7 +4676,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -4898,7 +4687,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class close: FullAuto {
@@ -4973,7 +4761,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -4985,7 +4772,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5015,11 +4801,9 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
-            burst = 2;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 200;
             minRange = 0;
@@ -5039,7 +4823,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5066,11 +4849,9 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst2rnd: Burst {
-            burst = 2;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 200;
             minRange = 0;
@@ -5090,7 +4871,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5111,11 +4891,9 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst2rnd: Burst2rnd {
-            burst = 2;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 100;
             minRange = 0;
@@ -5135,7 +4913,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5165,11 +4942,9 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst2rnd: Burst2rnd {
-            burst = 2;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 200;
             minRange = 0;
@@ -5189,7 +4964,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5219,11 +4993,9 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst2rnd: Burst2rnd {
-            burst = 2;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 200;
             minRange = 0;
@@ -5243,7 +5015,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5273,7 +5044,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -5285,7 +5055,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -5312,7 +5081,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5324,7 +5092,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5351,7 +5118,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5369,7 +5135,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5381,7 +5146,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5408,7 +5172,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5420,7 +5183,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5447,7 +5209,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5459,7 +5220,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5486,7 +5246,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -5498,7 +5257,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5510,7 +5268,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5534,7 +5291,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -5546,7 +5302,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5558,7 +5313,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: single_medium_optics1 {
@@ -5585,7 +5339,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class close: FullAuto {
@@ -5675,7 +5428,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class close: close {
@@ -5765,7 +5517,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -5777,7 +5528,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -5789,7 +5539,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -5804,7 +5553,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -5816,7 +5564,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5828,7 +5575,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -5843,7 +5589,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -5855,7 +5600,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5867,7 +5611,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -5882,7 +5625,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -5894,7 +5636,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5906,7 +5647,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -5921,7 +5661,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -5933,7 +5672,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5945,7 +5683,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -5960,7 +5697,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -5972,7 +5708,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -5984,7 +5719,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -5999,7 +5733,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -6011,7 +5744,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: FullAuto {
@@ -6038,7 +5770,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Mode_SemiAuto {
@@ -6050,7 +5781,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -6077,7 +5807,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -6089,7 +5818,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6116,7 +5844,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6129,7 +5856,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
         };
         class FullAuto: FullAuto {
             aiRateOfFire = 0.1;
@@ -6140,7 +5866,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6155,7 +5880,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -6167,7 +5891,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6194,7 +5917,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -6206,7 +5928,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6233,7 +5954,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -6245,7 +5965,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6272,7 +5991,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -6284,7 +6002,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6311,7 +6028,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6324,7 +6040,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
         };
         class FullAuto: FullAuto {
             aiRateOfFire = 0.1;
@@ -6335,7 +6050,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6350,7 +6064,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6363,7 +6076,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
         };
         class FullAuto: FullAuto {
             aiRateOfFire = 0.1;
@@ -6374,7 +6086,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6389,7 +6100,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -6401,7 +6111,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6428,7 +6137,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -6440,7 +6148,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6467,7 +6174,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -6479,7 +6185,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6506,7 +6211,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -6518,7 +6222,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6545,7 +6248,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Single {
@@ -6557,7 +6259,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6585,7 +6286,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: manual {
             showToPlayer = 0;
@@ -6644,7 +6344,6 @@ class CfgWeapons {
             midRangeProbab = 0;
             maxRangeProbab = 0;
             aiRateOfFire = 1;
-            burst = 1;
             showToPlayer = 1;
         };
         class potato_long: close {
@@ -6674,7 +6373,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6689,7 +6387,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6704,7 +6401,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Mode_SemiAuto {
@@ -6716,7 +6412,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -6743,7 +6438,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6758,7 +6452,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -6770,7 +6463,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -6782,7 +6474,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -6806,7 +6497,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 150;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -6818,7 +6508,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 100;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -6830,7 +6519,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 40;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6845,7 +6533,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Single: Mode_SemiAuto {
@@ -6857,7 +6544,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6872,7 +6558,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -6884,7 +6569,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class Fullauto: Mode_FullAuto {
@@ -6896,7 +6580,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6911,7 +6594,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6923,7 +6605,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class Fullauto: Fullauto {
@@ -6935,7 +6616,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6950,7 +6630,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -6962,7 +6641,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class Fullauto: Fullauto {
@@ -6974,7 +6652,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -6989,7 +6666,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -7001,7 +6677,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class Fullauto: Mode_FullAuto {
@@ -7013,7 +6688,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -7029,7 +6703,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class Burst: Burst {
             aiRateOfFire = 1;
@@ -7040,12 +6713,10 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class Fullauto: Fullauto {
             showToPlayer = 1;
-            burst = 1;
             aiRateOfFire = 1;
             aiRateOfFireDistance = 200;
             minRange = 30;
@@ -7116,7 +6787,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: manual {
             showToPlayer = 0;
@@ -7190,7 +6860,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -7205,7 +6874,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -7217,7 +6885,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_medium_optics1: Single {
@@ -7239,7 +6906,6 @@ class CfgWeapons {
             midRangeProbab = 0.2;
             maxRange = 120;
             maxRangeProbab = 0.05;
-            burst = 1;
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
             showToPlayer = 1;
@@ -7256,7 +6922,6 @@ class CfgWeapons {
             midRangeProbab = 0.8;
             maxRange = 1800;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -7271,7 +6936,6 @@ class CfgWeapons {
             midRangeProbab = 0.8;
             maxRange = 1100;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -7286,7 +6950,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -7298,7 +6961,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -7322,7 +6984,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -7334,7 +6995,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
     };
@@ -7349,7 +7009,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -7361,7 +7020,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
     };
@@ -7376,7 +7034,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -7388,7 +7045,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -7403,7 +7059,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: FullAuto {
@@ -7415,7 +7070,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -7430,7 +7084,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -7446,7 +7099,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: manual {
             showToPlayer = 0;
@@ -7521,7 +7173,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: FullAuto {
             showToPlayer = 0;
@@ -7602,7 +7253,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: FullAuto {
             showToPlayer = 0;
@@ -7683,7 +7333,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: manual {
             showToPlayer = 0;
@@ -7758,7 +7407,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class close: manual {
             showToPlayer = 0;
@@ -7832,7 +7480,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class close: close {
@@ -7907,7 +7554,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -7919,7 +7565,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class single_close_optics1: Single {
@@ -7946,7 +7591,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -7958,7 +7602,6 @@ class CfgWeapons {
             midRangeProbab = 0.4;
             maxRange = 20;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -7973,7 +7616,6 @@ class CfgWeapons {
             midRangeProbab = 0.3;
             maxRange = 80;
             maxRangeProbab = 0.01;
-            burst = 1;
             showToPlayer = 1;
         };
         class FullAuto: Mode_FullAuto {
@@ -7985,7 +7627,6 @@ class CfgWeapons {
             midRangeProbab = 0.4;
             maxRange = 20;
             maxRangeProbab = 0.05;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8000,7 +7641,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class SCAR_L_FullAuto: Mode_FullAuto {
@@ -8018,7 +7658,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8033,7 +7672,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class SCAR_L_FullAuto: SCAR_L_FullAuto {
@@ -8045,7 +7683,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8060,7 +7697,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class SCAR_L_FullAuto: SCAR_L_FullAuto {
@@ -8072,7 +7708,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8087,7 +7722,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class SCAR_L_FullAuto: SCAR_L_FullAuto {
@@ -8099,7 +7733,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8114,7 +7747,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class SCAR_H_FullAuto: Mode_FullAuto {
@@ -8126,7 +7758,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8141,7 +7772,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class SCAR_H_FullAuto: SCAR_H_FullAuto {
@@ -8153,7 +7783,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8168,7 +7797,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class SCAR_H_FullAuto: SCAR_H_FullAuto {
@@ -8180,7 +7808,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8195,7 +7822,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class SCAR_H_FullAuto: SCAR_H_FullAuto {
@@ -8207,7 +7833,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8222,7 +7847,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class SCAR_H_FullAuto: SCAR_H_FullAuto {
@@ -8234,7 +7858,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8249,7 +7872,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -8261,7 +7883,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class Fullauto: Mode_FullAuto {
@@ -8273,7 +7894,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8288,7 +7908,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 500;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Mode_Burst {
@@ -8300,7 +7919,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class Fullauto: Mode_FullAuto {
@@ -8312,7 +7930,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8327,7 +7944,6 @@ class CfgWeapons {
             midRangeProbab = 0.6;
             maxRange = 650;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -8339,7 +7955,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 250;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class Fullauto: Fullauto {
@@ -8351,7 +7966,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8367,7 +7981,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = "30+ random 20";
             maxRangeProbab = 0.1;
-            burst = 1;
         };
         class Close: Manual {
             showToPlayer = 0;
@@ -8441,7 +8054,6 @@ class CfgWeapons {
             midRangeProbab = 0.5;
             maxRange = 400;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
         class Burst: Burst {
@@ -8453,7 +8065,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 200;
             maxRangeProbab = 0.1;
-            burst = 3;
             showToPlayer = 1;
         };
         class Fullauto: Fullauto {
@@ -8465,7 +8076,6 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 120;
             maxRangeProbab = 0.1;
-            burst = 1;
             showToPlayer = 1;
         };
     };
@@ -8474,7 +8084,6 @@ class CfgWeapons {
         class Single: Mode_SemiAuto {
             aiRateOfFire = 0.6;
             aiRateOfFireDistance = 50;
-            burst = 1;
             minRange = 2;
             minRangeProbab = 0.3;
             midRange = 250;
