@@ -21,13 +21,14 @@ if (isNull _newPlayer) exitWith {};
 if (!alive _newPlayer) exitWith {};
 if (_newPlayer getVariable [QGVAR(briefingAdded), false]) exitWith {};
 
+private _side = side (group _newPlayer);
+if (_side == sideLogic) exitWith {};
+
 _newPlayer setVariable [QGVAR(briefingAdded), true];
 
-if (GVAR(brief_addCredits)) then { [_newPlayer] call FUNC(addCredits); };
-if (GVAR(brief_addOrbat)) then { [_newPlayer] call FUNC(addOrbat); };
+if (missionNamespace getVariable [QGVAR(brief_addCredits), false]) then { [_newPlayer] call FUNC(addCredits); };
+if (missionNamespace getVariable [QGVAR(brief_addOrbat), false]) then { [_newPlayer] call FUNC(addOrbat); };
 if (ACEGVAR(medical,level) == 2) then { [_newPlayer] call FUNC(addMedicalNotes); };
-
-private _side = side (group _newPlayer);
 
 private _sideBriefMission = "";
 private _sideBriefSituation = "";
@@ -62,13 +63,6 @@ switch (_side) do {
 };
 
 TRACE_5("",count _sideBriefAdministration,count _sideBriefMission,count _sideBriefSituation,count _groupBrief,count _playerBrief);
-
-// TODO: Remove this conversion eventually, left in for backwards compatibility
-_sideBriefAdministration = [_sideBriefAdministration] call FUNC(convertNewLineToHTML);
-_sideBriefMission = [_sideBriefMission] call FUNC(convertNewLineToHTML);
-_sideBriefSituation = [_sideBriefSituation] call FUNC(convertNewLineToHTML);
-_groupBrief = [_groupBrief] call FUNC(convertNewLineToHTML);
-_playerBrief = [_playerBrief] call FUNC(convertNewLineToHTML);
 
 if (_sideBriefAdministration != "") then {
     _newPlayer createDiaryRecord ["diary", ["Administration", _sideBriefAdministration]];

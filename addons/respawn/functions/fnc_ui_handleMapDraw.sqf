@@ -17,7 +17,6 @@
 
 #include "script_component.hpp"
 #define MAP_MIN_RP_DISTANCE 75.0
-#define ICON_REVIVE "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\ReviveIcon_ca.paa"
 
 TRACE_1("Params",_this);
 
@@ -30,7 +29,7 @@ private _handledVehicles = [];
     if (!(_vehicle in _handledVehicles) && { alive _vehicle } && { simulationEnabled _vehicle } && { !isObjectHidden _vehicle }) then {
         _handledVehicles pushBack _vehicle;
 
-        private _vehicleTexture = [_vehicle] call EFUNC(spectate,getVehicleIcon);
+        private _vehicleTexture = [_vehicle] call ACEFUNC(common,getVehicleIcon);
 
         private _sideColor = _vehicle getVariable QEGVAR(spectate,sideColor);
         if (isNil "_sideColor") then {
@@ -39,7 +38,7 @@ private _handledVehicles = [];
         };
 
         if (_vehicle getVariable ["ACE_isUnconscious", false]) then {
-            _vehicleTexture = ICON_REVIVE;
+            _vehicleTexture = QPATHTOF(data\revive_icon.paa);
             _sideColor = [0.5, 0, 0, 1];
         };
 

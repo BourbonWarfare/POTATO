@@ -12,6 +12,7 @@ class RscControlsGroup;
 class RscStructuredText;
 class RscPictureKeepAspect;
 class RscControlsGroupNoScrollbars;
+class ACEGVAR(common,CompassControl);
 
 class GVAR(overlay) {
     idd = OVERLAY_IDD;
@@ -59,6 +60,7 @@ class GVAR(overlay) {
             h = "safeZoneH";
 
             multiselectEnabled = 0;
+            disableKeyboardSearch = 1;
             colorBorder[] = {0,0,0,0};
             colorBackground[] = {0,0,0,0.75};
             expandOnDoubleclick = 1;
@@ -151,6 +153,11 @@ class GVAR(overlay) {
                 };
             };
         };
+        class Compass: ACEGVAR(common,CompassControl) {
+            idc = COMPASS_IDC;
+
+            y = "safeZoneY";
+        };
         class MapGroup: RscControlsGroupNoScrollbars {
             idc = MAP_GROUP_IDC;
 
@@ -211,7 +218,7 @@ class GVAR(overlay) {
                 class SpectatorsCount: RscText {
                     idc = MAP_SPEC_COUNT_IDC;
 
-                    x = 0.97;
+                    x = 0.965;
                     y = 0.01;
                     w = 0.03;
                     h = 0.03;
@@ -252,15 +259,15 @@ class GVAR(overlay) {
 
             x = QUOTE(12.1 * XFACTOR + XOFFSET);
             y = QUOTE(24 * YFACTOR + YOFFSET);
-            w = QUOTE(16 * XFACTOR);
+            w = QUOTE(18 * XFACTOR);
             h = QUOTE(5.5 * YFACTOR);
 
             class controls {
                 class UpperBackground: RscText {
                     idc = FOCUS_UP_BG_IDC;
 
-                    x = QUOTE(3.5 * XFACTOR);
-                    y = QUOTE(0 * YFACTOR);
+                    x = QUOTE(5.5 * XFACTOR);
+                    y = 0;
                     w = QUOTE(12.4 * XFACTOR);
                     h = QUOTE(1.4 * YFACTOR);
 
@@ -269,7 +276,7 @@ class GVAR(overlay) {
                 class LowerBackground: RscText {
                     idc = FOCUS_DOWN_BG_IDC;
 
-                    x = QUOTE(3.5 * XFACTOR);
+                    x = QUOTE(5.5 * XFACTOR);
                     y = QUOTE(1.5 * YFACTOR);
                     w = QUOTE(12.4 * XFACTOR);
                     h = QUOTE(4 * YFACTOR);
@@ -279,7 +286,7 @@ class GVAR(overlay) {
                 class VehicleType: RscPicture {
                     idc = FOCUS_VEHICLE_IDC;
 
-                    x = QUOTE(13.5 * XFACTOR);
+                    x = QUOTE(15.5 * XFACTOR);
                     y = QUOTE(0.3 * YFACTOR);
                     w = QUOTE(2.1 * XFACTOR);
                     h = QUOTE(1 * YFACTOR);
@@ -289,7 +296,7 @@ class GVAR(overlay) {
                 class UnitType: RscPictureKeepAspect {
                     idc = FOCUS_UNIT_IDC;
 
-                    x = QUOTE(14.6 * XFACTOR);
+                    x = QUOTE(16.6 * XFACTOR);
                     y = QUOTE(0.3 * YFACTOR);
                     w = QUOTE(1 * XFACTOR);
                     h = QUOTE(1 * YFACTOR);
@@ -299,8 +306,8 @@ class GVAR(overlay) {
                 class Name: RscText {
                     idc = FOCUS_NAME_IDC;
 
-                    x = QUOTE(3.6 * XFACTOR);
-                    y = QUOTE(0 * YFACTOR);
+                    x = QUOTE(5.6 * XFACTOR);
+                    y = 0;
                     w = QUOTE(9.9 * XFACTOR);
                     h = QUOTE(1.4 * YFACTOR);
 
@@ -312,7 +319,7 @@ class GVAR(overlay) {
                 class KillCG: RscControlsGroup {
                     idc = FOCUS_KILL_CG_IDC;
 
-                    x = QUOTE(3.5 * XFACTOR);
+                    x = QUOTE(5.5 * XFACTOR);
                     y = QUOTE(1.5 * YFACTOR);
                     w = QUOTE(12.4 * XFACTOR);
                     h = QUOTE(4 * YFACTOR);
@@ -321,14 +328,108 @@ class GVAR(overlay) {
                         class Kill: RscStructuredText {
                             idc = FOCUS_KILL_IDC;
 
-                            x = QUOTE(0 * XFACTOR);
-                            y = QUOTE(0 * YFACTOR);
+                            x = 0;
+                            y = 0;
                             w = QUOTE(12 * XFACTOR);
                             h = QUOTE(10 * YFACTOR);
 
                             shadow = 0;
                         };
                     };
+                };
+                class MedicalCG: RscControlsGroupNoScrollbars {
+                    idc = FOCUS_MEDICAL_GC_IDC;
+
+                    x = 0;
+                    y = 0;
+                    w = QUOTE(5.5 * XFACTOR);
+                    h = QUOTE(5.5 * YFACTOR);
+
+                    class controls {
+                        class BodyImgBackground: RscText {
+                            idc = FOCUS_MEDICAL_BG_IDC;
+
+                            x = QUOTE(0.25 * XFACTOR);
+                            y = 0;
+                            w = QUOTE(5 * XFACTOR);
+                            h = QUOTE(5.5 * YFACTOR);
+
+                            colorBackground[] = {0,0,0,0.75};
+                        };
+                        class BodyImgHead: RscPictureKeepAspect {
+                            idc = FOCUS_MEDICAL_HEAD_IDC;
+
+                            x = 0;
+                            y = 0;
+                            w = QUOTE(5.5 * XFACTOR);
+                            h = QUOTE(5.5 * YFACTOR);
+                            SizeEx = QUOTE(YFACTOR * 0.5);
+
+                            colorBackground[] = {1,1,1,1};
+                            colorPicture[] = {1,1,1,1};
+                            colorText[] = {1,1,1,1};
+                            text = QPATHTOF(data\body_head.paa);
+                        };
+                        class BodyImgTorso: BodyImgHead {
+                            idc = FOCUS_MEDICAL_TORSO_IDC;
+                            text = QPATHTOF(data\body_torso.paa);
+                        };
+                        class BodyImgLeftArm: BodyImgHead {
+                            idc = FOCUS_MEDICAL_LEFT_ARM_IDC;
+                            text = QPATHTOF(data\body_arm_left.paa);
+                        };
+                        class BodyImgRightArm: BodyImgHead {
+                            idc = FOCUS_MEDICAL_RIGHT_ARM_IDC;
+                            text = QPATHTOF(data\body_arm_right.paa);
+                        };
+                        class BodyImgLeftLeg: BodyImgHead {
+                            idc = FOCUS_MEDICAL_LEFT_LEG_IDC;
+                            text = QPATHTOF(data\body_leg_left.paa);
+                        };
+                        class BodyImgRightLeg: BodyImgHead {
+                            idc = FOCUS_MEDICAL_RIGHT_LEG_IDC;
+                            text = QPATHTOF(data\body_leg_right.paa);
+                        };
+                    };
+                };
+            };
+        };
+        class FullMap: Map {
+            idc = FULL_MAP_IDC;
+
+            x = "safeZoneXAbs";
+            y = "safeZoneY";
+            w = "safeZoneWAbs";
+            h = "safeZoneH";
+        };
+        class BriefingGroup: RscControlsGroupNoScrollbars {
+            idc = BRIEFING_GROUP_IDC;
+
+            x = 0;
+            y = 0;
+            w = 1;
+            h = 1;
+
+            class controls {
+                class BriefingBackground: RscText {
+                    idc = BRIEFING_BG_IDC;
+
+                    x = 0;
+                    y = 0;
+                    w = 1;
+                    h = 1;
+
+                    colorBackground[] = {0,0,0,0.75};
+                };
+                class BriefingGroup: RscControlsGroup {
+                    idc = BRIEFINGS_GROUP_IDC;
+
+                    x = 0;
+                    y = 0;
+                    w = 1;
+                    h = 1;
+
+                    class controls {};
                 };
             };
         };
@@ -352,7 +453,7 @@ class GVAR(overlay) {
             x = 0.25;
             y = 0.245;
             w = 0.5;
-            h = 0.6;
+            h = 0.65;
 
             text = QUOTE(HELP_TEXT);
             colorBackground[] = {0,0,0,0.5};

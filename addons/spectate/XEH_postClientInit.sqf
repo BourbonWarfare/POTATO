@@ -10,7 +10,6 @@ if (GVAR(enabled) && hasInterface) then {
     GVAR(classEHInstalled) = false;
 
     GVAR(boundingBoxCache) = call CBA_fnc_createNamespace;
-    GVAR(vehicleIconCache) = call CBA_fnc_createNamespace;
     GVAR(groupIconCache) = call CBA_fnc_createNamespace;
 
     // populate group icon cache

@@ -21,14 +21,14 @@
 
 TRACE_1("Params",_this);
 
-params ["", "", "_x", "_y"];
+params ["_map", "", "_x", "_y"];
 
 if (isNull GVAR(mapHighlighted)) then {
     if !(isNull GVAR(camTarget)) then {
         playsound "ReadoutHideClick1";
     };
 
-    private _pos = MAP_DISPLAY ctrlMapScreenToWorld [_x, _y];
+    private _pos = _map ctrlMapScreenToWorld [_x, _y];
     _pos set [2, (getPosASLVisual GVAR(cam)) select 2];
 
     GVAR(cam) setPosASL _pos;

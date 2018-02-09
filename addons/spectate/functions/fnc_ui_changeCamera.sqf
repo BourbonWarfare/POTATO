@@ -80,7 +80,7 @@ if (!isNull GVAR(camTarget) || _index == FREE_CAMERA) then {
         };
 
         // Enable camera input
-        if !(GVAR(mapOpen)) then {
+        if !(GVAR(mapOpen) || GVAR(fullMapOpen)) then {
             GVAR(cam) camCommand "manual on";
         };
 

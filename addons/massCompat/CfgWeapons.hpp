@@ -85,7 +85,25 @@
 "CUP_100Rnd_556x45_BetaCMag", \
 "CUP_100Rnd_TE1_Red_Tracer_556x45_BetaCMag", \
 "CUP_100Rnd_TE1_Green_Tracer_556x45_BetaCMag", \
-"CUP_100Rnd_TE1_Yellow_Tracer_556x45_BetaCMag"
+"CUP_100Rnd_TE1_Yellow_Tracer_556x45_BetaCMag", \
+"hlc_30rnd_556x45_S", \
+"hlc_30rnd_556x45_Tracers_G36", \
+"hlc_30rnd_556x45_TDIM_G36", \
+"hlc_30rnd_556x45_MDIM_G36", \
+"hlc_30rnd_556x45_EPR_G36", \
+"hlc_30rnd_556x45_SOST_G36", \
+"hlc_30rnd_556x45_SPR_G36", \
+"hlc_100rnd_556x45_EPR_G36", \
+"hlc_100rnd_556x45_M_G36", \
+"hlc_100rnd_556x45_Mdim_G36"
+
+#define HLC_G36_SWITCH_CLASS(CMAG_GUN) \
+class nia_magSwitch { \
+    CUP_100Rnd_556x45_BetaCMag = QUOTE(CMAG_GUN); \
+    CUP_100Rnd_TE1_Red_Tracer_556x45_BetaCMag =  QUOTE(CMAG_GUN); \
+    CUP_100Rnd_TE1_Green_Tracer_556x45_BetaCMag = QUOTE(CMAG_GUN); \
+    CUP_100Rnd_TE1_Yellow_Tracer_556x45_BetaCMag = QUOTE(CMAG_GUN); \
+}
 
 #define NATO_LMG_65 \
 "200Rnd_65x39_cased_Box", \
@@ -387,6 +405,63 @@ class CfgWeapons {
     };
     class CUP_arifle_MG36: CUP_arifle_G36C {
         magazines[] = { NATO_PMAG_556 };
+    };
+    class hlc_G36_base: Rifle_Base_F {
+        magazines[] = { NATO_PMAG_556 };
+    };
+    class hlc_rifle_MG36: hlc_G36_base {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_MG36);
+    };
+    class hlc_rifle_G36A1: hlc_G36_base {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36A1_CMAG);
+    };
+    class hlc_rifle_G36A1AG36: hlc_rifle_G36A1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36A1AG36_CMAG);
+    };
+    class hlc_rifle_G36E1AG36: hlc_rifle_G36A1AG36 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36E1AG36_CMAG);
+    };
+    class hlc_rifle_G36E1AG36_Romi: hlc_rifle_G36E1AG36 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36E1AG36_Romi_CMAG);
+    };
+    class hlc_rifle_G36KA1: hlc_rifle_G36A1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36KA1_CMAG);
+    };
+    class hlc_rifle_G36KE1: hlc_rifle_g36KA1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36KE1_CMAG);
+    };
+    class hlc_rifle_G36E1: hlc_rifle_g36A1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36E1_CMAG);
+    };
+    class hlc_rifle_G36V: hlc_rifle_G36E1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36V_CMAG);
+    };
+    class hlc_rifle_G36VAG36: hlc_rifle_G36V {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36VAG36_CMAG);
+    };
+    class hlc_rifle_G36TAC: hlc_rifle_G36V {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36TAC_CMAG);
+    };
+    class hlc_rifle_G36C: hlc_G36_base {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36C_CMAG);
+    };
+    class hlc_rifle_G36CV: hlc_rifle_G36C {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36CV_CMAG);
+    };
+    class hlc_rifle_G36CTac: hlc_rifle_G36CV {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36CTac_CMAG);
+    };
+    class hlc_rifle_G36KV: hlc_rifle_G36KE1 {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36KV_CMAG);
+    };
+    class hlc_rifle_g36KTac: hlc_rifle_G36KV {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_g36KTac_CMAG);
+    };
+    class hlc_rifle_G36KA1KSK: hlc_rifle_G36KV {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36KA1KSK_CMAG);
+    };
+    class HLC_Rifle_G36KSKAG36: hlc_rifle_G36KA1KSK {
+        HLC_G36_SWITCH_CLASS(hlc_rifle_G36KSKAG36_CMAG);
     };
     class CUP_arifle_XM8_Base: Rifle_Base_f {
         magazines[] = { NATO_PMAG_556 };

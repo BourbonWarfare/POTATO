@@ -8,6 +8,8 @@ class CfgVehicles {
         scopeArsenal = 0;
         scopeCurator = 0;
 
+        icon = "iconManDead";
+
         weapons[] = {}; // empty weapons array
 
         delete ACE_Actions;
@@ -17,5 +19,14 @@ class CfgVehicles {
     // add spectator
     class GVAR(spectator): GVAR(holder) {
         author = "POTATO";
+    };
+
+    // add playable spectator
+    class GVAR(playableSpectator): GVAR(spectator) {
+        author = "POTATO";
+        displayName = "POTATO Spectator";
+        displayNameShort = "Spectator";
+        icon = "iconPotatoSpectate";
+        scope = 2;
     };
 };

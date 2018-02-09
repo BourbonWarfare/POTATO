@@ -1,4 +1,23 @@
+#include "\a3\3den\UI\macros.inc"
+#include "\a3\3den\UI\resincl.inc"
+#define SIZE_XXS 1
+
+class ctrlToolbox;
 class ctrlMenuStrip;
+
+class GVAR(setAttribute): ctrlToolbox {
+    x = (ATTRIBUTE_TITLE_W + SIZE_XXS) * GRID_W;
+    y = 0.02 * SIZE_M * GRID_H;
+    w = ATTRIBUTE_CONTENT_W * GRID_W;
+    h = 0.96 * SIZE_M * GRID_H;
+
+    rows = 1;
+    columns = 2;
+    strings[] = {"Off", "On"};
+    tooltips[] = {"Turn Off", "Turn On"};
+    values[] = {0, 1};
+};
+
 class display3DEN {
     class Controls {
         class MenuStrip: ctrlMenuStrip {
@@ -23,6 +42,9 @@ class Cfg3DEN {
                 class Title;
             };
         };
+        class TitleWide: Default {
+            class Controls;
+        };
         class Edit: Title {
             class Controls: Controls {
                 class Title: Title {};
@@ -42,6 +64,32 @@ class Cfg3DEN {
                     idc = TEXT_IDC;
                     style = 16; //multi line
                     h = "5 * 5 * (pixelH * pixelGrid * 0.50)";
+                };
+            };
+        };
+        class GVAR(briefingSettings): TitleWide {
+            onLoad = QUOTE(_this call FUNC(briefingSettingsControlLoad));
+            attributeSave = QUOTE(_this call FUNC(briefingSettingsAttributeSave));
+            attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(briefingSettingsAttributeLoad));
+            h = (2 * SIZE_M + 1) * GRID_H;
+
+            class Controls: Controls {
+                class SetCreditsTitle: Title {
+                    style = 1;
+                    w = (ATTRIBUTE_TITLE_W - SIZE_M) * GRID_W;
+                    text = "Auto Credits";
+                };
+                class SetCreditsControl: GVAR(setAttribute) {
+                    idc = AUTO_CREDS_SET_IDC;
+                };
+                class SetOrbatTitle: SetCreditsTitle {
+                    style = 1;
+                    y = 1 * SIZE_M * GRID_H;
+                    text = "Order of Battle";
+                };
+                class SetOrbatControl: GVAR(setAttribute) {
+                    idc = ORBAT_SET_IDC;
+                    y = 1 * SIZE_M * GRID_H;
                 };
             };
         };
@@ -88,9 +136,20 @@ class Cfg3DEN {
 
     class Mission {
         class GVAR(briefings) {// Custom section class, everything inside will be opened in one window
-            displayName = "Side Briefings (SHIFT + Enter to add a new line)"; // Text visible in the window title as "Edit <displayName>"
+            displayName = "Settings and Side Briefings (SHIFT + Enter to add a new line)"; // Text visible in the window title as "Edit <displayName>"
             display = "Display3DENEditAttributes"; // Optional - display for attributes window. Must have the same structure and IDCs as the default Display3DENEditAttributes
             class AttributeCategories {
+                class Settings {
+                    displayName = "Briefing Settings";
+                    collapsed = 0; // When 1, the category is collapsed by default
+                    class Attributes {
+                        class briefingSettings {
+                            control = QGVAR(briefingSettings);
+                            property = QGVAR(briefingSettingsValue);
+                            expression = QUOTE([ARR_2(nil,_value)] call FUNC(briefingSettingsAttributeLoad));
+                        };
+                    };
+                };
                 class WestBriefing {
                     displayName = "West Briefing"; // Category name visible in Edit Attributes window
                     collapsed = 0; // When 1, the category is collapsed by default

@@ -65,7 +65,7 @@ tvExpand [GROUP_TREE_IDC, [_groupIndex]];
     } params ["_unitName", "_unitVar"];
 
     private _unitIndex = tvAdd [GROUP_TREE_IDC, [_groupIndex], format ["%1 - %2", _unitDisplayName, _unitName]];
-    tvSetPicture [GROUP_TREE_IDC, [_groupIndex, _unitIndex], [_unitType] call EFUNC(spectate,getVehicleIcon)];
+    tvSetPicture [GROUP_TREE_IDC, [_groupIndex, _unitIndex], [_unitType] call ACEFUNC(common,getVehicleIcon)];
     tvSetTooltip [GROUP_TREE_IDC, [_groupIndex, _unitIndex], _unitName];
     tvSetData [GROUP_TREE_IDC, [_groupIndex, _unitIndex], _unitVar];
 } forEach _newUnits;

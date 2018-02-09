@@ -23,15 +23,21 @@
 TRACE_1("Params",_this);
 
 // handle map toggle
-if (inputAction "ShowMap" > 0 || inputAction "HideMap" > 0) exitWith {
-    [] call FUNC(toggleMap);
+if (inputAction "minimap" > 0 || {inputAction "minimapToggle" > 0}) exitWith {
+    [!GVAR(mapOpen), false] call FUNC(toggleMap);
+    true
+};
+
+// handle full map toggle
+if (inputAction "ShowMap" > 0 || {inputAction "HideMap" > 0}) exitWith {
+    [false, !GVAR(fullMapOpen)] call FUNC(toggleMap);
     true
 };
 
 // handle interrupt
 if (inputAction "ingamePause" > 0) exitWith {
-    if (GVAR(mapOpen)) then {
-        [] call FUNC(toggleMap);
+    if (GVAR(mapOpen) || GVAR(fullMapOpen)) then {
+        [false, false] call FUNC(toggleMap);
     } else {
         GVAR(cam) camCommand "manual off";
         if (isMultiplayer) then {
@@ -64,9 +70,20 @@ if (inputAction "nightVision" > 0) exitWith {
 // if the zeus key is pressed and unit is curator, open zeus interface
 if ((inputAction "CuratorInterface") > 0 && {!isNull (getAssignedCuratorLogic player)}) exitWith {
     GVAR(uiVisible) = false;
+    GVAR(tagsVisible) = false;
+    GVAR(drawProjectiles) = false;
     OVERLAY closeDisplay 1;
     GVAR(cam) camCommand "manual off";
     openCuratorInterface;
+
+    [
+        {!isNull curatorCamera},
+        {
+            curatorCamera setPosASL positionCameraToWorld [0,0,0];
+            curatorCamera setDir (getDirVisual GVAR(cam));
+        }
+    ] call CBA_fnc_waitUntilAndExecute;
+
     true
 };
 
@@ -108,6 +125,25 @@ if (inputAction "networkStats" > 0) exitWith {
     true
 };
 
+// handle toggling cam ground speed
+if (inputAction "getOver" > 0) exitWith {
+    GVAR(surfaceSpeed) = !GVAR(surfaceSpeed);
+    GVAR(cam) camCommand (["surfaceSpeed off", "surfaceSpeed on"] select GVAR(surfaceSpeed));
+    true
+};
+
+// handle showing the compass
+if (inputAction "compass" > 0) exitWith {
+    COMPASS ctrlShow !(ctrlShown COMPASS);
+    true
+};
+
+// handle showing the briefing
+if (inputAction "tasks" > 0 || {inputAction "diary" > 0}) exitWith {
+    [] call FUNC(toggleBriefing);
+    true
+};
+
 private _key = _this select 1;
 
 // handle perspective changes
@@ -143,12 +179,6 @@ if (_key == DIK_BACKSLASH) exitWith {
 // handle displaying help
 if (_key == DIK_F1) exitWith {
     HELP ctrlShow !(ctrlShown HELP);
-    true
-};
-
-// handle spectate headset down
-if ([_key, _this select [2, 3]] isEqualTo ((["ACRE2", "HeadSet"] call CBA_fnc_getKeybind) select 5)) exitWith {
-    [] call acre_sys_core_fnc_toggleHeadset;
     true
 };
 

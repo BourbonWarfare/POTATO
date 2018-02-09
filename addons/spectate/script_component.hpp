@@ -13,12 +13,19 @@
     #define DEBUG_SETTINGS DEBUG_SETTINGS_SPECTATE
 #endif
 
+#define GLOBAL_CHANNEL_INDEX 0
+#define SIDE_CHANNEL_INDEX 1
+#define COMMAND_CHANNEL_INDEX 2
+#define GROUP_CHANNEL_INDEX 3
+#define VEHICLE_CHANNEL_INDEX 4
+#define DIRECT_CHANNEL_INDEX 5
+
 #define DISTANCE_NAMES 175.0
 #define NAME_MAX_CHARACTERS 17
 
 #define MAX_TRACKED_GRENADES 15
 #define MAX_TRACKED_PROJECTILES 50
-#define MAX_TRACKED_PROJECTILE_SEGMENTS 50
+#define MAX_TRACKED_PROJECTILE_SEGMENTS 40
 
 #define FIRE_HIGHLIGHT_TIME 0.05
 
@@ -31,7 +38,6 @@
 #define SP_PAUSE_CLASS "RscDisplayInterrupt"
 #define MP_PAUSE_CLASS "RscDisplayMPInterrupt"
 
-#define ICON_REVIVE "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\ReviveIcon_ca.paa"
 #define CAM_ICON_FREE "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\FreeSelected.paa"
 #define CAM_ICON_FREE_SELECTED "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\Free.paa"
 #define CAM_ICON_THIRD "a3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\FollowSelected.paa"
@@ -53,6 +59,9 @@
 #define LIST_IDC 769790
 #define LIST (OVERLAY displayCtrl LIST_IDC)
 
+#define COMPASS_IDC 769795
+#define COMPASS (OVERLAY displayCtrl COMPASS_IDC)
+
 #define MAP_GROUP_IDC 735450
 #define MAP_GROUP (OVERLAY displayCtrl MAP_GROUP_IDC)
 
@@ -73,6 +82,9 @@
 
 #define MAP_SPEC_ICON_IDC 735456
 #define MAP_SPEC_ICON (OVERLAY displayCtrl MAP_SPEC_ICON_IDC)
+
+#define FULL_MAP_IDC 735460
+#define FULL_MAP (OVERLAY displayCtrl FULL_MAP_IDC)
 
 #define CAM_GROUP_IDC 776270
 #define CAM_GROUP (OVERLAY displayCtrl CAM_GROUP_IDC)
@@ -116,6 +128,39 @@
 #define FOCUS_KILL_CG_IDC 734297
 #define FOCUS_KILL_CG (OVERLAY displayCtrl FOCUS_KILL_CG_IDC)
 
+#define FOCUS_MEDICAL_GC_IDC 734298
+#define FOCUS_MEDICAL_GC (OVERLAY displayCtrl FOCUS_MEDICAL_GC_IDC)
+
+#define FOCUS_MEDICAL_HEAD_IDC 734299
+#define FOCUS_MEDICAL_HEAD (OVERLAY displayCtrl FOCUS_MEDICAL_HEAD_IDC)
+
+#define FOCUS_MEDICAL_TORSO_IDC 734300
+#define FOCUS_MEDICAL_TORSO (OVERLAY displayCtrl FOCUS_MEDICAL_TORSO_IDC)
+
+#define FOCUS_MEDICAL_LEFT_ARM_IDC 734301
+#define FOCUS_MEDICAL_LEFT_ARM (OVERLAY displayCtrl FOCUS_MEDICAL_LEFT_ARM_IDC)
+
+#define FOCUS_MEDICAL_RIGHT_ARM_IDC 734302
+#define FOCUS_MEDICAL_RIGHT_ARM (OVERLAY displayCtrl FOCUS_MEDICAL_RIGHT_ARM_IDC)
+
+#define FOCUS_MEDICAL_LEFT_LEG_IDC 734303
+#define FOCUS_MEDICAL_LEFT_LEG (OVERLAY displayCtrl FOCUS_MEDICAL_LEFT_LEG_IDC)
+
+#define FOCUS_MEDICAL_RIGHT_LEG_IDC 734304
+#define FOCUS_MEDICAL_RIGHT_LEG (OVERLAY displayCtrl FOCUS_MEDICAL_RIGHT_LEG_IDC)
+
+#define FOCUS_MEDICAL_BG_IDC 734305
+#define FOCUS_MEDICAL_BG (OVERLAY displayCtrl FOCUS_MEDICAL_BG_IDC)
+
+#define BRIEFING_GROUP_IDC 751870
+#define BRIEFING_GROUP (OVERLAY displayCtrl BRIEFING_GROUP_IDC)
+
+#define BRIEFING_BG_IDC 751871
+#define BRIEFING_BG (OVERLAY displayCtrl BRIEFING_BG_IDC)
+
+#define BRIEFINGS_GROUP_IDC 751872
+#define BRIEFINGS_GROUP (OVERLAY displayCtrl BRIEFINGS_GROUP_IDC)
+
 #define RESPAWN_IDC 751885
 #define RESPAWN (OVERLAY displayCtrl RESPAWN_IDC)
 
@@ -123,14 +168,15 @@
 #define HELP (OVERLAY displayCtrl HELP_IDC)
 #define HELP_TEXT \
 <t size='0.9'>Controls:<br/><br/></t>\
-<t size='0.78'>\
+<t size='0.76'>\
 'F1' to open/close this dialog<br/>\
 'Space' to switch the current camera<br/>\
 'Right Arrow' to switch focus to the next unit<br/>\
 'Left Arrow' to switch focus to the previous unit<br/>\
 'Backspace' to toggle the UI<br/>\
 'Back Slash' to toggle the Tags<br/>\
-Map toggle (default 'M') to open/close the map<br/>\
+Map toggle (default 'M') to open/close the full map<br/>\
+GPS toggle (default 'Ctrl + M') to open/close the mini map<br/>\
 Zero up (default 'Page Up') to increase client view distance<br/>\
 Zero down (default 'Page Down') to decrease client view distance<br/>\
 Night vision toggle (default 'N') to change image modes<br/>\
@@ -138,6 +184,9 @@ Open curator (default 'Y') to open the curator interface (if assigned)<br/>\
 Light toggle (default 'L') to add local point lights<br/>\
 Lock target (default 'T') to add bullet tracking<br/>\
 Player stats (default 'P') to view the selected player's stats<br/>\
+Get over (default 'V') to toggle camera speed at ground level<br/>\
+Tasks/diary (default 'J') to open/close the briefings<br/>\
+Compass (default 'K') to open/close the compass<br/>\
 </t>
 
 #include "\z\potato\addons\core\script_macros.hpp"

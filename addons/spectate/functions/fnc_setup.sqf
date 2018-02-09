@@ -14,7 +14,7 @@
  *
  * Public: No
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
@@ -28,41 +28,27 @@ params [
 // start spectate
 GVAR(running) = true;
 
-// check for zeus to transfer
-private _zeusModule = getAssignedCuratorLogic _oldUnit;
-TRACE_1("Curator", _zeusModule);
-
 // create spectator display
 MAIN_DISPLAY createDisplay QGVAR(overlay);
 
+// add ACRE passthrough to display
+[OVERLAY] call acre_api_fnc_addDisplayPassthroughKeys;
+
 // hide elements
+COMPASS ctrlShow false;
 MAP_DISPLAY ctrlShow false;
 MAP_GROUP ctrlShow false;
 FOCUS_GROUP ctrlShow false;
+FULL_MAP ctrlShow false;
+BRIEFING_GROUP ctrlShow false;
 HELP ctrlShow false;
 
 // set init state for respawn
 [GVAR(respawnOpen)] call FUNC(setRespawn);
 
-// watch dog, hope it isn't needed
-[] spawn {
-    while {isNull OVERLAY && GVAR(running)} do {
-        WARNING("Watchdog active");
-        sleep 1;
-        if (isNull OVERLAY) then {
-            WARNING("Watchdog resetting spectate");
-            ["potato_adminMsg", [format ["Reseting spectate on %1", profileName], "Watchdog"]] call CBA_fnc_globalEvent;
-            [] call FUNC(exit);
-            sleep 0.25;
-            [player] call FUNC(setup);
-        };
-        sleep 2;
-    };
-};
-
 // create spectator unit
 private _tempGroup = createGroup [sideLogic, true]; // explicitly mark for cleanup (even though we delete below)
-GVAR(unit) = _tempGroup createUnit [QGVAR(spectator), ZERO_POS, [], 200, "NONE"];
+GVAR(unit) = _tempGroup createUnit [QGVAR(spectator), ZERO_POS, [], 100, "NONE"];
 GVAR(unit) setVariable [QEGVAR(radios,assignedLanguages), GVAR(availableLanguages)];
 selectPlayer GVAR(unit);
 
@@ -75,31 +61,41 @@ if (isNil QGVAR(group) || {isNull GVAR(group)}) then {
     deleteGroup _tempGroup;
 };
 
-[GVAR(unit)] remoteExecCall [QFUNC(prepareSpectator), 0, true];
+[GVAR(unit), _oldUnit] remoteExecCall [QFUNC(prepareSpectator), 0, true];
 
-// if the old unit had a curator, assign it to the new unit
-if !(isNull _zeusModule) then {
-    [GVAR(unit), _zeusModule] remoteExec [QFUNC(transferZeus), SERVER_CLIENT_ID];
+// set name on old unit / check for zeus to transfer
+if !(isNull _oldUnit) then {
+    GVAR(unit) setPos (getPos _oldUnit);
+    _oldUnit setVariable [QGVAR(deadName), profileName, true];
+
+    // if the old unit had a curator, assign it to the new unit
+    private _zeusModule = getAssignedCuratorLogic _oldUnit;
+    if !(isNull _zeusModule) then {
+        [GVAR(unit), _zeusModule] remoteExec [QFUNC(transferZeus), SERVER_CLIENT_ID];
+    };
 };
 
 // disable post process effects
 BIS_fnc_feedback_allowPP = false;
 
 // if new unit is a seagul, delete it
-if (_newUnit isKindOf "seagull" || _newUnit isKindOf QGVAR(spectator)) then {
+if (_newUnit isKindOf "seagull" || _newUnit isKindOf QGVAR(spectator) || _newUnit isKindOf QGVAR(playableSpectator)) then {
     deleteVehicle _newUnit;
 };
 
-// set name on old unit
-if !(isNil "_oldUnit" || {isNull _oldUnit}) then {
-    _oldUnit setVariable [QGVAR(deadName), profileName, true];
-};
-
 // reset spectator unit name
-GVAR(unit) setVariable [QGVAR(cachedNamed), "", true];
+GVAR(unit) setVariable [QGVAR(cachedName), "", true];
 
 // set ACRE spectator
 [true] call acre_api_fnc_setSpectator;
+
+// add and set spectate chat channel
+private _spectateChannel = missionNamespace getVariable QGVAR(channel);
+_spectateChannel radioChannelAdd [GVAR(unit)];
+setCurrentChannel (DIRECT_CHANNEL_INDEX + _spectateChannel);
+
+// disable other chats
+[false] call FUNC(setChannels);
 
 showCinemaBorder false;
 
@@ -118,9 +114,10 @@ GVAR(thirdPersonCamDirTemp) = 0.0;
 GVAR(thirdPersonCamZoomTemp) = 0.0;
 
 GVAR(hasTarget) = true;
+GVAR(surfaceSpeed) = false;
 GVAR(camTarget) = _oldUnit;
 GVAR(targetInVehicle) = (vehicle GVAR(camTarget) != GVAR(camTarget));
-GVAR(dummy) = "Land_HelipadEmpty_F" createVehicleLocal getPosASLVisual GVAR(camTarget);
+GVAR(dummy) = "Logic" createVehicleLocal getPosASLVisual GVAR(camTarget);
 
 GVAR(cam) = "camcurator" camCreate eyePos GVAR(camTarget);
 GVAR(cam) cameraEffect ["internal", "back"];
@@ -128,11 +125,11 @@ GVAR(cam) setPosASL eyePos GVAR(camTarget);
 GVAR(cam) setDir getDirVisual GVAR(camTarget);
 GVAR(cam) camCommand "maxPitch 89.0";
 GVAR(cam) camCommand "minPitch -89.0";
-GVAR(cam) camCommand "speedDefault 1.2";
-GVAR(cam) camCommand "speedMax 2.35";
+GVAR(cam) camCommand "speedDefault 1.1";
+GVAR(cam) camCommand "speedMax 2.4";
 GVAR(cam) camCommand "ceilingHeight 5000";
 GVAR(cam) camCommand "atl off";
-GVAR(cam) camCommand "surfaceSpeed on";
+GVAR(cam) camCommand "surfaceSpeed off";
 cameraEffectEnableHUD true;
 
 // initilize projectile tracking
@@ -143,6 +140,8 @@ GVAR(drawProjectiles) = false;
 // init misc GVARS
 GVAR(curList) = [];
 GVAR(mapOpen) = false;
+GVAR(fullMapOpen) = false;
+GVAR(needToAddBriefings) = true;
 GVAR(uiVisible) = true;
 GVAR(oldViewDistance) = viewDistance;
 GVAR(mapHighlighted) = objNull;
@@ -155,7 +154,11 @@ GVAR(thingsToDraw) = [];
 GVAR(showInfo) = false;
 GVAR(thingsToDrawEH) = [LINKFUNC(ui_updateThingsToDraw), 0.2] call CBA_fnc_addPerFrameHandler;
 GVAR(straggleUpdateEH) = [LINKFUNC(ui_straggleUpdate), 5] call CBA_fnc_addPerFrameHandler;
+GVAR(camTick) = addMissionEventHandler ["EachFrame", {call FUNC(camTick)}];
 GVAR(draw3DEH) = addMissionEventHandler ["Draw3D", {call FUNC(ui_handleDraw3D)}];
 
 // add event handlers to all active units
 [] call FUNC(setEventsOnActiveUnits);
+
+// register advanced throwing EH
+GVAR(advancedThrowingEH) = [QACEGVAR(advanced_throwing,throwFiredXEH), FUNC(handleFired)] call CBA_fnc_addEventHandler;

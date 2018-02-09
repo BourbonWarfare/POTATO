@@ -56,7 +56,7 @@ if (_giveZeus) then {
 
                     // ensure all units added to new curator
                     private _configs = "isArray (_x >> 'units') && {count (getArray (_x >> 'units')) > 0}" configClasses (configFile >> "CfgPatches");
-                    _configs apply { configName _x };
+                    _configs = _configs apply { configName _x };
                     _zeusModule addCuratorAddons _configs;
                 };
 

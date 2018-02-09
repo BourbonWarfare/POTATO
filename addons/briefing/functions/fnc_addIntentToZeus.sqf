@@ -23,7 +23,6 @@ systemChat "You have been assigned zeus";
 
 private _zeusIntent = getMissionConfigValue [QGVAR(zeusIntent), ""];
 if (_zeusIntent == "") exitWith {};
-_zeusIntent = [_zeusIntent] call FUNC(convertNewLineToHTML);
 
 systemChat "Mission has custom zeus briefing";
 _unit createDiaryRecord ["diary", ["Zeus", _zeusIntent]];

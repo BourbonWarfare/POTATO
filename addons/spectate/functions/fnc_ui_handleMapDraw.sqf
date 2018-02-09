@@ -23,11 +23,13 @@ TRACE_1("Params",_this);
 
 BEGIN_COUNTER(drawMap);
 
+params ["_map"];
+
 // piggy back to update timer
-TIMER ctrlSetText format ["+%1", [CBA_missionTime / 3600] call BIS_fnc_timeToString];
+TIMER ctrlSetText format ["%1 (+%2)", [daytime * 3600] call CFUNC(getTimeText), [] call CFUNC(getTimeText)];
 
 // Track nearest unit
-private _loc = MAP_DISPLAY ctrlMapScreenToWorld getMousePosition;
+private _loc = _map ctrlMapScreenToWorld getMousePosition;
 private _nearestEntity = objNull;
 private _minDist = 999999;
 
@@ -45,7 +47,7 @@ private _handledVehicles = [];
     if (!(_vehicle in _handledVehicles) && { alive _vehicle } && { simulationEnabled _vehicle } && { !isObjectHidden _vehicle }) then {
         _handledVehicles pushBack _vehicle;
 
-        private _vehicleTexture = [_vehicle] call FUNC(getVehicleIcon);
+        private _vehicleTexture = [_vehicle] call ACEFUNC(common,getVehicleIcon);
 
         private _sideColor = _vehicle getVariable QGVAR(sideColor);
         if (isNil "_sideColor") then {
@@ -62,15 +64,15 @@ private _handledVehicles = [];
         };
 
         if (_vehicle getVariable ["ACE_isUnconscious", false]) then {
-            _vehicleTexture = ICON_REVIVE;
-            _sideColor = [0.5, 0, 0, 1];
+            _vehicleTexture = QPATHTOF(data\revive_icon.paa);
+            _sideColor = [1, 0.753, 0.796, 1];
         };
 
         if (time <= _vehicle getVariable [QGVAR(highlightTime), 0]) then {
             _sideColor = [1, 1, 1, 1];
         };
 
-        MAP_DISPLAY drawIcon [_vehicleTexture, _sideColor, getPosASLVisual _vehicle, 24.0, 24.0, getDirVisual _vehicle, _text, 1, 0.04, "TahomaB", "right"];
+        _map drawIcon [_vehicleTexture, _sideColor, getPosASLVisual _vehicle, 24.0, 24.0, getDirVisual _vehicle, _text, 1, 0.04, "TahomaB", "right"];
     };
     nil
 } count allUnits; // count used here for speed, ensure nil is above this line
@@ -89,8 +91,8 @@ MAP_FOOTER ctrlSetText _text;
 if !(isNil QGVAR(cam)) then {
     private _cameraPos = getPosASLVisual GVAR(cam);
     private _cameraDir = getDirVisual GVAR(cam);
-    MAP_DISPLAY drawIcon [ICON_CAMERA, [0.5, 1.0, 0.5, 1.0], _cameraPos, 32.0, 48.0, _cameraDir, "", 1, 0.05, "TahomaB", "right"];
-    MAP_DISPLAY drawArrow [_cameraPos, (_cameraPos getPos [300, _cameraDir]), [0.5, 1.0, 0.5, 1.0]];
+    _map drawIcon [ICON_CAMERA, [0.5, 1.0, 0.5, 1.0], _cameraPos, 32.0, 48.0, _cameraDir, "", 1, 0.05, "TahomaB", "right"];
+    _map drawArrow [_cameraPos, (_cameraPos getPos [300, _cameraDir]), [0.5, 1.0, 0.5, 1.0]];
 };
 
 END_COUNTER(drawMap);

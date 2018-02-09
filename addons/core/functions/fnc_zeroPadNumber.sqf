@@ -9,8 +9,8 @@
  * A two digit zero padded string representation of the provided number <STRING>
  *
  * Examples:
- * [5] call potato_safeStart_fnc_getTimeStrFromNum; // returns "05"
- * [17] call potato_safeStart_fnc_getTimeStrFromNum; // return "17"
+ * [5] call potato_core_fnc_zeroPadNumber; // returns "05"
+ * [17] call potato_core_fnc_zeroPadNumber; // return "17"
  *
  * Public: Yes
  */

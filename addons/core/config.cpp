@@ -14,7 +14,6 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgFactionClasses.hpp"
-#include "ACE_Settings.hpp"
 #include "CfgEden.hpp"
 
 #include "CfgAmmo.hpp"

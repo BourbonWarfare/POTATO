@@ -18,14 +18,20 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
-if (GVAR(running)) then {
+if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull])}) then {
     GVAR(uiVisible) = true;
+    GVAR(tagsVisible) = true;
+    GVAR(needToAddBriefings) = true;
+
     // create spectator display
     MAIN_DISPLAY createDisplay QGVAR(overlay);
 
     // hide elements
+    COMPASS ctrlShow false;
     MAP_DISPLAY ctrlShow false;
     MAP_GROUP ctrlShow false;
+    FULL_MAP ctrlShow false;
+    BRIEFING_GROUP ctrlShow false;
     FOCUS_GROUP ctrlShow GVAR(showInfo);
     HELP ctrlShow false;
 
@@ -37,4 +43,8 @@ if (GVAR(running)) then {
     [] call FUNC(updateInfo);
     [] call FUNC(updateList);
     [GVAR(currentCamIndex)] call FUNC(ui_changeCamera);
+
+    // add ACRE passthrough to display
+    disableSerialization;
+    [OVERLAY] call acre_api_fnc_addDisplayPassthroughKeys;
 };

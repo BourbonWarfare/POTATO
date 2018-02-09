@@ -19,9 +19,9 @@ LOG("Post init start");
             // e.g.: potato_markers_viewBluForMarkers = [west, civilian]
 
             if (isNil QGVAR(viewBluForMarkers)) then {GVAR(viewBluForMarkers) = [west]};
-            if (isNil QGVAR(viewOpForMarkers)) then {GVAR(viewBluForMarkers) = [east]};
-            if (isNil QGVAR(viewIndyMarkers)) then {GVAR(viewBluForMarkers) = [resistance]};
-            if (isNil QGVAR(viewCivMarkers)) then {GVAR(viewBluForMarkers) = [civilian]};
+            if (isNil QGVAR(viewOpForMarkers)) then {GVAR(viewOpForMarkers) = [east]};
+            if (isNil QGVAR(viewIndyMarkers)) then {GVAR(viewIndyMarkers) = [resistance]};
+            if (isNil QGVAR(viewCivMarkers)) then {GVAR(viewCivMarkers) = [civilian]};
 
             // add draw marker eh to the microdagr, the GPS/Map are handled by adding XEHs to their displays
             ACEGVAR(microDAGR,miniMapDrawHandlers) pushBack {_this call FUNC(drawMarkers)};
