@@ -12,7 +12,7 @@
     "SLIDER",
     ["Aiming Accuracy Floor", "Minimum aiming accuracy for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.55, 2],
+    [0, 1, 0.5, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -21,7 +21,7 @@
     "SLIDER",
     ["Aiming Accuracy Ceiling", "Maximum aiming accuracy for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.85, 2],
+    [0, 1, 0.75, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -48,7 +48,7 @@
     "SLIDER",
     ["Aiming Speed Floor", "Minimum aiming speed for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.55, 2],
+    [0, 1, 0.45, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -57,7 +57,7 @@
     "SLIDER",
     ["Aiming Speed Ceiling", "Maximum aiming speed for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.75, 2],
+    [0, 1, 0.85, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -66,7 +66,7 @@
     "SLIDER",
     ["Commanding Floor", "Minimum commanding for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.75, 2],
+    [0, 1, 0.8, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -75,7 +75,7 @@
     "SLIDER",
     ["Commanding Ceiling", "Maximum commanding for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.95, 2],
+    [0, 1, 1, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -120,7 +120,7 @@
     "SLIDER",
     ["Reload Speed Floor", "Minimum reload speed for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.75, 2],
+    [0, 1, 0.65, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -129,7 +129,7 @@
     "SLIDER",
     ["Reload Speed Ceiling", "Maximum reload speed for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.95, 2],
+    [0, 1, 0.85, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -138,7 +138,7 @@
     "SLIDER",
     ["Spot Distance Floor", "Minimum spot distance for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.75, 2],
+    [0, 1, 0.65, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -156,7 +156,7 @@
     "SLIDER",
     ["Spot Time Floor", "Minimum spot time for a spawned unit."],
     "POTATO AI",
-    [0, 1, 0.75, 2],
+    [0, 1, 0.65, 2],
     1
 ] call cba_settings_fnc_init;
 
