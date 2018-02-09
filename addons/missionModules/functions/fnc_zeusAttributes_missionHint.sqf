@@ -1,3 +1,11 @@
+/*
+ * Author: PabstMirror
+ * Function used to handle the UI for a hint from the zeus module
+ * should only be called from module scripting
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 
 disableSerialization;

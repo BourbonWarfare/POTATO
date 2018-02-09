@@ -1,26 +1,34 @@
+/*
+ * Author: PabstMirror, AACO
+ * Function used to set skills on a local unit
+ * should only be called from events
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 
 params ["_unit"];
 TRACE_1("params",_unit);
 
-{
-    _x params ["_skill","_inputMin","_inputMax"];
-    ([_inputMin,_inputMax,0,1] call EFUNC(core,ensureBoundedMinMax)) params ["_min","_max"];
+if (!GVAR(aiSkill_set)) exitWith { LOG("Exiting early, not set"); };
 
-    _unit setSkill [_skill, [_min,_max] call EFUNC(core,getBoundedRandom)];
+{
+    _x params ["_skill", "_inputMin", "_inputMax"];
+    ([_inputMin, _inputMax, 0, 1] call EFUNC(core,ensureBoundedMinMax)) params ["_min", "_max"];
+
+    _unit setSkill [_skill, [_min, _max] call EFUNC(core,getBoundedRandom)];
 } forEach SUB_SKILLS;
 
-if (GVAR(aiSkill_COVER)) then {
-    _unit enableAI "COVER";
-} else {
-    _unit disableAI "COVER";
-};
+{
+    _x params ["_behavior", "_enabled"];
 
-if (GVAR(aiSkill_AUTOCOMBAT)) then {
-    _unit enableAI "AUTOCOMBAT";
-} else {
-    _unit disableAI "AUTOCOMBAT";
-};
+    if (_enabled) then {
+        _unit enableAI _behavior;
+    } else {
+        _unit disableAI _behavior;
+    };
+} forEach AI_BEHAVIORS;
 
 TRACE_1("ai sills set",_unit);
 

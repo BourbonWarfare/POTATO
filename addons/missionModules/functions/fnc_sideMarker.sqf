@@ -1,3 +1,11 @@
+/*
+ * Author: MikeMatrix, AACO
+ * Function used to update tooltips to new values and update min/maxes
+ * should only be called from UI events
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 
 TRACE_1("params",_this);
@@ -13,16 +21,6 @@ if (_logic getVariable ["west", false]) then { _sideArray pushBack west; };
 if (_logic getVariable ["independent", false]) then { _sideArray pushBack independent; };
 if (_logic getVariable ["civilian", false]) then { _sideArray pushBack civilian; };
 
-// BWC
-TRACE_1("",_logic getVariable "side");
-switch (_logic getVariable ["side", -1]) do {
-    case (0): {_sideArray pushBack west;};
-    case (1): {_sideArray pushBack east;};
-    case (2): {_sideArray pushBack independent;};
-    case (3): {_sideArray pushBack civilian;};
-    case (4): {_sideArray = [east, west, independent, civilian];};
-};
-
 TRACE_1("sides",_sideArray);
 if (count _sideArray < 1) exitWith { ERROR("No sides in the side array - exiting"); };
 
@@ -30,7 +28,6 @@ private _pos = getPos _logic;
 private _dir = _logic getVariable ["direction", 0];
 private _text = _logic getVariable ["text", ""];
 private _color = _logic getVariable ["color", "ColorBlack"];
-if (_color isEqualType 0) then {_color = "ColorBlack"}; // BWC
 private _icon = _logic getVariable ["icon", "mil_dot_noShadow"];
 
 [
