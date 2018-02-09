@@ -195,7 +195,8 @@ private _alreadyDefined = [];
                                                                             configName(_x) == "midRange" ||
                                                                             configName(_x) == "midRangeProbab" ||
                                                                             configName(_x) == "maxRange" ||
-                                                                            configName(_x) == "maxRangeProbab"', true];
+                                                                            configName(_x) == "maxRangeProbab" ||
+                                                                            configName(_x) == "showToPlayer"', true];
                                                                             
                             private _uniqueIndex = _addedModes pushBackUnique (toLower _x);
                             // "Fix" bug where ACE modes would be duplicated endlessly
