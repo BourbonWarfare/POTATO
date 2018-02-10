@@ -5,7 +5,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_ctrlRadio","_index",["_channelIndex",0,[0]]];
+params ["_ctrlRadio", "_index", ["_channelIndex", 0, [0]]];
 
 private _ctrlGroup = ctrlParentControlsGroup _ctrlRadio;
 private _ctrlSide = _ctrlGroup controlsGroupCtrl CFG_S_SIDE_IDC;

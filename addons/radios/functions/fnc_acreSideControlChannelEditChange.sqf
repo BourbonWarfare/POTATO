@@ -53,5 +53,5 @@ switch (_selectedSideIndex) do {
     };
 };
 
-[_ctrlGroup,_side] call FUNC(setChannelArrays);
-[_ctrlRadio,lbCurSel _ctrlRadio,_selectedChannelIndex] call FUNC(acreSideControlRadioChange);
+[_ctrlGroup, _side] call FUNC(setChannelArrays);
+[_ctrlRadio, lbCurSel _ctrlRadio, _selectedChannelIndex] call FUNC(acreSideControlRadioChange);

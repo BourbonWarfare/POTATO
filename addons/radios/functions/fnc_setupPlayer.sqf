@@ -24,10 +24,10 @@ INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]", diag_frameNo, GVAR(
         INFO_2("%1 - [InitState %2] Setting player presets", diag_frameNo, GVAR(initState));
 
         private _presetArray = switch ((getNumber (configFile >> "CfgVehicles" >> (typeOf _player) >> "side"))) do {
-        case 1: { [WEST_SR, WEST_MR, WEST_LR, GVAR(westDefaultLanguages)] };
-        case 0: { [EAST_SR, EAST_MR, EAST_LR, GVAR(eastDefaultLanguages)] };
-        case 2: { [INDY_SR, INDY_MR, INDY_LR, GVAR(indyDefaultLanguages)] };
-            default { [CIV_SR, CIV_MR, CIV_LR, GVAR(civDefaultLanguages)] }; // should just be civs
+            case 0: { [EAST_SR, EAST_MR, EAST_LR, missionNamespace getVariable [QGVAR(eastDefaultLanguages), [DEFAULT_EAST_LANGS]]] };
+            case 1: { [WEST_SR, WEST_MR, WEST_LR, missionNamespace getVariable [QGVAR(westDefaultLanguages), [DEFAULT_WEST_LANGS]]] };
+            case 2: { [INDY_SR, INDY_MR, INDY_LR, missionNamespace getVariable [QGVAR(indyDefaultLanguages), [DEFAULT_INDY_LANGS]]] };
+            default { [CIV_SR, CIV_MR, CIV_LR, missionNamespace getVariable [QGVAR(civDefaultLanguages), [DEFAULT_CIV_LANGS]]] }; // should just be civs
         };
 
         _presetArray params ["_sr", "_mr", "_lr", "_babel"];

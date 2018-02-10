@@ -55,54 +55,60 @@ private _group = group ace_player;
 (switch ((getNumber (configFile >> "CfgVehicles" >> (typeOf ace_player) >> "side"))) do {
     case (1): {
         [
-            GVAR(westDefaultLanguages),
-            GVAR(westSRChannelNames),
-            GVAR(westMRChannelNames),
-            GVAR(westLRChannelNames),
-            GVAR(addCommonChannelWestMR),
-            GVAR(addCommonChannelWestLR)
+            missionNamespace getVariable [QGVAR(westDefaultLanguages), [DEFAULT_WEST_LANG]],
+            missionNamespace getVariable [QGVAR(westSRChannelNames), [DEFAULT_SR_NAMES]],
+            missionNamespace getVariable [QGVAR(westMRChannelNames), [DEFAULT_MR_NAMES]],
+            missionNamespace getVariable [QGVAR(westLRChannelNames), [DEFAULT_LR_NAMES]],
+            missionNamespace getVariable [QGVAR(addCommonChannelWestMR), DEFAULT_COMMON_CH_ENABLED],
+            missionNamespace getVariable [QGVAR(addCommonChannelWestLR), DEFAULT_COMMON_CH_ENABLED]
         ]
     };
     case (0): {
         [
-            GVAR(eastDefaultLanguages),
-            GVAR(eastSRChannelNames),
-            GVAR(eastMRChannelNames),
-            GVAR(eastLRChannelNames),
-            GVAR(addCommonChannelEastMR),
-            GVAR(addCommonChannelEastLR)
+            missionNamespace getVariable [QGVAR(eastDefaultLanguages), [DEFAULT_EAST_LANGS]],
+            missionNamespace getVariable [QGVAR(eastSRChannelNames), [DEFAULT_SR_NAMES]],
+            missionNamespace getVariable [QGVAR(eastMRChannelNames), [DEFAULT_MR_NAMES]],
+            missionNamespace getVariable [QGVAR(eastLRChannelNames), [DEFAULT_LR_NAMES]],
+            missionNamespace getVariable [QGVAR(addCommonChannelEastMR), DEFAULT_COMMON_CH_ENABLED],
+            missionNamespace getVariable [QGVAR(addCommonChannelEastLR), DEFAULT_COMMON_CH_ENABLED]
         ]
     };
     case (2): {
         [
-            GVAR(indyDefaultLanguages),
-            GVAR(indySRChannelNames),
-            GVAR(indyMRChannelNames),
-            GVAR(indyLRChannelNames),
-            GVAR(addCommonChannelIndyMR),
-            GVAR(addCommonChannelIndyLR)
+            missionNamespace getVariable [QGVAR(indyDefaultLanguages), [DEFAULT_INDY_LANGS]],
+            missionNamespace getVariable [QGVAR(indySRChannelNames), [DEFAULT_SR_NAMES]],
+            missionNamespace getVariable [QGVAR(indyMRChannelNames), [DEFAULT_MR_NAMES]],
+            missionNamespace getVariable [QGVAR(indyLRChannelNames), [DEFAULT_LR_NAMES]],
+            missionNamespace getVariable [QGVAR(addCommonChannelIndyMR), DEFAULT_COMMON_CH_ENABLED],
+            missionNamespace getVariable [QGVAR(addCommonChannelIndyLR), DEFAULT_COMMON_CH_ENABLED]
         ]
     };
     default {
         [
-            GVAR(indyDefaultLanguages),
-            GVAR(civSRChannelNames),
-            GVAR(civMRChannelNames),
-            GVAR(civLRChannelNames),
-            GVAR(addCommonChannelCivMR),
-            GVAR(addCommonChannelCivLR)
+            missionNamespace getVariable [QGVAR(civDefaultLanguages), [DEFAULT_CIV_LANGS]],
+            missionNamespace getVariable [QGVAR(civSRChannelNames), [DEFAULT_SR_NAMES]],
+            missionNamespace getVariable [QGVAR(civMRChannelNames), [DEFAULT_MR_NAMES]],
+            missionNamespace getVariable [QGVAR(civLRChannelNames), [DEFAULT_LR_NAMES]],
+            missionNamespace getVariable [QGVAR(addCommonChannelCivMR), DEFAULT_COMMON_CH_ENABLED],
+            missionNamespace getVariable [QGVAR(addCommonChannelCivLR), DEFAULT_COMMON_CH_ENABLED]
         ]
     };
-}) params ["_defaultLanguages","_srChannels","_mrChannels","_lrChannels","_addSharedMRNetSide","_addSharedLRNetSide"];
+}) params ["_defaultLanguages", "_srChannels", "_mrChannels", "_lrChannels", "_addSharedMRNetSide", "_addSharedLRNetSide"];
 
-if (GVAR(addCommonChannelAllMR) || {_addSharedMRNetSide}) then {
-    _mrChannels set [GVAR(addCommonChannelNumber) - 1, GVAR(addCommonChannelName)];
+if ((missionNamespace getVariable [QGVAR(addCommonChannelAllMR), DEFAULT_COMMON_CH_ENABLED]) || {_addSharedMRNetSide}) then {
+    _mrChannels set [
+        (missionNamespace getVariable [QGVAR(addCommonChannelNumber), DEFAULT_COMMON_CH_NUM]) - 1,
+        missionNamespace getVariable [QGVAR(addCommonChannelName), DEFAULT_COMMON_CH_NAME]
+    ];
 };
-if (GVAR(addCommonChannelAllLR) || {_addSharedLRNetSide}) then {
-    _lrChannels set [GVAR(addCommonChannelNumber) - 1, GVAR(addCommonChannelName)];
+if ((missionNamespace getVariable [QGVAR(addCommonChannelAllLR), DEFAULT_COMMON_CH_ENABLED]) || {_addSharedLRNetSide}) then {
+    _lrChannels set [
+        (missionNamespace getVariable [QGVAR(addCommonChannelNumber), DEFAULT_COMMON_CH_NUM]) - 1,
+        missionNamespace getVariable [QGVAR(addCommonChannelName), DEFAULT_COMMON_CH_NAME]
+    ];
 };
 
-private _groupLanguages = _group getVariable [QGVAR(assignedLanguages),_defaultLanguages];
+private _groupLanguages = _group getVariable [QGVAR(assignedLanguages), _defaultLanguages];
 private _playerLanguages = ace_player getVariable [QGVAR(assignedLanguages), _groupLanguages];
 
 //Show Spoken Languages:
@@ -128,13 +134,13 @@ private _hasLR = false;
 TRACE_7("ACRE info",_languageDisplayNames,_hasSR,_srChannels,_hasMR,_mrChannels,_hasLR,_lrChannels);
 
 _diaryBuilder pushBack "<br/><font size=15>SR Radio Net (343)</font><br/>";
-[_diaryBuilder,_hasSR,_srChannels,QGVAR(srChannel),_group] call _addNetToBriefing;
+[_diaryBuilder, _hasSR ,_srChannels, QGVAR(srChannel), _group] call _addNetToBriefing;
 
 _diaryBuilder pushBack "<br/><font size=15>MR Radio Net (148)</font><br/>";
-[_diaryBuilder,_hasMR,_mrChannels,QGVAR(mrChannel),_group] call _addNetToBriefing;
+[_diaryBuilder, _hasMR ,_mrChannels, QGVAR(mrChannel), _group] call _addNetToBriefing;
 
 _diaryBuilder pushBack "<br/><font size=15>LR Radio Net (117)</font><br/>";
-[_diaryBuilder,_hasLR,_lrChannels,QGVAR(lrChannel),_group] call _addNetToBriefing;
+[_diaryBuilder, _hasLR, _lrChannels, QGVAR(lrChannel), _group] call _addNetToBriefing;
 
 _diaryBuilder pushBack "<br/><br/>Note: Subject to change.";
 
@@ -142,4 +148,3 @@ _diaryBuilder pushBack QUOTE(<br/><br/><execute expression='[] call FUNC(reiniti
 
 ace_player createDiaryRecord ["diary", ["SIGNALS", _diaryBuilder joinString ""]];
 ace_player setVariable [QGVAR(briefingAdded), ace_player];
-

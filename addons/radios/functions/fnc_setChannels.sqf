@@ -9,7 +9,7 @@ params ["_object",["_channelString","0,0,0",["",false]]];
 if (_channelString isEqualType true && {_channelString}) exitWith { LOG("channels not set, or in strange state, exiting early"); };
 
 [{
-    params ["_object","_channelString"];
+    params ["_object", "_channelString"];
     (_channelString splitString ",") params [
         ["_sr", "0", [""]],
         ["_mr", "0", [""]],

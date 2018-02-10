@@ -5,7 +5,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_prefillData","_channelCount"];
+params ["_prefillData", "_channelCount"];
 
 private _arrayToFill = [];
 for "_i" from 0 to (_channelCount - 1) do {

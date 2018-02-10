@@ -38,15 +38,14 @@ _paramsStrings params [
     "_commonCivLR"
 ];
 
-[QGVAR(addCommonChannelWestMR), [_commonWestMR] call CFUNC(parseBool), true, true] call ACEFUNC(common,setSetting);
-[QGVAR(addCommonChannelWestLR), [_commonWestLR] call CFUNC(parseBool), true, true] call ACEFUNC(common,setSetting);
-[QGVAR(addCommonChannelEastMR), [_commonEastMR] call CFUNC(parseBool), true, true] call ACEFUNC(common,setSetting);
-[QGVAR(addCommonChannelEastLR), [_commonEastLR] call CFUNC(parseBool), true, true] call ACEFUNC(common,setSetting);
-[QGVAR(addCommonChannelIndyMR), [_commonIndyMR] call CFUNC(parseBool), true, true] call ACEFUNC(common,setSetting);
-[QGVAR(addCommonChannelIndyLR), [_commonIndyLR] call CFUNC(parseBool), true, true] call ACEFUNC(common,setSetting);
-[QGVAR(addCommonChannelCivMR), [_commonCivMR] call CFUNC(parseBool), true, true] call ACEFUNC(common,setSetting);
-[QGVAR(addCommonChannelCivLR), [_commonCivLR] call CFUNC(parseBool), true, true] call ACEFUNC(common,setSetting);
-
+missionNamespace setVariable [QGVAR(addCommonChannelWestMR), [_commonWestMR] call CFUNC(parseBool), true];
+missionNamespace setVariable [QGVAR(addCommonChannelWestLR), [_commonWestLR] call CFUNC(parseBool), true];
+missionNamespace setVariable [QGVAR(addCommonChannelEastMR), [_commonEastMR] call CFUNC(parseBool), true];
+missionNamespace setVariable [QGVAR(addCommonChannelEastLR), [_commonEastLR] call CFUNC(parseBool), true];
+missionNamespace setVariable [QGVAR(addCommonChannelIndyMR), [_commonIndyMR] call CFUNC(parseBool), true];
+missionNamespace setVariable [QGVAR(addCommonChannelIndyLR), [_commonIndyLR] call CFUNC(parseBool), true];
+missionNamespace setVariable [QGVAR(addCommonChannelCivMR), [_commonCivMR] call CFUNC(parseBool), true];
+missionNamespace setVariable [QGVAR(addCommonChannelCivLR), [_commonCivLR] call CFUNC(parseBool), true];
 
 INFO("Setting arrays globaly");
 
