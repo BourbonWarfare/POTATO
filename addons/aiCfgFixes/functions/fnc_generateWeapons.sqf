@@ -178,6 +178,29 @@ private _alreadyDefined = [];
                                     };
                                 } foreach _configClasses;
                             };
+                            
+                            private _configCheck = 'configName(_x) == "burst" ||
+                                                    configName(_x) == "aiRateOfFire" ||
+                                                    configName(_x) == "aiRateOfFireDistance" ||
+                                                    configName(_x) == "minRange" ||
+                                                    configName(_x) == "minRangeProbab" ||
+                                                    configName(_x) == "midRange" ||
+                                                    configName(_x) == "midRangeProbab" ||
+                                                    configName(_x) == "maxRange" ||
+                                                    configName(_x) == "maxRangeProbab" ||
+                                                    configName(_x) == "showToPlayer"';
+                            if (!isNull(_weaponCfg >> _x >> "showToPlayer") && { getNumber(_weaponCfg >> _x >> "showToPlayer") == 1 }) then {
+                                _configCheck = 'configName(_x) == "aiRateOfFire" ||
+                                                configName(_x) == "aiRateOfFireDistance" ||
+                                                configName(_x) == "minRange" ||
+                                                configName(_x) == "minRangeProbab" ||
+                                                configName(_x) == "midRange" ||
+                                                configName(_x) == "midRangeProbab" ||
+                                                configName(_x) == "maxRange" ||
+                                                configName(_x) == "maxRangeProbab" ||
+                                                configName(_x) == "showToPlayer"';
+                            };
+                            
                             private _modeDef = "";
                             {
                                 if ((isText _x && getText(_x) != "") || isNumber(_x)) then {
@@ -187,15 +210,7 @@ private _alreadyDefined = [];
                                         _modeDef = _modeDef + CFG_CLASS_DATA(INDENT + configName(_x), str(getText(_x)));
                                     };
                                 };
-                            } foreach configProperties[_weaponCfg >> _x,   'configName(_x) == "burst" ||
-                                                                            configName(_x) == "aiRateOfFire" ||
-                                                                            configName(_x) == "aiRateOfFireDistance" ||
-                                                                            configName(_x) == "minRange" ||
-                                                                            configName(_x) == "minRangeProbab" ||
-                                                                            configName(_x) == "midRange" ||
-                                                                            configName(_x) == "midRangeProbab" ||
-                                                                            configName(_x) == "maxRange" ||
-                                                                            configName(_x) == "maxRangeProbab"', true];
+                            } foreach configProperties[_weaponCfg >> _x, _configCheck, true];
                                                                             
                             private _uniqueIndex = _addedModes pushBackUnique (toLower _x);
                             // "Fix" bug where ACE modes would be duplicated endlessly
