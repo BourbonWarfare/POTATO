@@ -102,7 +102,7 @@ class GVAR(setSkills) {
                     y = 3 * GUI_GRID_H + GUI_GRID_Y;
                     w = 20 * GUI_GRID_W;
                     h = 1 * GUI_GRID_H;
-                    text = "Master Enable"
+                    text = "Master Enable";
                     tooltip = "Enable/disable setting AI skills/behaviors on unit creation";
                     style = 1; // Right
                 };
@@ -117,7 +117,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingAccuracy_min_txt): GVAR(setSkills_master_txt) {
                     y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Aiming Accuracy Floor"
+                    text = "Aiming Accuracy Floor";
                     tooltip = "Minimum aiming accuracy for a spawned unit";
                 };
                 class GVAR(setSkills_aimingAccuracy_min_slider): RscXSliderH {
@@ -132,7 +132,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingAccuracy_max_txt): GVAR(setSkills_master_txt) {
                     y = 6 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Aiming Accuracy Ceiling"
+                    text = "Aiming Accuracy Ceiling";
                     tooltip = "Maximum aiming accuracy for a spawned unit";
                 };
                 class GVAR(setSkills_aimingAccuracy_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -142,7 +142,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingShake_min_txt): GVAR(setSkills_master_txt) {
                     y = 7.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Aiming Shake Floor"
+                    text = "Aiming Shake Floor";
                     tooltip = "Minimum aiming shake for a spawned unit";
                 };
                 class GVAR(setSkills_aimingShake_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -152,7 +152,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingShake_max_txt): GVAR(setSkills_master_txt) {
                     y = 9 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Aiming Shake Ceiling"
+                    text = "Aiming Shake Ceiling";
                     tooltip = "Maximum aiming shake for a spawned unit";
                 };
                 class GVAR(setSkills_aimingShake_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -162,7 +162,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingSpeed_min_txt): GVAR(setSkills_master_txt) {
                     y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Aiming Speed Floor"
+                    text = "Aiming Speed Floor";
                     tooltip = "Minimum aiming speed for a spawned unit";
                 };
                 class GVAR(setSkills_aimingSpeed_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -172,7 +172,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_aimingSpeed_max_txt): GVAR(setSkills_master_txt) {
                     y = 12 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Aiming Speed Ceiling"
+                    text = "Aiming Speed Ceiling";
                     tooltip = "Maximum aiming speed for a spawned unit";
                 };
                 class GVAR(setSkills_aimingSpeed_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -182,7 +182,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_commanding_min_txt): GVAR(setSkills_master_txt) {
                     y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Commanding Floor"
+                    text = "Commanding Floor";
                     tooltip = "Minimum commanding for a spawned unit";
                 };
                 class GVAR(setSkills_commanding_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -192,7 +192,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_commanding_max_txt): GVAR(setSkills_master_txt) {
                     y = 15 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Commanding Ceiling"
+                    text = "Commanding Ceiling";
                     tooltip = "Maximum commanding for a spawned unit";
                 };
                 class GVAR(setSkills_commanding_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -202,7 +202,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_courage_min_txt): GVAR(setSkills_master_txt) {
                     y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Courage Floor"
+                    text = "Courage Floor";
                     tooltip = "Minimum courage for a spawned unit";
                 };
                 class GVAR(setSkills_courage_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -212,7 +212,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_courage_max_txt): GVAR(setSkills_master_txt) {
                     y = 18 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Courage Ceiling"
+                    text = "Courage Ceiling";
                     tooltip = "Maximum courage for a spawned unit";
                 };
                 class GVAR(setSkills_courage_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -222,7 +222,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_general_min_txt): GVAR(setSkills_master_txt) {
                     y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "General Floor"
+                    text = "General Floor";
                     tooltip = "Minimum general for a spawned unit";
                 };
                 class GVAR(setSkills_general_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -232,7 +232,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_general_max_txt): GVAR(setSkills_master_txt) {
                     y = 21 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "General Ceiling"
+                    text = "General Ceiling";
                     tooltip = "Maximum general for a spawned unit";
                 };
                 class GVAR(setSkills_general_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -242,7 +242,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_reloadSpeed_min_txt): GVAR(setSkills_master_txt) {
                     y = 22.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Reload Speed Floor"
+                    text = "Reload Speed Floor";
                     tooltip = "Minimum reload speed for a spawned unit";
                 };
                 class GVAR(setSkills_reloadSpeed_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -252,7 +252,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_reloadSpeed_max_txt): GVAR(setSkills_master_txt) {
                     y = 24 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Reload Speed Ceiling"
+                    text = "Reload Speed Ceiling";
                     tooltip = "Maximum reload speed for a spawned unit";
                 };
                 class GVAR(setSkills_reloadSpeed_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -262,7 +262,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_spotDistance_min_txt): GVAR(setSkills_master_txt) {
                     y = 25.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Spot Distance Floor"
+                    text = "Spot Distance Floor";
                     tooltip = "Minimum spot distance for a spawned unit";
                 };
                 class GVAR(setSkills_spotDistance_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -272,7 +272,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_spotDistance_max_txt): GVAR(setSkills_master_txt) {
                     y = 27 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Spot Distance Ceiling"
+                    text = "Spot Distance Ceiling";
                     tooltip = "Maximum spot distance for a spawned unit";
                 };
                 class GVAR(setSkills_spotDistance_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -282,7 +282,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_spotTime_min_txt): GVAR(setSkills_master_txt) {
                     y = 28.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Spot Time Floor"
+                    text = "Spot Time Floor";
                     tooltip = "Minimum spot time for a spawned unit";
                 };
                 class GVAR(setSkills_spotTime_min_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -292,7 +292,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_spotTime_max_txt): GVAR(setSkills_master_txt) {
                     y = 30 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Spot Time Ceiling"
+                    text = "Spot Time Ceiling";
                     tooltip = "Maximum spot time for a spawned unit";
                 };
                 class GVAR(setSkills_spotTime_max_slider): GVAR(setSkills_aimingAccuracy_min_slider) {
@@ -302,7 +302,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_autocombat_txt): GVAR(setSkills_master_txt) {
                     y = 31.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Autocombat"
+                    text = "Autocombat";
                     tooltip = "Enable/disable AI automatically changing to combat mode";
                 };
                 class GVAR(setSkills_autocombat_bx): GVAR(setSkills_master_bx) {
@@ -312,7 +312,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_cover_txt): GVAR(setSkills_master_txt) {
                     y = 33 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Cover"
+                    text = "Cover";
                     tooltip = "Enable/disable AI moving into cover when in combat";
                 };
                 class GVAR(setSkills_cover_bx): GVAR(setSkills_master_bx) {
@@ -322,7 +322,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_path_txt): GVAR(setSkills_master_txt) {
                     y = 34.5 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Path"
+                    text = "Path";
                     tooltip = "Enable/disable AI from moving, but not engaging/looking";
                 };
                 class GVAR(setSkills_path_bx): GVAR(setSkills_master_bx) {
@@ -332,7 +332,7 @@ class GVAR(setSkills) {
                 };
                 class GVAR(setSkills_suppression_txt): GVAR(setSkills_master_txt) {
                     y = 36 * GUI_GRID_H + GUI_GRID_Y;
-                    text = "Suppression"
+                    text = "Suppression";
                     tooltip = "Enable/disable AI from being suppressed";
                 };
                 class GVAR(setSkills_suppression_bx): GVAR(setSkills_master_bx) {
