@@ -85,4 +85,10 @@ class CfgWeapons {
             "rhs_30Rnd_762x39mm_U", "CUP_30Rnd_762x39_AK47_M"
         };
     };
+
+    // disable M70's rifle grenades until RHS decides to add rifle grenades
+    class rhs_weap_m70_base;
+    class rhs_weap_m70ab2: rhs_weap_m70_base {
+        muzzles[] = {"this", "SAFE"};
+    };
 };
