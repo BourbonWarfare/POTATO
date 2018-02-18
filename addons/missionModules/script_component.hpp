@@ -9,10 +9,6 @@
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_MISSIONMODULES
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_MISSIONMODULES
-#endif
-
 #include "\z\potato\addons\core\script_macros.hpp"
 
 #define COLOR_IDC 288066
