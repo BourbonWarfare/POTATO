@@ -6,7 +6,7 @@ PREP_RECOMPILE_START;
 #include "XEH_PREP.hpp"
 PREP_RECOMPILE_END;
 
-#define "initSettings.sqf"
+#include "initSettings.sqf"
 
 // We Start game safe at preInit
 GVAR(safeStartEnabled) = true;
