@@ -1618,7 +1618,7 @@ class CfgRespawnGroups {
                 colorTeam = 1;
             };
             class SeniorRifleman: BaseSeniorRifleman {
-                type = "sf_sr";
+                type = "sf_ftl";
             };
             class Marksman: BaseMSVUnit {
                 displayName = "Marksman";
