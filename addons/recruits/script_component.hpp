@@ -9,10 +9,6 @@
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_RECRUITS
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_RECRUITS
-#endif
-
 #define MESSAGE_DISPLAY (uiNamespace getVariable [ARR_2(QGVAR(message),displayNull)])
 #define MESSAGE_IDC 596868
 #define MESSAGE_CONTROL (MESSAGE_DISPLAY displayCtrl MESSAGE_IDC)

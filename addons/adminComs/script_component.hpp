@@ -9,8 +9,4 @@
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_ADMINCOMS
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_ADMINCOMS
-#endif
-
 #include "\z\potato\addons\core\script_macros.hpp"

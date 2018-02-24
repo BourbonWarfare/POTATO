@@ -9,10 +9,6 @@
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_ZEUSHC
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_ZEUSHC
-#endif
-
 // display defines
 #define BG_IDC 212453
 #define FRAME_IDC 164739

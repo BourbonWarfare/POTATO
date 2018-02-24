@@ -9,10 +9,6 @@
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_ADMINMENU
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_ADMINMENU
-#endif
-
 #include "\z\potato\addons\core\script_macros.hpp"
 
 #define UI_TAB_LISTBOX                 ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 1500)
