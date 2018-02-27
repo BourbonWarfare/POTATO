@@ -37,7 +37,7 @@ missionNamespace setVariable [QGVAR(groupCleanupRan), true, true];
         {
             ((_hcs select 1) select _forEachIndex) params ["_groupCount", "_position"];
             if (_groupCount > 0) then {
-                _x setPosition (_position vectorMultiply (1 / _groupCount));
+                _x setPos (_position vectorMultiply (1 / _groupCount));
             };
         } forEach (_hcs select 2);
     },
