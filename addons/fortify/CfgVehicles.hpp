@@ -26,17 +26,16 @@ class CfgVehicles {
         class Arguments {
             class Side {
                 displayName = "$STR_eval_typeside";
-                // description = CSTRING();
                 typeName = "NUMBER";
                 class values {
                     class West { name = "$STR_WEST"; value = 1; default = 1; };
                     class East { name = "$STR_east"; value = 2; };
                     class Indp { name = "$STR_guerrila"; value = 3; };
+                    class Civ { name = "$STR_civilian"; value = 4; };
                 };
             };
             class Preset {
                 displayName = "$STR_controls_presets";
-                // description = CSTRING();
                 typeName = "NUMBER";
                 class values {
                     class small { name = "$STR_small"; value = 1; default = 1; };
@@ -46,16 +45,29 @@ class CfgVehicles {
             };
             class Budget {
                 displayName = CSTRING(budget);
-                // description = CSTRING();
                 typeName = "NUMBER";
                 defaultValue = -1;
             };
             class AddToolItem {
                 displayName = CSTRING(addToolItem);
-                // description = CSTRING();
                 typeName = "BOOL";
                 defaultValue = 0;
             };
         };
     };
+
+    class GVAR(buildLocationModule): ACE_Module {
+        author = ACECSTRING(common,ACETeam);
+        category = "POTATO";
+        displayName = CSTRING(buildLocationModule);
+        scope = 2;
+        isGlobal = 1;
+        canSetArea = 1;
+        function = QFUNC(buildLocationModule);
+        class AttributeValues {
+            size3[] = {300,300,-1};
+            IsRectangle = 1;
+        };
+    };
+
 };
