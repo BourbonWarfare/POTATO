@@ -863,7 +863,7 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 2;
         displayName = "Ungarrison nearest group";
-        category = QGVAR(util);
+        category = QEGVAR(core,util);
         function = QFUNC(ungarrisonNearestGroupZeus);
     };
     class GVAR(ungarrison_all_groups): GVAR(ungarrison_nearest_group) {

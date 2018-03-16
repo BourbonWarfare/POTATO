@@ -8,10 +8,24 @@ class CfgVehicles {
             class Combo;
         };
     };
+    class GVAR(moveHcsToModule): Module_F {
+        author = QUOTE(PREFIX);
+        scope = 1;
+        scopeCurator = 2;
+        displayName = "Move headless clients to module";
+        category = QEGVAR(core,util);
+        function = QFUNC(moveHcsToModule);
+        isTriggerActivated = 0;
+        isGlobal = 0;
+        curatorCost = 0;
+        function = QFUNC(createEntityZeus);
+        class Arguments {};
+        class Attributes {};
+    };
 
     class GVAR(sideMarker): Module_F {
         author = QUOTE(PREFIX);
-        category = QUOTE(PREFIX);
+        category = QEGVAR(core,util);;
         scope = 2;
         displayName = "Side Marker";
         icon = QUOTE(PATHTOF(UI\sideMarker_ca.paa));
@@ -73,7 +87,7 @@ class CfgVehicles {
 
     class GVAR(zeus_missionHint): Module_F {
         author = QUOTE(PREFIX);
-        category = QUOTE(PREFIX);
+        category = QEGVAR(core,util);;
         scope = 1;
         scopeCurator = 2;
         isTriggerActivated = 1;
@@ -87,7 +101,7 @@ class CfgVehicles {
 
     class GVAR(zeus_globalSetSkill): Module_F {
         author = QUOTE(PREFIX);
-        category = QUOTE(PREFIX);
+        category = QEGVAR(core,util);
         scope = 1;
         scopeCurator = 2;
         isGlobal = 1;
@@ -100,7 +114,7 @@ class CfgVehicles {
 
     class GVAR(zeus_banziCharge): Module_F {
         author = QUOTE(PREFIX);
-        category = QUOTE(PREFIX);
+        category = QUOTE(PREFIX); // TODO: AI Behvaiors cleanup
         scope = 1;
         scopeCurator = 2;
         isTriggerActivated = 0;

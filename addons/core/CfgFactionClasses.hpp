@@ -3,4 +3,7 @@ class CfgFactionClasses {
     class PREFIX: NO_CATEGORY {
         displayName = "POTATO Modules";
     };
+    class GVAR(util): PREFIX {
+        displayName = "POTATO: Utilities";
+    };
 };
