@@ -18,7 +18,6 @@ class CfgVehicles {
         isTriggerActivated = 0;
         isGlobal = 0;
         curatorCost = 0;
-        function = QFUNC(createEntityZeus);
         class Arguments {};
         class Attributes {};
     };
