@@ -24,7 +24,7 @@ class CfgVehicles {
 
     class GVAR(sideMarker): Module_F {
         author = QUOTE(PREFIX);
-        category = QEGVAR(core,util);;
+        category = QEGVAR(core,util);
         scope = 2;
         displayName = "Side Marker";
         icon = QUOTE(PATHTOF(UI\sideMarker_ca.paa));
@@ -86,7 +86,7 @@ class CfgVehicles {
 
     class GVAR(zeus_missionHint): Module_F {
         author = QUOTE(PREFIX);
-        category = QEGVAR(core,util);;
+        category = QEGVAR(core,util);
         scope = 1;
         scopeCurator = 2;
         isTriggerActivated = 1;

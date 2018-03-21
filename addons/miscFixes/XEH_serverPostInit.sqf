@@ -33,14 +33,14 @@ DFUNC(updateHCPosition) = {
             // ignore non land AI
             if (_index > -1 && {(vehicle leader _x) isKindOf "Land"}) then {
                 private _groupPositions = ((_hcs select 1) select _index);
-                (_groupPositions select 0) = (_groupPositions select 0) + 1;
-                (_groupPositions select 1) = (_groupPositions select 1) vectorAdd (getPos leader _x);
+                _groupPositions set [0, (_groupPositions select 0) + 1];
+                _groupPositions set [1, (_groupPositions select 1) vectorAdd (getPos leader _x)];
             } else {
                 {
                     // make sure it's a player (not a spectator) on the ground
                     if (isPlayer _x && {(vehicle _x) isKindOf "Land"}) then {
-                        (_playerPositions select 0) = (_playerPositions select 0) + 1;
-                        (_playerPositions select 1) = (_playerPositions select 1) vectorAdd (getPos _x);
+                        _playerPositions set [0, (_playerPositions select 0) + 1];
+                        _playerPositions set [1, (_playerPositions select 1) vectorAdd (getPos _x)];
                     };
                 } forEach (units _x);
             };
