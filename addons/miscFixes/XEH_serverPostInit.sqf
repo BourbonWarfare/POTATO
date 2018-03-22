@@ -62,11 +62,12 @@ DFUNC(updateHCPosition) = {
             };
 
             _x setPos _groupAvgPos;
+            INFO_2("Moving HC [%1] to pos %2",_x, _groupAvgPos);
         };
     } forEach (_hcs select 2);
 
 
-    [DFUNC(updateHCPosition), [], missionNamespace getVariable [QGVAR(updateHCPositionDelay), 60]] call CBA_fnc_waitAndExecute;
+    [DFUNC(updateHCPosition), [], missionNamespace getVariable [QGVAR(updateHCPositionDelay), 90]] call CBA_fnc_waitAndExecute;
 };
 
 [] call DFUNC(updateHCPosition);
