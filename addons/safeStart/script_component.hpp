@@ -9,10 +9,6 @@
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_SAFESTART
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_SAFESTART
-#endif
-
 #define HINT_IDC 1100
 
 #include "\z\potato\addons\core\script_macros.hpp"

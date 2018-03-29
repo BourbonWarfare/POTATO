@@ -1,3 +1,11 @@
+/* 
+    SettingName <STRING>
+    Value <ANY>
+    Force (can't be changed by mission or user) <BOOL>
+    Skip warning if changed by mission <BOOL>
+*/
+
+
 _settings = [
 [QACEGVAR(advanced_fatigue,performanceFactor), 1.3],
 [QACEGVAR(cookoff,enable), false],
@@ -11,9 +19,10 @@ _settings = [
 [QACEGVAR(map,DefaultChannel), 1],
 [QACEGVAR(medical_ai,enabledFor), 0],
 [QACEGVAR(medical_blood,enabledFor), 1],
-[QACEGVAR(nightvision,effectScaling), 0.5],
-[QACEGVAR(nightvision,fogScaling), 0.5],
-[QACEGVAR(nightvision,aimDownSightsBlur), 0.5],
+[QACEGVAR(nightvision,effectScaling), 0.5, false, true],
+[QACEGVAR(nightvision,fogScaling), 0.5, false, true],
+[QACEGVAR(nightvision,noiseScaling), 0.5, false, true],
+[QACEGVAR(nightvision,aimDownSightsBlur), 0.5, false, true],
 [QACEGVAR(overheating,enabled), false],
 [QACEGVAR(refuel,rate), 10],
 [QACEGVAR(respawn,removeDeadBodiesDisconnected), false],

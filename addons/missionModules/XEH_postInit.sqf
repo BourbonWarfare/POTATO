@@ -2,8 +2,8 @@
 
 GVAR(ehAdded) = false;
 
-[QGVAR(UpdateAISettings), {
-    TRACE_1("UpdateAISettings EH",_this);
+[QGVAR(updateAISettings), {
+    TRACE_1("updateAISettings EH",_this);
 
     //If EH is not installed, add it now
     if (!GVAR(ehAdded)) exitWith {
@@ -20,10 +20,10 @@ GVAR(ehAdded) = false;
     } forEach allUnits;
 }] call CBA_fnc_addEventHandler;
 
-["ace_settingsInitialized", {
-    TRACE_1("ace_settingsInitialized eh", GVAR(aiSkill_set));
+["CBA_settingsInitialized", {
+    TRACE_1("CBA_settingsInitialized eh", GVAR(aiSkill_set));
     if (GVAR(aiSkill_set)) then {
-        [QGVAR(UpdateAISettings), []] call CBA_fnc_localEvent;
+        [QGVAR(updateAISettings), []] call CBA_fnc_localEvent;
     };
 }] call CBA_fnc_addEventHandler;
 
@@ -42,6 +42,7 @@ GVAR(ehAdded) = false;
         TRACE_1("member",_x);
         _x disableAI "AUTOCOMBAT";
         _x disableAI "COVER";
+        _x disableAI "SUPPRESSION";
         _x setUnitPosWeak "UP";
     } forEach (units _group);
 }] call CBA_fnc_addEventHandler;

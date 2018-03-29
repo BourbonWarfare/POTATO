@@ -23,14 +23,19 @@ private _worldName = getText (configFile >> "CfgWorlds" >> worldName >> "descrip
 private _missionFrameworkDate = getMissionConfigValue ["bwmfDate", "Pre-March2016"];
 private _potatoVersion = getText (configFile >> "CfgPatches" >> "potato_core" >> "versionStr");
 
+(date call bis_fnc_sunriseSunsetTime) params ["_sunRise", "_sunSet"];
+
+
 _unit createDiaryRecord ["diary", ["Credits", format ["
 <font size=16>%1</font><br/>
 <font size=13>by %2</font><br/>
 <font size=13>on %3</font><br/>
 <br/>
+[Sunrise: %6 - Sunset: %7]<br/>
+<br/>
+<br/>
 Bourbon Warfare Mission Framework<br/>
 BWMF Version: %4<br/>
-<br/>
-<br/>
 POTATO Version: %5
-", _missionName, _authorName, _worldName, _missionFrameworkDate, _potatoVersion]]];
+", _missionName, _authorName, _worldName, _missionFrameworkDate, _potatoVersion
+, [_sunRise, "HH:MM"] call BIS_fnc_timeToString, [_sunSet, "HH:MM"] call BIS_fnc_timeToString]]];

@@ -12,7 +12,7 @@ if (_this getVariable [QGVAR(setBabel), false]) then {
 
     private _languages = [];
     {
-        _languages pushBack (_ctrlBabel lnbText [_x,0]);
+        _languages pushBack (_ctrlBabel lnbText [_x, 0]);
     } forEach _selectedIndices;
 
     _languages joinString ",";

@@ -2,12 +2,12 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {QGVAR(zeus_missionHint), QGVAR(zeus_globalSetSkill), QGVAR(sideMarker), QGVAR(zeus_banziCharge)};
+        units[] = {QGVAR(zeus_missionHint), QGVAR(zeus_globalSetSkill), QGVAR(sideMarker), QGVAR(zeus_banziCharge), QGVAR(moveHcsToModule)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
         author = "Potato";
-        authors[] = {"PabstMirror"};
+        authors[] = {"PabstMirror", "AACO"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
@@ -17,4 +17,4 @@ class CfgPatches {
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
-#include "UI_RscAttributes.hpp"
+#include "Displays.hpp"

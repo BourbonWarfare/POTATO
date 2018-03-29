@@ -10,10 +10,6 @@
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_RADIOS
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_RADIOS
-#endif
-
 #include "\z\potato\addons\core\script_macros.hpp"
 
 // ACRE functions
@@ -66,3 +62,27 @@
 #define CIV_SR "civ343"
 #define CIV_MR "civ148"
 #define CIV_LR "civ117"
+
+// Default setting values
+#define DEFAULT_ENABLED false
+
+#define DEFAULT_SR_NAMES "Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","Golf","Hotel","India","3rd Platoon","COY","Air","Armor","Fire Support"
+#define DEFAULT_MR_NAMES "PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"
+#define DEFAULT_LR_NAMES "PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"
+
+#define DEFAULT_COMMON_CH_NAME "Negotiations"
+#define DEFAULT_COMMON_CH_NUM 8
+#define DEFAULT_COMMON_CH_FREQ 90.75
+#define DEFAULT_COMMON_CH_ENABLED false
+
+#define DEFAULT_WEST_PRESET "default2"
+#define DEFAULT_WEST_LANGS "en"
+
+#define DEFAULT_EAST_PRESET "default3"
+#define DEFAULT_EAST_LANGS "ru"
+
+#define DEFAULT_INDY_PRESET "default4"
+#define DEFAULT_INDY_LANGS "ar"
+
+#define DEFAULT_CIV_PRESET "default"
+#define DEFAULT_CIV_LANGS "en","ru","ar"

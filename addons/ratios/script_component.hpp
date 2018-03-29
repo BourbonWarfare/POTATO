@@ -9,10 +9,6 @@
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_RATIOS
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_RATIOS
-#endif
-
 // A3 display defines
 #define SLOT_DISPLAY_IDD 70
 #define SLOT_DISPLAY_NAME "RscDisplayMultiplayerSetup"

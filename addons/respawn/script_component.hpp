@@ -9,10 +9,6 @@
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_RESPAWN
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_RESPAWN
-#endif
-
 // define black-lists
 #define ZEUS_ENABLED true
 #define BLACK_LIST_UIDS []

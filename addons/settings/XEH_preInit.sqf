@@ -23,9 +23,10 @@ if (isServer) then {
         INFO_1("Checking [%1] settings", count _settings);
 
         {
-            _x params ["_settingName", "_settingValue"];
+            _x params ["_settingName", "_settingValue", "", ["_skipWarning", false]];
             TRACE_2("",_settingName,_settingValue);
             if (!((missionNamespace getVariable [_settingName, -999]) isEqualTo _settingValue)) then {
+                if (_skipWarning) exitWith {};
                 private _log = format ["Warning: Setting [%1] not expected [%2] current [%3]", _settingName, _settingValue, missionNamespace getVariable _settingName];
                 ["potato_adminMsg", [_log, "Mission"]] call CBA_fnc_globalEvent;
             };

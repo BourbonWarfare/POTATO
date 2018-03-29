@@ -1,3 +1,11 @@
+/*
+ * Author: PabstMirror
+ * Function used to trigger a bonzai charge for a group from the zeus module
+ * should only be called from module scripting
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 
 params ["_logic"];

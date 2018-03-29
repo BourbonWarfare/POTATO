@@ -9,10 +9,6 @@
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_ZEUSFACTORY
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_ZEUSFACTORY
-#endif
-
 #include "\z\potato\addons\core\script_macros.hpp"
 
 #define TRANSPORT_FOOT 0

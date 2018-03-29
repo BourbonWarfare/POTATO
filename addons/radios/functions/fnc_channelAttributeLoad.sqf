@@ -5,7 +5,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-params ["_ctrlGroup",["_channelString", "", ["",true]]];
+params ["_ctrlGroup", ["_channelString", "", ["", true]]];
 
 if (_ctrlGroup getVariable [QGVAR(channelsInvalid), false]) exitWith { LOG("Multiple sides selected, exiting early"); };
 

@@ -1,8 +1,14 @@
 TRACE_1("",QUOTE(ADDON));
 
 PREP(manInitEH);
+PREP(moveHcsToModule);
+PREP(moveHcsToPos);
 PREP(setFog);
+PREP(setSkillsDialogLoad);
+PREP(setSkillsDialogSet);
+PREP(setSkillsDialogSliderChange);
 PREP(setSkillsLocal);
+PREP(setSkillsModule);
 PREP(setTime);
 PREP(setWeather);
 PREP(sideMarker);
@@ -10,8 +16,6 @@ PREP(skillDebug);
 PREP(toolboxAttributeLoad);
 PREP(toolboxAttributeSave);
 PREP(zeus_banziCharge);
-PREP(zeus_globalSetSkill);
 PREP(zeus_missionHint);
 PREP(zeusAttributes);
-PREP(zeusAttributes_globalSetSkill);
 PREP(zeusAttributes_missionHint);

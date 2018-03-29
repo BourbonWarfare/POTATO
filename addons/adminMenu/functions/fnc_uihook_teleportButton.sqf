@@ -17,6 +17,10 @@ if ((_selectedGroupIndex < 0) || (_selectedGroupIndex >= (count GVAR(groupsArray
 private _selectedGroup = GVAR(groupsArray) select _selectedGroupIndex;
 
 private _leader = leader _selectedGroup;
+if (_leader == _selectedUnit) then { // if selected unit is leader, attempt to move to a squadmate
+    private _units = (units _leader) select {alive _x && {_x != _leader}};
+    _leader = _units param [0, _leader];
+};
 if (!alive _leader) exitWith { TRACE_1("dead leader",_leader); };
 
 private _vehicle = vehicle _leader;

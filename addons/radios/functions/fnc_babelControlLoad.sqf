@@ -35,16 +35,16 @@ if (_babelInvalid || {count _babelSelected < 0}) exitWith {
 };
 
 private _selectedLanguages = switch (_side) do {
-    case (west): { GVAR(westDefaultLanguages) };
-    case (east): { GVAR(eastDefaultLanguages) };
-    case (independent): { GVAR(indyDefaultLanguages) };
-    default { GVAR(civDefaultLanguages) };
+    case (west): { missionNamespace getVariable [QGVAR(westDefaultLanguages), [DEFAULT_WEST_LANGS]] };
+    case (east): { missionNamespace getVariable [QGVAR(eastDefaultLanguages), [DEFAULT_EAST_LANGS]] };
+    case (independent): { missionNamespace getVariable [QGVAR(indyDefaultLanguages), [DEFAULT_INDY_LANGS]] };
+    default { missionNamespace getVariable [QGVAR(civDefaultLanguages), [DEFAULT_CIV_LANGS]] };
 };
 
 [_ctrlBabel] call FUNC(populateBabelList);
 [_ctrlBabel, _selectedLanguages] call FUNC(setBabelList);
 
 // register event handlers
-_ctrlSet ctrlAddeventHandler ["toolboxselchanged",{_this call FUNC(babelControlSetChange);}];
+_ctrlSet ctrlAddeventHandler ["toolboxselchanged", {_this call FUNC(babelControlSetChange);}];
 _ctrlSet lbSetCurSel 0;
-[_ctrlSet,0] call FUNC(babelControlSetChange);
+[_ctrlSet, 0] call FUNC(babelControlSetChange);

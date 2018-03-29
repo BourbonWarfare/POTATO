@@ -60,6 +60,7 @@ if (_onLoadName == "*** Insert mission name here. ***") then {
 private _floatingUnits = [];
 {
     if (((getPos _x) select 2) > 0.5) then {
+        if (getText (configFile >> "CfgVehicles" >> typeOf _x >> "simulation") == "UAVPilot") exitWith {}; // Ignore UAV
         WARNING_3("[%1:%2] is floating %3", _x, typeOf _x, getPos _x);
         _floatingUnits pushBack _x;
     };
@@ -81,6 +82,7 @@ private _classesNone= [];
         _path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
         if (isClass _path) then {
             if ((typeOf _x) == "O_helicrew_f") exitWith {}; // todo: fix framework
+            if (getText (configFile >> "CfgVehicles" >> typeOf _x >> "simulation") == "UAVPilot") exitWith {}; // Ignore UAV
             TRACE_1("using fallback",typeOf _x);
             _classesFallback pushBackUnique (typeOf _x);
         } else {
@@ -199,6 +201,12 @@ if (!(_checkDeprecatedGear isEqualTo [])) then {
     _problems pushBack ["Units using gear from mod we will drop", _checkDeprecatedGear];
 };
 
+private _fortifies = (all3DENEntities select 3) select {_x isKindOf "potato_fortify_setupModule"};
+{
+    if ((_x getVariable ["Budget", -1]) < 0) then {
+        _problems pushBack ["Highly recommended to set budget for fortify", [_x]];
+    };
+} forEach _fortifies;
 
 TRACE_1("",_problems);
 INFO_2("Finished test with %1 problems in %2 ms:", count _problems, ((diag_ticktime - _startTime) * 1000) toFixed 1);
@@ -214,6 +222,11 @@ if (_problems isEqualTo []) then {
         disableSerialization;
         {
             _x params ["_errorCode", "_errorArray"];
+            private _errorCount = count _errorArray;
+            if (_errorCount > 5) then {
+                _errorArray reSize 5;
+                _errorArray pushBack format [" + %1 more", _errorCount - 5];
+            };
             private _msg = format ["[%1/%2] %3:%4", (_forEachIndex + 1), count _problems, _errorCode, _errorArray];
             systemChat _msg;
             [_msg] call BIS_fnc_3DENNotification;
