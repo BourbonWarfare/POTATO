@@ -25,4 +25,5 @@ if (count _groupPath != 2) exitWith { LOG("Bad path when trying to slot"); };
 // ensure player doesn't double slot
 [] call FUNC(ui_handleClientUnslotClick);
 
-[player, _groupPath, false] call FUNC(slotUnit);
+// give a frame for the previous function to hit the server
+[FUNC(slotUnit), [player, _groupPath, false]] call CBA_fnc_execNextFrame;
