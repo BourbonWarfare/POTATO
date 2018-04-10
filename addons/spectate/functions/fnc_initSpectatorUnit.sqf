@@ -15,6 +15,8 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
+if (!hasInterface) exitWith {};
+
 [
     {player == player && {time > 0}},
     {
