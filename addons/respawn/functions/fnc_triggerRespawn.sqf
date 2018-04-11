@@ -104,7 +104,6 @@ private _delay = 0;
             _newRespawnGroup setGroupIdGlobal [format ["RG %1: %2 %3%4", GVAR(groupCount), _callsignPrefix, _markerPrefix, _markerText]];
             GVAR(groupCount) = GVAR(groupCount) + 1;
 
-
             {
                 private _unit = _x select 3;
 
