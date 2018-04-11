@@ -24,9 +24,6 @@ class Extended_DisplayUnload_EventHandlers {
 };
 
 class Extended_InitPost_EventHandlers {
-    class GVAR(holder) {
-        class ADDON { init = QUOTE( [ARR_2(_this select 0, true)] remoteExecCall [ARR_2('hideObjectGlobal', SERVER_CLIENT_ID)]; ); };
-    };
     class GVAR(playableSpectator) {
         class ADDON { init = QUOTE( _this call FUNC(initSpectatorUnit); ); };
     };

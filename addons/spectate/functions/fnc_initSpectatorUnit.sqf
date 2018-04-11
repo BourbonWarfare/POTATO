@@ -20,8 +20,8 @@ if (!hasInterface) exitWith {};
 [
     {player == player && {time > 0}},
     {
-        if (player == (_this select 0)) {
-            [FUNC(setup), _this] call CBA_fnc_execNextFrame;
+        if (player == (_this select 0)) then {
+            [FUNC(setup), _this, 1] call CBA_fnc_waitAndExecute;
         };
     },
     _this
