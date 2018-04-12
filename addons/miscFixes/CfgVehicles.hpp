@@ -33,6 +33,11 @@ class CfgVehicles {
     // diag_log text format ["class %1: %2 { SLX_XEH_DISABLED = 1; }; // %3 -> %4", _vehType, _parent, _addon, getText (configFile >> "CfgVehicles" >> _vehType >> "displayName")];
     // } forEach x3;
 
+    class Logic;
+    class PRAA_module_tunnels: Logic {
+        SLX_XEH_DISABLED = 1;
+    };
+    
     class rq11_base_object;
     class rhsusf_RQ11MONITOR: rq11_base_object { SLX_XEH_DISABLED = 1; }; // @RHSUSAF -> [GCS] Ground Control Station
     class rhsusf_RQ11RAVEN_STATIC: rq11_base_object { SLX_XEH_DISABLED = 1; }; // @RHSUSAF -> [RQ-11] Raven A (static)
