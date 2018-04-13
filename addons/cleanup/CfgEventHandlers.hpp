@@ -15,3 +15,9 @@ class Extended_PostInit_EventHandlers {
         init = QUOTE(call COMPILE_FILE(XEH_postInit));
     };
 };
+
+class Extended_DisplayLoad_EventHandlers {
+    class RscDisplayCurator {
+        class ADDON = QUOTE(_this call FUNC(ui_handleCuratorLoad));
+    };
+};

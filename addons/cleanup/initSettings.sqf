@@ -8,11 +8,29 @@
 ] call cba_settings_fnc_init;
 
 [
+    QGVAR(simpleCleanup),
+    "CHECKBOX",
+    ["Use simple cleanup", "Simply deletes the objects instead of sinking them."],
+    "POTATO Admin",
+    false,
+    1
+] call cba_settings_fnc_init;
+
+[
+    QGVAR(deletionDelay),
+    "SLIDER",
+    ["Time between deleting units", "Time in seconds between object removals (0 is each frame)"],
+    "POTATO Admin",
+    [0, 5, 0, 2],
+    1
+] call cba_settings_fnc_init;
+
+[
     QGVAR(minTime),
     "SLIDER",
     ["Min time for cleanup", "Minium time the dead have to be... dead for garbage collection."],
     "POTATO Admin",
-    [0, 300, 120, 10],
+    [0, 300, 120, 0],
     1
 ] call cba_settings_fnc_init;
 
@@ -21,7 +39,7 @@
     "SLIDER",
     ["Max time for cleanup", "Max time the dead have to be... dead before forced garbage collection."],
     "POTATO Admin",
-    [300, 1200, 900, 10],
+    [300, 1200, 900, 0],
     1
 ] call cba_settings_fnc_init;
 
@@ -46,7 +64,7 @@
     "SLIDER",
     ["Min distance for cleanup", "Minium distance the dead have to be away from players for garbage collection."],
     "POTATO Admin",
-    [10, 500, 150, 10],
+    [10, 500, 150, 0],
     1,
     { GVAR(minDistanceSqr) = _this^2; }
 ] call cba_settings_fnc_init;
@@ -56,7 +74,7 @@
     "SLIDER",
     ["Max distance for ray cast", "Maxiumum distance the dead have to skip raycasted."],
     "POTATO Admin",
-    [500, 5000, 1500, 100],
+    [500, 5000, 1500, 0],
     1,
     { GVAR(maxDistanceSqr) = _this^2; }
 ] call cba_settings_fnc_init;
