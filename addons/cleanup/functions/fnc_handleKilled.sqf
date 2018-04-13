@@ -9,4 +9,4 @@ if (isNull _object || {_object getVariable [QGVAR(wasPlayer), false]} || {_objec
 _object setVariable [QGVAR(killedAt), CBA_missionTime];
 GVAR(garbageToWatch) pushBack _object
 
-[] call FUNC(garbageCollect);
+[] call FUNC(watchGarbage);

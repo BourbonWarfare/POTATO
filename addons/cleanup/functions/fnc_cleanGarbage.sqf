@@ -26,7 +26,7 @@ GVAR(cleanPFID) = [{
 
     if (GVAR(simpleCleanup)) then {
         deleteVehicle _object;
-
+        GVAR(garbageToClean) deleteAt 0;
     } else {
         if (_distanceToSink <= 0) then {
             deleteVehicle _object;
