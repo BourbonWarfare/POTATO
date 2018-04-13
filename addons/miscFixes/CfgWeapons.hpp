@@ -91,4 +91,41 @@ class CfgWeapons {
     class rhs_weap_m70ab2: rhs_weap_m70_base {
         muzzles[] = {"this", "SAFE"};
     };
+
+
+    // Add "plot armor" to some vests
+    class Vest_Camo_Base;
+    class rhs_6b23: Vest_Camo_Base {
+        class ItemInfo;
+    };
+    class rhsgref_alice_webbing: rhs_6b23 {
+        class ItemInfo: ItemInfo {};
+    };
+    class rhsgref_alice_webbing_armorMod: rhsgref_alice_webbing {
+        displayName = "ALICE Webbing [plot armor]";
+        descriptionShort = "Armor Level IV";
+        class ItemInfo: ItemInfo {
+            class HitpointsProtectionInfo { // From V_PlateCarrier2_rgr
+                class Chest {
+                    HitpointName = "HitChest";
+                    armor = 20;
+                    PassThrough = 0.2;
+                };
+                class Diaphragm {
+                    HitpointName = "HitDiaphragm";
+                    armor = 20;
+                    PassThrough = 0.2;
+                };
+                class Abdomen {
+                    hitpointName = "HitAbdomen";
+                    armor = 20;
+                    passThrough = 0.2;
+                };
+                class Body {
+                    hitpointName = "HitBody";
+                    passThrough = 0.2;
+                };
+            };
+        };
+    };
 };
