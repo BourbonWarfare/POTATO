@@ -33,15 +33,11 @@ class CfgVehicles {
     // diag_log text format ["class %1: %2 { SLX_XEH_DISABLED = 1; }; // %3 -> %4", _vehType, _parent, _addon, getText (configFile >> "CfgVehicles" >> _vehType >> "displayName")];
     // } forEach x3;
 
-    class THIRSK_WeatherPreSet;
-    class TH_SNOWING1: THIRSK_WeatherPreSet { SLX_XEH_DISABLED = 1; }; // @BourbonMapRotation -> Snowing Strenght 1
-    class TH_SNOWING2: THIRSK_WeatherPreSet { SLX_XEH_DISABLED = 1; }; // @BourbonMapRotation -> Snowing Strenght 2
-    class TH_SNOWING3: THIRSK_WeatherPreSet { SLX_XEH_DISABLED = 1; }; // @BourbonMapRotation -> Snowing Strenght 3
-    class TH_SNOWING4: THIRSK_WeatherPreSet { SLX_XEH_DISABLED = 1; }; // @BourbonMapRotation -> Snowing Strenght 4
-    class TH_FOG1: THIRSK_WeatherPreSet { SLX_XEH_DISABLED = 1; }; // @BourbonMapRotation -> Fog Strenght 1
-    class TH_FOG2: THIRSK_WeatherPreSet { SLX_XEH_DISABLED = 1; }; // @BourbonMapRotation -> Fog Strenght 2
-    class TH_FOG3: THIRSK_WeatherPreSet { SLX_XEH_DISABLED = 1; }; // @BourbonMapRotation -> Fog Strenght 3
-    class TH_SNOWSTORM1: THIRSK_WeatherPreSet { SLX_XEH_DISABLED = 1; }; // @BourbonMapRotation -> Snowstorm
+    class Logic;
+    class PRAA_module_tunnels: Logic {
+        SLX_XEH_DISABLED = 1;
+    };
+    
     class rq11_base_object;
     class rhsusf_RQ11MONITOR: rq11_base_object { SLX_XEH_DISABLED = 1; }; // @RHSUSAF -> [GCS] Ground Control Station
     class rhsusf_RQ11RAVEN_STATIC: rq11_base_object { SLX_XEH_DISABLED = 1; }; // @RHSUSAF -> [RQ-11] Raven A (static)

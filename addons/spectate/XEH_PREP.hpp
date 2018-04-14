@@ -12,6 +12,7 @@ PREP(handleCreated);
 PREP(handleFired);
 PREP(handleKilled);
 PREP(init);
+PREP(initSpectatorUnit);
 PREP(prepareSpectator);
 PREP(prepareTarget);
 PREP(removeEventHandlers);
