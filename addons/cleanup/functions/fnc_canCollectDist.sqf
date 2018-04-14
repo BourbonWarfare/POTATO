@@ -10,6 +10,6 @@ private _deadEyePos = eyePos _object;
     if (_x vectorDistanceSqr _deadEyePos <= GVAR(minDistanceSqr)) exitWith {
         _canCollect = false;
     };
-} forEach ([[], FUNC(getPlayerEyePoses), missionNamespace, QGVAR(cache), 2.5] call ACEFUNC(common,cachedCall))
+} forEach ([[], FUNC(getPlayerEyePoses), missionNamespace, QGVAR(cache), 2.5] call ACEFUNC(common,cachedCall));
 
 _canCollect
