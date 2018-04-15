@@ -1,16 +1,23 @@
+/*
+ * Author: AACO
+ * Function used delete objects in a delayed fashion
+ *
+ * Arguments:
+ * 0: Object to delete <OBJECT>
+ *
+ * Examples:
+ * [player] call potato_cleanup_fnc_cleanGarbage;
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 
-#define SINK_DIST 0.25
-
 TRACE_1("params",_this);
+params [["_object", objNull, [objNull]]];
 
-params ["_object"];
-
-(boundingBox _object) params ["_p1", "_p2"];
-GVAR(garbageToClean) pushBack [_object, abs (_p2#2 - _p1#2)];
-
-
-if (!isNil QGVAR(cleanPFID)) exitWith { LOG("Trying to start garbage cleanup while it is already running"); };
+GVAR(garbageToClean) pushBack _object;
+if (!isNil QGVAR(cleanPFID)) exitWith {};
 
 GVAR(cleanPFID) = [{
     if (GVAR(garbageToClean) isEqualTo []) exitWith {
@@ -18,23 +25,9 @@ GVAR(cleanPFID) = [{
         GVAR(cleanPFID) = nil;
     };
 
-    (GVAR(garbageToClean)#0) params [["_object", objNull, [objNull]], "_distanceToSink"];
-
-    if (isNull _object) exitWith {
-        GVAR(garbageToClean) deleteAt 0;
-    };
-
-    if (GVAR(simpleCleanup)) then {
+    private _object = GVAR(garbageToClean) deleteAt 0;
+    TRACE_1("object",_object);
+    if !(isNull _object) then {
         deleteVehicle _object;
-        GVAR(garbageToClean) deleteAt 0;
-    } else {
-        if (_distanceToSink <= 0) then {
-            deleteVehicle _object;
-            GVAR(garbageToClean) deleteAt 0;
-        } else {
-            (getPosWorld _object) params ["_x", "_y", "_z"];
-            _object setPosWorld [_x, _y, _z - SINK_DIST];
-            (GVAR(garbageToClean)#0) set [1, _distanceToSink - SINK_DIST];
-        };
     };
 }, GVAR(deletionDelay)] call CBA_fnc_addPerFrameHandler;

@@ -8,15 +8,6 @@
 ] call cba_settings_fnc_init;
 
 [
-    QGVAR(simpleCleanup),
-    "CHECKBOX",
-    ["Use simple cleanup", "Simply deletes the objects instead of sinking them."],
-    "POTATO Admin",
-    false,
-    1
-] call cba_settings_fnc_init;
-
-[
     QGVAR(deletionDelay),
     "SLIDER",
     ["Time between deleting units", "Time in seconds between object removals (0 is each frame)"],
@@ -30,7 +21,7 @@
     "SLIDER",
     ["Min time for cleanup", "Minium time the dead have to be... dead for garbage collection."],
     "POTATO Admin",
-    [0, 300, 120, 0],
+    [0, 300, 180, 0],
     1
 ] call cba_settings_fnc_init;
 
@@ -51,10 +42,11 @@
     false,
     1,
     {
+        TRACE_1("Params", _this);
         DFUNC(canCollect) = if (_this) then {
-            FUNC(canCollectDist)
+            { _this call FUNC(canCollectDist); }
         } else {
-            FUNC(canCollectDistAndCast)
+            { _this call FUNC(canCollectDistAndCast); }
         };
     }
 ] call cba_settings_fnc_init;

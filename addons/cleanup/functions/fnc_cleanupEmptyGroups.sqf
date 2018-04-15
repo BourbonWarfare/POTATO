@@ -1,3 +1,13 @@
+/*
+ * Author: AACO
+ * Function used delete empty groups
+ *
+ * Examples:
+ * [] call potato_cleanup_fnc_cleanupEmptyGroups;
+ *
+ * Public: No
+ */
+
 #include "script_component.hpp"
 
 TRACE_1("params",_this);
