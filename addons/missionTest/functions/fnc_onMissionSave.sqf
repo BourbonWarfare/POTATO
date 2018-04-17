@@ -201,6 +201,12 @@ if (!(_checkDeprecatedGear isEqualTo [])) then {
     _problems pushBack ["Units using gear from mod we will drop", _checkDeprecatedGear];
 };
 
+private _fortifies = (all3DENEntities select 3) select {_x isKindOf "potato_fortify_setupModule"};
+{
+    if ((_x getVariable ["Budget", -1]) < 0) then {
+        _problems pushBack ["Highly recommended to set budget for fortify", [_x]];
+    };
+} forEach _fortifies;
 
 TRACE_1("",_problems);
 INFO_2("Finished test with %1 problems in %2 ms:", count _problems, ((diag_ticktime - _startTime) * 1000) toFixed 1);

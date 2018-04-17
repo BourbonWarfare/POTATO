@@ -1,2 +1,2 @@
-#include "\z\potato\addons\aiCfgFixes\script_component.hpp"
+#include "\z\potato\addons\csw\script_component.hpp"
 

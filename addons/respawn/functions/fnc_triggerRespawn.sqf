@@ -13,9 +13,9 @@
  *
  * Public: No
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
-#define UNIT_DELAY 1
+#define UNIT_DELAY 1.5
 #define UNIT_SPACING 4
 TRACE_1("params",_this);
 
@@ -31,6 +31,7 @@ _position resize 2;
 
 if (_position isEqualTo [-999, -999]) exitWith { ERROR("Invalid position given to trigger respawn script"); };
 private _positionX = _position select 0;
+private _delay = 0;
 
 {
     _x params [
@@ -102,7 +103,6 @@ private _positionX = _position select 0;
 
             _newRespawnGroup setGroupIdGlobal [format ["RG %1: %2 %3%4", GVAR(groupCount), _callsignPrefix, _markerPrefix, _markerText]];
             GVAR(groupCount) = GVAR(groupCount) + 1;
-            private _delay = 0;
 
             {
                 private _unit = _x select 3;

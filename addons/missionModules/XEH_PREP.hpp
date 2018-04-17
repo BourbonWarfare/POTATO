@@ -1,6 +1,8 @@
 TRACE_1("",QUOTE(ADDON));
 
 PREP(manInitEH);
+PREP(moveHcsToModule);
+PREP(moveHcsToPos);
 PREP(setFog);
 PREP(setSkillsDialogLoad);
 PREP(setSkillsDialogSet);

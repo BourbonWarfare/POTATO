@@ -25,6 +25,6 @@ class Extended_DisplayUnload_EventHandlers {
 
 class Extended_InitPost_EventHandlers {
     class GVAR(playableSpectator) {
-        class ADDON { init = QUOTE( if (local (_this select 0)) then { [ARR_3({time > 0}, FUNC(setup), [_this select 0])] call CBA_fnc_waitUntilAndExecute; }; ); };
+        class ADDON { init = QUOTE( _this call FUNC(initSpectatorUnit); ); };
     };
 };

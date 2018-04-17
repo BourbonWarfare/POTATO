@@ -28,16 +28,17 @@ if !(isNull _unit) then {
     _unit setVariable [QACEGVAR(medical,allowDamage), false];
     _unit setVariable [QGVAR(timeOfDeath), CBA_missionTime];
 
+    if (isServer) then {
+        _unit hideObjectGlobal true;
+    };
+
     if !(isNull _oldUnit) then {
         _unit setVariable [QGVAR(oldUnit), _oldUnit];
         _unit setVariable [QGVAR(oldSideColor), [[[configFile >> "CfgVehicles" >> (typeOf _oldUnit) >> "side", 7] call CFUNC(getNumber)] call CFUNC(toSide)] call BIS_fnc_sideColor]; // holy chained calls batman
         _unit setVariable [QEGVAR(miscFixes,eventsString), _oldUnit getVariable [QEGVAR(miscFixes,eventsString), "None"]];
 
         // hack to hopefully keep dead STHUD names longer
-        private _stNameArray = _oldUnit getVariable ["sth_name", []];
-        if !(_stNameArray isEqualTo []) then {
-            _stNameArray set [0, false];
-            _oldUnit setVariable ["sth_name", _stNameArray];
-        };
+        private _name = name _unit;
+        _oldUnit setVariable ["sth_name", [false, _name, _name select [0, missionNamespace getVariable ["STHud_MaxNameLen" ,16]]]];
     };
 };
