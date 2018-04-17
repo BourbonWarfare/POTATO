@@ -24,7 +24,7 @@ class CfgWeapons {
         };
         
         displayName = CSTRING(TripodFolded_displayName);
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         model = QPATHTOF(data\ACE_CSW_WeaponBag.p3d);
         modes[] = {};
@@ -41,7 +41,7 @@ class CfgWeapons {
         };
         
         displayName = CSTRING(StaticMortarBag_displayName);
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         model = QPATHTOF(data\ACE_CSW_WeaponBag.p3d);
         modes[] = {};
@@ -58,7 +58,7 @@ class CfgWeapons {
         };
         
         displayName = CSTRING(StaticATBag_displayName);
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         model = QPATHTOF(data\ACE_CSW_WeaponBag.p3d);
         modes[] = {};
@@ -76,7 +76,7 @@ class CfgWeapons {
         };
         
         displayName = CSTRING(StaticAABag_displayName);
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         model = QPATHTOF(data\ACE_CSW_WeaponBag.p3d);
         modes[] = {};
@@ -94,7 +94,7 @@ class CfgWeapons {
         };
         
         displayName = CSTRING(StaticHMGBag_displayName);
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         model = QPATHTOF(data\ACE_CSW_WeaponBag.p3d);
         modes[] = {};
@@ -111,7 +111,7 @@ class CfgWeapons {
         };
         
         displayName = CSTRING(StaticAutoHMGBag_displayName);
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         model = QPATHTOF(data\ACE_CSW_WeaponBag.p3d);
         modes[] = {};
@@ -128,7 +128,7 @@ class CfgWeapons {
         };
         
         displayName = CSTRING(StaticHMGTallBag_displayName);
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         model = QPATHTOF(data\ACE_CSW_WeaponBag.p3d);
         modes[] = {};
@@ -146,7 +146,7 @@ class CfgWeapons {
         };
         
         displayName = CSTRING(StaticGMGBag_displayName);
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         model = QPATHTOF(data\ACE_CSW_WeaponBag.p3d);
         modes[] = {};
@@ -163,7 +163,7 @@ class CfgWeapons {
         };
         
         displayName = CSTRING(StaticAutoGMGBag_displayName);
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         model = QPATHTOF(data\ACE_CSW_WeaponBag.p3d);
         modes[] = {};
@@ -180,7 +180,7 @@ class CfgWeapons {
         };
         
         displayName = CSTRING(StaticGMGTallBag_displayName);
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         model = QPATHTOF(data\ACE_CSW_WeaponBag.p3d);
         modes[] = {};
@@ -196,7 +196,7 @@ class CfgWeapons {
             ammoLoadTime = 5;
             ammoUnloadTime = 5;
         };
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         displayName = CSTRING(HMGStatic_displayName);
         magazines[] = { GVAR(HMG_Dummy_200Rnd_mag), GVAR(HMG_Dummy_200Rnd_mag_red), GVAR(HMG_Dummy_200Rnd_mag_green), GVAR(HMG_Dummy_200Rnd_mag_yellow), GVAR(100Rnd_127x99_mag), GVAR(100Rnd_127x99_mag_red), GVAR(100Rnd_127x99_mag_green), GVAR(100Rnd_127x99_mag_yellow) };
     };
@@ -209,7 +209,7 @@ class CfgWeapons {
             ammoLoadTime = 5;
             ammoUnloadTime = 5;
         };
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         displayName = CSTRING(GMGStatic_displayName);
         magazines[] = { GVAR(20Rnd_20mm_G_belt), GVAR(GMG_Dummy_120Rnd_mag) };
     };
@@ -229,7 +229,7 @@ class CfgWeapons {
         lockingTargetSound[] = {"", 0, 1};
         lockedTargetSound[] = {"", 0, 1};
         
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         displayName = CSTRING(ATStatic_displayName);
         magazines[] = { GVAR(1Rnd_GAT_missiles), GVAR(TitanAT_Dummy_Missile) };
     };
@@ -242,7 +242,7 @@ class CfgWeapons {
             ammoLoadTime = 15;
             ammoUnloadTime = 10;
         };
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         displayName = CSTRING(AAStatic_displayName);
         magazines[] = { GVAR(1Rnd_GAA_missiles), GVAR(TitanAA_Dummy_Missile) };
     };

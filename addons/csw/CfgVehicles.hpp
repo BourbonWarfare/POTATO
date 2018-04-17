@@ -63,7 +63,7 @@ class CfgVehicles {
             };
         };
         
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         side = 3;
         model = QPATHTOF(data\ACE_CSW_Tripod.p3d);
@@ -524,7 +524,7 @@ class CfgVehicles {
             };
         };
         
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 1;
         side = 3;
         displayName = CSTRING(StaticATWeapon_displayName);
@@ -545,7 +545,7 @@ class CfgVehicles {
                 magazines[] = { QGVAR(TitanAA_Dummy_Missile) };
             };
         };
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 1;
         side = 3;
         displayName = CSTRING(StaticAAWeapon_displayName);
@@ -566,7 +566,7 @@ class CfgVehicles {
                 magazines[] = { QGVAR(HMG_Dummy_200Rnd_mag) };
             };
         };
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 1;
         side = 3;
         displayName = CSTRING(StaticHMGWeapon_displayName);
@@ -587,7 +587,7 @@ class CfgVehicles {
                 magazines[] = { QGVAR(HMG_Dummy_200Rnd_mag) };
             };
         };
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 1;
         side = 3;
         displayName = CSTRING(StaticAutoHMGWeapon_displayName);
@@ -608,7 +608,7 @@ class CfgVehicles {
                 magazines[] = { QGVAR(HMG_Dummy_200Rnd_mag) };
             };
         };
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 1;
         side = 3;
         displayName = CSTRING(StaticHMGTallWeapon_displayName);
@@ -629,7 +629,7 @@ class CfgVehicles {
                 magazines[] = { QGVAR(GMG_Dummy_120Rnd_mag) };
             };
         };
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 1;
         side = 3;
         displayName = CSTRING(StaticGMGWeapon_displayName);
@@ -650,7 +650,7 @@ class CfgVehicles {
                 magazines[] = { QGVAR(GMG_Dummy_120Rnd_mag) };
             };
         };
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 1;
         side = 3;
         displayName = CSTRING(StaticAutoGMGWeapon_displayName);
@@ -671,7 +671,7 @@ class CfgVehicles {
                 magazines[] = { QGVAR(GMG_Dummy_120Rnd_mag) };
             };
         };
-        author = ECSTRING(common, ACETeam);
+        author = "Brandon";
         scope = 2;
         side = 3;
         displayName = CSTRING(StaticGMGTallWeapon_displayName);
