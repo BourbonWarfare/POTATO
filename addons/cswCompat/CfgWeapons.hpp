@@ -203,8 +203,8 @@ class CfgWeapons {
 	class missiles_titan;
 	class CUP_Vmlauncher_AT13_single_veh: missiles_titan {
 		class potato_csw_options {
-            deployTime = 20;
-            pickupTime = 25;
+            deployTime = 15;
+            pickupTime = 20;
             ammoLoadTime = 20; // 3 rounds a minute
             ammoUnloadTime = 25;
         };

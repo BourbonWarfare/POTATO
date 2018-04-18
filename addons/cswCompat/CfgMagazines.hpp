@@ -41,7 +41,7 @@ class CfgMagazines {
         scope = 1;
         type = 0;
         count = 1;
-        mass = 40;
+        mass = 110;
 	};
 	
 	class GVAR(cup_spg9_at): CUP_16Rnd_PG9_AT_M {
@@ -51,7 +51,7 @@ class CfgMagazines {
         scope = 2;
         type = 256;
         count = 1;
-        mass = 40;
+        mass = 110;
 		picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_rpg32_rocket_ca.paa";
 	};
 	
@@ -62,7 +62,7 @@ class CfgMagazines {
         scope = 1;
         type = 0;
         count = 1;
-        mass = 40;
+        mass = 110;
 	};
 	
 	class GVAR(cup_spg9_he): CUP_16Rnd_OG9_HE_M {
@@ -72,7 +72,7 @@ class CfgMagazines {
         scope = 2;
         type = 256;
         count = 1;
-        mass = 40;
+        mass = 110;
 		picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_tbg32v_rocket_ca.paa";
 	};
 	
@@ -83,7 +83,7 @@ class CfgMagazines {
         scope = 1;
         type = 0;
         count = 1;
-        mass = 40;
+        mass = 110;
 	};
 	
 	class CUP_6Rnd_TOW2_M;
@@ -94,7 +94,7 @@ class CfgMagazines {
         scope = 2;
         type = 256;
         count = 1;
-        mass = 40;
+        mass = 440;
 		picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_tbg32v_rocket_ca.paa";
 	};
 	
@@ -105,7 +105,7 @@ class CfgMagazines {
         scope = 1;
         type = 0;
         count = 1;
-        mass = 40;
+        mass = 440;
 	};
 };
 
