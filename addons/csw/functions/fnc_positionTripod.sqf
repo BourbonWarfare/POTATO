@@ -18,17 +18,17 @@
 
 params["_player", "_tripod"];
 
-[_player select 1, "forceWalk", "ACE_csw", true] call EFUNC(common,statusEffect_set);
+[_player select 1, "forceWalk", "ACE_csw", true] call ACEFUNC(common,statusEffect_set);
 _tripod attachTo [_player select 1, [0, 2, 0.5]];
 
 GVAR(cswTripod) = _tripod;
 
-[localize LSTRING(confirmDeployment_hint), ""] call EFUNC(interaction,showMouseHint);
+[localize LSTRING(confirmDeployment_hint), ""] call ACEFUNC(interaction,showMouseHint);
 
 (_player select 1) setVariable[QGVAR(canMoveTripod), false, true];
 (_player select 1) setVariable[QGVAR(MoveTripod), [
     (_player select 1),"DefaultAction",
     {!isNull GVAR(cswTripod)},
     {[_this select 0, GVAR(cswTripod)] call FUNC(tripodDeploy)}
-] call EFUNC(common,addActionEventHandler)]
+] call ACEFUNC(common,addActionEventHandler)]
 

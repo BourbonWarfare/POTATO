@@ -25,11 +25,11 @@ params["_tripod", "_player"];
         _args params["_tripod", "_player", "_tripodClassname"];
         deleteVehicle _tripod;
         (_player select 1) addWeaponGlobal _tripodClassname;
-        [(_player select 1), "PutDown"] call EFUNC(common,doGesture);
+        [(_player select 1), "PutDown"] call ACEFUNC(common,doGesture);
     };
     
     private _tripodClassname = getText(configFile >> "CfgVehicles" >> typeof(_tripod) >> QGVAR(options) >> "disassembleTo");
     private _pickupTime = getNumber(configFile >> "CfgWeapons" >> _tripodClassname >> QGVAR(options) >> "pickupTime");
-    [_pickupTime, [_tripod, _player, _tripodClassname], _onFinish, FUNC(canPickupTripod), localize LSTRING(PickupTripod_progressBar)] call EFUNC(common,progressBar);
+    [_pickupTime, [_tripod, _player, _tripodClassname], _onFinish, FUNC(canPickupTripod), localize LSTRING(PickupTripod_progressBar)] call ACEFUNC(common,progressBar);
 }, [_tripod, _player]] call CBA_fnc_execNextFrame;
 

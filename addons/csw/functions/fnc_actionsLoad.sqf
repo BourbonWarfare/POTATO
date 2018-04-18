@@ -39,7 +39,7 @@ private _statement = {
     format [localize LSTRING(progressBarLoading), getText (configFile >> "CfgMagazines" >> _carryMag >> "displayName")],
     {(_this select 0) call FUNC(canLoadMagazine)},
     ["isNotInside"]
-    ] call EFUNC(common,progressBar);
+    ] call ACEFUNC(common,progressBar);
 };
 
 private _condition = {
@@ -55,7 +55,7 @@ private _condition = {
     private _displayName = getText (configFile >> "CfgMagazines" >> _carryMag >> "displayName");
     private _picture = getText (configFile >> "CfgMagazines" >> _carryMag >> "picture");
 
-    private _action = [format ["load_%1", _forEachIndex], format ["Load %1", _displayName], _picture, _statement, _condition, {}, _x] call EFUNC(interact_menu,createAction);
+    private _action = [format ["load_%1", _forEachIndex], format ["Load %1", _displayName], _picture, _statement, _condition, {}, _x] call ACEFUNC(interact_menu,createAction);
     _actions pushBack [_action, [], _target];
 } forEach _loadableMagazines;
 

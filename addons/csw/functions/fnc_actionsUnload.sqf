@@ -27,7 +27,7 @@ private _statement = {
     TRACE_5("Starting unload mag progres bar",_target,_turretPath,_player,_carryMag,_vehMag);
 
     /*if (!isNull (_target turretUnit _turretPath)) exitWith {
-        [LSTRING(gunnerInWeapon)] call EFUNC(common,displayTextStructured);
+        [LSTRING(gunnerInWeapon)] call ACEFUNC(common,displayTextStructured);
     };*/
     
     private _weapon = (_vehicle weaponsTurret _turretPath) select 0;
@@ -56,7 +56,7 @@ private _statement = {
     format [localize LSTRING(progressBarUnloading), getText (configFile >> "CfgMagazines" >> _carryMag >> "displayName")],
     {(_this select 0) call FUNC(canUnloadMagazine)},
     ["isNotInside"]
-    ] call EFUNC(common,progressBar);
+    ] call ACEFUNC(common,progressBar);
 };
 
 private _condition = {
@@ -85,7 +85,7 @@ private _condition = {
 
         private _displayName = getText (configFile >> "CfgMagazines" >> _carryMag >> "displayName");
         private _picture = getText (configFile >> "CfgMagazines" >> _carryMag >> "picture");
-        private _action = [format ["unload_%1", _forEachIndex], format ["Unload %1", _displayName], _picture, _statement, _condition, {}, [_xMag, _xTurret, _carryMag, _vehicle]] call EFUNC(interact_menu,createAction);
+        private _action = [format ["unload_%1", _forEachIndex], format ["Unload %1", _displayName], _picture, _statement, _condition, {}, [_xMag, _xTurret, _carryMag, _vehicle]] call ACEFUNC(interact_menu,createAction);
         _actions pushBack [_action, [], _target];
     };
 } forEach (magazinesAllTurrets _vehicle);

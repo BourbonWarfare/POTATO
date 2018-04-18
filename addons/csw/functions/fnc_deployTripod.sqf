@@ -40,7 +40,7 @@ params ["_player"];
         _cswTripod setVectorUp (surfaceNormal _tripodPos);
 
         [QGVAR(addObjectToServer), [_cswTripod]] call CBA_fnc_serverEvent;
-        [_player, "PutDown"] call EFUNC(common,doGesture);
+        [_player, "PutDown"] call ACEFUNC(common,doGesture);
     };
     
     private _onFailure = {
@@ -50,6 +50,6 @@ params ["_player"];
     };
     
     private _deployTime = getNumber(configFile >> "CfgWeapons" >> _secondaryWeaponClassname >> QGVAR(options) >> "deployTime");
-    [_deployTime, [_player, _secondaryWeaponClassname], _onFinish, _onFailure, localize LSTRING(PlaceTripod_progressBar)] call EFUNC(common,progressBar);
+    [_deployTime, [_player, _secondaryWeaponClassname], _onFinish, _onFailure, localize LSTRING(PlaceTripod_progressBar)] call ACEFUNC(common,progressBar);
 }, [_player]] call CBA_fnc_execNextFrame;
 
