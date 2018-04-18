@@ -11,6 +11,14 @@ class CfgVehicles {
             class ACE_MainActions;
         };
     };
+	class StaticGrenadeLauncher: StaticWeapon {
+		class Turrets {
+            class MainTurret;
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions;
+        };
+	};
 	
 	/* HMG's */
 	class CUP_M2StaticMG_base: StaticMGWeapon {
@@ -104,5 +112,21 @@ class CfgVehicles {
 	};
 	
 	 /* GMG's */
+	 class CUP_AGS_base: StaticGrenadeLauncher {
+		 class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {GVAR(GMG_Dummy_120Rnd_30mm_belt)};
+            };
+        };
+		class potato_csw_options {
+            enabled = 1;
+            disassembleTo = QGVAR(cup_dshkm_high);
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                displayName = "AGS-30";
+            };
+        };
+	 };
 };
 

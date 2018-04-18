@@ -150,6 +150,36 @@ class CfgWeapons {
 	
 	
 	/* GMG's */
+	class GVAR(cup_ags30): potato_csw_base_carry {
+		class potato_csw_options {
+            assembleTo = "CUP_B_AGS_ACR";
+            baseTripod = "potato_csw_m3Tripod";
+            type = "weapon";
+        };
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+            mass = 840;
+        };
+        
+        displayName = "AGS-30 GMG";
+        author = "Brandon";
+        scope = 2;
+        model = QPATHTOEF(csw,data\ACE_CSW_WeaponBag.p3d);
+        modes[] = {};
+        picture = QPATHTOEF(csw,UI\StaticHGMG_Icon.paa);
+	};
 	
+	// Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vhmg_AGS30_veh
+	class GMG_20mm;
+	class CUP_Vhmg_AGS30_veh: GMG_20mm {
+		class potato_csw_options {
+            deployTime = 8;
+            pickupTime = 15;
+            ammoLoadTime = 5;
+            ammoUnloadTime = 12;
+        };
+        magazines[] = { GVAR(GMG_Dummy_120Rnd_30mm_belt), GVAR(20Rnd_30mm_G_belt) };
+	};
+	
+	/* Launchers */
 };
 
