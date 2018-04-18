@@ -44,10 +44,14 @@ private _statement = {
         TRACE_1("unload progressBar finish",_this);
         params["_args"];
         _args params ["_target", "_turretPath", "", "_carryMag", "_vehMag", "_ammoHolder"];
+		
+		private _targetPos = getPosATL _target;
+		_targetPos set[2, (_targetPos select 2) + 0.1];
+		
         // Create magazine holder and spawn the ammo that was in the weapon
         private _weaponRelPos = _target getRelPos RELATIVE_DIRECTION(270);
         private _ammoHolder = createVehicle["groundWeaponHolder", [0, 0, 0], [], 0, "NONE"];
-        _ammoHolder setPosATL _weaponRelPos;
+        _ammoHolder setPosATL [_weaponRelPos select 0, _weaponRelPos select 1, _targetPos select 2];
         _ammoHolder setVectorUp (surfaceNormal _weaponRelPos);
         _ammoHolder setDir random[0, 180, 360];
         [QGVAR(removeTurretMag), [_target, _turretPath, _carryMag, _vehMag, _ammoHolder]] call CBA_fnc_globalEvent;

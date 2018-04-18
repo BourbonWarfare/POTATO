@@ -34,6 +34,28 @@ class CfgMagazines {
         count = 120;
         mass = 40;
     };
+	
+	class GVAR(20Rnd_40mm_G_belt): 40Rnd_20mm_G_belt {
+        author = "Brandon";
+        displayName = "40mm GMG Belt";
+        model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
+        scope = 2;
+        type = 256;
+        count = 20;
+        mass = 40;
+        picture = QPATHTOEF(csw,UI\ammoBox_50bmg_ca.paa);
+        ACE_isBelt = 1;
+    };
+    class GVAR(GMG_Dummy_120Rnd_40mm_belt): 40Rnd_20mm_G_belt {
+        author = "Brandon";
+        displayName = "Dummy magazine";
+        model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
+        scope = 1;
+        type = 0;
+        count = 120;
+        mass = 40;
+    };
+	
 	class GVAR(cup_at13_dummy): CUP_AT13_M {
 		author = "Brandon";
         displayName = "Dummy magazine";

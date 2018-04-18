@@ -122,6 +122,23 @@ class CfgVehicles {
         };
 	};
 	
+	class rhs_nsv_tripod_base: StaticMGWeapon {
+		class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {GVAR(HMG_Dummy_200Rnd_127x108_mag)};
+            };
+        };
+		class potato_csw_options {
+            enabled = 1;
+            disassembleTo = QGVAR(rhs_nsv);
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                displayName = "NSV";
+            };
+        };
+	};
+	
 	 /* GMG's */
 	 class CUP_AGS_base: StaticGrenadeLauncher {
 		class Turrets: Turrets {
@@ -137,6 +154,23 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 displayName = "AGS-30";
+            };
+        };
+	 };
+	 
+	 class RHS_MK19_TriPod_base: StaticGrenadeLauncher {
+		 class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {GVAR(GMG_Dummy_120Rnd_40mm_belt)};
+            };
+        };
+		class potato_csw_options {
+            enabled = 1;
+            disassembleTo = QGVAR(rhs_mk19);
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                displayName = "MK-19";
             };
         };
 	 };

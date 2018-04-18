@@ -113,6 +113,24 @@ class CfgWeapons {
         picture = QPATHTOEF(csw,UI\StaticHGMG_Icon.paa);
 	};
 	
+	class GVAR(rhs_nsv): potato_csw_base_carry {
+		class potato_csw_options {
+            assembleTo = "RHS_NSV_TriPod_MSV";
+            baseTripod = "potato_csw_m3Tripod";
+            type = "weapon";
+        };
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+            mass = 550;
+        };
+        
+        displayName = "NSV HMG";
+        author = "Brandon";
+        scope = 2;
+        model = QPATHTOEF(csw,data\ACE_CSW_WeaponBag.p3d);
+        modes[] = {};
+        picture = QPATHTOEF(csw,UI\StaticHGMG_Icon.paa);
+	};
+	
 	// Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vhmg_M2_static
     class CUP_Vhmg_M2_veh;
     class CUP_Vhmg_M2_static: CUP_Vhmg_M2_veh {};
@@ -122,7 +140,7 @@ class CfgWeapons {
             deployTime = 10;
             pickupTime = 12;
             ammoLoadTime = 7;
-            ammoUnloadTime = 16;
+            ammoUnloadTime = 5;
         };
 		
 		magazines[] = { potato_csw_HMG_Dummy_200Rnd_mag, potato_csw_HMG_Dummy_200Rnd_mag_red, potato_csw_HMG_Dummy_200Rnd_mag_green, potato_csw_HMG_Dummy_200Rnd_mag_yellow, potato_csw_100Rnd_127x99_mag, potato_csw_100Rnd_127x99_mag_red, potato_csw_100Rnd_127x99_mag_green, potato_csw_100Rnd_127x99_mag_yellow };
@@ -135,7 +153,7 @@ class CfgWeapons {
             deployTime = 10;
             pickupTime = 12;
             ammoLoadTime = 5;
-            ammoUnloadTime = 12;
+            ammoUnloadTime = 4;
         };
         magazines[] = { GVAR(HMG_Dummy_200Rnd_127x108_mag), potato_csw_50Rnd_127x108_mag };
     };
@@ -148,11 +166,21 @@ class CfgWeapons {
             deployTime = 10;
             pickupTime = 12;
             ammoLoadTime = 5;
-            ammoUnloadTime = 12;
+            ammoUnloadTime = 4;
         };
         magazines[] = { GVAR(HMG_Dummy_200Rnd_127x108_mag), potato_csw_50Rnd_127x108_mag };
 	};
 	
+	class rhs_weap_DSHKM;
+	class rhs_weap_nsvt: rhs_weap_DSHKM {
+		class potato_csw_options {
+            deployTime = 10;
+            pickupTime = 12;
+            ammoLoadTime = 5;
+            ammoUnloadTime = 4;
+        };
+        magazines[] = { GVAR(HMG_Dummy_200Rnd_127x108_mag), potato_csw_50Rnd_127x108_mag };
+	};
 	
 	/* GMG's */
 	class GVAR(cup_ags30): potato_csw_base_carry {
@@ -182,9 +210,37 @@ class CfgWeapons {
             deployTime = 8;
             pickupTime = 15;
             ammoLoadTime = 5;
-            ammoUnloadTime = 12;
+            ammoUnloadTime = 3;
         };
         magazines[] = { GVAR(GMG_Dummy_120Rnd_30mm_belt), GVAR(20Rnd_30mm_G_belt) };
+	};
+	
+	class GVAR(rhs_mk19): potato_csw_base_carry {
+		class potato_csw_options {
+            assembleTo = "RHS_MK19_TriPod_USMC_WD";
+            baseTripod = "potato_csw_m3Tripod";
+            type = "weapon";
+        };
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+            mass = 770;
+        };
+        
+        displayName = "MK-19 GMG";
+        author = "Brandon";
+        scope = 2;
+        model = QPATHTOEF(csw,data\ACE_CSW_WeaponBag.p3d);
+        modes[] = {};
+        picture = QPATHTOEF(csw,UI\StaticHGMG_Icon.paa);
+	};
+	
+	class RHS_MK19: GMG_20mm {
+		class potato_csw_options {
+            deployTime = 8;
+            pickupTime = 15;
+            ammoLoadTime = 5;
+            ammoUnloadTime = 3;
+        };
+        magazines[] = { GVAR(GMG_Dummy_120Rnd_40mm_belt), GVAR(20Rnd_40mm_G_belt) };
 	};
 	
 	/* Launchers */
