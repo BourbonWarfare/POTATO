@@ -33,6 +33,7 @@ class CfgVehicles {
 	class CUP_M2StaticMG_base: StaticMGWeapon {
 		class Turrets: Turrets {
             class MainTurret: MainTurret {
+				weapons[] = { GVAR(CUP_Vhmg_M2_static) };
                 magazines[] = {potato_csw_HMG_Dummy_200Rnd_mag};
             };
         };
@@ -95,6 +96,7 @@ class CfgVehicles {
 		class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(HMG_Dummy_200Rnd_127x108_mag)};
+				weapons[] = {GVAR(CUP_Vhmg_DSHKM_veh)};
             };
         };
 		class potato_csw_options {
@@ -125,6 +127,7 @@ class CfgVehicles {
 		class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(GMG_Dummy_120Rnd_30mm_belt)};
+				weapons[] = {GVAR(CUP_Vhmg_AGS30_veh)};
             };
         };
 		class potato_csw_options {
@@ -160,6 +163,7 @@ class CfgVehicles {
 		class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(cup_spg9_dummy_at)};
+				weapons[] = {GVAR(CUP_Vacannon_SPG9_veh)};
             };
         };
 		class potato_csw_options {
@@ -177,6 +181,7 @@ class CfgVehicles {
 		class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(cup_tow_at_dummy)};
+				weapons[] = {GVAR(CUP_Vmlauncher_TOW_single_veh)};
             };
         };
 		class potato_csw_options {

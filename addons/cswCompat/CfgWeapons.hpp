@@ -115,15 +115,18 @@ class CfgWeapons {
 	
 	// Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vhmg_M2_static
     class CUP_Vhmg_M2_veh;
-    class CUP_Vhmg_M2_static: CUP_Vhmg_M2_veh {
-        class potato_csw_options {
+    class CUP_Vhmg_M2_static: CUP_Vhmg_M2_veh {};
+	
+	class GVAR(CUP_Vhmg_M2_static): CUP_Vhmg_M2_static {
+		class potato_csw_options {
             deployTime = 10;
             pickupTime = 12;
             ammoLoadTime = 7;
             ammoUnloadTime = 16;
         };
-        magazines[] = { potato_csw_HMG_Dummy_200Rnd_mag, potato_csw_HMG_Dummy_200Rnd_mag_red, potato_csw_HMG_Dummy_200Rnd_mag_green, potato_csw_HMG_Dummy_200Rnd_mag_yellow, potato_csw_100Rnd_127x99_mag, potato_csw_100Rnd_127x99_mag_red, potato_csw_100Rnd_127x99_mag_green, potato_csw_100Rnd_127x99_mag_yellow };
-    };
+		
+		magazines[] = { potato_csw_HMG_Dummy_200Rnd_mag, potato_csw_HMG_Dummy_200Rnd_mag_red, potato_csw_HMG_Dummy_200Rnd_mag_green, potato_csw_HMG_Dummy_200Rnd_mag_yellow, potato_csw_100Rnd_127x99_mag, potato_csw_100Rnd_127x99_mag_red, potato_csw_100Rnd_127x99_mag_green, potato_csw_100Rnd_127x99_mag_yellow };
+	};
 	
 	// Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vhmg_KORD_veh
 	class MGun;
@@ -138,7 +141,9 @@ class CfgWeapons {
     };
 	
 	// Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vhmg_DSHKM_veh
-	class CUP_Vhmg_DSHKM_veh: MGun {
+	class CUP_Vhmg_DSHKM_veh: MGun {};
+	
+	class GVAR(CUP_Vhmg_DSHKM_veh): CUP_Vhmg_DSHKM_veh {
 		class potato_csw_options {
             deployTime = 10;
             pickupTime = 12;
@@ -170,7 +175,9 @@ class CfgWeapons {
 	
 	// Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vhmg_AGS30_veh
 	class GMG_20mm;
-	class CUP_Vhmg_AGS30_veh: GMG_20mm {
+	class CUP_Vhmg_AGS30_veh: GMG_20mm {};
+	
+	class GVAR(CUP_Vhmg_AGS30_veh): CUP_Vhmg_AGS30_veh {
 		class potato_csw_options {
             deployTime = 8;
             pickupTime = 15;
@@ -231,7 +238,9 @@ class CfgWeapons {
 	
 	// Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vacannon_SPG9_veh
 	class CUP_Vacannon_2A28;
-	class CUP_Vacannon_SPG9_veh: CUP_Vacannon_2A28 {
+	class CUP_Vacannon_SPG9_veh: CUP_Vacannon_2A28 {};
+	
+	class GVAR(CUP_Vacannon_SPG9_veh): CUP_Vacannon_SPG9_veh {
 		class potato_csw_options {
             deployTime = 20;
             pickupTime = 25;
@@ -261,7 +270,9 @@ class CfgWeapons {
 	};
 	
 	class CUP_Vmlauncher_TOW_veh;
-	class CUP_Vmlauncher_TOW_single_veh: CUP_Vmlauncher_TOW_veh {
+	class CUP_Vmlauncher_TOW_single_veh: CUP_Vmlauncher_TOW_veh {};
+	
+	class GVAR(CUP_Vmlauncher_TOW_single_veh): CUP_Vmlauncher_TOW_single_veh {
 		class potato_csw_options {
             deployTime = 40;
             pickupTime = 30;
