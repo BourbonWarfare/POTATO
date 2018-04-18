@@ -181,5 +181,94 @@ class CfgWeapons {
 	};
 	
 	/* Launchers */
+	class GVAR(cup_metis): potato_csw_base_carry {
+		class potato_csw_options {
+            assembleTo = "CUP_O_Metis_RU";
+            baseTripod = "potato_csw_m3Tripod";
+            type = "weapon";
+        };
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+            mass = 840;
+        };
+        
+        displayName = "AT-13 Metis";
+        author = "Brandon";
+        scope = 2;
+        model = QPATHTOEF(csw,data\ACE_CSW_WeaponBag.p3d);
+        modes[] = {};
+        picture = QPATHTOEF(csw,UI\StaticAT_Icon.paa);
+	};
+	
+	// Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vmlauncher_AT13_single_veh
+	class missiles_titan;
+	class CUP_Vmlauncher_AT13_single_veh: missiles_titan {
+		class potato_csw_options {
+            deployTime = 20;
+            pickupTime = 25;
+            ammoLoadTime = 20; // 3 rounds a minute
+            ammoUnloadTime = 25;
+        };
+        magazines[] = {GVAR(cup_at13_dummy), CUP_AT13_M };
+	};
+	
+	class GVAR(cup_spg9): potato_csw_base_carry {
+		class potato_csw_options {
+            assembleTo = "CUP_O_SPG9_CHdKZ";
+            baseTripod = "potato_csw_m3Tripod";
+            type = "weapon";
+        };
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+            mass = 840;
+        };
+        
+        displayName = "SPG-9";
+        author = "Brandon";
+        scope = 2;
+        model = QPATHTOEF(csw,data\ACE_CSW_WeaponBag.p3d);
+        modes[] = {};
+        picture = QPATHTOEF(csw,UI\StaticAT_Icon.paa);
+	};
+	
+	// Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vacannon_SPG9_veh
+	class CUP_Vacannon_2A28;
+	class CUP_Vacannon_SPG9_veh: CUP_Vacannon_2A28 {
+		class potato_csw_options {
+            deployTime = 20;
+            pickupTime = 25;
+            ammoLoadTime = 10; // 6 rounds a minute
+            ammoUnloadTime = 15;
+        };
+        magazines[] = {GVAR(cup_spg9_dummy_at), GVAR(cup_spg9_dummy_he) };
+	};
+	
+	// Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vmlauncher_TOW_single_veh
+	class GVAR(cup_tow): potato_csw_base_carry {
+		class potato_csw_options {
+            assembleTo = "CUP_B_TOW_TriPod_USMC";
+            baseTripod = "potato_csw_m3Tripod";
+            type = "weapon";
+        };
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+            mass = 840;
+        };
+        
+        displayName = "BGM-71 TOW";
+        author = "Brandon";
+        scope = 2;
+        model = QPATHTOEF(csw,data\ACE_CSW_WeaponBag.p3d);
+        modes[] = {};
+        picture = QPATHTOEF(csw,UI\StaticAT_Icon.paa);
+	};
+	
+	class CUP_Vmlauncher_TOW_veh;
+	class CUP_Vmlauncher_TOW_single_veh: CUP_Vmlauncher_TOW_veh {
+		class potato_csw_options {
+            deployTime = 40;
+            pickupTime = 30;
+            ammoLoadTime = 30; // 2 rounds a minute
+            ammoUnloadTime = 35;
+        };
+        magazines[] = {GVAR(cup_tow_at_dummy), GVAR(cup_tow_at) };
+	};
 };
 

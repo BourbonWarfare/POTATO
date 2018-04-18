@@ -20,6 +20,15 @@ class CfgVehicles {
         };
 	};
 	
+	class StaticATWeapon: StaticWeapon {
+		class Turrets {
+            class MainTurret;
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions;
+        };
+	};
+	
 	/* HMG's */
 	class CUP_M2StaticMG_base: StaticMGWeapon {
 		class Turrets: Turrets {
@@ -113,18 +122,70 @@ class CfgVehicles {
 	
 	 /* GMG's */
 	 class CUP_AGS_base: StaticGrenadeLauncher {
-		 class Turrets: Turrets {
+		class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(GMG_Dummy_120Rnd_30mm_belt)};
             };
         };
 		class potato_csw_options {
             enabled = 1;
-            disassembleTo = QGVAR(cup_dshkm_high);
+            disassembleTo = QGVAR(cup_ags30);
         };
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 displayName = "AGS-30";
+            };
+        };
+	 };
+	 
+	 /* Launchers */
+	 class CUP_Metis_Base: StaticATWeapon {
+		class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {GVAR(cup_at13_dummy)};
+            };
+        };
+		class potato_csw_options {
+            enabled = 1;
+            disassembleTo = QGVAR(cup_metis);
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                displayName = "Metis AT-13";
+            };
+        };
+	 };
+	 
+	 class CUP_SPG9_base: StaticATWeapon {
+		class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {GVAR(cup_spg9_dummy_at)};
+            };
+        };
+		class potato_csw_options {
+            enabled = 1;
+            disassembleTo = QGVAR(cup_spg9);
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                displayName = "SPG-9";
+            };
+        };
+	 };
+	 
+	 class CUP_TOW_TriPod_base: StaticATWeapon {
+		class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {GVAR(cup_tow_at_dummy)};
+            };
+        };
+		class potato_csw_options {
+            enabled = 1;
+            disassembleTo = QGVAR(cup_tow);
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                displayName = "BGM-71 TOW";
             };
         };
 	 };
