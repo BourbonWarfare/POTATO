@@ -48,7 +48,7 @@ class CfgWeapons {
             type = "weapon";
         };
 		class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 840;
+            mass = 710;
         };
         
         displayName = "KORD HMG (Low)";
@@ -66,7 +66,7 @@ class CfgWeapons {
             type = "weapon";
         };
 		class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 840;
+            mass = 710;
         };
         
         displayName = "KORD HMG";
@@ -84,7 +84,7 @@ class CfgWeapons {
             type = "weapon";
         };
 		class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 840;
+            mass = 750;
         };
         
         displayName = "DSHKM HMG (Low)";
@@ -102,7 +102,7 @@ class CfgWeapons {
             type = "weapon";
         };
 		class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 840;
+            mass = 750;
         };
         
         displayName = "DSHKM HMG";
@@ -157,7 +157,7 @@ class CfgWeapons {
             type = "weapon";
         };
 		class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 840;
+            mass = 350;
         };
         
         displayName = "AGS-30 GMG";
@@ -188,7 +188,7 @@ class CfgWeapons {
             type = "weapon";
         };
 		class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 840;
+            mass = 300;
         };
         
         displayName = "AT-13 Metis";
@@ -218,7 +218,7 @@ class CfgWeapons {
             type = "weapon";
         };
 		class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 840;
+            mass = 1000;
         };
         
         displayName = "SPG-9";
@@ -249,7 +249,7 @@ class CfgWeapons {
             type = "weapon";
         };
 		class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 840;
+            mass = 500;
         };
         
         displayName = "BGM-71 TOW";
