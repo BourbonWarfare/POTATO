@@ -26,7 +26,7 @@ GVAR(cswTripod) = objNull;
 
 ["ace_settingsInitialized", {
     ["StaticWeapon", "init", {
-        [_this] call FUNC(weaponInit);
+        [_this select 0] call FUNC(weaponInit);
     }, true, [], true] call CBA_fnc_addClassEventHandler;
 }] call CBA_fnc_addEventHandler;
 
