@@ -44,10 +44,10 @@ private _statement = {
         TRACE_1("unload progressBar finish",_this);
         params["_args"];
         _args params ["_target", "_turretPath", "", "_carryMag", "_vehMag", "_ammoHolder"];
-		
-		private _targetPos = getPosATL _target;
-		_targetPos set[2, (_targetPos select 2) + 0.1];
-		
+        
+        private _targetPos = getPosATL _target;
+        _targetPos set[2, (_targetPos select 2) + 0.1];
+        
         // Create magazine holder and spawn the ammo that was in the weapon
         private _weaponRelPos = _target getRelPos RELATIVE_DIRECTION(270);
         private _ammoHolder = createVehicle["groundWeaponHolder", [0, 0, 0], [], 0, "NONE"];

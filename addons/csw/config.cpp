@@ -4,7 +4,7 @@ class CfgPatches {
     class ADDON {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
-		author = "Potato";
+        author = "Potato";
         authors[] = {"Brandon"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;

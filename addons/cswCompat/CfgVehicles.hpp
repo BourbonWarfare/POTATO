@@ -1,5 +1,5 @@
 class CfgVehicles {
-	class LandVehicle;
+    class LandVehicle;
     class StaticWeapon: LandVehicle {
         class ACE_Actions;
     };
@@ -11,42 +11,42 @@ class CfgVehicles {
             class ACE_MainActions;
         };
     };
-	class StaticGrenadeLauncher: StaticWeapon {
-		class Turrets {
+    class StaticGrenadeLauncher: StaticWeapon {
+        class Turrets {
             class MainTurret;
         };
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions;
         };
-	};
-	
-	class StaticATWeapon: StaticWeapon {
-		class Turrets {
+    };
+    
+    class StaticATWeapon: StaticWeapon {
+        class Turrets {
             class MainTurret;
         };
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions;
         };
-	};
-	
-	class AT_01_base_F: StaticMGWeapon {
-		class Turrets {
+    };
+    
+    class AT_01_base_F: StaticMGWeapon {
+        class Turrets {
             class MainTurret;
         };
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions;
         };
-	};
-	
-	/* HMG's */
-	class CUP_M2StaticMG_base: StaticMGWeapon {
-		class Turrets: Turrets {
+    };
+    
+    /* HMG's */
+    class CUP_M2StaticMG_base: StaticMGWeapon {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
-				weapons[] = { GVAR(CUP_Vhmg_M2_static) };
+                weapons[] = { GVAR(CUP_Vhmg_M2_static) };
                 magazines[] = {potato_csw_HMG_Dummy_200Rnd_mag};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(cup_m2_high);
         };
@@ -55,10 +55,10 @@ class CfgVehicles {
                 displayName = "M2";
             };
         };
-	};
-	
-	class CUP_M2StaticMG_MiniTripod_base: CUP_M2StaticMG_base {
-		class potato_csw_options {
+    };
+    
+    class CUP_M2StaticMG_MiniTripod_base: CUP_M2StaticMG_base {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(cup_m2_low);
         };
@@ -67,18 +67,18 @@ class CfgVehicles {
                 displayName = "M2 Mini-Tripod";
             };
         };
-	};
-	
-	class CUP_KORD_Base: StaticMGWeapon {
-		class Turrets: Turrets {
+    };
+    
+    class CUP_KORD_Base: StaticMGWeapon {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(HMG_Dummy_200Rnd_127x108_mag)};
             };
         };
-	};
-	
-	class CUP_KORD_MiniTripod_Base: CUP_KORD_Base {
-		class potato_csw_options {
+    };
+    
+    class CUP_KORD_MiniTripod_Base: CUP_KORD_Base {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(cup_kord_low);
         };
@@ -87,10 +87,10 @@ class CfgVehicles {
                 displayName = "KORD Mini-Tripod";
             };
         };
-	};
-	
-	class CUP_KORD_High_Base: CUP_KORD_Base {
-		class potato_csw_options {
+    };
+    
+    class CUP_KORD_High_Base: CUP_KORD_Base {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(cup_kord_high);
         };
@@ -99,16 +99,16 @@ class CfgVehicles {
                 displayName = "KORD";
             };
         };
-	};
-	
-	class CUP_DSHKM_base: StaticMGWeapon {
-		class Turrets: Turrets {
+    };
+    
+    class CUP_DSHKM_base: StaticMGWeapon {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(HMG_Dummy_200Rnd_127x108_mag)};
-				weapons[] = {GVAR(CUP_Vhmg_DSHKM_veh)};
+                weapons[] = {GVAR(CUP_Vhmg_DSHKM_veh)};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(cup_dshkm_high);
         };
@@ -117,10 +117,10 @@ class CfgVehicles {
                 displayName = "DSHKM";
             };
         };
-	};
-	
-	class CUP_DSHKM_MiniTripod_base: CUP_DSHKM_base {
-		class potato_csw_options {
+    };
+    
+    class CUP_DSHKM_MiniTripod_base: CUP_DSHKM_base {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(cup_dshkm_low);
         };
@@ -129,15 +129,15 @@ class CfgVehicles {
                 displayName = "DSHKM Mini-Tripod";
             };
         };
-	};
-	
-	class rhs_nsv_tripod_base: StaticMGWeapon {
-		class Turrets: Turrets {
+    };
+    
+    class rhs_nsv_tripod_base: StaticMGWeapon {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(HMG_Dummy_200Rnd_127x108_mag)};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(rhs_nsv);
         };
@@ -146,17 +146,17 @@ class CfgVehicles {
                 displayName = "NSV";
             };
         };
-	};
-	
-	 /* GMG's */
-	 class CUP_AGS_base: StaticGrenadeLauncher {
-		class Turrets: Turrets {
+    };
+    
+    /* GMG's */
+    class CUP_AGS_base: StaticGrenadeLauncher {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(GMG_Dummy_120Rnd_30mm_belt)};
-				weapons[] = {GVAR(CUP_Vhmg_AGS30_veh)};
+                weapons[] = {GVAR(CUP_Vhmg_AGS30_veh)};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(cup_ags30);
         };
@@ -165,15 +165,15 @@ class CfgVehicles {
                 displayName = "AGS-30";
             };
         };
-	 };
-	 
-	 class RHS_MK19_TriPod_base: StaticGrenadeLauncher {
-		 class Turrets: Turrets {
+    };
+    
+    class RHS_MK19_TriPod_base: StaticGrenadeLauncher {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(GMG_Dummy_120Rnd_40mm_belt)};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(rhs_mk19);
         };
@@ -182,16 +182,16 @@ class CfgVehicles {
                 displayName = "MK-19";
             };
         };
-	 };
-	 
-	 /* Launchers */
-	 class CUP_Metis_Base: StaticATWeapon {
-		class Turrets: Turrets {
+    };
+    
+    /* Launchers */
+    class CUP_Metis_Base: StaticATWeapon {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(cup_at13_dummy)};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(cup_metis);
         };
@@ -200,16 +200,16 @@ class CfgVehicles {
                 displayName = "Metis AT-13";
             };
         };
-	 };
-	 
-	 class CUP_SPG9_base: StaticATWeapon {
-		class Turrets: Turrets {
+    };
+    
+    class CUP_SPG9_base: StaticATWeapon {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(cup_spg9_dummy_at)};
-				weapons[] = {GVAR(CUP_Vacannon_SPG9_veh)};
+                weapons[] = {GVAR(CUP_Vacannon_SPG9_veh)};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(cup_spg9);
         };
@@ -218,16 +218,16 @@ class CfgVehicles {
                 displayName = "SPG-9";
             };
         };
-	 };
-	 
-	 class CUP_TOW_TriPod_base: StaticATWeapon {
-		class Turrets: Turrets {
+    };
+    
+    class CUP_TOW_TriPod_base: StaticATWeapon {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(cup_tow_at_dummy)};
-				weapons[] = {GVAR(CUP_Vmlauncher_TOW_single_veh)};
+                weapons[] = {GVAR(CUP_Vmlauncher_TOW_single_veh)};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(cup_tow);
         };
@@ -236,15 +236,15 @@ class CfgVehicles {
                 displayName = "BGM-71 TOW";
             };
         };
-	 };
-	 
-	 class rhs_Kornet_Base: AT_01_base_F {
-		 class Turrets: Turrets {
+    };
+    
+    class rhs_Kornet_Base: AT_01_base_F {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(rhs_9m133_dummy)};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(rhs_kornet);
         };
@@ -253,15 +253,15 @@ class CfgVehicles {
                 displayName = "AT-14 Kornet";
             };
         };
-	 };
-	 
-	 class rhs_Metis_Base: AT_01_base_F {
-		class Turrets: Turrets {
+    };
+    
+    class rhs_Metis_Base: AT_01_base_F {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(rhs_9m131m_dummy)};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(rhs_metis);
         };
@@ -270,15 +270,15 @@ class CfgVehicles {
                 displayName = "Metis AT-13";
             };
         };
-	 };
-	 
-	 class rhs_SPG9_base: AT_01_base_F {
-		class Turrets: Turrets {
+    };
+    
+    class rhs_SPG9_base: AT_01_base_F {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(rhs_PG9N_dummy)};
             };
         };
-		class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(rhs_spg9);
         };
@@ -287,15 +287,15 @@ class CfgVehicles {
                 displayName = "SPG-9";
             };
         };
-	 };
-	 
-	 class rhs_SPG9M_base: rhs_SPG9_base {
-		class Turrets: Turrets {
+    };
+    
+    class rhs_SPG9M_base: rhs_SPG9_base {
+        class Turrets: Turrets {
             class MainTurret: MainTurret {
                 magazines[] = {GVAR(rhs_PG9N_dummy)};
             };
         };
-		 class potato_csw_options {
+        class potato_csw_options {
             enabled = 1;
             disassembleTo = QGVAR(rhs_spg9m);
         };
@@ -304,6 +304,79 @@ class CfgVehicles {
                 displayName = "SPG-9M";
             };
         };
-	 };
+    };
+    
+    // Backpacks
+    class Weapon_Bag_Base;
+    
+    class CUP_B_DShkM_Gun_Bag: Weapon_Bag_Base                          { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_DShkM_TripodHigh_Bag: Weapon_Bag_Base                   { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_DShkM_TripodLow_Bag: CUP_B_DShkM_TripodHigh_Bag         { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class CUP_B_AGS30_Gun_Bag: CUP_B_DShkM_Gun_Bag                      { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_AGS30_Tripod_Bag: CUP_B_DShkM_TripodHigh_Bag            { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class CUP_B_Kord_Gun_Bag: CUP_B_DShkM_Gun_Bag                       { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_Kord_Tripod_Bag: CUP_B_DShkM_TripodHigh_Bag             { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class CUP_B_M2_Gun_Bag: CUP_B_DShkM_Gun_Bag                         { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_M2_MiniTripod_Bag: CUP_B_DShkM_TripodHigh_Bag           { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_M2_Tripod_Bag: CUP_B_DShkM_TripodHigh_Bag               { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class CUP_B_M252_Gun_Bag: CUP_B_DShkM_Gun_Bag                       { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_M252_Bipod_Bag: CUP_B_DShkM_TripodHigh_Bag              { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class CUP_B_Metis_Gun_Bag: CUP_B_DShkM_Gun_Bag                      { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_Metis_Tripod_Bag: CUP_B_DShkM_TripodHigh_Bag            { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class CUP_B_Mk19_Gun_Bag: CUP_B_DShkM_Gun_Bag                       { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_Mk19_Tripod_Bag: CUP_B_DShkM_TripodHigh_Bag             { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class CUP_B_Podnos_Bipod_Bag: CUP_B_DShkM_TripodHigh_Bag            { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_Podnos_Gun_Bag: CUP_B_DShkM_Gun_Bag                     { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class CUP_B_SPG9_Gun_Bag: CUP_B_DShkM_Gun_Bag                       { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_SPG9_Tripod_Bag: CUP_B_DShkM_TripodHigh_Bag             { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class CUP_B_Tow_Gun_Bag: CUP_B_DShkM_Gun_Bag                        { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class CUP_B_TOW_Tripod_Bag: CUP_B_DShkM_TripodHigh_Bag              { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class RHS_NSV_Gun_Bag: Weapon_Bag_Base                              { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_NSV_Tripod_Bag: Weapon_Bag_Base                           { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class RHS_DShkM_Gun_Bag: RHS_NSV_Gun_Bag                            { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_DShkM_TripodHigh_Bag: RHS_NSV_Tripod_Bag                  { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_DShkM_TripodLow_Bag: RHS_DShkM_TripodHigh_Bag             { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class RHS_AGS30_Gun_Bag: RHS_DShkM_Gun_Bag                          { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_AGS30_Tripod_Bag: RHS_DShkM_TripodHigh_Bag                { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class RHS_Kornet_Gun_Bag: RHS_NSV_Gun_Bag                           { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_Kornet_Tripod_Bag: RHS_NSV_Tripod_Bag                     { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class RHS_Kord_Gun_Bag: RHS_DShkM_Gun_Bag                           { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_Kord_Tripod_Bag: RHS_DShkM_TripodHigh_Bag                 { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class RHS_M2_Gun_Bag: Weapon_Bag_Base                               { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_M2_Tripod_Bag: Weapon_Bag_Base                            { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_M2_MiniTripod_Bag: RHS_M2_Tripod_Bag                      { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+
+    class rhs_M252_Bipod_Bag: RHS_M2_Tripod_Bag                         { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class rhs_M252_Gun_Bag: RHS_M2_Gun_Bag                              { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class RHS_Mk19_Gun_Bag: RHS_M2_Gun_Bag                              { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_Mk19_Tripod_Bag: RHS_M2_Tripod_Bag                        { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class RHS_Metis_Gun_Bag: RHS_DShkM_Gun_Bag                          { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_Metis_Tripod_Bag: RHS_DShkM_TripodHigh_Bag                { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class RHS_Podnos_Bipod_Bag: RHS_DShkM_TripodHigh_Bag                { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_Podnos_Gun_Bag: RHS_DShkM_Gun_Bag                         { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    
+    class RHS_SPG9_Gun_Bag: RHS_DShkM_Gun_Bag                           { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class RHS_SPG9_Tripod_Bag: RHS_DShkM_TripodHigh_Bag                 { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+
+    class rhs_Tow_Gun_Bag: RHS_M2_Gun_Bag                               { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
+    class rhs_TOW_Tripod_Bag: RHS_M2_Tripod_Bag                         { scope = 1; scopeArsenal = 0; scopeCurator = 0; };
 };
 
