@@ -26,5 +26,49 @@ class potato_csw_groups {
 	class GVAR(cup_tow_at): potato_csw_default {
 		GVAR(cup_tow_at_dummy) = 1;
 	};
+	
+	class GVAR(rhs_9m133): potato_csw_default {
+		GVAR(rhs_9m133_dummy) = 1;
+	};
+	
+	class GVAR(rhs_9m133f): potato_csw_default {
+		GVAR(rhs_9m133f_dummy) = 1;
+	};
+	
+	class GVAR(rhs_9m1331): potato_csw_default {
+		GVAR(rhs_9m1331_dummy) = 1;
+	};
+	
+	class GVAR(rhs_9m133m2): potato_csw_default {
+		GVAR(rhs_9m133m2_dummy) = 1;
+	};
+	
+	class GVAR(rhs_9m131m): potato_csw_default {
+		GVAR(rhs_9m131m_dummy) = 1;
+	};
+	
+	class GVAR(rhs_9m131f): potato_csw_default {
+		GVAR(rhs_9m131f_dummy) = 1;
+	};
+	
+	class GVAR(rhs_PG9V): potato_csw_default {
+		GVAR(rhs_PG9V_dummy) = 1;
+	};
+	
+	class GVAR(rhs_PG9N): potato_csw_default {
+		GVAR(rhs_PG9N_dummy) = 1;
+	};
+	
+	class GVAR(rhs_PG9VNT): potato_csw_default {
+		GVAR(rhs_PG9VNT_dummy) = 1;
+	};
+	
+	class GVAR(rhs_OG9VM): potato_csw_default {
+		GVAR(rhs_OG9VM_dummy) = 1;
+	};
+	
+	class GVAR(rhs_OG9V): potato_csw_default {
+		GVAR(rhs_OG9V_dummy) = 1;
+	};
 };
 

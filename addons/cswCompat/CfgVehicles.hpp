@@ -29,6 +29,15 @@ class CfgVehicles {
         };
 	};
 	
+	class AT_01_base_F: StaticMGWeapon {
+		class Turrets {
+            class MainTurret;
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions;
+        };
+	};
+	
 	/* HMG's */
 	class CUP_M2StaticMG_base: StaticMGWeapon {
 		class Turrets: Turrets {
@@ -225,6 +234,74 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 displayName = "BGM-71 TOW";
+            };
+        };
+	 };
+	 
+	 class rhs_Kornet_Base: AT_01_base_F {
+		 class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {GVAR(rhs_9m133_dummy)};
+            };
+        };
+		class potato_csw_options {
+            enabled = 1;
+            disassembleTo = QGVAR(rhs_kornet);
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                displayName = "AT-14 Kornet";
+            };
+        };
+	 };
+	 
+	 class rhs_Metis_Base: AT_01_base_F {
+		class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {GVAR(rhs_9m131m_dummy)};
+            };
+        };
+		class potato_csw_options {
+            enabled = 1;
+            disassembleTo = QGVAR(rhs_metis);
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                displayName = "Metis AT-13";
+            };
+        };
+	 };
+	 
+	 class rhs_SPG9_base: AT_01_base_F {
+		class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {GVAR(rhs_PG9N_dummy)};
+            };
+        };
+		class potato_csw_options {
+            enabled = 1;
+            disassembleTo = QGVAR(rhs_spg9);
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                displayName = "SPG-9";
+            };
+        };
+	 };
+	 
+	 class rhs_SPG9M_base: rhs_SPG9_base {
+		class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {GVAR(rhs_PG9N_dummy)};
+            };
+        };
+		 class potato_csw_options {
+            enabled = 1;
+            disassembleTo = QGVAR(rhs_spg9m);
+        };
+        class ACE_Actions: ACE_Actions {
+            class ACE_MainActions: ACE_MainActions {
+                displayName = "SPG-9M";
             };
         };
 	 };
