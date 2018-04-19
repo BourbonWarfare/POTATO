@@ -1,12 +1,4 @@
 #include "script_component.hpp"
-#define SERVER_OWNER_ID 2
-
-if (isServer) then {
-    [QGVAR(addObjectToServer), {
-        params["_object"];
-        //_object setOwner SERVER_OWNER_ID;
-    }] call CBA_fnc_addEventHandler;
-};
 
 [QGVAR(addTurretMag), FUNC(handleAddTurretMag)] call CBA_fnc_addEventHandler;
 [QGVAR(removeTurretMag), FUNC(handleRemoveTurretMag)] call CBA_fnc_addEventHandler;
