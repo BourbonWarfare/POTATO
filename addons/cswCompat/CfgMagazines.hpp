@@ -226,8 +226,8 @@ class CfgMagazines {
 		author = "Brandon";
         displayName = "Dummy";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
-        type = 256;
+        scope = 1;
+        type = 0;
         count = 1;
         mass = 300;
 		picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_rpg32_rocket_ca.paa";
@@ -248,8 +248,8 @@ class CfgMagazines {
 		author = "Brandon";
         displayName = "Dummy";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
-        type = 256;
+        scope = 1;
+        type = 0;
         count = 1;
         mass = 300;
 		picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_rpg32_rocket_ca.paa";
@@ -276,8 +276,8 @@ class CfgMagazines {
 		author = "Brandon";
         displayName = "Dummy";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
-        type = 256;
+        scope = 1;
+        type = 0;
         count = 1;
         mass = 80;
 		picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_rpg32_rocket_ca.paa";
@@ -298,8 +298,8 @@ class CfgMagazines {
 		author = "Brandon";
         displayName = "Dummy";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
-        type = 256;
+        scope = 1;
+        type = 0;
         count = 1;
         mass = 80;
 		picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_rpg32_rocket_ca.paa";
@@ -320,8 +320,8 @@ class CfgMagazines {
 		author = "Brandon";
         displayName = "Dummy";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
-        type = 256;
+        scope = 1;
+        type = 0;
         count = 1;
         mass = 80;
 		picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_rpg32_rocket_ca.paa";
@@ -342,8 +342,8 @@ class CfgMagazines {
 		author = "Brandon";
         displayName = "Dummy";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
-        type = 256;
+        scope = 1;
+        type = 0;
         count = 1;
         mass = 80;
 		picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_rpg32_rocket_ca.paa";
@@ -364,8 +364,8 @@ class CfgMagazines {
 		author = "Brandon";
         displayName = "Dummy";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
-        type = 256;
+        scope = 1;
+        type = 0;
         count = 1;
         mass = 80;
 		picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_rpg32_rocket_ca.paa";

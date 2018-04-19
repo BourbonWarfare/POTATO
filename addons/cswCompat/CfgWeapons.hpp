@@ -339,7 +339,8 @@ class CfgWeapons {
 	};
 	
 	class rhs_weap_9K114_launcher;
-	class rhs_weap_9K115_launcher: rhs_weap_9K114_launcher {
+	class rhs_weap_9K115_launcher: rhs_weap_9K114_launcher {};
+	class rhs_weap_9K115_2_launcher: rhs_weap_9K115_launcher {
 		class potato_csw_options {
             deployTime = 15;
             pickupTime = 20;
