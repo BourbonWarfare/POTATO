@@ -94,38 +94,57 @@ class CfgWeapons {
 
 
     // Add "plot armor" to some vests
-    class Vest_Camo_Base;
-    class rhs_6b23: Vest_Camo_Base {
+
+    #define ARMOR_LEVEL_4 /* From V_PlateCarrier2_rgr */ \
+        class HitpointsProtectionInfo { \
+            class Chest { \
+                HitpointName = "HitChest"; \
+                armor = 20; \
+                PassThrough = 0.2; \
+            }; \
+            class Diaphragm { \
+                HitpointName = "HitDiaphragm"; \
+                armor = 20; \
+                PassThrough = 0.2; \
+            }; \
+            class Abdomen { \
+                hitpointName = "HitAbdomen"; \
+                armor = 20; \
+                passThrough = 0.2; \
+            }; \
+            class Body { \
+                hitpointName = "HitBody"; \
+                passThrough = 0.2; \
+            }; \
+        }; \
+
+
+
+    class ItemCore;
+    class Vest_Camo_Base: ItemCore {
         class ItemInfo;
+    };
+    class rhs_6b23: Vest_Camo_Base {
+        class ItemInfo: ItemInfo {};
     };
     class rhsgref_alice_webbing: rhs_6b23 {
         class ItemInfo: ItemInfo {};
     };
-    class rhsgref_alice_webbing_armorMod: rhsgref_alice_webbing {
-        displayName = "ALICE Webbing [plot armor]";
+    class rhsgref_alice_webbing_bwArmorMod: rhsgref_alice_webbing {
+        displayName = "ALICE Webbing [coop plot armor]";
         descriptionShort = "Armor Level IV";
         class ItemInfo: ItemInfo {
-            class HitpointsProtectionInfo { // From V_PlateCarrier2_rgr
-                class Chest {
-                    HitpointName = "HitChest";
-                    armor = 20;
-                    PassThrough = 0.2;
-                };
-                class Diaphragm {
-                    HitpointName = "HitDiaphragm";
-                    armor = 20;
-                    PassThrough = 0.2;
-                };
-                class Abdomen {
-                    hitpointName = "HitAbdomen";
-                    armor = 20;
-                    passThrough = 0.2;
-                };
-                class Body {
-                    hitpointName = "HitBody";
-                    passThrough = 0.2;
-                };
-            };
+            ARMOR_LEVEL_4
+        };
+    };
+    class rhs_vydra_3m: Vest_Camo_Base {
+        class ItemInfo: ItemInfo {};
+    };
+    class rhs_vydra_3m_bwArmorMod: rhs_vydra_3m {
+        displayName = "Vydra-3M [coop plot armor]";
+        descriptionShort = "Armor Level IV";
+        class ItemInfo: ItemInfo {
+            ARMOR_LEVEL_4
         };
     };
 };
