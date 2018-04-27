@@ -94,7 +94,6 @@ class CfgWeapons {
 
 
     // Add "plot armor" to some vests
-
     #define ARMOR_LEVEL_4 /* From V_PlateCarrier2_rgr */ \
         class HitpointsProtectionInfo { \
             class Chest { \
@@ -117,8 +116,6 @@ class CfgWeapons {
                 passThrough = 0.2; \
             }; \
         }; \
-
-
 
     class ItemCore;
     class Vest_Camo_Base: ItemCore {
