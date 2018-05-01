@@ -1,4 +1,4 @@
-/* 
+/*
     SettingName <STRING>
     Value <ANY>
     Force (can't be changed by mission or user) <BOOL>
@@ -7,7 +7,8 @@
 
 
 _settings = [
-[QACEGVAR(advanced_fatigue,performanceFactor), 1.3],
+[QACEGVAR(advanced_fatigue,performanceFactor), 1.4],
+[QACEGVAR(advanced_fatigue,recoveryFactor), 1.6],
 [QACEGVAR(cookoff,enable), false],
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
 [QACEGVAR(finger,enabled), true],

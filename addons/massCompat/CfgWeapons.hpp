@@ -546,8 +546,12 @@ class CfgWeapons {
     class DMR_06_base_F: Rifle_Long_Base_F {
         magazines[] = { NATO_DMR_762 };
     };
-    class LMG_03_base_F: Rifle_Long_Base_F {
+    class LMG_03_base_F: Rifle_Long_Base_F { // m249
         magazines[] = { NATO_BASE_556, NATO_LMG_556 };
+    };
+    class LMG_03_F: LMG_03_base_F {};
+    class LMG_03_Vehicle_F: LMG_03_F { // Jeep wrangler lmg
+        magazines[] = {"200Rnd_556x45_Box_F","200Rnd_556x45_Box_Red_F","200Rnd_556x45_Box_Tracer_F","200Rnd_556x45_Box_Tracer_Red_F"};
     };
     class LMG_Zafir_F: Rifle_Long_Base_F {
         magazines[] = { RU_MMG_762 };
