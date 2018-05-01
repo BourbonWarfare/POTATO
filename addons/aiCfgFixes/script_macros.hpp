@@ -3,6 +3,8 @@
 #define CFG_FOOTER "};" + LINE_BREAK + LINE_BREAK
 #define CFG_CLASS_DATA(dataName, data) INDENT + INDENT + dataName + " = " + data + ";" + LINE_BREAK
 
+#define AIR_VEHICLE_MAX_NOISE 10
+
 #define AI_AUDIBLE_FIRE_0 100   // regular ammo
 #define AI_AUDIBLE_FIRE_1 10    // subsonic ammo
 #define AI_AUDIBLE_FIRE_2 200   // vehicle ammo (30mm autocannon, hellfire, etc)
