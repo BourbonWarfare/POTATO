@@ -1,15 +1,5 @@
 #include "script_component.hpp"
 
-// clean up empty groups
-{
-    if ((units _x) isEqualTo []) then {
-        TRACE_2("Deleting Empty Group",_x,groupID _x);
-        deleteGroup _x;
-    };
-} forEach allGroups;
-
-missionNamespace setVariable [QGVAR(groupCleanupRan), true, true];
-
 // normalize HCs positions
 DFUNC(updateHCPosition) = {
     if (!(missionNamespace getVariable [QGVAR(updateHCPosition), true])) exitWith {};

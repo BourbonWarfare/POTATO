@@ -8,7 +8,7 @@ if (GVAR(enabled)) then {
 
     [
         {
-            missionNamespace getVariable [QEGVAR(miscFixes,groupCleanupRan), false] || diag_tickTime > _this
+            missionNamespace getVariable [QEGVAR(cleanup,groupCleanupRan), false] || diag_tickTime > _this
         },
         {
             GVAR(group) = createGroup [sideLogic, false]; // explicitly mark for persistence

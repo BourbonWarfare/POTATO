@@ -7,11 +7,11 @@ LOG("Post init start");
         ACEGVAR(common,settingsInitFinished)
             && {!isNull player}
             && {!isNull (group player)}
-            && {(missionNamespace getVariable [QEGVAR(miscFixes,groupCleanupRan), false]) || {diag_tickTime > (_this select 0)}}
+            && {(missionNamespace getVariable [QEGVAR(cleanup,groupCleanupRan), false]) || {diag_tickTime > (_this select 0)}}
     },
     {
         TRACE_2("ACE Settings initilized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
-        if (isNil QEGVAR(miscFixes,groupCleanupRan)) then {ERROR_1("Server never set %1", QEGVAR(miscFixes,groupCleanupRan));};
+        if (isNil QEGVAR(cleanup,groupCleanupRan)) then {ERROR_1("Server never set %1", QEGVAR(cleanup,groupCleanupRan));};
         if (hasInterface && {GVAR(groupAndUnitEnabled) || {GVAR(intraFireteamEnabled)}}) then {
             GVAR(skipInstallingEH) = false;
 
