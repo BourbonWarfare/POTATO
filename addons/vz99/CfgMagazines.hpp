@@ -1,7 +1,7 @@
 class CfgMagazines {
     class 8Rnd_82mm_Mo_shells;
 
-    //HE
+    //HE w/ impact fuze
     class GVAR(HE): 8Rnd_82mm_Mo_shells {
         picture = QUOTE(PATHTOF(ui\shell_ca.paa));
         author = "PabstMirror";
@@ -15,32 +15,40 @@ class CfgMagazines {
         ammo = QGVAR(ammo_he);
         initSpeed = 110;
         scope = 2;
+        type = 2 * 256;
     };
     class GVAR(HE_charge0): GVAR(HE) {
         initSpeed = 70;
         scope = 1;
+        type = 0;
     };
 
     //HE w/ multi fuze
     class GVAR(HE_multi): GVAR(HE) {
         GVAR(base) = QGVAR(HE_multi);
         displayName = "vz99 60mm HE Multi Fuze";
-        descriptionShort = "60mm HE Shell<br/>For use in the vz99 mortar<br/>ith a multi-option fuze (Impact, Near Surface, Proximity)";
-        displayNameShort = "HE-IMP";
+        descriptionShort = "60mm HE Shell<br/>For use in the vz99 mortar<br/>With a multi-option fuze (Impact, Near Surface, Proximity)";
+        displayNameShort = "HE-MULTI";
         initSpeed = 110;
         GVAR(fuze) = "";
     };
     class GVAR(HE_multi_charge0): GVAR(HE_multi) {
         initSpeed = 70;
+        type = 0;
     };
+
+    //HE w/ proxy fuze
     class GVAR(HE_PRX): GVAR(HE_multi) {
         GVAR(base) = QGVAR(HE_multi);
+        displayName = "vz99 60mm HE Proximity Fuze";
+        descriptionShort = "60mm HE Shell<br/>For use in the vz99 mortar<br/>With a proximity fuze";
         displayNameShort = "HE-PRX";
         initSpeed = 110;
         GVAR(fuze) = "prx";
     };
     class GVAR(HE_PRX_charge0): GVAR(HE_PRX) {
         initSpeed = 70;
+        type = 0;
     };
 
     //Smokes
@@ -54,6 +62,7 @@ class CfgMagazines {
     };
     class GVAR(smokeWhite_charge0): GVAR(smokeWhite) {
         initSpeed = 70;
+        type = 0;
     };
 
     class GVAR(smokeRed): GVAR(HE) {
@@ -66,6 +75,7 @@ class CfgMagazines {
     };
     class GVAR(smokeRed_charge0): GVAR(smokeRed) {
         initSpeed = 70;
+        type = 0;
     };
 
     //Flare
@@ -79,5 +89,6 @@ class CfgMagazines {
     };
     class GVAR(flare_charge0): GVAR(flare) {
         initSpeed = 70;
+        type = 0;
     };
 };
