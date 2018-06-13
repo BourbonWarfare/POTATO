@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [] call potato_weaponCfgFixes_fnc_ensurePlayerBurst;
+ * [] call potato_aiCfgFixes_fnc_ensurePlayerBurst;
  *
  * Public: Yes
  */
