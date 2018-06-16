@@ -93,29 +93,7 @@ class CfgWeapons {
     };
 
 
-    // Add "plot armor" to some vests
-    #define ARMOR_LEVEL_4 /* From V_PlateCarrier2_rgr */ \
-        class HitpointsProtectionInfo { \
-            class Chest { \
-                HitpointName = "HitChest"; \
-                armor = 20; \
-                PassThrough = 0.2; \
-            }; \
-            class Diaphragm { \
-                HitpointName = "HitDiaphragm"; \
-                armor = 20; \
-                PassThrough = 0.2; \
-            }; \
-            class Abdomen { \
-                hitpointName = "HitAbdomen"; \
-                armor = 20; \
-                passThrough = 0.2; \
-            }; \
-            class Body { \
-                hitpointName = "HitBody"; \
-                passThrough = 0.2; \
-            }; \
-        }; \
+    // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
 
     class ItemCore;
     class Vest_Camo_Base: ItemCore {
@@ -131,7 +109,27 @@ class CfgWeapons {
         displayName = "ALICE Webbing [coop plot armor]";
         descriptionShort = "Armor Level IV";
         class ItemInfo: ItemInfo {
-            ARMOR_LEVEL_4
+                    class HitpointsProtectionInfo {
+            class Chest {
+                HitpointName = "HitChest";
+                armor = 20;
+                PassThrough = 0.2;
+            };
+            class Diaphragm {
+                HitpointName = "HitDiaphragm";
+                armor = 20;
+                PassThrough = 0.2;
+            };
+            class Abdomen {
+                hitpointName = "HitAbdomen";
+                armor = 20;
+                passThrough = 0.2;
+            };
+            class Body {
+                hitpointName = "HitBody";
+                passThrough = 0.2;
+            };
+        };
         };
     };
     class rhs_vydra_3m: Vest_Camo_Base {
@@ -141,7 +139,27 @@ class CfgWeapons {
         displayName = "Vydra-3M [coop plot armor]";
         descriptionShort = "Armor Level IV";
         class ItemInfo: ItemInfo {
-            ARMOR_LEVEL_4
+                    class HitpointsProtectionInfo {
+            class Chest {
+                HitpointName = "HitChest";
+                armor = 20;
+                PassThrough = 0.2;
+            };
+            class Diaphragm {
+                HitpointName = "HitDiaphragm";
+                armor = 20;
+                PassThrough = 0.2;
+            };
+            class Abdomen {
+                hitpointName = "HitAbdomen";
+                armor = 20;
+                passThrough = 0.2;
+            };
+            class Body {
+                hitpointName = "HitBody";
+                passThrough = 0.2;
+            };
+        };
         };
     };
 };
