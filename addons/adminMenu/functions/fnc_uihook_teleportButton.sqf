@@ -23,6 +23,12 @@ if (_leader == _selectedUnit) then { // if selected unit is leader, attempt to m
 };
 if (!alive _leader) exitWith { TRACE_1("dead leader",_leader); };
 
+// Check side:
+if (((side group _selectedUnit) != (side _selectedGroup)) && {(diag_tickTime - (missionNamespace getVariable [QGVAR(doubleClickTime), -1])) > 10}) exitWith {
+    hint format ["WARNING: side mismatch\n[Click again to actually teleport]"];
+    GVAR(doubleClickTime) = diag_tickTime;
+};
+
 private _vehicle = vehicle _leader;
 
 private _return = if (_vehicle == _leader) then {
