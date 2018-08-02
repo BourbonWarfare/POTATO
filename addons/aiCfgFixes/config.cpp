@@ -27,6 +27,7 @@ class CfgPatches {
 #include "CfgEventHandlers.hpp"
 #include "CfgWeapons.hpp"
 #include "CfgAmmo.hpp"
+#include "CfgMagazines.hpp"
 
 #endif
 

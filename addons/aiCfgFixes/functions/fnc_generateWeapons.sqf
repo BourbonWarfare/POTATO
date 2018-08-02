@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [] call potato_weaponCfgFixes_fnc_generateWeapons;
+ * [] call potato_aiCfgFixes_fnc_generateWeapons;
  *
  * Public: Yes
  */
