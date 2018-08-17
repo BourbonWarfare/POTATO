@@ -25,31 +25,12 @@ class CfgVehicles {
         class TransportBackpacks {};
     };
 
-    // Fix CBA XEH Fallback Code for misc logic/objects that don't support it:
+    // Fix CBA XEH Fallback Code for misc logic/objects that don't support it: [Not needed for RHS as of 4.6]
     // x3 = [true] call CBA_fnc_supportMonitor;
     // {
     // _x params ["_vehType", "_addon"];
     // private _parent = configName inheritsFrom (configFile >> "CfgVehicles" >> _vehType);
     // diag_log text format ["class %1: %2 { SLX_XEH_DISABLED = 1; }; // %3 -> %4", _vehType, _parent, _addon, getText (configFile >> "CfgVehicles" >> _vehType >> "displayName")];
     // } forEach x3;
-
-    class Logic;
-    class PRAA_module_tunnels: Logic {
-        SLX_XEH_DISABLED = 1;
-    };
-    
-    class rq11_base_object;
-    class rhsusf_RQ11MONITOR: rq11_base_object { SLX_XEH_DISABLED = 1; }; // @RHSUSAF -> [GCS] Ground Control Station
-    class rhsusf_RQ11RAVEN_STATIC: rq11_base_object { SLX_XEH_DISABLED = 1; }; // @RHSUSAF -> [RQ-11] Raven A (static)
-    class rhsusf_RQ11RAVEN_B_STATIC: rq11_base_object { SLX_XEH_DISABLED = 1; }; // @RHSUSAF -> [RQ-11] Raven B (static)
-    class ThingX;
-    class rhs_2P3_1: ThingX { SLX_XEH_DISABLED = 1; }; // @RHSAFRF -> 2-P-3 (1)
-    
-    class Plane_Base_F;
-    class rhs_mig29s_base: Plane_Base_F {
-        class Eventhandlers {
-            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
-        };
-    };
 
 };
