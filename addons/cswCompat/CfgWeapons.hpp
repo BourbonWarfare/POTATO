@@ -21,7 +21,7 @@ class CfgWeapons {
         displayName = "[CUP] M2 HMG";
         author = "Brandon";
         scope = 2;
-        model = ACE_CSW_PATH(data\ACE_CSW_WeaponBag.p3d);
+        model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
     };
@@ -42,7 +42,7 @@ class CfgWeapons {
         displayName = "[CUP] KORD HMG";
         author = "Brandon";
         scope = 2;
-        model = ACE_CSW_PATH(data\ACE_CSW_WeaponBag.p3d);
+        model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
     };
@@ -62,7 +62,7 @@ class CfgWeapons {
         displayName = "[CUP] DSHKM HMG";
         author = "Brandon";
         scope = 2;
-        model = ACE_CSW_PATH(data\ACE_CSW_WeaponBag.p3d);
+        model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
     };
@@ -85,7 +85,7 @@ class CfgWeapons {
         displayName = "[CUP] AGS-30 GMG";
         author = "Brandon";
         scope = 2;
-        model = ACE_CSW_PATH(data\ACE_CSW_WeaponBag.p3d);
+        model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
     };
@@ -107,7 +107,7 @@ class CfgWeapons {
         displayName = "[CUP] AT-13 Metis";
         author = "Brandon";
         scope = 2;
-        model = ACE_CSW_PATH(data\ACE_CSW_WeaponBag.p3d);
+        model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);
     };
@@ -128,7 +128,7 @@ class CfgWeapons {
         displayName = "[CUP] SPG-9";
         author = "Brandon";
         scope = 2;
-        model = ACE_CSW_PATH(data\ACE_CSW_WeaponBag.p3d);
+        model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);
     };
@@ -150,7 +150,7 @@ class CfgWeapons {
         displayName = "[CUP] BGM-71 TOW";
         author = "Brandon";
         scope = 2;
-        model = ACE_CSW_PATH(data\ACE_CSW_WeaponBag.p3d);
+        model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);
     };

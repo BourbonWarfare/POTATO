@@ -9,4 +9,5 @@
 
 
 #define ACE_CSW_PATH(XX) QUOTE(\z\ace\addons\csw\XX)
-    
+#define ACE_APL_PATH(XX) QUOTE(\z\ace\addons\apl\XX)
+
