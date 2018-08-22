@@ -30,7 +30,7 @@ private _fncGetWeaponInfo = {
             _config >> _x
         };
         private _weaponName = getText (_muzzleConfig >> "displayName");
-        private _mags = getArray (_muzzleConfig >> "magazines");
+        private _mags = [_muzzleConfig] call CBA_fnc_compatibleMagazines;
         private _weaponPic = getText (_muzzleConfig >> "picture");
         private _muzzleText = if (_weaponClassname == "throw") then {
             format [""];

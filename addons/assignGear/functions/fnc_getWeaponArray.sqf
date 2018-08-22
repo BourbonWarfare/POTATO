@@ -43,14 +43,14 @@ private _attachables = [_weapon] call CBA_fnc_compatibleItems;
 
 {
     if (_x == "this") then { // main gun magazines
-        [LAW_PRIMARY_MUZZLE_MAG_INDEX, getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines")]
+        [LAW_PRIMARY_MUZZLE_MAG_INDEX, [configFile >> "CfgWeapons" >> _weapon] call CBA_fnc_compatibleMagazines]
     } else { // underslung weapon magazines
-        [LAW_SECONDARY_MUZZLE_MAG_INDEX, getArray (configFile >> "CfgWeapons" >> _weapon >> _x >> "magazines")]
+        [LAW_SECONDARY_MUZZLE_MAG_INDEX, [configFile >> "CfgWeapons" >> _weapon >> _x] call CBA_fnc_compatibleMagazines]
     } params ["_arrayIndex", "_magazines"];
 
     {
         (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-        if ({_classname == _x} count _magazines > 0) exitWith {
+        if ((_magazines findIf {_classname == _x}) > -1) exitWith {
             private _count = getNumber (configFile >> "CfgMagazines" >> _classname >> "count");
             _weaponArray set [_arrayIndex, [_classname, _count]];
             _configMagazines set [_forEachIndex, format ["%1:%2", _classname, ((parseNumber _amount) - 1)]];

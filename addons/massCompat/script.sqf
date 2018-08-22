@@ -1,4 +1,4 @@
-private _mags = getArray (configFile >> "CfgWeapons" >> "rhs_weap_ak74m_Base_F" >> "magazines");
+private _mags = ["rhs_weap_ak74m_Base_F"] call CBA_fnc_compatibleMagazines;
 private _magsNeedingProxy = [];
 {
     private _mag = _x;
