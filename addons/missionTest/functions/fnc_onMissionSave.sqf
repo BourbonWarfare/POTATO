@@ -126,10 +126,10 @@ private _checkDeprecatedGear = [];
             private _weapon = _x;
             if (_x != "") then {
                 private _ammoCount = 0;
-                private _weaponMags = (getArray (configFile >> "cfgWeapons" >> _weapon >> "magazines")) apply {toLower _x};
+                private _weaponMags = [_weapon] call CBA_fnc_compatibleMagazines;
                 {
                     _x params ["_xMagName", "_xAmmo"];
-                    if ((toLower _xMagName) in _weaponMags) then {
+                    if (_xMagName in _weaponMags) then {
                         _ammoCount = _ammoCount + _xAmmo;
                     };
                 } forEach (magazinesAmmoFull _unit);
@@ -139,7 +139,7 @@ private _checkDeprecatedGear = [];
                             || {[configFile >> "CfgWeapons" >> _weapon >> "rhs_disposable"] call CFUNC(getBool)}) then {
                         TRACE_1("ignoring special AT reloads",_weapon);
                     } else {
-                        TRACE_2("has zero ammo",_typeOf,_weapon);
+                        TRACE_3("has zero ammo",_typeOf,_weapon,magazines _unit);
                         _checkMagazines pushBackUnique format ["%1 has no ammo for %2", _typeOf, _weapon];
                     };
                 };

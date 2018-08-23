@@ -6,3 +6,20 @@ class Cfg3DEN {
         };
     };
 };
+
+class ctrlMenuStrip;
+class display3DEN {
+    class Controls {
+        class MenuStrip: ctrlMenuStrip {
+            class Items {
+                class PREFIX {
+                    items[] += {QGVAR(fixFloating)};
+                };
+                class GVAR(fixFloating) {
+                    text = "Fix Floating Units";
+                    action = QUOTE(call compile preprocessFileLineNumbers QUOTE(QPATHTOF(functions\fnc_fixFloating.sqf)););
+                };
+            };
+        };
+    };
+};

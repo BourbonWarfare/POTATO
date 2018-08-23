@@ -18,7 +18,6 @@ private _fnc_formatList = {
 private _fnc_getMags = {
     params ["_weapon", "_mags", ["_wantedRounds", -1]];
     if (!(_mags isEqualType [])) exitWith {""};
-    _mags = _mags select {private _mag = _x; ({_mag == _x} count getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines")) > 0};
     private _magRounds = getNumber (configFile >> "CfgMagazines" >> (_mags param [0, ""]) >> "count");
     if (_magRounds == 0) exitWith {'"ERROR_no_valid_mags"'};
     private _return = "";
@@ -56,7 +55,7 @@ _lines pushBack format ['#define GLRIFLE "%1"', GVAR(loadout_glrifle)];
 _lines pushBack format ['#define GLRIFLE_MAG %1', [GVAR(loadout_glrifle), GVAR(loadout_glRifleMags), 300] call _fnc_getMags];
 
 private _glMuzzle = (getArray (configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> "muzzles")) param [1, "no2ndMuzzle"];
-private _glMags = getArray (configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> _glMuzzle >> "magazines");
+private _glMags = [configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> _glMuzzle] call CBA_fnc_compatibleMagazines;
 switch (true) do {
     case (({"1Rnd_Smoke_Grenade_shell" == _x} count _glMags) > 0):{
         _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "1Rnd_Smoke_Grenade_shell:2","1Rnd_SmokeRed_Grenade_shell:2"'];

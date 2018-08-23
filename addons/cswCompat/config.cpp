@@ -2,6 +2,7 @@
 
 class CfgPatches {
     class ADDON {
+        units[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"ace_csw", "CUP_Weapons_StaticWeapons", "CUP_Creatures_StaticWeapons"};
         author = "Potato";
