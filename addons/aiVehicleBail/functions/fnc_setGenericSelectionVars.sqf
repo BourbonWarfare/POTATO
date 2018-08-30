@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [tank2] call potato_aiVehicleBail_setGenericSelectionVars;
+ * [tank2] call potato_aiVehicleBail_fnc_setGenericSelectionVars;
  *
  * Public: No
  */

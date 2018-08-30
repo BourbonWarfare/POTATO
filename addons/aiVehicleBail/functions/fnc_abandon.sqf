@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [tank2] call potato_aiVehicleBail_abandon;
+ * [tank2] call potato_aiVehicleBail_fnc_abandon;
  *
  * Public: No
  */

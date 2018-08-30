@@ -9,14 +9,12 @@
  * None
  *
  * Example:
- * [tank2] call potato_aiVehicleBail_addEventHandler_tank;
+ * [tank2] call potato_aiVehicleBail_fnc_addEventHandler_tank;
  *
  * Public: No
  */
 #include "script_component.hpp"
 params["_vehicle"];
-
-systemChat "Added Tank HD";
 
 private _hitPoint = _vehicle getVariable[QGVAR(engine_name), ""];
 if (_hitPoint isEqualTo "") then {
@@ -27,10 +25,10 @@ if (_hitPoint isEqualTo "") then {
     _vehicle setVariable [QGVAR(right_track_name), _hitPoint, true];
 
     [_vehicle] call FUNC(setGenericSelectionVars);
-    
-    _vehicle setVariable[QGVAR(handle_damage), addEventHandler["HandleDamage", {
-        params ["_unit", "_selection", "_damage", "", "", "_hitIndex"];
-        [FUNC(handleTankDamage), _unit, _selection, _hitIndex]] call CBA_fnc_execNextFrame;
+
+    _vehicle setVariable[QGVAR(handle_damage), _vehicle addEventHandler["HandleDamage", {
+        params ["_vehicle", "_selection", "_damage", "", "", "_hitIndex"];
+        [LINKFUNC(handleTankDamage), [_vehicle, _selection, _hitIndex]] call CBA_fnc_execNextFrame;
         _damage
     }], true];
     

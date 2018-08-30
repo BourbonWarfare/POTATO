@@ -11,43 +11,43 @@
  * None
  *
  * Example:
- * [tank1, false, true] call potato_aiVehicleBail_determineGenericSelectionType
+ * [tank1, false, true] call potato_aiVehicleBail_fnc_determineGenericSelectionType
  *
  *
  * Public: No
  */
 #include "script_component.hpp"
-params["_unit", "_canMove", "_canShoot"];
+params["_vehicle", "_canMove", "_canShoot"];
 
 if (_canMove) then {
-    _canMove = alive driver _unit;
+    _canMove = alive driver _vehicle;
 };
 
-if (_canShoot && 0.5 < random 1) then { // The crew just got a bunch of dead best-friend on them, they will either consider it or they wont
-    _canShoot = alive gunner _unit;
+if (_canShoot) then {
+    _canShoot = alive gunner _vehicle;
 };
 
-_unit setVariable [QGVAR(can_move), _canMove, true];
-_unit setVariable [QGVAR(can_shoot), _canShoot, true];
+_vehicle setVariable [QGVAR(can_move), _canMove, true];
+_vehicle setVariable [QGVAR(can_shoot), _canShoot, true];
 
 private _rand = random 1;
 
 if (!_canMove && !_canShoot) exitWith { // If you can't move and you can't shoot, you better GTFO
-    [_unit] call FUNC(abandon);
+    [_vehicle] call FUNC(abandon);
 };
 
 if (!_canShoot) exitWith {
     if (0.5 > _rand) then { // 50% chance of bailing out if turret/gun is destroyed
-        [_unit] call FUNC(abandon);
+        [_vehicle] call FUNC(abandon);
     } else {
-        _unit allowFleeing 1;
+        _vehicle allowFleeing 1;
         systemChat "Fleeing";
     };
 };
 
 if (!_canMove) exitWith {
     if (0.8 > _rand) then { // 80% Chance of bailing out if engine is destroyed
-        [_unit] call FUNC(abandon);
+        [_vehicle] call FUNC(abandon);
     } else {
         systemChat "Staying";
     };

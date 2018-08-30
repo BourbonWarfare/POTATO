@@ -11,42 +11,46 @@
  * None
  *
  * Example:
- * [potato_aiVehicleBail_handleAPCDamage, btr2, "Hit_Engine", 12]] call CBA_fnc_execNextFrame
+ * [potato_aiVehicleBail_fnc_handleAPCDamage, btr2, "Hit_Engine", 12]] call CBA_fnc_execNextFrame
  *
  *
  * Public: No
  */
 #include "script_component.hpp"
 
-params["_unit", "_selection", "_hitIndex"];
+params["_vehicle", "_selection", "_hitIndex"];
 
-if !(alive _unit) exitWith {
-    private _eventHandler = _unit getVariable[QGVAR(handle_damage), nil];
-    if !(isNil _eventHandler) then {
-        _unit removeEventHandler ["handleDamage", _eventHandler];
+if !(alive _vehicle) exitWith {
+    private _eventHandler = _vehicle getVariable[QGVAR(handle_damage), nil];
+    if !(isNil {_eventHandler}) then {
+        _vehicle removeEventHandler ["handleDamage", _eventHandler];
     };
 };
 
 _selection = toLower _selection;
 
-private _type = "";
-
-_type = [_unit, _selection] call FUNC(determineGenericSelectionType);
+private _type = [_vehicle, _selection] call FUNC(determineGenericSelectionType);
 
 switch (true) do {
-    //case (_selection isEqualTo GET_VEHICLE_HITPOINT(_unit, QGVAR(left_track_name))):     { _type = "track" };
-    //case (_selection isEqualTo GET_VEHICLE_HITPOINT(_unit, QGVAR(right_track_name))):    { _type = "track" };
-    default { _type = "exit"; }
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(left_back_wheel_name))):    { _type = "wheel" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(left_middle_wheel_name))):  { _type = "wheel" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(left_front_wheel_name))):   { _type = "wheel" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(left_front_wheel_2_name))): { _type = "wheel" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(right_back_wheel_name))):   { _type = "wheel" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(right_middle_wheel_name))): { _type = "wheel" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(right_front_wheel_name))):  { _type = "wheel" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(right_front_wheel_2_name))):{ _type = "wheel" };
+    default { }
 };
 if (_type == "exit") exitWith {};
 
-private _canMove = _unit getVariable[QGVAR(can_move), true];
-private _canShoot = _unit getVariable[QGVAR(can_shoot), true];
+private _canMove = _vehicle getVariable[QGVAR(can_move), true];
+private _canShoot = _vehicle getVariable[QGVAR(can_shoot), true];
 
 switch (true) do {
-    case (_type isEqualTo "engine"): { _canMove = ((_unit getHitIndex _hitIndex) < 1) };
-    case (_type isEqualTo "turret"): { _canShoot = ((_unit getHitIndex _hitIndex) < 1) };
+    case (_type isEqualTo "engine"): { _canMove = ((_vehicle getHitIndex _hitIndex) < 1) };
+    case (_type isEqualTo "turret"): { _canShoot = ((_vehicle getHitIndex _hitIndex) < 1) };
 };
 
-[_unit, _canMove, _canShoot] call FUNC(handleBail);
+[_vehicle, _canMove, _canShoot] call FUNC(handleBail);
 

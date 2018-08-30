@@ -10,7 +10,7 @@
  * Type of part
  *
  * Example:
- * [tank1, "Hit_Engine"] call potato_aiVehicleBail_determineGenericSelectionType
+ * [tank1, "Hit_Engine"] call potato_aiVehicleBail_fnc_determineGenericSelectionType
  *
  *
  * Public: No
@@ -22,10 +22,10 @@ params["_vehicle", "_selection"];
 private _type = "exit";
 
 switch (true) do {
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_unit, QGVAR(engine_name))):         { _type = "engine" };
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_unit, QGVAR(hull_name))):           { _type = "hull" };
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_unit, QGVAR(gun_name))):            { _type = "turret" };
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_unit, QGVAR(turret_name))):         { _type = "turret" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(engine_name))):         { _type = "engine" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(hull_name))):           { _type = "hull" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(gun_name))):            { _type = "turret" };
+    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(turret_name))):         { _type = "turret" };
     default { _type = "exit"; }
 };
 
