@@ -16,6 +16,8 @@
 #include "script_component.hpp"
 params["_vehicle"];
 
+_vehicle allowCrewInImmobile true;
+
 if !(GVAR(enableCrewBailing)) exitWith {};
 
 private _hitPoint = _vehicle getVariable[QGVAR(engine_name), ""];
