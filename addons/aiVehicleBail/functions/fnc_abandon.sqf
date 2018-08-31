@@ -16,7 +16,6 @@
 #include "script_component.hpp"
 
 params["_vehicle"];
-systemChat "Bailing out!";
 
 _vehicle allowCrewInImmobile false;
 

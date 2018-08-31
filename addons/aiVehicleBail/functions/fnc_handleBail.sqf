@@ -41,7 +41,6 @@ if (!_canShoot) exitWith {
         [_vehicle] call FUNC(abandon);
     } else {
         _vehicle allowFleeing 1;
-        systemChat "Fleeing";
     };
 };
 
@@ -49,7 +48,6 @@ if (!_canMove) exitWith {
     if (0.8 > _rand) then { // 80% Chance of bailing out if engine is destroyed
         [_vehicle] call FUNC(abandon);
     } else {
-        systemChat "Staying";
     };
 };
 
