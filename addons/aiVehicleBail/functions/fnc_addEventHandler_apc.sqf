@@ -49,8 +49,8 @@ if (_hitPoint isEqualTo "") then {
     [_vehicle] call FUNC(setGenericSelectionVars);
 
     _vehicle setVariable[QGVAR(handle_damage), _vehicle addEventHandler["HandleDamage", {
-        params ["_vehicle", "_selection", "_damage", "", "", "_hitIndex"];
-        [LINKFUNC(handleAPCDamage), [_vehicle, _selection, _hitIndex]] call CBA_fnc_execNextFrame;
+        params ["_vehicle", "_selection", "_damage", "_injurer", "", "_hitIndex"];
+        [LINKFUNC(handleAPCDamage), [_vehicle, _selection, _hitIndex, _injurer]] call CBA_fnc_execNextFrame;
         _damage
     }], true];
     

@@ -18,7 +18,7 @@
  */
 #include "script_component.hpp"
 
-params["_vehicle", "_selection", "_hitIndex"];
+params["_vehicle", "_selection", "_hitIndex", "_injurer"];
 
 if !(alive _vehicle) exitWith {
     private _eventHandler = _vehicle getVariable[QGVAR(handle_damage), nil];
@@ -50,6 +50,22 @@ private _canShoot = _vehicle getVariable[QGVAR(can_shoot), true];
 switch (true) do {
     case (_type isEqualTo "engine"): { _canMove = ((_vehicle getHitIndex _hitIndex) < 1) };
     case (_type isEqualTo "turret"): { _canShoot = ((_vehicle getHitIndex _hitIndex) < 1) };
+};
+
+// Ignore multiple hits at the same time
+private _ignoreHit = false;
+private _multHit = _vehicle getVariable [QGVAR(hit_time), nil];
+if (isNil "_multHit") then {
+    _vehicle setVariable [QGVAR(hit_time), [time, _injurer], true];
+} else {
+    if (time <= (_multHit select 0) + CONST_TIME && {_injurer == (_multHit select 1)}) then {
+        _ignoreHit = true;
+    } else {
+        _vehicle setVariable [QGVAR(hit_time), [time, _injurer], true];
+    };
+};
+if (_ignoreHit) exitWith {
+    diag_log text format["[POTATO] Ignoring multiple hits done to vehicle [%1] by [%2]", _vehicle, _injurer];
 };
 
 [_vehicle, _canMove, _canShoot] call FUNC(handleBail);
