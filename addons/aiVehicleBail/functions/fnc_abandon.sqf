@@ -9,13 +9,15 @@
  * None
  *
  * Example:
- * [tank2] call potato_aiVehicleBail_fnc_abandon;
+ * [tank2] spawn potato_aiVehicleBail_fnc_abandon;
  *
  * Public: No
  */
 #include "script_component.hpp"
 
 params["_vehicle"];
+
+sleep (random 12);
 
 _vehicle allowCrewInImmobile false;
 

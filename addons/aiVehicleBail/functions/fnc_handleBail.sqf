@@ -33,12 +33,12 @@ _vehicle setVariable [QGVAR(can_shoot), _canShoot, true];
 private _rand = random 1;
 
 if (!_canMove && !_canShoot) exitWith { // If you can't move and you can't shoot, you better GTFO
-    [_vehicle] call FUNC(abandon);
+    [_vehicle] spawn FUNC(abandon);
 };
 
 if (!_canShoot) exitWith {
     if (0.5 > _rand) then { // 50% chance of bailing out if turret/gun is destroyed
-        [_vehicle] call FUNC(abandon);
+        [_vehicle] spawn FUNC(abandon);
     } else {
         _vehicle allowFleeing 1;
     };
@@ -46,7 +46,7 @@ if (!_canShoot) exitWith {
 
 if (!_canMove) exitWith {
     if (0.8 > _rand) then { // 80% Chance of bailing out if engine is destroyed
-        [_vehicle] call FUNC(abandon);
+        [_vehicle] spawn FUNC(abandon);
     } else {
     };
 };
