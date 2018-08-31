@@ -16,6 +16,8 @@
 #include "script_component.hpp"
 params["_vehicle"];
 
+if !(GVAR(enableCrewBailing)) exitWith {};
+
 private _hitPoint = _vehicle getVariable[QGVAR(engine_name), ""];
 if (_hitPoint isEqualTo "") then {
     _hitPoint = toLower getText (configFile >> "CfgVehicles" >> typeof _vehicle >> "HitPoints" >> "HitLBWheel" >> "Name");
