@@ -30,7 +30,6 @@ private _center = getPosASL _vehicle;
             private _cX = _center select 0;
             private _cY = _center select 1;
             
-            sleep random 1;
             unassignVehicle _crewman;
             _crewman leaveVehicle _vehicle;
             doGetOut _crewman;
@@ -43,7 +42,7 @@ private _center = getPosASL _vehicle;
             
             _crewman doMove [_xEscape, _yEscape, 0];
             _crewman setSpeedMode "FULL";
-        }] remoteExec ["spawn", _x];
+        }] remoteExec ["BIS_fnc_spawn", _x];
     };
 } forEach crew _vehicle;
 
