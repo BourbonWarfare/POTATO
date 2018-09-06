@@ -27,8 +27,8 @@ if (_canShoot) then {
     _canShoot = alive gunner _vehicle;
 };
 
-_vehicle setVariable [QGVAR(can_move), _canMove, true];
-_vehicle setVariable [QGVAR(can_shoot), _canShoot, true];
+_vehicle setVariable[QGVAR(can_move), _canMove];
+_vehicle setVariable[QGVAR(can_shoot), _canShoot];
 
 private _rand = random 1;
 

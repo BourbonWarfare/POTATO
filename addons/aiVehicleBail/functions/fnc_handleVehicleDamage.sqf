@@ -11,36 +11,32 @@
  * None
  *
  * Example:
- * [potato_aiVehicleBail_fnc_handleAPCDamage, btr2, "Hit_Engine", 12]] call CBA_fnc_execNextFrame
+ * [potato_aiVehicleBail_fnc_handleTankDamage, tank1, "Hit_Engine", 12]] call CBA_fnc_execNextFrame
  *
  *
  * Public: No
  */
 #include "script_component.hpp"
 
-params["_vehicle", "_selection", "_hitIndex", "_injurer"];
+params["_vehicle", "_hitPoint", "_hitIndex", "_injurer"];
 
 if !(alive _vehicle) exitWith {
     private _eventHandler = _vehicle getVariable[QGVAR(handle_damage), nil];
-    if !(isNil {_eventHandler}) then {
+    if !(isNil "_eventHandler") then {
         _vehicle removeEventHandler ["handleDamage", _eventHandler];
     };
 };
 
-_selection = toLower _selection;
+_hitPoint = toLower _hitPoint;
 
-private _type = [_vehicle, _selection] call FUNC(determineGenericSelectionType);
-
+private _type = "exit";
 switch (true) do {
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(left_back_wheel_name))):    { _type = "wheel" };
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(left_middle_wheel_name))):  { _type = "wheel" };
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(left_front_wheel_name))):   { _type = "wheel" };
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(left_front_wheel_2_name))): { _type = "wheel" };
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(right_back_wheel_name))):   { _type = "wheel" };
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(right_middle_wheel_name))): { _type = "wheel" };
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(right_front_wheel_name))):  { _type = "wheel" };
-    case (_selection isEqualTo GET_VEHICLE_HITPOINT(_vehicle, QGVAR(right_front_wheel_2_name))):{ _type = "wheel" };
-    default { }
+    case (_hitPoint in (ENGINE_HITPOINTS select 0)):   { _type = (ENGINE_HITPOINTS select 1) };
+    case (_hitPoint in (HULL_HITPOINTS select 0)):     { _type = (HULL_HITPOINTS select 1) };
+    case (_hitPoint in (TURRET_HITPOINTS select 0)):   { _type = (TURRET_HITPOINTS select 1) };
+    case (_hitPoint in (TRACK_HITPOINTS select 0)):    { _type = (TRACK_HITPOINTS select 1) };
+    case (_hitPoint in (WHEEL_HITPOINTS select 0)):    { _type = (WHEEL_HITPOINTS select 1) };
+    default { _type = "exit"; }
 };
 if (_type == "exit") exitWith {};
 
@@ -56,12 +52,12 @@ switch (true) do {
 private _ignoreHit = false;
 private _multHit = _vehicle getVariable [QGVAR(hit_time), nil];
 if (isNil "_multHit") then {
-    _vehicle setVariable [QGVAR(hit_time), [time, _injurer], true];
+    _vehicle setVariable[QGVAR(hit_time), [time, _injurer]];
 } else {
     if (time <= (_multHit select 0) + CONST_TIME && {_injurer == (_multHit select 1)}) then {
         _ignoreHit = true;
     } else {
-        _vehicle setVariable [QGVAR(hit_time), [time, _injurer], true];
+        _vehicle setVariable[QGVAR(hit_time), [time, _injurer]];
     };
 };
 if (_ignoreHit) exitWith {
