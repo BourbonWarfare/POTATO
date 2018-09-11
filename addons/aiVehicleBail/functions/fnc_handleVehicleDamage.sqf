@@ -19,6 +19,7 @@
 #include "script_component.hpp"
 
 params["_vehicle", "_hitPoint", "_hitIndex", "_injurer"];
+TRACE_4("handleVehicleDamage",_vehicle,_hitPoint,_hitIndex,_injurer);
 
 if !(alive _vehicle) exitWith {
     private _eventHandler = _vehicle getVariable[QGVAR(handle_damage), nil];

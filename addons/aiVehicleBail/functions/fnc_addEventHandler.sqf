@@ -27,8 +27,5 @@ if (isNil "_eh") then {
         [LINKFUNC(handleVehicleDamage), [_vehicle, _hitPoint, _hitIndex, _injurer]] call CBA_fnc_execNextFrame;
         _damage
     }]];
-    
-    _vehicle setVariable [QGVAR(can_move), true];
-    _vehicle setVariable [QGVAR(can_shoot), true];
 };
 

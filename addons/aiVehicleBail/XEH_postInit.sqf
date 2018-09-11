@@ -2,6 +2,7 @@
 
 [QGVAR(bailOut), {
     params["_center", "_crewman", "_vehicle"];
+    TRACE_3("bailOut",_center,_crewman,_vehicle);
     
     if !(isPlayer _crewman) exitWith {};
 
