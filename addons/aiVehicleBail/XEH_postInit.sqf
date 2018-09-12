@@ -4,7 +4,7 @@
     params["_center", "_crewman", "_vehicle"];
     TRACE_3("bailOut",_center,_crewman,_vehicle);
     
-    if !(isPlayer _crewman) exitWith {};
+    if (isPlayer _crewman) exitWith {};
 
     unassignVehicle _crewman;
     _crewman leaveVehicle _vehicle;

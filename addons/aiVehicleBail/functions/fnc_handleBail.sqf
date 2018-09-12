@@ -52,7 +52,7 @@ if (!_canMove) exitWith {
         [_vehicle] spawn FUNC(abandon);
         diag_log text format["[POTATO] [%1] Cannot move and is bailing with chance [%2]", _vehicle, _rand];
     } else {
-        diag_log text format["[POTATO] [%1] Cannot shoot and is bunkering with chance [%2]", _vehicle, _rand];
+        diag_log text format["[POTATO] [%1] Cannot move and is bunkering with chance [%2]", _vehicle, _rand];
     };
 };
 
