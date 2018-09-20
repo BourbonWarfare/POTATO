@@ -33,4 +33,11 @@ class CfgVehicles {
     // diag_log text format ["class %1: %2 { SLX_XEH_DISABLED = 1; }; // %3 -> %4", _vehType, _parent, _addon, getText (configFile >> "CfgVehicles" >> _vehType >> "displayName")];
     // } forEach x3;
 
+
+    class C_Plane_Civil_01_F;
+    class rhsgred_hidf_cessna_o3a: C_Plane_Civil_01_F {
+        class EventHandlers {
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
+        };
+    };
 };
