@@ -7,6 +7,9 @@
 params ["_display", ["_shiftLeft", false]];
 TRACE_2("arsenalOpened",_display,_shiftLeft);
 
+if ((count (call BIS_fnc_listPlayers)) > 1) exitWith {INFO_1("hiding export in mp - %1", (count (call BIS_fnc_listPlayers)));};
+
+
 private _y = 0;
 private _ctrlsToUpdate = [];
 
