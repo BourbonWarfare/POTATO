@@ -15,6 +15,7 @@ class CfgMagazines {
         ammo = QGVAR(ammo_he);
         initSpeed = 110;
         scope = 2;
+        ace_arsenal_hide = -1;
     };
     class GVAR(HE_charge0): GVAR(HE) {
         initSpeed = 70;
@@ -32,15 +33,18 @@ class CfgMagazines {
     };
     class GVAR(HE_multi_charge0): GVAR(HE_multi) {
         initSpeed = 70;
+        scope = 1;
     };
     class GVAR(HE_PRX): GVAR(HE_multi) {
         GVAR(base) = QGVAR(HE_multi);
         displayNameShort = "HE-PRX";
         initSpeed = 110;
         GVAR(fuze) = "prx";
+        scope = 1;
     };
     class GVAR(HE_PRX_charge0): GVAR(HE_PRX) {
         initSpeed = 70;
+        scope = 1;
     };
 
     //Smokes
@@ -54,6 +58,7 @@ class CfgMagazines {
     };
     class GVAR(smokeWhite_charge0): GVAR(smokeWhite) {
         initSpeed = 70;
+        scope = 1;
     };
 
     class GVAR(smokeRed): GVAR(HE) {
@@ -66,6 +71,7 @@ class CfgMagazines {
     };
     class GVAR(smokeRed_charge0): GVAR(smokeRed) {
         initSpeed = 70;
+        scope = 1;
     };
 
     //Flare
@@ -79,5 +85,6 @@ class CfgMagazines {
     };
     class GVAR(flare_charge0): GVAR(flare) {
         initSpeed = 70;
+        scope = 1;
     };
 };
