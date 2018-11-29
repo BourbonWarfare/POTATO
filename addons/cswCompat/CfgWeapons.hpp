@@ -154,4 +154,34 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);
     };
+    
+    /* Proxy Weapons */
+    class CUP_Vhmg_M2_static;
+    class GVAR(CUP_Vhmg_M2_static): CUP_Vhmg_M2_static {
+        magazineReloadTime = 0.5;
+    };
+    class CUP_Vhmg_KORD_veh;
+    class GVAR(CUP_Vhmg_KORD_veh): CUP_Vhmg_KORD_veh {
+        magazineReloadTime = 0.5;
+    };
+    class CUP_Vhmg_DSHKM_veh;
+    class GVAR(CUP_Vhmg_DSHKM_veh): CUP_Vhmg_DSHKM_veh {
+        magazineReloadTime = 0.5;
+    };
+    class CUP_Vhmg_AGS30_veh;
+    class GVAR(CUP_Vhmg_AGS30_veh): CUP_Vhmg_AGS30_veh {
+        magazineReloadTime = 0.5;
+    };
+    class CUP_Vmlauncher_AT13_single_veh;
+    class GVAR(CUP_Vmlauncher_AT13_single_veh): CUP_Vmlauncher_AT13_single_veh {
+        magazineReloadTime = 0.5;
+    };
+    class CUP_Vacannon_SPG9_veh;
+    class GVAR(CUP_Vacannon_SPG9_veh): CUP_Vacannon_SPG9_veh {
+        magazineReloadTime = 0.5;
+    };
+    class CUP_Vmlauncher_TOW_single_veh;
+    class GVAR(CUP_Vmlauncher_TOW_single_veh): CUP_Vmlauncher_TOW_single_veh {
+        magazineReloadTime = 0.5;
+    };
 };
