@@ -1,4 +1,11 @@
 class CfgMagazines {
+    
+    // Testing smoke bounce
+    class 1Rnd_Smoke_Grenade_shell;
+    class 1Rnd_SmokePurple_Grenade_shell: 1Rnd_Smoke_Grenade_shell {
+        ammo = QGVAR(G_40mm_SmokePurple);
+    };
+    
     class CA_LauncherMagazine;
     class rhs_mag_smaw_HEAA: CA_LauncherMagazine {
         mass = 80;
