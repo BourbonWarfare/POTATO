@@ -2,16 +2,8 @@ class CfgMagazines {
     class CA_Magazine;
 
     // 556x45
-    class 30Rnd_556x45_Stanag: CA_Magazine {
-        modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_556x45_stanag_usgi_30rnd";
-        modelSpecialIsProxy = 1;
-    };
     class CUP_30Rnd_556x45_Stanag: CA_Magazine {
         modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_556x45_stanag_usgi_30rnd";
-        modelSpecialIsProxy = 1;
-    };
-    class 150Rnd_556x45_Drum_Mag_F: CA_Magazine {
-        modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_556x45_stanag_cmag_100rnd";
         modelSpecialIsProxy = 1;
     };
     class CUP_200Rnd_TE4_Green_Tracer_556x45_M249: CA_Magazine {
@@ -28,10 +20,6 @@ class CfgMagazines {
     };
 
     // 545x39
-    class 30Rnd_545x39_Mag_F: CA_Magazine {
-        modelSpecial = "\rhsafrf\addons\rhs_weapons\mag_proxies\rhs_mag_545x39_6l20_30rnd.p3d";
-        modelSpecialIsProxy = 1;
-    };
     class CUP_30Rnd_545x39_AK_M: CA_Magazine {
         modelSpecial = "\rhsafrf\addons\rhs_weapons\mag_proxies\rhs_mag_545x39_6l20_30rnd.p3d";
         modelSpecialIsProxy = 1;
@@ -44,10 +32,6 @@ class CfgMagazines {
 
 
     // 762x39
-    class 30Rnd_762x39_Mag_F: CA_Magazine {
-        modelSpecial = "rhsafrf\addons\rhs_weapons\mag_proxies\rhs_mag_762x39_steel_30rnd";
-        modelSpecialIsProxy = 1;
-    };
     class CUP_30Rnd_762x39_AK47_M: CA_Magazine {
         modelSpecial = "rhsafrf\addons\rhs_weapons\mag_proxies\rhs_mag_762x39_steel_30rnd";
         modelSpecialIsProxy = 1;
