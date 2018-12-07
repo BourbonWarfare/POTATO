@@ -44,8 +44,4 @@ class CfgMagazines {
         modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_762x51_m240_pouch_100rnd";
         modelSpecialIsProxy = 1;
     };
-    class hlc_100Rnd_762x51_B_M60E4: 30Rnd_556x45_Stanag {
-        modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_762x51_m240_pouch_100rnd";
-        modelSpecialIsProxy = 1;
-    };
 };
