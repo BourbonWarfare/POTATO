@@ -94,6 +94,10 @@ class CfgVehicles {
         displayName = "APC: BTR-60 (CUP)";
         GVAR(createVic) = "CUP_O_BTR60_SLA";
     };
+    class GVAR(east_cupMTLB): GVAR(east_rifleman) {
+        displayName = "APC: MTLB (CUP)";
+        GVAR(createVic) = "CUP_O_MTLB_pk_WDL_RU";
+    };
     class GVAR(east_rhsBTR70): GVAR(east_rifleman) {
         displayName = "APC: BTR-70 (RHS)";
         GVAR(createVic) = "rhs_btr70_msv";

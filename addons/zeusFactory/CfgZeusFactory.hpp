@@ -135,7 +135,10 @@ class CfgZeusFactory {
         "CUP_I_T55_TK_GUE", // T 55 'MBT'
         "CUP_O_BTR90_RU", // BTR 90 IFV
         "CUP_O_BRDM2_RUS", // BRDM
-        "CUP_O_BTR60_SLA" // BTR 60
+        "CUP_O_BTR60_SLA", // BTR 60
+        "CUP_O_MTLB_pk_WDL_RU", // MT-LB Woodland
+        "CUP_O_MTLB_pk_Winter_RU", // MT-LB Winter
+        "CUP_O_MTLB_pk_TKA" // MT-LB Desert
     };
 
     helicopters[] = {

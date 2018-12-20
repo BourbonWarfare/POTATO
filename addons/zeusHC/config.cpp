@@ -20,6 +20,7 @@ class CfgPatches {
             QGVAR(east_apcModern),
             QGVAR(east_rhsBTR60),
             QGVAR(east_cupBTR60),
+            QGVAR(east_cupMTLB),
             QGVAR(east_rhsBTR70),
             QGVAR(east_rhsBTR80),
             QGVAR(east_carOffroad),
