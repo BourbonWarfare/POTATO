@@ -20,6 +20,7 @@ class CfgPatches {
             "rhs_c_weapons", "rhsusf_c_weapons",
             "CUP_Weapons_AK", "hlcweapons_G36",
             "rhsgref_c_troops"
+            ,"Chernarus", "Caribou"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};
@@ -47,5 +48,6 @@ class RscChatListDefault {
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
 #include "CfgFontFamilies.hpp"
+#include "CfgWorlds.hpp"
 
 #endif
