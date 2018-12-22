@@ -1,6 +1,17 @@
 class CBA_Extended_EventHandlers;
 
 class CfgVehicles {
+
+    // Fix cup terrains 1.11 popup on helvantis
+    class Land_HBarrier_large;
+    class Land_BarGate2: Land_HBarrier_large {
+        class UserActions {
+            class CloseDoors1 {
+                onlyForPlayer = 0;
+            };
+        };
+    };
+    
     // Add SMAW box
     class Box_NATO_Support_F;
     class GVAR(smawBox): Box_NATO_Support_F {
