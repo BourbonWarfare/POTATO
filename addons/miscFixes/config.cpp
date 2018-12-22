@@ -20,7 +20,7 @@ class CfgPatches {
             "rhs_c_weapons", "rhsusf_c_weapons",
             "CUP_Weapons_AK", "hlcweapons_G36",
             "rhsgref_c_troops"
-            ,"Chernarus", "Caribou"
+            ,"Chernarus", "Caribou", "torabora"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};
@@ -38,7 +38,8 @@ class CfgLocationTypes {
 
 // Undo ACE's changes to system messages text brightness
 class RscChatListDefault {
-    colorMessageProtocol[] = {0.65,0.65,0.65,1};
+    colorBackground[] = {0,0,0,0.3};
+    colorMessageProtocol[] = {0.65,0.65,0.65,0.9};
 };
 
 #include "CfgAmmo.hpp"
