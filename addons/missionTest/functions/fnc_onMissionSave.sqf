@@ -134,14 +134,8 @@ private _checkDeprecatedGear = [];
                     };
                 } forEach (magazinesAmmoFull _unit);
                 if (_ammoCount == 0) then {
-                    // Ignore launchers that auto load ammo via script
-                    if (([configFile >> "CfgWeapons" >> _weapon >> "ACE_UsedTube"] call CFUNC(getText)) != ""
-                            || {[configFile >> "CfgWeapons" >> _weapon >> "rhs_disposable"] call CFUNC(getBool)}) then {
-                        TRACE_1("ignoring special AT reloads",_weapon);
-                    } else {
-                        TRACE_3("has zero ammo",_typeOf,_weapon,magazines _unit);
-                        _checkMagazines pushBackUnique format ["%1 has no ammo for %2", _typeOf, _weapon];
-                    };
+                    TRACE_3("has zero ammo",_typeOf,_weapon,magazines _unit);
+                    _checkMagazines pushBackUnique format ["%1 has no ammo for %2", _typeOf, _weapon];
                 };
                 if (_weapon == (primaryWeapon _unit)) then {
                     private _desiredAmmo = call {
