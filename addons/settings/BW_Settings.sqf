@@ -16,6 +16,7 @@ _settings = [
 [QACEGVAR(gforces,enabledFor), 0],
 [QACEGVAR(goggles,effects), 1],
 [QACEGVAR(hearing,autoAddEarplugsToUnits), false],
+[QACEGVAR(hearing,enableCombatDeafness), false],
 [QACEGVAR(laserPointer,enabled), false],
 [QACEGVAR(map,DefaultChannel), 1],
 [QACEGVAR(medical_ai,enabledFor), 0],
