@@ -59,4 +59,16 @@ private _attachables = [_weapon] call CBA_fnc_compatibleItems;
     nil
 } count getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");  // count used here for speed, make sure nil is above this line
 
+
+if ((_weaponArray select LAW_PRIMARY_MUZZLE_MAG_INDEX) isEqualTo []) then {
+    private _weaponCfg = configFile >> "CfgWeapons" >> _weapon;
+    if (((getText (_weaponCfg >> "ACE_UsedTube")) != "") || {(getNumber (_weaponCfg >> "rhs_disposable")) == 1}) then {
+        private _magazine = (getArray (_weaponCfg >> "magazines")) param [0, ""];
+        if (_magazine == "") exitWith {};
+        private _count = getNumber (configFile >> "CfgMagazines" >> _magazine >> "count");
+        _weaponArray set [LAW_PRIMARY_MUZZLE_MAG_INDEX, [_magazine, _count]];
+        diag_log text format ["[POTATO-assignGear] - Weapon [%1] adding disposable mag [%2]", _weapon, _magazine];
+    };
+};
+
 _weaponArray
