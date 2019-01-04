@@ -605,8 +605,7 @@ class CfgWeapons {
         magazines[] = { M24_762 };
     };
 
-    class CUP_arifle_M16A4_Base;
-    class CUP_arifle_M4_Base: CUP_arifle_M16A4_Base {
+    class CUP_arifle_M4_Base: CUP_arifle_M16_Base {
         class M203: UGL_F {
             magazines[] = { NATO_GL_40 };
         };
