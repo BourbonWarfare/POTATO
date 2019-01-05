@@ -4,9 +4,4 @@ class CfgWorlds {
     class Caribou: Chernarus {
         newRoadsShape = "";
     };
-    
-    class Takistan;
-	class torabora: Takistan {
-        newRoadsShape = "";
-    };
 };

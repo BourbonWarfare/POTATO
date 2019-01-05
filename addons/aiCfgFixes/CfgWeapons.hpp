@@ -6387,7 +6387,7 @@ class CfgWeapons {
             showToPlayer = 1;
         };
     };
-    class CUP_arifle_M4_Base: CUP_arifle_M16A4_Base {
+    class CUP_arifle_M4_Base: CUP_arifle_M16_Base {
         modes[] = {"Single","FullAuto"};
         class Single: Single {
             aiRateOfFire = 1;
@@ -6437,7 +6437,7 @@ class CfgWeapons {
             showToPlayer = 1;
         };
     };
-    class CUP_srifle_Mk12SPR: CUP_arifle_M4A1 {
+    class CUP_srifle_Mk12SPR: CUP_arifle_M4_Base {
         modes[] = {"Single"};
         class Single: Single {
             aiRateOfFire = 1;
