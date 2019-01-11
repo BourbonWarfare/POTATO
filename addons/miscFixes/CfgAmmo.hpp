@@ -6,6 +6,10 @@ class CfgAmmo {
 		simulation = "shotSmoke";
 		deflectionSlowDown = 0;
     };
+    class GVAR(G_40mm_SmokeBlue): G_40mm_SmokePurple {
+        submunitionAmmo = "SmokeShellBlue";
+        simulation = "shotDeploy";
+    };
     
     
     class B_65x39_Case;

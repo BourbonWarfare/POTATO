@@ -5,6 +5,9 @@ class CfgMagazines {
     class 1Rnd_SmokePurple_Grenade_shell: 1Rnd_Smoke_Grenade_shell {
         ammo = QGVAR(G_40mm_SmokePurple);
     };
+    class 1Rnd_SmokeBlue_Grenade_shell: 1Rnd_Smoke_Grenade_shell {
+        ammo = QGVAR(G_40mm_SmokeBlue);
+    };
     
     class CA_LauncherMagazine;
     class rhs_mag_smaw_HEAA: CA_LauncherMagazine {
