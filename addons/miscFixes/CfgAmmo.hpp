@@ -7,8 +7,13 @@ class CfgAmmo {
 		deflectionSlowDown = 0;
     };
     class GVAR(G_40mm_SmokeBlue): G_40mm_SmokePurple {
-        submunitionAmmo = "SmokeShellBlue";
+        submunitionAmmo = QGVAR(G_40mm_SmokeBlueDeploy);
         simulation = "shotDeploy";
+    };
+    class SmokeShellBlue;
+    class GVAR(G_40mm_SmokeBlueDeploy): SmokeShellBlue {
+        explosionTime = 0;
+        model = "\A3\weapons_f\Ammo\UGL_slug";
     };
     
     
