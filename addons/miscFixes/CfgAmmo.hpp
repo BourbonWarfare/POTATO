@@ -1,10 +1,10 @@
 class CfgAmmo {
     
-    // Testing smoke bounce
-    class G_40mm_SmokePurple;
-    class GVAR(G_40mm_SmokePurple): G_40mm_SmokePurple {
+    // Fix smoke bounce (downside is gl smokes lose some sound effects)
+    class SmokeShell;
+    class G_40mm_Smoke: SmokeShell {
 		simulation = "shotSmoke";
-		deflectionSlowDown = 0;
+		deflectionSlowDown = 0.2;
     };
     
     
