@@ -182,4 +182,11 @@ if (_key == DIK_F1) exitWith {
     true
 };
 
+// handle displaying help
+if ((_key == DIK_F4) && {_this select 2} && {_this select 3}) exitWith {
+    diag_log text format ["[POTATO] - Warning opening old cam sepctator"];
+    call FUNC(exit);
+    player call bis_fnc_cameraOld;
+};
+
 false // default to unhandled
