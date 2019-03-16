@@ -29,11 +29,6 @@ class CfgPatches {
     };
 };
 
-// Fix Arma 1.90 problems with STUI
-class STUI_RscCanvasControl {
-    widthRailWay = 0;
-};
-
 
 // Fix CELLE font error:
 class CfgLocationTypes {
