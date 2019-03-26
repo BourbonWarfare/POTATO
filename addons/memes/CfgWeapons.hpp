@@ -6,7 +6,7 @@ class CfgWeapons {
         model = QPATHTOF(data\cheezItBox.p3d);
         picture = QPATHTOF(ui\cheezItBox_ca.paa);
         displayName = "Box of Cheez-It";
-        descriptionShort = "Cheddar";
+        descriptionShort = "Cheddar (Do not view inside EU)";
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 1;
         };
@@ -16,7 +16,7 @@ class CfgWeapons {
         model = QPATHTOF(data\server.p3d);
         picture = QPATHTOF(ui\server_ca.paa);
         displayName = "Dedicated Server";
-        descriptionShort = "Server";
+        descriptionShort = "Server (Do not view inside EU)";
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 1;
         };
