@@ -79,6 +79,11 @@ if (_ignoreHit) exitWith {
 
 if !(_ignoreBailCheck) then {
     [_vehicle, _canMove, _canShoot] call FUNC(handleBail);
+    if !(GVAR(enableCookoffMultihit)) then {
+        [_vehicle, _hitIndex, _oldDamage, _newDamage, _projectile] call FUNC(handleCookoff);
+    };
 };
-[_vehicle, _hitIndex, _oldDamage, _newDamage, _projectile] call FUNC(handleCookoff);
+if (GVAR(enableCookoffMultihit)) then {
+        [_vehicle, _hitIndex, _oldDamage, _newDamage, _projectile] call FUNC(handleCookoff);
+    };
 

@@ -18,4 +18,13 @@
     true, // isGlobal
     {[QGVAR(enableCookoff), _this] call ACEFUNC(common,cbaSettings_settingChanged)}
 ] call CBA_settings_fnc_init;
+[
+    QGVAR(enableCookoffMultihit),
+    "CHECKBOX",
+    ["Enable Multi-Hit Cookoff Check", "Enable/Disable whether or not multiple hits can be checked in the same frame"],
+    "POTATO AI Behaviours",
+    false, // default value
+    true, // isGlobal
+    {[QGVAR(enableCookoffMultihit), _this] call ACEFUNC(common,cbaSettings_settingChanged)}
+] call CBA_settings_fnc_init;
 
