@@ -18,13 +18,12 @@ params["_vehicle"];
 
 _vehicle allowCrewInImmobile true;
 
-if !(GVAR(enableCrewBailing)) exitWith {};
-
 private _eh = _vehicle getVariable[QGVAR(handle_damage), nil];
 if (isNil "_eh") then {
     _vehicle setVariable [QGVAR(handle_damage), _vehicle addEventHandler["HandleDamage", {
-        params ["_vehicle", "", "_damage", "_injurer", "", "_hitIndex", "", "_hitPoint"];
-        [LINKFUNC(handleVehicleDamage), [_vehicle, _hitPoint, _hitIndex, _injurer]] call CBA_fnc_execNextFrame;
+        params ["_vehicle", "", "_damage", "_injurer", "_projectile", "_hitIndex", "", "_hitPoint"];
+        private _newDamage = _damage - (_vehicle getHitIndex _hitIndex);
+        [LINKFUNC(handleVehicleDamage), [_vehicle, _hitPoint, _hitIndex, _injurer, _vehicle getHitIndex _hitIndex, _newDamage, _projectile]] call CBA_fnc_execNextFrame;
         _damage
     }]];
 };

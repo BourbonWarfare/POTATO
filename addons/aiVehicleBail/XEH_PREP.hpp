@@ -4,4 +4,6 @@ PREP(abandon);
 PREP(addEventHandler);
 PREP(handleBail);
 PREP(handleVehicleDamage);
+PREP(handleCookoff);
+PREP(detonate);
 
