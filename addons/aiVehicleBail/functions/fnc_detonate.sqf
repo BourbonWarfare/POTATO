@@ -17,6 +17,8 @@
 #include "script_component.hpp"
 params ["_vehicle", ["_vehicleAmmo", []]];
 
+if !(GVAR(enableCookoffDetonations)) exitWith {};
+
 if (_vehicleAmmo isEqualTo []) then {
     _vehicleAmmo = [_vehicle] call ACEFUNC(cookoff,getVehicleAmmo);
 };

@@ -87,6 +87,8 @@ if (!_alreadyCookingOff && { _chanceOfFire > random 1 }) exitWith {
     };
     _vehicle setVariable [QGVAR(cookingOff), true];
     diag_log text format["[POTATO] (cookoff) Cooking-off [%1] with a chance-of-fire [%2] hit [%3]", _vehicle, _chanceOfFire, _hitPoint];
+    [_vehicle] spawn FUNC(abandon);
+    diag_log text format["[POTATO] [%1] is on fire is bailing", _vehicle];
 };
 
 // Avoid RPT spam
