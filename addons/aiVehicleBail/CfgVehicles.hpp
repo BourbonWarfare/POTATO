@@ -412,7 +412,7 @@ class CfgVehicles {
         GVAR(engineFireProb) = 0.5;
         GVAR(detonationDuringFireProb) = 0;
     };
-    class CUP_AAV_Base {
+    class CUP_AAV_Base : Tank_F {
         GVAR(hullDetonationProb) = 0.2;
         GVAR(turretDetonationProb) = 0.2;
         GVAR(engineDetonationProb) = 0;
