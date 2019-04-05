@@ -73,7 +73,7 @@ private _alreadyDetonating = _vehicle getVariable [QGVAR(detonating), false];
 private _alreadyCookingOff = _vehicle getVariable [QGVAR(cookingOff), false];
 
 if (!_alreadyDetonating && { _chanceOfDetonate > random 1 }) exitWith {
-    [_vehicle, _currentAmmoCount] call FUNC(detonate);
+    [_vehicle, _currentVehicleAmmo] call FUNC(detonate);
     diag_log text format["[POTATO] (cookoff) Detonating [%1] with a chance-to-detonate [%2] hit [%3]", _vehicle, _chanceOfDetonate, _hitPoint];
     _vehicle setVariable [QGVAR(detonating), true];
 };
@@ -81,7 +81,7 @@ if (!_alreadyDetonating && { _chanceOfDetonate > random 1 }) exitWith {
 if (!_alreadyCookingOff && { _chanceOfFire > random 1 }) exitWith {
     [_vehicle] call ACEFUNC(cookoff,cookOff);
     if (!_alreadyDetonating && { [_vehicleConfig >> QGVAR(detonationDuringFireProb), "number", 0] call CBA_fnc_getConfigEntry > random 1 }) then {
-        [_vehicle, _currentAmmoCount] call FUNC(detonate);
+        [_vehicle, _currentVehicleAmmo] call FUNC(detonate);
         diag_log text format["[POTATO] (cookoff) Detonating [%1] while cooking off with a chance of [%2] hit [%3]", _vehicle, [_vehicleConfig >> QGVAR(detonationDuringFireProb), "number", 0] call CBA_fnc_getConfigEntry, _hitPoint];
         _vehicle setVariable [QGVAR(detonating), true];
     };
