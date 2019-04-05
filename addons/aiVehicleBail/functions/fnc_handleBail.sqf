@@ -19,6 +19,8 @@
 #include "script_component.hpp"
 params["_vehicle", "_canMove", "_canShoot"];
 
+if !(GVAR(enableCrewBailing)) exitWith {};
+
 if (_canMove) then {
     _canMove = alive driver _vehicle;
 };
@@ -34,25 +36,25 @@ private _rand = random 1;
 
 if (!_canMove && !_canShoot) exitWith { // If you can't move and you can't shoot, you better GTFO
     [_vehicle] spawn FUNC(abandon);
-    diag_log text format["[POTATO] [%1] is a sitting duck and is bailing", _vehicle];
+    diag_log text format["[POTATO] [%1] is a sitting duck and is bailing [%2 | %3]", _vehicle, _canMove, _canShoot];
 };
 
 if (!_canShoot) exitWith {
     if (0.5 > _rand) then { // 50% chance of bailing out if turret/gun is destroyed
         [_vehicle] spawn FUNC(abandon);
-        diag_log text format["[POTATO] [%1] Cannot shoot and is bailing with chance [%2]", _vehicle, _rand];
+        diag_log text format["[POTATO] [%1] Cannot shoot and is bailing with chance [%2] [%3 | %4]", _vehicle, _rand, _canMove, _canShoot];
     } else {
         _vehicle allowFleeing 1;
-        diag_log text format["[POTATO] [%1] Cannot shoot and is fleeing with chance [%2]", _vehicle, _rand];
+        diag_log text format["[POTATO] [%1] Cannot shoot and is fleeing with chance [%2] [%3 | %4]", _vehicle, _rand, _canMove, _canShoot];
     };
 };
 
 if (!_canMove) exitWith {
     if (0.8 > _rand) then { // 80% Chance of bailing out if engine is destroyed
         [_vehicle] spawn FUNC(abandon);
-        diag_log text format["[POTATO] [%1] Cannot move and is bailing with chance [%2]", _vehicle, _rand];
+        diag_log text format["[POTATO] [%1] Cannot move and is bailing with chance [%2] [%3 | %4]", _vehicle, _rand, _canMove, _canShoot];
     } else {
-        diag_log text format["[POTATO] [%1] Cannot move and is bunkering with chance [%2]", _vehicle, _rand];
+        diag_log text format["[POTATO] [%1] Cannot move and is bunkering with chance [%2] [%3 | %4]", _vehicle, _rand, _canMove, _canShoot];
     };
 };
 

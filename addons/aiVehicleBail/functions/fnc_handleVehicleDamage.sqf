@@ -6,6 +6,7 @@
  * 0: The vehicle
  * 1: The selection which got hit
  * 2: The index of what got hit
+ * 3: The damage that the new part took
  *
  * Return Value:
  * None
@@ -18,7 +19,7 @@
  */
 #include "script_component.hpp"
 
-params["_vehicle", "_hitPoint", "_hitIndex", "_injurer"];
+params["_vehicle", "_hitPoint", "_hitIndex", "_injurer", "_oldDamage", "_newDamage", "_projectile"];
 TRACE_4("handleVehicleDamage",_vehicle,_hitPoint,_hitIndex,_injurer);
 
 if !(alive _vehicle) exitWith {
@@ -51,19 +52,38 @@ switch (true) do {
 
 // Ignore multiple hits at the same time
 private _ignoreHit = false;
+private _ignoreBailCheck = false;
 private _multHit = _vehicle getVariable [QGVAR(hit_time), nil];
 if (isNil "_multHit") then {
-    _vehicle setVariable[QGVAR(hit_time), [time, _injurer]];
+    _vehicle setVariable[QGVAR(hit_time), [time, _injurer, [_hitPoint]]];
 } else {
-    if (time <= (_multHit select 0) + CONST_TIME && {_injurer == (_multHit select 1)}) then {
+    private _hitPointInOldArray = _hitPoint in (_multHit select 2);
+    private _withinTime = time <= (_multHit select 0) + CONST_TIME && { _injurer == (_multHit select 1) };
+    if (_hitPointInOldArray && _withinTime) then {
         _ignoreHit = true;
     } else {
-        _vehicle setVariable[QGVAR(hit_time), [time, _injurer]];
+        // If the hitpoint isnt in the old array then that means that the time expired and a new array should be generated
+        if !(_hitPointInOldArray) then {
+            private _oldHitPoints = _multHit select 2;
+            _oldHitPoints pushBack _hitPoint;
+            _vehicle setVariable[QGVAR(hit_time), [time, _injurer, _oldHitPoints]];
+            _ignoreBailCheck = true;
+        } else {
+            _vehicle setVariable[QGVAR(hit_time), [time, _injurer, [_hitPoint]]];
+        };
     };
 };
 if (_ignoreHit) exitWith {
-    diag_log text format["[POTATO] Ignoring multiple hits done to vehicle [%1] by [%2]", _vehicle, _injurer];
+    diag_log text format["[POTATO] Ignoring multiple hits done to vehicle [%1] by [%2].", _vehicle, _injurer];
 };
 
-[_vehicle, _canMove, _canShoot] call FUNC(handleBail);
+if !(_ignoreBailCheck) then {
+    [_vehicle, _canMove, _canShoot] call FUNC(handleBail);
+    if !(GVAR(enableCookoffMultihit)) then {
+        [_vehicle, _hitIndex, _oldDamage, _newDamage, _projectile] call FUNC(handleCookoff);
+    };
+};
+if (GVAR(enableCookoffMultihit)) then {
+        [_vehicle, _hitIndex, _oldDamage, _newDamage, _projectile] call FUNC(handleCookoff);
+    };
 
