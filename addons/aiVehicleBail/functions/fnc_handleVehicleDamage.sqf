@@ -30,16 +30,7 @@ if !(alive _vehicle) exitWith {
 };
 
 _hitPoint = toLower _hitPoint;
-
-private _type = "exit";
-switch (true) do {
-    case (_hitPoint in (ENGINE_HITPOINTS select 0)):   { _type = (ENGINE_HITPOINTS select 1) };
-    case (_hitPoint in (HULL_HITPOINTS select 0)):     { _type = (HULL_HITPOINTS select 1) };
-    case (_hitPoint in (TURRET_HITPOINTS select 0)):   { _type = (TURRET_HITPOINTS select 1) };
-    case (_hitPoint in (TRACK_HITPOINTS select 0)):    { _type = (TRACK_HITPOINTS select 1) };
-    case (_hitPoint in (WHEEL_HITPOINTS select 0)):    { _type = (WHEEL_HITPOINTS select 1) };
-    default { _type = "exit"; }
-};
+private _type = GVAR(hitpointTypes) getVariable [_hitPoint, "exit"];
 if (_type == "exit") exitWith {};
 
 private _canMove = _vehicle getVariable[QGVAR(can_move), true];
