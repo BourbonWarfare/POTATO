@@ -187,6 +187,7 @@ if ((_key == DIK_F4) && {_this select 2} && {_this select 3}) exitWith {
     diag_log text format ["[POTATO] - Warning opening old cam sepctator"];
     call FUNC(exit);
     player call bis_fnc_cameraOld;
+    [true] call acre_api_fnc_setSpectator;
 };
 
 false // default to unhandled
