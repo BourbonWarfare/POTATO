@@ -44,7 +44,7 @@ if (count (_currentVehicleAmmo select 0) > 0) then {
 private _currentFuel = fuel _vehicle;
 
 private _warheadType = getText (_projectile call CBA_fnc_getObjectConfig >> "warheadName");
-private _incendiary = 1;
+private _incendiary = 0.1;
 private _explosiveType = ["HE", "AP", "HEAT", "TandemHEAT"] find _warheadType;
 if (_explosiveType >= 0) then {
     _incendiary = [0.3, 0.85, 1, 1] select _explosiveType;
