@@ -8,7 +8,7 @@ diag_log text "[POTATO] Saving - Doing mission test:";
 diag_log text "------------------------------------------------------";
 
 private _allMissionObjects = (all3DENEntities select 0);
-private _allUnits = _allMissionObjects select {_x isKindOf "CaManBase"};
+private _allUnits = _allMissionObjects select {(_x isKindOf "CaManBase") && {!((_x isKindOf "B_UAV_AI") || {_x isKindOf "O_UAV_AI"} || {_x isKindOf "UAV_AI_base_F"})}};
 private _sideCounts = [west, east, resistance] apply {
     private _side = _x;
     {((side _x) == _side) && {(_x get3DENAttribute "ControlMP") isEqualTo [true]}} count _allUnits;
@@ -59,8 +59,7 @@ if (_onLoadName == "*** Insert mission name here. ***") then {
 // Floating units / Fall Damage:
 private _floatingUnits = [];
 {
-    if (((getPos _x) select 2) > 0.5) then {
-        if (getText (configFile >> "CfgVehicles" >> typeOf _x >> "simulation") == "UAVPilot") exitWith {}; // Ignore UAV
+    if (((getPos vehicle _x) select 2) > 0.5) then {
         WARNING_3("[%1:%2] is floating %3", _x, typeOf _x, getPos _x);
         _floatingUnits pushBack _x;
     };
