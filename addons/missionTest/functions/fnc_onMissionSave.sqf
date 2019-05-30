@@ -29,6 +29,58 @@ if (!(missionNamespace getVariable [QEGVAR(assignGear,usePotato), false])) exitW
 };
 
 private _problems = [];
+private _cfgW = configFile >> "CfgWeapons";
+private _cfgV = configFile >> "CfgVehicles";
+
+private _premiumMods = (configProperties [configFile >> "CfgMods", "isClass _x && {((getText (_x >> 'popupMsgText')) find 'premium') > -1}", true]) apply {configName _x};
+_premiumMods = _premiumMods - ["Expansion"]; // ignore tanoa
+INFO_1("Checking premium DLC %1",_premiumMods);
+private _dlcSeen = [];
+private _tagsChanged = [];
+{
+    private _mp = _x get3DENAttribute "ControlMP";
+    if (_mp param [0]) then {
+        private _originalDescription = (_x get3DENAttribute "description") param [0];
+        private _newDescription = _originalDescription;
+        if ((_newDescription select [0,1]) == "*") then { // cleanup old description
+            private _lastStar = 0;
+            for "_i" from 1 to (-1 + count _newDescription) do {
+                if ((_newDescription select [_i, 1]) == "*") then {
+                    _lastStar = _i;
+                };
+            };
+            _newDescription = _newDescription select [_lastStar + 1];
+        };
+        private _unitDLC = [];
+        {
+            private _itemDLC = getText (_x >> "DLC");
+            if ((_itemDLC != "") && {(_premiumMods findIf {_itemDLC == _x}) > -1}) then {
+                _dlcSeen pushBackUnique _itemDLC;
+                _unitDLC pushBackUnique _itemDLC;
+            };
+        } forEach [
+        _cfgW >> uniform _x, _cfgW >> vest _x, _cfgV >> backpack _x, _cfgW >> headGear _x,
+        _cfgW >> primaryWeapon _x, _cfgW >> secondaryWeapon _x, _cfgW >> handgunWeapon _x
+        ];
+        if ((count _unitDLC) > 0) then {
+            private _prefix = "*";
+            {
+                _prefix = _prefix + (_x select [0, 5]) + "*";
+            } forEach _unitDLC;
+            _newDescription = _prefix + _newDescription;
+        };
+        if (_newDescription != _originalDescription) then {
+            diag_log text format ["dlc description %1 - %2 %3",_x,_originalDescription,_newDescription];
+            _tagsChanged pushBack _x;
+            _x set3DENAttribute ["description", _newDescription];
+        };
+    };
+} forEach _allUnits;
+if ((count _tagsChanged) > 0) then {
+    systemChat "Save again to confim changes to descriptions";
+    _problems pushBack [format ["Auto-Tagging DLC %1<br/>SAVE AGAIN to confirm!", _dlcSeen],_tagsChanged];
+};
+INFO_1("DLC Used: %1",_dlcSeen);
 
 // Check weather:
 ("Intel" get3DENMissionAttribute "IntelFogStart") params ["_fog"];
