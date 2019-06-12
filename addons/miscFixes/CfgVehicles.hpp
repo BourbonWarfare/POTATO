@@ -3,12 +3,16 @@ class CBA_Extended_EventHandlers;
 class CfgVehicles {
     // Integrate invisibile backpack from SagJangi
     // https://forums.bohemia.net/forums/topic/222097-battle-belt/
-    class B_LegStrapBag_black_F;
-    class B_Battle_Belt_F: B_LegStrapBag_black_F {
+    class Bag_Base;
+    class B_Battle_Belt_F: Bag_Base {
         picture = "\A3\Characters_F\data\ui\icon_V_Belt_CA.paa";
         displayName = "Battle Belt";
         model = "\A3\weapons_f\empty";
         author = "SagJangi";
+        maximumLoad = 80;
+        mass = 8;
+        mapSize = 0.47;
+        scope = 2;
     };
 
     // Add SMAW box
