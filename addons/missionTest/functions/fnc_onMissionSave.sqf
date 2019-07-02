@@ -52,11 +52,13 @@ private _tagsChanged = [];
             _newDescription = _newDescription select [_lastStar + 1];
         };
         private _unitDLC = [];
+        private _unitItems = [];
         {
             private _itemDLC = getText (_x >> "DLC");
             if ((_itemDLC != "") && {(_premiumMods findIf {_itemDLC == _x}) > -1}) then {
                 _dlcSeen pushBackUnique _itemDLC;
                 _unitDLC pushBackUnique _itemDLC;
+                _unitItems pushBackUnique [configName _x, _itemDLC];
             };
         } forEach [
         _cfgW >> uniform _x, _cfgW >> vest _x, _cfgV >> backpack _x, _cfgW >> headGear _x,
@@ -70,7 +72,7 @@ private _tagsChanged = [];
             _newDescription = _prefix + _newDescription;
         };
         if (_newDescription != _originalDescription) then {
-            diag_log text format ["dlc description %1 - %2 %3",_x,_originalDescription,_newDescription];
+            diag_log text format ["dlc description %1 - %2 %3 because of %4",_x,_originalDescription,_newDescription, _unitItems];
             _tagsChanged pushBack _x;
             _x set3DENAttribute ["description", _newDescription];
         };
