@@ -32,8 +32,8 @@ class CfgWeapons {
             deployTime = 4;
             pickupTime = 4;
             class assembleTo {
-                ace_csw_m3Tripod = "CUP_O_KORD_high_RU";
-                ace_csw_m3TripodLow = "CUP_O_KORD_RU";
+                ace_csw_kordTripod = "CUP_O_KORD_high_RU";
+                ace_csw_kordTripodLow = "CUP_O_KORD_RU";
             };
         };
         class WeaponSlotsInfo: WeaponSlotsInfo {
@@ -52,8 +52,8 @@ class CfgWeapons {
             deployTime = 4;
             pickupTime = 4;
             class assembleTo {
-                ace_csw_m3Tripod = "CUP_O_DSHKM_ChDKZ";
-                ace_csw_m3TripodLow = "CUP_O_DSHkM_MiniTriPod_ChDKZ";
+                ace_csw_kordTripod = "CUP_O_DSHKM_ChDKZ";
+                ace_csw_kordTripodLow = "CUP_O_DSHkM_MiniTriPod_ChDKZ";
             };
         };
         class WeaponSlotsInfo: WeaponSlotsInfo {
@@ -75,7 +75,7 @@ class CfgWeapons {
             deployTime = 4;
             pickupTime = 4;
             class assembleTo {
-                ace_csw_m3TripodLow = "CUP_B_AGS_ACR";
+                ace_csw_sag30Tripod = "CUP_B_AGS_ACR";
             };
         };
         class WeaponSlotsInfo: WeaponSlotsInfo {
@@ -91,25 +91,16 @@ class CfgWeapons {
     };
 
 
-    /* Launchers */
-    class GVAR(cup_metis): Launcher_Base_F {
+    class CUP_launch_Metis: Launcher_Base_F {
         class ACE_CSW {
-            type = "weapon";
+            type = "mount";
             deployTime = 4;
             pickupTime = 4;
-            class assembleTo {
-                ace_csw_m3TripodLow = "CUP_O_Metis_RU";
-            };
+            deploy = "CUP_O_Metis_RU";
         };
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 300;
         };
-        displayName = "[CUP] AT-13 Metis";
-        author = "Brandon";
-        scope = 2;
-        model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
-        modes[] = {};
-        picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);
     };
     
     class GVAR(cup_spg9): Launcher_Base_F {
@@ -118,7 +109,7 @@ class CfgWeapons {
             deployTime = 4;
             pickupTime = 4;
             class assembleTo {
-                ace_csw_m3TripodLow = "CUP_O_SPG9_CHdKZ";
+                ace_csw_spg9Tripod = "CUP_O_SPG9_CHdKZ";
             };
         };
         class WeaponSlotsInfo: WeaponSlotsInfo {
@@ -141,7 +132,7 @@ class CfgWeapons {
             deployTime = 4;
             pickupTime = 4;
             class assembleTo {
-                ace_csw_m3TripodLow = "CUP_B_TOW_TriPod_USMC";
+                ace_csw_m220Tripod = "CUP_B_TOW_TriPod_USMC";
             };
         };
         class WeaponSlotsInfo: WeaponSlotsInfo {

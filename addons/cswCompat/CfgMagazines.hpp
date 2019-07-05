@@ -31,7 +31,7 @@ class CfgMagazines {
         scope = 2;
         type = 256;
         count = 1;
-        mass = 440;
+        mass = 40;
         picture = "\A3\weapons_f\launchers\rpg32\data\ui\gear_tbg32v_rocket_ca.paa";
     };
     class 40Rnd_20mm_G_belt;

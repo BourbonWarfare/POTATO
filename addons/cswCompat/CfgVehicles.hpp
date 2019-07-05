@@ -53,7 +53,7 @@ class CfgVehicles {
             proxyWeapon = QGVAR(CUP_Vhmg_KORD_veh);
             magazineLocation = "_target selectionPosition 'magazine'";
             disassembleWeapon = QGVAR(cup_kord); // carry weapon [CfgWeapons]
-            disassembleTurret = "ace_csw_m3TripodLow"; // turret [CfgVehicles]
+            disassembleTurret = "ace_csw_kordTripodLow"; // turret [CfgVehicles]
             desiredAmmo = 50;
             ammoLoadTime = 10;
             ammoUnloadTime = 9;
@@ -65,7 +65,7 @@ class CfgVehicles {
             proxyWeapon = QGVAR(CUP_Vhmg_KORD_veh);
             magazineLocation = "_target selectionPosition 'magazine'";
             disassembleWeapon = QGVAR(cup_kord); // carry weapon [CfgWeapons]
-            disassembleTurret = "ace_csw_m3Tripod"; // turret [CfgVehicles]
+            disassembleTurret = "ace_csw_kordTripod"; // turret [CfgVehicles]
             desiredAmmo = 50;
             ammoLoadTime = 10;
             ammoUnloadTime = 8;
@@ -78,7 +78,7 @@ class CfgVehicles {
             // magazineLocation = "_target selectionPosition 'magazine'";
             proxyWeapon = QGVAR(CUP_Vhmg_DSHKM_veh);
             disassembleWeapon = QGVAR(cup_dshkm); // carry weapon [CfgWeapons]
-            disassembleTurret = "ace_csw_m3Tripod"; // turret [CfgVehicles]
+            disassembleTurret = "ace_csw_kordTripod"; // turret [CfgVehicles]
             desiredAmmo = 50;
             ammoLoadTime = 10;
             ammoUnloadTime = 8;
@@ -90,7 +90,7 @@ class CfgVehicles {
             proxyWeapon = QGVAR(CUP_Vhmg_DSHKM_veh);
             // magazineLocation = "_target selectionPosition 'magazine'";
             disassembleWeapon = QGVAR(cup_dshkm); // carry weapon [CfgWeapons]
-            disassembleTurret = "ace_csw_m3TripodLow"; // turret [CfgVehicles]
+            disassembleTurret = "ace_csw_kordTripodLow"; // turret [CfgVehicles]
             desiredAmmo = 100;
             ammoLoadTime = 10;
             ammoUnloadTime = 8;
@@ -106,7 +106,7 @@ class CfgVehicles {
             proxyWeapon = QGVAR(CUP_Vhmg_AGS30_veh);
             magazineLocation = "_target selectionPosition 'otochlaven'";
             disassembleWeapon = QGVAR(cup_ags30); // carry weapon [CfgWeapons]
-            disassembleTurret = "ace_csw_m3TripodLow"; // turret [CfgVehicles]
+            disassembleTurret = "ace_csw_sag30Tripod"; // turret [CfgVehicles]
             desiredAmmo = 29;
             ammoLoadTime = 10; // https://youtu.be/XZYvCUSusQI?t=130
             ammoUnloadTime = 8;
@@ -135,7 +135,7 @@ class CfgVehicles {
             proxyWeapon = QGVAR(CUP_Vacannon_SPG9_veh);
             magazineLocation = "_target selectionPosition 'otochlaven'";
             disassembleWeapon = QGVAR(cup_spg9); // carry weapon [CfgWeapons]
-            disassembleTurret = "ace_csw_m3TripodLow"; // turret [CfgVehicles]
+            disassembleTurret = "ace_csw_spg9Tripod"; // turret [CfgVehicles]
             desiredAmmo = 1;
             ammoLoadTime = 5; // https://youtu.be/xc9-MkCxq5c?t=23
             ammoUnloadTime = 3;
@@ -148,7 +148,7 @@ class CfgVehicles {
             proxyWeapon = QGVAR(CUP_Vmlauncher_TOW_single_veh);
             magazineLocation = "_target selectionPosition 'otochlaven'";
             disassembleWeapon = QGVAR(cup_tow); // carry weapon [CfgWeapons]
-            disassembleTurret = "ace_csw_m3TripodLow"; // turret [CfgVehicles]
+            disassembleTurret = "ace_csw_m220Tripod"; // turret [CfgVehicles]
             desiredAmmo = 1;
             ammoLoadTime = 8; // https://youtu.be/3MeR97UXrKs?t=113
             ammoUnloadTime = 5;
