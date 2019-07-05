@@ -28,7 +28,7 @@ _newPlayer setVariable [QGVAR(briefingAdded), true];
 
 if (missionNamespace getVariable [QGVAR(brief_addCredits), false]) then { [_newPlayer] call FUNC(addCredits); };
 if (missionNamespace getVariable [QGVAR(brief_addOrbat), false]) then { [_newPlayer] call FUNC(addOrbat); };
-if (ACEGVAR(medical,level) == 2) then { [_newPlayer] call FUNC(addMedicalNotes); };
+[_newPlayer] call FUNC(addMedicalNotes);
 
 private _sideBriefMission = "";
 private _sideBriefSituation = "";

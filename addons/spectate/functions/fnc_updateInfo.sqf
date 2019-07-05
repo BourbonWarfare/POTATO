@@ -55,7 +55,7 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
         ];
 
         {
-            _x params ["", "", "_selectionIndex", "_amountOf", "_x4"];
+            _x params ["", "_selectionIndex", "_amountOf", "_x4"];
             // Find how much this bodypart is bleeding
             if (_amountOf > 0) then {
                 private _bodySelection = _bodyInfo select _selectionIndex;

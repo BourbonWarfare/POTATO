@@ -103,9 +103,9 @@ acex_killTracker_outputText = "None";
     };
 
     // Log bleed out - ToDo: could change setDead to log the specific medical cause (e.g. blood loss / cardiac arrest / overdose)
-    private _bloodVolume = _unit getVariable ["ace_medical_bloodVolume", 100];
-    if (_bloodVolume <= 60) then {
-        _killInfo pushBack format ["Blood %1%2", floor _bloodVolume, "%"];
+    private _bloodVolume = _unit getVariable ["ace_medical_bloodVolume", 6];
+    if (_bloodVolume <= 4) then { // todo, update acex
+        _killInfo pushBack format ["Blood %1 L", floor _bloodVolume];
     };
 
     // Parse info into text
