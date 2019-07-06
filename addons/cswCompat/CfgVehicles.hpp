@@ -1,31 +1,4 @@
 class CfgVehicles {
-
-    // todod RHS, temp configs to fix inheritance
-    class AT_01_base_F;
-    class rhs_SPG9_base: AT_01_base_F {
-        class ACE_CSW {
-            enabled = 0;
-        };
-    };
-    class rhs_Metis_Base: AT_01_base_F {
-        class ACE_CSW {
-            enabled = 0;
-        };
-    };
-    class rhs_Kornet_Base: AT_01_base_F {
-        class ACE_CSW {
-            enabled = 0;
-        };
-    };
-
-
-
-
-
-
-
-
-
     /* HMG's */
     class StaticMGWeapon;
     class CUP_M2StaticMG_base: StaticMGWeapon {
@@ -121,8 +94,8 @@ class CfgVehicles {
             enabled = 1;
             proxyWeapon = QGVAR(CUP_Vmlauncher_AT13_single_veh);
             magazineLocation = "_target selectionPosition 'gun'";
-            disassembleWeapon = QGVAR(cup_metis); // carry weapon [CfgWeapons]
-            disassembleTurret = "ace_csw_m3TripodLow"; // turret [CfgVehicles]
+            disassembleWeapon = "CUP_launch_Metis"; // carry weapon [CfgWeapons]
+            disassembleTurret = ""; // turret [CfgVehicles]
             desiredAmmo = 1;
             ammoLoadTime = 7; // https://youtu.be/RUJSaeE3EKY?t=13
             ammoUnloadTime = 5;
