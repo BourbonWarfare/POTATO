@@ -19,7 +19,7 @@ if (hasInterface) then {
 if (isServer) then {
     [{
         private _authorName = getMissionConfigValue ["author", "???"];
-        private _authorPresent = (allPlayers findIf {(name _x) == _authorName}) > -1;
+        private _authorPresent = (allUnits findIf {(name _x) == _authorName}) > -1;
         ["potato_adminMsg", [format ["-Mision Maker [Present: %1]", _authorPresent], _authorName]] call CBA_fnc_globalEvent;
     }, [], 1] call CBA_fnc_waitAndExecute;
 };
