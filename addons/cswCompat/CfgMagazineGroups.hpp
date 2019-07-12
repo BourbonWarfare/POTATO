@@ -14,4 +14,21 @@ class ace_csw_groups {
     class GVAR(20Rnd_30mm_G_belt) {
         CUP_29Rnd_30mm_AGS30_M = 1;
     };
+
+    // reloadable m119
+    class GVAR(105mm_m119_he) {
+        CUP_30Rnd_105mmHE_M119_M = 1;
+    };
+    class GVAR(105mm_m119_smoke) {
+        CUP_30Rnd_105mmSMOKE_M119_M = 1;
+    };
+    class GVAR(105mm_m119_wp) {
+        CUP_30Rnd_105mmWP_M119_M = 1;
+    };
+    class GVAR(105mm_m119_laser) {
+        CUP_30Rnd_105mmLASER_M119_M = 1;
+    };
+    class GVAR(105mm_m119_illum) {
+        CUP_30Rnd_105mmILLUM_M119_M = 1;
+    };
 };

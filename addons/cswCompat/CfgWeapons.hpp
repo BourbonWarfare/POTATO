@@ -3,7 +3,7 @@ class CfgWeapons {
     class Launcher_Base_F: Launcher {
         class WeaponSlotsInfo;
     };
-    
+
     /* HMG's */
     class GVAR(cup_m2): Launcher_Base_F {
         class ACE_CSW {
@@ -25,7 +25,7 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
     };
-    
+
     class GVAR(cup_kord): Launcher_Base_F {
         class ACE_CSW {
             type = "weapon";
@@ -66,8 +66,8 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
     };
-    
-    
+
+
     /* GMG's */
     class GVAR(cup_ags30): Launcher_Base_F {
         class ACE_CSW {
@@ -81,7 +81,7 @@ class CfgWeapons {
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 350;
         };
-        
+
         displayName = "[CUP] AGS-30 GMG";
         author = "Brandon";
         scope = 2;
@@ -102,7 +102,7 @@ class CfgWeapons {
             mass = 300;
         };
     };
-    
+
     class GVAR(cup_spg9): Launcher_Base_F {
         class ACE_CSW {
             type = "weapon";
@@ -115,7 +115,7 @@ class CfgWeapons {
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 1000;
         };
-        
+
         displayName = "[CUP] SPG-9";
         author = "Brandon";
         scope = 2;
@@ -123,7 +123,7 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);
     };
-    
+
 
     // Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vmlauncher_TOW_single_veh
     class GVAR(cup_tow): Launcher_Base_F {
@@ -145,7 +145,7 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);
     };
-    
+
     /* Proxy Weapons */
     class CUP_Vhmg_M2_static;
     class GVAR(CUP_Vhmg_M2_static): CUP_Vhmg_M2_static {
@@ -173,6 +173,12 @@ class CfgWeapons {
     };
     class CUP_Vmlauncher_TOW_single_veh;
     class GVAR(CUP_Vmlauncher_TOW_single_veh): CUP_Vmlauncher_TOW_single_veh {
+        magazineReloadTime = 0.5;
+    };
+
+    // reloadable m119
+    class CUP_Vcannon_M119_veh;
+    class GVAR(proxy_L118): CUP_Vcannon_M119_veh {
         magazineReloadTime = 0.5;
     };
 };

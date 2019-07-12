@@ -1,4 +1,43 @@
 class CfgVehicles {
+
+
+    // reloadable m119
+    class ACE_Box_82mm_Mo_HE;
+    class GVAR(105mmAmmoBox): ACE_Box_82mm_Mo_HE {
+        displayName = "Potato M119 105mm Ammo Box (CSW)";
+        author = "potato csw mod";
+        maximumLoad = 6000;
+        class TransportMagazines {
+            MACRO_ADDMAGAZINE(GVAR(105mm_117_he),24);
+            MACRO_ADDMAGAZINE(GVAR(105mm_117_smoke),24);
+        };
+    };
+    class CUP_M119_base;
+    class GVAR(cup_m119_csw): CUP_M119_base {
+        displayName = "m119 (CSW loading)";
+        author = "CUP (potato csw mod)";
+        scope = 2;
+        scopeCurator = 2;
+        side = 1;
+        faction = "BLU_F";
+        crew = "B_Soldier_F";
+        typicalCargo[] = {"B_Soldier_F"};
+        class ACE_CSW {
+            enabled = 1;
+            proxyWeapon = QGVAR(proxy_L118);
+            magazineLocation = "_target selectionPosition 'otochlaven'";
+            ammoLoadTime = 5;
+            ammoUnloadTime = 5;
+        };
+        class EventHandlers {
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
+            init = "(_this select 0) setVariable ['ace_csw_assemblyMode', 2];";
+        };
+    };
+
+
+
+
     /* HMG's */
     class StaticMGWeapon;
     class CUP_M2StaticMG_base: StaticMGWeapon {

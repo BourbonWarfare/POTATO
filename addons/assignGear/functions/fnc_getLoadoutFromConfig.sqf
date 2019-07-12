@@ -37,6 +37,15 @@ private _configAttachments = getArray (_path >> "attachments");
 private _configSecondaryAttachments = getArray (_path >> "secondaryAttachments");
 private _configHandgunAttachments = getArray (_path >> "handgunAttachments");
 
+
+// temp - add splints to medics for old missions
+if ([param [1, objNull]] call ACEFUNC(common,isMedic)) then {
+    if ((_configBackpackItems findIf {(_x select [0,10]) == "ACE_splint"}) != -1) exitWith {}; // added via mission
+    INFO_2("adding splints %1 - %2",configName _path,_unit);
+    _configBackpackItems pushBack "ACE_splint:12";
+};
+
+
 private _containersArray = [];
 
 // NOTE: order of the three calls below matter!

@@ -46,5 +46,26 @@ class CfgMagazines {
         picture = ACE_CSW_PATH(UI\ammoBox_50bmg_ca.paa);
         ACE_isBelt = 1;
     };
+
+
+    // reloadable m119
+    class ACE_1Rnd_82mm_Mo_HE;
+    class GVAR(105mm_m119_he): ACE_1Rnd_82mm_Mo_HE {
+        author = "Potato";
+        displayName = "[CUP] 105mm HE";
+        mass = 120;
+    };
+    class GVAR(105mm_m119_smoke): GVAR(105mm_m119_he) {
+        displayName = "[CUP] 105mm Smoke";
+    };
+    class GVAR(105mm_m119_wp): GVAR(105mm_m119_he) {
+        displayName = "[CUP] 105mm WP";
+    };
+    class GVAR(105mm_m119_laser): GVAR(105mm_m119_he) {
+        displayName = "[CUP] 105mm Laser";
+    };
+    class GVAR(105mm_m119_illum): GVAR(105mm_m119_he) {
+        displayName = "[CUP] 105mm Illum";
+    };
 };
 

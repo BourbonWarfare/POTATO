@@ -1,5 +1,78 @@
 #include "script_component.hpp"
 
+
+// Temp ACE Medical fixes for july2019 (server only)
+if (isServer) then {
+    [{
+        diag_log text format ["[POTATO-Temp Ace Fix] Sending pain blackscreen effect fix"];
+        {
+            diag_log text format ["[POTATO-Temp Ace Fix] remoteExecCall Pain"];
+            [{
+                diag_log text format ["[POTATO-Temp Ace Fix] fixing pain blackscreen effect"];
+                if (hasInterface && {ace_medical_feedback_painEffectType == 0}) then {
+                    ace_medical_feedback_ppPain ppEffectAdjust [1, 1, 0, [1, 1, 1, 0], [1, 1, 1, 1], [0.33, 0.33, 0.33, 0], [0.59, 0.64, 0, 0, 0, 0, 4]];
+                    ace_medical_feedback_ppPain ppEffectCommit 0;
+                };
+            }, [], 1] call CBA_fnc_waitAndExecute;
+        } remoteExecCall ["bis_fnc_call", 0, true];
+
+
+        private _sideCounts = [west, east, resistance] apply {
+            private _side = _x;
+            {((side _x) == _side) && {isPlayer _x}} count allUnits;
+        };
+        private _sortedCounts = +_sideCounts;
+        _sortedCounts sort false;
+        private _isTVT = (_sortedCounts select 1) > 8;
+        diag_log text format ["[POTATO-Temp Ace Fix] [isTvt = %1] %2",_isTVT,_sideCounts];
+
+
+        if (_isTVT) then {
+            diag_log text format ["[POTATO-Temp Ace Fix] Sending TVT fatal wound fix"];
+            {
+                diag_log text format ["[POTATO-Temp Ace Fix] remoteExecCall TVT"];
+                [{
+                    diag_log text format ["[POTATO-Temp Ace Fix] Running TVT wound fix"];
+                    ["ace_medical_woundReceived", {
+                        params ["_unit", "_bodyPart", "_damage", "_typeOfDamage"];
+                        if ((_unit == ACE_player) && {_unit getVariable ["ACE_isUnconscious", false]} && {_damage > 0.5}) then {
+                            private _bps = _unit getVariable ["ace_medical_bodyPartDamage", [0,0,0,0,0,0]];
+                            if (((_bps select 0) + (_bps select 1)) > 1.5) then {
+                                diag_log text format ["[POTATO-Temp Ace Fix] TVT manually killing: %1", _bps];
+                                _unit setDamage 1;
+                            };
+                        };
+                    }] call CBA_fnc_addEventHandler;
+                }, [], 1] call CBA_fnc_waitAndExecute;
+            } remoteExecCall ["bis_fnc_call", 0, true];
+        } else {
+            diag_log text format ["[POTATO-Temp Ace Fix] Sending COOP fatal wound fix"];
+            {
+                diag_log text format ["[POTATO-Temp Ace Fix] remoteExecCall COOP"];
+                [{
+                    diag_log text format ["[POTATO-Temp Ace Fix] Running COOP wound fix"];
+                    ["ace_medical_woundReceived", {
+                        params ["_unit", "_bodyPart", "_damage", "_typeOfDamage"];
+                        if ((_unit == ACE_player) && {_unit getVariable ["ACE_isUnconscious", false]} && {_damage > 0.5}) then {
+                            private _bps = _unit getVariable ["ace_medical_bodyPartDamage", [0,0,0,0,0,0]];
+                            if (((_bps select 0) + (_bps select 1)) > 3) then {
+                                diag_log text format ["[POTATO-Temp Ace Fix] COOP manually killing: %1", _bps];
+                                _unit setDamage 1;
+                            };
+                        };
+                    }] call CBA_fnc_addEventHandler;
+                }, [], 1] call CBA_fnc_waitAndExecute;
+            } remoteExecCall ["bis_fnc_call", 0, true];
+        };
+    }, [], 1] call CBA_fnc_waitAndExecute;
+};
+
+
+
+
+
+
+
 // clean up empty groups
 {
     if ((units _x) isEqualTo []) then {
