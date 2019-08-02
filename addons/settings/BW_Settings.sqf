@@ -26,12 +26,12 @@ Setting ace_medical_painisonlysuppressed not used - value: [false,1]
 
 _settings = [
 // Medical:
-[QACEGVAR(medical,bleedingcoefficient), 1.27], // default: 1.0 (also set in mission.sqm)
+[QACEGVAR(medical,bleedingcoefficient), 1, true], // default: 1.0 (also set in mission.sqm) [forced to override old bwmf]
 [QACEGVAR(medical,ivFlowRate), 1.5], // default: 1.0
-[QACEGVAR(medical,spontaneousWakeUpChance), 0.333], // default: 0.05
+[QACEGVAR(medical,spontaneousWakeUpChance), 0.4], // default: 0.05
 [QACEGVAR(medical_treatment,woundReopening), false], // default: true
 [QACEGVAR(medical_treatment,litterCleanupDelay), 300], // default: 600
-[QACEGVAR(medical_treatment,cprSuccessChance), 0.6], // default: 0.4
+// [QACEGVAR(medical_treatment,cprSuccessChance), 0.6], // default: 0.4
 [QACEGVAR(medical_statemachine,AIUnconsciousness), false], // default: true
 [QACEGVAR(medical_statemachine,cardiacArrestTime), 1], // default: 30
 
