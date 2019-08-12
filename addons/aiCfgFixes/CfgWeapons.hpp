@@ -5597,7 +5597,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class CUP_arifle_RPK74: CUP_arifle_AK74 {
+    class CUP_arifle_RPK74: CUP_arifle_AK_Base {
         modes[] = {"manual","close","short","medium","far","Single","potato_long"};
         class manual: Mode_FullAuto {
             showToPlayer = 1;
@@ -5945,7 +5945,7 @@ class CfgWeapons {
             showToPlayer = 1;
         };
     };
-    class CUP_arifle_G36C: Rifle_Base_F {
+    class CUP_arifle_G36C: CUP_arifle_G36_Base {
         modes[] = {"Single","Fullauto"};
         class Single: Mode_SemiAuto {
             aiRateOfFire = 1;

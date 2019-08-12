@@ -75,9 +75,6 @@ if (hasInterface) then {
 
 
 
-
-
-
 if (hasInterface) then {
     // Increase lethality when taking sustained critical damage to body/head
     [{

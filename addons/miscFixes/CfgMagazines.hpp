@@ -17,8 +17,8 @@ class CfgMagazines {
         picture = "\CUP\Weapons\CUP_Weapons_Ammunition\data\ui\M_RPK_74_CA.paa";
     };
 
-    class 200Rnd_65x39_cased_Box_Tracer;
-    class 200Rnd_65x39_cased_Box_Tracer_Red: 200Rnd_65x39_cased_Box_Tracer {
+    class 200Rnd_65x39_cased_Box;
+    class 200Rnd_65x39_cased_Box_Tracer_Red: 200Rnd_65x39_cased_Box {
         ammo = "B_65x39_Case_red";
         author = "POTATO";
         descriptionShort = "6.5mm 200Rnd Tracer Box<br/>Caliber: 6.5x39 mm Tracer - Red<br/>Rounds: 200<br/>Used in: Mk200";
@@ -26,6 +26,7 @@ class CfgMagazines {
         displayNameShort = "Tracer";
         picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_red_ca.paa";
     };
+    class 200Rnd_65x39_cased_Box_Tracer;
     class 200Rnd_65x39_cased_Box_Tracer_Green: 200Rnd_65x39_cased_Box_Tracer {
         ammo = "B_65x39_Case_green";
         author = "POTATO";

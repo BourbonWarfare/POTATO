@@ -400,7 +400,7 @@ class CfgWeapons {
     class CUP_arifle_G36_Base: Rifle_Base_f {
         magazines[] = { NATO_PMAG_556 };
     };
-    class CUP_arifle_G36C: Rifle_Base_f {
+    class CUP_arifle_G36C: CUP_arifle_G36_Base {
         magazines[] = { NATO_PMAG_556 };
     };
     class CUP_arifle_MG36: CUP_arifle_G36C {
@@ -433,7 +433,7 @@ class CfgWeapons {
     class hlc_rifle_G36E1: hlc_rifle_g36A1 {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36E1_CMAG);
     };
-    class hlc_rifle_G36V: hlc_rifle_G36E1 {
+    class hlc_rifle_G36V: hlc_G36_base {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36V_CMAG);
     };
     class hlc_rifle_G36VAG36: hlc_rifle_G36V {
@@ -445,13 +445,13 @@ class CfgWeapons {
     class hlc_rifle_G36C: hlc_G36_base {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36C_CMAG);
     };
-    class hlc_rifle_G36CV: hlc_rifle_G36C {
+    class hlc_rifle_G36CV: hlc_rifle_G36V {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36CV_CMAG);
     };
     class hlc_rifle_G36CTac: hlc_rifle_G36CV {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36CTac_CMAG);
     };
-    class hlc_rifle_G36KV: hlc_rifle_G36KE1 {
+    class hlc_rifle_G36KV: hlc_rifle_G36V {
         HLC_G36_SWITCH_CLASS(hlc_rifle_G36KV_CMAG);
     };
     class hlc_rifle_g36KTac: hlc_rifle_G36KV {
@@ -528,8 +528,7 @@ class CfgWeapons {
         magazines[] = { NATO_PMAG_556 };
     };
 
-    class CUP_arifle_AK74;
-    class CUP_arifle_RPK74: CUP_arifle_AK74 {
+    class CUP_arifle_RPK74: CUP_arifle_AK_Base {
         magazines[] = { RU_LMG_545 };
     };
 
