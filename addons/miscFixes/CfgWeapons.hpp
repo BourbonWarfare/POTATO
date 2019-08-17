@@ -77,6 +77,11 @@ class CfgWeapons {
             "rhs_30Rnd_762x39mm_tracer", "rhs_30Rnd_762x39mm_89",
             "rhs_30Rnd_762x39mm_U", "CUP_30Rnd_762x39_AK47_M"
         };
+        UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
+    };
+    class rhs_weap_M249_base;
+    class rhs_weap_m240_base: rhs_weap_M249_base {
+        UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
     };
 
     // disable M70's rifle grenades until RHS decides to add rifle grenades
