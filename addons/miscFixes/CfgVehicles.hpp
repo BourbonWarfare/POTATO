@@ -54,4 +54,20 @@ class CfgVehicles {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
         };
     };
+
+
+
+
+
+    class Car_F;
+    class Wheeled_APC_F: Car_F {
+        class EventHandlers;
+    };
+    class rhsusf_stryker_base: Wheeled_APC_F {
+        class EventHandlers: EventHandlers {
+            class RHSUSF_EventHandlers {
+                init = "diag_log '[POTATO] Disabled Stryrker Lag Screen'; params ['_vehicle']; private _sections = getArray (configFile >> 'CfgVehicles' >> typeOf _vehicle >> 'hiddenSelections'); _vehicle setObjectTexture [_sections find 'BFT_screen', 'z\POTATO\addons\miscFixes\models\plotNvgView.paa'];";
+            };
+        };
+    };
 };
