@@ -46,6 +46,7 @@ GVAR(killCount) = 0;
     GVAR(killCount) = GVAR(killCount) + 1;
     GVAR(eventsArray) pushBack format ["KILLED: %1 %2", _name, _killInfo];
     acex_killTracker_outputText = (format ["Total Kills: %1<br/>", GVAR(killCount)]) + (GVAR(eventsArray) joinString "<br/>");
+    ACE_player setVariable [QGVAR(eventsString), acex_killTracker_outputText, true]; // Potato Specific (used for spectator)
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(death), {
@@ -53,6 +54,7 @@ GVAR(killCount) = 0;
     TRACE_2("death eh",_name,_killInfo);
     GVAR(eventsArray) pushBack format ["DIED: %1 %2", _name, _killInfo];
     acex_killTracker_outputText = (format ["Total Kills: %1<br/>", GVAR(killCount)]) + (GVAR(eventsArray) joinString "<br/>");
+    ACE_player setVariable [QGVAR(eventsString), acex_killTracker_outputText, true]; // Potato Specific (used for spectator)
 }] call CBA_fnc_addEventHandler;
 
 
