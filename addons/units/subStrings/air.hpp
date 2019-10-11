@@ -49,4 +49,4 @@ QAIR(demo),
 QAIR(vicc),
 QAIR(vicd),
 QAIR(pilot),
-QAIR(cc),
+QAIR(cc)
