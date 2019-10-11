@@ -4,7 +4,8 @@
 // turn off RHS engine startup script
 RHS_ENGINE_STARTUP_OFF = 1; // any non-nil value turns this off
 
-
+// Disable faction based nametag icons (because we just use the base factions for everything)
+ace_nametags_useFactionIcons = false;
 
 if (isServer) then {
     private _settings = [];
