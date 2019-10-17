@@ -27,7 +27,7 @@ Setting ace_medical_painisonlysuppressed not used - value: [false,1]
 _settings = [
 // Medical:
 [QACEGVAR(medical,bleedingcoefficient), 1, true], // default: 1.0 (also set in mission.sqm) [forced to override old bwmf]
-// [QACEGVAR(medical,fatalDamageSource), 1], // default: 0
+// [QACEGVAR(medical,fatalDamageSource), 1], // default: 0 // wait till L/K values finalized
 [QACEGVAR(medical,ivFlowRate), 1.5], // default: 1.0
 [QACEGVAR(medical,spontaneousWakeUpChance), 0.4], // default: 0.05
 [QACEGVAR(medical,spontaneousWakeUpEpinephrineBoost), 2], // default: 1
