@@ -573,7 +573,8 @@ class CfgWeapons {
     class CUP_lmg_M240: Rifle_Long_Base_F {
         magazines[] = { NATO_MMG_762 };
     };
-    class CUP_lmg_L110A1: Rifle_Long_Base_F {
+    class CUP_lmg_m249_pip4;
+    class CUP_lmg_L110A1: CUP_lmg_m249_pip4 {
         magazines[] = { NATO_BASE_556, NATO_LMG_556 };
     };
     class CUP_lmg_Mk48_Base: Rifle_Long_Base_F {

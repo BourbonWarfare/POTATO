@@ -6139,7 +6139,8 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class CUP_lmg_L110A1: Rifle_Long_Base_F {
+    class CUP_lmg_m249_pip4;
+    class CUP_lmg_L110A1: CUP_lmg_m249_pip4 {
         modes[] = {"manual","close","short","medium","far","potato_long"};
         class manual: Mode_FullAuto {
             showToPlayer = 1;
