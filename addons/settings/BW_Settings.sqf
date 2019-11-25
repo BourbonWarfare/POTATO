@@ -45,7 +45,7 @@ _settings = [
 
 [QACEGVAR(advanced_fatigue,performanceFactor), 1.4],
 [QACEGVAR(advanced_fatigue,recoveryFactor), 1.6],
-[QACEGVAR(cookoff,enable), false],
+[QACEGVAR(cookoff,enable), 0],
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
 [QACEGVAR(finger,enabled), true],
 [QACEGVAR(frag,maxTrack), 5],
