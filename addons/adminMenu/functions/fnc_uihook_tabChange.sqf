@@ -14,11 +14,7 @@ private _fnc_setListOfPlayers = {
 
     lbClear _listCtrl;
 
-    private _playerList = if (time > 120) then {
-        (allPlayers - (entities "HeadlessClient_F"))
-    } else {
-        ((entities [["CAManBase"], ["HeadlessClient_F"], true, true]) select { isPlayer _x })
-    };
+    private _playerList = ((entities [["CAManBase"], ["HeadlessClient_F"], true, true]) select { isPlayer _x });
 
     {
         if (_x call _condition) then {
