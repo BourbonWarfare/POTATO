@@ -54,13 +54,13 @@ systemChat "Generating...";
     {
         if (_weaponTypeSpecific in _x) exitwith {_weaponTypeID = _foreachindex};
     } foreach _types;
-    
+
     private _weaponDefinedConfig = configProperties[_weaponCfg, "isClass _x", false];
     private _allModes = [getArray(_weaponCfg >> "modes")] call _removeDuplicates;
     private _hasDefinedMode = {
         if (configName(_x) in _allModes) exitWith {true};
     } foreach _weaponDefinedConfig;
-    
+
     if (!isNil {_hasDefinedMode} && _weaponTypeCategory != "VehicleWeapon" && _weaponTypeID >= 0) then {
         private _procStr = "Processing '" + _weapon;
         systemChat _procStr;
@@ -133,7 +133,6 @@ private _alreadyDefined = [];
                     // Not a base class
                     private _weaponCfg = _x select 1;
                     private _modes = "modes[] = {";
-                    private _inheritMode = "";
                     private _addedModes = [];
                     private _predefinedModes = [];
                     private _allModes = [getArray(_weaponCfg >> "modes")] call _removeDuplicates;
@@ -157,7 +156,7 @@ private _alreadyDefined = [];
                             };
                         };
                     } foreach configProperties[_weaponCfg, "isClass _x", false];
-                    
+
                     {
                         // _x = inherited_classname::modes (string)
                         if (configName(inheritsFrom(_weaponCfg >> _x)) != "") then {
@@ -166,19 +165,21 @@ private _alreadyDefined = [];
                             // this is inheriting off of another weapon and we have to inherit the previous mode to get
                             // full data
                             if (_x in getArray(inheritsFrom(_weaponCfg) >> "modes")) then {
-                                _modeClass = INDENT + INDENT + "class " + _x + ": " + _x + " {" + LINE_BREAK;
+                                diag_log text format [" ~%1 - %2 Skipping Redefine A", _weaponCfg, _x];
+                                // _modeClass = INDENT + INDENT + "class " + _x + ": " + _x + " {" + LINE_BREAK;
                             } else {
                                 // If the mode does not exist in the array, create a new one
                                 private _configClasses = configProperties[inheritsFrom(_weaponCfg), "isClass _x", false];
                                 private _modeName = _x;
                                 {
                                     if (_modeName == configName(_x)) exitWith {
-                                        _modeClass = INDENT + INDENT + "class " + _modeName + ": " + configName(_x) + " {" + LINE_BREAK;
+                                        diag_log text format [" ~%1 - %2 Skipping Redefine B", _weaponCfg, _x];
+                                        // _modeClass = INDENT + INDENT + "class " + _modeName + ": " + configName(_x) + " {" + LINE_BREAK;
                                         true
                                     };
                                 } foreach _configClasses;
                             };
-                            
+
                             private _configCheck = 'configName(_x) == "burst" ||
                                                     configName(_x) == "aiRateOfFire" ||
                                                     configName(_x) == "aiRateOfFireDistance" ||
@@ -200,7 +201,7 @@ private _alreadyDefined = [];
                                                 configName(_x) == "maxRangeProbab" ||
                                                 configName(_x) == "showToPlayer"';
                             };
-                            
+
                             private _modeDef = "";
                             {
                                 if ((isText _x && getText(_x) != "") || isNumber(_x)) then {
@@ -211,7 +212,7 @@ private _alreadyDefined = [];
                                     };
                                 };
                             } foreach configProperties[_weaponCfg >> _x, _configCheck, true];
-                                                                            
+
                             private _uniqueIndex = _addedModes pushBackUnique (toLower _x);
                             // "Fix" bug where ACE modes would be duplicated endlessly
                             if (_uniqueIndex >= 0) then {
@@ -219,40 +220,52 @@ private _alreadyDefined = [];
                             } else {
                                 _modeDef = LINE_BREAK;
                             };
-                            
+
                             if ((toLower _x) find "optic" >= 0) then {
                                 _modeDef = LINE_BREAK;
                             };
-                            
+
+                            // Skip if not actually defined:
+                            private _modeName = _x;
+                            if ((configProperties [_weaponCfg, "isClass _x && {configName _x == _modeName}", false]) isEqualTo []) exitWith {};
+
                             _predefinedModes pushBack [_x, configName(inheritsFrom(_weaponCfg >> _x)), (_modeClass + _modeDef + INDENT + INDENT + "};" + LINE_BREAK)];
-                            if (_inheritMode == "") then {
-                                // What all of our modes inherit off of. The first mode defined should be the one that works
-                                _inheritMode = _x;
-                            };
                         };
                     } foreach _allModes;
-                    
+
                     // This next bit is to make sure that all the modes are defined in an order that guarentees that
                     // inheritance will work.
-                    reverse _predefinedModes;
+
+
                     private _predefinedModesCorrect = [];
-                    {
-                        for "_index" from (_foreachindex + 1) to (count _predefinedModes) do {
-                            if ((_x select 0) == ((_predefinedModes select _index) select 1)) then {
-                                _predefinedModesCorrect pushBackUnique ((_predefinedModes select _index) select 2);
-                                _predefinedModesCorrect pushBackUnique (_x select 2);
+                    private _definedModesLower = ["mode_fullauto", "mode_burst", "mode_semiauto"];
+                    private _possibleInherit = _predefinedModes apply {toLower (_x select 0)};
+
+
+                    while {
+                        {
+                            _x params ["_xMode", "_xInherit"];
+                            if ((_xMode == _xInherit) || {(toLower _xInherit) in _definedModesLower} || {!((toLower _xInherit) in _possibleInherit)}) exitWith {
+                                _predefinedModes deleteAt _foreachindex;
+                                _predefinedModesCorrect pushBack (_x select 2);
+                                _definedModesLower pushBack toLower _xMode;
+                                true
                             };
-                        };
-                        _predefinedModesCorrect pushBackUnique (_x select 2);
-                    } foreach _predefinedModes;
-                    
-                    reverse _predefinedModesCorrect;
+                            false
+                        } forEach _predefinedModes;
+                    } do {};
+                    {
+                        _x params ["_xMode", "_xInherit"];
+                            _predefinedModesCorrect pushBack (_x select 2);
+                            diag_log text format ["%3 backup Adding %1: %2", _xMode, _xInherit, _weaponClassStr];
+                    } forEach _predefinedModes;
+
                     _weaponStr = _weaponStr + (_predefinedModesCorrect joinString "");
-                    
+
                     private _modesArr = _modes splitString ",";
                     _modes = _modesArr joinString ",";
                     _modes = INDENT + INDENT + _modes + "};" + LINE_BREAK;
-                    
+
                     _weaponClassStr = _weaponClassStr + LINE_BREAK;
                     _weaponClasses = _weaponClasses + _weaponClassStr + _modes + _weaponStr + INDENT + "};" + LINE_BREAK;
                 } else {

@@ -155,7 +155,8 @@ class CfgAmmo {
     class CUP_B_19mm_HE: BulletBase {
         audibleFire = 18;
     };
-    class CUP_B_12Gauge_Pellets: BulletBase {
+    class B_12Gauge_Pellets_Submunition;
+    class CUP_B_12Gauge_Pellets: B_12Gauge_Pellets_Submunition {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
