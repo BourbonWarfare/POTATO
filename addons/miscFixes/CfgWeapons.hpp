@@ -57,14 +57,8 @@ class CfgWeapons {
     // add zeroing to iron sighted G36es
     class hlc_G36_base;
     class hlc_rifle_G36V : hlc_G36_base {
-        class OpticsModes {
-            class Kolimator {
-                distancezoommax = 100;
-                distancezoommin = 500;
-                discreteDistance[] = {100, 200, 300, 400, 500};
-                discreteDistanceInitIndex = 1;
-            };
-        };
+        discreteDistance[] = {100, 200, 300, 400, 500};
+        discreteDistanceInitIndex = 1;
     };
 
     // Create RPK from CUP RPK-74, just need to fill a gap
