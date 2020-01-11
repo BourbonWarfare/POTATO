@@ -64,6 +64,7 @@ _settings = [
 [QACEGVAR(respawn,removeDeadBodiesDisconnected), false],
 [QACEGVAR(ui,ammoCount), false, true], // Forced because it's User settable
 [QACEGVAR(ui,groupBar), false],
+[QACEGVAR(weather,showCheckAirTemperature), false],
 [QACEGVAR(zeus,autoAddObjects), true],
 
 ["sthud_settings_squadbar", true, true], // Reversed Logic ("No Squad Bar") AND Forced because it's User settable
