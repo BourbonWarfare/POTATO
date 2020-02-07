@@ -18,4 +18,5 @@ if (!hasInterface) exitWith {false};
 
 isServer ||
 GVAR(playerAuth) ||
-{serverCommandAvailable "#kick"}
+{serverCommandAvailable "#kick"} ||
+{(allCurators findIf {player == getAssignedCuratorUnit _x}) > -1} // enable if has access to zeus
