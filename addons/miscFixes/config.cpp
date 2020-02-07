@@ -16,7 +16,7 @@ class CfgPatches {
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "potato_core", "mbg_celle2", "ace_ui",
+            "potato_core", "ace_ui",
             "rhs_c_weapons", "rhsusf_c_weapons",
             "CUP_Weapons_AK", "hlcweapons_G36",
             "rhsgref_c_troops"
@@ -31,12 +31,12 @@ class CfgPatches {
 };
 
 
-// Fix CELLE font error:
-class CfgLocationTypes {
-    class MBG_celle2_icon_A7 {
-        font = "PuristaMedium";
-    };
-};
+// Fix CELLE font error: (reqAddon: "mbg_celle2")
+// class CfgLocationTypes {
+//     class MBG_celle2_icon_A7 {
+//         font = "PuristaMedium";
+//     };
+// };
 
 // Undo ACE's changes to system messages text brightness
 class RscChatListDefault {
