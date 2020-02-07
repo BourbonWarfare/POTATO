@@ -88,7 +88,8 @@ if (hasInterface) then {
                     private _bps = _unit getVariable ["ace_medical_bodyPartDamage", [0,0,0,0,0,0]];
                     if (((_bps select 0) + (_bps select 1)) > ([1.75, 3] select GVAR(isTVT))) then {
                         TRACE_1("manually killing", _bps);
-                        _unit setDamage 1;
+                        // _unit setDamage 1;
+                        [_unit, "Fatal Damage"] call ace_medical_status_fnc_setDead; // this should show correct killer instead of "#scripted"
                     };
                 };
             };
