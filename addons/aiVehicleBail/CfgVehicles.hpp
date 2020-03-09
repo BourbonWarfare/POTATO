@@ -376,13 +376,13 @@ class CfgVehicles {
         GVAR(engineFireProb) = 0.8;
         GVAR(detonationDuringFireProb) = 0.8;
         
-        GVAR(turretDetonationProb) = 0;
-        GVAR(hullDetonationProb) = 0;
-        GVAR(engineDetonationProb) = 0.2;
-        GVAR(hullFireProb) = 0.7;
-        GVAR(turretFireProb) = 0.7;
-        GVAR(engineFireProb) = 0.8;
-        GVAR(detonationDuringFireProb) = 0.8;
+        ACEGVAR(vehicleDamage,turretDetonationProb) = 0;
+        ACEGVAR(vehicleDamage,hullDetonationProb) = 0;
+        ACEGVAR(vehicleDamage,engineDetonationProb) = 0.2;
+        ACEGVAR(vehicleDamage,hullFireProb) = 0.7;
+        ACEGVAR(vehicleDamage,turretFireProb) = 0.7;
+        ACEGVAR(vehicleDamage,engineFireProb) = 0.8;
+        ACEGVAR(vehicleDamage,detonationDuringFireProb) = 0.8;
     };
     class rhs_btr_base : Wheeled_APC_F {
         GVAR(hullDetonationProb) = 0.2;
