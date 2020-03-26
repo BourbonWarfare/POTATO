@@ -32,6 +32,9 @@ private _problems = [];
 private _cfgW = configFile >> "CfgWeapons";
 private _cfgV = configFile >> "CfgVehicles";
 
+
+// Tag Slots that use Premium DLC content (disabled because too many false positives)
+/*
 private _premiumMods = (configProperties [configFile >> "CfgMods", "isClass _x && {((getText (_x >> 'popupMsgText')) find 'premium') > -1}", true]) apply {configName _x};
 _premiumMods = _premiumMods - ["Expansion"]; // ignore tanoa
 INFO_1("Checking premium DLC %1",_premiumMods);
@@ -83,6 +86,8 @@ if ((count _tagsChanged) > 0) then {
     _problems pushBack [format ["Auto-Tagging DLC %1<br/>SAVE AGAIN to confirm!", _dlcSeen],_tagsChanged];
 };
 INFO_1("DLC Used: %1",_dlcSeen);
+ */
+
 
 // Check weather:
 ("Intel" get3DENMissionAttribute "IntelFogStart") params ["_fog"];
