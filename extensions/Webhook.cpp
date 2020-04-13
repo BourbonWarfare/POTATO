@@ -7,7 +7,7 @@
 #include <future>
 #include "cpr/cpr.h"
 
-#define VERSION_STR "v1.0.0"
+constexpr auto VERSION_STR = "v1.0.0";
 
 
 extern "C" {
@@ -16,11 +16,10 @@ extern "C" {
     __declspec (dllexport) void __stdcall RVExtensionRegisterCallback(int(*callbackProc)(char const* name, char const* function, char const* data));
 }
 
-int(*callbackPtr)(char const* name, char const* function, char const* data) = nullptr;
+std::function<int(char const*, char const*, char const*)> callbackPtr = [](char const*, char const*, char const*) { return 0; };
 std::future<void> fWorker;
 
-void __stdcall RVExtensionRegisterCallback(int(*callbackProc)(char const* name, char const* function, char const* data))
-{
+void __stdcall RVExtensionRegisterCallback(int(*callbackProc)(char const* name, char const* function, char const* data)) {
     callbackPtr = callbackProc;
 }
 
@@ -30,7 +29,6 @@ void postThread(const char * msg) {
         cpr::Url{ "https://discordapp.com/api/webhooks/x/y" }, // don't commit this lol
         cpr::Payload{ {"content", msg}, {"username", "DLL BOT"} }
     );
-    if (!callbackPtr) return;
 
     std::stringstream outputStr;
     outputStr << "Finished with code [" << r.status_code << "]"; // 200/204 is good, 400 is bad
