@@ -7,7 +7,7 @@
 #include <future>
 #include "cpr/cpr.h"
 
-constexpr auto VERSION_STR = "v1.0.0";
+constexpr auto VERSION_STR = "v1.0.1";
 
 
 extern "C" {
@@ -27,7 +27,7 @@ void __stdcall RVExtensionRegisterCallback(int(*callbackProc)(char const* name, 
 void postThread(const char * msg) {
     cpr::Response r = cpr::Post(
         cpr::Url{ "https://discordapp.com/api/webhooks/x/y" }, // don't commit this lol
-        cpr::Payload{ {"content", msg}, {"username", "DLL BOT"} }
+        cpr::Payload{ {"content", msg}, {"username", "POTATO"} }
     );
 
     std::stringstream outputStr;
