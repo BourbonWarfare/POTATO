@@ -14,6 +14,7 @@ if (isServer) then {
     INFO_1("Setting server values for [%1] settings", count _settings);
     {
         _x params ["_settingName", "_settingValue", ["_force", false]];
+        if (isNil _settingName) then { WARNING_1("Setting not init: %1",_settingName); };
         private _ret = [_settingName, _settingValue, [0, 2] select _force, "server"] call CBA_settings_fnc_set;
         TRACE_4("Setting",_settingName,_settingValue, _force, _ret);
     } forEach _settings;
