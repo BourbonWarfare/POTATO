@@ -77,6 +77,9 @@ if (hasInterface) then {
 
 if (hasInterface) then {
     // Increase lethality when taking sustained critical damage to body/head
+
+    // ToDo: Move this to ace_medical_damage_fnc_determineIfFatal
+    // FATAL_SUM_DAMAGE_WEIBULL_L / K values
     [{
         TRACE_1("adding woundRecieved handler",GVAR(isTVT));
 
@@ -96,6 +99,7 @@ if (hasInterface) then {
         }] call CBA_fnc_addEventHandler;
     }, [], 5] call CBA_fnc_waitAndExecute;
 
+/* // Medical debug
     // debug for uncon:
     ["ace_unconscious", {
         params ["_unit", "_active"];
@@ -124,7 +128,6 @@ if (hasInterface) then {
             }, [_unit], 5] call CBA_fnc_waitAndExecute;
         };
     }] call CBA_fnc_addEventHandler;
-
 
 
     GVAR(readyToMsg) = true;
@@ -170,4 +173,5 @@ if (hasInterface) then {
             default { INFO_1("State: %1",_state); };
         };
     }, 30, []] call CBA_fnc_addPerFrameHandler;
+     */
 };
