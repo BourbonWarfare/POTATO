@@ -5,25 +5,6 @@
     Skip warning if changed by mission <BOOL>
 */
 
-
-
-/*
-// Old medical settings from mission.sqm:
-Setting ace_medical_level not used - value: [2,1]
-Setting ace_medical_medicsetting not used - value: [2,1]
-Setting ace_medical_enableunconsciousnessai not used - value: [0,1]
-Setting ace_medical_littercleanupdelay not used - value: [300,1]
-Setting ace_medical_medicsetting_pak not used - value: [1,1]
-Setting ace_medical_medicsetting_surgicalkit not used - value: [2,1]
-Setting ace_medical_consumeitem_pak not used - value: [1,1]
-Setting ace_medical_consumeitem_surgicalkit not used - value: [1,1]
-Setting ace_medical_usecondition_pak not used - value: [1,1]
-Setting ace_medical_usecondition_surgicalkit not used - value: [1,1]
-Setting ace_medical_healhitpointafteradvbandage not used - value: [true,1]
-Setting ace_medical_painisonlysuppressed not used - value: [false,1]
-*/
-
-
 _settings = [
 // Medical:
 [QACEGVAR(medical,bleedingcoefficient), 1, true], // default: 1.0 (also set in mission.sqm) [forced to override old bwmf]
@@ -42,6 +23,19 @@ _settings = [
 [QACEGVAR(medical_blood,enabledFor), 1],
 
 
+// Vehicle Damage
+[QEGVAR(aiVehicleBail,enableCrewBailing), false],
+[QEGVAR(aiVehicleBail,enableCookoffDetonations), false],
+[QEGVAR(aiVehicleBail,enableCookoff), false],
+[QEGVAR(aiVehicleBail,enableCookoffMultihit), false],
+[QACEGVAR(fire,enableFlare), false],
+[QACEGVAR(vehicle_damage,enableAdvancedPen), false],
+[QEGVAR(aiVehicleBail,enableCookoffMultihit), false],
+[QACEGVAR(fire,enabled), true],
+[QACEGVAR(vehicle_damage,enableAdvancedPen), true],
+
+
+[QACEGVAR(hearing,autoAddEarplugsToUnits), false],
 [QACEGVAR(advanced_fatigue,performanceFactor), 1.4],
 [QACEGVAR(advanced_fatigue,recoveryFactor), 1.6],
 [QACEGVAR(cookoff,enable), 0],
