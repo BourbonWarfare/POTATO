@@ -1222,7 +1222,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class CUP_srifle_LeeEnfield: Rifle_Base_F {
+    class CUP_srifle_LeeEnfield: Rifle_Long_Base_F {
         modes[] = {"Single"};
         class Single: Mode_SemiAuto {
             showToPlayer = 1;
