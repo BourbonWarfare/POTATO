@@ -30,9 +30,7 @@ _settings = [
 [QEGVAR(aiVehicleBail,enableCookoffMultihit), false],
 [QACEGVAR(fire,enableFlare), false],
 [QACEGVAR(vehicle_damage,enableAdvancedPen), false],
-[QEGVAR(aiVehicleBail,enableCookoffMultihit), false],
 [QACEGVAR(fire,enabled), true],
-[QACEGVAR(vehicle_damage,enableAdvancedPen), true],
 
 
 [QACEGVAR(advanced_fatigue,performanceFactor), 1.4],
