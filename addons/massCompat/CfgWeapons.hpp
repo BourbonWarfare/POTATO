@@ -331,8 +331,8 @@ class CfgWeapons {
         };
     };
 
-    class srifle_EBR_F;
-    class rhs_weap_m14ebrri: srifle_EBR_F {
+    class rhs_weap_m14ebrri_base;
+    class rhs_weap_m14ebrri: rhs_weap_m14ebrri_base {
         magazines[] = { NATO_DMR_762 };
     };
 

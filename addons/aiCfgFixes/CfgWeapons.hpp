@@ -4622,7 +4622,8 @@ class CfgWeapons {
     class srifle_EBR_F: EBR_base_F {
         modes[] = {"Single","single_close_optics1","single_medium_optics1","single_far_optics1"};
     };
-    class rhs_weap_m14ebrri: srifle_EBR_F {
+    class rhs_weap_m14ebrri_base;  
+    class rhs_weap_m14ebrri: rhs_weap_m14ebrri_base {
         modes[] = {"Single","single_close_optics1","single_medium_optics1","single_far_optics1"};
         class Single: Mode_SemiAuto {
             minRange = 2;
