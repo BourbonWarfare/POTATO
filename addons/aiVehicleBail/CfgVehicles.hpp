@@ -203,6 +203,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.5;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.8;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.5;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class rhs_bmp_base : rhs_bmp1tank_base { // RHS BMP1 and BMP2
         GVAR(hullDetonationProb) = 0;
@@ -238,6 +239,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.2;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.5;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.2;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class CUP_FV432_Bulldog_Base : Tank_F {
         GVAR(hullDetonationProb) = 0.2;
@@ -340,6 +342,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.5;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class CUP_Leopard2_Base : Tank_F {
         GVAR(hullDetonationProb) = 0.3;
@@ -357,6 +360,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.2;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.5;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.7;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class rhs_zsutank_base : APC_Tracked_02_base_F {
         GVAR(hullDetonationProb) = 0;
@@ -383,6 +387,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.7;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.8;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.8;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class rhs_btr_base : Wheeled_APC_F {
         GVAR(hullDetonationProb) = 0.2;
@@ -514,6 +519,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.2;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.8;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.5;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class CUP_StrykerBase : Wheeled_APC_F {
         GVAR(hullDetonationProb) = 0.2;
@@ -565,6 +571,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.5;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class CUP_AAV_Base : Tank_F {
         GVAR(hullDetonationProb) = 0.2;
@@ -582,6 +589,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.5;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.8;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.5;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class CUP_LAV25_Base : Wheeled_APC_F {
         GVAR(hullDetonationProb) = 0.2;
@@ -599,6 +607,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.7;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.7;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.5;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class CUP_M60A3_Base : Tank_F {
         GVAR(hullDetonationProb) = 0.5;
@@ -616,6 +625,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.5;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.8;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.5;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class RHS_M2A2_Base : APC_Tracked_03_base_F {
         GVAR(hullDetonationProb) = 0.2;
@@ -660,6 +670,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.7;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.8;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.8;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class CUP_BMP3_Base : Tank_F {
         GVAR(hullDetonationProb) = 0.2;
@@ -677,6 +688,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.2;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.8;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.5;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class CUP_BTR90_Base : Wheeled_APC_F {
         GVAR(hullDetonationProb) = 0.5;
@@ -762,6 +774,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.2;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.5;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class CUP_T55_Base : Tank_F {
         GVAR(hullDetonationProb) = 0.5;
@@ -779,6 +792,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,turretFireProb) = 0.2;
         ACEGVAR(vehicle_damage,engineFireProb) = 0.5;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.5;
+        ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
     class rhs_t90_tv : rhs_t72bd_tv {
         GVAR(hullDetonationProb) = 0;
