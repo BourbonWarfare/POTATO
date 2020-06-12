@@ -38,10 +38,10 @@ class CfgZeusFactory {
         "rhsusf_M1232_MK19_usarmy_d", // Desert GMG RG-33L
         "rhsusf_M1117_W", // Woodland ASV HMG/GMG
         "rhsusf_M1117_D", // Desert ASV HMG/GMG
-        "rhsgref_ins_uaz_open", // UAZ Jeep Carrier
-        "rhsgref_ins_uaz_dshkm", // UAZ HMG Jeep
-        "rhsgref_ins_uaz_ags", // UAZ GMG Jeep
-        "rhsgref_ins_uaz_spg9", // UAZ SPG Jeep
+        "rhs_uaz_open_Base", // UAZ Jeep Carrier
+        "RHS_UAZ_DShKM_Base", // UAZ HMG Jeep
+        "RHS_UAZ_AGS30_Base", // UAZ GMG Jeep
+        "RHS_UAZ_SPG9_Base", // UAZ SPG Jeep
         "rhs_tigr_vdv", // Tiger
         "rhs_tigr_sts_vdv", // Tiger LMG/GMG
         "rhsgref_BRDM2_vdv", // BRDM HMG
@@ -51,8 +51,8 @@ class CfgZeusFactory {
         "rhsusf_M1083A1P2_B_d_open_fmtv_usarmy", // Desert US Truck
         "rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy", // Woodland HMG US Truck
         "rhsusf_M1083A1P2_B_M2_d_open_fmtv_usarmy", // Desert HMG US Truck
-        "rhsgref_ins_gaz66", // GAZ 66 open truck
-        "rhsgref_ins_ural_open", // Ural 4320 open truck
+        "rhs_gaz66_msv", // GAZ 66 open truck
+        "RHS_Ural_MSV_Base", // Ural 4320 open truck
         "rhs_kamaz5350_open_vdv", // KamAZ 5350
 
         // CUP Cars
