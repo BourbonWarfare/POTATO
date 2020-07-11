@@ -48,6 +48,13 @@
     [] call EFUNC(markers,initMarkerHash);
 }] call CBA_fnc_addEventHandler;
 
+[QGVAR(missionTestingAddaction), {
+    private _openReport = ["openReport", "<t color='#2eed15'>Mission Report</t>", "", {[0] call EFUNC(missionTesting,openMenu);}, {}, {}, [], [], 0] call ace_interact_menu_fnc_createAction;
+    ["CAManBase", 1, ["ACE_SelfActions"], _openReport, true] call ace_interact_menu_fnc_addActionToClass;
+    private _openChecklist = ["openChecklist", "<t color='#2eed15'>Mission Checklist</t>", "", {[1] call EFUNC(missionTesting,openMenu);}, {}, {}, [], [], 0] call ace_interact_menu_fnc_createAction;
+    ["CAManBase", 1, ["ACE_SelfActions"], _openChecklist, true] call ace_interact_menu_fnc_addActionToClass;
+}] call CBA_fnc_addEventHandler;
+
 GVAR(openEndMission) = false;
 
 if (isServer) then {

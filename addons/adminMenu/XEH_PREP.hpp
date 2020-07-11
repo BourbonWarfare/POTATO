@@ -20,5 +20,6 @@ PREP(uihook_resetSpectateButton);
 PREP(uihook_teleportButton);
 PREP(uihook_weaponTest);
 PREP(uihook_zeusConnectPlayer);
+PREP(uihook_enableMissionTesting);
 
 PREP(zeusConnectCurator);
