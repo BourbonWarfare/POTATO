@@ -10,6 +10,31 @@ class CfgPatches {
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
+    class AchillesEffects {
+        units[] = {};
+        weapons[] = {};
+        author = "x";
+        requiredVersion = 1.0;
+        requiredAddons[] = {};
+    };
+    class achilles_modules_f_achilles {
+        units[] = {"ModulePersistentSmokePillar_F"};
+        weapons[] = {};
+        author = "x";
+        requiredVersion = 1.0;
+        requiredAddons[] = {};
+    };
+};
+
+class CfgVehicles {
+    class Logic;
+    class ModulePersistentSmokePillar_F: Logic {
+        scope = 1;
+        displayName = "Delete Me (ModulePersistentSmokePillar_F)";
+        class CfgEventHandlers {
+            init = "if (isServer) then { diag_log str _this; deleteVehicle (_this select 0); };";
+        };
+    };
 };
 
 #include "CfgEventHandlers.hpp"
