@@ -13,4 +13,12 @@ class CfgPatches {
     };
 };
 
+class GVAR(display) {
+    idd = 9999;
+    movingEnable = 1;
+    enableSimulation = 1;
+    enableDisplay = 1;
+};
+
+#include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
