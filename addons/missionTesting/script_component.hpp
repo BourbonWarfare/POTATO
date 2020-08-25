@@ -22,7 +22,6 @@
 #define D_PASSFAIL 0
 #define A_CHECK ["X","O"]
 #define D_CHECK 0
-#define A_NOTEFLAG ["",""]
 #define D_NOTEFLAG 0
 #define A_MISSION_TYPE ["COOP","TVT"]
 #define MISSION_TYPE_APPLIES_BOTH 0
@@ -42,10 +41,15 @@
 #define BBPASS "[color=#00FF00]PASS[/color]"
 #define BBFAIL "[color=#FF0000]FAIL[/color]"
 #define BBNA "[color=#FFFF00]Not Applicable[/color]"
-#define TEXT_SIZE
 #define CONTROL_SIZE_H 0.05
-#define CONTROL_GROUP 9991
-#define CONTROL_LINE private _createCtrlLine = DISPLAY ctrlCreate ["RscLine",-1,CONTROL_GROUP]; _createCtrlLine ctrlSetPosition [0.01,GVAR(yStartCoord),0.79,0];
-#define INCREMENT_YCOORD GVAR(yStartCoord) = GVAR(yStartCoord) + 0.01;
+#define INCREMENT_YCOORD GVAR(yStartCoord) = GVAR(yStartCoord) + 0.01
 
-#define DISPLAY (findDisplay 9999)
+#define DISPLAY_TESTMENU (findDisplay 9999)
+#define CONTROL_GROUP 9991
+#define DISPLAY_BRIEF (findDisplay 9998)
+#define BRIEFINGS_GROUP_L 9992
+#define BRIEFINGS_GROUP_R 9993
+
+#define IDC_GENERAL 3000
+#define IDC_CBITEMS 5000
+#define IDC_PASSFAIL 6000

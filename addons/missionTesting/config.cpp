@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {};
+        units[] = {QGVAR(OpenTestingMenu)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
@@ -13,12 +13,20 @@ class CfgPatches {
     };
 };
 
-class GVAR(display) {
+class GVAR(displayMissionTesting) {
     idd = 9999;
     movingEnable = 1;
     enableSimulation = 1;
     enableDisplay = 1;
 };
+class GVAR(displayBreifings) {
+    idd = 9998;
+    movingEnable = 1;
+    enableSimulation = 1;
+    enableDisplay = 1;
+};
 
-#include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
+#include "CfgEden.hpp"
+#include "CfgFactionClasses.hpp"
+#include "CfgVehicles.hpp"

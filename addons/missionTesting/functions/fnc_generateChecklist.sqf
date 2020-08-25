@@ -15,7 +15,7 @@ TRACE_1("Params",_this);
 
 params[""];
 
-GVAR(TestingChecklistMaster) = [
+GVAR(MissionTestingChecklistMaster) = [
     ["PRE-MISSION CHECKLIST",
         [
             ["Ensure only slots that are meant to be played are in the mission.",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
