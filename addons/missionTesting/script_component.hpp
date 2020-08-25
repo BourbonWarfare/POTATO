@@ -21,7 +21,8 @@
 #define A_PASSFAIL ["FAIL","PASS","NA"]
 #define D_PASSFAIL 0
 #define A_CHECK ["X","O"]
-#define D_CHECK 0
+#define D_CHECK false
+#define CHECK_TF ["true","false"]
 #define D_NOTEFLAG 0
 #define A_MISSION_TYPE ["COOP","TVT"]
 #define MISSION_TYPE_APPLIES_BOTH 0
@@ -42,13 +43,17 @@
 #define BBFAIL "[color=#FF0000]FAIL[/color]"
 #define BBNA "[color=#FFFF00]Not Applicable[/color]"
 #define CONTROL_SIZE_H 0.05
-#define INCREMENT_YCOORD GVAR(yStartCoord) = GVAR(yStartCoord) + 0.01
+#define INCREMENT_YCOORD GVAR(yStartCoord) = GVAR(yStartCoord) + 0.03
 
-#define DISPLAY_TESTMENU (findDisplay 9999)
-#define CONTROL_GROUP 9991
-#define DISPLAY_BRIEF (findDisplay 9998)
-#define BRIEFINGS_GROUP_L 9992
-#define BRIEFINGS_GROUP_R 9993
+#define DISPLAY_TESTMENU findDisplay 9999
+#define CONTROL_GROUP_IDC 9991
+#define CONTROL_GROUP DISPLAY_TESTMENU displayCtrl CONTROL_GROUP_IDC
+
+#define DISPLAY_BRIEF findDisplay 9998
+#define BRIEFINGS_GROUP_L_IDC 9992
+#define BRIEFINGS_GROUP_L DISPLAY_BRIEF displayCtrl BRIEFINGS_GROUP_L_IDC
+#define BRIEFINGS_GROUP_R_IDC 9993
+#define BRIEFINGS_GROUP_R DISPLAY_BRIEF displayCtrl BRIEFINGS_GROUP_R_IDC
 
 #define IDC_GENERAL 3000
 #define IDC_CBITEMS 5000

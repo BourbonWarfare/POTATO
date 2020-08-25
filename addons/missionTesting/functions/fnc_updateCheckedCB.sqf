@@ -23,6 +23,7 @@ private _lineTens = parseNumber _array select 2;
 private _lineUnits = parseNumber _array select 3;
 private _line = (_lineTens * 10) + _lineUnits;
 private _masterChecklist = nil;
+private _checkTF = CHECK_TF select __checked;
 
 if(_missionMaker == name player) then {
     _masterChecklist = GVAR(MissionTestingChecklistMaster);// Needs to Be changed back after testing "MissionMakerChecklistMaster"
@@ -34,7 +35,7 @@ private _subsectionArray = _masterChecklist select _subSection;
 private _subSectionArrayCBs = _subsectionArray select 1;
 private _specificLine = _subsectionArrayCBs select _line;
 
-_specificLine set [1,_checked];
+_specificLine set [1,_checkTF];
 _subSectionArrayCBs set [_line,_specificLine];
 _subSectionArray set [1,_subSectionArrayCBs];
 _masterChecklist set [_subsection,_subSectionArray];
