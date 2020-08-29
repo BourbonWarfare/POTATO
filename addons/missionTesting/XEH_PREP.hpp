@@ -1,12 +1,10 @@
 TRACE_1("",QUOTE(ADDON));
 
-PREP(generateChecklist);
-
 PREP(displayMenu);
 
 PREP(openBriefings);
+PREP(briefingsChangeSide);
 
-PREP(generateChecklist);
 PREP(generateReport);
 
 PREP(runWeaponsTest);

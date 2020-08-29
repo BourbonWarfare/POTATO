@@ -16,13 +16,14 @@
 #include "\z\potato\addons\core\script_macros.hpp"
 
 #define TEXT_ORANGE [1,0.5,0,1]
+#define TEXT_H_LARGE 0.06
 #define TEXT_RED [1,0,0,1]
 #define TEXT_BLUE [0,0.5,1,1]
 #define A_PASSFAIL ["FAIL","PASS","NA"]
 #define D_PASSFAIL 0
 #define A_CHECK ["X","O"]
 #define D_CHECK false
-#define CHECK_TF ["true","false"]
+#define CHECK_TF [false,true]
 #define D_NOTEFLAG 0
 #define A_MISSION_TYPE ["COOP","TVT"]
 #define MISSION_TYPE_APPLIES_BOTH 0
@@ -43,18 +44,23 @@
 #define BBFAIL "[color=#FF0000]FAIL[/color]"
 #define BBNA "[color=#FFFF00]Not Applicable[/color]"
 #define CONTROL_SIZE_H 0.05
-#define INCREMENT_YCOORD GVAR(yStartCoord) = GVAR(yStartCoord) + 0.03
+#define INCREMENT_YCOORD GVAR(yStartCoord) = GVAR(yStartCoord) + 0.01
+#define INCREMENT_YCOORD_TEXT GVAR(yStartCoord) = GVAR(yStartCoord) + 0.06
+#define LINE_W 0.81
 
-#define DISPLAY_TESTMENU findDisplay 9999
-#define CONTROL_GROUP_IDC 9991
-#define CONTROL_GROUP DISPLAY_TESTMENU displayCtrl CONTROL_GROUP_IDC
+#define DISPLAY_TESTMENU (findDisplay 9999)
+#define CONTROL_GROUP_L_IDC 9991
+#define CONTROL_GROUP_L DISPLAY_TESTMENU displayCtrl CONTROL_GROUP_L_IDC
+#define CONTROL_GROUP_R_IDC 9992
+#define CONTROL_GROUP_R DISPLAY_TESTMENU displayCtrl CONTROL_GROUP_R_IDC
 
-#define DISPLAY_BRIEF findDisplay 9998
-#define BRIEFINGS_GROUP_L_IDC 9992
+#define DISPLAY_BRIEF (findDisplay 9998)
+#define BRIEFINGS_GROUP_L_IDC 9993
 #define BRIEFINGS_GROUP_L DISPLAY_BRIEF displayCtrl BRIEFINGS_GROUP_L_IDC
-#define BRIEFINGS_GROUP_R_IDC 9993
+#define BRIEFINGS_GROUP_R_IDC 9994
 #define BRIEFINGS_GROUP_R DISPLAY_BRIEF displayCtrl BRIEFINGS_GROUP_R_IDC
 
 #define IDC_GENERAL 3000
 #define IDC_CBITEMS 5000
 #define IDC_PASSFAIL 6000
+#define IDC_BREIFING 8000

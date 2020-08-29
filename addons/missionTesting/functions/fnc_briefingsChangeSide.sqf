@@ -22,10 +22,13 @@ private _mission = nil;
 private _admin = nil;
 private _weaponsReport = nil;
 private _zuesIntent = getMissionConfigValue [QEGVAR(briefing,zeusintent), ""];
-// for _reportArray = ["zuesIntent","situtation","Mission","Admin","WeaponsReport"]
 private _reportArray = [];
 
-[] call FUNC(runWeaponsReport);
+if (!isNil QGVAR(TestRan)) then {
+        TRACE_1("Test Ran Already",_this);
+    } else {
+        [] call FUNC(runWeaponsTest);
+};
 
 switch (_side) do {
     case 0: {
@@ -54,44 +57,45 @@ switch (_side) do {
     };
 };
 
-private _ctrlCreateZeuzIntentTitle = DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),-1,BRIEFINGS_GROUP_L];
-private _ctrlCreateZeuzIntentText = DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),-1];
-private _ctrlCreateSituationTitle = DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),-1,BRIEFINGS_GROUP_L];
-private _ctrlCreateSituationText = DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),-1];
-private _ctrlCreateMissionTitle = DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),-1,BRIEFINGS_GROUP_L];
-private _ctrlCreateMissionText= DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),-1];
-private _ctrlCreateAdministrationTitle = DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),-1,BRIEFINGS_GROUP_L];
-private _ctrlCreateAdministrationText = DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),-1];
-private _ctrlCreateWeaponsReportTitle = DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),-1,BRIEFINGS_GROUP_R];
-private _ctrlCreateWeaponsReport = DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),-1];
-
 private _controls = [
-    _ctrlCreateZeuzIntentTitle
-    ,_ctrlCreateZeuzIntentText
-    ,_ctrlCreateSituationTitle
-    ,_ctrlCreateSituationText
-    ,_ctrlCreateMissionTitle
-    ,_ctrlCreateMissionText
-    ,_ctrlCreateAdministrationTitle
-    ,_ctrlCreateAdministrationText
+    (DISPLAY_BRIEF displayCtrl IDC_BREIFING + 0)
+    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 1)
+    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 2)
+    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 3)
+    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 4)
+    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 5)
+    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 6)
+    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 7)
+    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 8)
+    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 9)
 ];
-private _textArray = ["Zues Intent",_zuesIntent,"Situtation",_situtation,"Mission",_mission,"Administration",_admin];
+private _textArray = ["Zues Intent",_zuesIntent,"Situtation",_situtation,"Mission",_mission,"Administration",_admin,"WEAPONS REPORT",_weaponsReport];
 
 {
     private _ctrlClass = ctrlClassName _x;
     private _text = _textArray select _forEachIndex;
-    _x ctrlSetPosition [0,GVAR(yStartCoord)];
-    if(_ctrlClassName == "RscStructuredText") then {
+    _x ctrlSetPosition [0,GVAR(yStartCoord),0.63,0.05];
+    private _ctrlHeight = nil;
+    if(_ctrlClass == "RscStructuredText") then {
         _x ctrlSetStructuredText parseText _text;
     } else {
         _x ctrlSetText _text;
+        _x ctrlSetFontHeight 0.07;
+        _x ctrlSetTextColor [1,0.5,0,1];
     };
-    _ctrl ctrlCommit 0;
-    private _ctrlHeight = ctrlTextHeight _x;
+    _x ctrlCommit 0;
+    if(_ctrlClass == "RscStructuredText") then {
+        _ctrlHeight = ctrlTextHeight _x;
+    } else {
+        _ctrlHeight = 0.1;
+    };
     private _ctrlPos = ctrlPosition _x;
     _ctrlPos set [3,_ctrlHeight + 0.05];
     _x ctrlSetPosition _ctrlPos;
     _x ctrlCommit 0;
     GVAR(yStartCoord) = GVAR(yStartCoord) + _ctrlHeight;
     INCREMENT_YCOORD;
+    if (_forEachIndex == 7) then {GVAR(yStartCoord) = 0;};
 }forEach _controls;
+
+

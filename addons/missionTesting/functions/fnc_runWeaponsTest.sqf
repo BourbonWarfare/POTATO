@@ -15,8 +15,6 @@ TRACE_1("Params",_this);
 
 params [""];
 
-TRACE_1("params",_this);
-
 GVAR(westClasses) = [];
 GVAR(eastClasses) = [];
 GVAR(indyClasses) = [];
@@ -24,7 +22,7 @@ GVAR(civiClasses) = [];
 
 if ((isNull player) || {!alive player}) exitWith {};
 
-if (!isNil QGVAR(TestRan)) exitWith {};
+//if (!isNil QGVAR(TestRan)) exitWith {TRACE_1("Test Ran Already",_this)};
 
 private _handledClasses = [];
 
@@ -157,4 +155,4 @@ private _fncGetWeaponInfo = {
     };
     };
 } forEach allUnits;
-GVAR(TestRan) = 1;
+GVAR(TestRan) = true;

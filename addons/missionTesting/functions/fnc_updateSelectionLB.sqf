@@ -15,11 +15,12 @@ TRACE_1("Params",_this);
 
 params ["_control", "_selectedIndex"];
 
-private _idc = ctrlIDC _controls;
+private _idc = ctrlIDC _control;
 private _str = str _idc;
 private _array = _str splitString "";
-private _subsection = parseNumber _array select 3;
+private _subsection = parseNumber (_array select 3);
 private _masterChecklist = nil;
+private _missionMaker = getMissionConfigValue ["author","????"];
 
 if(_missionMaker == name player) then {
     _masterChecklist = GVAR(MissionTestingChecklistMaster);// Needs to Be changed back after testing "MissionMakerChecklistMaster"

@@ -1,19 +1,4 @@
-/*
- * Author: BadWolf
- * Function called to generate the arrays for the checklist at the time of activating the checklist system.
- *
- * Arguments:
- *
- * Examples:
- * [] call potato_missionTesting_fnc_generateChecklist;
- *
- * Public: No
- */
-
 #include "script_component.hpp"
-TRACE_1("Params",_this);
-
-params[""];
 
 GVAR(MissionTestingChecklistMaster) = [
     ["PRE-MISSION CHECKLIST",
@@ -69,3 +54,6 @@ GVAR(MissionMakerChecklistMaster) = [
         ],D_PASSFAIL,"",D_NOTEFLAG
     ]
 ];
+
+//For Testing Remove before final release
+GVAR(missionType) = 0;

@@ -18,12 +18,13 @@ params ["_control", "_checked"];
 private _idc = ctrlIDC _control;
 private _str = str _idc;
 private _array = _str splitString "";
-private _subsection = parseNumber _array select 1;
-private _lineTens = parseNumber _array select 2;
-private _lineUnits = parseNumber _array select 3;
+private _subsection = parseNumber (_array select 1);
+private _lineTens = parseNumber (_array select 2);
+private _lineUnits = parseNumber (_array select 3);
 private _line = (_lineTens * 10) + _lineUnits;
 private _masterChecklist = nil;
-private _checkTF = CHECK_TF select __checked;
+private _checkTF = CHECK_TF select _checked;
+private _missionMaker = getMissionConfigValue ["author","????"];
 
 if(_missionMaker == name player) then {
     _masterChecklist = GVAR(MissionTestingChecklistMaster);// Needs to Be changed back after testing "MissionMakerChecklistMaster"

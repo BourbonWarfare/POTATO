@@ -22,31 +22,30 @@ private _createChecklistSection  = {
 
         private _sectionIndex = _forEachIndex;
 
-        private _createCtrlLine0 = DISPLAY_TESTMENU ctrlCreate ["RscLine",-1,CONTROL_GROUP];
-        TRACE_1("Section Item 0",_createCtrlLine0);
-        _createCtrlLine0 ctrlSetPosition [0.01,GVAR(yStartCoord),0.79,0];
+        private _createCtrlLine0 = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscLine),-1,CONTROL_GROUP_L];
+        _createCtrlLine0 ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0];
+        _createCtrlLine0 ctrlCommit 0;
         INCREMENT_YCOORD;
 
-        private _ctrlCreateSectionTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP];
-        TRACE_1("Section Item 1",_ctrlCreateSectionTitle);
+        private _ctrlCreateSectionTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
         _ctrlCreateSectionTitle ctrlSetText _sectionTitle;
-        _ctrlCreateSectionTitle ctrlSetTextColor TEXT_RED;
-        _ctrlCreateSectionTitle ctrlSetPosition [0.01,GVAR(yStartCoord),0.83,CONTROL_SIZE_H];
+        _ctrlCreateSectionTitle ctrlSetTextColor TEXT_ORANGE;
+        _ctrlCreateSectionTitle ctrlSetFontHeight TEXT_H_LARGE;
+        _ctrlCreateSectionTitle ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
         _ctrlCreateSectionTitle ctrlCommit 0;
 
-        INCREMENT_YCOORD;
+        INCREMENT_YCOORD_TEXT;
 
-        private _ctrlCreateSectionInstruction = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP];
-        TRACE_1("Section Item 2",_ctrlCreateSectionInstruction);
+        private _ctrlCreateSectionInstruction = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
         _ctrlCreateSectionInstruction ctrlSetText "Check the box to confirm that the mission meets the requirement.";
         _ctrlCreateSectionInstruction ctrlSetTextColor TEXT_RED;
         _ctrlCreateSectionInstruction ctrlSetPosition [0.01,GVAR(yStartCoord),0.83,CONTROL_SIZE_H];
         _ctrlCreateSectionInstruction ctrlCommit 0;
 
-        INCREMENT_YCOORD;
-        private _createCtrlLine1 = DISPLAY_TESTMENU ctrlCreate ["RscLine",-1,CONTROL_GROUP];
-        TRACE_1("Section Item 3",_createCtrlLine1);
-        _createCtrlLine1 ctrlSetPosition [0.01,GVAR(yStartCoord),0.79,0];
+        INCREMENT_YCOORD_TEXT;
+        private _createCtrlLine1 = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscLine),-1,CONTROL_GROUP_L];
+        _createCtrlLine1 ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0];
+        _createCtrlLine1 ctrlCommit 0;
         INCREMENT_YCOORD;
 
         {
@@ -56,21 +55,18 @@ private _createChecklistSection  = {
             private _itemApplicable = _x select 2;
 
             if(_itemApplicable == GVAR(missionType) || _itemApplicable == 0) then {
-                TRACE_4("Variables for control: ",_idc,_text,_checked,_itemApplicable);
                 //Create Structure Text and Insert Text. Get hight of text and resize control appropriately.
-                _ctrlCreateText = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructuredText),-1,CONTROL_GROUP];
-                TRACE_1("Checklist Item Text",_ctrlCreateText);
+                _ctrlCreateText = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructuredText),-1,CONTROL_GROUP_L];
                 _ctrlCreateText ctrlSetStructuredText parseText _text;
                 _ctrlCreateText ctrlSetBackgroundColor [1, 1, 1, 0.25];
-                _ctrlCreateText ctrlSetPosition [0.01,GVAR(yStartCoord),0.78,CONTROL_SIZE_H];
+                _ctrlCreateText ctrlSetPosition [0.01,GVAR(yStartCoord),0.77,CONTROL_SIZE_H];
                 _ctrlCreateText ctrlCommit 0;
                 _ctrlHeight = ctrlTextHeight _ctrlCreateText;
-                _ctrlCreateText ctrlSetPosition [0.01,GVAR(yStartCoord),0.78,_ctrlHeight + 0.01];
+                _ctrlCreateText ctrlSetPosition [0.01,GVAR(yStartCoord),0.77,_ctrlHeight + 0.01];
                 _ctrlCreateText ctrlCommit 0;
                 //Create check box and add eventhandler that updates the Master Array when changed.
-                _ctrlCreateCB = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscCheckBox),_idc,CONTROL_GROUP];
-                TRACE_1("Checklist Item CB",_ctrlCreateCB);
-                _ctrlCreateCB ctrlSetPosition [0.79,GVAR(yStartCoord),0.05,CONTROL_SIZE_H];
+                _ctrlCreateCB = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscCheckBox),_idc,CONTROL_GROUP_L];
+                _ctrlCreateCB ctrlSetPosition [0.78,GVAR(yStartCoord),0.05,CONTROL_SIZE_H];
                 _ctrlCreateCB ctrlCommit 0;
                 _ctrlCreateCB cbSetChecked _checked;
                 _ctrlCreateCB ctrlAddEventHandler [QUOTE(CheckedChanged),{_this call FUNC(updateCheckedCB);}];
@@ -79,53 +75,49 @@ private _createChecklistSection  = {
             };
         } forEach _sectionArray;
 
-        private _createCtrlLine2 = DISPLAY_TESTMENU ctrlCreate ["RscLine",-1,CONTROL_GROUP];
-        TRACE_1("Section Item 4",_createCtrlLine2);
-        _createCtrlLine2 ctrlSetPosition [0.01,GVAR(yStartCoord),0.79,0];
+        private _createCtrlLine2 = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscLine),-1,CONTROL_GROUP_L];
+        _createCtrlLine2 ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0];
+        _createCtrlLine2 ctrlCommit 0;
         INCREMENT_YCOORD;
 
-        private _ctrlCreateSectionPassQuestion = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP];
-        TRACE_1("Section Item 5",_ctrlCreateSectionPassQuestion);
+        private _ctrlCreateSectionPassQuestion = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
         private _sectionQuestionPassFail = format ["Does this mission pass the %1 requirements?",_sectionTitle];
         _ctrlCreateSectionPassQuestion ctrlSetText _sectionQuestionPassFail;
         _ctrlCreateSectionPassQuestion ctrlSetPosition [0.01,GVAR(yStartCoord),0.7,CONTROL_SIZE_H];
         _ctrlCreateSectionPassQuestion ctrlCommit 0;
 
         private _idcPassFail = IDC_CBITEMS + _forEachIndex;
-        private _ctrlCreateSectionInstruction = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscCombo),_idcPassFail,CONTROL_GROUP];
-        TRACE_1("Section Item 6",_ctrlCreateSectionPassQuestion);
+        private _ctrlCreateSectionInstruction = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscCombo),_idcPassFail,CONTROL_GROUP_L];
         lbCLear _ctrlCreateSectionInstruction;
         {
-            _ctrlCreate lbAdd _x;
+            _ctrlCreateSectionInstruction lbAdd _x;
         } forEach A_PASSFAIL;
         _ctrlCreateSectionInstruction lbSetCurSel _sectionPassFail;
-        _ctrlCreateSectionInstruction ctrlSetPosition [0.72,GVAR(yStartCoord),0.12,CONTROL_SIZE_H];
+        _ctrlCreateSectionInstruction ctrlSetPosition [0.70,GVAR(yStartCoord),0.12,CONTROL_SIZE_H];
         _ctrlCreateSectionInstruction ctrlAddEventHandler [QUOTE(LBSelChanged),{_this call FUNC(updateSelectionLB);}];
         _ctrlCreateSectionInstruction ctrlCommit 0;
 
-        INCREMENT_YCOORD;
-        private _createCtrlLine3 = DISPLAY_TESTMENU ctrlCreate ["RscLine",-1,CONTROL_GROUP];
-        TRACE_1("Section Item 7",_createCtrlLine3);
-        _createCtrlLine3 ctrlSetPosition [0.01,GVAR(yStartCoord),0.79,0];
+        INCREMENT_YCOORD_TEXT;
+        private _createCtrlLine3 = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscLine),-1,CONTROL_GROUP_L];
+        _createCtrlLine3 ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0];
+        _createCtrlLine3 ctrlCommit 0;
         INCREMENT_YCOORD;
 
-        private _ctrlCreateSectionMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP];
-        TRACE_1("Section Item 8",_ctrlCreateSectionMMNotes);
+        private _ctrlCreateSectionMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
         _ctrlCreateSectionMMNotes ctrlSetText "Notes for Mission Maker:";
-        _ctrlCreateSectionMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),0.83,CONTROL_SIZE_H];
+        _ctrlCreateSectionMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
         _ctrlCreateSectionMMNotes ctrlCommit 0;
 
-        INCREMENT_YCOORD;
+        INCREMENT_YCOORD_TEXT;
 
         private _idcMMNotes = IDC_PASSFAIL + _forEachIndex;
-        private _ctrlCreateSectionMMNotesEdit = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),-1,CONTROL_GROUP];
-        TRACE_1("Section Item 9",_ctrlCreateSectionMMNotesEdit);
+        private _ctrlCreateSectionMMNotesEdit = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),_idcMMNotes,CONTROL_GROUP_L];
         _ctrlCreateSectionMMNotesEdit ctrlSetText _sectionNotes;
-        _ctrlCreateSectionMMNotesEdit ctrlSetPosition [0.01,GVAR(yStartCoord),0.82,0.15];
-        _ctrlCreateSectionInstruction ctrlAddEventHandler [QUOTE(KillFocus),{_this call FUNC(updateNotesFlag);}];
+        _ctrlCreateSectionMMNotesEdit ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0.15];
+        _ctrlCreateSectionMMNotesEdit ctrlAddEventHandler [QUOTE(KillFocus),{_this call FUNC(updateNotesFlag);}];
         _ctrlCreateSectionMMNotesEdit ctrlCommit 0;
 
-        INCREMENT_YCOORD + 0.15;
+        INCREMENT_YCOORD + 0.14;
 };
 
 //Main Function
@@ -136,16 +128,18 @@ if (isNull DISPLAY_TESTMENU) exitWith { systemChat "bad display"; };
 
 GVAR(yStartCoord) = 0.01;
 
-//Main Frame. This should be moved to a Class system so that I can have multiple types of main frames and customize from there.
 private _ctrlBackground = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscBackgroundGUI),-1];
 _ctrlBackground ctrlSetPosition [0,0,0.85,1];
 _ctrlBackground ctrlCommit 0;
 private _leftFrame = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscFrame),-1];
 _leftFrame ctrlSetPosition [0,0,0.85,1];
 _leftFrame ctrlCommit 0;
-private _leftGroup = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscControlsGroup),CONTROL_GROUP_IDC];
+private _leftGroup = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscControlsGroup),CONTROL_GROUP_L_IDC];
 _leftGroup ctrlSetPosition [0,0,0.85,1];
 _leftGroup ctrlCommit 0;
+private _rightGroup = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscControlsGroup),CONTROL_GROUP_R_IDC];
+_rightGroup ctrlSetPosition [0.86,0,0.51,1];
+_rightGroup ctrlCommit 0;
 private _menuCancel = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenuCancel),-1];
 _menuCancel ctrlSetText "Close";
 _menuCancel ctrlSetPosition [0.73,1,0.12,0.1];
@@ -154,24 +148,25 @@ _menuCancel ctrlCommit 0;
 private _menuBreifingPage = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
 _menuBreifingPage ctrlSetText "Brieifing";
 _menuBreifingPage ctrlSetPosition [0.60,1,0.12,0.1];
-_menuBreifingPage ctrlAddEventHandler [QUOTE(SetFocus),{[] spawn FUNC(openBreifings)}];
+//_menuBreifingPage ctrlAddEventHandler [QUOTE(MouseButtonClick),{[] call FUNC(openBreifings);}];
+_menuBreifingPage buttonSetAction QUOTE([] call FUNC(openBriefings));
 _menuBreifingPage ctrlCommit 0;
 
 private _missionMaker = getMissionConfigValue ["author","????"];
 private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
-private _missionType = "";
-private _missionVersion = "";
-private _missionPlayerCountMax = "";
-private _missionPlayerCountMin = "";
-private _missionPlayerCountRec = "";
-private _missionTag1 = "";
-private _missionTag2 = "";
-private _missionTag3 = "";
-private _missionCustomScripting = "";
-private _missionCustomLoadout = "";
-private _missionCustomVicLoadout = "";
-private _unitSpecificBrief = "";
-private _missionNotesForTester = "";
+private _missionType = parseText "Placeholder";
+private _missionVersion = parseText "Placeholder";
+private _missionPlayerCountMax = parseText "Placeholder";
+private _missionPlayerCountMin = parseText "Placeholder";
+private _missionPlayerCountRec = parseText "Placeholder";
+private _missionTag1 = parseText "Placeholder";
+private _missionTag2 = parseText "Placeholder";
+private _missionTag3 = parseText "Placeholder";
+private _missionCustomScripting = parseText "Placeholder";
+private _missionCustomLoadout = parseText "Placeholder";
+private _missionCustomVicLoadout = parseText "Placeholder";
+private _unitSpecificBrief = parseText "Placeholder";
+private _missionNotesForTester = parseText "Placeholder";
 private _masterChecklistArray = nil;
 
 if(_missionMaker == name player) then {
@@ -184,50 +179,66 @@ if(_missionMaker == name player) then {
     _x call _createChecklistSection;
 } forEach _masterChecklistArray;
 
-TRACE_1("Am I even getting this far?",_this);
+/* This section needs to be added for general mission notes - this includes having to change fnc_updateNotesFlag to allow this.
 
-private _ctrlCreateGenerateReport = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButton),-1,CONTROL_GROUP];
+private _ctrlGeneralMMNotesTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
+_ctrlGeneralMMNotesTitle ctrlSetText "Notes for Mission Maker:";
+_ctrlGeneralMMNotesTitle ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
+_ctrlGeneralMMNotesTitle ctrlCommit 0;
+
+INCREMENT_YCOORD_TEXT;
+
+private _ctrlGeneralMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),4000,CONTROL_GROUP_L];
+_ctrlGeneralMMNotes ctrlSetText _sectionNotes;
+_ctrlGeneralMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0.15];
+_ctrlGeneralMMNotes ctrlAddEventHandler [QUOTE(KillFocus),{_this call FUNC(updateNotesFlag);}];
+_ctrlGeneralMMNotes ctrlCommit 0;
+
+INCREMENT_YCOORD + 0.14; */
+
+private _ctrlCreateGenerateReport = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButton),-1,CONTROL_GROUP_L];
 _ctrlCreateGenerateReport ctrlSetText "Generate Report";
-_ctrlCreateGenerateReport ctrlSetPosition [0.01,GVAR(yStartCoord),0.78,0.15];
+_ctrlCreateGenerateReport ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0.15];
 _ctrlCreateGenerateReport ctrlAddEventHandler [QUOTE(MouseButtonClick),{[] call FUNC(generateReport)}];
 _ctrlCreateGenerateReport ctrlCommit 0;
 
 //Strutured Text Attributes.
 private _separator = parseText "<br />------------------------<br />";
 
-private _ctrlCreateInfoBlock = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructureText),-1];
+private _ctrlCreateInfoBlock = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructuredText),-1,CONTROL_GROUP_R];
+TRACE_1("Create Control Structure Text Info",_ctrlCreateInfoBlock);
 _ctrlCreateInfoBlock ctrlSetBackgroundColor [1, 1, 1, 0];
-_ctrlCreateInfoBlock ctrlSetPosition [0,0.86,0.5,1];
+_ctrlCreateInfoBlock ctrlSetPosition [0,0,0.5,1];
+_ctrlCreateInfoBlock ctrlCommit 0;
 _ctrlCreateInfoBlockText = composeText [
-    "MISSION INFORMATION",lineBreak
-    ,_seperator, lineBreak
-    ,"Mission Maker: ",_missionMaker, lineBreak
-    ,"Mission Name: ", _missionName, lineBreak
-    ,"Mission Type: ",_missionType, lineBreak
-    ,"Mission Version: ",_missionVersion, lineBreak
+    parseText "<t color='#FF8000'>MISSION INFORMATION</t>"
+    ,_separator
+    ,parseText "<t color='#0080FF'>Mission Maker:</t> ",_missionMaker, lineBreak
+    ,parseText "<t color='#0080FF'>Mission Name:</t> ", _missionName, lineBreak
+    ,parseText "<t color='#0080FF'>Mission Type:</t> ",_missionType, lineBreak
+    ,parseText "<t color='#0080FF'>Mission Version:</t> ",_missionVersion, lineBreak
     ,lineBreak
-    ,"Mission Player Count",lineBreak
-    ,_seperator, lineBreak
-    ,"Min: ",_missionPlayerCountMin,"Rec: ",_missionPlayerCountRec,"Max: ",_missionPlayerCountMax, lineBreak
-    ,_seperator, lineBreak
+    ,parseText "<t color='#FF8000'>MISSION PLAYER COUNT</t>"
+    ,_separator
+    ,parseText "<t color='#0080FF'>Min:</t> ",_missionPlayerCountMin,parseText "<t color='#0080FF'>Rec:</t> ",_missionPlayerCountRec,parseText "<t color='#0080FF'>Max:</t> ",_missionPlayerCountMax, lineBreak
     ,lineBreak
-    ,"Mission Tags", lineBreak
-    ,_seperator, lineBreak
-    ,_missionTag1,", ",_missionTag2,", ",_missionTag3,lineBreak
-    ,_seperator, lineBreak
+    ,parseText "<t color='#FF8000'>MISSION TAGS</t>"
+    ,_separator
+    ,_missionTag1,", ",_missionTag2,", ",_missionTag3, lineBreak
     ,lineBreak
-    ,"Mission Flags for Tester", lineBreak
-    ,_seperator, lineBreak
-    ,"Custom Scripting: ",_missionCustomScripting, lineBreak
-    ,"Custom Loadouts: ",_missionCustomLoadout, lineBreak
-    ,"Custom Vichicle Loadouts: ",_missionCustomVicLoadout, lineBreak
-    ,"Unit specific Breifs: ",_unitSpecificBrief, lineBreak
-    ,_seperator, lineBreak
+    ,parseText "<t color='#FF8000'>MISSION TAGS FOR TESTER</t>"
+    ,_separator
+    ,parseText "<t color='#0080FF'>Custom Scripting:</t> ",_missionCustomScripting, lineBreak
+    ,parseText "<t color='#0080FF'>Custom Loadouts:</t> ",_missionCustomLoadout, lineBreak
+    ,parseText "<t color='#0080FF'>Custom Vichicle Loadouts:</t> ",_missionCustomVicLoadout, lineBreak
+    ,parseText "<t color='#0080FF'>Unit specific Breifs:</t> ",_unitSpecificBrief, lineBreak
     ,lineBreak
-    ,_seperator, lineBreak
-    ,"Notes for Mission Tester"
-    ,_seperator, lineBreak
+    ,parseText "<t color='#FF8000'>MISSION MAKER NOTES FOR TESTER</t>"
+    ,_separator
     ,_missionNotesForTester,lineBreak
 ];
+TRACE_1("Compose Text: ",__ctrlCreateInfoBlockText);
 _ctrlCreateInfoBlock ctrlSetStructuredText _ctrlCreateInfoBlockText;
+private _ctrlCreateInfoBlockHeight = ctrlTextHeight _ctrlCreateInfoBlock;
+_ctrlCreateInfoBlock ctrlSetPosition [0,0,0.5,_ctrlCreateInfoBlockHeight + 0.01];
 _ctrlCreateInfoBlock ctrlCommit 0;
