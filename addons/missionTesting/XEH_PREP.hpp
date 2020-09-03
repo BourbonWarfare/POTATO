@@ -1,6 +1,7 @@
 TRACE_1("",QUOTE(ADDON));
 
 PREP(displayMenu);
+PREP(openMenuFromZues);
 
 PREP(openBriefings);
 PREP(briefingsChangeSide);

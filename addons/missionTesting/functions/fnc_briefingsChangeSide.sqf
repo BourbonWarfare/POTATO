@@ -97,5 +97,3 @@ private _textArray = ["Zues Intent",_zuesIntent,"Situtation",_situtation,"Missio
     INCREMENT_YCOORD;
     if (_forEachIndex == 7) then {GVAR(yStartCoord) = 0;};
 }forEach _controls;
-
-

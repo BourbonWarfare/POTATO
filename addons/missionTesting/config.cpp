@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {QGVAR(OpenTestingMenu)};
+        units[] = {QGVAR(missionTesting)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
@@ -28,5 +28,4 @@ class GVAR(displayBreifings) {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgEden.hpp"
-#include "CfgFactionClasses.hpp"
 #include "CfgVehicles.hpp"

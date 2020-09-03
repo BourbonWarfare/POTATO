@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+GVAR(missionTestingActive) = false;
+
 GVAR(MissionTestingChecklistMaster) = [
     ["PRE-MISSION CHECKLIST",
         [
@@ -55,5 +57,4 @@ GVAR(MissionMakerChecklistMaster) = [
     ]
 ];
 
-//For Testing Remove before final release
-GVAR(missionType) = 0;
+GVAR(GeneraMissionNotesForMM) = "";

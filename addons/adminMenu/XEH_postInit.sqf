@@ -49,8 +49,8 @@
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(missionTestingAddAction), {
-    private _displayChecklist = ["displayChecklist", "Testing Menu", "", {[] call EFUNC(missiontesting,displayMenu)}, {}, {}, [], [], 0] call ace_interact_menu_fnc_createAction;
-    ["CAManBase", 1, ["ACE_SelfActions"], _displayChecklist, true] call ace_interact_menu_fnc_addActionToClass;
+     private _displayChecklist = ["displayChecklist", "Testing Menu", "", {[] call EFUNC(missionTesting,displayMenu)}, {true}, {}, [], [], 0] call ace_interact_menu_fnc_createAction;
+    ["CAManBase", 1, ["ACE_SelfActions"], _displayChecklist,true] call ace_interact_menu_fnc_addActionToClass;
 }] call CBA_fnc_addEventHandler;
 
 GVAR(openEndMission) = false;

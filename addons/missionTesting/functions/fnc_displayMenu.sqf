@@ -54,7 +54,7 @@ private _createChecklistSection  = {
             private _checked = _x select 1;
             private _itemApplicable = _x select 2;
 
-            if(_itemApplicable == GVAR(missionType) || _itemApplicable == 0) then {
+            if(_itemApplicable == (getMissionConfigValue QGVAR(missionType)) || _itemApplicable == 0) then {
                 //Create Structure Text and Insert Text. Get hight of text and resize control appropriately.
                 _ctrlCreateText = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructuredText),-1,CONTROL_GROUP_L];
                 _ctrlCreateText ctrlSetStructuredText parseText _text;
@@ -104,7 +104,7 @@ private _createChecklistSection  = {
         INCREMENT_YCOORD;
 
         private _ctrlCreateSectionMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
-        _ctrlCreateSectionMMNotes ctrlSetText "Notes for Mission Maker:";
+        _ctrlCreateSectionMMNotes ctrlSetText "NOTES FOR MISSION MAKER:";
         _ctrlCreateSectionMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
         _ctrlCreateSectionMMNotes ctrlCommit 0;
 
@@ -148,25 +148,24 @@ _menuCancel ctrlCommit 0;
 private _menuBreifingPage = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
 _menuBreifingPage ctrlSetText "Brieifing";
 _menuBreifingPage ctrlSetPosition [0.60,1,0.12,0.1];
-//_menuBreifingPage ctrlAddEventHandler [QUOTE(MouseButtonClick),{[] call FUNC(openBreifings);}];
 _menuBreifingPage buttonSetAction QUOTE([] call FUNC(openBriefings));
 _menuBreifingPage ctrlCommit 0;
 
 private _missionMaker = getMissionConfigValue ["author","????"];
 private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
-private _missionType = parseText "Placeholder";
-private _missionVersion = parseText "Placeholder";
-private _missionPlayerCountMax = parseText "Placeholder";
-private _missionPlayerCountMin = parseText "Placeholder";
-private _missionPlayerCountRec = parseText "Placeholder";
-private _missionTag1 = parseText "Placeholder";
-private _missionTag2 = parseText "Placeholder";
-private _missionTag3 = parseText "Placeholder";
-private _missionCustomScripting = parseText "Placeholder";
-private _missionCustomLoadout = parseText "Placeholder";
-private _missionCustomVicLoadout = parseText "Placeholder";
-private _unitSpecificBrief = parseText "Placeholder";
-private _missionNotesForTester = parseText "Placeholder";
+private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
+private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
+private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
+private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMaximum);
+private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
+private _missionTag1 = A_MISSION_TAGS select (getMissionConfigValue QGVAR(missionTag1));
+private _missionTag2 = A_MISSION_TAGS select (getMissionConfigValue QGVAR(missionTag2));
+private _missionTag3 = A_MISSION_TAGS select (getMissionConfigValue QGVAR(missionTag3));
+private _missionCustomScripting =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagCustomScripting));
+private _missionCustomLoadout =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagCustomLoadout));
+private _missionCustomVicLoadout =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagCustomVicLoadout));
+private _unitSpecificBrief =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagUnitSpecificBriefing));
+private _missionNotesForTester =  getMissionConfigValue QGVAR(missionMakerNotesForTesters);
 private _masterChecklistArray = nil;
 
 if(_missionMaker == name player) then {
@@ -179,22 +178,28 @@ if(_missionMaker == name player) then {
     _x call _createChecklistSection;
 } forEach _masterChecklistArray;
 
-/* This section needs to be added for general mission notes - this includes having to change fnc_updateNotesFlag to allow this.
+INCREMENT_YCOORD_TEXT;
+private _createCtrlLine4 = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscLine),-1,CONTROL_GROUP_L];
+_createCtrlLine4 ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0];
+_createCtrlLine4 ctrlCommit 0;
+INCREMENT_YCOORD;
 
 private _ctrlGeneralMMNotesTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
-_ctrlGeneralMMNotesTitle ctrlSetText "Notes for Mission Maker:";
+_ctrlGeneralMMNotesTitle ctrlSetText "General Notes for Mission Maker:";
+_ctrlGeneralMMNotesTitle ctrlSetTextColor TEXT_ORANGE;
+_ctrlGeneralMMNotesTitle ctrlSetFontHeight TEXT_H_LARGE;
 _ctrlGeneralMMNotesTitle ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
 _ctrlGeneralMMNotesTitle ctrlCommit 0;
 
 INCREMENT_YCOORD_TEXT;
 
-private _ctrlGeneralMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),4000,CONTROL_GROUP_L];
-_ctrlGeneralMMNotes ctrlSetText _sectionNotes;
+private _ctrlGeneralMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_GENERAL_MT_NOTES,CONTROL_GROUP_L];
+_ctrlGeneralMMNotes ctrlSetText GVAR(GeneraMissionNotesForMM);
 _ctrlGeneralMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0.15];
-_ctrlGeneralMMNotes ctrlAddEventHandler [QUOTE(KillFocus),{_this call FUNC(updateNotesFlag);}];
+_ctrlGeneralMMNotes ctrlAddEventHandler [QUOTE(KillFocus),{GVAR(GeneraMissionNotesForMM) = ctrlText (_this select 0);}];
 _ctrlGeneralMMNotes ctrlCommit 0;
 
-INCREMENT_YCOORD + 0.14; */
+INCREMENT_YCOORD + 0.14;
 
 private _ctrlCreateGenerateReport = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButton),-1,CONTROL_GROUP_L];
 _ctrlCreateGenerateReport ctrlSetText "Generate Report";
@@ -237,7 +242,7 @@ _ctrlCreateInfoBlockText = composeText [
     ,_separator
     ,_missionNotesForTester,lineBreak
 ];
-TRACE_1("Compose Text: ",__ctrlCreateInfoBlockText);
+TRACE_1("Compose Text: ",_ctrlCreateInfoBlockText);
 _ctrlCreateInfoBlock ctrlSetStructuredText _ctrlCreateInfoBlockText;
 private _ctrlCreateInfoBlockHeight = ctrlTextHeight _ctrlCreateInfoBlock;
 _ctrlCreateInfoBlock ctrlSetPosition [0,0,0.5,_ctrlCreateInfoBlockHeight + 0.01];

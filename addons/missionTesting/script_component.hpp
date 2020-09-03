@@ -22,13 +22,14 @@
 #define A_PASSFAIL ["FAIL","PASS","NA"]
 #define D_PASSFAIL 0
 #define A_CHECK ["X","O"]
+#define A_YESNO ["Yes","No"]
 #define D_CHECK false
 #define CHECK_TF [false,true]
 #define D_NOTEFLAG 0
-#define A_MISSION_TYPE ["COOP","TVT"]
+#define A_MISSION_TYPE ["BOTH","COOP","TVT"]
 #define MISSION_TYPE_APPLIES_BOTH 0
-#define MISSION_TYPE_APPLIES_TVT 1
-#define MISSION_TYPE_APPLIES_COOP 2
+#define MISSION_TYPE_APPLIES_COOP 1
+#define MISSION_TYPE_APPLIES_TVT 2
 #define A_MISSION_TAGS ["None","NIGHT","DAWN","MSV","TvT1","TvT2","AH"]
 #define S_NEWTEXTLINE _textArray pushBack format
 #define S_NEWTEXTLINE_FORMATTEXT _textArray pushBack formattext
@@ -61,6 +62,9 @@
 #define BRIEFINGS_GROUP_R DISPLAY_BRIEF displayCtrl BRIEFINGS_GROUP_R_IDC
 
 #define IDC_GENERAL 3000
+#define IDC_GENERAL_MT_NOTES 3000
 #define IDC_CBITEMS 5000
 #define IDC_PASSFAIL 6000
 #define IDC_BREIFING 8000
+
+#define EDEN_TYPE_LIST_IDC 95184

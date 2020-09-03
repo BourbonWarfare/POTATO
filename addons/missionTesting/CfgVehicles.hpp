@@ -1,13 +1,21 @@
 class CfgVehicles {
-    class Module_F;
-    class GVAR(MissionTesting): Module_F {
+    class Logic;
+    class Module_F: Logic {
+        class ArgumentsBaseUnits;
+        class ModuleDescription;
+        class AttributesBase {
+            class Edit;
+            class Combo;
+        };
+    };
+        class GVAR(missionTesting): Module_F {
         author = QUOTE(PREFIX);
-        category = QGVAR(missionTestingFaction);
+        category = QUOTE(PREFIX);
         scope = 1;
         scopeCurator = 2;
-        isGlobal = 0;
         isTriggerActivated = 0;
-        displayName = "Mission Testing";
-        function = QFUNC(displayMenu);
+        isGlobal = 0;
+        displayName = "Open Mission Testing Menu";
+        function = QFUNC(openMenuFromZues);
     };
 };
