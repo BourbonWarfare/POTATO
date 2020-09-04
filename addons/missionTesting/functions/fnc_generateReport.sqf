@@ -65,7 +65,7 @@ private _missionMaker = getMissionConfigValue ["author","????"];
 private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
 private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
 private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
-private _missionSummary = getMissionConfigValue "IntelOverviewText";
+private _missionSummary = "Multiplayer" get3DENMissionAttribute "IntelOverviewText";
 private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
 private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);
 private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
@@ -149,7 +149,7 @@ if(_missionMaker == name player) then {
     private _reportCtrl = DISPLAY_TESTMENU displayCtrl IDC_REPORT_L;
     if (isNull _reportCtrl) then {
         private _reportCtrlNew = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_REPORT_L];
-        _reportCtrlNew ctrlSetPosition [-0.35,00.5,0.35,1];
+        _reportCtrlNew ctrlSetPosition [-0.35,0,0.35,1];
         _reportCtrlNew ctrlCommit 0;
         _reportCtrlNew ctrlSetText _text;
     } else {
@@ -157,4 +157,3 @@ if(_missionMaker == name player) then {
     };
     hint "Report Generated. Highlight the contents to the left of the checklist and copy it to forum.";
 };
-
