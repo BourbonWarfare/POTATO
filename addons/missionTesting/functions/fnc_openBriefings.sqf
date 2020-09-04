@@ -32,7 +32,7 @@ private _leftGroup = _display ctrlCreate [QUOTE(RscControlsGroup),BRIEFINGS_GROU
 _leftGroup ctrlSetPosition [0,0.05,0.65,0.95];
 _leftGroup ctrlCommit 0;
 private _rightGroup = _display ctrlCreate [QUOTE(RscControlsGroup),BRIEFINGS_GROUP_R_IDC];
-_rightGroup ctrlSetPosition [0.65,0.1,0.35,0.9];
+_rightGroup ctrlSetPosition [0.65,0.05,0.35,0.9];
 _rightGroup ctrlCommit 0;
 private _westButton = _display ctrlCreate [QUOTE(RscButtonMenu),-1];
 _westButton ctrlSetText "WEST";

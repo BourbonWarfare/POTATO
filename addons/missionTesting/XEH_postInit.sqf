@@ -49,10 +49,14 @@ GVAR(MissionTestingChecklistMaster) = [
 ];
 
 GVAR(MissionMakerChecklistMaster) = [
-    ["PRE-MISSION CHECKLIST",
+    ["MISSION MAKERS CHECKLIST",
         [
-            ["Placeholder",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
-            ,["Placeholder",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
+            ["Are the briefings clear?",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
+            ,["Are the objective markers in the right place so that there won't be confusion?",D_CHECK,MISSION_TYPE_APPLIES_TVT]
+            ,["Is the gear for both sides correct? (do a visual scan to make sure uniforms, gear, etc are correct)",D_CHECK,MISSION_TYPE_APPLIES_TVT]
+            ,["Test each class on a fireteam. Do I have my ammo, radios, and medical gear?",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
+            ,["Are the objectives concise and not spread too far apart?",D_CHECK,MISSION_TYPE_APPLIES_COOP]
+            ,["AI tiggers/spawns working ok? How is server FPS?",D_CHECK,MISSION_TYPE_APPLIES_COOP]
         ],D_PASSFAIL,"",D_NOTEFLAG
     ]
 ];

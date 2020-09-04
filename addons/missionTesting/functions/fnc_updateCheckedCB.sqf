@@ -23,11 +23,11 @@ private _lineTens = parseNumber (_array select 2);
 private _lineUnits = parseNumber (_array select 3);
 private _line = (_lineTens * 10) + _lineUnits;
 private _masterChecklist = nil;
-private _checkTF = CHECK_TF select _checked;
+private _checkTF = A_CHECK_TF select _checked;
 private _missionMaker = getMissionConfigValue ["author","????"];
 
 if(_missionMaker == name player) then {
-    _masterChecklist = GVAR(MissionTestingChecklistMaster);// Needs to Be changed back after testing "MissionMakerChecklistMaster"
+    _masterChecklist = GVAR(MissionMakerChecklistMaster);// Needs to Be changed back after testing "MissionMakerChecklistMaster"
 } else {
     _masterChecklist = GVAR(MissionTestingChecklistMaster);
 };
@@ -42,7 +42,7 @@ _subSectionArray set [1,_subSectionArrayCBs];
 _masterChecklist set [_subsection,_subSectionArray];
 
 if(_missionMaker == name player) then {
-    GVAR(MissionTestingChecklistMaster) = _masterChecklist;// Needs to Be changed back after testing "MissionMakerChecklistMaster"
+    GVAR(MissionMakerChecklistMaster) = _masterChecklist;// Needs to Be changed back after testing "MissionMakerChecklistMaster"
 } else {
     GVAR(MissionTestingChecklistMaster) = _masterChecklist;
 };

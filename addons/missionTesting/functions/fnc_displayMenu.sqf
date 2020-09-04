@@ -103,21 +103,23 @@ private _createChecklistSection  = {
         _createCtrlLine3 ctrlCommit 0;
         INCREMENT_YCOORD;
 
-        private _ctrlCreateSectionMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
-        _ctrlCreateSectionMMNotes ctrlSetText "NOTES FOR MISSION MAKER:";
-        _ctrlCreateSectionMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
-        _ctrlCreateSectionMMNotes ctrlCommit 0;
+        if(_missionMaker != name player) then {
+            private _ctrlCreateSectionMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
+            _ctrlCreateSectionMMNotes ctrlSetText "NOTES FOR MISSION MAKER:";
+            _ctrlCreateSectionMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
+            _ctrlCreateSectionMMNotes ctrlCommit 0;
 
-        INCREMENT_YCOORD_TEXT;
+            INCREMENT_YCOORD_TEXT;
 
-        private _idcMMNotes = IDC_PASSFAIL + _forEachIndex;
-        private _ctrlCreateSectionMMNotesEdit = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),_idcMMNotes,CONTROL_GROUP_L];
-        _ctrlCreateSectionMMNotesEdit ctrlSetText _sectionNotes;
-        _ctrlCreateSectionMMNotesEdit ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0.15];
-        _ctrlCreateSectionMMNotesEdit ctrlAddEventHandler [QUOTE(KillFocus),{_this call FUNC(updateNotesFlag);}];
-        _ctrlCreateSectionMMNotesEdit ctrlCommit 0;
+            private _idcMMNotes = IDC_PASSFAIL + _forEachIndex;
+            private _ctrlCreateSectionMMNotesEdit = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),_idcMMNotes,CONTROL_GROUP_L];
+            _ctrlCreateSectionMMNotesEdit ctrlSetText _sectionNotes;
+            _ctrlCreateSectionMMNotesEdit ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0.15];
+            _ctrlCreateSectionMMNotesEdit ctrlAddEventHandler [QUOTE(KillFocus),{_this call FUNC(updateNotesFlag);}];
+            _ctrlCreateSectionMMNotesEdit ctrlCommit 0;
 
-        INCREMENT_YCOORD + 0.14;
+            INCREMENT_YCOORD + 0.14;
+        };
 };
 
 //Main Function
@@ -166,10 +168,11 @@ private _missionCustomLoadout =  A_YESNO select (getMissionConfigValue QGVAR(mis
 private _missionCustomVicLoadout =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagCustomVicLoadout));
 private _unitSpecificBrief =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagUnitSpecificBriefing));
 private _missionNotesForTester =  getMissionConfigValue QGVAR(missionMakerNotesForTesters);
+private _missionSummary = "Multiplayer" get3DENMissionAttribute "IntelOverviewText";
 private _masterChecklistArray = nil;
 
 if(_missionMaker == name player) then {
-    _masterChecklistArray = GVAR(MissionTestingChecklistMaster);// Needs to Be changed back after testing "MissionMakerChecklistMaster"
+    _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
 } else {
     _masterChecklistArray = GVAR(MissionTestingChecklistMaster);
 };
@@ -177,7 +180,7 @@ if(_missionMaker == name player) then {
 {
     _x call _createChecklistSection;
 } forEach _masterChecklistArray;
-
+//
 INCREMENT_YCOORD_TEXT;
 private _createCtrlLine4 = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscLine),-1,CONTROL_GROUP_L];
 _createCtrlLine4 ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0];
@@ -185,7 +188,11 @@ _createCtrlLine4 ctrlCommit 0;
 INCREMENT_YCOORD;
 
 private _ctrlGeneralMMNotesTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
-_ctrlGeneralMMNotesTitle ctrlSetText "General Notes for Mission Maker:";
+if(_missionMaker == name player) then {
+    _ctrlGeneralMMNotesTitle ctrlSetText "Any other Notes for Mission Testers/Version";
+} else {
+    _ctrlGeneralMMNotesTitle ctrlSetText "General Notes for Mission Maker:";
+};
 _ctrlGeneralMMNotesTitle ctrlSetTextColor TEXT_ORANGE;
 _ctrlGeneralMMNotesTitle ctrlSetFontHeight TEXT_H_LARGE;
 _ctrlGeneralMMNotesTitle ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
@@ -194,9 +201,9 @@ _ctrlGeneralMMNotesTitle ctrlCommit 0;
 INCREMENT_YCOORD_TEXT;
 
 private _ctrlGeneralMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_GENERAL_MT_NOTES,CONTROL_GROUP_L];
-_ctrlGeneralMMNotes ctrlSetText GVAR(GeneraMissionNotesForMM);
+_ctrlGeneralMMNotes ctrlSetText GVAR(GeneraMissionNotesForMM);//could use the EFUNC(briefing,convertHTMLToNewLine) to maintain new lines.
 _ctrlGeneralMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0.15];
-_ctrlGeneralMMNotes ctrlAddEventHandler [QUOTE(KillFocus),{GVAR(GeneraMissionNotesForMM) = ctrlText (_this select 0);}];
+_ctrlGeneralMMNotes ctrlAddEventHandler [QUOTE(KillFocus),{GVAR(GeneraMissionNotesForMM) = ctrlText (_this select 0);}]; //could use the EFUNC(briefing,convertNewLineToHTML) to maintain new lines.
 _ctrlGeneralMMNotes ctrlCommit 0;
 
 INCREMENT_YCOORD + 0.14;
@@ -222,6 +229,10 @@ _ctrlCreateInfoBlockText = composeText [
     ,parseText "<t color='#0080FF'>Mission Name:</t> ", _missionName, lineBreak
     ,parseText "<t color='#0080FF'>Mission Type:</t> ",_missionType, lineBreak
     ,parseText "<t color='#0080FF'>Mission Version:</t> ",_missionVersion, lineBreak
+    ,lineBreak
+    ,parseText "<t color='#FF8000'>MISSION SUMMARY</t>"
+    ,_separator
+    ,_missionSummary, lineBreak
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION PLAYER COUNT</t>"
     ,_separator

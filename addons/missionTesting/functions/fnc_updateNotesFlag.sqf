@@ -26,7 +26,7 @@ private _missionMaker = getMissionConfigValue ["author","????"];
 
 
 if(_missionMaker == name player) then {
-    _masterChecklist = GVAR(MissionTestingChecklistMaster);// Needs to Be changed back after testing "MissionMakerChecklistMaster"
+    _masterChecklist = GVAR(MissionMakerChecklistMaster);// Needs to Be changed back after testing "MissionMakerChecklistMaster"
 } else {
     _masterChecklist = GVAR(MissionTestingChecklistMaster);
 };
@@ -47,7 +47,7 @@ if(_text == "") then {
 _masterChecklist set [_subsection,_subSectionArray];
 
 if(_missionMaker == name player) then {
-    GVAR(MissionTestingChecklistMaster) = _masterChecklist;// Needs to Be changed back after testing "MissionMakerChecklistMaster"
+    GVAR(MissionMakerChecklistMaster) = _masterChecklist;// Needs to Be changed back after testing "MissionMakerChecklistMaster"
 } else {
     GVAR(MissionTestingChecklistMaster) = _masterChecklist;
 };

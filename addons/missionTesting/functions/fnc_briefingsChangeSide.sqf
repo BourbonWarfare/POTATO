@@ -15,7 +15,7 @@ TRACE_1("Params",_this);
 
 params["_side"];
 
-GVAR(yStartCoord) = 0.01;
+GVAR(yStartCoord) = 0;
 
 private _situtation = nil;
 private _mission = nil;
