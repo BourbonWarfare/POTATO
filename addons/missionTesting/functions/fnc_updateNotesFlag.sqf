@@ -5,7 +5,7 @@
  * Arguments:
  *
  * Examples:
- * [] call potato_missionTesting_fnc_updateNotesFlag;
+ * [contol] call potato_missionTesting_fnc_updateNotesFlag;
  *
  * Public: No
  */

@@ -5,7 +5,7 @@
  * Arguments:
  *
  * Examples:
- * [] call potato_missionTesting_fnc_updateCheckedCB;
+ * [checkBoxControl,controlCheckedState] call potato_missionTesting_fnc_updateCheckedCB;
  *
  * Public: No
  */

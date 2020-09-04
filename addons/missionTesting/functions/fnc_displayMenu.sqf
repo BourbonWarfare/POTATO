@@ -1,6 +1,6 @@
 /*
  * Author: BadWolf
- * Function is called by the user at the time that they want to use the checklist. This can be called either using the ACE Self interact, or in Zues.
+ * Function is called by the user at the time that they want to use the checklist. This can be called either using the ACE Self interact, or in Zues from the POTATO Modules Section.
  *
  * Arguments:
  *

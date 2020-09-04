@@ -5,7 +5,7 @@
  * Arguments:
  *
  * Examples:
- * [] call potato_missionTesting_fnc_openMenuFromZues;
+ * [_logic] call potato_missionTesting_fnc_openMenuFromZues;
  *
  * Public: No
  */

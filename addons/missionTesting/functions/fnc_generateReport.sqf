@@ -1,6 +1,6 @@
 /*
  * Author: BadWolf
- * Function called to generate the report.
+ * Function called to generate the report. The reports generated are dependant on if the player calling the testing menu is the mission maker or not.
  *
  * Arguments:
  *

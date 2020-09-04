@@ -5,7 +5,7 @@
  * Arguments:
  *
  * Examples:
- * [] call potato_missionTesting_fnc_briefingsSideChanged;
+ * [east] call potato_missionTesting_fnc_briefingsSideChanged;
  *
  * Public: No
  */
