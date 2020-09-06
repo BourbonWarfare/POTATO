@@ -2,8 +2,12 @@
 
 TRACE_1("params",_this);
 
-[QGVAR(missionTestingAddAction),[""]] call CBA_fnc_globalEvent;
+if (isServer) exitWith {"Cannot be called from server"};
 
-EGVAR(missionTesting,missionTestingActive) = true;
+if (EGVAR(missionTesting,missionTestingActive)) then {
+    ["potato_adminMsg", ["Mission Testing Menu already enabled."]] call CBA_fnc_globalEvent;
+} else {
+[QGVAR(missionTestingAddAction),[""]] call CBA_fnc_globalEventJIP;
 
 ["potato_adminMsg", ["Adding Mission Testing Add action to all Testers"]] call CBA_fnc_globalEvent;
+};

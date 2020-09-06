@@ -25,7 +25,7 @@ private _text = ctrlText _control;
 private _missionMaker = getMissionConfigValue ["author","????"];
 
 
-if(_missionMaker == ACE_PLAYER) then {
+if(_missionMaker == name ACE_PLAYER) then {
     _masterChecklist = GVAR(MissionMakerChecklistMaster);
 } else {
     _masterChecklist = GVAR(MissionTestingChecklistMaster);
@@ -46,7 +46,7 @@ if(_text == "") then {
 };
 _masterChecklist set [_subsection,_subSectionArray];
 
-if(_missionMaker == ACE_PLAYER) then {
+if(_missionMaker == name ACE_PLAYER) then {
     GVAR(MissionMakerChecklistMaster) = _masterChecklist;
 } else {
     GVAR(MissionTestingChecklistMaster) = _masterChecklist;

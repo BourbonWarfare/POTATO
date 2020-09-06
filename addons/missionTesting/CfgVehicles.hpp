@@ -14,7 +14,7 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 2;
         isTriggerActivated = 0;
-        isGlobal = 0;
+        isGlobal = 1;
         displayName = "Open Mission Testing Menu";
         function = QFUNC(openMenuFromZues);
     };

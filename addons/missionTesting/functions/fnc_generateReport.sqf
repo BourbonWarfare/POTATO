@@ -54,7 +54,7 @@ private _createReportSection = {
     S_NEWTEXTLINE ["[list]"];
     {_x call _checkBoxes;} forEach _sectionArray;
     S_NEWTEXTLINE ["[/list]"];
-    if(_missionMaker != ACE_PLAYER) then {
+    if(_missionMaker != name ACE_PLAYER) then {
         S_NEWTEXTLINE ["[u][color=#FF4000][size=150]NOTES :[/size][/color][/u]"];
         S_NEWTEXTLINE ["%1",_sectionNotes];
     };
@@ -85,7 +85,7 @@ private _masterChecklistArray = nil;
 private _textArray = [];
 private _textArrayShort = [];
 
-if(_missionMaker == ACE_PLAYER) then {
+if(_missionMaker == name ACE_PLAYER) then {
     _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
     S_NEWTEXTLINE ["[size=200][u][b]Mission : [color=#FF4000]%1[/color][/b][/u]   [b][u]Type : [color=#FF4000]%2[/color][/u][/b][/size]", _missionName, _missionType];
     S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%4[/color][/b][/u][/size] [size=150]  Mission Tags : [color=#FF4000]%1,%2,%3[/color]  [/size] ",_missionTag1,_missionTag2,_missionTag3,_missionVersion];
@@ -134,7 +134,7 @@ if(_missionMaker == ACE_PLAYER) then {
 } else {
     _masterChecklistArray = GVAR(MissionTestingChecklistMaster);
     S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%1[/color][/b][/u][/size]",_missionVersion];
-    S_NEWTEXTLINE ["[size=150]Mission Tester : [color=#FF4000]%1[/color][/size]",ACE_PLAYER];
+    S_NEWTEXTLINE ["[size=150]Mission Tester : [color=#FF4000]%1[/color][/size]",name ACE_PLAYER];
     private _missionOverallPassFail = [_masterChecklistArray] call _overallPassFail;
     S_NEWTEXTLINE ["[size=200]Test Result : %1[/size]",_missionOverallPassFail];
 
