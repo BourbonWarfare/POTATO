@@ -107,16 +107,16 @@ private _fncGetWeaponInfo = {
 
         switch (side _x) do {
         case (west): {
-                _color = "#0088EE"; //0,0.45,0.9,1
+                _color = "#0088EE";
             };
         case (east): {
-                _color = "#DD0000"; //0,0.45,0.9,1
+                _color = "#DD0000";
             };
         case (resistance): {
-                _color = "#00DD00"; //0,0.45,0.9,1
+                _color = "#00DD00";
             };
             default {
-                _color = "#880099"; //0,0.45,0.9,1
+                _color = "#880099";
             };
         };
         private _unitText = format ["<t color='%1' size='1'>%2</t> - %3<br/>", _color, _displayName, _classname];

@@ -26,8 +26,8 @@ private _masterChecklist = nil;
 private _checkTF = A_CHECK_TF select _checked;
 private _missionMaker = getMissionConfigValue ["author","????"];
 
-if(_missionMaker == name player) then {
-    _masterChecklist = GVAR(MissionMakerChecklistMaster);// Needs to Be changed back after testing "MissionMakerChecklistMaster"
+if(_missionMaker == ACE_PLAYER) then {
+    _masterChecklist = GVAR(MissionMakerChecklistMaster);
 } else {
     _masterChecklist = GVAR(MissionTestingChecklistMaster);
 };
@@ -41,8 +41,8 @@ _subSectionArrayCBs set [_line,_specificLine];
 _subSectionArray set [1,_subSectionArrayCBs];
 _masterChecklist set [_subsection,_subSectionArray];
 
-if(_missionMaker == name player) then {
-    GVAR(MissionMakerChecklistMaster) = _masterChecklist;// Needs to Be changed back after testing "MissionMakerChecklistMaster"
+if(_missionMaker == ACE_PLAYER) then {
+    GVAR(MissionMakerChecklistMaster) = _masterChecklist;
 } else {
     GVAR(MissionTestingChecklistMaster) = _masterChecklist;
 };

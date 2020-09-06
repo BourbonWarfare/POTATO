@@ -103,7 +103,7 @@ private _createChecklistSection  = {
         _createCtrlLine3 ctrlCommit 0;
         INCREMENT_YCOORD;
 
-        if(_missionMaker != name player) then {
+        if(_missionMaker != ACE_PLAYER) then {
             private _ctrlCreateSectionMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
             _ctrlCreateSectionMMNotes ctrlSetText "NOTES FOR MISSION MAKER:";
             _ctrlCreateSectionMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
@@ -171,7 +171,7 @@ private _missionNotesForTester =  getMissionConfigValue QGVAR(missionMakerNotesF
 private _missionSummary = "Multiplayer" get3DENMissionAttribute "IntelOverviewText";
 private _masterChecklistArray = nil;
 
-if(_missionMaker == name player) then {
+if(_missionMaker == ACE_PLAYER) then {
     _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
 } else {
     _masterChecklistArray = GVAR(MissionTestingChecklistMaster);
@@ -188,7 +188,7 @@ _createCtrlLine4 ctrlCommit 0;
 INCREMENT_YCOORD;
 
 private _ctrlGeneralMMNotesTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
-if(_missionMaker == name player) then {
+if(_missionMaker == ACE_PLAYER) then {
     _ctrlGeneralMMNotesTitle ctrlSetText "Any other Notes for Mission Testers/Version";
 } else {
     _ctrlGeneralMMNotesTitle ctrlSetText "General Notes for Mission Maker:";
