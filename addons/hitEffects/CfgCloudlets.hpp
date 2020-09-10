@@ -236,8 +236,8 @@ class CfgCloudlets {
     };
     class GVAR(lingeringDust): GVAR(impactDust) {
         interval = 0.1;
-        lifeTime = "2+(intensity*5)";
-        lifeTimeVar = "1+(intensity*2)";
+        lifeTime = "0.3+(intensity*2)";
+        lifeTimeVar = "1+(intensity*5)";
         rubbing = 2;
         size[] = {".05+(intensity*.2)","2+(intensity*2.5)","3.5+(intensity*3.5)","4+(intensity*4)"};
         sizeCoef = 1;
@@ -268,7 +268,6 @@ class CfgCloudlets {
         size[] = {"intensity*.4","intensity*4"};
         sizeVar = 0.3;
         color[] = {{0.35,0.23,0.07,1},{0.35,0.23,0.01,0}};
-        colorCoef[] = {"1 + 0.02 * dustColor","1 - 0.08 * dustColor","1 - 0.34 * dustColor","intensity*5"};
         randomDirectionPeriod = 0;
         randomDirectionIntensity = 0;
         onTimerScript = "";
@@ -302,7 +301,6 @@ class CfgCloudlets {
         size[] = {".2","intensity*3"};
         sizeVar = 0.2;
         color[] = {{0.55,0.43,0.27,1},{0.55,0.43,0.27,0.9},{0.65,0.53,0.37,0.1},{0.65,0.53,0.37,0}};
-        colorCoef[] = {"1 + 0.02 * dustColor","1 - 0.08 * dustColor","1 - 0.34 * dustColor",1};
         randomDirectionPeriod = 0;
         randomDirectionIntensity = 0;
         onTimerScript = "";
