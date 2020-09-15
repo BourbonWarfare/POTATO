@@ -137,7 +137,8 @@ private _fncGetWeaponInfo = {
         };
         private _has343 = [_unit, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio;
         private _has148 = [_unit, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio;
-        _unitText = _unitText + format ["[Radios: %1%2]<BR/>", ["", "343 "] select _has343, ["", "148"] select _has148];
+        private _has117 = [_unit, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio;
+        _unitText = _unitText + format ["[Radios: %1%2%3]<BR/>", ["", "343 "] select _has343, ["", "148 "] select _has148, ["", "117"] select _has117];
 
         switch (side _x) do {
         case (west): {

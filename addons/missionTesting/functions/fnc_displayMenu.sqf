@@ -168,7 +168,7 @@ private _missionCustomLoadout =  A_YESNO select (getMissionConfigValue QGVAR(mis
 private _missionCustomVicLoadout =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagCustomVicLoadout));
 private _unitSpecificBrief =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagUnitSpecificBriefing));
 private _missionNotesForTester =  getMissionConfigValue QGVAR(missionMakerNotesForTesters);
-private _missionSummary = "Multiplayer" get3DENMissionAttribute "IntelOverviewText";
+//private _missionSummary = "Multiplayer" get3DENMissionAttribute "IntelOverviewText"; - Mission Summary Block Removed for now as not functioning.
 private _masterChecklistArray = nil;
 
 if(_missionMaker == name ACE_PLAYER) then {
@@ -230,10 +230,6 @@ _ctrlCreateInfoBlockText = composeText [
     ,parseText "<t color='#0080FF'>Mission Type:</t> ",_missionType, lineBreak
     ,parseText "<t color='#0080FF'>Mission Version:</t> ",_missionVersion, lineBreak
     ,lineBreak
-    ,parseText "<t color='#FF8000'>MISSION SUMMARY</t>"
-    ,_separator
-    ,_missionSummary, lineBreak
-    ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION PLAYER COUNT</t>"
     ,_separator
     ,parseText "<t color='#0080FF'>Min:</t> ",_missionPlayerCountMin,parseText "<t color='#0080FF'>Rec:</t> ",_missionPlayerCountRec,parseText "<t color='#0080FF'>Max:</t> ",_missionPlayerCountMax, lineBreak
@@ -258,3 +254,14 @@ _ctrlCreateInfoBlock ctrlSetStructuredText _ctrlCreateInfoBlockText;
 private _ctrlCreateInfoBlockHeight = ctrlTextHeight _ctrlCreateInfoBlock;
 _ctrlCreateInfoBlock ctrlSetPosition [0,0,0.5,_ctrlCreateInfoBlockHeight + 0.01];
 _ctrlCreateInfoBlock ctrlCommit 0;
+
+/*
+
+    Mission Summary Block Removed for now as not functioning.
+
+    ,parseText "<t color='#FF8000'>MISSION SUMMARY</t>"
+    ,_separator
+    ,_missionSummary, lineBreak
+    ,lineBreak
+
+*/
