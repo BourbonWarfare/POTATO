@@ -31,11 +31,11 @@ class CfgCloudlets {
         lifeTime = "9 + (intensity * 0.4)";
         lifeTimeVar = "3 + (intensity * 0.1)";
     };
-    class BombSmk2: Default {
+    class BombSmk2: BombSmk1 {
         lifeTime = "7 + (intensity * 0.4)";
         lifeTimeVar = "1 + (intensity * 0.1)";
     };
-    class BombSmk3: Default {
+    class BombSmk3: BombSmk1 {
         lifeTime = "15 + (intensity * 0.4)";
         lifeTimeVar = "3 + (intensity * 0.1)";
     };

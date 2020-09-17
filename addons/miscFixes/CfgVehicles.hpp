@@ -58,4 +58,14 @@ class CfgVehicles {
             };
         };
     };
+
+
+
+    // Fix: WARNING: MBG_WaterfallPlugin does not support Extended Event Handlers! Addon: @BourbonMapRotation
+    class Logic;
+    class MBG_WaterfallPlugin: Logic {
+        class EventHandlers {
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
+        };
+    };
 };

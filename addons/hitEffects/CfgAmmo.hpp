@@ -25,7 +25,7 @@ class CfgAmmo {
             hitTyre = QGVAR(impactTyre_API);
         };
     };
-    class B_127x99_SLAP: BulletBase {
+    class B_127x99_SLAP: B_127x99_Ball {
         CraterEffects = QGVAR(noFX);
         explosionEffects = QGVAR(noFX);
         class HitEffects {
@@ -75,7 +75,7 @@ class CfgAmmo {
             hitTyre = QGVAR(impactTyre_API);
         };
     };
-    class B_127x108_APDS: BulletBase {
+    class B_127x108_APDS: B_127x108_Ball {
         CraterEffects = QGVAR(noFX);
         explosionEffects = QGVAR(noFX);
         class HitEffects {
