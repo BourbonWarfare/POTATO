@@ -375,6 +375,15 @@ class GVAR(adminMenuDialog) {
                     h = 0.05 * safezoneH;
                     action = QUOTE(_this call FUNC(uihook_weaponTest));
                 };
+                class RscButton_MissionTesting: RscButton {
+                    idc = -1;
+                    text = "Enable Mission Checklist"; //--- ToDo: Localize;
+                    x = 0.01 * safezoneW;
+                    y = 0.15 * safezoneH;
+                    w = 0.52 * safezoneW;
+                    h = 0.05 * safezoneH;
+                    action = QUOTE([] call FUNC(uihook_enableMissionTesting));
+                };
             };
         };
         class CONTROL_MISSIONHINT: RscControlsGroup {
