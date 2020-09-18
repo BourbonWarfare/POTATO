@@ -160,14 +160,25 @@ private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
 private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
 private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);
 private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
-private _missionTag1 = A_MISSION_TAGS select (getMissionConfigValue QGVAR(missionTag1));
-private _missionTag2 = A_MISSION_TAGS select (getMissionConfigValue QGVAR(missionTag2));
-private _missionTag3 = A_MISSION_TAGS select (getMissionConfigValue QGVAR(missionTag3));
-private _missionCustomScripting =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagCustomScripting));
-private _missionCustomLoadout =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagCustomLoadout));
-private _missionCustomVicLoadout =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagCustomVicLoadout));
-private _unitSpecificBrief =  A_YESNO select (getMissionConfigValue QGVAR(missionFlagUnitSpecificBriefing));
-private _missionNotesForTester =  getMissionConfigValue QGVAR(missionMakerNotesForTesters);
+
+private _missionTag1Var = getMissionConfigValue QGVAR(missionTag1);
+private _missionTag1 = if(isNil QUOTE(_missionTag1Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag1Var};
+private _missionTag2Var = getMissionConfigValue QGVAR(missionTag2);
+private _missionTag2 = if(isNil QUOTE(_missionTag2Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag2Var};
+private _missionTag3Var = getMissionConfigValue QGVAR(missionTag3);
+private _missionTag3 = if(isNil QUOTE(_missionTag3Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag3Var};
+
+private _missionCustomScriptingVar = getMissionConfigValue QGVAR(missionFlagCustomScripting);
+private _missionCustomScripting =  if(isNil QUOTE(_missionCustomScriptingVar)) then {"No"} else {A_YESNO select _missionCustomScriptingVar};
+private _missionCustomLoadoutVar = getMissionConfigValue QGVAR(missionFlagCustomLoadout);
+private _missionCustomLoadout =  if(isNil QUOTE(_missionCustomLoadoutVar)) then {"No"} else {A_YESNO select _missionCustomLoadoutVar};
+private _missionCustomVicLoadoutVar = getMissionConfigValue QGVAR(missionFlagCustomVicLoadout);
+private _missionCustomVicLoadout =  if(isNil QUOTE(_missionCustomVicLoadoutVar)) then {"No"} else {A_YESNO select _missionCustomVicLoadoutVar};
+private _unitSpecificBriefVar = getMissionConfigValue QGVAR(missionFlagUnitSpecificBriefing);
+private _unitSpecificBrief =  if(isNil QUOTE(_unitSpecificBriefVar)) then {"No"} else {A_YESNO select _unitSpecificBriefVar};
+
+private _missionNotesForTester = getMissionConfigValue QGVAR(missionMakerNotesForTesters);
+//private _missionNotesForTester =  [_missionNotesForTesterText] call EFUNC(briefing,convertHTMLToNewLine);
 //private _missionSummary = "Multiplayer" get3DENMissionAttribute "IntelOverviewText"; - Mission Summary Block Removed for now as not functioning.
 private _masterChecklistArray = nil;
 
@@ -201,9 +212,9 @@ _ctrlGeneralMMNotesTitle ctrlCommit 0;
 INCREMENT_YCOORD_TEXT;
 
 private _ctrlGeneralMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_GENERAL_MT_NOTES,CONTROL_GROUP_L];
-_ctrlGeneralMMNotes ctrlSetText GVAR(GeneraMissionNotesForMM);//could use the EFUNC(briefing,convertHTMLToNewLine) to maintain new lines.
+_ctrlGeneralMMNotes ctrlSetText GVAR(GeneraMissionNotesForMM);
 _ctrlGeneralMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0.15];
-_ctrlGeneralMMNotes ctrlAddEventHandler [QUOTE(KillFocus),{GVAR(GeneraMissionNotesForMM) = ctrlText (_this select 0);}]; //could use the EFUNC(briefing,convertNewLineToHTML) to maintain new lines.
+_ctrlGeneralMMNotes ctrlAddEventHandler [QUOTE(KillFocus),{GVAR(GeneraMissionNotesForMM) = ctrlText (_this select 0);}];
 _ctrlGeneralMMNotes ctrlCommit 0;
 
 INCREMENT_YCOORD + 0.14;
@@ -232,7 +243,7 @@ _ctrlCreateInfoBlockText = composeText [
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION PLAYER COUNT</t>"
     ,_separator
-    ,parseText "<t color='#0080FF'>Min:</t> ",_missionPlayerCountMin,parseText "<t color='#0080FF'>Rec:</t> ",_missionPlayerCountRec,parseText "<t color='#0080FF'>Max:</t> ",_missionPlayerCountMax, lineBreak
+    ,parseText "<t color='#0080FF'>Min:</t> ",_missionPlayerCountMin,parseText "<t color='#0080FF'>  Rec:</t> ",_missionPlayerCountRec,parseText "<t color='#0080FF'>  Max:</t> ",_missionPlayerCountMax, lineBreak
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION TAGS</t>"
     ,_separator
@@ -247,13 +258,22 @@ _ctrlCreateInfoBlockText = composeText [
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION MAKER NOTES FOR TESTER</t>"
     ,_separator
-    ,_missionNotesForTester,lineBreak
 ];
 TRACE_1("Compose Text: ",_ctrlCreateInfoBlockText);
 _ctrlCreateInfoBlock ctrlSetStructuredText _ctrlCreateInfoBlockText;
 private _ctrlCreateInfoBlockHeight = ctrlTextHeight _ctrlCreateInfoBlock;
 _ctrlCreateInfoBlock ctrlSetPosition [0,0,0.5,_ctrlCreateInfoBlockHeight + 0.01];
 _ctrlCreateInfoBlock ctrlCommit 0;
+
+private _ctrlCreateInfoBlockMissionMakerNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMultiReadOnly),-1,CONTROL_GROUP_R];
+_ctrlCreateInfoBlockMissionMakerNotes ctrlSetBackgroundColor [1, 1, 1, 0];
+_ctrlCreateInfoBlockMissionMakerNotes ctrlSetPosition [0,_ctrlCreateInfoBlockHeight + 0.1,0.5,1];
+_ctrlCreateInfoBlockMissionMakerNotes ctrlCommit 0;
+_ctrlCreateInfoBlockMissionMakerNotes ctrlSetText _missionNotesForTester;
+_ctrlCreateInfoBlockMissionMakerNotesHeight = ctrlTextHeight _ctrlCreateInfoBlockMissionMakerNotes;
+_ctrlCreateInfoBlockMissionMakerNotes ctrlSetPosition [0,_ctrlCreateInfoBlockHeight + 0.01,0.5,_ctrlCreateInfoBlockMissionMakerNotesHeight + 0.01];
+_ctrlCreateInfoBlockMissionMakerNotes ctrlCommit 0;
+
 
 /*
 
