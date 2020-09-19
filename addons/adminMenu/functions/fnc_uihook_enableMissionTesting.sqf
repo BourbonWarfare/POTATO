@@ -2,7 +2,7 @@
 
 TRACE_1("params",_this);
 
-if (isServer) exitWith {"Cannot be called from server"};
+if (!hasInterface) exitWith {"Cannot be called from server"};
 
 if (EGVAR(missionTesting,missionTestingActive)) then {
     ["potato_adminMsg", ["Mission Testing Menu already enabled."]] call CBA_fnc_globalEvent;
