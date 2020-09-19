@@ -2,7 +2,7 @@ class SoldierGB;
 class AIR(rifleman): SoldierGB {
     author = "AACO";
     displayName = "Rifleman";
-    faction = QUOTE(DOUBLES(PREFIX,airborne));
+    faction = QUOTE(DOUBLES(PREFIX,I));
     role = "Rifleman";
     scope = 2;
 };

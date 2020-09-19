@@ -2,7 +2,7 @@ class SoldierEB;
 class MSV(rifleman): SoldierEB {
     author = "AACO";
     displayName = "Rifleman";
-    faction = QUOTE(DOUBLES(PREFIX,msv));
+    faction = QUOTE(DOUBLES(PREFIX,E));
     role = "Rifleman";
     scope = 2;
 };
