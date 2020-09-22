@@ -1,3 +1,4 @@
+#include "CfgEditorSubcategories.hpp"
 class CfgVehicles {
     // add POTATO USMC
     #include "subClasses\usmc.hpp"
