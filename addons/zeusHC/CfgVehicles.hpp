@@ -26,45 +26,45 @@ class CfgVehicles {
         scopeCurator = 2;
         displayName = "@Rifleman";
         category = QGVAR(east);
-        GVAR(crewAir) = "O_Helipilot_F";
-        GVAR(crewArmor)= "O_crew_F";
-        GVAR(createUnits)[] = {"O_soldier_F"};
+        GVAR(crewAir) = "potato_e_pilot";
+        GVAR(crewArmor)= "potato_e_vicc";
+        GVAR(createUnits)[] = {"potato_e_rifleman"};
     };
     class GVAR(east_ftl): GVAR(east_rifleman) {
         displayName = "@FTL";
-        GVAR(createUnits)[] = {"O_soldier_TL_F"};
+        GVAR(createUnits)[] = {"potato_e_ftl"};
     };
     class GVAR(east_ar): GVAR(east_rifleman) {
         displayName = "@AR";
-        GVAR(createUnits)[] = {"O_soldier_AR_F"};
+        GVAR(createUnits)[] = {"potato_e_AR"};
     };
     class GVAR(east_rat): GVAR(east_rifleman) {
         displayName = "@RAT";
-        GVAR(createUnits)[] = {"O_Soldier_LAT_F"};
+        GVAR(createUnits)[] = {"potato_e_LAT"};
     };
     class GVAR(east_manpad): GVAR(east_rifleman) {
         displayName = "@MANPAD";
-        GVAR(createUnits)[] = {"O_soldier_AA_F"};
+        GVAR(createUnits)[] = {"potato_e_msamg"};
     };
     class GVAR(east_manpadTeam): GVAR(east_rifleman) {
         displayName = "#MANPAD Team (2)";
-        GVAR(createUnits)[] = {"O_soldier_AA_F","O_soldier_AAA_F"};
+        GVAR(createUnits)[] = {"potato_e_msamg","potato_e_msamag"};
     };
     class GVAR(east_matTeam): GVAR(east_rifleman) {
         displayName = "#MAT Team (2)";
-        GVAR(createUnits)[] = {"O_soldier_AT_F","O_soldier_AAT_F"};
+        GVAR(createUnits)[] = {"potato_e_matg","potato_e_matag"};
     };
     class GVAR(east_patrol): GVAR(east_rifleman) {
         displayName = "#Patrol (2)";
-        GVAR(createUnits)[] = {"O_soldier_F","O_soldier_F"};
+        GVAR(createUnits)[] = {"potato_e_rifleman","potato_e_rifleman"};
     };
     class GVAR(east_fireteam): GVAR(east_rifleman) {
         displayName = "#Fireteam (4)";
-        GVAR(createUnits)[] = {"O_soldier_TL_F","O_soldier_AR_F","O_soldier_F","O_Soldier_LAT_F"};
+        GVAR(createUnits)[] = {"potato_e_ftl","potato_e_AR","potato_e_rifleman","potato_e_LAT"};
     };
     class GVAR(east_squad): GVAR(east_rifleman) {
         displayName = "#Squad (8)";
-        GVAR(createUnits)[] = {"O_soldier_SL_F","O_soldier_TL_F","O_soldier_AR_F","O_soldier_AR_F","O_soldier_LAT_F","O_soldier_F","O_soldier_F","O_soldier_F"};
+        GVAR(createUnits)[] = {"potato_e_sl","potato_e_ftl","potato_e_ar","potato_e_ar","potato_e_lat","potato_e_rifleman","potato_e_rifleman","potato_e_rifleman"};
     };
     class GVAR(east_aaModern): GVAR(east_rifleman) {
         displayName = "AA: Tigris (A3)";
@@ -279,7 +279,7 @@ class CfgVehicles {
         scope = 1;
         displayName = "#Dismounts (6) [attach]";
         portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
-        GVAR(createUnits)[] = {"O_soldier_SL_F","O_soldier_AR_F","O_soldier_LAT_F","O_soldier_F","O_soldier_F","O_soldier_F"};
+        GVAR(createUnits)[] = {"potato_e_sl","potato_e_ar","potato_e_lat","potato_e_rifleman","potato_e_rifleman","potato_e_rifleman"};
     };
 
     //------------ West ----------
@@ -288,45 +288,45 @@ class CfgVehicles {
         scopeCurator = 2;
         displayName = "@Rifleman";
         category = QGVAR(west);
-        GVAR(crewAir) = "B_Helipilot_F";
-        GVAR(crewArmor)= "B_crew_F";
-        GVAR(createUnits)[] = {"B_soldier_F"};
+        GVAR(crewAir) = "potato_w_pilot";
+        GVAR(crewArmor)= "potato_w_vicc";
+        GVAR(createUnits)[] = {"potato_w_rifleman"};
     };
     class GVAR(west_ftl): GVAR(west_rifleman) {
         displayName = "@FTL";
-        GVAR(createUnits)[] = {"B_soldier_TL_F"};
+        GVAR(createUnits)[] = {"potato_w_ftl"};
     };
     class GVAR(west_ar): GVAR(west_rifleman) {
         displayName = "@AR";
-        GVAR(createUnits)[] = {"B_soldier_AR_F"};
+        GVAR(createUnits)[] = {"potato_w_ar"};
     };
     class GVAR(west_rat): GVAR(west_rifleman) {
         displayName = "@RAT";
-        GVAR(createUnits)[] = {"B_Soldier_LAT_F"};
+        GVAR(createUnits)[] = {"potato_w_lat"};
     };
     class GVAR(west_manpad): GVAR(west_rifleman) {
         displayName = "@MANPAD";
-        GVAR(createUnits)[] = {"B_soldier_AA_F"};
+        GVAR(createUnits)[] = {"potato_w_msamg"};
     };
     class GVAR(west_manpadTeam): GVAR(west_rifleman) {
         displayName = "#MANPAD Team (2)";
-        GVAR(createUnits)[] = {"B_soldier_AA_F","B_soldier_AAA_F"};
+        GVAR(createUnits)[] = {"potato_w_msamg","potato_w_msamag"};
     };
     class GVAR(west_matTeam): GVAR(west_rifleman) {
         displayName = "#MAT Team (2)";
-        GVAR(createUnits)[] = {"B_soldier_AT_F","B_soldier_AAT_F"};
+        GVAR(createUnits)[] = {"potato_w_matg","potato_w_matag"};
     };
     class GVAR(west_patrol): GVAR(west_rifleman) {
         displayName = "#Patrol (2)";
-        GVAR(createUnits)[] = {"B_soldier_F","B_soldier_F"};
+        GVAR(createUnits)[] = {"potato_w_rifleman","potato_w_rifleman"};
     };
     class GVAR(west_fireteam): GVAR(west_rifleman) {
         displayName = "#Fireteam (4)";
-        GVAR(createUnits)[] = {"B_soldier_TL_F","B_soldier_AR_F","B_soldier_F","B_soldier_LAT_F"};
+        GVAR(createUnits)[] = {"potato_w_ftl","potato_w_ar","potato_w_rifleman","potato_w_lat"};
     };
     class GVAR(west_squad): GVAR(west_rifleman) {
         displayName = "#Squad (8)";
-        GVAR(createUnits)[] = {"B_soldier_SL_F","B_soldier_TL_F","B_soldier_AR_F","B_soldier_AR_F","B_soldier_LAT_F","B_soldier_F","B_soldier_F","B_soldier_F"};
+        GVAR(createUnits)[] = {"potato_w_sl","potato_w_ftl","potato_w_ar","potato_w_ar","potato_w_lat","potato_w_rifleman","potato_w_rifleman","potato_w_rifleman"};
     };
     class GVAR(west_cupAvenger): GVAR(west_rifleman) {
         displayName = "AA: Avenger (CUP)";
@@ -669,7 +669,7 @@ class CfgVehicles {
         scope = 1;
         displayName = "#Dismounts (6) [attach]";
         portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
-        GVAR(createUnits)[] = {"B_soldier_SL_F","B_soldier_AR_F","B_soldier_LAT_F","B_soldier_F","B_soldier_F","B_soldier_F"};
+        GVAR(createUnits)[] = {"potato_w_sl","potato_w_ar","potato_w_lat","potato_w_rifleman","potato_w_rifleman","potato_w_rifleman"};
     };
 
     //------------ Independent ----------
@@ -678,45 +678,45 @@ class CfgVehicles {
         scopeCurator = 2;
         displayName = "@Rifleman";
         category = QGVAR(ind);
-        GVAR(crewAir) = "I_Helipilot_F";
-        GVAR(crewArmor)= "I_crew_F";
-        GVAR(createUnits)[] = {"I_soldier_F"};
+        GVAR(crewAir) = "potato_i_pilot";
+        GVAR(crewArmor)= "potato_i_vicc";
+        GVAR(createUnits)[] = {"potato_i_rifleman"};
     };
     class GVAR(ind_ftl): GVAR(ind_rifleman) {
         displayName = "@FTL";
-        GVAR(createUnits)[] = {"I_soldier_TL_F"};
+        GVAR(createUnits)[] = {"potato_i_ftl"};
     };
     class GVAR(ind_ar): GVAR(ind_rifleman) {
         displayName = "@AR";
-        GVAR(createUnits)[] = {"I_soldier_AR_F"};
+        GVAR(createUnits)[] = {"potato_i_ar"};
     };
     class GVAR(ind_rat): GVAR(ind_rifleman) {
         displayName = "@RAT";
-        GVAR(createUnits)[] = {"I_Soldier_LAT_F"};
+        GVAR(createUnits)[] = {"potato_i_lat"};
     };
     class GVAR(ind_manpad): GVAR(ind_rifleman) {
         displayName = "@MANPAD";
-        GVAR(createUnits)[] = {"I_soldier_AA_F"};
+        GVAR(createUnits)[] = {"potato_i_msamg"};
     };
     class GVAR(ind_manpadTeam): GVAR(ind_rifleman) {
         displayName = "#MANPAD Team (2)";
-        GVAR(createUnits)[] = {"I_soldier_AA_F","I_soldier_AAA_F"};
+        GVAR(createUnits)[] = {"potato_i_msamg","potato_i_msamag"};
     };
     class GVAR(ind_matTeam): GVAR(ind_rifleman) {
         displayName = "#MAT Team (2)";
-        GVAR(createUnits)[] = {"I_soldier_AT_F","I_soldier_AAT_F"};
+        GVAR(createUnits)[] = {"potato_i_matg","potato_i_matag"};
     };
     class GVAR(ind_patrol): GVAR(ind_rifleman) {
         displayName = "#Patrol (2)";
-        GVAR(createUnits)[] = {"I_soldier_F","I_soldier_F"};
+        GVAR(createUnits)[] = {"potato_i_rifleman","potato_i_rifleman"};
     };
     class GVAR(ind_fireteam): GVAR(ind_rifleman) {
         displayName = "#Fireteam (4)";
-        GVAR(createUnits)[] = {"I_soldier_TL_F","I_soldier_AR_F","I_soldier_F","I_soldier_LAT_F"};
+        GVAR(createUnits)[] = {"potato_i_ftl","potato_i_ar","potato_i_rifleman","potato_i_lat"};
     };
     class GVAR(ind_squad): GVAR(ind_rifleman) {
         displayName = "#Squad (8)";
-        GVAR(createUnits)[] = {"I_soldier_SL_F","I_soldier_TL_F","I_soldier_AR_F","I_soldier_AR_F","I_soldier_LAT_F","I_soldier_F","I_soldier_F","I_soldier_F"};
+        GVAR(createUnits)[] = {"potato_i_sl","potato_i_ftl","potato_i_ar","potato_i_ar","potato_i_lat","potato_i_rifleman","potato_i_rifleman","potato_i_rifleman"};
     };
     class GVAR(ind_gazZu): GVAR(ind_rifleman) {
         displayName = "AA: GAZ ZU 23 (RHS)";
@@ -859,7 +859,7 @@ class CfgVehicles {
         scope = 1;
         displayName = "#Dismounts (6) [attach]";
         portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
-        GVAR(createUnits)[] = {"I_soldier_SL_F","I_soldier_AR_F","I_soldier_LAT_F","I_soldier_F","I_soldier_F","I_soldier_F"};
+        GVAR(createUnits)[] = {"potato_i_sl","potato_i_ar","potato_i_lat","potato_i_rifleman","potato_i_rifleman","potato_i_rifleman"};
     };
 
     //------------ Utility modules ----------

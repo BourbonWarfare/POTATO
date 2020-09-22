@@ -2,12 +2,12 @@ class CfgGarrison {
     maxUnits = 45;
 
     class blu_f {
-        units[] = {"B_soldier_TL_F","B_soldier_F","B_soldier_F","B_soldier_F","B_soldier_AR_F","B_soldier_F","B_soldier_F","B_soldier_F","B_soldier_AR_F","B_Soldier_LAT_F"};
+        units[] = {"potato_w_ftl","potato_w_rifleman","potato_w_rifleman","potato_w_rifleman","potato_w_ar","potato_w_rifleman","potato_w_rifleman","potato_w_rifleman","potato_w_ar","potato_w_lat"};
     };
     class ind_f {
-        units[] = {"I_soldier_TL_F","I_soldier_F","I_soldier_F","I_soldier_F","I_soldier_AR_F","I_soldier_F","I_soldier_F","I_soldier_F","I_soldier_AR_F","I_Soldier_LAT_F"};
+        units[] = {"potato_i_ftl","potato_i_rifleman","potato_i_rifleman","potato_i_rifleman","potato_i_ar","potato_i_rifleman","potato_i_rifleman","potato_i_rifleman","potato_i_ar","potato_i_lat"};
     };
     class opf_f {
-        units[] = {"O_soldier_TL_F","O_soldier_F","O_soldier_F","O_soldier_F","O_soldier_AR_F","O_soldier_F","O_soldier_F","O_soldier_F","O_soldier_AR_F","O_Soldier_LAT_F"};
+        units[] = {"potato_e_ftl","potato_e_rifleman","potato_e_rifleman","potato_e_rifleman","potato_e_ar","potato_e_rifleman","potato_e_rifleman","potato_e_rifleman","potato_e_ar","potato_e_lat"};
     };
 };

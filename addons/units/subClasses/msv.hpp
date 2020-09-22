@@ -2,7 +2,7 @@ class SoldierEB;
 class MSV(rifleman): SoldierEB {
     author = "AACO";
     displayName = "Rifleman";
-    faction = QUOTE(DOUBLES(PREFIX,E));
+    faction = QUOTE(DOUBLES(PREFIX,e));
     role = "Rifleman";
     scope = 2;
     editorSubcategory = "Fireteam";
@@ -234,4 +234,7 @@ class MSV(cc): MSV(pilot) {
     displayName = "Crew Chief";
     icon = "iconManEngineer";
     role = "Sapper";
+};
+class MSV(helicrew): MSV(cc) {
+    displayName = "Air Crew";
 };

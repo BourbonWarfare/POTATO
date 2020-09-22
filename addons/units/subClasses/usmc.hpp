@@ -2,7 +2,7 @@ class SoldierWB;
 class USMC(rifleman): SoldierWB {
     author = "AACO";
     displayName = "Rifleman";
-    faction = QUOTE(DOUBLES(PREFIX,W));
+    faction = QUOTE(DOUBLES(PREFIX,w));
     role = "Rifleman";
     scope = 2;
     editorSubcategory = "Fireteam";
@@ -232,4 +232,7 @@ class USMC(cc): USMC(pilot) {
     displayName = "Crew Chief";
     icon = "iconManEngineer";
     role = "Sapper";
+};
+class USMC(helicrew): USMC(cc) {
+    displayName = "Air Crew";
 };

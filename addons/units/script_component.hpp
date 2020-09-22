@@ -11,11 +11,11 @@
 
 #include "\z\potato\addons\core\script_macros.hpp"
 
-#define USMC(var) TRIPLES(PREFIX,W,var)
+#define USMC(var) TRIPLES(PREFIX,w,var)
 #define QUSMC(var) QUOTE(USMC(var))
 
-#define MSV(var) TRIPLES(PREFIX,E,var)
+#define MSV(var) TRIPLES(PREFIX,e,var)
 #define QMSV(var) QUOTE(MSV(var))
 
-#define AIR(var) TRIPLES(PREFIX,I,var)
+#define AIR(var) TRIPLES(PREFIX,i,var)
 #define QAIR(var) QUOTE(AIR(var))

@@ -2,7 +2,7 @@ class SoldierGB;
 class AIR(rifleman): SoldierGB {
     author = "AACO";
     displayName = "Rifleman";
-    faction = QUOTE(DOUBLES(PREFIX,I));
+    faction = QUOTE(DOUBLES(PREFIX,i));
     role = "Rifleman";
     scope = 2;
     editorSubcategory = "Fireteam";
@@ -234,4 +234,7 @@ class AIR(cc): AIR(pilot) {
     displayName = "Crew Chief";
     icon = "iconManEngineer";
     role = "Sapper";
+};
+class AIR(helicrew): AIR(cc) {
+    displayName = "Air Crew";
 };

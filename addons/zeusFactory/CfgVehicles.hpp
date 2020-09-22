@@ -26,14 +26,14 @@
         curatorInfoType = QGVAR(RscDisplayAttributes_place);
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         portrait = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
-        GVAR(soldierList)[] = {"soldier_tl_f","soldier_ar_f","soldier_lat_f","soldier_f"};
+        GVAR(soldierList)[] = {"ftl","ar","lat","rifleman"};
     };
     class GVAR(place_squad): GVAR(place_fireteam) {
         displayName = "(8) Create Squad";
-        GVAR(soldierList)[] = {"soldier_sl_f","medic_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f"};
+        GVAR(soldierList)[] = {"sl","cm","rifleman","ar","lat","rifleman","ar","lat"};
     };
     class GVAR(place_platoon): GVAR(place_fireteam) {
         displayName = "(14) Create Platoon";
-        GVAR(soldierList)[] = {"soldier_sl_f","medic_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f","soldier_f","soldier_ar_f","soldier_lat_f"};
+        GVAR(soldierList)[] = {"sl","cm","rifleman","ar","lat","rifleman","ar","lat","rifleman","ar","lat","rifleman","ar","lat"};
     };
 };
