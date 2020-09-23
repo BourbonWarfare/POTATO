@@ -906,9 +906,9 @@ class CfgVehicles {
                 expression = "_this setVariable [""%s"",_value];";
 
                 class values {
-                    class 1 { name = "NATO"; value = "blu_f"; default = 1; };
-                    class 2 { name = "AAF"; value = "ind_f"; };
-                    class 3 { name = "CSAT"; value = "opf_f"; };
+                    class 1 { name = "NATO"; value = "potato_w"; default = 1; };
+                    class 2 { name = "AAF"; value = "potato_i"; };
+                    class 3 { name = "CSAT"; value = "potato_e"; };
                 };
 
                 typeName = "STRING";
