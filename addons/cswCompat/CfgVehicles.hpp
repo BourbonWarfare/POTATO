@@ -21,8 +21,8 @@ class CfgVehicles {
         scopeCurator = 2;
         side = 1;
         faction = "BLU_F";
-        crew = "B_Soldier_F";
-        typicalCargo[] = {"B_Soldier_F"};
+        crew = "potato_w_rifleman";
+        typicalCargo[] = {"potato_w_rifleman"};
         class ACE_CSW {
             enabled = 1;
             proxyWeapon = QGVAR(proxy_L118);
