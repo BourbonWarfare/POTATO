@@ -174,7 +174,7 @@ private _checkDeprecatedGear = [];
             _checkWeapons pushBackUnique format ["%1 has no primaryWeapon", _typeOf];
         };
         // Check AT actualy have some kind of AT
-        if ((_typeOf find "soldier_at_f" > -1) || {_typeOf find "soldier_lat_f" > -1} || {_typeOf find "msv_g" > -1} || {_typeOf find "msv_matg" > -1}) then {
+        if ((_typeOf find "matg" > -1) || {_typeOf find "lat" > -1} || {_typeOf find "msv_g" > -1} || {_typeOf find "msv_matg" > -1}) then {
             if ((secondaryWeapon _unit) == "") then {
                 TRACE_1("no AT",_typeOf);
                 _checkWeapons pushBackUnique format ["%1 has no secondaryWeapon", _typeOf];

@@ -180,9 +180,9 @@ class USMC(vicl): USMC(sl) {
     editorSubcategory = "VicCrew";
 };
 class USMC(engl): USMC(sl) {
-    displayName = "Sapper Leader";
+    displayName = "Engineer Leader";
     engineer = 1;
-    role = "Sapper";
+    role = "Engineer";
     editorSubcategory = "Engi";
 };
 class USMC(cm): USMC(rifleman) {
@@ -205,11 +205,15 @@ class USMC(sf_sm): USMC(cm) {
     editorSubcategory = "SF";
 };
 class USMC(eng): USMC(engl) {
-    displayName = "Sapper";
-    icon = "iconManExplosive";
+    displayName = "Engineer";
+    icon = "iconManEngineer";
 };
 class USMC(demo): USMC(engl) {
     displayName = "Demolition Technician";
+    icon = "iconManExplosive";
+};
+class USMC(mine): USMC(demo) {
+    displayName = "Mine Technician";
     icon = "iconManExplosive";
 };
 class USMC(vicc): USMC(vicl) {
@@ -219,7 +223,7 @@ class USMC(vicc): USMC(vicl) {
 class USMC(vicd): USMC(vicl) {
     displayName = "Vehicle Driver";
     icon = "iconManEngineer";
-    role = "Sapper";
+    role = "Engineer";
 };
 class USMC(pilot): USMC(rifleman) {
     ACE_GForceCoef = 0.55;
@@ -231,7 +235,7 @@ class USMC(pilot): USMC(rifleman) {
 class USMC(cc): USMC(pilot) {
     displayName = "Crew Chief";
     icon = "iconManEngineer";
-    role = "Sapper";
+    role = "Engineer";
 };
 class USMC(helicrew): USMC(cc) {
     displayName = "Air Crew";

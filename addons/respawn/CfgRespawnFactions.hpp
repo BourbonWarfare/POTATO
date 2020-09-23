@@ -1,6 +1,6 @@
 class CfgRespawnFactions {
     class potato_w {
-        displayName = "NATO";
+        displayName = "BluFor";
         callsignPrefix = "BluFor";
         factionClassname = "potato_w";
         factionPrefix = "potato_w_";
@@ -22,14 +22,14 @@ class CfgRespawnFactions {
         };
     };
 
-    class potato_e: blu_f {
-        displayName = "CSAT";
+    class potato_e: potato_w {
+        displayName = "OpFor";
         callsignPrefix = "OpFor";
         factionClassname = "potato_e";
         factionPrefix = "potato_e_";
     };
 
-    class potato_i: blu_f {
+    class potato_i: potato_w {
         displayName = "Independent";
         callsignPrefix = "Indy";
         factionClassname = "potato_i";
@@ -37,7 +37,7 @@ class CfgRespawnFactions {
     };
 
     class msv {
-        displayName = "MSV";
+        displayName = "Mechanized";
         callsignPrefix = "MSV";
         factionClassname = "potato_e";
         factionPrefix = "potato_e_";
@@ -45,7 +45,6 @@ class CfgRespawnFactions {
             "MSVCommand",
             "MSVPlatoonLead",
             "MSVSquad",
-            "MSVSquadMarksman",
             "MSVMMG",
             "MSVMAT",
             "MSVMSAM",

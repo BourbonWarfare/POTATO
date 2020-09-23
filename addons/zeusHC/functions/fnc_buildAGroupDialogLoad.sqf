@@ -10,7 +10,7 @@
 TRACE_1("Params",_this);
 
 if (isNil QGVAR(groupFactionWhiteList)) then {
-    GVAR(groupFactionWhiteList) = ["potato_w","potato_e","potato_i","rhs_faction_msv"];
+    GVAR(groupFactionWhiteList) = ["potato_w","potato_e","potato_i","rhs_faction_msv"]; // ???
 };
 TRACE_1("white list",GVAR(groupFactionWhiteList));
 

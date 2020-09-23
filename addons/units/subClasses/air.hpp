@@ -182,9 +182,9 @@ class AIR(vicl): AIR(sl) {
     editorSubcategory = "VicCrew";
 };
 class AIR(engl): AIR(sl) {
-    displayName = "Sapper Leader";
+    displayName = "Engineer Leader";
     engineer = 1;
-    role = "Sapper";
+    role = "Engineer";
     editorSubcategory = "Engi";
 };
 class AIR(cm): AIR(rifleman) {
@@ -207,11 +207,15 @@ class AIR(sf_sm): AIR(cm) {
     editorSubcategory = "SF";
 };
 class AIR(eng): AIR(engl) {
-    displayName = "Sapper";
-    icon = "iconManExplosive";
+    displayName = "Engineer";
+    icon = "iconManEngineer";
 };
 class AIR(demo): AIR(engl) {
     displayName = "Demolition Technician";
+    icon = "iconManExplosive";
+};
+class AIR(mine): AIR(demo) {
+    displayName = "Mine Technician";
     icon = "iconManExplosive";
 };
 class AIR(vicc): AIR(vicl) {
@@ -221,7 +225,7 @@ class AIR(vicc): AIR(vicl) {
 class AIR(vicd): AIR(vicl) {
     displayName = "Vehicle Driver";
     icon = "iconManEngineer";
-    role = "Sapper";
+    role = "Engineer";
 };
 class AIR(pilot): AIR(rifleman) {
     ACE_GForceCoef = 0.55;
@@ -233,7 +237,7 @@ class AIR(pilot): AIR(rifleman) {
 class AIR(cc): AIR(pilot) {
     displayName = "Crew Chief";
     icon = "iconManEngineer";
-    role = "Sapper";
+    role = "Engineer";
 };
 class AIR(helicrew): AIR(cc) {
     displayName = "Air Crew";

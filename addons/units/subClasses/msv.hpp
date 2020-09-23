@@ -182,9 +182,9 @@ class MSV(vicl): MSV(sl) {
     editorSubcategory = "VicCrew";
 };
 class MSV(engl): MSV(sl) {
-    displayName = "Sapper Leader";
+    displayName = "Engineer Leader";
     engineer = 1;
-    role = "Sapper";
+    role = "Engineer";
     editorSubcategory = "Engi";
 };
 class MSV(cm): MSV(rifleman) {
@@ -207,11 +207,15 @@ class MSV(sf_sm): MSV(cm) {
     editorSubcategory = "SF";
 };
 class MSV(eng): MSV(engl) {
-    displayName = "Sapper";
-    icon = "iconManExplosive";
+    displayName = "Engineer";
+    icon = "iconManEngineer";
 };
 class MSV(demo): MSV(engl) {
     displayName = "Demolition Technician";
+    icon = "iconManExplosive";
+};
+class MSV(mine): MSV(demo) {
+    displayName = "Mine Technician";
     icon = "iconManExplosive";
 };
 class MSV(vicc): MSV(vicl) {
@@ -221,7 +225,7 @@ class MSV(vicc): MSV(vicl) {
 class MSV(vicd): MSV(vicl) {
     displayName = "Vehicle Driver";
     icon = "iconManEngineer";
-    role = "Sapper";
+    role = "Engineer";
 };
 class MSV(pilot): MSV(rifleman) {
     ACE_GForceCoef = 0.55;
@@ -233,7 +237,7 @@ class MSV(pilot): MSV(rifleman) {
 class MSV(cc): MSV(pilot) {
     displayName = "Crew Chief";
     icon = "iconManEngineer";
-    role = "Sapper";
+    role = "Engineer";
 };
 class MSV(helicrew): MSV(cc) {
     displayName = "Air Crew";
