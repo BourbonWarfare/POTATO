@@ -242,3 +242,10 @@ class MSV(cc): MSV(pilot) {
 class MSV(helicrew): MSV(cc) {
     displayName = "Air Crew";
 };
+class MSV(artl): MSV(vicl) {
+    displayName = "Artillery Leader";
+    editorSubcategory = "Weapons";
+};
+class MSV(artg): MSV(artl) {
+    displayName = "Artillery Gunner";
+};

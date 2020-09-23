@@ -240,3 +240,10 @@ class USMC(cc): USMC(pilot) {
 class USMC(helicrew): USMC(cc) {
     displayName = "Air Crew";
 };
+class USMC(artl): USMC(vicl) {
+    displayName = "Artillery Leader";
+    editorSubcategory = "Weapons";
+};
+class USMC(artg): USMC(artl) {
+    displayName = "Artillery Gunner";
+};

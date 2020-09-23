@@ -629,6 +629,47 @@ class CfgRespawnGroups {
         };
     };
 
+    class HMG {
+        displayName = "HMG Team";
+
+        class Units {
+            class HMGLeader: BaseUnit {
+                displayName = "HMG Leader";
+                type = "HMGl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class HMGG: BaseUnit {
+                displayName = "HMG Gunner";
+                type = "HMGg";
+            };
+            class HMGAG: BaseUnit {
+                displayName = "HMG Assistant";
+                type = "HMGg";
+            };
+        };
+
+        class Configurations {
+            class HMG1: Weapons {
+                displayName = "HMG 1";
+                markerText = "HMG1";
+                markerTexture = QPATHTOEF(markers,data\support.paa);
+            };
+            class HMG2: HMG1 {
+                displayName = "HMG 2";
+                markerText = "HMG2";
+            };
+            class HMG3: HMG1 {
+                displayName = "HMG 3";
+                markerText = "HMG3";
+            };
+            class HMG4: HMG1 {
+                displayName = "HMG 4";
+                markerText = "HMG4";
+            };
+        };
+    };
+
     class MAT {
         displayName = "MAT Team";
 
@@ -670,6 +711,47 @@ class CfgRespawnGroups {
         };
     };
 
+    class HAT {
+        displayName = "HAT Team";
+
+        class Units {
+            class HATLeader: BaseUnit {
+                displayName = "HAT Leader";
+                type = "HATl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class HATG: BaseUnit {
+                displayName = "HAT Gunner";
+                type = "HATg";
+            };
+            class HATAG: BaseUnit {
+                displayName = "HAT Assistant";
+                type = "HATg";
+            };
+        };
+
+        class Configurations {
+            class HAT1: Weapons {
+                displayName = "HAT 1";
+                markerText = "HAT1";
+                markerTexture = QPATHTOEF(markers,data\support.paa);
+            };
+            class HAT2: HAT1 {
+                displayName = "HAT 2";
+                markerText = "HAT2";
+            };
+            class HAT3: HAT1 {
+                displayName = "HAT 3";
+                markerText = "HAT3";
+            };
+            class HAT4: HAT1 {
+                displayName = "HAT 4";
+                markerText = "HAT4";
+            };
+        };
+    };
+
     class Mortar {
         displayName = "Mortar Team";
 
@@ -707,6 +789,37 @@ class CfgRespawnGroups {
             class MTR4: MTR1 {
                 displayName = "Mortar 4";
                 markerText = "MTR4";
+            };
+        };
+    };
+
+    class Artillery {
+        displayName = "Artillery Team";
+
+        class Units {
+            class ArtLeader: BaseUnit {
+                displayName = "Artillery Leader";
+                type = "Artl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class ArtG1: BaseUnit {
+                displayName = "Artillery Gunner";
+                type = "Artg";
+            };
+            class ArtG2: ArtG1 {
+            };
+            class ArtG3: ArtG1 {
+            };
+            class ArtG4: ArtG1 {
+            };
+        };
+
+        class Configurations {
+            class Art1: Weapons {
+                displayName = "Artillery";
+                markerText = "Artillery";
+                markerTexture = QPATHTOEF(markers,data\mortar.paa);
             };
         };
     };
@@ -790,45 +903,45 @@ class CfgRespawnGroups {
     };
 
     class ENG {
-        displayName = "Engineer Team";
+        displayName = "Demolitions Team";
 
         class Units {
             class ExpLead: BaseUnit {
-                displayName = "Engineer Lead (Exp)";
+                displayName = "Demolitions Team Lead";
                 type = "engl";
                 rank = "corporal";
                 leader = 1;
             };
             class Exp: BaseUnit {
-                displayName = "Engineer (Exp)";
-                type = "eng";
+                displayName = "Demolitions Specialist";
+                type = "demo";
+            };
+            class Exp2: Exp {
             };
             class Mine1: BaseUnit {
-                displayName = "Engineer (Mine)";
-                type = "demo";
+                displayName = "Mine Specialist";
+                type = "mine";
             };
-            class Mine2: BaseUnit {
-                displayName = "Engineer (Mine)";
-                type = "demo";
+            class Mine2: Mine1 {
             };
         };
 
         class Configurations {
             class ENG1: Weapons {
-                displayName = "Engineer 1";
+                displayName = "Demolitions Team 1";
                 markerText = "ENG1";
                 markerTexture = QPATHTOEF(markers,data\maintenance.paa);
             };
             class ENG2: ENG1 {
-                displayName = "Engineer 2";
+                displayName = "Demolitions Team 2";
                 markerText = "ENG2";
             };
             class ENG3: ENG1 {
-                displayName = "Engineer 3";
+                displayName = "Demolitions Team 3";
                 markerText = "ENG3";
             };
             class ENG4: ENG1 {
-                displayName = "Engineer 4";
+                displayName = "Demolitions Team 4";
                 markerText = "ENG4";
             };
         };
@@ -1282,6 +1395,47 @@ class CfgRespawnGroups {
         };
     };
 
+    class MSVHMG {
+        displayName = "HMG Team";
+
+        class Units {
+            class HMGLeader: BaseMSVUnit {
+                displayName = "HMG Leader";
+                type = "HMGl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class HMGG: BaseMSVUnit {
+                displayName = "HMG Gunner";
+                type = "HMGg";
+            };
+            class HMGAG: BaseMSVUnit {
+                displayName = "HMG Assistant";
+                type = "HMGg";
+            };
+        };
+
+        class Configurations {
+            class HMG1: Weapons {
+                displayName = "HMG 1";
+                markerText = "HMG1";
+                markerTexture = QPATHTOEF(markers,data\support.paa);
+            };
+            class HMG2: HMG1 {
+                displayName = "HMG 2";
+                markerText = "HMG2";
+            };
+            class HMG3: HMG1 {
+                displayName = "HMG 3";
+                markerText = "HMG3";
+            };
+            class HMG4: HMG1 {
+                displayName = "HMG 4";
+                markerText = "HMG4";
+            };
+        };
+    };
+
     class MSVMAT {
         displayName = "MAT Team";
 
@@ -1332,6 +1486,78 @@ class CfgRespawnGroups {
         };
     };
 
+    class MSVHAT {
+        displayName = "HAT Team";
+
+        class Units {
+            class HATLeader: BaseMSVUnit {
+                displayName = "HAT Leader";
+                type = "HATl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class HATG: BaseMSVUnit {
+                displayName = "HAT Gunner";
+                type = "HATg";
+            };
+            class HATAG: BaseMSVUnit {
+                displayName = "HAT Assistant";
+                type = "HATg";
+            };
+        };
+
+        class Configurations {
+            class HAT1: Weapons {
+                displayName = "HAT 1";
+                markerText = "HAT1";
+                markerTexture = QPATHTOEF(markers,data\support.paa);
+            };
+            class HAT2: HAT1 {
+                displayName = "HAT 2";
+                markerText = "HAT2";
+            };
+            class HAT3: HAT1 {
+                displayName = "HAT 3";
+                markerText = "HAT3";
+            };
+            class HAT4: HAT1 {
+                displayName = "HAT 4";
+                markerText = "HAT4";
+            };
+        };
+    };
+
+    class MSVArty {
+        displayName = "Artillery Team";
+
+        class Units {
+            class ArtLeader: BaseMSVUnit {
+                displayName = "Artillery Leader";
+                type = "Artl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class ArtG1: BaseMSVUnit {
+                displayName = "Artillery Gunner";
+                type = "Artg";
+            };
+            class ArtG2: ArtG1 {
+            };
+            class ArtG3: ArtG1 {
+            };
+            class ArtG4: ArtG1 {
+            };
+        };
+
+        class Configurations {
+            class Art1: Weapons {
+                displayName = "Artillery";
+                markerText = "Artillery";
+                markerTexture = QPATHTOEF(markers,data\mortar.paa);
+            };
+        };
+    };
+
     class MSVMSAM {
         displayName = "MSAM Team";
 
@@ -1374,20 +1600,23 @@ class CfgRespawnGroups {
     };
 
     class MSVENG {
-        displayName = "Engineer Team";
+        displayName = "Demolitions Team";
 
         class Units {
             class EngLead: BaseMSVUnit {
-                displayName = "Engineer Lead";
+                displayName = "Demolitions Team Lead";
                 type = "engl";
                 rank = "corporal";
                 leader = 1;
             };
             class Eng1: BaseMSVUnit {
-                displayName = "Engineer";
+                displayName = "Demolitions Specialist";
                 type = "demo";
             };
             class Eng2: Eng1 {
+            };
+            class Eng: Eng1 {
+              displayName = "Mine Specialist";
                 type = "mine"
             };
             class Eng4: Eng2 {
@@ -1396,25 +1625,25 @@ class CfgRespawnGroups {
 
         class Configurations {
             class ENG1: Weapons {
-                displayName = "Engineer 1";
+                displayName = "Demolitions Team 1";
                 markerText = "ENG1";
                 markerTexture = QPATHTOEF(markers,data\maintenance.paa);
             };
             class ENG2: ENG1 {
-                displayName = "Engineer 2";
+                displayName = "Demolitions Team 2";
                 markerText = "ENG2";
             };
             class ENG3: ENG1 {
-                displayName = "Engineer 3";
+                displayName = "Demolitions Team 3";
                 markerText = "ENG3";
             };
             class ENG4: ENG1 {
-                displayName = "Engineer 4";
+                displayName = "Demolitions Team 4";
                 markerText = "ENG4";
             };
         };
     };
-
+/* Commented out as SF is not currently implimented.
     class MSVSF {
         displayName = "Special Forces";
 
@@ -1484,7 +1713,7 @@ class CfgRespawnGroups {
             };
         };
     };
-
+*/
     class MSVArmor {
         displayName = "Armor";
 

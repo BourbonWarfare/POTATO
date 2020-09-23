@@ -242,3 +242,10 @@ class AIR(cc): AIR(pilot) {
 class AIR(helicrew): AIR(cc) {
     displayName = "Air Crew";
 };
+class AIR(artl): AIR(vicl) {
+    displayName = "Artillery Leader";
+    editorSubcategory = "Weapons";
+};
+class AIR(artg): AIR(artl) {
+    displayName = "Artillery Gunner";
+};
