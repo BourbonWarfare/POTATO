@@ -1,11 +1,17 @@
 #include "CfgEditorSubcategories.hpp"
 class CfgVehicles {
+    #include "subClasses\unitDef.hpp"
     // add POTATO USMC
-    #include "subClasses\usmc.hpp"
+    #define FACTION_MACRO(unit) MSV(unit)
+    FACTION_DEF(SoldierEB,e);
 
     // add POTATO MSV
-    #include "subClasses\msv.hpp"
+    #undef FACTION_MACRO
+    #define FACTION_MACRO(unit) USMC(unit)
+    FACTION_DEF(SoldierWB,w);
 
     // add POTATO Airborne
-    #include "subClasses\air.hpp"
+    #undef FACTION_MACRO
+    #define FACTION_MACRO(unit) AIR(unit)
+    FACTION_DEF(SoldierGB,i);
 };
