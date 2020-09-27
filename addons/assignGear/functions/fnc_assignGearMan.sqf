@@ -13,18 +13,16 @@
  *
  * Public: Yes
  */
-
 #include "script_component.hpp"
 
-TRACE_1("params",_this);
-
 params ["_unit"];
-TRACE_2("",_unit, local _unit);
+TRACE_3("assignGearMan",_unit, local _unit, typeOf _unit);
 
 BEGIN_COUNTER(assignGearMan);
 
-private _faction = toLower faction _unit;
-private _unitClassname = [typeOf _unit] call FUNC(cleanPrefix);
+private _faction = faction _unit;
+private _typeOf = typeOf _unit;
+private _unitClassname = [_typeOf] call FUNC(cleanPrefix);
 private _loadout = _unit getVariable ["F_Gear", _unitClassname]; //Check variable f_gear, otherwise default to typeof
 private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
 
@@ -32,8 +30,82 @@ if ((!isClass(_path)) && GVAR(useFallback)) then {
     _path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
 };
 
+// Temp? BWC for older missions
+if ((!isClass _path) && {(_typeOf select [0,7]) == "potato_"}) then {
+    private _converstionType = 0;
+    if (_faction =="potato_w" && {isClass (missionConfigFile >> "CfgLoadouts" >> "blu_f")}) then {
+        _faction ="blu_f";
+        _converstionType = 1;
+    };
+    if (_faction =="potato_i" && {isClass (missionConfigFile >> "CfgLoadouts" >> "ind_f")}) then {
+        _faction ="ind_f";
+        _converstionType = 1;
+    };
+    if (_faction =="potato_e" && {isClass (missionConfigFile >> "CfgLoadouts" >> "opf_f")}) then {
+        _faction ="opf_f";
+        _converstionType = 1;
+    };
+    if (_faction =="potato_e" && {isClass (missionConfigFile >> "CfgLoadouts" >> "potato_msv")}) then {
+        _faction ="potato_msv";
+        _converstionType = 2;
+    };
+    if (_converstionType == 0) exitWith { INFO_1("No BWC Factions %1",_typeOf); };
+    private _unitRole = toLower _typeOf select [9]; // simple because potato_x_ is const length
+    switch (_converstionType) do {
+        case (1): {
+            _loadout = switch (_unitRole) do {
+                case"rifleman": {"Soldier_F"};
+                case"ftl": {"Soldier_TL_F"};
+                case"coy";
+                case"xo";
+                case"sl": {"Soldier_SL_F"};
+                case"coy": {"officer_F"};
+                case"ar": {"Soldier_AR_F"};
+                case"aar": {"Soldier_AAR_F"};
+                case"lat": {"Soldier_LAT_F"};
+                case"cm";
+                case"sm": {"medic_F"};
+                case"matg": {"soldier_AT_F"};
+                case"matag": {"Soldier_AAT_F"};
+                case"pilot": {"Helipilot_F"};
+                case"demo": {"soldier_exp_F"};
+                case"vicc";
+                case"vicd": {"Fic_eng"};
+                default { WARNING("Untranslated type");  "Soldier_F" };
+            };
+            INFO_2("Convert non-msv %1->%2",_unitRole,_loadout);
+        };
+        case (2): {
+            _loadout = switch (_unitRole) do {
+                case"rifleman": {"potato_msv_rifleman"};
+                case"ftl": {"potato_msv_sr"};
+                case"coy";
+                case"xo";
+                case"sl": {"potato_msv_plt"};
+                case"coy": {"potato_msv_coy"};
+                case"ar": {"potato_msv_ar"};
+                case"aar": {"potato_msv_ar"};
+                case"lat": {"potato_msv_g"};
+                case"cm";
+                case"sm": {"potato_msv_sm"};
+                case"matg": {"potato_msv_matg"};
+                case"matag": {"potato_msv_matag"};
+                case"pilot": {"potato_msv_pilot"};
+                case"demo": {"potato_msv_eng"};
+                case"vicc";
+                case"vicd": {"potato_msv_vicd"};
+                default { WARNING("Untranslated type");  "potato_msv_rifleman" };
+            };
+            INFO_2("Convert msv %1:%2",_unitRole,_loadout);
+        };
+    };
+    _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+    if (!isClass(_path)) then { WARNING_3("No bwc class found %1=%2:%3", _typeOf,_faction,_loadout); };
+};
+
+
 if (!isClass(_path)) exitWith {
-    TRACE_2("No Class Found",_unit,typeOf _unit);
+    TRACE_2("No Class Found",_unit,_typeOf);
     _unit setVariable [QGVAR(gearSetup), true, true];
 };
 
@@ -45,9 +117,9 @@ private _loadoutArray = GVAR(loadoutCache) getVariable _loadoutKey;
 if (isNil "_loadoutArray") then {
     TRACE_1("compiling new",_loadoutKey);
     BEGIN_COUNTER(getLoadoutFromConfig);
-    _loadoutArray = [_path, _unit] call FUNC(getLoadoutFromConfig);
+    _loadoutArray = [_path] call FUNC(getLoadoutFromConfig);
     END_COUNTER(getLoadoutFromConfig);
-    TRACE_1("loadout array: ", _loadoutArray);
+    TRACE_1("", _loadoutArray);
     GVAR(loadoutCache) setVariable [_loadoutKey, _loadoutArray];
 };
 

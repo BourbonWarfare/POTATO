@@ -1,39 +1,29 @@
-class CfgEditorSubcategories
-{
-    class Company
-    {
+class CfgEditorSubcategories {
+    class Company {
         displayName = "Company";
     };
-    class Platoon
-    {
+    class Platoon {
         displayName = "Platoon";
     };
-    class Squad
-    {
+    class Squad {
         displayName = "Squad";
     };
-    class Fireteam
-    {
+    class Fireteam {
         displayName = "Fireteam";
     };
-    class Weapons
-    {
+    class Weapons {
         displayName = "Weapons";
     };
-    class Aircrew
-    {
+    class Aircrew {
         displayName = "Aircrew";
     };
-    class VicCrew
-    {
+    class VicCrew {
         displayName = "Vehicle Crew";
     };
-    class SF
-    {
+    class SF {
         displayName = "Special Forces";
     };
-    class Engi
-    {
+    class Engi {
         displayName = "Engineers";
     };
 };

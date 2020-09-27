@@ -13,6 +13,10 @@ class CfgFactionClasses {
         icon = QPATHTOF(data\icon_msv.paa);
     };
 
+    class DOUBLES(PREFIX,msv): DOUBLES(PREFIX,E) { // lower case msv so it doesn't macro
+        displayName = "POTATO: BWC MSV";
+    }; 
+
     class IND_F;
     class DOUBLES(PREFIX,I): IND_F {
         displayName = "POTATO: Indy";
