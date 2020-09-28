@@ -230,7 +230,7 @@ private _separator = parseText "<br />------------------------<br />";
 
 private _ctrlCreateInfoBlock = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructuredText),-1,CONTROL_GROUP_R];
 TRACE_1("Create Control Structure Text Info",_ctrlCreateInfoBlock);
-_ctrlCreateInfoBlock ctrlSetBackgroundColor [1, 1, 1, 0];
+_ctrlCreateInfoBlock ctrlSetBackgroundColor [0, 0, 0, 0.5];
 _ctrlCreateInfoBlock ctrlSetPosition [0,0,0.5,1];
 _ctrlCreateInfoBlock ctrlCommit 0;
 _ctrlCreateInfoBlockText = composeText [
@@ -266,7 +266,7 @@ _ctrlCreateInfoBlock ctrlSetPosition [0,0,0.5,_ctrlCreateInfoBlockHeight + 0.01]
 _ctrlCreateInfoBlock ctrlCommit 0;
 
 private _ctrlCreateInfoBlockMissionMakerNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMultiReadOnly),-1,CONTROL_GROUP_R];
-_ctrlCreateInfoBlockMissionMakerNotes ctrlSetBackgroundColor [1, 1, 1, 0];
+_ctrlCreateInfoBlockMissionMakerNotes ctrlSetBackgroundColor [0, 0, 0, 0.5];
 _ctrlCreateInfoBlockMissionMakerNotes ctrlSetPosition [0,_ctrlCreateInfoBlockHeight + 0.1,0.5,1];
 _ctrlCreateInfoBlockMissionMakerNotes ctrlCommit 0;
 _ctrlCreateInfoBlockMissionMakerNotes ctrlSetText _missionNotesForTester;

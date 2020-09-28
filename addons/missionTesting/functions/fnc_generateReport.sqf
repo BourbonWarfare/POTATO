@@ -113,20 +113,25 @@ if(_missionMaker == name ACE_PLAYER) then {
     private _reportCtrlLong = DISPLAY_TESTMENU displayCtrl IDC_REPORT_L;
     private _reportCtrlShort = DISPLAY_TESTMENU displayCtrl IDC_REPORT_S;
     if (isNull _reportCtrlLong) then {
+        private _reportBackground = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscBackgroundGUI),-1];
+        _reportBackground ctrlSetPosition [-0.35,0,0.34,1];
+        _reportBackground ctrlCommit 0;
         private _reportCtrlNewTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1];
-        _reportCtrlNewTitle ctrlSetPosition [-0.35,0,0.35,0.05];
+        _reportCtrlNewTitle ctrlSetPosition [-0.35,0,0.34,0.05];
+        _reportCtrlNewTitle ctrlSetTextColor TEXT_ORANGE;
         _reportCtrlNewTitle ctrlCommit 0;
         _reportCtrlNewTitle ctrlSetText "Long Form Report";
         private _reportCtrlNew = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_REPORT_L];
-        _reportCtrlNew ctrlSetPosition [-0.35,0.05,0.35,0.5];
+        _reportCtrlNew ctrlSetPosition [-0.35,0.05,0.34,0.5];
         _reportCtrlNew ctrlCommit 0;
         _reportCtrlNew ctrlSetText _textLong;
         private _reportCtrlNewTitleShort = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1];
-        _reportCtrlNewTitleShort ctrlSetPosition [-0.35,0.55,0.35,0.05];
+        _reportCtrlNewTitleShort ctrlSetPosition [-0.35,0.55,0.34,0.05];
+        _reportCtrlNewTitleShort ctrlSetTextColor TEXT_ORANGE;
         _reportCtrlNewTitleShort ctrlCommit 0;
         _reportCtrlNewTitleShort ctrlSetText "Short Report (Version Update)";
         private _reportCtrlNewShort = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_REPORT_S];
-        _reportCtrlNewShort ctrlSetPosition [-0.35,0.6,0.35,0.4];
+        _reportCtrlNewShort ctrlSetPosition [-0.35,0.6,0.34,0.4];
         _reportCtrlNewShort ctrlCommit 0;
         _reportCtrlNewShort ctrlSetText _textShort;
     } else {
