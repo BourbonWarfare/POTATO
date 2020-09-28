@@ -1,4 +1,3 @@
-#include "CfgEditorSubcategories.hpp"
 class CfgVehicles {
     #include "subClasses\unitDef.hpp"
     // add POTATO USMC
@@ -14,4 +13,8 @@ class CfgVehicles {
     #undef FACTION_MACRO
     #define FACTION_MACRO(unit) AIR(unit)
     FACTION_DEF(SoldierGB,i);
+
+    // add POTATO MSV (Backwards Compat)
+    #undef FACTION_MACRO
+    #include "subClasses\bwc_msv.hpp"
 };

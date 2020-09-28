@@ -19,3 +19,7 @@
 
 #define AIR(var) TRIPLES(PREFIX,i,var)
 #define QAIR(var) QUOTE(AIR(var))
+
+
+#define BWC_MSV(var) TRIPLES(PREFIX,msv,var)
+#define QBWC_MSV(var) QUOTE(MSV(var))

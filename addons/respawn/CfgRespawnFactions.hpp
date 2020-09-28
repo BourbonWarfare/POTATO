@@ -40,7 +40,7 @@ class CfgRespawnFactions {
     };
 
     class msv {
-        displayName = "Mechanized";
+        displayName = "OpFor: Mechanized";
         callsignPrefix = "MSV";
         factionClassname = "potato_e";
         factionPrefix = "potato_e_";
