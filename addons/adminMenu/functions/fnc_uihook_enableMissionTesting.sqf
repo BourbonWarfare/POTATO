@@ -9,5 +9,5 @@ if (EGVAR(missionTesting,missionTestingActive)) then {
 } else {
 [QGVAR(missionTestingAddAction),[""]] call CBA_fnc_globalEventJIP;
 
-["potato_adminMsg", ["Adding Mission Testing Add action to all Testers"]] call CBA_fnc_globalEvent;
+["potato_adminMsg", ["Adding Mission Testing Add action to all Zues Players"]] call CBA_fnc_globalEvent;
 };
