@@ -65,7 +65,7 @@ private _missionMaker = getMissionConfigValue ["author","????"];
 private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
 private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
 private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
-//private _missionSummary = "Multiplayer" get3DENMissionAttribute "IntelOverviewText"; - Mission Summary Block Removed for now as not functioning.
+private _missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText";
 private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
 private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);
 private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
@@ -91,9 +91,12 @@ private _textArrayShort = [];
 if(_missionMaker == name ACE_PLAYER) then {
     _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
     S_NEWTEXTLINE ["[size=200][u][b]Mission : [color=#FF4000]%1[/color][/b][/u]   [b][u]Type : [color=#FF4000]%2[/color][/u][/b][/size]", _missionName, _missionType];
-    S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%4[/color][/b][/u][/size]    [size=150]Mission Tags : [color=#FF4000]%1, %2, %3[/color]  [/size] ",_missionTag1,_missionTag2,_missionTag3,_missionVersion];
-/*     S_NEWTEXTLINE ["[size=150][u]Mission Summary (As shown in Slotting screen, Inc of Ratio if TvT) :[/u][/size]"];
-    S_NEWTEXTLINE ["[color=#FF4000]%1[/color]",_missionSummary]; */
+    S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%1[/color][/b][/u][/size]",_missionVersion];
+    S_NEWTEXTLINE ["[size=150]Mission Tags : [color=#FF4000]%1, %2, %3[/color]  [/size] ",_missionTag1,_missionTag2,_missionTag3];
+    if (isServer && name ACE_PLAYER == _missionMaker) then {
+        S_NEWTEXTLINE ["[size=150][u]Mission Summary (As shown in Slotting screen, Inc of Ratio if TvT) :[/u][/size]"];
+        S_NEWTEXTLINE ["[color=#FF4000]%1[/color]",_missionSummary];
+    };
     S_NEWTEXTLINE ["[size=150]Player Count - MIN: [color=#FF4000]%1[/color] Recommended: [color=#FF4000]%2[/color] MAX: [color=#FF4000]%3[/color][/size]",_missionPlayerCountMin, _missionPlayerCountRec,_missionPlayerCountMax];
     S_NEWTEXTLINE_FORMATTEXT ["[size=150]Custom Scripting : %1 Custom Loadout : %2 Custom Vic Loadout : %3  Unit Specific Breigings : %4[/size]",_missionCustomScriptingStr,_missionCustomLoadoutStr,_missionCustomVicLoadoutStr,_unitSpecificBriefStr];
 
@@ -156,6 +159,9 @@ if(_missionMaker == name ACE_PLAYER) then {
     private _text = _textArray joinString (endl + endl);
     private _reportCtrl = DISPLAY_TESTMENU displayCtrl IDC_REPORT_L;
     if (isNull _reportCtrl) then {
+        private _reportBackground = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscBackgroundGUI),-1];
+        _reportBackground ctrlSetPosition [-0.35,0,0.34,1];
+        _reportBackground ctrlCommit 0;
         private _reportCtrlNew = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_REPORT_L];
         _reportCtrlNew ctrlSetPosition [-0.35,0,0.35,1];
         _reportCtrlNew ctrlCommit 0;

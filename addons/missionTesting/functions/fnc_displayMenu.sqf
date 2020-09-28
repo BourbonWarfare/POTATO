@@ -153,11 +153,25 @@ _menuBreifingPage ctrlSetPosition [0.60,1,0.12,0.1];
 _menuBreifingPage buttonSetAction QUOTE([] call FUNC(openBriefings));
 _menuBreifingPage ctrlCommit 0;
 
+if (!EGVAR(spectate,running)) then {
+    private _killGoToSpec = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
+    _killGoToSpec ctrlSetText "Goto Spec";
+    _killGoToSpec ctrlSetTooltip "Kill player and go to POTATO spectator if enabled (which it should be enabled else MM messed up)";
+    _killGoToSpec buttonSetAction QUOTE(ACE_player setDamage 1);
+    _killGoToSpec ctrlSetPosition [0.47,1,0.12,0.1];
+    _killGoToSpec ctrlCommit 0;
+} else {
+    private _keyBindInst = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1];
+    _keyBindInst ctrlSetText "To reopen this menu in spectator press CTRL + SHIFT + F5";
+    _keyBindInst ctrlSetPosition [0,1,1,0.05];
+    _keyBindInst ctrlCommit 0;
+};
+
 /*  Waiting for CTRLSETURL to be added from Dev branch, else it will have to be added via config when I get around to that.... oh well.
 private _openForumFinishedMissions = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
 _openForumFinishedMissions ctrlSetText "Forum";
 _openForumFinishedMissions ctrlSetURL "http://forums.bourbonwarfare.com/viewforum.php?f=30";
-_openForumFinishedMissions ctrlSetPosition [0.47,1,0.12,0.1];
+_openForumFinishedMissions ctrlSetPosition [0.34,1,0.12,0.1];
 _openForumFinishedMissions ctrlCommit 0;
  */
 private _missionMaker = getMissionConfigValue ["author","????"];
@@ -185,8 +199,8 @@ private _unitSpecificBriefVar = getMissionConfigValue QGVAR(missionFlagUnitSpeci
 private _unitSpecificBrief =  if(isNil QUOTE(_unitSpecificBriefVar)) then {"No"} else {A_YESNO select _unitSpecificBriefVar};
 
 private _missionNotesForTester = getMissionConfigValue QGVAR(missionMakerNotesForTesters);
-//private _missionNotesForTester =  [_missionNotesForTesterText] call EFUNC(briefing,convertHTMLToNewLine);
-//private _missionSummary = "Multiplayer" get3DENMissionAttribute "IntelOverviewText"; - Mission Summary Block Removed for now as not functioning.
+private _missionSummary = "You are not the mission maker so this is currently unavailable";
+if (isServer && name ACE_PLAYER == _missionMaker) then {_missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText"};
 private _masterChecklistArray = nil;
 
 if(_missionMaker == name ACE_PLAYER) then {
@@ -198,7 +212,8 @@ if(_missionMaker == name ACE_PLAYER) then {
 {
     _x call _createChecklistSection;
 } forEach _masterChecklistArray;
-//
+
+
 INCREMENT_YCOORD_TEXT;
 private _createCtrlLine4 = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscLine),-1,CONTROL_GROUP_L];
 _createCtrlLine4 ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0];
@@ -248,6 +263,10 @@ _ctrlCreateInfoBlockText = composeText [
     ,parseText "<t color='#0080FF'>Mission Type:</t> ",_missionType, lineBreak
     ,parseText "<t color='#0080FF'>Mission Version:</t> ",_missionVersion, lineBreak
     ,lineBreak
+    ,parseText "<t color='#FF8000'>MISSION SUMMARY</t>"
+    ,_separator
+    ,_missionSummary, lineBreak
+    ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION PLAYER COUNT</t>"
     ,_separator
     ,parseText "<t color='#0080FF'>Min:</t> ",_missionPlayerCountMin,parseText "<t color='#0080FF'>  Rec:</t> ",_missionPlayerCountRec,parseText "<t color='#0080FF'>  Max:</t> ",_missionPlayerCountMax, lineBreak
@@ -281,14 +300,3 @@ _ctrlCreateInfoBlockMissionMakerNotesHeight = ctrlTextHeight _ctrlCreateInfoBloc
 _ctrlCreateInfoBlockMissionMakerNotes ctrlSetPosition [0,_ctrlCreateInfoBlockHeight + 0.01,0.5,_ctrlCreateInfoBlockMissionMakerNotesHeight + 0.01];
 _ctrlCreateInfoBlockMissionMakerNotes ctrlCommit 0;
 
-
-/*
-
-    Mission Summary Block Removed for now as not functioning.
-
-    ,parseText "<t color='#FF8000'>MISSION SUMMARY</t>"
-    ,_separator
-    ,_missionSummary, lineBreak
-    ,lineBreak
-
-*/
