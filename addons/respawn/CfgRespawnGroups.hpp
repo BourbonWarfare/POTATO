@@ -16,7 +16,7 @@ class CfgRespawnGroups {
             };
             class COMedic: BaseMedic {
                 displayName = "Company Medic";
-                type = "cm"
+                type = "cm";
             };
             class CXO: BaseUnit {
                 displayName = "Company Executive Officer";
@@ -62,7 +62,7 @@ class CfgRespawnGroups {
             };
             class PlatoonMedic: BaseMedic {
                 displayName = "Platoon Medic";
-                type = "plm"
+                type = "plm";
             };
             class PlatoonSgt: BaseUnit {
                 displayName = "Platoon Sgt";
@@ -111,7 +111,7 @@ class CfgRespawnGroups {
             class SquadLeader: BaseSquadLead {};
             class SquadMedic: BaseMedic {
                 displayName = "Squad Medic";
-                type = "sm"
+                type = "sm";
             };
         };
 
@@ -1173,7 +1173,7 @@ class CfgRespawnGroups {
             class COMedic: BaseMSVMedic {
                 displayName = "Company Medic";
                 type = "cm";
-                rank = "corporal"
+                rank = "corporal";
             };
             class CXO: BaseMSVUnit {
                 displayName = "Company Executive Officer";
@@ -1183,7 +1183,7 @@ class CfgRespawnGroups {
             class COFAC: BaseMSVUnit {
                 displayName = "Company Forward Air Controller";
                 type = "fac";
-                rank = "lieutenant"
+                rank = "lieutenant";
             };
             class COGunner: BaseMSVGunner {
                 displayName = "Company Gunner";
@@ -1226,7 +1226,7 @@ class CfgRespawnGroups {
             class PlatoonMedic: BaseMSVMedic {
                 displayName = "Platoon Medic";
                 type = "plm";
-                rank = "corporal"
+                rank = "corporal";
             };
             class AssistantPlatoonLeader: BaseMSVUnit {
                 displayName = "Platoon Sergent";
@@ -1617,7 +1617,7 @@ class CfgRespawnGroups {
             };
             class Eng: Eng1 {
               displayName = "Mine Specialist";
-                type = "mine"
+                type = "mine";
             };
             class Eng4: Eng2 {
             };

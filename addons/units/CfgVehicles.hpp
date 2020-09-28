@@ -1,4 +1,3 @@
-#include "CfgEditorSubcategories.hpp"
 class CfgVehicles {
     // add POTATO USMC
     #include "subClasses\usmc.hpp"
@@ -8,4 +7,7 @@ class CfgVehicles {
 
     // add POTATO Airborne
     #include "subClasses\air.hpp"
+
+    // add POTATO MSV (Backwards Compat)
+    #include "subClasses\bwc_msv.hpp"
 };
