@@ -31,7 +31,7 @@
 #define A_YESNO ["No","Yes"]
 #define A_CHECK_TF [false,true]
 #define A_MISSION_TYPE ["BOTH","COOP","TVT"]
-#define A_MISSION_TAGS ["NONE","NIGHT","DAWN","MSV","TvT1","TvT2","AH"]
+#define A_MISSION_TAGS ["NONE","NIGHT","DAWN","MSV","TvT1","TvT2","AH","FOG","BRIEF ON MAP"]
 
 // BBCode Defines
 #define BBNOTEFLAG_A ["","[size=85][i](Check notes in spoiler tag!!!)[/i][/size]"]

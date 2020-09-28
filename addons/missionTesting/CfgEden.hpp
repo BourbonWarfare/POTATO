@@ -148,6 +148,14 @@ class Cfg3DEN {
                                     name = "AH";
                                     value = 6;
                                 };
+                                class FOG {
+                                    name = "FOG";
+                                    value = 7;
+                                };
+                                class BriefOnMap {
+                                    name = "BRIEF ON MAP";
+                                    value = 8;
+                                };
                             };
 						};
                         class GVAR(missionTag2) : GVAR(missionTag1) {
