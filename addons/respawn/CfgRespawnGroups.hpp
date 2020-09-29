@@ -902,13 +902,13 @@ class CfgRespawnGroups {
         };
     };
 
-    class ENG {
+    class DEMO {
         displayName = "Demolitions Team";
 
         class Units {
             class ExpLead: BaseUnit {
                 displayName = "Demolitions Team Lead";
-                type = "engl";
+                type = "demol";
                 rank = "corporal";
                 leader = 1;
             };
@@ -927,21 +927,64 @@ class CfgRespawnGroups {
         };
 
         class Configurations {
-            class ENG1: Weapons {
+            class DEMO1: Weapons {
                 displayName = "Demolitions Team 1";
+                markerText = "DEMO1";
+                markerTexture = QPATHTOEF(markers,data\engineer.paa);
+            };
+            class DEMO2: DEMO1 {
+                displayName = "Demolitions Team 2";
+                markerText = "DEMO2";
+            };
+            class DEMO3: DEMO1 {
+                displayName = "Demolitions Team 3";
+                markerText = "DEMO3";
+            };
+            class DEMO4: DEMO1 {
+                displayName = "Demolitions Team 4";
+                markerText = "DEMO4";
+            };
+        };
+    };
+
+    class ENG {
+        displayName = "Logistics Team";
+
+        class Units {
+            class EngLead: BaseUnit {
+                displayName = "Engineer Team Lead";
+                type = "engl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class Eng: BaseUnit {
+                displayName = "Engineer";
+                type = "eng";
+            };
+            class Eng2: Eng {
+            };
+            class Eng3: Eng {
+            };
+            class Eng4: Eng {
+            };
+        };
+
+        class Configurations {
+            class ENG1: Weapons {
+                displayName = "Logistics Team 1";
                 markerText = "ENG1";
                 markerTexture = QPATHTOEF(markers,data\maintenance.paa);
             };
             class ENG2: ENG1 {
-                displayName = "Demolitions Team 2";
+                displayName = "Logistics Team 2";
                 markerText = "ENG2";
             };
             class ENG3: ENG1 {
-                displayName = "Demolitions Team 3";
+                displayName = "Logistics Team 3";
                 markerText = "ENG3";
             };
             class ENG4: ENG1 {
-                displayName = "Demolitions Team 4";
+                displayName = "Logistics Team 4";
                 markerText = "ENG4";
             };
         };
@@ -1599,7 +1642,7 @@ class CfgRespawnGroups {
         };
     };
 
-    class MSVENG {
+    class MSVDEMO {
         displayName = "Demolitions Team";
 
         class Units {
@@ -1624,25 +1667,69 @@ class CfgRespawnGroups {
         };
 
         class Configurations {
-            class ENG1: Weapons {
+            class DEMO1: Weapons {
                 displayName = "Demolitions Team 1";
+                markerText = "DEMO1";
+                markerTexture = QPATHTOEF(markers,data\engineer.paa);
+            };
+            class DEMO2: DEMO1 {
+                displayName = "Demolitions Team 2";
+                markerText = "DEMO2";
+            };
+            class DEMO3: DEMO1 {
+                displayName = "Demolitions Team 3";
+                markerText = "DEMO3";
+            };
+            class DEMO4: DEMO1 {
+                displayName = "Demolitions Team 4";
+                markerText = "DEMO4";
+            };
+        };
+    };
+
+    class MSVENG {
+        displayName = "Logistics Team";
+
+        class Units {
+            class EngLead: BaseUnit {
+                displayName = "Engineer Team Lead";
+                type = "engl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class Eng: BaseUnit {
+                displayName = "Engineer";
+                type = "eng";
+            };
+            class Eng2: Eng {
+            };
+            class Eng3: Eng {
+            };
+            class Eng4: Eng {
+            };
+        };
+
+        class Configurations {
+            class ENG1: Weapons {
+                displayName = "Logistics Team 1";
                 markerText = "ENG1";
                 markerTexture = QPATHTOEF(markers,data\maintenance.paa);
             };
             class ENG2: ENG1 {
-                displayName = "Demolitions Team 2";
+                displayName = "Logistics Team 2";
                 markerText = "ENG2";
             };
             class ENG3: ENG1 {
-                displayName = "Demolitions Team 3";
+                displayName = "Logistics Team 3";
                 markerText = "ENG3";
             };
             class ENG4: ENG1 {
-                displayName = "Demolitions Team 4";
+                displayName = "Logistics Team 4";
                 markerText = "ENG4";
             };
         };
     };
+
 /* Commented out as SF is not currently implimented.
     class MSVSF {
         displayName = "Special Forces";
