@@ -24,6 +24,9 @@ class CfgEditorSubcategories {
         displayName = "Special Forces";
     };
     class Engi {
-        displayName = "Engineers";
+        displayName = "Logistics";
+    };
+    class Demo {
+        displayName = "Demolitions";
     };
 };

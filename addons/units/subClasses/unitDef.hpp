@@ -182,6 +182,12 @@ class FACTION_MACRO(vicl): FACTION_MACRO(sl) {\
     role = "Crewman";\
     editorSubcategory = "VicCrew";\
 };\
+class FACTION_MACRO(demol): FACTION_MACRO(sl) {\
+    displayName = "Demolitions Leader";\
+    engineer = 1;\
+    role = "Engineer";\
+    editorSubcategory = "Demo";\
+};\
 class FACTION_MACRO(engl): FACTION_MACRO(sl) {\
     displayName = "Engineer Leader";\
     engineer = 1;\
@@ -211,7 +217,7 @@ class FACTION_MACRO(eng): FACTION_MACRO(engl) {\
     displayName = "Engineer";\
     icon = "iconManEngineer";\
 };\
-class FACTION_MACRO(demo): FACTION_MACRO(engl) {\
+class FACTION_MACRO(demo): FACTION_MACRO(demol) {\
     displayName = "Demolition Technician";\
     icon = "iconManExplosive";\
 };\
