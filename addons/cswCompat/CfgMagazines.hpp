@@ -2,9 +2,9 @@ class CfgMagazines {
     class CUP_16Rnd_PG9_AT_M;
     class GVAR(cup_spg9_at): CUP_16Rnd_PG9_AT_M {
         author = "Brandon";
-        displayName = "[CUP] SPG-9 AT Round";
+        displayName = "[OLD] SPG-9 AT Round";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
+        scope = 1;
         type = 256;
         count = 1;
         mass = 80;
@@ -14,9 +14,9 @@ class CfgMagazines {
     class CUP_16Rnd_OG9_HE_M;
     class GVAR(cup_spg9_he): CUP_16Rnd_OG9_HE_M {
         author = "Brandon";
-        displayName = "[CUP] SPG-9 HE Round";
+        displayName = "[OLD] SPG-9 HE Round";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
+        scope = 1;
         type = 256;
         count = 1;
         mass = 80;
@@ -26,9 +26,9 @@ class CfgMagazines {
     class CUP_6Rnd_TOW2_M;
     class GVAR(cup_tow_at): CUP_6Rnd_TOW2_M {
         author = "Brandon";
-        displayName = "[CUP] BGM-71 TOW Round";
+        displayName = "[OLD] BGM-71 TOW Round";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
+        scope = 1;
         type = 256;
         count = 1;
         mass = 40;
@@ -37,9 +37,9 @@ class CfgMagazines {
     class 40Rnd_20mm_G_belt;
     class GVAR(20Rnd_30mm_G_belt): 40Rnd_20mm_G_belt {
         author = "Brandon";
-        displayName = "[CUP] 30mm GMG Belt";
+        displayName = "[OLD] 30mm GMG Belt";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
-        scope = 2;
+        scope = 1;
         type = 256;
         count = 30;
         mass = 40;
@@ -52,20 +52,20 @@ class CfgMagazines {
     class ACE_1Rnd_82mm_Mo_HE;
     class GVAR(105mm_m119_he): ACE_1Rnd_82mm_Mo_HE {
         author = "Potato";
-        displayName = "[CUP] 105mm HE";
+        displayName = "[OLD] 105mm HE";
         mass = 120;
     };
     class GVAR(105mm_m119_smoke): GVAR(105mm_m119_he) {
-        displayName = "[CUP] 105mm Smoke";
+        displayName = "[OLD] 105mm Smoke";
     };
     class GVAR(105mm_m119_wp): GVAR(105mm_m119_he) {
-        displayName = "[CUP] 105mm WP";
+        displayName = "[OLD] 105mm WP";
     };
     class GVAR(105mm_m119_laser): GVAR(105mm_m119_he) {
-        displayName = "[CUP] 105mm Laser";
+        displayName = "[OLD] 105mm Laser";
     };
     class GVAR(105mm_m119_illum): GVAR(105mm_m119_he) {
-        displayName = "[CUP] 105mm Illum";
+        displayName = "[OLD] 105mm Illum";
     };
 };
 

@@ -39,7 +39,8 @@ class CfgVehicles {
 
 
 
-    /* HMG's */
+    /* Switch to CUP's Native CSW Configs
+    // HMG's
     class StaticMGWeapon;
     class CUP_M2StaticMG_base: StaticMGWeapon {
         class ACE_CSW {
@@ -111,7 +112,7 @@ class CfgVehicles {
     };
 
 
-    // /* GMG's */
+    // GMG's'
     class StaticGrenadeLauncher;
     class CUP_AGS_base: StaticGrenadeLauncher {
         class ACE_CSW {
@@ -127,7 +128,7 @@ class CfgVehicles {
     };
 
 
-    // /* Launchers */
+    // Launchers
     class StaticATWeapon;
     class CUP_Metis_Base: StaticATWeapon {
         class ACE_CSW {
@@ -167,6 +168,6 @@ class CfgVehicles {
             ammoUnloadTime = 5;
         };
     };
-
+*/
 };
 
