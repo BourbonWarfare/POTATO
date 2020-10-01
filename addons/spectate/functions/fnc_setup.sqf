@@ -72,6 +72,7 @@ if !(isNull _oldUnit) then {
     private _zeusModule = getAssignedCuratorLogic _oldUnit;
     if !(isNull _zeusModule) then {
         [GVAR(unit), _zeusModule] remoteExec [QFUNC(transferZeus), SERVER_CLIENT_ID];
+        if(EGVAR(missionTesting,missionTestingActive)) then {[] call EFUNC(missionTesting,displayMenu);};
     };
 };
 

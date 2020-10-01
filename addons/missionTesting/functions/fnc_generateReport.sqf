@@ -65,21 +65,24 @@ private _missionMaker = getMissionConfigValue ["author","????"];
 private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
 private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
 private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
-//private _missionSummary = "Multiplayer" get3DENMissionAttribute "IntelOverviewText"; - Mission Summary Block Removed for now as not functioning.
+private _missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText";
 private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
 private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);
 private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
-private _missionTag1 = A_MISSION_TAGS select (getMissionConfigValue QGVAR(missionTag1));
-private _missionTag2 = A_MISSION_TAGS select (getMissionConfigValue QGVAR(missionTag2));
-private _missionTag3 = A_MISSION_TAGS select (getMissionConfigValue QGVAR(missionTag3));
+private _missionTag1Var = getMissionConfigValue QGVAR(missionTag1);
+private _missionTag1 = if(isNil QUOTE(_missionTag1Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag1Var};
+private _missionTag2Var = getMissionConfigValue QGVAR(missionTag2);
+private _missionTag2 = if(isNil QUOTE(_missionTag2Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag2Var};
+private _missionTag3Var = getMissionConfigValue QGVAR(missionTag3);
+private _missionTag3 = if(isNil QUOTE(_missionTag3Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag3Var};
 private _missionCustomScripting = getMissionConfigValue QGVAR(missionFlagCustomScripting);
-private _missionCustomScriptingStr = [_missionCustomScripting] call _trueFalse;
+private _missionCustomScriptingStr = if(isNil QUOTE(_missionCustomScripting)) then {BBFALSE} else {[_missionCustomScripting] call _trueFalse};
 private _missionCustomLoadout = getMissionConfigValue QGVAR(missionFlagCustomLoadout);
-private _missionCustomLoadoutStr = [_missionCustomLoadout] call _trueFalse;
+private _missionCustomLoadoutStr = if(isNil QUOTE(_missionCustomLoadout)) then {BBFALSE} else {[_missionCustomLoadout] call _trueFalse};
 private _missionCustomVicLoadout = getMissionConfigValue QGVAR(missionFlagCustomVicLoadout);
-private _missionCustomVicLoadoutStr = _missionCustomVicLoadout call _trueFalse;
+private _missionCustomVicLoadoutStr = if(isNil QUOTE(_missionCustomVicLoadout)) then {BBFALSE} else {[_missionCustomVicLoadout] call _trueFalse};
 private _unitSpecificBrief = getMissionConfigValue QGVAR(missionFlagUnitSpecificBriefing);
-private _unitSpecificBriefStr = [_unitSpecificBrief] call _trueFalse;
+private _unitSpecificBriefStr = if(isNil QUOTE(_unitSpecificBrief)) then {BBFALSE} else {[_unitSpecificBrief] call _trueFalse};
 private _missionNotesForTester =  getMissionConfigValue QGVAR(missionMakerNotesForTesters);
 private _masterChecklistArray = nil;
 private _textArray = [];
@@ -88,9 +91,12 @@ private _textArrayShort = [];
 if(_missionMaker == name ACE_PLAYER) then {
     _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
     S_NEWTEXTLINE ["[size=200][u][b]Mission : [color=#FF4000]%1[/color][/b][/u]   [b][u]Type : [color=#FF4000]%2[/color][/u][/b][/size]", _missionName, _missionType];
-    S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%4[/color][/b][/u][/size] [size=150]  Mission Tags : [color=#FF4000]%1,%2,%3[/color]  [/size] ",_missionTag1,_missionTag2,_missionTag3,_missionVersion];
-/*     S_NEWTEXTLINE ["[size=150][u]Mission Summary (As shown in Slotting screen, Inc of Ratio if TvT) :[/u][/size]"];
-    S_NEWTEXTLINE ["[color=#FF4000]%1[/color]",_missionSummary]; */
+    S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%1[/color][/b][/u][/size]",_missionVersion];
+    S_NEWTEXTLINE ["[size=150]Mission Tags : [color=#FF4000]%1, %2, %3[/color]  [/size] ",_missionTag1,_missionTag2,_missionTag3];
+    if (isServer && name ACE_PLAYER == _missionMaker) then {
+        S_NEWTEXTLINE ["[size=150][u]Mission Summary (As shown in Slotting screen, Inc of Ratio if TvT) :[/u][/size]"];
+        S_NEWTEXTLINE ["[color=#FF4000]%1[/color]",_missionSummary];
+    };
     S_NEWTEXTLINE ["[size=150]Player Count - MIN: [color=#FF4000]%1[/color] Recommended: [color=#FF4000]%2[/color] MAX: [color=#FF4000]%3[/color][/size]",_missionPlayerCountMin, _missionPlayerCountRec,_missionPlayerCountMax];
     S_NEWTEXTLINE_FORMATTEXT ["[size=150]Custom Scripting : %1 Custom Loadout : %2 Custom Vic Loadout : %3  Unit Specific Breigings : %4[/size]",_missionCustomScriptingStr,_missionCustomLoadoutStr,_missionCustomVicLoadoutStr,_unitSpecificBriefStr];
 
@@ -110,20 +116,25 @@ if(_missionMaker == name ACE_PLAYER) then {
     private _reportCtrlLong = DISPLAY_TESTMENU displayCtrl IDC_REPORT_L;
     private _reportCtrlShort = DISPLAY_TESTMENU displayCtrl IDC_REPORT_S;
     if (isNull _reportCtrlLong) then {
+        private _reportBackground = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscBackgroundGUI),-1];
+        _reportBackground ctrlSetPosition [-0.35,0,0.34,1];
+        _reportBackground ctrlCommit 0;
         private _reportCtrlNewTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1];
-        _reportCtrlNewTitle ctrlSetPosition [-0.35,0,0.35,0.05];
+        _reportCtrlNewTitle ctrlSetPosition [-0.35,0,0.34,0.05];
+        _reportCtrlNewTitle ctrlSetTextColor TEXT_ORANGE;
         _reportCtrlNewTitle ctrlCommit 0;
         _reportCtrlNewTitle ctrlSetText "Long Form Report";
         private _reportCtrlNew = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_REPORT_L];
-        _reportCtrlNew ctrlSetPosition [-0.35,0.05,0.35,0.5];
+        _reportCtrlNew ctrlSetPosition [-0.35,0.05,0.34,0.5];
         _reportCtrlNew ctrlCommit 0;
         _reportCtrlNew ctrlSetText _textLong;
         private _reportCtrlNewTitleShort = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1];
-        _reportCtrlNewTitleShort ctrlSetPosition [-0.35,0.55,0.35,0.05];
+        _reportCtrlNewTitleShort ctrlSetPosition [-0.35,0.55,0.34,0.05];
+        _reportCtrlNewTitleShort ctrlSetTextColor TEXT_ORANGE;
         _reportCtrlNewTitleShort ctrlCommit 0;
         _reportCtrlNewTitleShort ctrlSetText "Short Report (Version Update)";
         private _reportCtrlNewShort = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_REPORT_S];
-        _reportCtrlNewShort ctrlSetPosition [-0.35,0.6,0.35,0.4];
+        _reportCtrlNewShort ctrlSetPosition [-0.35,0.6,0.34,0.4];
         _reportCtrlNewShort ctrlCommit 0;
         _reportCtrlNewShort ctrlSetText _textShort;
     } else {
@@ -148,6 +159,9 @@ if(_missionMaker == name ACE_PLAYER) then {
     private _text = _textArray joinString (endl + endl);
     private _reportCtrl = DISPLAY_TESTMENU displayCtrl IDC_REPORT_L;
     if (isNull _reportCtrl) then {
+        private _reportBackground = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscBackgroundGUI),-1];
+        _reportBackground ctrlSetPosition [-0.35,0,0.34,1];
+        _reportBackground ctrlCommit 0;
         private _reportCtrlNew = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_REPORT_L];
         _reportCtrlNew ctrlSetPosition [-0.35,0,0.35,1];
         _reportCtrlNew ctrlCommit 0;

@@ -190,4 +190,9 @@ if ((_key == DIK_F4) && {_this select 2} && {_this select 3}) exitWith {
     [true] call acre_api_fnc_setSpectator;
 };
 
+if ((_key == DIK_F5) && {_this select 2} && {_this select 3}) exitWith {
+    diag_log text format ["[POTATO] - Opening Testing Menu"];
+    call EFUNC(missionTesting,displayMenu);
+};
+
 false // default to unhandled

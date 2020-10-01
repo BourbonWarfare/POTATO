@@ -15,3 +15,10 @@ class Extended_PostInit_EventHandlers {
         init = QUOTE(call COMPILE_FILE(XEH_postInit));
     };
 };
+class Extended_Init_EventHandlers {
+    class GVAR(missionTesting) {
+        class localInit {
+            clientInit = QUOTE(call FUNC(openMenuFromZues));
+        };
+    };
+};

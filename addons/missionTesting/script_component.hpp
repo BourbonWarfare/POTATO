@@ -1,9 +1,9 @@
 #define COMPONENT missiontesting
 #include "\z\potato\addons\core\script_mod.hpp"
 
-#define DEBUG_MODE_FULL
-#define DISABLE_COMPILE_CACHE
-#define ENABLE_PERFORMANCE_COUNTERS
+//#define DEBUG_MODE_FULL
+//#define DISABLE_COMPILE_CACHE
+//#define ENABLE_PERFORMANCE_COUNTERS
 
 #ifdef DEBUG_ENABLED_MISSIONTESTING
     #define DEBUG_MODE_FULL
@@ -28,10 +28,10 @@
 // Array Defines
 #define A_PASSFAIL ["FAIL","PASS","NA"]
 #define A_CHECK ["X","O"]
-#define A_YESNO ["Yes","No"]
+#define A_YESNO ["No","Yes"]
 #define A_CHECK_TF [false,true]
 #define A_MISSION_TYPE ["BOTH","COOP","TVT"]
-#define A_MISSION_TAGS ["NONE","NIGHT","DAWN","MSV","TvT1","TvT2","AH"]
+#define A_MISSION_TAGS ["NONE","NIGHT","DAWN","MSV","TvT1","TvT2","AH","FOG","BRIEF ON MAP"]
 
 // BBCode Defines
 #define BBNOTEFLAG_A ["","[size=85][i](Check notes in spoiler tag!!!)[/i][/size]"]

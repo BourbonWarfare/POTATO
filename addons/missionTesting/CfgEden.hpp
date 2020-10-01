@@ -51,9 +51,13 @@ class Cfg3DEN {
                             displayName = "Mission Type:";
 							property = QGVAR(missionType);
                             control = QUOTE(combo);
-                            defaultValue = 1;
+                            defaultValue = 0;
                             typeName = "NUMBER";
                             class Values {
+                                class SELECT {
+                                    name = "SELECT";
+                                    value = 0;
+                                };
                                 class COOP {
                                     name = "COOP";
                                     value = 1;
@@ -110,10 +114,14 @@ class Cfg3DEN {
 							property = QGVAR(missionTag1);
                             expression = "_this setVariable ['%s', _value];";
                             typeName = "NUMBER";
-                            defaultValue = 0;
+                            defaultValue = 99;
                             class Values {
-                                class None {
-                                    name = "None";
+                                class SELECT {
+                                    name = "SELECT";
+                                    value = 99;
+                                };
+                                class NONE {
+                                    name = "NONE";
                                     value = 0;
                                 };
                                 class NIGHT {
@@ -140,6 +148,14 @@ class Cfg3DEN {
                                     name = "AH";
                                     value = 6;
                                 };
+                                class FOG {
+                                    name = "FOG";
+                                    value = 7;
+                                };
+                                class BriefOnMap {
+                                    name = "BRIEF ON MAP";
+                                    value = 8;
+                                };
                             };
 						};
                         class GVAR(missionTag2) : GVAR(missionTag1) {
@@ -161,21 +177,28 @@ class Cfg3DEN {
                             control = QUOTE(Checkbox);
 							property = QGVAR(missionFlagCustomScripting);
                             defaultValue = QUOTE(false);
+                            expression = "_this setVariable ['%s',_value];";
 						};
 						class GVAR(missionFlagCustomLoadout) {
                             displayName = "Custom Loadout:";
                             control = QUOTE(Checkbox);
 							property = QGVAR(missionFlagCustomLoadout);
+                            defaultValue = QUOTE(false);
+                            expression = "_this setVariable ['%s',_value];";
 						};
 						class GVAR(missionFlagCustomVicLoadout) {
                             displayName = "Custom Vehicle Loadout:";
                             control = QUOTE(Checkbox);
 							property = QGVAR(missionFlagCustomVicLoadout);
+                            defaultValue = QUOTE(false);
+                            expression = "_this setVariable ['%s',_value];";
 						};
 						class GVAR(missionFlagUnitSpecificBriefing) {
                             displayName = "Unit Specific Briefings:";
                             control = QUOTE(Checkbox);
 							property = QGVAR(missionFlagUnitSpecificBriefing);
+                            defaultValue = QUOTE(false);
+                            expression = "_this setVariable ['%s',_value];";
 						};
 					};
 				};
@@ -184,6 +207,8 @@ class Cfg3DEN {
                     collapsed = 0;
 					class Attributes{
 						class GVAR(missionMakerNotesForTesters) {
+                            attributeSave = QUOTE(_value call EFUNC(briefing,convertNewLineToHTML));
+                            attributeLoad = QUOTE([ARR_2(_this,_value)] call EFUNC(briefing,convertHTMLToNewLine));
                             displayName = "Any other notes for Mission Testers:";
                             control = QUOTE(EditMulti5);
 							property = QGVAR(missionMakerNotesForTesters);

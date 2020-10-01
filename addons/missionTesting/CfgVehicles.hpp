@@ -16,6 +16,5 @@ class CfgVehicles {
         isTriggerActivated = 0;
         isGlobal = 1;
         displayName = "Open Mission Testing Menu";
-        function = QFUNC(openMenuFromZues);
     };
 };
