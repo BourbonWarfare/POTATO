@@ -9,7 +9,7 @@
  * Cleaned classname <STRING>
  *
  * Example:
- * ["B_Soldier_F"] call potato_assignGear_fnc_cleanPrefix;
+ * ["potato_w_rifleman"] call potato_assignGear_fnc_cleanPrefix;
  *
  * Public: No
  */

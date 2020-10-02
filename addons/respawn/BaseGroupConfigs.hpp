@@ -95,7 +95,7 @@ class Air: Armor {
 // base units for inheritence
 class BaseUnit {
     displayName = "Rifleman";
-    type = "soldier_f";
+    type = "rifleman";
     rank = "private";
     colorTeam = 0;
     leader = 0;
@@ -107,7 +107,7 @@ class BaseUnit {
 };
 class BaseSquadLead: BaseUnit {
     displayName = "Squad Leader";
-    type = "soldier_sl_f";
+    type = "sl";
     rank = "sergeant";
     leader = 1;
 
@@ -117,7 +117,7 @@ class BaseSquadLead: BaseUnit {
 };
 class BaseMedic: BaseUnit {
     displayName = "Medic";
-    type = "medic_f";
+    type = "cm";
     rank = "corporal";
 
     markerText = "M";
@@ -150,7 +150,7 @@ class BaseMSVGunner: BaseMSVUnit {
 };
 class BaseSeniorRifleman: BaseMSVUnit {
     displayName = "Senior Rifleman";
-    type = "sr";
+    type = "ftl";
     rank = "corporal";
 
     markerText = "SR";

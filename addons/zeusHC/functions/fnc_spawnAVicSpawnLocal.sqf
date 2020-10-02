@@ -49,9 +49,9 @@ private _crewType = if (isText (configFile >> "CfgVehicles" >> _vehicleToAdd >> 
     getText (configFile >> "CfgVehicles" >> _vehicleToAdd >> "crew")
 } else {
     switch (_side) do {
-        case (west): { "B_crew_F" };
-        case (east): { "O_crew_F" };
-        case (resistance): { "I_crew_F" };
+        case (west): { "potato_w_vicc" };
+        case (east): { "potato_e_crew" };
+        case (resistance): { "potato_i_vicc" };
         default { "C_man_w_worker_F" };
     }
 };
