@@ -51,7 +51,7 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
         // add top level info
         _unitArray pushBack (configName _x);
         _unitArray pushBack ([_x >> "displayName", "Rifleman"] call CFUNC(getText));
-        _unitArray pushBack ([_x >> "type", "soldier_f"] call CFUNC(getText));
+        _unitArray pushBack ([_x >> "type", "rifleman"] call CFUNC(getText));
         _unitArray pushBack ([_x >> "rank", "private"] call CFUNC(getText));
         _unitArray pushBack ([_x >> "colorTeam"] call CFUNC(getNumber));
         _unitArray pushBack ([_x >> "leader"] call CFUNC(getBool));

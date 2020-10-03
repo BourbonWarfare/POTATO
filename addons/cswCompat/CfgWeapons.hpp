@@ -18,9 +18,9 @@ class CfgWeapons {
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 840;
         };
-        displayName = "[CUP] M2 HMG";
+        displayName = "[OLD] M2 HMG";
         author = "Brandon";
-        scope = 2;
+        scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
@@ -39,9 +39,9 @@ class CfgWeapons {
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 840;
         };
-        displayName = "[CUP] KORD HMG";
+        displayName = "[OLD] KORD HMG";
         author = "Brandon";
-        scope = 2;
+        scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
@@ -59,9 +59,9 @@ class CfgWeapons {
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 750;
         };
-        displayName = "[CUP] DSHKM HMG";
+        displayName = "[OLD] DSHKM HMG";
         author = "Brandon";
-        scope = 2;
+        scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
@@ -82,9 +82,9 @@ class CfgWeapons {
             mass = 350;
         };
 
-        displayName = "[CUP] AGS-30 GMG";
+        displayName = "[OLD] AGS-30 GMG";
         author = "Brandon";
-        scope = 2;
+        scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
@@ -116,9 +116,9 @@ class CfgWeapons {
             mass = 1000;
         };
 
-        displayName = "[CUP] SPG-9";
+        displayName = "[OLD] SPG-9";
         author = "Brandon";
-        scope = 2;
+        scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);
@@ -138,9 +138,9 @@ class CfgWeapons {
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 500;
         };
-        displayName = "[CUP] BGM-71 TOW";
+        displayName = "[OLD] BGM-71 TOW";
         author = "Brandon";
-        scope = 2;
+        scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);

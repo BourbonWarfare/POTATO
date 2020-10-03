@@ -16,9 +16,9 @@ case TRANSPORT_PARADROP: {_vehType = _factoryLogic getVariable [QGVAR(heliType),
 
 private _crewType = ["crew_f", "helipilot_f"] select (_vehType isKindOf "Air");
 _crewType = switch (_side) do {
-case (west): {"b_" + _crewType};
-case (east): {"o_" + _crewType};
-case (resistance): {"i_" + _crewType};
+case (west): {"potato_w_" + _crewType};
+case (east): {"potato_e_" + _crewType};
+case (resistance): {"potato_i_" + _crewType};
 };
 
 private _maxCargoRoom = 99;

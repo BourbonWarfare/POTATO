@@ -5,7 +5,7 @@ GVAR(reinforceUnits) = [
         "BlueFor (A3)", // display name
         west, // side
         "", // addon to check for
-        "B_Soldier_F", // soft crew
+        "potato_w_rifleman", // soft crew
         "B_crew_F", // armored crew
         "B_Helipilot_F", // air crew
         [ // unarmed cars
@@ -35,14 +35,14 @@ GVAR(reinforceUnits) = [
         ], [ // armed boats
             "B_Boat_Armed_01_minigun_F" // Speedboat Minigun
         ], [ // soldier groups to load into the vics
-            ["B_Soldier_TL_F", "B_Soldier_AR_F", "B_Soldier_AAR_F", "B_Soldier_LAT_F", "B_Soldier_F", "B_Soldier_F"],
-            ["B_Soldier_TL_F", "B_Soldier_AR_F", "B_Soldier_AAR_F", "B_Soldier_LAT_F"]
+            ["potato_w_ftl", "potato_w_ar", "potato_w_aar", "potato_w_lat", "potato_w_rifleman", "potato_w_rifleman"],
+            ["potato_w_ftl", "potato_w_ar", "potato_w_aar", "potato_w_lat"]
         ]
     ], [ // BluFor RHS vics
         "BlueFor (RHS)", // display name
         west, // side
         "rhsusf_main", // addon to check for
-        "B_Soldier_F", // soft crew
+        "potato_w_rifleman", // soft crew
         "B_crew_F", // armored crew
         "B_Helipilot_F", // air crew
         [ // unarmed cars
@@ -91,14 +91,14 @@ GVAR(reinforceUnits) = [
         ], [ // armed boats
             "rhsusf_mkvsoc" // Mk. V
         ], [ // soldier groups to load into the vics
-            ["B_Soldier_TL_F", "B_Soldier_AR_F", "B_Soldier_AAR_F", "B_Soldier_LAT_F", "B_Soldier_F", "B_Soldier_F"],
-            ["B_Soldier_TL_F", "B_Soldier_AR_F", "B_Soldier_AAR_F", "B_Soldier_LAT_F"]
+            ["potato_w_ftl", "potato_w_ar", "potato_w_aar", "potato_w_lat", "potato_w_rifleman", "potato_w_rifleman"],
+            ["potato_w_ftl", "potato_w_ar", "potato_w_aar", "potato_w_lat"]
         ]
     ], [ // BluFor CUP vics
         "BlueFor (CUP)", // display name
         west, // side
         "CUP_Vehicles_Core", // addon to check for
-        "B_Soldier_F", // soft crew
+        "potato_w_rifleman", // soft crew
         "B_crew_F", // armored crew
         "B_Helipilot_F", // air crew
         [ // unarmed cars
@@ -167,14 +167,14 @@ GVAR(reinforceUnits) = [
             "CUP_B_RHIB_USMC", // RHIB HMG
             "CUP_B_RHIB2Turret_USMC" // RHIB GMG
         ], [ // soldier groups to load into the vics
-            ["B_Soldier_TL_F", "B_Soldier_AR_F", "B_Soldier_AAR_F", "B_Soldier_LAT_F", "B_Soldier_F", "B_Soldier_F"],
-            ["B_Soldier_TL_F", "B_Soldier_AR_F", "B_Soldier_AAR_F", "B_Soldier_LAT_F"]
+            ["potato_w_ftl", "potato_w_ar", "potato_w_aar", "potato_w_lat", "potato_w_rifleman", "potato_w_rifleman"],
+            ["potato_w_ftl", "potato_w_ar", "potato_w_aar", "potato_w_lat"]
         ]
     ], [ // Indy vanilla vics
         "Indy (A3)", // display name
         resistance, // side
         "", // addon to check for
-        "I_Soldier_F", // soft crew
+        "potato_i_rifleman", // soft crew
         "I_crew_F", // armored crew
         "I_Helipilot_F", // air crew
         [ // unarmed cars
@@ -204,14 +204,14 @@ GVAR(reinforceUnits) = [
         ], [ // armed boats
             "I_Boat_Armed_01_minigun_F" // Speedboat minigun
         ], [ // soldier groups to load into the vics
-            ["I_Soldier_TL_F", "I_Soldier_AR_F", "I_Soldier_AAR_F", "I_Soldier_LAT_F", "I_Soldier_F", "I_Soldier_F"],
-            ["I_Soldier_TL_F", "I_Soldier_AR_F", "I_Soldier_AAR_F", "I_Soldier_LAT_F"]
+            ["potato_i_ftl", "potato_i_ar", "potato_i_aar", "potato_i_lat", "potato_i_rifleman", "potato_i_rifleman"],
+            ["potato_i_ftl", "potato_i_ar", "potato_i_aar", "potato_i_lat"]
         ]
     ], [ // Indy RHS vics
         "Indy (RHS)", // display name
         resistance, // side
         "rhsgref_main", // addon to check for
-        "I_Soldier_F", // soft crew
+        "potato_i_rifleman", // soft crew
         "I_crew_F", // armored crew
         "I_Helipilot_F", // air crew
         [ // unarmed cars
@@ -240,14 +240,14 @@ GVAR(reinforceUnits) = [
         ], [ // armed boats
             "I_Boat_Armed_01_minigun_F" // Speedboat minigun (it's vanilla, but RHS aint got shit here)
         ], [ // soldier groups to load into the vics
-            ["I_Soldier_TL_F", "I_Soldier_AR_F", "I_Soldier_AAR_F", "I_Soldier_LAT_F", "I_Soldier_F", "I_Soldier_F"],
-            ["I_Soldier_TL_F", "I_Soldier_AR_F", "I_Soldier_AAR_F", "I_Soldier_LAT_F"]
+            ["potato_i_ftl", "potato_i_ar", "potato_i_aar", "potato_i_lat", "potato_i_rifleman", "potato_i_rifleman"],
+            ["potato_i_ftl", "potato_i_ar", "potato_i_aar", "potato_i_lat"]
         ]
     ], [ // Indy CUP vics
         "Indy (CUP)", // display name
         resistance, // side
         "CUP_Vehicles_Core", // addon to check for
-        "I_Soldier_F", // soft crew
+        "potato_i_rifleman", // soft crew
         "I_crew_F", // armored crew
         "I_Helipilot_F", // air crew
         [ // unarmed cars
@@ -288,14 +288,14 @@ GVAR(reinforceUnits) = [
             "CUP_I_RHIB_RACS", // RHIB HMG
             "CUP_I_RHIB2Turret_RACS" // RHIB GMG
         ], [ // soldier groups to load into the vics
-            ["I_Soldier_TL_F", "I_Soldier_AR_F", "I_Soldier_AAR_F", "I_Soldier_LAT_F", "I_Soldier_F", "I_Soldier_F"],
-            ["I_Soldier_TL_F", "I_Soldier_AR_F", "I_Soldier_AAR_F", "I_Soldier_LAT_F"]
+            ["potato_i_ftl", "potato_i_ar", "potato_i_aar", "potato_i_lat", "potato_i_rifleman", "potato_i_rifleman"],
+            ["potato_i_ftl", "potato_i_ar", "potato_i_aar", "potato_i_lat"]
         ]
     ], [ // OpFor vanilla vehicles
         "OpFor (A3)", // display name
         east, // side
         "", // addon to check for
-        "O_Soldier_F", // soft crew
+        "potato_e_rifleman", // soft crew
         "O_crew_F", // armored crew
         "O_Helipilot_F", // air crew
         [ // unarmed cars
@@ -325,14 +325,14 @@ GVAR(reinforceUnits) = [
         ], [ // armed boats
             "O_Boat_Armed_01_hmg_F" // Speedboat (HMG)
         ], [ // soldier groups to load into the vics
-            ["O_Soldier_TL_F", "O_Soldier_AR_F", "O_Soldier_AAR_F", "O_Soldier_LAT_F", "O_Soldier_F", "O_Soldier_F"],
-            ["O_Soldier_TL_F", "O_Soldier_AR_F", "O_Soldier_AAR_F", "O_Soldier_LAT_F"]
+            ["potato_e_ftl", "potato_e_ar", "potato_e_aar", "potato_e_lat", "potato_e_rifleman", "potato_e_rifleman"],
+            ["potato_e_ftl", "potato_e_ar", "potato_e_aar", "potato_e_lat"]
         ]
     ], [ // OpFor RHS vehicles
         "OpFor (RHS)", // display name
         east, // side
         "RHS_Main", // addon to check for
-        "O_Soldier_F", // soft crew
+        "potato_e_rifleman", // soft crew
         "O_crew_F", // armored crew
         "O_Helipilot_F", // air crew
         [ // unarmed cars
@@ -372,14 +372,14 @@ GVAR(reinforceUnits) = [
         ], [ // armed boats
             "O_Boat_Armed_01_hmg_F" // Speedboat (HMG) (it's vanilla, but RHS aint got shit here)
         ], [ // soldier groups to load into the vics
-            ["O_Soldier_TL_F", "O_Soldier_AR_F", "O_Soldier_AAR_F", "O_Soldier_LAT_F", "O_Soldier_F", "O_Soldier_F"],
-            ["O_Soldier_TL_F", "O_Soldier_AR_F", "O_Soldier_AAR_F", "O_Soldier_LAT_F"]
+            ["potato_e_ftl", "potato_e_ar", "potato_e_aar", "potato_e_lat", "potato_e_rifleman", "potato_e_rifleman"],
+            ["potato_e_ftl", "potato_e_ar", "potato_e_aar", "potato_e_lat"]
         ]
     ], [ // OpFor CUP vehicles
         "OpFor (CUP)", // display name
         east, // side
         "CUP_Vehicles_Core", // addon to check for
-        "O_Soldier_F", // soft crew
+        "potato_e_rifleman", // soft crew
         "O_crew_F", // armored crew
         "O_Helipilot_F", // air crew
         [ // unarmed cars
@@ -414,8 +414,8 @@ GVAR(reinforceUnits) = [
             "CUP_B_RHIB_USMC", // RHIB HMG (CUP has fuckall for OpFor water vics)
             "CUP_B_RHIB2Turret_USMC" // RHIB HMG/GMG (CUP has fuckall for OpFor water vics)
         ], [ // soldier groups to load into the vics
-            ["O_Soldier_TL_F", "O_Soldier_AR_F", "O_Soldier_AAR_F", "O_Soldier_LAT_F", "O_Soldier_F", "O_Soldier_F"],
-            ["O_Soldier_TL_F", "O_Soldier_AR_F", "O_Soldier_AAR_F", "O_Soldier_LAT_F"]
+            ["potato_e_ftl", "potato_e_ar", "potato_e_aar", "potato_e_lat", "potato_e_rifleman", "potato_e_rifleman"],
+            ["potato_e_ftl", "potato_e_ar", "potato_e_aar", "potato_e_lat"]
         ]
     ]
 ];

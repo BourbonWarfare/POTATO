@@ -21,7 +21,7 @@
  * Nothing
  *
  * Example:
- * [createGroup west, 'b_soldier_f', [0,0,0], 'MAIN', 'private', false] call potato_respawn_fnc_respawnClient;
+ * [createGroup west, 'potato_w_rifleman', [0,0,0], 'MAIN', 'private', false] call potato_respawn_fnc_respawnClient;
  *
  * Public: No
  */

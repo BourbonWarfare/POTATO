@@ -159,7 +159,7 @@ class CfgVehicles {
         scope = 2;
         side = 1;
         faction = "BLU_F";
-        crew = "B_Soldier_F";
+        crew = "potato_w_rifleman";
         availableForSupportTypes[] = {"Artillery"};
         displayname = "vz99 60mm Mortar";
         transportSoldier = 0;

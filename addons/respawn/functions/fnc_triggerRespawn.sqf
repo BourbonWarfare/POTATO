@@ -111,7 +111,7 @@ private _delay = 0;
                     (_unitsArray select _forEachIndex) params [
                         "", // config name
                         "", // display name
-                        ["_unitType", "soldier_f", [""]],
+                        ["_unitType", "rifleman", [""]],
                         ["_unitRank", "private", [""]],
                         ["_unitColorTeamIndex", 0, [0]],
                         ["_isUnitLeader", false, [false]],
