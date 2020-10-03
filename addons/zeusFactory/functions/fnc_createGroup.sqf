@@ -10,9 +10,9 @@ private _transportType = _placeLogic getVariable [QGVAR(transportType), 0];
 ([_factoryLogic,_transportType,_side] call FUNC(getTransportType)) params ["", "", "_maxCargoRoom"];
 
 switch (_side) do {
-case (west): {_soldierList = _soldierList apply {"potato_w"+_x};};
-case (east): {_soldierList = _soldierList apply {"potato_e"+_x};};
-case (resistance): {_soldierList = _soldierList apply {"potato_i"+_x};};
+case (west): {_soldierList = _soldierList apply {"potato_w_"+_x};};
+case (east): {_soldierList = _soldierList apply {"potato_e_"+_x};};
+case (resistance): {_soldierList = _soldierList apply {"potato_i_"+_x};};
 };
 
 if ((count _soldierList) > _maxCargoRoom) then {
