@@ -4,12 +4,13 @@
  *
  * Arguments:
  * 0: Config Path <CONFIG>
+ * 1: Unit <OBJECT>
  *
  * Return Value:
  * Loadout array (https://community.bistudio.com/wiki/Talk:getUnitLoadout) <ARRAY>
  *
  * Example:
- * [missionConfigFile >> "CfgLoadouts" >> (faction player) >> (typeOf player)] call potato_assignGear_fnc_getLoadoutFromConfig
+ * [missionConfigFile >> "CfgLoadouts" >> (faction player) >> (typeOf player), player] call potato_assignGear_fnc_getLoadoutFromConfig
  *
  * Public: No
  */
@@ -19,8 +20,8 @@
 #define VEST_INDEX 1
 #define BACKPACK_INDEX 2
 
-TRACE_1("params",_this);
-params ["_path"];
+params ["_path", ["_unit", objNull]];
+TRACE_2("getLoadoutFromConfig",_path,_unit);
 
 private _configUniform = getArray (_path >> "uniform");
 private _configVest = getArray (_path >> "vest");
@@ -39,9 +40,9 @@ private _configHandgunAttachments = getArray (_path >> "handgunAttachments");
 
 
 // temp - add splints to medics for old missions
-if ([param [1, objNull]] call ACEFUNC(common,isMedic)) then {
+if ([_unit] call ACEFUNC(common,isMedic)) then {
     if ((_configBackpackItems findIf {(_x select [0,10]) == "ACE_splint"}) != -1) exitWith {}; // added via mission
-    INFO_1("adding splints %1 - %2",configName _path);
+    INFO_2("adding splints %1 - %2",_unit,configName _path);
     _configBackpackItems pushBack "ACE_splint:12";
 };
 
