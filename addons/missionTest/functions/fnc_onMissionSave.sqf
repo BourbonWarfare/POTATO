@@ -181,36 +181,36 @@ private _checkDeprecatedGear = [];
             };
         };
         {// Check ammo count for all weapons:
-            private _weapon = _x;
-            if (_x != "") then {
-                private _ammoCount = 0;
-                private _weaponMags = [_weapon] call CBA_fnc_compatibleMagazines;
-                if (str _weaponMags != "[]") then {// Prevents alerts for weapons that have no magazines (e.g. CSW)
-                  {
-                      _x params ["_xMagName", "_xAmmo"];
-                      if (_xMagName in _weaponMags) then {
-                          _ammoCount = _ammoCount + _xAmmo;
-                        };
-                  } forEach (magazinesAmmoFull _unit);
-                  if (_ammoCount == 0) then {
-                      TRACE_3("has zero ammo",_typeOf,_weapon,magazines _unit);
-                      _checkMagazines pushBackUnique format ["%1 has no ammo for %2", _typeOf, _weapon];
+          private _weapon = _x;
+          if (_x != "") then {
+            private _ammoCount = 0;
+            private _weaponMags = [_weapon] call CBA_fnc_compatibleMagazines;
+              if (str _weaponMags != "[]") then {// Prevents alerts for weapons that have no magazines (e.g. CSW)
+                {
+                  _x params ["_xMagName", "_xAmmo"];
+                  if (_xMagName in _weaponMags) then {
+                  _ammoCount = _ammoCount + _xAmmo;
                   };
-                  if (_weapon == (primaryWeapon _unit)) then {
-                      private _desiredAmmo = call {
-                          // allow low ammo count for long range gunners
-                          if ((_typeOf find "marksman" > -1) || {_typeOf find "spotter" > -1} || {_typeOf find "sniper" > -1}) exitWith { 20 };
-                          // suggest hight ammo count for MGs
-                          if ((_typeOf find "_ar" > -1) || {_typeOf find "_mg" > -1} || {_typeOf find "_mmgg" > -1}) exitWith { 250 };
-                          // default rifleman case
-                          100
-                        };
-                        if (_ammoCount <= _desiredAmmo) then {
-                          TRACE_4("limited rifle ammo",_typeOf,_weapon,_ammoCount,_desiredAmmo);
-                          _checkMagazines pushBackUnique format ["%1 only has %2", _typeOf, _ammoCount];
-                        };
+                } forEach (magazinesAmmoFull _unit);
+                if (_ammoCount == 0) then {
+                  TRACE_3("has zero ammo",_typeOf,_weapon,magazines _unit);
+                  _checkMagazines pushBackUnique format ["%1 has no ammo for %2", _typeOf, _weapon];
+                  };
+                if (_weapon == (primaryWeapon _unit)) then {
+                  private _desiredAmmo = call {
+                  // allow low ammo count for long range gunners
+                  if ((_typeOf find "marksman" > -1) || {_typeOf find "spotter" > -1} || {_typeOf find "sniper" > -1}) exitWith { 20 };
+                  // suggest hight ammo count for MGs
+                  if ((_typeOf find "_ar" > -1) || {_typeOf find "_mg" > -1} || {_typeOf find "_mmgg" > -1}) exitWith { 250 };
+                  // default rifleman case
+                  100
+                  };
+                  if (_ammoCount <= _desiredAmmo) then {
+                    TRACE_4("limited rifle ammo",_typeOf,_weapon,_ammoCount,_desiredAmmo);
+                    _checkMagazines pushBackUnique format ["%1 only has %2", _typeOf, _ammoCount];
                   };
                 };
+              };
             };
         } forEach [primaryWeapon _x, secondaryWeapon _x, handgunWeapon _x];
 
