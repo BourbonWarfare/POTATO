@@ -185,7 +185,7 @@ private _checkDeprecatedGear = [];
             if (_x != "") then {
                 private _ammoCount = 0;
                 private _weaponMags = [_weapon] call CBA_fnc_compatibleMagazines;
-                if (!(_weaponMags isEqualTo)) then { // Prevents alerts for weapons that have no magazines (e.g. CSW)
+                if (!(_weaponMags isEqualTo [])) then { // Prevents alerts for weapons that have no magazines (e.g. CSW)
                     {
                         _x params ["_xMagName", "_xAmmo"];
                         if (_xMagName in _weaponMags) then {
