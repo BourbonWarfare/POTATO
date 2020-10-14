@@ -51,5 +51,6 @@ class RscChatListDefault {
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
 #include "CfgFontFamilies.hpp"
+#include "RscDisplayMain.hpp"
 
 #endif
