@@ -15,7 +15,30 @@ if (hasInterface) then {
             };
         };
     }] call CBA_fnc_addEventHandler;
+
+    // Cleanup chat
+    addMissionEventHandler ["HandleChatMessage", {
+        params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType"];
+        private _returnValue = nil;
+        if (isPlayer _person) then {
+            if ((_text select [0,5]) == "force") then {
+                // _returnValue = _text select [5]; // optionally clean up text
+            } else {
+                _returnValue = true; // block
+                if (_person == player) then {
+                    systemChat "Your message was blocked, start message with 'force' to send in channel";
+                    systemChat "Use admin message (hit escape) for help with Problems/JIP";
+                };
+            };
+        } else {
+            if ((_channel == 16) && {(_text select [0,7]) isEqualTo "Player "}) then { // connected/disconnected msg (but not connecting...?)
+                _returnValue = true; // block
+            };
+        };
+        _returnValue // don't use exitWith in eh
+    }];
 };
+
 if (isServer) then {
     [{
         private _authorName = getMissionConfigValue ["author", "???"];
