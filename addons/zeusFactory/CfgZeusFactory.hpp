@@ -48,8 +48,7 @@ class CfgZeusFactory {
         "RHS_UAZ_SPG9_Base", // UAZ SPG Jeep
         "rhs_tigr_vdv", // Tiger
         "rhs_tigr_sts_vdv", // Tiger LMG/GMG
-        "rhsgref_BRDM2_vdv", // BRDM HMG
-        
+        "rhsgref_BRDM2_vdv", // BRDM HMG        
 
         // RHS Trucks
         "rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy", // Woodland US Truck
