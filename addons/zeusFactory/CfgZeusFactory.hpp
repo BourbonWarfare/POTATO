@@ -38,6 +38,10 @@ class CfgZeusFactory {
         "rhsusf_M1232_MK19_usarmy_d", // Desert GMG RG-33L
         "rhsusf_M1117_W", // Woodland ASV HMG/GMG
         "rhsusf_M1117_D", // Desert ASV HMG/GMG
+        "rhsusf_m1151_usarmy_d", //Desert Armored unarmed HMV
+        "rhsusf_m1151_m240_v1_usarmy_d", //Desert Armored HMG HMV
+        "rhsusf_m1151_usarmy_wd", //Woodland Armored unarmed HMV
+        "rhsusf_m1151_m240_v1_usarmy_wd", //Woodland Armored HMG HMV
         "rhs_uaz_open_Base", // UAZ Jeep Carrier
         "RHS_UAZ_DShKM_Base", // UAZ HMG Jeep
         "RHS_UAZ_AGS30_Base", // UAZ GMG Jeep
@@ -45,6 +49,7 @@ class CfgZeusFactory {
         "rhs_tigr_vdv", // Tiger
         "rhs_tigr_sts_vdv", // Tiger LMG/GMG
         "rhsgref_BRDM2_vdv", // BRDM HMG
+        
 
         // RHS Trucks
         "rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy", // Woodland US Truck
@@ -83,11 +88,15 @@ class CfgZeusFactory {
         "CUP_O_GAZ_Vodnik_PK_RU", // Vodnik LMG
         "CUP_O_GAZ_Vodnik_AGS_RU", // Vodnik HMG
         "CUP_O_GAZ_Vodnik_BPPU_RU", // Vodnik Cannon
+        "CUP_I_Hilux_unarmed_IND_G_F", //Hilux unarmed (Better pickup)
+        "CUP_I_Hilux_DSHKM_IND_G_F", //Hilux HMG
+        "CUP_I_Hilux_armored_unarmed_IND_G_F", //Armored Hilux unarmed
+        "CUP_I_Hilux_armored_DSHKM_IND_G_F" //Armored Hilux HMG
 
         // CUP Trucks
         "CUP_B_MTVR_USMC", // Woodland MVTR
         "CUP_B_MTVR_USA", // Desert MVTR
-        "CUP_O_V3S_Open_TKA", // Praga
+        "CUP_I_V3S_Open_TKG", // Praga
         "CUP_C_Ikarus_TKC" // Bus
     };
 
@@ -112,6 +121,9 @@ class CfgZeusFactory {
         "rhsusf_m113d_usarmy_MK19", // Desert M113 GMG
         "RHS_M2A2_wd", // Woodland Bradley IFV
         "RHS_M2A2", // Desert Bradley IFV
+        "CUP_B_Boxer_HMG_GER_DES", //Desert Boxer HMG
+        "CUP_B_Boxer_HMG_GER_WDL", //Woodland Boxer HMG
+        "CUP_B_Boxer_HMG_HIL", //Jungle Boxer HMG
         "rhs_btr60_msv", // BTR 60 APC
         "rhs_btr70_msv", // BTR 70 APC
         "rhs_btr80_msv", // BTR 80 APC
