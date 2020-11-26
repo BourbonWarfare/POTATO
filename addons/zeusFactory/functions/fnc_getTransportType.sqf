@@ -14,7 +14,7 @@ case TRANSPORT_HELI;
 case TRANSPORT_PARADROP: {_vehType = _factoryLogic getVariable [QGVAR(heliType), ""]};
 };
 
-private _crewType = ["crew_f", "helipilot_f"] select (_vehType isKindOf "Air");
+private _crewType = ["vicd", "pilot"] select (_vehType isKindOf "Air");
 _crewType = switch (_side) do {
 case (west): {"potato_w_" + _crewType};
 case (east): {"potato_e_" + _crewType};
