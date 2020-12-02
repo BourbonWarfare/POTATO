@@ -99,7 +99,7 @@ if(_missionMaker == name ACE_PLAYER) then {
         S_NEWTEXTLINE ["[color=#FF4000]%1[/color]",_missionSummary];
     };
     S_NEWTEXTLINE ["[size=150]Player Count - MIN: [color=#FF4000]%1[/color] Recommended: [color=#FF4000]%2[/color] MAX: [color=#FF4000]%3[/color][/size]",_missionPlayerCountMin, _missionPlayerCountRec,_missionPlayerCountMax];
-    S_NEWTEXTLINE_FORMATTEXT ["[size=150]Custom Scripting : %1 Custom Loadout : %2 Custom Vic Loadout : %3  Unit Specific Breigings : %4[/size]",_missionCustomScriptingStr,_missionCustomLoadoutStr,_missionCustomVicLoadoutStr,_unitSpecificBriefStr];
+    S_NEWTEXTLINE_FORMATTEXT ["[size=150]Custom Scripting : %1 Custom Loadout : %2 Custom Vic Loadout : %3  Unit Specific Briefings : %4[/size]",_missionCustomScriptingStr,_missionCustomLoadoutStr,_missionCustomVicLoadoutStr,_unitSpecificBriefStr];
 
     S_NEWTEXTLINE_SHORT ["[size=150][u][b]New Version : [color=#FF4000]%1[/color][/b][/u][/size]",_missionVersion];
 
