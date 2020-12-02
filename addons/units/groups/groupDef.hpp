@@ -9,7 +9,6 @@ class SIDE_DEF {\
                 side = SIDE_NUM;\
                 faction = QUOTE(DOUBLES(PREFIX,FACTION_LETTER));\
                 icon = "\z\potato\addons\markers\data\infantry.paa";\
-                rarityGroup = 0.5;\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "CORPORAL";\
@@ -223,7 +222,6 @@ class SIDE_DEF {\
                 icon = "\z\potato\addons\markers\data\armor.paa";\
                 side = SIDE_NUM;\
                 faction = QUOTE(DOUBLES(PREFIX,FACTION_LETTER));\
-                rarityGroup = 0.5;\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "SERGEANT";\
@@ -279,7 +277,6 @@ class SIDE_DEF {\
                 icon = "\z\potato\addons\markers\data\mmg.paa";\
                 side = SIDE_NUM;\
                 faction = QUOTE(DOUBLES(PREFIX,FACTION_LETTER));\
-                rarityGroup = 0.5;\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "SERGEANT";\
@@ -385,12 +382,14 @@ class SIDE_DEF {\
                     vehicle = QUOTE(CLASS_MACRO(msamag));\
                 };\
             };\
-            class CLASS_MACRO(st) : CLASS_MACRO(mmg) {\
+            class CLASS_MACRO(st) {\
                 name = "Sniper Team";\
                 icon = "\z\potato\addons\markers\data\recon.paa";\
+                side = SIDE_NUM;\
+                faction = QUOTE(DOUBLES(PREFIX,FACTION_LETTER));\
                 class Unit0 {\
                     position[] = {0,0,0};\
-                    rank = "SERGENT";\
+                    rank = "SERGEANT";\
                     side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(sniper));\
                 };\
