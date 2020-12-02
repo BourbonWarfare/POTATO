@@ -1,4 +1,4 @@
-#define GROUP_DEF(SIDE_DEF,FAC_DEF_PRETTY,FACTION_LETTER)\
+#define GROUP_DEF(SIDE_DEF,FAC_DEF_PRETTY,FACTION_LETTER,SIDE_NUM)\
 class SIDE_DEF {\
     class DOUBLES(PREFIX,FACTION_LETTER) {\
         name = FAC_DEF_PRETTY;\
@@ -6,44 +6,43 @@ class SIDE_DEF {\
             name = "Infantry";\
             class CLASS_MACRO(fireteam_full) {\
                 name = "Fireteam (Full)";\
-                side = 1;\
+                side = SIDE_NUM;\
                 faction = QUOTE(DOUBLES(PREFIX,FACTION_LETTER));\
                 icon = "\z\potato\addons\markers\data\infantry.paa";\
-                rarityGroup = 0.5;\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(ftl));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(ar));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(aar));\
                 };\
                 class Unit3 {\
                     position[] = {10,-10,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(lat));\
                 };\
                 class Unit4 {\
                     position[] = {-10,-10,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(rifleman));\
                 };\
                 class Unit5 {\
                     position[] = {15,-15,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(rifleman_02));\
                 };\
             };\
@@ -52,25 +51,25 @@ class SIDE_DEF {\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(ftl));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(ar));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(aar));\
                 };\
                 class Unit3 {\
                     position[] = {10,-10,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(lat));\
                 };\
             };\
@@ -79,13 +78,13 @@ class SIDE_DEF {\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "SERGENT";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(sl));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(sm));\
                 };\
             };\
@@ -94,85 +93,85 @@ class SIDE_DEF {\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "SERGENT";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(sl));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(sm));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(ftl));\
                 };\
                 class Unit3 {\
                     position[] = {10,-10,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(ar));\
                 };\
                 class Unit4 {\
                     position[] = {-10,-10,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(aar));\
                 };\
                 class Unit5 {\
                     position[] = {15,-15,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(lat));\
                 };\
                 class Unit6 {\
                     position[] = {-15,-15,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(rifleman));\
                 };\
                 class Unit7 {\
                     position[] = {20,-20,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(rifleman_02));\
                 };\
                 class Unit8 {\
                     position[] = {-20,-20,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(ftl));\
                 };\
                 class Unit9 {\
                     position[] = {25,-25,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(ar));\
                 };\
                 class Unit10 {\
                     position[] = {-25,-25,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(aar));\
                 };\
                 class Unit11 {\
                     position[] = {30,-30,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(lat));\
                 };\
                 class Unit12 {\
                     position[] = {-30,-30,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(rifleman));\
                 };\
                 class Unit13 {\
                     position[] = {35,-35,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(rifleman_02));\
                 };\
             };\
@@ -181,37 +180,37 @@ class SIDE_DEF {\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(ftl));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(rifleman));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(rifleman));\
                 };\
                 class Unit3 {\
                     position[] = {10,-10,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(lat));\
                 };\
                 class Unit4 {\
                     position[] = {-10,-10,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(rifleman_02));\
                 };\
                 class Unit5 {\
                     position[] = {15,-15,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(rifleman_02));\
                 };\
             };\
@@ -221,25 +220,24 @@ class SIDE_DEF {\
             class CLASS_MACRO(armor_crew) {\
                 name = "Armored Crew";\
                 icon = "\z\potato\addons\markers\data\armor.paa";\
-                side = 1;\
+                side = SIDE_NUM;\
                 faction = QUOTE(DOUBLES(PREFIX,FACTION_LETTER));\
-                rarityGroup = 0.5;\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "SERGEANT";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(vicl));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(vicc));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(vicd));\
                 };\
             };\
@@ -249,25 +247,25 @@ class SIDE_DEF {\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "CAPTAIN";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(pilot));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "LIEUTENANT";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(pilot));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "SERGEANT";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(cc));\
                 };\
                 class Unit3 {\
                     position[] = {10,-10,0};\
                     rank = "PRIVATE";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(helicrew));\
                 };\
             };\
@@ -277,25 +275,24 @@ class SIDE_DEF {\
             class CLASS_MACRO(mmg) {\
                 name = "MMG";\
                 icon = "\z\potato\addons\markers\data\mmg.paa";\
-                side = 1;\
+                side = SIDE_NUM;\
                 faction = QUOTE(DOUBLES(PREFIX,FACTION_LETTER));\
-                rarityGroup = 0.5;\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "SERGEANT";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(mmgl));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(mmgg));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(mmgag));\
                 };\
             };\
@@ -305,19 +302,19 @@ class SIDE_DEF {\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "SERGEANT";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(matl));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(matg));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(matag));\
                 };\
             };\
@@ -326,19 +323,19 @@ class SIDE_DEF {\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "SERGEANT";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(hmgl));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(hmgg));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(hmgag));\
                 };\
             };\
@@ -347,19 +344,19 @@ class SIDE_DEF {\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "SERGEANT";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(hatl));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(hatg));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(hatag));\
                 };\
             };\
@@ -369,35 +366,37 @@ class SIDE_DEF {\
                 class Unit0 {\
                     position[] = {0,0,0};\
                     rank = "SERGEANT";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(msaml));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(msamg));\
                 };\
                 class Unit2 {\
                     position[] = {-5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(msamag));\
                 };\
             };\
-            class CLASS_MACRO(st) : CLASS_MACRO(mmg) {\
+            class CLASS_MACRO(st) {\
                 name = "Sniper Team";\
                 icon = "\z\potato\addons\markers\data\recon.paa";\
+                side = SIDE_NUM;\
+                faction = QUOTE(DOUBLES(PREFIX,FACTION_LETTER));\
                 class Unit0 {\
                     position[] = {0,0,0};\
-                    rank = "SERGENT";\
-                    side = 1;\
+                    rank = "SERGEANT";\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(sniper));\
                 };\
                 class Unit1 {\
                     position[] = {5,-5,0};\
                     rank = "CORPORAL";\
-                    side = 1;\
+                    side = SIDE_NUM;\
                     vehicle = QUOTE(CLASS_MACRO(spotter));\
                 };\
             };\
