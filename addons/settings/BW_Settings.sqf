@@ -57,8 +57,6 @@ _settings = [
 [QACEGVAR(weather,showCheckAirTemperature), false],
 [QACEGVAR(zeus,autoAddObjects), true],
 
-["sthud_settings_squadbar", true, true], // Reversed Logic ("No Squad Bar") AND Forced because it's User settable
-
 ["niarms_magSwitch", false] // it's use of setUnitLoadout may cause problems
 
 ];
