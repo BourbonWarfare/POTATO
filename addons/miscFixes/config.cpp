@@ -21,7 +21,6 @@ class CfgPatches {
             "CUP_Weapons_AK", "hlcweapons_G36",
             "rhsgref_c_troops"
             ,"Chernarus", "torabora"
-            , "bg21_famas_prplredux"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};

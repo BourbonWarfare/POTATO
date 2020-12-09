@@ -4953,51 +4953,6 @@ class CfgWeapons {
             showToPlayer = 1;
         };
     };
-    class bg21_famas_base: arifle_MX_Base_F {
-        modes[] = {"Single","Burst","FullAuto"};
-        class Single: Mode_SemiAuto {
-            minRange = 2;
-            minRangeProbab = 0.5;
-            midRange = 250;
-            midRangeProbab = 0.7;
-            maxRange = 500;
-            maxRangeProbab = 0.2;
-            showToPlayer = 1;
-            aiRateOfFire = 2;
-            aiRateOfFireDistance = 500;
-        };
-        class Burst: Mode_Burst {
-            minRange = 1;
-            minRangeProbab = 0.7;
-            midRange = 60;
-            midRangeProbab = 0.8;
-            maxRange = 120;
-            maxRangeProbab = 0.2;
-            showToPlayer = 1;
-            aiRateOfFire = 2;
-            aiRateOfFireDistance = 500;
-        };
-        class FullAuto: Mode_FullAuto {
-            minRange = 0;
-            minRangeProbab = 0.9;
-            midRange = 15;
-            midRangeProbab = 0.7;
-            maxRange = 30;
-            maxRangeProbab = 0.1;
-            aiRateOfFire = 1e-006;
-            showToPlayer = 1;
-            aiRateOfFireDistance = 500;
-        };
-        class single_medium_optics1: Single {
-
-        };
-        class single_far_optics2: single_medium_optics1 {
-
-        };
-        class fullauto_medium: FullAuto {
-
-        };
-    };
     class CUP_CZ_BREN2_Base: Rifle_Base_F {
         modes[] = {"Single","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2"};
         class Single: Mode_SemiAuto {

@@ -154,37 +154,4 @@ class CfgWeapons {
             };
         };
     };
-
-    // Make FAMAS Louder
-    class arifle_MX_Base_F;
-    class bg21_famas_base: arifle_MX_Base_F {
-        class Single: Mode_SemiAuto {
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                begin1[] = {"bg21_famas_prplredux\data\sounds\famas_1",2,1,1200};
-                begin2[] = {"bg21_famas_prplredux\data\sounds\famas_2",2,1,1200};
-                begin3[] = {"bg21_famas_prplredux\data\sounds\famas_3",2,1,1200};
-                begin4[] = {"bg21_famas_prplredux\data\sounds\famas_4",2,1,1200};
-            };
-        };
-        class Burst: Mode_Burst {
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                begin1[] = {"bg21_famas_prplredux\data\sounds\famas_1",2,1,1200};
-                begin2[] = {"bg21_famas_prplredux\data\sounds\famas_2",2,1,1200};
-                begin3[] = {"bg21_famas_prplredux\data\sounds\famas_3",2,1,1200};
-                begin4[] = {"bg21_famas_prplredux\data\sounds\famas_4",2,1,1200};
-            };
-        };
-        class FullAuto: Mode_FullAuto {
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                begin1[] = {"bg21_famas_prplredux\data\sounds\famas_1",2,1,1200};
-                begin2[] = {"bg21_famas_prplredux\data\sounds\famas_2",2,1,1200};
-                begin3[] = {"bg21_famas_prplredux\data\sounds\famas_3",2,1,1200};
-                begin4[] = {"bg21_famas_prplredux\data\sounds\famas_4",2,1,1200};
-            };
-        };
-    };
-
 };
