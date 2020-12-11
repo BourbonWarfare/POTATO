@@ -34,8 +34,8 @@ DFUNC(vitalsStableExamine) = {
 
     private _status = call {
         // based on ace_medical_status_fnc_hasStableVitals
+        if (_unit getVariable ["ace_medical_inCardiacArrest", false]) exitWith { "Unstable: Cardiac Arrest" };
         if ((_unit getVariable ["ace_medical_bloodVolume", 6.0 ]) < 5.100 ) exitWith { "Unstable: Low Blood Volume" };
-        if (_unit getVariable ["ace_medical_inCardiacArrest", false]) exitWith { "Unstable: Cardiac Arrest (should not happen)" };
 
         private _cardiacOutput = [_unit] call ace_medical_status_fnc_getCardiacOutput;
         private _bloodLoss = ([_unit] call ace_medical_status_fnc_getBloodLoss);
