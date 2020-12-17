@@ -40,7 +40,7 @@ switch (_side) do {
     case 1: {
         _situtation = getMissionConfigValue [QEGVAR(briefing,briefEastSituation), ""];
         _mission = getMissionConfigValue [QEGVAR(briefing,briefEastMission), ""];
-        _admin = getMissionConfigValue [QEGVAR(briefing,brieEastAdministration), ""];
+        _admin = getMissionConfigValue [QEGVAR(briefing,briefEastAdministration), ""];
         _weaponsReport = GVAR(eastClasses) joinString "<br/>";
     };
     case 2: {
