@@ -90,7 +90,7 @@ class CfgZeusFactory {
         "CUP_I_Hilux_unarmed_IND_G_F", //Hilux unarmed (Better pickup)
         "CUP_I_Hilux_DSHKM_IND_G_F", //Hilux HMG
         "CUP_I_Hilux_armored_unarmed_IND_G_F", //Armored Hilux unarmed
-        "CUP_I_Hilux_armored_DSHKM_IND_G_F" //Armored Hilux HMG
+        "CUP_I_Hilux_armored_DSHKM_IND_G_F", //Armored Hilux HMG
 
         // CUP Trucks
         "CUP_B_MTVR_USMC", // Woodland MVTR
