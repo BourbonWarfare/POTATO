@@ -35,14 +35,15 @@ class ace_medical_treatment {
     class Medication {
         class Naloxone {
           painReduce = 0;
-          hrIncreaseLow[] = {10, 15};
-          hrIncreaseNormal[] = {5, 15};
-          hrIncreaseHigh[] = {5, 10};
-          timeInSystem = 1800;
-          timeTillMaxEffect = 30;
-          maxDose = 2;
+          hrIncreaseLow[] = {0, 0};
+          hrIncreaseNormal[] = {0, 0};
+          hrIncreaseHigh[] = {0, 0};
+          timeInSystem = 180;
+          timeTillMaxEffect = 1;
+          maxDose = 0.1;
+          onOverDose = FUNC(Naloxone);
           incompatibleMedication[] = {};
-          viscosityChange = 10;
+          viscosityChange = 0;
         };
     };
 };
