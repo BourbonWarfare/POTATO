@@ -26,9 +26,9 @@ _startMeds = _unit getVariable "ace_medical_medications";
             _startMeds set [_forEachIndex, ["FakeDrug", 5, 1, 0, 0, 0]];
         };
     } else {
-      if (_medication == _medicationClassName) then {
-          _startMeds set [_forEachIndex, ["FakeDrug", 5, 1, 0, 0, 0]];
-      };
+        if (_medication == _medicationClassName) then {
+            _startMeds set [_forEachIndex, ["FakeDrug", 5, 1, 0, 0, 0]];
+        };
     };
 } forEach _startMeds;
 _unit setVariable ["ace_medical_medications", _startMeds];
