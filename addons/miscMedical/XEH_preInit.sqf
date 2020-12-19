@@ -3,7 +3,7 @@
 ADDON = false;
 
 PREP_RECOMPILE_START;
-PREP(Naloxone);
+#include "XEH_PREP.hpp"
 PREP_RECOMPILE_END;
 
 ADDON = true;
