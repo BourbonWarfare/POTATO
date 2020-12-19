@@ -13,3 +13,4 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "Naloxone_Patch.hpp"
