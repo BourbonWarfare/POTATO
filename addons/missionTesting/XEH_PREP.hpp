@@ -13,3 +13,10 @@ PREP(runWeaponsTest);
 PREP(updateCheckedCB);
 PREP(updateNotesFlag);
 PREP(updateSelectionLB);
+
+PREP(pidTesting);
+PREP(updateClassListPID);
+PREP(updateClassPID);
+PREP(updateDirPID);
+PREP(updateStancePID);
+PREP(updatePositionPID);

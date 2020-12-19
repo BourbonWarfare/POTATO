@@ -67,7 +67,7 @@ if (hasInterface) then { // Change briefing map's "Continue" button to red "BRIE
     {
         private _missionTagVar = getMissionConfigValue _x;
         private _missionTag = if(isNil QUOTE(_missionTagVar)) then {"NONE"} else {A_MISSION_TAGS select _missionTagVar};
-        if (_missionTag == "BRIEF ON MAP") exitWith { 
+        if (_missionTag == "BRIEF ON MAP") exitWith {
             INFO("brief on map");
             [{
                 (!isNull findDisplay 37) || {!isNull findDisplay 52} || {!isNull findDisplay 53} || {!isNull findDisplay 12}
@@ -83,3 +83,6 @@ if (hasInterface) then { // Change briefing map's "Continue" button to red "BRIE
         };
     } forEach [QGVAR(missionTag1), QGVAR(missionTag2), QGVAR(missionTag3)];
 };
+
+GVAR(factionClassList) = [];
+GVAR(DummyUnits) = [];

@@ -125,6 +125,9 @@ private _createChecklistSection  = {
 //Main Function
 
 private _display = createDialog QGVAR(displayMissionTesting);
+private _missionMaker = getMissionConfigValue ["author","????"];
+private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
+private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
 
 if (isNull DISPLAY_TESTMENU) exitWith { systemChat "bad display"; };
 
@@ -152,7 +155,14 @@ _menuBreifingPage ctrlSetText "Brieifing";
 _menuBreifingPage ctrlSetPosition [0.60,1,0.12,0.1];
 _menuBreifingPage buttonSetAction QUOTE([] call FUNC(openBriefings));
 _menuBreifingPage ctrlCommit 0;
-
+if (_missionType == "TVT") then {
+    private _pidTesting = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
+    _pidTesting ctrlSetText "PID Test";
+    _pidTesting ctrlSetTooltip "Test the uniforms of the various Units ";
+    _pidTesting buttonSetAction QUOTE([] call FUNC(pidTesting));
+    _pidTesting ctrlSetPosition [0.34,1,0.12,0.1];
+    _pidTesting ctrlCommit 0;
+};
 if (!EGVAR(spectate,running)) then {
     private _killGoToSpec = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
     _killGoToSpec ctrlSetText "Goto Spec";
@@ -167,16 +177,13 @@ if (!EGVAR(spectate,running)) then {
     _keyBindInst ctrlCommit 0;
 };
 
-/*  Waiting for CTRLSETURL to be added from Dev branch, else it will have to be added via config when I get around to that.... oh well.
-private _openForumFinishedMissions = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
+/* private _openForumFinishedMissions = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
 _openForumFinishedMissions ctrlSetText "Forum";
-_openForumFinishedMissions ctrlSetURL "http://forums.bourbonwarfare.com/viewforum.php?f=30";
-_openForumFinishedMissions ctrlSetPosition [0.34,1,0.12,0.1];
-_openForumFinishedMissions ctrlCommit 0;
- */
-private _missionMaker = getMissionConfigValue ["author","????"];
-private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
-private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
+//_openForumFinishedMissions ctrlSetURL "http://forums.bourbonwarfare.com/viewforum.php?f=30";
+_openForumFinishedMissions ctrlSetPosition [0.21,1,0.12,0.1];
+_openForumFinishedMissions ctrlCommit 0; */
+
+
 private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
 private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
 private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);

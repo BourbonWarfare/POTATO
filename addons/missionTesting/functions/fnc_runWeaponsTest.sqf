@@ -22,8 +22,6 @@ GVAR(civiClasses) = [];
 
 if ((isNull player) || {!alive player}) exitWith {};
 
-//if (!isNil QGVAR(TestRan)) exitWith {TRACE_1("Test Ran Already",_this)};
-
 private _handledClasses = [];
 
 private _fncGetWeaponInfo = {
