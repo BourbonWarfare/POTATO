@@ -26,6 +26,61 @@ class GVAR(displayBreifings) {
     enableDisplay = 1;
 };
 
+class IGUIBack;
+class RscPicture;
+class RscCombo;
+class RscSlider;
+
+class GVAR(LoadoutPID) {
+    idd = 9997;
+    movingEnable = 1;
+    duration = 9999999;
+    fadein = 0;
+    fadeout = 0;
+    class controls {
+        class IGUIBack_2200: IGUIBack
+        {
+            idc = 2200;
+            x = 0.283378 * safezoneW + safezoneX;
+            y = 0.6 * safezoneH + safezoneY;
+            w = 0.433243 * safezoneW;
+            h = 0.175 * safezoneH;
+        };
+        class RscCombo_2100: RscCombo
+        {
+            idc = 2100;
+            x = 0.29421 * safezoneW + safezoneX;
+            y = 0.643 * safezoneH + safezoneY;
+            w = 0.129973 * safezoneW;
+            h = 0.022 * safezoneH;
+            tooltip = "Select Faction"; //--- ToDo: Localize;
+        };
+        class RscCombo_2101: RscCombo
+        {
+            idc = 2101;
+            x = 0.435014 * safezoneW + safezoneX;
+            y = 0.643 * safezoneH + safezoneY;
+            w = 0.129973 * safezoneW;
+            h = 0.022 * safezoneH;
+            tooltip = "Select Faction"; //--- ToDo: Localize;
+        };
+        class RscCombo_2102: RscCombo
+        {
+            idc = 2102;
+            x = 0.575818 * safezoneW + safezoneX;
+            y = 0.643 * safezoneH + safezoneY;
+            w = 0.129973 * safezoneW;
+            h = 0.022 * safezoneH;
+            tooltip = "Select Faction"; //--- ToDo: Localize;
+        };
+        class RscCombo_2103: RscCombo
+        {
+            idc = 2103;
+            x = 0.29421 * safezoneW + safezoneX;
+            y = 0.687 * safezoneH + safezoneY;
+            w = 0.129973 * safezoneW;
+            h = 0.022 * safezoneH;
+            tooltip = "Select Class"; //--- ToDo: Localize;
         };
         class RscCombo_2104: RscCombo
         {
