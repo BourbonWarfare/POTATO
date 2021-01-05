@@ -26,14 +26,14 @@ if (hasInterface) then {
             } else {
                 _returnValue = true; // block
                 if (_person == player) then {
-                    systemChat "Your message was blocked, start message with 'force' to send in channel";
-                    systemChat "Use admin message (hit escape) for help with Problems/JIP";
+                    systemChat "POTATO [Your message was blocked, to send in channel start with 'force']";
+                    systemChat "POTATO [Use admin message (hit escape) for help with Problems/JIP]";
                 };
             };
           } else {
               if (!([] call EFUNC(core,isAuthorized))) then { // Allows all systemchat for admins
                   if (_channel == 16) then {
-                      if ((_text select [0,8]) isEqualTo "POTATO [") then { // Allow potato messages (e.g. admin messages))
+                      if ((_text select [0,8]) isEqualTo "POTATO [") then { // Allow potato messages (e.g. admin messages, side chat warning, ect.)
                           _returnValue = false;
                       } else {
                           _returnValue = true; // Blocks all other system chats
