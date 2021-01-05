@@ -30,12 +30,18 @@ if (hasInterface) then {
                     systemChat "Use admin message (hit escape) for help with Problems/JIP";
                 };
             };
-        } else {
-            if ((_channel == 16) && {(_text select [0,7]) isEqualTo "Player "}) then { // connected/disconnected msg (but not connecting...?)
-                _returnValue = true; // block
-            };
-        };
-        _returnValue // don't use exitWith in eh
+          } else {
+              if (!([] call EFUNC(core,isAuthorized))) then { // Allows all systemchat for admins
+                  if (_channel == 16) then {
+                      if ((_text select [0,8]) isEqualTo "POTATO [") then { // Allow potato messages (e.g. admin messages))
+                          _returnValue = false;
+                      } else {
+                          _returnValue = true; // Blocks all other system chats
+                      };
+                  };
+              };
+          };
+          _returnValue // don't use exitWith in eh
     }];
 };
 
