@@ -1,4 +1,4 @@
-﻿class CfgVehicles {
+class CfgVehicles {
     class Module_F;
     class GVAR(factory): Module_F {
         author = QUOTE(PREFIX);
