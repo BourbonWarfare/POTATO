@@ -27,7 +27,9 @@ private _faction = toLower faction _theVehicle;
 TRACE_2("",GVAR(setVehicleLoadouts),_loadout);
 
 //Leave default gear when "F_Gear" is "Default" or GVAR(setVehicleLoadouts) is 0
-if ((GVAR(setVehicleLoadouts) == 0) || {_loadout == "Default"}) exitWith {};
+if ((GVAR(setVehicleLoadouts) == 0) || {_loadout == "Default"}) exitWith {
+  _theVehicle addItemCargoGlobal ["Toolkit", 1];
+};
 
 //Clean out starting inventory when "F_Gear" is "Empty" or GVAR(setVehicleLoadouts) is -1
 if ((GVAR(setVehicleLoadouts) == -1) || {_loadout == "Empty"}) exitWith {
@@ -35,6 +37,8 @@ if ((GVAR(setVehicleLoadouts) == -1) || {_loadout == "Empty"}) exitWith {
     clearMagazineCargoGlobal _theVehicle;
     clearItemCargoGlobal _theVehicle;
     clearBackpackCargoGlobal _theVehicle;
+    //Add a Toolkit
+    _theVehicle addItemCargoGlobal ["Toolkit", 1];
 };
 
 private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
@@ -71,6 +75,8 @@ clearWeaponCargoGlobal _theVehicle;
 clearMagazineCargoGlobal _theVehicle;
 clearItemCargoGlobal _theVehicle;
 clearBackpackCargoGlobal _theVehicle;
+//Add a Toolkit
+_theVehicle addItemCargoGlobal ["Toolkit", 1];
 
 private _transportMagazines = getArray(_path >> "TransportMagazines");
 private _transportItems = getArray(_path >> "TransportItems");
