@@ -21,4 +21,14 @@ class CfgWeapons {
             mass = 1;
         };
     };
+    class potato_gamestop: ACE_ItemCore {
+        scope = 2;
+        model = "\A3\Structures_F\Items\Luggage\Suitcase_F.p3d";
+        picture = QPATHTOF(ui\gamestop_ca.paa);
+        displayName = "GME Stock";
+        descriptionShort = "1 Million Gamestop Bearer Bonds";
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 1;
+        };
+    };
 };
