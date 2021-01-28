@@ -14,9 +14,9 @@ _settings = [
 [QACEGVAR(medical,spontaneousWakeUpEpinephrineBoost), 2], // default: 1
 [QACEGVAR(medical_treatment,clearTraumaAfterBandage), true], // default: false
 [QACEGVAR(medical_treatment,litterCleanupDelay), 300], // default: 600
-// [QACEGVAR(medical_treatment,cprSuccessChance), 0.6], // default: 0.4
+[QACEGVAR(medical_treatment,cprSuccessChance), 0.75], // default: 0.4
 [QACEGVAR(medical_statemachine,AIUnconsciousness), false], // default: true
-[QACEGVAR(medical_statemachine,cardiacArrestTime), 1], // default: 30
+[QACEGVAR(medical_statemachine,cardiacArrestTime), 180], // default: 30
 
 // Medical Extras:
 [QACEGVAR(medical_ai,enabledFor), 0],
