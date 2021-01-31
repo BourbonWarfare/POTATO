@@ -15,7 +15,7 @@
 TRACE_1("Params",_this);
 
 params ["_logic"];
-if (isNull _logic) exitWith { TRACE_1("Logic for zeus object is somehow null, exiting"); };
+if (isNull _logic) exitWith { TRACE_1("Logic for zeus object is somehow null - exiting", _logic); };
 
 [true] spawn FUNC(transferGroupsToHC);
 

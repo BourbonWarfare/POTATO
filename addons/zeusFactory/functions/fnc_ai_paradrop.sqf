@@ -53,7 +53,7 @@ TRACE_2("Starting Unload",_altitude,count _crewToUnload);
             if ((!alive _unit) || {!alive _chute} || {isTouchingGround _unit}) exitWith {true};
             if ((vehicle _unit) == _chute) then {
                 _unit moveInAny _chute;
-                TRACE_1("moving into chute",_unit,_chute);
+                TRACE_2("moving into chute",_unit,_chute);
             };
             false
         }, {TRACE_1("finished",_this);}, [_unit, _chute], 5, {TRACE_1("timeout",_this);}] call CBA_fnc_waitUntilAndExecute;

@@ -15,7 +15,7 @@
 TRACE_1("Params",_this);
 
 params [["_logic", objNull, [objNull]]];
-if (isNull _logic) exitWith { TRACE_1("Logic for zeus object is somehow null, exiting"); };
+if (isNull _logic) exitWith { TRACE_1("Logic for zeus object is somehow null - exiting",_logic); };
 
 [getPos _logic] call FUNC(moveHcsToPos);
 

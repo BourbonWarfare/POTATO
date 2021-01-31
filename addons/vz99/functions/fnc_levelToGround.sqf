@@ -22,7 +22,7 @@ TRACE_2("params", _mortarVeh,_desiredAngle);
 private _vUp = vectorUp _mortarVeh;
 (_vUp call CBA_fnc_vect2Polar) params ["", "_dir", "_elev"];
 
-TRACE_3("",_dir,_elev);
+TRACE_2("",_dir,_elev);
 
 private _angleDiff = ((_dir - (getDir _mortarVeh)) + 180) % 360 - 180;
 TRACE_3("dir",_dir,getDir _mortarVeh,_angleDiff);

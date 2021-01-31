@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-TRACE_2("export",_this);
+TRACE_1("export",_this);
 
 private _fnc_formatList = {
     params ["_list"];
