@@ -14,6 +14,12 @@ class CfgVehicles {
         mapSize = 0.47;
         scope = 2;
     };
+    class B_Battle_Belt_XL_F: B_Battle_Belt_F {
+        displayName = "Battle Belt XL";
+        author = "Alablm";
+        maximumLoad = 320;
+        mass = 60;
+    };
 
     // Add SMAW box
     class Box_NATO_Support_F;
