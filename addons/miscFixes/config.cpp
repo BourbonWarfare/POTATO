@@ -20,7 +20,7 @@ class CfgPatches {
             "rhs_c_weapons", "rhsusf_c_weapons",
             "CUP_Weapons_AK", "hlcweapons_G36",
             "rhsgref_c_troops"
-            ,"Chernarus", "torabora"
+            ,"Chernarus", "torabora", "DSA_Spooks"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};
