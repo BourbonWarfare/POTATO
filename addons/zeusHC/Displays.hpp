@@ -34,7 +34,7 @@ class GVAR(base_frame): RscFrame {
 
 class GVAR(build_a_group_dialog) {
     idd = BUILD_GROUP_IDD;
-    movingEnable = false;
+    movingEnable = 0;
     onLoad = QUOTE([] spawn FUNC(buildAGroupDialogLoad));
     class controls {
         class GVAR(group_bg): GVAR(bg) {};
@@ -117,7 +117,7 @@ class GVAR(build_a_group_dialog) {
 
 class GVAR(spawn_a_vic_dialog) {
     idd = SPAWN_VIC_IDD;
-    movingEnable = false;
+    movingEnable = 0;
     onLoad = QUOTE([] spawn FUNC(spawnAVicDialogLoad));
     class controls {
         class GVAR(vic_bg): GVAR(bg) {};
@@ -169,7 +169,7 @@ class GVAR(spawn_a_vic_dialog) {
 
 class GVAR(garrison_dialog) {
     idd = GARRISON_IDD;
-    movingEnable = false;
+    movingEnable = 0;
     onLoad = QUOTE([] spawn FUNC(garrisonDialogLoad));
     class controls {
         class GVAR(garrison_bg): GVAR(bg) {};

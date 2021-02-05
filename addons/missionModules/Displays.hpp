@@ -73,7 +73,7 @@ class GVAR(RscDisplayAttributes_missionHint): RscDisplayAttributes {
 };
 class GVAR(setSkills) {
     idd = SET_SKILLS_IDD;
-    movingEnable = false;
+    movingEnable = 0;
     onLoad = QUOTE([] spawn FUNC(setSkillsDialogLoad));
     class controls {
         class GVAR(setSkills_bg): IGUIBack {

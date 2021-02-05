@@ -5,7 +5,7 @@ class RscTitles {
     class GVAR(message) {
         idd = -1;
         onLoad = QUOTE(with uiNamespace do { GVAR(message) = _this select 0; };);
-        movingEnable = false;
+        movingEnable = 0;
         duration = 2147483647;
         fadeIn = 0.5;
         fadeOut = 0.5;

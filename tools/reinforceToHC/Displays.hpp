@@ -30,7 +30,7 @@ class GVAR(base_frame): RscFrame {
 
 class GVAR(reinforcement_dialog) {
     idd = REINFORCEMENT_IDD;
-    movingEnable = false;
+    movingEnable = 0;
     onLoad = QUOTE([] spawn FUNC(reinforcementsDialogLoad));
     class controls {
         class GVAR(reinforcement_bg): GVAR(bg) {};
