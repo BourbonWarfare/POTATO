@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: AACO
  * Function used to safely spawn a crew, will check for a group count and a total AI count
@@ -18,15 +19,13 @@
  * Public: Yes
  */
 
-#include "script_component.hpp"
-TRACE_1("params",_this);
-
 params [
     ["_side", civilian, [civilian]],
     ["_vehicle", objNull, [objNull]],
     ["_crewType", "", [""]],
     ["_delayed", false, [false]]
 ];
+TRACE_4("createCrew",_side,_vehicle,_crewType,_delayed);
 
 private _crew = [];
 private _crewCount = {
@@ -67,8 +66,7 @@ if ([_side, _crewCount] call FUNC(canCreateGroup)) then {
                 _unit moveInGunner _vehicle;
             };
         };
-
-        if (_delayed && {_forEachIndex < (_crewCount - 1)}) then {
+        if (_delayed && canSuspend && {_forEachIndex < (_crewCount - 1)}) then {
             sleep GVAR(delayBetweenUnitCreation);
         };
     } forEach _crew;

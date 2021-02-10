@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: AACO
  * Helper function to get the least loaded HC, or server if no HCs are available
@@ -12,11 +13,8 @@
  * Public: Yes
  */
 
-#include "script_component.hpp"
-TRACE_1("Params",_this);
-
 private _allHCs = (entities "HeadlessClient_F") select {isPlayer _x};
-TRACE_1("",_allHCs);
+TRACE_1("getSpawnMachineId",_allHCs);
 
 private _returnClientId = SERVER_CLIENT_ID;
 

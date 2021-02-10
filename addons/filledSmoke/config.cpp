@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-#ifndef POTATO_LEAN_CONFIGS
+#ifndef POTATO_LEAN_RHS_CUP_HLC
 
 class CfgPatches {
     class ADDON {

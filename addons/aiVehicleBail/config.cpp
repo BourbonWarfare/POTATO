@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+#ifndef POTATO_LEAN_RHS_CUP_HLC
+
 class CfgPatches {
     class ADDON {
         units[] = {};
@@ -16,3 +18,4 @@ class CfgPatches {
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
 
+#endif

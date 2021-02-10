@@ -1,5 +1,9 @@
 TRACE_1("",QUOTE(ADDON));
 
+PREP(autoModule_createLocal);
+PREP(autoModule_module);
+PREP(autoModule_setup);
+
 PREP(createEntityZeus);
 PREP(createEntityLocal);
 PREP(createEntityDismounts);
