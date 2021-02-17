@@ -4,7 +4,6 @@ class CfgGroups {
   GROUP_DEF(WEST,"POTATO: West",w,1)
 
   #undef CLASS_MACRO
-  #undef FACTION_LETTER
   #define CLASS_MACRO(unit) MSV(unit)
   GROUP_DEF(East,"POTATO: East",e,0)
   
