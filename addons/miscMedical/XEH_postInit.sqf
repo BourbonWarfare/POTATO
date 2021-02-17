@@ -9,7 +9,7 @@ if (isServer) then {
         INFO_2("SLOG - %1: %2",_type,_msg);
     }] call CBA_fnc_addEventHandler;
 
-    #include "serverOnlyFix.sqf";
+    #include "serverOnlyFix.sqf"
 
     // Determine if TVT or COOP
     [{

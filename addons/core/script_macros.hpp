@@ -1,5 +1,6 @@
 //Add all ACE and CBA macros:
 #include "\z\ace\addons\main\script_macros.hpp"
+#include "script_macros_debug.hpp"
 
 #define ACE_PREFIX ace
 
@@ -25,6 +26,3 @@
 #define FADE_LENGTH 0.25
 #define FADE_ENABLED 0
 #define FADE_DISABLED 0.7
-
-// Dev Ony: Enabling this will skip configs from any potato addons that require external mods
-// #define POTATO_LEAN_CONFIGS

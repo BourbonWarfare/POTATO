@@ -48,22 +48,27 @@ class CfgVehicles {
     };
     class GVAR(east_manpadTeam): GVAR(east_rifleman) {
         displayName = "#MANPAD Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_msamg","potato_e_msamag"};
     };
     class GVAR(east_matTeam): GVAR(east_rifleman) {
         displayName = "#MAT Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_matg","potato_e_matag"};
     };
     class GVAR(east_patrol): GVAR(east_rifleman) {
         displayName = "#Patrol (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_rifleman","potato_e_rifleman"};
     };
     class GVAR(east_fireteam): GVAR(east_rifleman) {
         displayName = "#Fireteam (4)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_ftl","potato_e_AR","potato_e_rifleman","potato_e_LAT"};
     };
     class GVAR(east_squad): GVAR(east_rifleman) {
         displayName = "#Squad (8)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_sl","potato_e_ftl","potato_e_ar","potato_e_ar","potato_e_lat","potato_e_rifleman","potato_e_rifleman","potato_e_rifleman"};
     };
     class GVAR(east_aaModern): GVAR(east_rifleman) {
@@ -310,22 +315,27 @@ class CfgVehicles {
     };
     class GVAR(west_manpadTeam): GVAR(west_rifleman) {
         displayName = "#MANPAD Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_msamg","potato_w_msamag"};
     };
     class GVAR(west_matTeam): GVAR(west_rifleman) {
         displayName = "#MAT Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_matg","potato_w_matag"};
     };
     class GVAR(west_patrol): GVAR(west_rifleman) {
         displayName = "#Patrol (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_rifleman","potato_w_rifleman"};
     };
     class GVAR(west_fireteam): GVAR(west_rifleman) {
         displayName = "#Fireteam (4)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_ftl","potato_w_ar","potato_w_rifleman","potato_w_lat"};
     };
     class GVAR(west_squad): GVAR(west_rifleman) {
         displayName = "#Squad (8)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_sl","potato_w_ftl","potato_w_ar","potato_w_ar","potato_w_lat","potato_w_rifleman","potato_w_rifleman","potato_w_rifleman"};
     };
     class GVAR(west_cupAvenger): GVAR(west_rifleman) {
@@ -700,22 +710,27 @@ class CfgVehicles {
     };
     class GVAR(ind_manpadTeam): GVAR(ind_rifleman) {
         displayName = "#MANPAD Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_msamg","potato_i_msamag"};
     };
     class GVAR(ind_matTeam): GVAR(ind_rifleman) {
         displayName = "#MAT Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_matg","potato_i_matag"};
     };
     class GVAR(ind_patrol): GVAR(ind_rifleman) {
         displayName = "#Patrol (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_rifleman","potato_i_rifleman"};
     };
     class GVAR(ind_fireteam): GVAR(ind_rifleman) {
         displayName = "#Fireteam (4)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_ftl","potato_i_ar","potato_i_rifleman","potato_i_lat"};
     };
     class GVAR(ind_squad): GVAR(ind_rifleman) {
         displayName = "#Squad (8)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_sl","potato_i_ftl","potato_i_ar","potato_i_ar","potato_i_lat","potato_i_rifleman","potato_i_rifleman","potato_i_rifleman"};
     };
     class GVAR(ind_gazZu): GVAR(ind_rifleman) {

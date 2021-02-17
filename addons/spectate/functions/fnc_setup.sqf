@@ -49,7 +49,7 @@ HELP ctrlShow false;
 // create spectator unit
 private _tempGroup = createGroup [sideLogic, true]; // explicitly mark for cleanup (even though we delete below)
 GVAR(unit) = _tempGroup createUnit [QGVAR(spectator), ZERO_POS, [], 100, "NONE"];
-GVAR(unit) setVariable [QEGVAR(radios,assignedLanguages), GVAR(availableLanguages)];
+GVAR(unit) setVariable [(missionNamespace getVariable [QEGVAR(radios,assignedLanguages), []]), GVAR(availableLanguages)];
 selectPlayer GVAR(unit);
 
 if (isNil QGVAR(group) || {isNull GVAR(group)}) then {
