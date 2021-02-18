@@ -24,6 +24,8 @@ switch (_ctrlIDC) do {
     case PID_DIR_SLIDER_3_IDC: {_unit = GVAR(DummyUnits) select 2;};
 };
 
-private _pDir = getDir _unit;
-private _newDir = _pDir + _newValue;
-_unit setDir _newDir;
+private _dirPlayer = getDir ACE_PLAYER;
+
+_unit setDir  0 - _newValue + (_dirPlayer - 180);
+
+if(_ctrlIDC == PID_DIR_SLIDER_1_IDC) then {[] call FUNC(updatePositionPID);};

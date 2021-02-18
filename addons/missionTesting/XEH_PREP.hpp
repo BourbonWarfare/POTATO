@@ -20,3 +20,4 @@ PREP(updateClassPID);
 PREP(updateDirPID);
 PREP(updateStancePID);
 PREP(updatePositionPID);
+PREP(pidTestingWaitandExec);

@@ -83,10 +83,18 @@
 #define PID_STANCE_3_IDC 2108
 #define PID_DIR_SLIDER_3_IDC 1902
 
-#define PID_DEFAULT_DIR 0.5
+#define PID_DEFAULT_DIR 0
 #define PID_DEFAULT_FACTION 0
 #define PID_DEFAULT_CLASS 0
-#define PID_DEFAULT_STANCE 0
+#define PID_DEFAULT_STANCE_INDEX 0
+#define PID_DEFAULT_STANCE "AidlPercMstpSrasWrflDnon_AI"
+#define PID_STANCES [\
+                        [QUOTE(Standing (Weapon Down)),QUOTE(AidlPercMstpSrasWrflDnon_AI)]\
+                        ,[QUOTE(Standing (ADS)),QUOTE(AidlPercMstpSrasWrflDnon_G01_player)]\
+                        ,[QUOTE(Crouch (Weapon Down)),QUOTE(AidlPknlMstpSrasWrflDnon_AI)]\
+                        ,[QUOTE(Crouch (ADS)),QUOTE(AidlPknlMstpSrasWrflDnon_G01_player)]\
+                        ,[QUOTE(Prone (ADS)),QUOTE(AidlPpneMstpSrasWrflDnon_G01_player)]\
+                    ]\
 
 #define IDC_GENERAL 3000
 #define IDC_GENERAL_MT_NOTES 4000

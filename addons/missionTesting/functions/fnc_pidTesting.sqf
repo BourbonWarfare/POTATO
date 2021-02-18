@@ -19,6 +19,8 @@ GVAR(DummyUnits) = [];
 
 private _display = DISPLAY_TESTMENU createDisplay QGVAR(LoadoutPID);
 
+waituntil {!isnull (finddisplay 9997)};
+
 private _handledClasses = [];
 private _factions = [];
 private _masterArray = [[west,[]],[east,[]],[independent,[]],[civilian,[]]];
@@ -85,15 +87,15 @@ GVAR(factionClassList) = _factions;
         private _data = _x select 1;
         _ctrl lbAdd _text;
         _ctrl lbSetData [_forEachIndex,_data];
-    } forEach [[QUOTE(Standing),QUOTE(UP)],[QUOTE(Crouch),QUOTE(MIDDLE)],[QUOTE(Prone),QUOTE(DOWN)]];
-    _ctrl lbSetCurSel PID_DEFAULT_STANCE;
+    } forEach PID_STANCES;
+    _ctrl lbSetCurSel PID_DEFAULT_STANCE_INDEX;
     _ctrl ctrlAddEventHandler [QUOTE(LBSelChanged),{_this call FUNC(updateStancePID);}];
     _ctrl ctrlCommit 0;
 } forEach [PID_STANCE_1_IDC,PID_STANCE_2_IDC,PID_STANCE_3_IDC];
 
 {
     private _ctrl = _display displayCtrl _x;
-    _ctrl sliderSetRange [0, 1];
+    _ctrl sliderSetRange [-180, 180];
     _ctrl sliderSetPosition PID_DEFAULT_DIR;
     _ctrl ctrlAddEventHandler [QUOTE(SliderPosChanged),{_this call FUNC(updateDirPID);}];
 } forEach [PID_DIR_SLIDER_1_IDC,PID_DIR_SLIDER_2_IDC,PID_DIR_SLIDER_3_IDC];
@@ -109,21 +111,19 @@ private _pidDummy_1 = _classDummy1 createVehicle _pos;
 TRACE_1("_pidDummy_1",_pidDummy_1);
 GVAR(DummyUnits) pushBack _pidDummy_1;
 _pidDummy_1 enableSimulation false;
-_pidDummy_1 setUnitPos "UP";
+_pidDummy_1 switchMove PID_DEFAULT_STANCE;
 //Create a second unit.
 private _pidDummy_2 = _classDummy2 createVehicle _pos;
 TRACE_1("_pidDummy_2",_pidDummy_2);
 GVAR(DummyUnits) pushBack _pidDummy_2;
 _pidDummy_2 enableSimulation false;
-_pidDummy_2 setUnitPos "UP";
+_pidDummy_2 switchMove PID_DEFAULT_STANCE;
 //Create a third unit.
 private _pidDummy_3 = _classDummy3 createVehicle _pos;
 TRACE_1("_pidDummy_3",_pidDummy_3);
 GVAR(DummyUnits) pushBack _pidDummy_3;
 _pidDummy_3 enableSimulation false;
-_pidDummy_3 setUnitPos "UP";
-
-[] call FUNC(updatePositionPID);
+_pidDummy_3 switchMove PID_DEFAULT_STANCE;
 
 private _dir = getDir ACE_PLAYER;
 private _dirD1 = _dir - 180;
@@ -132,6 +132,9 @@ private _dirD1 = _dir - 180;
 _x setDir _dirD1;
 } forEach [_pidDummy_1,_pidDummy_2,_pidDummy_3];
 
+[] call FUNC(updatePositionPID);
+
+_display displayAddEventHandler [QUOTE(UnLoad), QUOTE({deleteVehicle _x} forEach GVAR(DummyUnits);)];
 
 
 //(QGVAR(LoadoutPID) call BIS_fnc_rscLayer) cutRsc [QGVAR(LoadoutPID), "PLAIN", 0, false];

@@ -37,6 +37,10 @@ class GVAR(LoadoutPID) {
     duration = 9999999;
     fadein = 0;
     fadeout = 0;
+    onLoad = QUOTE(with uiNamespace do {GVAR(LoadoutPID) = _this select 0;};);
+    onKeyDown = QUOTE(with uiNamespace do {_this spawn FUNC(cutRscPID)});
+
+
     class controls {
         class IGUIBack_2200: IGUIBack
         {

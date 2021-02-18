@@ -25,8 +25,6 @@ switch (_ctrlIDC) do {
 };
 
 private _stance = lbData [_ctrlIDC,_selectedIndex];
-_unit enableSimulation true;
-_unit setunitPos _stance;
-_unit enableSimulation false;
+_unit switchMove _stance;
 
 [] call FUNC(updatePositionPID);
