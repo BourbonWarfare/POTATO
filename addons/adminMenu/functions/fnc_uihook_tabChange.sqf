@@ -170,6 +170,51 @@ case (6): {
 case (7): {
         TRACE_1("showing fix unit tab", _sel);
 
+        private _loadouts = [
+            ["", "Default Gear"],
+            ["sl", ""],
+            ["ar", ""],
+            ["aar", "Assistant to the Automatic Rifleman"],
+            ["lat", ""],
+            ["rifleman", ""],
+            ["ftl", ""],
+            ["coy", "CO and DC"],
+            ["uav", ""],
+            ["sm", "Squad Medic"],
+            ["mmgg", "MMG Gunner"],
+            ["mmgag", "MMG Spotter/Ammo Bearer"],
+            ["mmgl", "MMG Lead"],
+            ["matg", "MAT Gunner"],
+            ["matag", "MAT Spotter/Ammo Bearer"],
+            ["matl", "MAT Lead"],
+            ["msamg", "SAM Gunner"],
+            ["msamag", "SAM Spotter/Ammo Bearer"],
+            ["mtrg", "Mortar Gunner"],
+            ["mtrag", "Assistant Mortar"],
+            ["sniper", ""],
+            ["pilot", "rifleman"],
+            ["vicc", "Crew"],
+            ["vicd", "Repair Specialist"],
+            ["vicl", "Vehicle Commander"],
+            ["demo", "Explosive Specialist"],
+            ["mine", "Mine Specialist"],
+            ["demol", "Demolitions Leader"],
+            ["eng", "Logistics Engineer"],
+            ["fac", ""],
+            ["rifleman_02", ""],
+            ["artl", "Artillery Leader"],
+            ["artg", "Artillery Gunner"]
+        ];
+        private _listGear = UI_TAB_FIX_UNIT_GEAR;
+        lbClear _listGear;
+        { 
+            _x params ["_loadout", "_description"];
+            _description = if (_description == "") then { _loadout } else { format ["%1 (%2)", _loadout, _description] };
+            private _index = _listGear lbAdd _description;
+            _listGear lbSetData [_index, _loadout];
+        } forEach _loadouts;
+        _listGear lbSetCurSel 0;
+
         [
             UI_TAB_FIX_UNIT_LIST,
             {
