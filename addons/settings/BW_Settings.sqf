@@ -1,3 +1,4 @@
+//pragma SKIP_COMPILE
 /*
     SettingName <STRING>
     Value <ANY>

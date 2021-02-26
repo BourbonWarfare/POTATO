@@ -1,4 +1,4 @@
-// CBA Settings
+//pragma SKIP_COMPILE
 
 [
     QGVAR(enableCrewBailing),
