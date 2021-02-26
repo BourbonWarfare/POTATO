@@ -167,13 +167,12 @@ if (!EGVAR(spectate,running)) then {
     _keyBindInst ctrlCommit 0;
 };
 
-/*  Waiting for CTRLSETURL to be added from Dev branch, else it will have to be added via config when I get around to that.... oh well.
 private _openForumFinishedMissions = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
 _openForumFinishedMissions ctrlSetText "Forum";
 _openForumFinishedMissions ctrlSetURL "http://forums.bourbonwarfare.com/viewforum.php?f=30";
 _openForumFinishedMissions ctrlSetPosition [0.34,1,0.12,0.1];
 _openForumFinishedMissions ctrlCommit 0;
- */
+
 private _missionMaker = getMissionConfigValue ["author","????"];
 private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
 private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
