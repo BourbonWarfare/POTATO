@@ -448,9 +448,16 @@ class GVAR(adminMenuDialog) {
                     text = "Reset Gear";
                     x = 0.255 * safezoneW;
                     y = 0.52 * safezoneH;
-                    w = 0.26 * safezoneW;
+                    w = 0.125 * safezoneW;
                     h = 0.05 * safezoneH;
                     action = QUOTE(_this call FUNC(uihook_resetGearButton));
+                };
+                class ResetGearList: RscCombo {
+                    idc = 2181;
+                    x = 0.387 * safezoneW;
+                    y = 0.52 * safezoneH;
+                    w = 0.12 * safezoneW;
+                    h = 0.05 * safezoneH;
                 };
                 class ResetSpectatorButton: RscButton {
                     idc = -1;
