@@ -1,3 +1,5 @@
+#define DEBUG_MODE_FULL
+#include "script_component.hpp"
 /*
  * Author: AACO
  * Function used to start the spectate script
@@ -14,9 +16,6 @@
  *
  * Public: No
  */
-#define DEBUG_MODE_FULL
-#include "script_component.hpp"
-TRACE_1("Params",_this);
 
 params [
     ["_newUnit", objNull, [objNull]],
@@ -24,6 +23,7 @@ params [
     ["_respawnType", 1, [0]],
     ["_respawnDelay", 0, [0]]
 ];
+TRACE_4("setup",_newUnit,_oldUnit,_respawnType,_respawnDelay);
 
 // start spectate
 GVAR(running) = true;
@@ -32,7 +32,7 @@ GVAR(running) = true;
 MAIN_DISPLAY createDisplay QGVAR(overlay);
 
 // add ACRE passthrough to display
-[OVERLAY] call acre_api_fnc_addDisplayPassthroughKeys;
+[OVERLAY] call FUNC(acreSpectateCompat);
 
 // hide elements
 COMPASS ctrlShow false;

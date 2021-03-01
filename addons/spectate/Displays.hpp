@@ -1,8 +1,3 @@
-#define XFACTOR (((safeZoneW / safeZoneH) min 1.2) / 40)
-#define XOFFSET (safeZoneX + (safeZoneW - ((safeZoneW / safeZoneH) min 1.2)) / 2)
-#define YFACTOR ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25)
-#define YOFFSET (safeZoneY + (safeZoneH - (((safeZoneW / safeZoneH) min 1.2) / 1.2)) / 2)
-
 class RscText;
 class RscTree;
 class RscButton;
