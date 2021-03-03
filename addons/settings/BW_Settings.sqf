@@ -54,7 +54,7 @@ _settings = [
 [QACEGVAR(refuel,rate), 10],
 [QACEGVAR(respawn,removeDeadBodiesDisconnected), false],
 [QACEGVAR(ui,ammoCount), false, true], // Forced because it's User settable
-[QACEGVAR(ui,groupBar), false],
+[QACEGVAR(ui,groupBar), false, true], // Forced because it's User settable
 [QACEGVAR(weather,showCheckAirTemperature), false],
 [QACEGVAR(zeus,autoAddObjects), true],
 
