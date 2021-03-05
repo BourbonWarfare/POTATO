@@ -1,5 +1,3 @@
-//pragma SKIP_COMPILE
-
 [
     QGVAR(enableCrewBailing),
     "CHECKBOX",
