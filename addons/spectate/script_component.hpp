@@ -9,6 +9,11 @@
     #define DEBUG_MODE_FULL
 #endif
 
+#define XFACTOR (((safeZoneW / safeZoneH) min 1.2) / 40)
+#define XOFFSET (safeZoneX + (safeZoneW - ((safeZoneW / safeZoneH) min 1.2)) / 2)
+#define YFACTOR ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25)
+#define YOFFSET (safeZoneY + (safeZoneH - (((safeZoneW / safeZoneH) min 1.2) / 1.2)) / 2)
+
 #define GLOBAL_CHANNEL_INDEX 0
 #define SIDE_CHANNEL_INDEX 1
 #define COMMAND_CHANNEL_INDEX 2

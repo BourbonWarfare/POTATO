@@ -45,6 +45,5 @@ if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemot
     [GVAR(currentCamIndex)] call FUNC(ui_changeCamera);
 
     // add ACRE passthrough to display
-    disableSerialization;
-    [OVERLAY] call acre_api_fnc_addDisplayPassthroughKeys;
+    [OVERLAY] call FUNC(acreSpectateCompat);
 };
