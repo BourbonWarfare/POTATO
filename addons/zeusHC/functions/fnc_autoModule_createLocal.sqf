@@ -7,8 +7,8 @@
  * [[0,0,0], "somevic", west] call potato_zeusHC_fnc_autoModule_createLocal
  */
 
-params ["_posATL", "_vehType", "_side"];
-TRACE_3("autoModule_createLocal",_posATL,_vehType,_side);
+params ["_posASL", "_vehType", "_side"];
+TRACE_3("autoModule_createLocal",_posASL,_vehType,_side);
 
 private _posATL = aslToAtl _posASL;
 private _sideUnitConfig = switch (_side) do {
