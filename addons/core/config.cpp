@@ -20,6 +20,8 @@ class CfgPatches {
 #include "CfgMagazines.hpp"
 #include "CfgWeapons.hpp"
 
+#include "RscDisplayMain.hpp"
+
 class CfgMods {
     class PREFIX {
         dir = "@POTATO";
