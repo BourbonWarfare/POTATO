@@ -15,3 +15,7 @@ Basic discord bot allowing control of dedicated server functions from discord
 ## Requirements
 https://github.com/Rapptz/discord.py (`pip discord.py`)
 https://github.com/ValvePython/steam (`pip steam`)
+
+## Pip use examples
+python -m pip install --user discord.py
+python -m pip install --user --upgrade discord.py
