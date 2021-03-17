@@ -21,16 +21,5 @@ case (east): {"potato_e_" + _crewType};
 case (resistance): {"potato_i_" + _crewType};
 };
 
-private _maxCargoRoom = 99;
-private _addGunner = false;
-
-if (_vehType != "") then {
-    _maxCargoRoom = ([_vehType, true] call BIS_fnc_crewCount) - 1;
-    if (_transportType in [TRANSPORT_APC_RTB, TRANSPORT_APC_FOLLOW]) then {
-        _addGunner = true;
-        _maxCargoRoom = _maxCargoRoom - 1;
-    };
-};
-
 // Return:
-[_vehType, _crewType, _maxCargoRoom, _addGunner]
+[_vehType, _crewType]
