@@ -15,6 +15,7 @@ if (isNil QGVAR(lastTransport)) then {GVAR(lastTransport) = 0};
 if (isNil QGVAR(lastOrders)) then {GVAR(lastOrders) = 0};
 if (isNil QGVAR(lastRadius)) then {GVAR(lastRadius) = 100};
 if (isNil QGVAR(attackTarget)) then {GVAR(attackTarget) = true};
+if (isNil QGVAR(useLAMBS)) then {GVAR(useLAMBS) = true};
 
 // Init: Transport List
 lbClear (_display displayCtrl 23071);
@@ -56,7 +57,7 @@ private _radius = _logicObject getVariable [QGVAR(radius), GVAR(lastRadius)];
 [_control controlsgroupctrl 23074, _control controlsgroupctrl 23075, "m"] call bis_fnc_initSliderValue;
 
 (_control controlsgroupctrl 23076) cbSetChecked GVAR(attackTarget);
-
+(_control controlsgroupctrl 23077) cbSetChecked GVAR(useLAMBS);
 
 private _fnc_onUnload = {
     params [["_display", displayNull, [displayNull]], ["_exitCode", -1]];
@@ -98,6 +99,10 @@ private _fnc_onConfirm = {
     private _attackTarget = cbChecked (_display displayCtrl 23076);
     GVAR(attackTarget) = _attackTarget;
     _logicVariable setVariable [QGVAR(attackTarget), _attackTarget, true];
+
+    private _useLAMBS = cbChecked (_display displayCtrl 23077);
+    GVAR(useLAMBS) = _useLAMBS;
+    _logicVariable setVariable [QGVAR(useLAMBS), _useLAMBS, true];
 
     _logicObject setVariable [QGVAR(set), true, true];
     TRACE_3("set",_transportType,_ordersType,_radius);

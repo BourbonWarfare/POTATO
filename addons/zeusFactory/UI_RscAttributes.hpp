@@ -188,6 +188,21 @@ class GVAR(RscDisplayAttributes_place): RscDisplayAttributes {
                             w = "1 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                         };
+                        class useLAMBSText: RscText {
+                            text = "Use LAMBS AI Waypoints";
+                            idc = -1;
+                            x = "17.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            y = "2.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                            w = "8.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                        };
+                        class useLAMBSCheckbox: RscCheckBox {
+                            idc = 23077;
+                            x = "17.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            y = "3.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                            w = "1 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                        };
                     };
                 };
             };

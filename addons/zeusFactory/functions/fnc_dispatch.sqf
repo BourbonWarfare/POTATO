@@ -102,6 +102,9 @@ private _readyCondition = "(count thisList) == ({isTouchingGround _x} count this
 private _attackTarget = _placeLogic getVariable [QGVAR(attackTarget), true];
 _group setVariable [QGVAR(attackTarget), _attackTarget];
 
+private _useLAMBS = _placeLogic getVariable [QGVAR(useLAMBS), true];
+_group setVariable [QGVAR(useLAMBS), _useLAMBS];
+
 switch (_ordersType) do {
 case (ORDERS_MOVE): {}; // nothing
 case (ORDERS_GARRISION): {
