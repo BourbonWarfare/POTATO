@@ -14,7 +14,7 @@ _control ctrlRemoveAllEventHandlers "setFocus";
 if (isNil QGVAR(lastTransport)) then {GVAR(lastTransport) = 0};
 if (isNil QGVAR(lastOrders)) then {GVAR(lastOrders) = 0};
 if (isNil QGVAR(lastRadius)) then {GVAR(lastRadius) = 100};
-
+if (isNil QGVAR(attackTarget)) then {GVAR(attackTarget) = true};
 
 // Init: Transport List
 lbClear (_display displayCtrl 23071);
@@ -55,6 +55,7 @@ private _radius = _logicObject getVariable [QGVAR(radius), GVAR(lastRadius)];
 [_control controlsgroupctrl 23074, _control controlsgroupctrl 23075, "m", _radius] call bis_fnc_initSliderValue;
 [_control controlsgroupctrl 23074, _control controlsgroupctrl 23075, "m"] call bis_fnc_initSliderValue;
 
+(_control controlsgroupctrl 23076) cbSetChecked GVAR(attackTarget);
 
 
 private _fnc_onUnload = {
@@ -93,6 +94,10 @@ private _fnc_onConfirm = {
     private _radius = sliderposition (_display displayCtrl 23074);
     GVAR(lastRadius) = _radius;
     _logicObject setVariable [QGVAR(radius), _radius, true];
+
+    private _attackTarget = cbChecked (_display displayCtrl 23076);
+    GVAR(attackTarget) = _attackTarget;
+    _logicVariable setVariable [QGVAR(attackTarget), _attackTarget, true];
 
     _logicObject setVariable [QGVAR(set), true, true];
     TRACE_3("set",_transportType,_ordersType,_radius);

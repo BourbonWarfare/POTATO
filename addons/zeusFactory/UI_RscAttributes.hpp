@@ -4,6 +4,7 @@ class RscListbox;
 class RscToolbox;
 class RscXSliderH;
 class RscEdit;
+class RscCheckBox;
 
 class RscDisplayAttributes {
     class Controls {
@@ -170,6 +171,21 @@ class GVAR(RscDisplayAttributes_place): RscDisplayAttributes {
                             x = "22.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             y = "8.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                             w = "3 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                        };
+                        class attackMarkText: RscText {
+                            text = "Complete orders at target";
+                            idc = -1;
+                            x = "17.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            y = "0 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                            w = "8.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                        };
+                        class attackMarkCheckbox: RscCheckBox {
+                            idc = 23076;
+                            x = "17.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            y = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                            w = "1 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                         };
                     };
