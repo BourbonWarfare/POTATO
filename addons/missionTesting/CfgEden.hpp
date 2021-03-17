@@ -104,6 +104,26 @@ class Cfg3DEN {
 						};
 					};
 				};
+				class MissionTimers {
+                    displayName = "Mission Timers";
+                    collapsed = 0;
+					class Attributes{
+						class GVAR(SSTimeGiven) {
+                            displayName = "Safe Start Time Length:";
+							property = QGVAR(SSTimeGiven);
+                            control = QUOTE(EditShort);
+                            defaultValue = "10";
+                            typeName = "STRING";
+						};
+						class GVAR(missionTimeLength) {
+                            displayName = "Mission Length:";
+							property = QGVAR(missionTimeLength);
+                            control = QUOTE(EditShort);
+                            defaultValue = "35";
+                            typeName = "STRING";
+						};
+					};
+				};
 				class MissionTags {
                     displayName = "Mission Tags";
                     collapsed = 0;
