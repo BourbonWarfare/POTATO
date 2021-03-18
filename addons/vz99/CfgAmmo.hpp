@@ -69,10 +69,4 @@ class CfgAmmo {
             distance = 1;
         };
     };
-    class GVAR(ammo_he_airburst): GVAR(ammo_he) {
-        simulation = "shotRocket";
-        timeToLive = 0;
-        // explosionEffects = "HERocketExplosion"; //ExploAmmoExplosion, HEShellExplosion
-        // CraterEffects = "";
-    };
 };
