@@ -5,7 +5,7 @@ params ["_factoryLogic", "_transportType", "_group", "_side"];
 TRACE_4("createTransport",_factoryLogic,_transportType,_group,_side);
 
 ([_factoryLogic,_transportType,_side] call FUNC(getTransportType)) params ["_vehType", "_crewType"];
-TRACE_4("getTransportType",_vehType,_crewType);
+TRACE_2("getTransportType",_vehType,_crewType);
 if ((_vehType == "") || {_crewType == ""}) exitWith {ERROR_2("bad data[%1-%2]",_vehType,_crewType);};
 
 private _vehicle = _vehType createVehicle ((leader _group) getRelPos [5, 0]);
@@ -43,8 +43,7 @@ private _turrets = allTurrets [_vehicle, false];
     if (((getNumber (_config >> "isCopilot")) == 0) && {count getArray (_config >> "weapons") > 0}) then {
         _gunnerTurrets pushBack _x;
     };
-    false
-} count _turrets;
+} forEach _turrets;
 
 {
     private _gunner = _group createUnit [_crewType, (getPos _vehicle), [], 0, "NONE"];

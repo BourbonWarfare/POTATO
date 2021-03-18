@@ -7,7 +7,7 @@ private _radius = _group getVariable [QGVAR(radius), 200];
 private _attackTarget = _group getVariable [QGVAR(attackTarget), true];
 private _useLAMBS = _group getVariable [QGVAR(useLAMBS), true];
 
-TRACE_5("ai_attack",_leader,_group,_radius,_attackTarget,_attackTarget,_useLAMBS);
+TRACE_5("ai_attack",_leader,_group,_radius,_attackTarget,_useLAMBS);
 if (!local _leader) exitWith { WARNING_1("Waypoint script ran on non-local unit [%1]",_leader); };
 
 if !(_attackTarget) then {
