@@ -72,7 +72,7 @@ async def spinup(ctx):
     """Command starts up extra arma training server"""
     print("[bot: spinup] {}: {}".format(ctx.author, ctx.message.content))
     await ctx.send("starting training server")
-    subprocess.call([r"E:\ArmA3\Master\@dedicated_server - Training.bat"])
+    subprocess.call([r"E:\BourbonWarfare\ArmA3\Master\@dedicated_server - Training.bat"])
 
 
 @bot.command()
@@ -80,7 +80,7 @@ async def spinupOffnight(ctx):
     """Command starts up offnight server"""
     print("[bot: spinup] {}: {}".format(ctx.author, ctx.message.content))
     await ctx.send("starting offnight server")
-    subprocess.call([r"E:\ArmA3\Master\@dedicated_server - Offnight.bat"])
+    subprocess.call([r"E:\BourbonWarfare\ArmA3\Master\@dedicated_server - Offnight.bat"])
 
 
 @bot.command()
@@ -88,7 +88,7 @@ async def restart(ctx):
     """Command force restarts ALL arma servers [use with care]"""
     print("[bot: restart] {}: {}".format(ctx.author, ctx.message.content))
     await ctx.send("restarting")
-    subprocess.call([r"E:\ArmA3\Master\restart_server.bat"])
+    subprocess.call([r"E:\BourbonWarfare\ArmA3\Master\restart_server.bat"])
 
 
 bot.run("")  # don't commit this lol
