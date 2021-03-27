@@ -20,6 +20,7 @@ GVAR(safeStartEnabled) = true;
 ["potato_safeStartOff", {
     GVAR(safeStartEnabled) = false;
     [false] call FUNC(toggleTimer);
+    [] call FUNC(missionTimeWarning);
 }] call CBA_fnc_addEventHandler;
 
 ADDON = true;
