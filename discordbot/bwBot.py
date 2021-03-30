@@ -80,7 +80,7 @@ async def spinupOffnight(ctx):
     """Command starts up offnight server"""
     print("[bot: spinup] {}: {}".format(ctx.author, ctx.message.content))
     await ctx.send("starting offnight server")
-    subprocess.call([r"E:\BourbonWarfare\ArmA3\Master\@dedicated_server - Offnight.bat"])
+    subprocess.call([r"E:\BourbonWarfare\ArmA3\serverOffNight\@dedicated_server - Offnight.bat"])
 
 
 @bot.command()
