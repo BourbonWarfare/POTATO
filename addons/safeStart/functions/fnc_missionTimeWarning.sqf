@@ -21,6 +21,7 @@ if !(isServer) exitWith {};
 params [];
 
 missionNamespace setVariable [QGVAR(missionstartTime), CBA_missionTime, true];
+TRACE_1("Mission start time",QGVAR(missionstartTime));
 
 // 15 min Warning
 [
@@ -37,6 +38,7 @@ missionNamespace setVariable [QGVAR(missionstartTime), CBA_missionTime, true];
                 "Time Keeper"
             ]
         ] call CBA_fnc_globalEvent;
+        ["Time Keeper", "15 mins to mission end", 30] call BIS_fnc_curatorHint;
         //End Warning
         [
             {
@@ -50,6 +52,7 @@ missionNamespace setVariable [QGVAR(missionstartTime), CBA_missionTime, true];
                         "Time Keeper"
                     ]
                 ] call CBA_fnc_globalEvent;
+            ["Time Keeper", "Mission Time has expired", 30] call BIS_fnc_curatorHint;
             },
             [_missionStartTime,_missionLength]
         ] call CBA_fnc_waitUntilAndExecute;
