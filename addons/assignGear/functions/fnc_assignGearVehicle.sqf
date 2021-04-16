@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: PabstMirror
  * Applies a loadout to a vehicle
@@ -15,10 +16,8 @@
  * Public: Yes
  */
 
-#include "script_component.hpp"
-
-TRACE_1("params",_this);
 params ["_theVehicle", "_defaultLoadout"];
+TRACE_2("assignGearVehicle",_theVehicle,_defaultLoadout);
 
 private _typeOf = typeOf _theVehicle;
 private _loadout = _theVehicle getVariable ["F_Gear", _typeOf];
@@ -28,7 +27,7 @@ TRACE_2("",GVAR(setVehicleLoadouts),_loadout);
 
 //Leave default gear when "F_Gear" is "Default" or GVAR(setVehicleLoadouts) is 0
 if ((GVAR(setVehicleLoadouts) == 0) || {_loadout == "Default"}) exitWith {
-  _theVehicle addItemCargoGlobal ["Toolkit", 1];
+    if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
 };
 
 //Clean out starting inventory when "F_Gear" is "Empty" or GVAR(setVehicleLoadouts) is -1
@@ -38,7 +37,7 @@ if ((GVAR(setVehicleLoadouts) == -1) || {_loadout == "Empty"}) exitWith {
     clearItemCargoGlobal _theVehicle;
     clearBackpackCargoGlobal _theVehicle;
     //Add a Toolkit
-    _theVehicle addItemCargoGlobal ["Toolkit", 1];
+    if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
 };
 
 private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
@@ -76,7 +75,7 @@ clearMagazineCargoGlobal _theVehicle;
 clearItemCargoGlobal _theVehicle;
 clearBackpackCargoGlobal _theVehicle;
 //Add a Toolkit
-_theVehicle addItemCargoGlobal ["Toolkit", 1];
+if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
 
 private _transportMagazines = getArray(_path >> "TransportMagazines");
 private _transportItems = getArray(_path >> "TransportItems");
