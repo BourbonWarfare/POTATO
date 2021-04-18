@@ -7,8 +7,7 @@
  * 0: Start mission length warnings <BOOL>
  *
  * Examples:
- * [true] call potato_safeStart_fnc_missionTimeWarning;
- * [false] call potato_safeStart_fnc_missionTimeWarning;
+ * [] call potato_safeStart_fnc_missionTimeWarning;
  *
  * Public: Yes
  */
@@ -28,34 +27,38 @@ TRACE_1("Mission start time",QGVAR(missionstartTime));
     {
         private _missionStartTime = missionNamespace getVariable QGVAR(missionstartTime);
         private _missionLength = parseNumber getMissionConfigValue QEGVAR(missionTesting,missionTimeLength) * 60;
-        (CBA_missionTime >= (_missionStartTime + _missionLength - 900))
+        (CBA_missionTime >= (_missionStartTime + _missionLength - 900))  || !(isNil QGVAR(timerID))
     },
     {
-        [
-            "potato_adminMsg",
+        if (isNil QGVAR(timerID)) then {
             [
-                "15 mins to mission end",
-                "Time Keeper"
-            ]
-        ] call CBA_fnc_globalEvent;
-        ["Time Keeper", "15 mins to mission end", 30] call BIS_fnc_curatorHint;
-        //End Warning
-        [
-            {
-                (CBA_missionTime >= ((_this select 0) + (_this select 1)))
-            },
-            {
+                "potato_adminMsg",
                 [
-                    "potato_adminMsg",
+                    "15 mins to mission end",
+                    "Time Keeper"
+                ]
+            ] call CBA_fnc_globalEvent;
+            {
+                [QGVAR(curatorHint_TimeKeeper_15min),[],getAssignedCuratorUnit _x] call CBA_fnc_targetEvent;
+            } forEach allcurators;
+            //End Warning
+            [
+                {
                     [
-                        "Mission Time has expired",
-                        "Time Keeper"
-                    ]
-                ] call CBA_fnc_globalEvent;
-            ["Time Keeper", "Mission Time has expired", 30] call BIS_fnc_curatorHint;
-            },
-            [_missionStartTime,_missionLength]
-        ] call CBA_fnc_waitUntilAndExecute;
+                        "potato_adminMsg",
+                        [
+                            "Mission Time has expired",
+                            "Time Keeper"
+                        ]
+                    ] call CBA_fnc_globalEvent;
+                    {
+                        [QGVAR(curatorHint_TimeKeeper_end),[],getAssignedCuratorUnit _x] call CBA_fnc_targetEvent;
+                    } forEach allcurators;
+                },
+                [],
+                900
+            ] call CBA_fnc_waitAndExecute;
+        };
     },
     []
 ] call CBA_fnc_waitUntilAndExecute;
@@ -71,4 +74,3 @@ private _endTime = [_endTimeDec] call BIS_fnc_timeToString;
 
 private _string = format ["|missionEndMarker_0|[0,0,0.0000]|mil_warning|ICON|[1,1]|0|Solid|colorCivilian|1|Mission End Time - %1",_endTime];
 [_string] call BIS_fnc_stringToMarker;
-
