@@ -21,5 +21,22 @@ case (east): {"potato_e_" + _crewType};
 case (resistance): {"potato_i_" + _crewType};
 };
 
+private _maxCargoRoom = 99;
+private _addGunner = false;
+
+if (_vehType != "") then {
+	private _config = configFile >> "CfgVehicles" >> _vehType;
+
+	private _cargo = [];
+	private _codrivers = getArray (_config >> "cargoIsCoDriver");
+
+	for "_index" from 0 to (getNumber (_config >> "transportSoldier") - 1) do {
+		if !(_index in _codrivers && {_vehType isKindOf "Car"} && {!(_vehType isKindOf "Wheeled_APC_F")}) then {
+			_cargo pushBack _index;
+		};
+	};
+    _maxCargoRoom = count _cargo;
+};
+
 // Return:
-[_vehType, _crewType]
+[_vehType, _crewType, _maxCargoRoom]
