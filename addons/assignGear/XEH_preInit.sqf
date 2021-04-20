@@ -18,6 +18,7 @@ if (GVAR(usePotato)) then {
     GVAR(useFallback) = [missionConfigFile >> "CfgLoadouts" >> "useFallback"] call CFUNC(getBool);
     GVAR(maxRandomization) = [missionConfigFile >> "CfgLoadouts" >> "maxRandomization", 5] call CFUNC(getNumber);
     GVAR(setVehicleLoadouts) = [missionConfigFile >> "CfgLoadouts" >> "setVehicleLoadouts", 1] call CFUNC(getNumber);
+    GVAR(alwaysAddToolkits) = [missionConfigFile >> "CfgLoadouts" >> "alwaysAddToolkits", true] call CFUNC(getBool);
     GVAR(prefixes) = [missionConfigFile >> "CfgLoadouts" >> "prefixes"] call CFUNC(getArray);
 
     if (isServer) then {
