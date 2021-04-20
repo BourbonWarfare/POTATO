@@ -169,7 +169,7 @@ if (!EGVAR(spectate,running)) then {
 
 private _openForumFinishedMissions = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
 _openForumFinishedMissions ctrlSetText "Forum";
-_openForumFinishedMissions ctrlSetURL "http://forums.bourbonwarfare.com/viewforum.php?f=30";
+_openForumFinishedMissions ctrlSetURL "https://forums.bourbonwarfare.com/viewforum.php?f=30";
 _openForumFinishedMissions ctrlSetPosition [0.34,1,0.12,0.1];
 _openForumFinishedMissions ctrlCommit 0;
 
