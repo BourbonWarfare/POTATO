@@ -32,6 +32,6 @@ class GVAR(displayBreifings) {
 
 class CfgCommands{
 	allowedHTMLLoadURIs[] = {
-		"*.bourbonwarfare.com/*", // strings support wildcards '*' and '?'
+		"*.bourbonwarfare.com/*" // strings support wildcards '*' and '?'
 	};
 };
