@@ -25,12 +25,18 @@ private _maxCargoRoom = 99;
 private _addGunner = false;
 
 if (_vehType != "") then {
-    _maxCargoRoom = ([_vehType, true] call BIS_fnc_crewCount) - 1;
-    if (_transportType in [TRANSPORT_APC_RTB, TRANSPORT_APC_FOLLOW]) then {
-        _addGunner = true;
-        _maxCargoRoom = _maxCargoRoom - 1;
-    };
+	private _config = configFile >> "CfgVehicles" >> _vehType;
+
+	private _cargo = [];
+	private _codrivers = getArray (_config >> "cargoIsCoDriver");
+
+	for "_index" from 0 to (getNumber (_config >> "transportSoldier") - 1) do {
+		if !(_index in _codrivers && {_vehType isKindOf "Car"} && {!(_vehType isKindOf "Wheeled_APC_F")}) then {
+			_cargo pushBack _index;
+		};
+	};
+    _maxCargoRoom = count _cargo;
 };
 
 // Return:
-[_vehType, _crewType, _maxCargoRoom, _addGunner]
+[_vehType, _crewType, _maxCargoRoom]
