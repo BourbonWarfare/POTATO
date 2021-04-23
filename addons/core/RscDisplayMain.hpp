@@ -33,8 +33,8 @@ class RscDisplayMain: RscStandardDisplay {
             text = "OftNight"; 
             tooltip = "Offnight (extra mods, may not always be running)"; 
             colorBackground[] = {0,0,0.1,1};
-            // gotta keep an eye on number of addons, hardcoded at 3800
-            onLoad = " params ['_ctrl'];  if ((count activatedAddons) < 3800) exitWith { _ctrl ctrlShow false; }; private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  if (_index isEqualTo -1) then { _ctrl ctrlShow false; };";
+            // ToDo: detect what modset and conditionally show - if ((count activatedAddons) < 3800) exitWith { _ctrl ctrlShow false; };
+            onLoad = " params ['_ctrl'];  private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  if (_index isEqualTo -1) then { _ctrl ctrlShow false; };";
             onButtonClick = " private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  private _password = (_passwordCache select 1) param [_index, ''];  connectToServer ['104.128.50.152', 2485, _password];";
         };
     };
