@@ -27,4 +27,5 @@
     } forEach configProperties[_x, "configName(_x) in _firemodes", false];
 
 } forEach configProperties[configFile >> "CfgWeapons", "isClass(_x) && { !isNull(_x >> 'modes') }"];
+diag_log "done test";
 
