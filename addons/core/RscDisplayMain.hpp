@@ -11,7 +11,7 @@ class RscDisplayMain: RscStandardDisplay {
             h = "2 * (pixelH * pixelGridNoUIScale * 2)";
             text = "Connect To main BW Server"; 
             colorBackground[] = {0.2,0,0,1};
-            onLoad = "call compileScript ['z\potato\addons\core\tempUpgradeServerPW.sqf']; params ['_ctrl'];  private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  if (_index isEqualTo -1) then { _ctrl ctrlShow false; };";
+            onLoad = "params ['_ctrl'];  private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  if (_index isEqualTo -1) then { _ctrl ctrlShow false; };";
             onButtonClick = " private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  private _password = (_passwordCache select 1) param [_index, ''];  connectToServer ['104.128.50.152', 2303, _password];";
         };
         class GVAR(quickConnectToServer_train): GVAR(quickConnectToServer_main) { // port 2369
