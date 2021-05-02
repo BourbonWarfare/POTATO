@@ -75,7 +75,7 @@ private _textOutput = [];
         // screenshot "x.png"; // super overexposed? - seems unusable
     } forEach ["coy", "sl", "lat", "sm", "ar", "vicl"];
     _textOutput pushBack format ["- ### `%1`", _loadoutName];
-    _textOutput pushBack format ["![%1](docs/loadouts/%2.jpg)%3", _description, _loadoutName, endl];
+    _textOutput pushBack format ["![%1](/docs/loadouts/%2.jpg)%3", _description, _loadoutName, endl];
 
     sleep 0.01;
 } forEach _allLoadouts;
