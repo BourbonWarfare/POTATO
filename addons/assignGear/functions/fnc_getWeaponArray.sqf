@@ -23,6 +23,11 @@
 TRACE_1("params",_this);
 params ["_weapon", "_attachments", "_configMagazines", ["_doOpticCheck", true, [true]]];
 
+if ((_weapon != "") && {isNull (configFile >> "CfgWeapons" >> _weapon)}) then {
+    ERROR_MSG_1("[%1] Bad Weapon Classname", _weapon);
+    _weapon = "";
+};
+
 private _weaponArray = [_weapon, "", "", "", [], [], ""];
 private _attachables = [_weapon] call CBA_fnc_compatibleItems;
 
@@ -33,13 +38,12 @@ private _attachables = [_weapon] call CBA_fnc_compatibleItems;
         if ({_x == _classname} count _attachables > 0) then {
             [_weaponArray, _config, _classname, _doOpticCheck] call FUNC(setWeaponAttachment);
         } else {
-            diag_log text format ["[POTATO-assignGear] - Attachment [%1] not compatible with [%2]", _classname, _weapon];
+            WARNING_2("Attachment [%1] not compatible with [%2]",_classname,_weapon);
         };
     } else {
         TRACE_1("Empty string for weapon attachment - ignoring", _weapon);
     };
-    nil
-} count _attachments; // count used here for speed, make sure nil is above this line
+} forEach _attachments;
 
 {
     if (_x == "this") then { // main gun magazines
@@ -56,8 +60,7 @@ private _attachables = [_weapon] call CBA_fnc_compatibleItems;
             _configMagazines set [_forEachIndex, format ["%1:%2", _classname, ((parseNumber _amount) - 1)]];
         };
     } forEach _configMagazines; // for each used here, since we need the index
-    nil
-} count getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");  // count used here for speed, make sure nil is above this line
+} forEach getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles"); 
 
 
 if ((_weaponArray select LAW_PRIMARY_MUZZLE_MAG_INDEX) isEqualTo []) then {
@@ -67,7 +70,17 @@ if ((_weaponArray select LAW_PRIMARY_MUZZLE_MAG_INDEX) isEqualTo []) then {
         if (_magazine == "") exitWith {};
         private _count = getNumber (configFile >> "CfgMagazines" >> _magazine >> "count");
         _weaponArray set [LAW_PRIMARY_MUZZLE_MAG_INDEX, [_magazine, _count]];
-        diag_log text format ["[POTATO-assignGear] - Weapon [%1] adding disposable mag [%2]", _weapon, _magazine];
+        TRACE_2("adding disposable mag",_weapon,_magazine);
+    };
+    // ref cba_disposable_fnc_changeDisposableLauncherClass - we have to replace weapon and magazine
+    if ((!isNil {cba_disposable_normalLaunchers getVariable _weapon})) then {
+        (cba_disposable_normalLaunchers getVariable _weapon) params ["_newWeapon", "_newMagazine"];
+        _weaponArray set [LAW_WEAPON_INDEX, _newWeapon];    
+        if (!isNil "_newMagazine") then {
+            private _count = getNumber (configFile >> "CfgMagazines" >> _newMagazine >> "count");
+            _weaponArray set [LAW_PRIMARY_MUZZLE_MAG_INDEX, [_newMagazine, _count]];
+        };
+        TRACE_2("replacing cba_disposable",_weapon,_newWeapon);
     };
 };
 
