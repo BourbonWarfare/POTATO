@@ -24,10 +24,18 @@ private _faction = faction _unit;
 private _typeOf = typeOf _unit;
 private _unitClassname = [_typeOf] call FUNC(cleanPrefix);
 private _loadout = _unit getVariable ["F_Gear", _unitClassname]; //Check variable f_gear, otherwise default to typeof
-private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+
+private _factionPath = missionConfigFile >> "CfgLoadouts" >> _faction;
+private _staticLoadoutName = getText (_factionPath >> "using"); // refernce to a static potato loadout
+if (_staticLoadoutName != "") then {
+    _factionPath = configFile >> "potato_loadouts" >> _faction >> _staticLoadoutName;
+    if (!isClass _factionPath) then { ERROR_2("_faction %1 using bad _staticLoadoutName %2",_faction,_staticLoadoutName); };
+};
+
+private _path = _factionPath >> _loadout;
 
 if ((!isClass(_path)) && GVAR(useFallback)) then {
-    _path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
+    _path = _factionPath >> "fallback";
 };
 
 // Temp? BWC for older missions
