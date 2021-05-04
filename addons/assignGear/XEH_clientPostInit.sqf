@@ -3,76 +3,37 @@
 if (GVAR(usePotato) && hasInterface) then {
     if (didJIP) then {
         if (time > 0) then {
-            diag_log "[POTATO-assignGear] Ran post start code";
+            INFO("JIP - Ran post start code");
             [FUNC(requestPlayerGear), [player]] call CBA_fnc_execNextFrame;
         } else {
-            diag_log "[POTATO-assignGear] Ran pre start code";
+            INFO("JIP - Ran pre start code");
             [{time > 0}, CBA_fnc_execNextFrame, [FUNC(requestPlayerGear), [player]]] call CBA_fnc_waitUntilAndExecute;
         };
     };
 
     if (GVAR(allowChangeableOptics)) then {
-        private _path = (
-            missionConfigFile >>
-            "CfgLoadouts" >>
-            (toLower faction player) >>
-            (player getVariable ["F_Gear", [typeOf player] call FUNC(cleanPrefix)])
-        );
-
-        private _opticOptions = [];
-        {
-            if (isNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "optics")
-                    && (GVAR(allowMagnifiedOptics) || {!([_x] call FUNC(isOpticMagnified))})) then {
-                _opticOptions pushBackUnique (toLower _x);
-            };
-        } forEach ((getArray (_path >> "opticChoices")) + (getArray (_path >> "attachments")));
-
-        if (_opticOptions isEqualTo []) exitWith { LOG("No optic options found"); };
+        ["unit", {
+            params ["_player"];
+            _player setVariable [QGVAR(changeOpticsTimeLimit), CBA_missionTime + 60]; // can change for a minute after jip or respawn
+        }, true] call CBA_fnc_addPlayerEventHandler;
 
         private _baseAction = [
-            "BaseOpticChoice",
+            QGVAR(changeableOptics),
             "Choose Optic",
             QPATHTOF(data\scope.paa),
             {},
-            {missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1}
+            {
+                params ["_player"];
+                (missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1)  // safe start active
+                || {CBA_missionTime < (_player getVariable [QGVAR(changeOpticsTimeLimit), -1])} // respawn/jip and can still change optics
+            },
+            {call FUNC(changeableOptics_getChildren)}
         ] call ACEFUNC(interact_menu,createAction);
 
-        [
-            typeOf player, 1,
+        x1 = [
+            "CAManBase", 1,
             ["ACE_SelfActions", "ACE_Equipment"],
-            _baseAction
-        ] call  ACEFUNC(interact_menu,addActionToClass);
-
-        {
-            if (isClass (configFile >> "CfgWeapons" >> _x)) then {
-                private _picture = QPATHTOF(data\scope.paa);
-                if (isText (configFile >> "CfgWeapons" >> _x >> "picture")) then {
-                    _picture = getText (configFile >> "CfgWeapons" >> _x >> "picture");
-                };
-
-                private _name = _x;
-                if (isText (configFile >> "CfgWeapons" >> _x >> "displayName")) then {
-                    _name = getText (configFile >> "CfgWeapons" >> _x >> "displayName");
-                };
-
-                private _action = [
-                    format ["OpticChoice%1",_forEachIndex],
-                    _name,
-                    _picture,
-                    FUNC(setOptic),
-                    FUNC(canSetOptic),
-                    {},
-                    [_x, _opticOptions]
-                ] call ACEFUNC(interact_menu,createAction);
-
-                [
-                    typeOf player, 1,
-                    ["ACE_SelfActions", "ACE_Equipment", "BaseOpticChoice"],
-                    _action
-                ] call ACEFUNC(interact_menu,addActionToClass);
-            } else {
-                WARNING_1("Optic option not a valid class", _x);
-            };
-        } forEach _opticOptions;
+            _baseAction, true
+        ] call ACEFUNC(interact_menu,addActionToClass);
     };
 };
