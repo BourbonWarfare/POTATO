@@ -30,7 +30,7 @@ if (GVAR(usePotato) && hasInterface) then {
             {call FUNC(changeableOptics_getChildren)}
         ] call ACEFUNC(interact_menu,createAction);
 
-        x1 = [
+        [
             "CAManBase", 1,
             ["ACE_SelfActions", "ACE_Equipment"],
             _baseAction, true
