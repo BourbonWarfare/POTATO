@@ -6,10 +6,10 @@
         "P:/"
     ],
     "excludeList": [
-        "initsettings.sqf",
-        "initkeybinds.sqf",
-        "xeh_prep.sqf",
-        "bw_settings.sqf"
+        "\\initsettings.sqf",
+        "\\initkeybinds.sqf",
+        "\\xeh_prep.sqf",
+        "settings\\bw_settings.sqf"
     ],
     "outputDir": "P:/",
     "workerThreads": 12

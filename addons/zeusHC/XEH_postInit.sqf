@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 if (isServer) then {
-    [false] spawn COMPILE_FILE(functions\fnc_transferGroupsToHC);
+    [false] spawn FUNC(transferGroupsToHC);
 };
 
 if (hasInterface) then {
