@@ -59,7 +59,7 @@ class cog_update_bot_status(commands.Cog):
             if (name == "Main") or (player_count > 0):
                 status += "[{}: {}]".format(name[0], player_count)
         await self.bot.change_presence(activity=discord.Game(name=status))
-        print(" TRACE: [status_cog]: {}".format(status))
+        # print(" TRACE: [status_cog]: {}".format(status))
 
     @update_status.before_loop
     async def wait_for_bot_to_ready(self):
@@ -144,11 +144,11 @@ async def restart(ctx, *args):
 
 
 # @bot.command()
-# async def publicrestart(ctx):
-#     """Command restarts the public server [use with care]"""
-#     print(" TRACE:[bot: publicrestart] {}: {}".format(ctx.author, ctx.message.content))
-#     await ctx.send("restarting the public server")
-#     subprocess.call([r"E:\BourbonWarfare\ArmA3\Master\public.bat"], stdout=subprocess.DEVNULL)
+# async def soggyrestart(ctx):
+#     """Command restarts the soggy server and hc [use with care]"""
+#     print(" TRACE:[bot: soggyestart] {}: {}".format(ctx.author, ctx.message.content))
+#     await ctx.send("restarting the soggy server and hc")
+#     subprocess.call([r"E:\BourbonWarfare\ArmA3\serverOffNight\@restart_justSoggy.bat"], stdout=subprocess.DEVNULL)
 
 
 print("Starting {}".format(datetime.datetime.now()))
