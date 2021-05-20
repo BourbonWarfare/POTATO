@@ -17,10 +17,10 @@ authority = "{{prefix}}_{{version}}-{{git \"id 8\"}}"
 include = ["/", "p:/"]
 
 prebuild = [
-    "!version_set"
+    "!version_set", "!compile_sqf"
 ]
 postbuild = [
-    "!version_unset"
+    "!version_unset", "!compile_sqf_cleanup"
 ]
 releasebuild = [
     "@zip potato_v{{semver.major}}.{{semver.minor}}.{{semver.patch}}"
@@ -49,6 +49,19 @@ steps_linux = [
 steps_windows = [
     "echo 'Unsetting version'",
     "powershell -Command foreach ($f in 'mod.cpp') {(Get-Content $f) -replace '{{semver.major}}.{{semver.minor}}.{{semver.patch}}', '0.0.0' -join \"`n\" ^| Set-Content -NoNewline $f; Add-Content -NoNewline \"`n\" $f}"
+]
+only_release = true
+show_output = true
+
+[scripts.compile_sqf]
+steps_windows = [
+    "echo 'compile_sqf'",
+    "py tools/compile_sqf.py cleanup build"
+]
+[scripts.compile_sqf_cleanup]
+steps_windows = [
+    "echo 'compile_sqf_cleanup'",
+    "py tools/compile_sqf.py cleanup"
 ]
 only_release = true
 show_output = true
