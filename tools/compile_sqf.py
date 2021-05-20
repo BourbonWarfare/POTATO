@@ -5,7 +5,7 @@ import subprocess
 # Handle script being called from either base or /tools folder (e.g. hemmt will run from base)
 addon_base_path = os.getcwd()
 if os.path.basename(addon_base_path) == "tools":
-    addon_base_path = os.path.basename(addon_base_path)
+    addon_base_path = os.path.dirname(addon_base_path)
 
 
 def cleanup():
@@ -28,7 +28,7 @@ def build():
 
 
 def main(argv):
-    # print("compile_sqf.py [Base: {}]".format(addon_base_path))
+    print("compile_sqf.py [Base: {}]".format(addon_base_path))
     if ("cleanup" in argv) or (len(argv) < 2):
         cleanup()
     if ("build" in argv) or (len(argv) < 2):
