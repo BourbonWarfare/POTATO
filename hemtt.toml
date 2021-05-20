@@ -58,6 +58,9 @@ steps_windows = [
     "echo 'compile_sqf'",
     "py tools/compile_sqf.py cleanup build"
 ]
+only_release = true
+show_output = true
+
 [scripts.compile_sqf_cleanup]
 steps_windows = [
     "echo 'compile_sqf_cleanup'",
