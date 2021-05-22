@@ -220,7 +220,6 @@ if (hasInterface) then {
             if !(_canSee) then {
                 _canSee = ([] isEqualTo lineIntersectsObjs [_origin, _x, objNull, _unit, false, 16 + 32]) && { !terrainIntersectASL [_origin, _x] };
             };
-            systemChat str _canSee;
             _distance = (_x distance _origin) min _distance;
         } forEach [eyePos _unit, getPosASLVisual _unit, aimPos _unit];
 
