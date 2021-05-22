@@ -71,11 +71,173 @@ if (hasInterface) then {
     ["CaManBase", 0, ["ACE_Head"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 };
 
+// overpressure from explosions
+// helper functions. all from https://www.researchgate.net/publication/309610420_Review_of_Analytical_and_Empirical_Estimations_for_Incident_Blast_Pressure
+FUNC(calculateTNTEquivalent) = {
+    params ["_explosiveMass", "_type"];
+    // _explosiveMass = kg
+    
+    // Q = kJ/kg
+    // Qk / Qtnt
+    private _tntEquivalents = [
+        "comp-b", 1.148,
+        "rdx", 1.185,
+        "hmx", 1.256,
+        "nitro", 1.481,
+        "tnt", 1,
+        "blasting-gelatin", 1,
+        "dynamite", 0.6,
+        "semtex", 1.250,
+        "h-6", 1.35,
+        "tritonal", 1.07,
+        "comp-a3", 1.07,
+        "comp-c4", 1.30,
+        "explosive-d", 0.92,
+        "hbx-1", 1.17,
+        "hbx-3", 1.14,
+        "minol2", 1.20,
+        "anfo", 0.83
+    ];
+    
+    private _equivalent = _tntEquivalents select ((_tntEquivalents find _type) + 1);
+    _explosiveMass * _equivalent
+};
 
+FUNC(calculateScaledDistance) = {
+    params ["_distanceFromEpicenter", "_explosiveMassTNT"];
+    _distanceFromEpicenter / (_explosiveMassTNT ^ (1/3));
+};
 
+FUNC(calculatePressure) = {
+    // pressure in pascals
+    params ["_scaledDistance", ["_ambientPressure", 101325]];
 
+    private _alpha = 808 * (1 + (_scaledDistance / 4.5)^2);
+    private _beta = sqrt (1 + (_scaledDistance / 0.048)^2);
+    private _gamma = sqrt (1 + (_scaledDistance / 0.32)^2);
+    private _delta = sqrt (1 + (_scaledDistance / 1.35)^2);
+    
+    private _finalPressure = _ambientPressure * _alpha / (_beta * _gamma * _delta);
+    _finalPressure
+};
+
+FUNC(getChanceOfDeath) = {
+    // percent chances calculated from https://www.cdc.gov/niosh/docket/archive/pdfs/niosh-125/125-explosionsandrefugechambers.pdf
+    params ["_pressure"];
+    private _psi = _pressure / 6895;
+    linearConversion [35, 65, _psi, 0, 1, true];
+};
+
+DFUNC(generateVisuals) = {
+    params ["_position", "_explosiveMass", "_filler"];
+    
+    private _distances = [0.05, 0.5, 1, 2, 3, 5, 10];
+
+    private _tntEquivalent = [_explosiveMass, _filler] call FUNC(calculateTNTEquivalent);
+
+    private _blastData = [];
+    {
+        private _scaledDistance = [_x, _tntEquivalent] call FUNC(calculateScaledDistance);
+        private _pressure = [_scaledDistance] call FUNC(calculatePressure);
+        
+        private _chanceOfFatality = [_pressure] call FUNC(getChanceOfDeath);
+
+        _blastData pushBack [_x, _pressure, _chanceOfFatality];
+    } forEach _distances;
+
+    [{
+        _this params ["_args", "_handle"];
+        _args params ["_position", "_blastData", "_stopTime"];
+        
+        if (_stopTime >= 0 && { CBA_missionTime > _stopTime }) exitWith {
+            [_handle] call CBA_fnc_removePerFrameHandler;
+        };
+        
+        private _maxIconsPerRing = 6;
+        {
+            _x params ["_distance", "_pressureAtPosition", "_chanceOfFatality"];
+            private _iconCount = _maxIconsPerRing;
+            if (_distance == 0) then {
+                _iconCount = 1;
+            };
+            
+            _chanceOfFatality = 0 max (_chanceOfFatality min 1);
+            
+            private _colour = vectorLinearConversion [0, 1, _chanceOfFatality, [1, 1, 1], [1, 0, 0]];
+            _colour pushBack 1;
+            
+            for "_i" from 0 to (_maxIconsPerRing - 1) do {
+                private _angle = _i * 2 * pi / _maxIconsPerRing;
+                
+                private _iconPosition = _position getPos [_distance, deg _angle];
+                
+                drawIcon3D [
+                    "\a3\ui_f\data\IGUI\Cfg\Cursors\explosive_ca.paa",
+                    _colour,
+                    _iconPosition,
+                    0.2, 0.2, 1,
+                    format ["Distance: %1m Pressure: %2Pa Fatality Chance: %3 PsI: %4", _distance, _pressureAtPosition, _chanceOfFatality, _pressureAtPosition / 6895]
+                ];
+            };
+        } forEach _blastData;
+    }, 0, [_position, _blastData, CBA_missionTime + 10]] call CBA_fnc_addPerFrameHandler
+};
+
+if (isServer) then {
+    // add explosion event handler
+    [QACEGVAR(frag,frag_eh), {
+        params ["_lastPos", "", "_explosive"];
+        private _explosiveConfig = configFile >> "CfgAmmo" >> _explosive;
+
+        // ACE_frag defines mass as grams, we do as kilograms
+        private _mass = (getNumber (_explosiveConfig >> QACEGVAR(frag,charge))) / 1000;
+        private _filler = getText (_explosiveConfig >> QGVAR(explosiveFiller));
+        if (_filler isEqualTo "") then {
+            _filler = "comp-b";
+        };
+
+        private _objects = (ASLtoATL _lastPos) nearEntities [["CAManBase"], 50];
+        {
+            [QGVAR(explosion), [_lastPos, _mass, _filler, _x], _x] call CBA_fnc_globalEvent;
+        } forEach _objects;
+
+        TRACE_4("explosion server",_explosive,_mass,_filler,count _objects);
+
+        [_lastPos, _mass, _filler] call DFUNC(generateVisuals);
+    }] call CBA_fnc_addEventHandler;
+};
 
 if (hasInterface) then {
+    [QGVAR(explosion), {
+        params ["_origin", "_mass", "_filler", "_unit"];
+        // move up with 5 centimeters for gameplay reasons: makes explosions feel better
+        _origin = _origin vectorAdd [0, 0, 0.05];
+        // if we can see the unit, that means that there is always going to be a pressure wave
+        // if there is a pressure wave, use the closest distance regardless of whether or not it can be seen
+        private _canSee = false;
+        private _distance = 1e10;
+        {
+            if !(_canSee) then {
+                _canSee = ([] isEqualTo lineIntersectsObjs [_origin, _x, objNull, _unit, false, 16 + 32]) && { !terrainIntersectASL [_origin, _x] };
+            };
+            systemChat str _canSee;
+            _distance = (_x distance _origin) min _distance;
+        } forEach [eyePos _unit, getPosASLVisual _unit, aimPos _unit];
+
+        private _tntEquivalent = [_mass, _filler] call FUNC(calculateTNTEquivalent);
+
+        private _scaledDistance = [_distance, _tntEquivalent] call FUNC(calculateScaledDistance);
+        private _pressure = [_scaledDistance] call FUNC(calculatePressure);
+
+        private _chanceOfFatality = [_pressure] call FUNC(getChanceOfDeath);
+        TRACE_8("explosion client",_unit,_mass,_filler,_distance,_scaledDistance,_pressure,_chanceOfFatality,_canSee);
+        if (_canSee && { _chanceOfFatality >= random 1 }) then {
+            [_unit, "Overpressure From Explosive"] call ace_medical_status_fnc_setDead; // this should show correct killer instead of "#scripted"
+        };
+
+        [_origin, _mass, _filler] call DFUNC(generateVisuals);
+    }] call CBA_fnc_addEventHandler;
+
     // Increase lethality when taking sustained critical damage to body/head
 
     // ToDo: Move this to ace_medical_damage_fnc_determineIfFatal
