@@ -235,7 +235,7 @@ if (hasInterface) then {
             [_unit, "Overpressure From Explosive"] call ace_medical_status_fnc_setDead; // this should show correct killer instead of "#scripted"
         };
 
-        [_origin, _mass, _filler] call DFUNC(generateVisuals);
+        //[_origin, _mass, _filler] call DFUNC(generateVisuals);
     }] call CBA_fnc_addEventHandler;
 
     // Increase lethality when taking sustained critical damage to body/head
