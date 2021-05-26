@@ -395,6 +395,11 @@ if (isServer) then {
             _filler = "comp-b";
         };
 
+        if (_mass <= 0) then {
+            TRACE_3("no mass",_mass,_filler,_explosive);
+            _mass = 1;
+        };
+
         _mass = [_mass, _lastPos] call FUNC(calculateHemisphericalBlastWeight);
 
         private _objects = (ASLtoATL _lastPos) nearEntities [["CAManBase"], 50];
