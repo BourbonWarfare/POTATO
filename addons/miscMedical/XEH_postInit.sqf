@@ -198,12 +198,12 @@ if (isServer) then {
 
         private _objects = (ASLtoATL _lastPos) nearEntities [["CAManBase"], 50];
         {
-            [QGVAR(explosion), [_lastPos, _mass, _filler, _x], _x] call CBA_fnc_globalEvent;
+            [QGVAR(explosion), [_lastPos, _mass, _filler, _x], _x] call CBA_fnc_targetEvent;
         } forEach _objects;
 
         TRACE_4("explosion server",_explosive,_mass,_filler,count _objects);
 
-        [_lastPos, _mass, _filler] call DFUNC(generateVisuals);
+        //[_lastPos, _mass, _filler] call DFUNC(generateVisuals);
     }] call CBA_fnc_addEventHandler;
 };
 
