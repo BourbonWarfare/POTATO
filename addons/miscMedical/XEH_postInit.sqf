@@ -103,6 +103,205 @@ FUNC(calculateTNTEquivalent) = {
     _explosiveMass * _equivalent
 };
 
+/*
+    Coefficient Table:
+        Steel: 1
+        Reinforced Concrete: 0.95
+        Concrete, rock: 0.85
+        Compact sandy clay, clay: 0.7
+        Medium compact soil: 0.6
+        Water: 0.55
+*/
+
+#define GROUND_MATERIAL_STEEL 1
+#define GROUND_MATERIAL_REINFORCED_CONCRETE 0.95
+#define GROUND_MATERIAL_ROCK 0.85
+#define GROUND_MATERIAL_CLAY 0.7
+#define GROUND_MATERIAL_COMPACT_SOIL 0.6
+#define GROUND_MATERIAL_WATER 0.55
+#define GROUND_MATERIAL_SAND 0.55
+#define GROUND_MATERIAL_MUD 0.55
+#define GROUND_MATERIAL_DEFAULT 0.6
+
+GVAR(baseMaterialTable) = createHashMapFromArray [
+    ["GRASSSOUTH",                  GROUND_MATERIAL_COMPACT_SOIL],
+    ["GRASSGENERAL",                GROUND_MATERIAL_COMPACT_SOIL],
+    ["SANDGENERAL",                 GROUND_MATERIAL_CLAY],
+    ["UTGRASS",                     GROUND_MATERIAL_COMPACT_SOIL],
+    ["UTCONCRETE",                  GROUND_MATERIAL_ROCK],
+    ["Default",                     GROUND_MATERIAL_DEFAULT],
+    ["Water",                       GROUND_MATERIAL_WATER],
+    ["SurfRoadDirt",                GROUND_MATERIAL_COMPACT_SOIL],
+    ["SurfRoadConcrete",            GROUND_MATERIAL_ROCK],
+    ["SurfRoadTarmac",              GROUND_MATERIAL_ROCK],
+    ["SurfWood",                    GROUND_MATERIAL_DEFAULT],
+    ["SurfMetal",                   GROUND_MATERIAL_STEEL],
+    ["SurfRoofTin",                 GROUND_MATERIAL_STEEL],
+    ["SurfRoofTiles",               GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["SurfIntWood",                 GROUND_MATERIAL_DEFAULT],
+    ["SurfIntConcrete",             GROUND_MATERIAL_ROCK],
+    ["SurfIntTiles",                GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["SurfIntMetal",                GROUND_MATERIAL_STEEL],
+    ["SurfWater",                   GROUND_MATERIAL_WATER],
+    ["TEST_SurfNormal",             GROUND_MATERIAL_DEFAULT],
+    ["GdtStratisConcrete",          GROUND_MATERIAL_ROCK],
+    ["GdtStratisBeach",             GROUND_MATERIAL_COMPACT_SAND],
+    ["GdtStratisDirt",              GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtStratisSeabedCluttered",   GROUND_MATERIAL_COMPACT_WATER],
+    ["GdtStratisSeabed",            GROUND_MATERIAL_COMPACT_WATER],
+    ["GdtStratisDryGrass",          GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtStratisGreenGrass",        GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtStratisRocky",             GROUND_MATERIAL_ROCK],
+    ["GdtStratisThistles",          GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtStratisForestPine",        GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtRubble",                   GROUND_MATERIAL_DEFAULT],
+    ["GdtForestPine",               GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtConcrete",                 GROUND_MATERIAL_ROCK],
+    ["GdtSoil",                     GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtBeach",                    GROUND_MATERIAL_COMPACT_SAND],
+    ["GdtRock",                     GROUND_MATERIAL_ROCK],
+    ["GdtDead",                     GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtDirt",                     GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtDesert",                   GROUND_MATERIAL_COMPACT_SAND],
+    ["GdtGrassGreen",               GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtGrassDry",                 GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtGrassWild",                GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtWeed",                     GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtWildField",                GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtThorn",                    GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtStony",                    GROUND_MATERIAL_ROCK],
+    ["GdtStonyThistle",             GROUND_MATERIAL_ROCK],
+    ["GdtMud",                      GROUND_MATERIAL_COMPACT_MUD],
+    ["GdtMarsh",                    GROUND_MATERIAL_COMPACT_MUD],
+    ["GdtSeabed",                   GROUND_MATERIAL_COMPACT_WATER],
+    ["concrete",                    GROUND_MATERIAL_ROCK],
+    ["concrete_out",                GROUND_MATERIAL_ROCK],
+    ["concrete_inside",             GROUND_MATERIAL_ROCK],
+    ["dirtrunway",                  GROUND_MATERIAL_COMPACT_SOIL],
+    ["road",                        GROUND_MATERIAL_ROCK],
+    ["floor",                       GROUND_MATERIAL_DEFAULT],
+    ["floor_inside",                GROUND_MATERIAL_DEFAULT],
+    ["carpet_inside",               GROUND_MATERIAL_DEFAULT],
+    ["carpet",                      GROUND_MATERIAL_COMPACT_SOIL],
+    ["mud",                         GROUND_MATERIAL_COMPACT_MUD],
+    ["concrete_hall",               GROUND_MATERIAL_ROCK],
+    ["stones",                      GROUND_MATERIAL_ROCK],
+    ["cardboard",                   GROUND_MATERIAL_DEFAULT],
+    ["lino",                        GROUND_MATERIAL_DEFAULT],
+    ["steel",                       GROUND_MATERIAL_STEEL],
+    ["trash",                       GROUND_MATERIAL_DEFAULT],
+    ["parquet",                     GROUND_MATERIAL_DEFAULT],
+    ["sand",                        GROUND_MATERIAL_COMPACT_SAND],
+    ["metalPlate",                  GROUND_MATERIAL_STEEL],
+    ["woodenFloor",                 GROUND_MATERIAL_DEFAULT],
+    ["planks",                      GROUND_MATERIAL_DEFAULT],
+    ["planks_inside",               GROUND_MATERIAL_DEFAULT],
+    ["grid",                        GROUND_MATERIAL_DEFAULT],
+    ["rubble",                      GROUND_MATERIAL_DEFAULT],
+    ["BuildingRubble",              GROUND_MATERIAL_DEFAULT],
+    ["tiling",                      GROUND_MATERIAL_DEFAULT],
+    ["wavyMetal",                   GROUND_MATERIAL_STEEL],
+    ["GdtVRsurface01",              GROUND_MATERIAL_DEFAULT],
+    ["surf_metal",                  GROUND_MATERIAL_STEEL],
+    ["surf_roadconcrete",           GROUND_MATERIAL_ROCK],
+    ["surf_roaddirt",               GROUND_MATERIAL_CLAY],
+    ["surf_roadtarmac",             GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["surf_rooftiles",              GROUND_MATERIAL_CLAY],
+    ["surf_rooftin",                GROUND_MATERIAL_STEEL],
+    ["surf_wood",                   GROUND_MATERIAL_DEFAULT],
+    ["surfint_concrete",            GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["surfint_metal",               GROUND_MATERIAL_STEEL],
+    ["surfint_tiles",               GROUND_MATERIAL_STEEL],
+    ["surfint_wood",                GROUND_MATERIAL_DEFAULT],
+    ["road_exp",                    GROUND_MATERIAL_ROCK],
+    ["sand_exp",                    GROUND_MATERIAL_SAND],
+    ["SurfRoadDirt_exp",            GROUND_MATERIAL_CLAY],
+    ["SurfRoadConcrete_exp",        GROUND_MATERIAL_ROCK],
+    ["SurfRoadTarmac_exp",          GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["SurfTrailDirt_exp",           GROUND_MATERIAL_COMPACT_SOIL],
+    ["concrete_exp",                GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["concrete_in_exp",             GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["concrete_hall_exp",           GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["floor_exp",                   GROUND_MATERIAL_DEFAULT],
+    ["floor_in_exp",                GROUND_MATERIAL_DEFAULT],
+    ["stones_exp",                  GROUND_MATERIAL_ROCK],
+    ["planks_in_exp",               GROUND_MATERIAL_DEFAULT],
+    ["planks_exp",                  GROUND_MATERIAL_DEFAULT],
+    ["softwood_in_exp",             GROUND_MATERIAL_CLAY],
+    ["steel_exp",                   GROUND_MATERIAL_STEEL],
+    ["metalPlate_exp",              GROUND_MATERIAL_STEEL],
+    ["metalPlatePressed_exp",       GROUND_MATERIAL_STEEL],
+    ["metalPlate_in_exp",           GROUND_MATERIAL_STEEL],
+    ["grid_exp",                    GROUND_MATERIAL_DEFAULT],
+    ["wavyMetal_exp",               GROUND_MATERIAL_STEEL],
+    ["carpet_exp",                  GROUND_MATERIAL_DEFAULT],
+    ["carpet_in_exp",               GROUND_MATERIAL_DEFAULT],
+    ["mat_in_exp",                  GROUND_MATERIAL_DEFAULT],
+    ["mud_exp",                     GROUND_MATERIAL_MUD],
+    ["straw_exp",                   GROUND_MATERIAL_DEFAULT],
+    ["cardboard_exp",               GROUND_MATERIAL_DEFAULT],
+    ["lino_in_exp",                 GROUND_MATERIAL_DEFAULT],
+    ["lino_exp",                    GROUND_MATERIAL_DEFAULT],
+    ["roof_tiles_exp",              GROUND_MATERIAL_ROCK],
+    ["trash_exp",                   GROUND_MATERIAL_WATER],
+    ["rubble_exp",                  GROUND_MATERIAL_DEFAULT],
+    ["BuildingRubble_exp",          GROUND_MATERIAL_ROCK],
+    ["GdtForestMalden",             GROUND_MATERIAL_CLAY],
+    ["GdtGrassShort",               GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtGrassTall",                GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtGrassLong",                GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtVolcanoBeach",             GROUND_MATERIAL_SAND],
+    ["GdtSeabedExp",                GROUND_MATERIAL_WATER],
+    ["GdtRedDirt",                  GROUND_MATERIAL_COMPACT_SOIL], 
+    ["GdtAsphalt",                  GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["GdtField",                    GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtForest",                   GROUND_MATERIAL_CLAY],
+    ["GdtVolcano",                  GROUND_MATERIAL_ROCK],
+    ["GdtCliff",                    GROUND_MATERIAL_ROCK],
+    ["SurfRoadDirt_Enoch",          GROUND_MATERIAL_CLAY],
+    ["SurfRoadTarmac1_Enoch",       GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["SurfRoadTarmac2_Enoch",       GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["SurfRoadTarmac3_Enoch",       GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["SurfTrailDirt_Enoch",         GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtKLDirt",                   GROUND_MATERIAL_CLAY],
+    ["GdtKLGrass1",                 GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtKLGrass2",                 GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtKLForestCon",              GROUND_MATERIAL_CLAY],
+    ["GdtKLForestDec",              GROUND_MATERIAL_CLAY],
+    ["GdtKlSoil",                   GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtKlTarmac",                 GROUND_MATERIAL_REINFORCED_CONCRETE],
+    ["GdtKlWeatheredTarmac",        GROUND_MATERIAL_ROCK],
+    ["GdtKLCobblestone",            GROUND_MATERIAL_ROCK],
+    ["GdtKlField",                  GROUND_MATERIAL_COMPACT_SOIL],
+    ["GdtKlStubble",                GROUND_MATERIAL_COMPACT_SOIL]
+];
+
+// hemispherical blasts cause more overpressure than air blast. 2*coeff*weight will account for energy
+FUNC(calculateHemisphericalBlastWeight) = {
+    params ["_originalWeight", "_positionASL"];
+
+    private _positionAboveGround = ASLtoAGL _positionASL;
+
+    private _objectsBelow = lineIntersectsSurfaces [_positionASL, _positionASL vectorAdd [0, 0, -1]];
+    if (_objectsBelow isNotEqualTo []) then {
+        (_objectsBelow select 0) params ["_surfacePosition"];
+        _positionAboveGround = ASLtoAGL _surfacePosition;
+    };
+    
+    // if we are in the air, continue with normal calculations
+    if ((_positionAboveGround#2) > 1) exitWith {
+        _originalWeight
+    };
+
+    private _surfaceAtPosition = surfaceType _positionASL;
+    _surfaceAtPosition = [_surfaceAtPosition, "#"] call CBA_fnc_leftTrim;
+
+    private _coefficient = GVAR(baseMaterialTable) getOrDefault [_surfaceAtPosition, GROUND_MATERIAL_DEFAULT];
+
+    TRACE_5("hemisphere check", _positionAboveGround, _objectsBelow, _surfaceAtPosition, _coefficient, _originalWeight * 2 * _coefficient);
+    _originalWeight * 2 * _coefficient
+};
+
 FUNC(calculateScaledDistance) = {
     params ["_distanceFromEpicenter", "_explosiveMassTNT"];
     _distanceFromEpicenter / (_explosiveMassTNT ^ (1/3));
@@ -131,7 +330,7 @@ FUNC(getChanceOfDeath) = {
 DFUNC(generateVisuals) = {
     params ["_position", "_explosiveMass", "_filler"];
     
-    private _distances = [0.05, 0.5, 1, 2, 3, 5, 10];
+    private _distances = [0.05, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 3, 5, 10];
 
     private _tntEquivalent = [_explosiveMass, _filler] call FUNC(calculateTNTEquivalent);
 
@@ -195,6 +394,8 @@ if (isServer) then {
         if (_filler isEqualTo "") then {
             _filler = "comp-b";
         };
+
+        _mass = [_mass, _lastPos] call FUNC(calculateHemisphericalBlastWeight);
 
         private _objects = (ASLtoATL _lastPos) nearEntities [["CAManBase"], 50];
         {
