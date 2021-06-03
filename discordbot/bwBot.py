@@ -24,20 +24,20 @@ def steam_checkServer(serverNick, server_addr):
         info = game_servers.a2s_info(server_addr, timeout=1)
         ret = "{}: [{} Players] [{} {}]".format(serverNick, info["players"], info["game"], info["map"])
     except (ConnectionResetError, socket.timeout) as e:
-        print(" WARNING: steam_checkServer {} = {}".format(serverNick, e))
+        # print(" TRACE: steam_checkServer {} = {}".format(serverNick, e))
         ret = "{}: OFFLINE".format(serverNick)
     print(" TRACE:[steam_checkServer({},{})]: {}".format(serverNick, server_addr, ret))
     return ret
 
 
 def steam_getPlayerCount(server_addr):
-    """Gets player count via steam"""
+    """Gets player count via steam (-1 indicates offline)"""
     ret = -1
     try:
         info = game_servers.a2s_info(server_addr, timeout=1)
         ret = info["players"]
     except (ConnectionResetError, socket.timeout) as e:
-        # print(" WARNING: steam_getPlayerCount {} = {}".format(server_addr, e))
+        # print(" TRACE: steam_getPlayerCount {} = {}".format(server_addr, e))
         pass
     # print(" TRACE:[steam_getPlayerCount({})]: {}".format(server_addr, ret))
     return ret
@@ -56,7 +56,7 @@ class cog_update_bot_status(commands.Cog):
         status = ""
         for (name, addr) in ALL_SERVERS_STEAM:
             player_count = steam_getPlayerCount(addr)
-            if (name == "Main") or (player_count > 0):
+            if (name == "Main") or (player_count != -1):
                 status += "[{}: {}]".format(name[0], player_count)
         await self.bot.change_presence(activity=discord.Game(name=status))
         # print(" TRACE: [status_cog]: {}".format(status))
@@ -136,7 +136,7 @@ async def restart(ctx, *args):
     player_count = steam_getPlayerCount(ALL_SERVERS_STEAM[0][1])
     is_forced = (len(args) > 0) and (args[0].lower() in ["force", "f"])
     if (player_count > 2) and not is_forced:
-        await ctx.send("{} players online, use command with ' force' to continue")
+        await ctx.send("{} players online, use command with ' force' to continue".format(player_count))
         return
     await ctx.send("restarting")
     print("restart_server.bat")
