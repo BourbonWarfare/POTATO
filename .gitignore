@@ -13,3 +13,5 @@ releases/*
 keys/*
 .hemtt/local
 sqfvm.exe
+ArmaScriptCompiler.exe
+*.sqfc
