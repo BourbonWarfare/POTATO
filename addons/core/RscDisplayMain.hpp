@@ -30,7 +30,7 @@ class RscDisplayMain: RscStandardDisplay {
             y = "0.5 - (10 / 2) * (pixelH * pixelGridNoUIScale * 2) - 2.95 * (pixelH * pixelGridNoUIScale * 2)";
             w = "4 * (pixelW * pixelGridNoUIScale * 2)";
             h = "0.95 * (pixelH * pixelGridNoUIScale * 2)";
-            text = "OftNight"; 
+            text = "OffNight"; 
             tooltip = "Offnight (extra mods, may not always be running)"; 
             colorBackground[] = {0,0,0.1,1};
             // ToDo: detect what modset and conditionally show - if ((count activatedAddons) < 3800) exitWith { _ctrl ctrlShow false; };
