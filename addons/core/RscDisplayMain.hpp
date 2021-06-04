@@ -9,7 +9,7 @@ class RscDisplayMain: RscStandardDisplay {
             y = "0.5 - (10 / 2) * (pixelH * pixelGridNoUIScale * 2) - 4 * (pixelH * pixelGridNoUIScale * 2)";
             w = "10 * (pixelW * pixelGridNoUIScale * 2)";
             h = "2 * (pixelH * pixelGridNoUIScale * 2)";
-            text = "Connect To main BW Server"; 
+            text = "Connect to BW Server"; 
             colorBackground[] = {0.2,0,0,1};
             onLoad = "params ['_ctrl'];  private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  if (_index isEqualTo -1) then { _ctrl ctrlShow false; };";
             onButtonClick = " private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  private _password = (_passwordCache select 1) param [_index, ''];  connectToServer ['104.128.50.152', 2303, _password];";
