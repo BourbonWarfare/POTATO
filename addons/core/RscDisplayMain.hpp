@@ -1,4 +1,4 @@
-// Shows a button to quickly connect to a server from main menu (only after first connecting normlally)
+// Shows a button to quickly connect to a server from main menu (only after first connecting normally)
 
 class RscButton;
 class RscStandardDisplay;
@@ -9,7 +9,8 @@ class RscDisplayMain: RscStandardDisplay {
             y = "0.5 - (10 / 2) * (pixelH * pixelGridNoUIScale * 2) - 4 * (pixelH * pixelGridNoUIScale * 2)";
             w = "10 * (pixelW * pixelGridNoUIScale * 2)";
             h = "2 * (pixelH * pixelGridNoUIScale * 2)";
-            text = "Connect To main BW Server"; 
+            text = "Connect to BW Server";
+            tooltip = "Don't forget your beer!"; 
             colorBackground[] = {0.2,0,0,1};
             onLoad = "params ['_ctrl'];  private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  if (_index isEqualTo -1) then { _ctrl ctrlShow false; };";
             onButtonClick = " private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  private _password = (_passwordCache select 1) param [_index, ''];  connectToServer ['104.128.50.152', 2303, _password];";
@@ -31,7 +32,7 @@ class RscDisplayMain: RscStandardDisplay {
             w = "4 * (pixelW * pixelGridNoUIScale * 2)";
             h = "0.95 * (pixelH * pixelGridNoUIScale * 2)";
             text = "OffNight"; 
-            tooltip = "Offnight (extra mods, may not always be running)"; 
+            tooltip = "Offnight Server (extra mods, may not always be running)"; 
             colorBackground[] = {0,0,0.1,1};
             // ToDo: detect what modset and conditionally show - if ((count activatedAddons) < 3800) exitWith { _ctrl ctrlShow false; };
             onLoad = " params ['_ctrl'];  private _passwordCache = profileNamespace getVariable ['cba_ui_ServerPasswords', [[], []]];  private _index = (_passwordCache select 0) find '104.128.50.152:2303';  if (_index isEqualTo -1) then { _ctrl ctrlShow false; };";

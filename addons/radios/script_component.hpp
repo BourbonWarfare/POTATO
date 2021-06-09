@@ -67,11 +67,11 @@
 #define DEFAULT_ENABLED false
 
 #define DEFAULT_SR_NAMES "Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","Golf","Hotel","India","3rd Platoon","COY","Air","Armor","Fire Support"
-#define DEFAULT_MR_NAMES "PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"
-#define DEFAULT_LR_NAMES "PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES"
+#define DEFAULT_MR_NAMES "PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES","MEDICAL"
+#define DEFAULT_LR_NAMES "PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES","MEDICAL"
 
 #define DEFAULT_COMMON_CH_NAME "Negotiations"
-#define DEFAULT_COMMON_CH_NUM 8
+#define DEFAULT_COMMON_CH_NUM 9
 #define DEFAULT_COMMON_CH_FREQ 90.75
 #define DEFAULT_COMMON_CH_ENABLED false
 
