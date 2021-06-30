@@ -402,7 +402,7 @@ if (isServer) then {
 
         _mass = [_mass, _lastPos] call FUNC(calculateHemisphericalBlastWeight);
 
-        private _objects = (ASLtoATL _lastPos) nearEntities [["CAManBase"], 50];
+        private _objects = (ASLtoAGL _lastPos) nearEntities [["CAManBase"], 50];
         {
             [QGVAR(explosion), [_lastPos, _mass, _filler, _x], _x] call CBA_fnc_targetEvent;
         } forEach _objects;
@@ -426,7 +426,7 @@ if (hasInterface) then {
             if !(_canSee) then {
                 _canSee = ([] isEqualTo lineIntersectsObjs [_origin, _x, objNull, _unit, false, 16 + 32]) && { !terrainIntersectASL [_origin, _x] };
             };
-            _distance = (_x distance _origin) min _distance;
+            _distance = (_x vectorDistance _origin) min _distance;
         } forEach [eyePos _unit, getPosASLVisual _unit, aimPos _unit];
 
         private _tntEquivalent = [_mass, _filler] call FUNC(calculateTNTEquivalent);
