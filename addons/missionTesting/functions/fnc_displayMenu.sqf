@@ -155,14 +155,13 @@ _menuBreifingPage ctrlSetText "Brieifing";
 _menuBreifingPage ctrlSetPosition [0.60,1,0.12,0.1];
 _menuBreifingPage buttonSetAction QUOTE([] call FUNC(openBriefings));
 _menuBreifingPage ctrlCommit 0;
-if (_missionType == "TVT") then {
-    private _pidTesting = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
-    _pidTesting ctrlSetText "PID Test";
-    _pidTesting ctrlSetTooltip "Test the uniforms of the various Units ";
-    _pidTesting buttonSetAction QUOTE([] call FUNC(pidTesting));
-    _pidTesting ctrlSetPosition [0.34,1,0.12,0.1];
-    _pidTesting ctrlCommit 0;
-};
+private _pidTesting = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
+_pidTesting ctrlSetText "PID Test";
+_pidTesting ctrlSetTooltip "Test the uniforms of the various Units ";
+_pidTesting buttonSetAction QUOTE([] call FUNC(pidTesting));
+_pidTesting ctrlSetPosition [0.34,1,0.12,0.1];
+_pidTesting ctrlCommit 0;
+
 if (!EGVAR(spectate,running)) then {
     private _killGoToSpec = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
     _killGoToSpec ctrlSetText "Goto Spec";
