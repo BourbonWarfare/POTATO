@@ -18,3 +18,8 @@ class CfgPatches {
 #include "CfgEden.hpp"
 #include "CfgVehicles.hpp"
 
+class CfgCommands{
+	allowedHTMLLoadURIs[] = {
+		"*.bourbonwarfare.com/*" // strings support wildcards '*' and '?'
+	};
+};

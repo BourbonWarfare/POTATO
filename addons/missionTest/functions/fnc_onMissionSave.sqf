@@ -113,6 +113,14 @@ private _onLoadName = getText (missionConfigFile >> "onLoadName");
 if (_onLoadName == "*** Insert mission name here. ***") then {
     _problems pushBackUnique ["Minor: Need to set loading screen info", ["description.ext -> onLoadName"]];
 };
+private _missionType = (getMissionConfigValue QEGVAR(missionTesting,missionType));
+if (_missionType == 0) then {
+    _problems pushBackUnique ["Need to select mission type", ["POTATO -> Mission Testing Attributes -> Mission Type"]];
+};
+private _missionLength = getMissionConfigValue QEGVAR(missionTesting,missionTimeLength);
+if (_missionLength == "") then {
+    _problems pushBackUnique ["Need to set mission length value", ["POTATO -> Mission Testing Attributes -> Mission Length"]];
+};
 
 
 // Floating units / Fall Damage:

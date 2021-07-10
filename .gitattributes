@@ -14,3 +14,10 @@
 *.ogg binary
 *.wav binary
 *.paa binary
+
+# Change GitHub language categorization
+addons/**/*.cpp linguist-language=SQF
+addons/**/*.hpp linguist-language=SQF
+
+# Do not count hemtt includes in language usage stats
+include/* linguist-vendored

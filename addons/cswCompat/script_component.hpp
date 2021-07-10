@@ -7,7 +7,8 @@
 
 #include "\z\ace\addons\main\script_macros.hpp"
 
+// because this is a "ace" addon we have to include this manually
+#include "\z\potato\addons\core\script_macros_debug.hpp"
 
 #define ACE_CSW_PATH(XX) QUOTE(\z\ace\addons\csw\XX)
 #define ACE_APL_PATH(XX) QUOTE(\z\ace\addons\apl\XX)
-

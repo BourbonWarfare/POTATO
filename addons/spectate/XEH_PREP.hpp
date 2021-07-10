@@ -1,5 +1,6 @@
 LOG(QUOTE(ADDON));
 
+PREP(acreSpectateCompat);
 PREP(addEventHandlers);
 PREP(camTick);
 PREP(checkToReopen);

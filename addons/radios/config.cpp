@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-#ifndef POTATO_LEAN_CONFIGS
+#ifndef POTATO_LEAN_ACRE
 
 class CfgPatches {
     class ADDON {

@@ -7,7 +7,7 @@ if (isNull _factoryLogic || {isNull _placeLogic} || {isNull _group}) exitWith {E
 
 private _transportType = _placeLogic getVariable [QGVAR(transportType), -1];
 private _ordersType = _placeLogic getVariable [QGVAR(ordersType), -1];
-TRACE_3("",_factoryLogic,_placeLogic,_transportType,_ordersType);
+TRACE_4("",_factoryLogic,_placeLogic,_transportType,_ordersType);
 if ((_ordersType < 0) || {_transportType < 0}) exitWith {ERROR("bad transport-orders");};
 
 
@@ -93,11 +93,17 @@ if (_transportInfo isEqualTo []) then {
 // At this point, group has waypoints to arrive at logic, Add orders for after arrival
 private _radius = _placeLogic getVariable [QGVAR(radius), 200];
 _group setVariable [QGVAR(radius), _radius];
-TRACE_1("Adding Orders",_ordersType,_radius);
+TRACE_2("Adding Orders",_ordersType,_radius);
 
 private _ordersWP = _group addWaypoint [getPos _placeLogic, 0];
 _ordersWP setWaypointType "MOVE";
 private _readyCondition = "(count thisList) == ({isTouchingGround _x} count thisList)";
+
+private _attackTarget = _placeLogic getVariable [QGVAR(attackTarget), true];
+_group setVariable [QGVAR(attackTarget), _attackTarget];
+
+private _useLAMBS = _placeLogic getVariable [QGVAR(useLAMBS), true];
+_group setVariable [QGVAR(useLAMBS), _useLAMBS];
 
 switch (_ordersType) do {
 case (ORDERS_MOVE): {}; // nothing

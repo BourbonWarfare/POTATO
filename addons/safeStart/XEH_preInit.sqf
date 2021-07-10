@@ -20,6 +20,15 @@ GVAR(safeStartEnabled) = true;
 ["potato_safeStartOff", {
     GVAR(safeStartEnabled) = false;
     [false] call FUNC(toggleTimer);
+    [] call FUNC(missionTimeWarning);
+}] call CBA_fnc_addEventHandler;
+
+[QGVAR(curatorHint_TimeKeeper_15min), {
+        ["Time Keeper", "15 mins to mission end", 30] call BIS_fnc_curatorHint;
+}] call CBA_fnc_addEventHandler;
+
+[QGVAR(curatorHint_TimeKeeper_end), {
+        ["Time Keeper", "Mission Time has expired", 30] call BIS_fnc_curatorHint;
 }] call CBA_fnc_addEventHandler;
 
 ADDON = true;

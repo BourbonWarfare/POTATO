@@ -54,3 +54,4 @@ QBWC_MSV(vicc),
 QBWC_MSV(vicd),
 QBWC_MSV(pilot),
 QBWC_MSV(cc),
+// not sure why, but it wants a comma on last line

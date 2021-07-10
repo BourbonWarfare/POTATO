@@ -26,7 +26,7 @@ params [
 ];
 
 if (_containers isEqualTo []) then {
-    WARNING("No classnames provided for container");
+    TRACE_1("No classnames provided for container",_containers);
     _allContainersArray pushBack [0];
 } else {
     private _container = selectRandom _containers;

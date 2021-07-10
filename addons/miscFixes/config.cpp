@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-#ifndef POTATO_LEAN_CONFIGS
+#ifndef POTATO_LEAN_RHS_CUP_HLC
 
 class CfgPatches {
     class ADDON {
@@ -20,7 +20,7 @@ class CfgPatches {
             "rhs_c_weapons", "rhsusf_c_weapons",
             "CUP_Weapons_AK", "hlcweapons_G36",
             "rhsgref_c_troops"
-            ,"Chernarus", "torabora"
+            ,"Chernarus", "torabora", "DSA_Spooks"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};
@@ -50,6 +50,5 @@ class RscChatListDefault {
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
 #include "CfgFontFamilies.hpp"
-#include "RscDisplayMain.hpp"
 
 #endif

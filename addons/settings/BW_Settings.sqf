@@ -1,3 +1,4 @@
+//pragma SKIP_COMPILE
 /*
     SettingName <STRING>
     Value <ANY>
@@ -14,9 +15,9 @@ _settings = [
 [QACEGVAR(medical,spontaneousWakeUpEpinephrineBoost), 2], // default: 1
 [QACEGVAR(medical_treatment,clearTraumaAfterBandage), true], // default: false
 [QACEGVAR(medical_treatment,litterCleanupDelay), 300], // default: 600
-// [QACEGVAR(medical_treatment,cprSuccessChance), 0.6], // default: 0.4
+[QACEGVAR(medical_treatment,cprSuccessChance), 0.75], // default: 0.4
 [QACEGVAR(medical_statemachine,AIUnconsciousness), false], // default: true
-[QACEGVAR(medical_statemachine,cardiacArrestTime), 1], // default: 30
+[QACEGVAR(medical_statemachine,cardiacArrestTime), 180], // default: 30
 
 // Medical Extras:
 [QACEGVAR(medical_ai,enabledFor), 0],
@@ -35,7 +36,7 @@ _settings = [
 
 [QACEGVAR(advanced_fatigue,performanceFactor), 1.4],
 [QACEGVAR(advanced_fatigue,recoveryFactor), 1.6],
-[QACEGVAR(cookoff,enable), 0],
+[QACEGVAR(cookoff,enable), 1],
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
 [QACEGVAR(finger,enabled), true],
 [QACEGVAR(frag,maxTrack), 5],
@@ -53,7 +54,7 @@ _settings = [
 [QACEGVAR(refuel,rate), 10],
 [QACEGVAR(respawn,removeDeadBodiesDisconnected), false],
 [QACEGVAR(ui,ammoCount), false, true], // Forced because it's User settable
-[QACEGVAR(ui,groupBar), false],
+[QACEGVAR(ui,groupBar), false, true], // Forced because it's User settable
 [QACEGVAR(weather,showCheckAirTemperature), false],
 [QACEGVAR(zeus,autoAddObjects), true],
 

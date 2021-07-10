@@ -20,7 +20,7 @@ if ((count _soldierList) > _maxCargoRoom) then {
     _soldierList resize _maxCargoRoom
 };
 if (_soldierList isEqualTo []) exitWith {
-    WARNING_1("bad side/size [%1-%2]", _side, _maxCargoRoom);
+    WARNING_2("bad side/size [%1-%2]", _side, _maxCargoRoom);
     []
 };
 if (!([_side, count _soldierList, false] call EFUNC(zeusHC,canCreateGroup))) exitWith {
