@@ -140,14 +140,19 @@ if (!(_floatingUnits isEqualTo [])) then {
 private _classesFallback = [];
 private _classesNone= [];
 {
-    private _faction = toLower faction _x;
+    private _faction = faction _x;
     private _unitClassname = [typeOf _x] call EFUNC(assignGear,cleanPrefix);
-    private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _unitClassname;
+    private _factionPath = missionConfigFile >> "CfgLoadouts" >> _faction;
+    private _staticLoadoutName = getText (_factionPath >> "using"); // refernce to a static potato loadout
+    if (_staticLoadoutName != "") then {
+        _factionPath = configFile >> "potato_loadouts" >> _faction >> _staticLoadoutName;
+        if (!isClass _factionPath) then { ERROR_2("_faction %1 using bad _staticLoadoutName %2",_faction,_staticLoadoutName); };
+    };
+    private _path = _factionPath >> _unitClassname;
 
     if ((!isClass(_path)) && EGVAR(assignGear,useFallback)) then {
-        _path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
+        _path = _factionPath >> "fallback";
         if (isClass _path) then {
-            if ((typeOf _x) == "O_helicrew_f") exitWith {}; // todo: fix framework
             if (getText (configFile >> "CfgVehicles" >> typeOf _x >> "simulation") == "UAVPilot") exitWith {}; // Ignore UAV
             TRACE_1("using fallback",typeOf _x);
             _classesFallback pushBackUnique (typeOf _x);

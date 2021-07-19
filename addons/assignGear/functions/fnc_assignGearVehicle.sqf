@@ -40,30 +40,33 @@ if ((GVAR(setVehicleLoadouts) == -1) || {_loadout == "Empty"}) exitWith {
     if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
 };
 
-private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
-
-if (!isClass _path) then {
-    //No CfgLoadouts for exact loadout, try default
-    private _vehConfigSide = [_theVehicle, true] call BIS_fnc_objectSide;
-    private _vehConfigFactions = switch (_vehConfigSide) do {
-        case (west): { ["blu_f", "potato_w"] };
-        case (east): { ["opf_f", "potato_e", "potato_msv"] }; // potato_msv is depcrecated but kept for BWC for now
-        case (independent): { ["ind_f", "potato_i"] };
-        default { ["civ_f"] };
-    };
-
-    {
-        private _break = false;
-        private _loadoutToCheck = _x;
-
-        {
-            _path = missionConfigFile >> "CfgLoadouts" >> _x >> _loadoutToCheck;
-            if (isClass _path) exitWith { _break = true; };
-        } forEach _vehConfigFactions;
-
-        if (_break) exitWith {};
-    } forEach [_loadout, _defaultLoadout];
+private _vehConfigSide = [_theVehicle, true] call BIS_fnc_objectSide;
+private _vehConfigFactions = switch (_vehConfigSide) do {
+    case (west): { [_faction, "potato_w", "blu_f"] };
+    case (east): { [_faction, "potato_e", "opf_f", "potato_msv"] }; // potato_msv is depcrecated but kept for BWC for now
+    case (independent): { [_faction, "potato_i", "ind_f"] };
+    default { [_faction, "civ_f"] };
 };
+
+private _path = configNull;
+{
+    private _break = false;
+    private _loadoutToCheck = _x;
+
+    {   
+        private _faction = _x;
+        private _factionPath = missionConfigFile >> "CfgLoadouts" >> _faction;
+        private _staticLoadoutName = getText (_factionPath >> "using"); // refernce to a static potato loadout
+        if (_staticLoadoutName != "") then {
+            _factionPath = configFile >> "potato_loadouts" >> _faction >> _staticLoadoutName;
+            if (!isClass _factionPath) then { ERROR_2("_faction %1 using bad _staticLoadoutName %2",_faction,_staticLoadoutName); };
+        };
+        _path = _factionPath >> _loadoutToCheck;
+        if (isClass _path) exitWith { _break = true; };
+    } forEach _vehConfigFactions;
+
+    if (_break) exitWith {};
+} forEach [_loadout, _defaultLoadout];
 
 if (!isClass _path) exitWith {
     diag_log text format ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2) (kindOf %3) (defaultLoadout: %4)", _theVehicle, typeof _theVehicle, _loadout, _defaultLoadout];
