@@ -20,4 +20,4 @@ addons/**/*.cpp linguist-language=SQF
 addons/**/*.hpp linguist-language=SQF
 
 # Do not count hemtt includes in language usage stats
-include/* linguist-vendored
+include/**/* linguist-vendored
