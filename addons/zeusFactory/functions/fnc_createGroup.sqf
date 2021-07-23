@@ -21,6 +21,7 @@ if ((count _soldierList) > _maxCargoRoom) then {
 };
 if (_soldierList isEqualTo []) exitWith {
     WARNING_2("bad side/size [%1-%2]", _side, _maxCargoRoom);
+    ["possible factory issue"] call EFUNC(zeusHC,sendCuratorHint);
     []
 };
 if (!([_side, count _soldierList, false] call EFUNC(zeusHC,canCreateGroup))) exitWith {
