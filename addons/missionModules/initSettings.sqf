@@ -1,4 +1,17 @@
 [
+    QGVAR(fadeEnviromentSounds),
+    "SLIDER",
+    ["Fade enviroment sounds", "e.g. Rain/thunder, Map's birds or air conditioners"],
+    ["POTATO - Mission Maker", "Sounds"],
+    [0, 1, 1, 2],
+    1, {
+        params ["_newSetting"];
+        if ((_newSetting == 1) && {environmentVolume == 1}) exitWith {};
+        10 fadeEnvironment _newSetting;
+    }
+] call cba_settings_fnc_init;
+
+[
     QGVAR(aiSkill_set),
     "CHECKBOX",
     ["Master Enable", "Enable/disable setting AI skills/behaviors on unit creation."],
