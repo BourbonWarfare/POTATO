@@ -94,36 +94,36 @@ class CfgWeapons {
     class rhs_6b23: Vest_Camo_Base {
         class ItemInfo: ItemInfo {};
     };
-    class rhsgref_alice_webbing: rhs_6b23 {
-        class ItemInfo: ItemInfo {};
-    };
-    class rhsgref_alice_webbing_bwArmorMod: rhsgref_alice_webbing {
-        displayName = "ALICE Webbing [coop plot armor]";
-        descriptionShort = "Armor Level IV";
-        class ItemInfo: ItemInfo {
-            class HitpointsProtectionInfo {
-                class Chest {
-                    HitpointName = "HitChest";
-                    armor = 20;
-                    PassThrough = 0.2;
-                };
-                class Diaphragm {
-                    HitpointName = "HitDiaphragm";
-                    armor = 20;
-                    PassThrough = 0.2;
-                };
-                class Abdomen {
-                    hitpointName = "HitAbdomen";
-                    armor = 20;
-                    passThrough = 0.2;
-                };
-                class Body {
-                    hitpointName = "HitBody";
-                    passThrough = 0.2;
-                };
-            };
-        };
-    };
+    // class rhsgref_alice_webbing: rhs_6b23 {
+    //     class ItemInfo: ItemInfo {};
+    // };
+    // class rhsgref_alice_webbing_bwArmorMod: rhsgref_alice_webbing {
+    //     displayName = "ALICE Webbing [coop plot armor]";
+    //     descriptionShort = "Armor Level IV";
+    //     class ItemInfo: ItemInfo {
+    //         class HitpointsProtectionInfo {
+    //             class Chest {
+    //                 HitpointName = "HitChest";
+    //                 armor = 20;
+    //                 PassThrough = 0.2;
+    //             };
+    //             class Diaphragm {
+    //                 HitpointName = "HitDiaphragm";
+    //                 armor = 20;
+    //                 PassThrough = 0.2;
+    //             };
+    //             class Abdomen {
+    //                 hitpointName = "HitAbdomen";
+    //                 armor = 20;
+    //                 passThrough = 0.2;
+    //             };
+    //             class Body {
+    //                 hitpointName = "HitBody";
+    //                 passThrough = 0.2;
+    //             };
+    //         };
+    //     };
+    // };
     class rhs_vydra_3m: Vest_Camo_Base {
         class ItemInfo: ItemInfo {};
     };

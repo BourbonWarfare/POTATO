@@ -10,7 +10,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "potato_core", "potato_miscFixes", "ace_huntir",
-            "rhs_c_weapons", "rhsgref_c_weapons", "rhsusf_c_weapons",
+            "rhs_c_weapons",
             "CUP_Weapons_ACE_compat", "CUP_Weapons_CZ805", "CUP_Weapons_VSS",
             "CUP_Weapons_M16", "CUP_Weapons_AK", "CUP_Weapons_PK",
             "CUP_Weapons_M249", "CUP_Weapons_M240", "CUP_Weapons_M60E4",

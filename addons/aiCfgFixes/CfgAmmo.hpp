@@ -276,12 +276,6 @@ class CfgAmmo {
     class rhs_ammo_20mm_AP: B_20mm {
         audibleFire = 28;
     };
-    class rhsusf_M61A2: B_20mm_Tracer_Red {
-        audibleFire = 28;
-    };
-    class rhsusf_ammo_M61A2: B_20mm_Tracer_Red {
-        audibleFire = 28;
-    };
     class GrenadeBase;
     class FlareCore;
     class SmokeShellCore: GrenadeCore {

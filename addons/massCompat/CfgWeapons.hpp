@@ -63,9 +63,6 @@
 "hlc_50rnd_556x45_EPR"
 
 #define NATO_LMG_556 \
-"rhsusf_100Rnd_556x45_soft_pouch", \
-"rhsusf_200Rnd_556x45_soft_pouch", \
-"rhsusf_100Rnd_556x45_M200_soft_pouch", \
 "CUP_200Rnd_TE4_Red_Tracer_556x45_M249", \
 "CUP_200Rnd_TE4_Yellow_Tracer_556x45_M249", \
 "CUP_200Rnd_TE4_Green_Tracer_556x45_M249", \
@@ -131,9 +128,6 @@ class nia_magSwitch { \
 "ACE_20Rnd_762x51_Mk319_Mod_0_Mag", \
 "ACE_20Rnd_762x51_M993_AP_Mag", \
 "ACE_20Rnd_762x67_Mk248_Mod_0_Mag", \
-"rhsusf_20Rnd_762x51_m118_special_Mag", \
-"rhsusf_20Rnd_762x51_m993_Mag", \
-"rhsusf_20Rnd_762x51_m62_Mag", \
 "CUP_20Rnd_762x51_DMR", \
 "CUP_20Rnd_TE1_Yellow_Tracer_762x51_DMR", \
 "CUP_20Rnd_TE1_Red_Tracer_762x51_DMR", \
@@ -143,18 +137,6 @@ class nia_magSwitch { \
 #define NATO_MMG_762 \
 "150Rnd_762x51_Box", \
 "150Rnd_762x51_Box_Tracer", \
-"rhsusf_50Rnd_762x51", \
-"rhsusf_50Rnd_762x51_m61_ap", \
-"rhsusf_50Rnd_762x51_m62_tracer", \
-"rhsusf_50Rnd_762x51_m80a1epr", \
-"rhsusf_50Rnd_762x51_m82_blank", \
-"rhsusf_100Rnd_762x51", \
-"rhsusf_100Rnd_762x51_m61_ap", \
-"rhsusf_100Rnd_762x51_m62_tracer", \
-"rhsusf_100Rnd_762x51_m80a1epr", \
-"rhsusf_100Rnd_762x51_m82_blank", \
-"rhsusf_50Rnd_762x51_m993", \
-"rhsusf_100Rnd_762x51_m993", \
 "CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M", \
 "CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M", \
 "hlc_100Rnd_762x51_B_M60E4", \
@@ -281,14 +263,9 @@ class nia_magSwitch { \
 "CUP_5Rnd_86x70_L115A1"
 
 #define M107_50 \
-"rhsusf_mag_10Rnd_STD_50BMG_M33", \
-"rhsusf_mag_10Rnd_STD_50BMG_mk211", \
 "CUP_10Rnd_127x99_m107"
 
 #define M24_762 \
-"rhsusf_5Rnd_762x51_m118_special_Mag", \
-"rhsusf_5Rnd_762x51_m993_Mag", \
-"rhsusf_5Rnd_762x51_m62_Mag", \
 "CUP_5Rnd_762x51_M24"
 
 #define SVD_762 \

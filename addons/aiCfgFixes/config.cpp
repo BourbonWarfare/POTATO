@@ -8,7 +8,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core", "A3_Characters_F", "A3_Weapons_F", "A3_Weapons_F_Exp", "A3_Weapons_F_Mark", "hlcweapons_core", "hlcweapons_g3", "hlcweapons_mp5", "hlcweapons_stgw57",
-                            "rhs_c_weapons", "rhsgref_c_weapons", "rhsusf_c_weapons", "CUP_Weapons_AA12", "CUP_Weapons_AK", "CUP_Weapons_AS50", "CUP_Weapons_AWM", "CUP_Weapons_Bizon",
+                            "rhs_c_weapons", "CUP_Weapons_AA12", "CUP_Weapons_AK", "CUP_Weapons_AS50", "CUP_Weapons_AWM", "CUP_Weapons_Bizon",
                             "CUP_Weapons_Colt1911", "CUP_Weapons_Compact", "CUP_Weapons_CZ750", "CUP_Weapons_CZ805", "CUP_Weapons_Duty", "CUP_Weapons_Evo", "CUP_Weapons_FNFAL", "CUP_Weapons_G36",
                             "CUP_Weapons_GrenadeLaunchers", "CUP_Weapons_Grenades", "CUP_Weapons_Huntingrifle", "CUP_Weapons_Igla", "CUP_Weapons_Items", "CUP_Weapons_Javelin", "CUP_Weapons_KSVK",
                             "CUP_Weapons_L85", "CUP_Weapons_L110", "CUP_Weapons_L129", "CUP_Weapons_LeeEnfield", "CUP_Weapons_M9", "CUP_Weapons_M14", "CUP_Weapons_M14_DMR", "CUP_Weapons_M16",
