@@ -67,6 +67,42 @@ class CfgMagazineWells {
     #include "magwells_16gauge.hpp"                 // 16 Gauge
     #include "magwells_20gauge.hpp"                 // 20 Gauge
 
+    class CBA_40mm_EGLM {
+        BI_grenades[] = {
+            "1Rnd_HE_Grenade_shell",
+            "1Rnd_Smoke_Grenade_shell",
+            "1Rnd_SmokeRed_Grenade_shell",
+            "1Rnd_SmokeGreen_Grenade_shell",
+            "1Rnd_SmokeYellow_Grenade_shell",
+            "1Rnd_SmokePurple_Grenade_shell",
+            "1Rnd_SmokeBlue_Grenade_shell",
+            "1Rnd_SmokeOrange_Grenade_shell",
+            "UGL_FlareWhite_F",
+            "UGL_FlareGreen_F",
+            "UGL_FlareRed_F",
+            "UGL_FlareYellow_F",
+            "UGL_FlareCIR_F"
+        };
+    };
+
+    class CBA_40mm_GP {
+        BI_grenades[] = {
+            "1Rnd_HE_Grenade_shell",
+            "1Rnd_Smoke_Grenade_shell",
+            "1Rnd_SmokeRed_Grenade_shell",
+            "1Rnd_SmokeGreen_Grenade_shell",
+            "1Rnd_SmokeYellow_Grenade_shell",
+            "1Rnd_SmokePurple_Grenade_shell",
+            "1Rnd_SmokeBlue_Grenade_shell",
+            "1Rnd_SmokeOrange_Grenade_shell",
+            "UGL_FlareWhite_F",
+            "UGL_FlareGreen_F",
+            "UGL_FlareRed_F",
+            "UGL_FlareYellow_F",
+            "UGL_FlareCIR_F"
+        };
+    };
+
     // Non-CBA Defined Magwells
     class Cylinder_45ACP {
         GVAR(mags)[] = {
