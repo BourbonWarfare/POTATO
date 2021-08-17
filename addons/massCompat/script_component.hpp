@@ -17,6 +17,7 @@
 #define SCORE_3(a,b,c) a##_##b##_##c
 #define SCORE_4(a,b,c,d) a##_##b##_##c##_##d
 #define SCORE_5(a,b,c,d,e) a##_##b##_##c##_##d##_##e
+#define SCORE_6(a,b,c,d,e,f) a##_##b##_##c##_##d##_##e##_##f
 
 #define AMMO_CLASS(type) SCORE_3(potato,bullet,type)
 #define MAGAZINE_CLASS(type) SCORE_2(potato,type)
@@ -91,12 +92,55 @@ CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type,trace
 CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type,tracerEvery,lastRoundTracers); \
 CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,tracerEvery,lastRoundTracers)
 
+#define CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,alt)\
+class MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour,alt)): MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)) { \
+    displayName = TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
+    tracersEvery = 1; \
+    ammoTemp = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+}
+
+#define CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,tracerEvery,lastRoundTracers,alt)\
+class MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer,colour,alt)): MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)) { \
+    displayName = RELOAD_TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
+    tracersEvery = tracerEvery; \
+    lastRoundsTracer = lastRoundTracers; \
+    ammoTemp = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+}
+
+#define CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,type,tracerEvery,lastRoundTracers,alt) \
+class MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)): baseClass { \
+    author = "Brandon (TCVM)"; \
+    scope = 2; \
+    displayName = DISPLAY_NAME(ammoDisplayName,bulletCount);\
+    count = bulletCount; \
+    tracersEvery = 0;\
+    lastRoundsTracer = 0;\
+    ammoTemp = AMMO_CLASS(ammoType); \
+}; \
+CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,alt); \
+CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type,alt); \
+CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type,alt); \
+CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type,alt); \
+CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,alt); \
+CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,tracerEvery,lastRoundTracers,alt); \
+CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type,tracerEvery,lastRoundTracers,alt); \
+CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type,tracerEvery,lastRoundTracers,alt); \
+CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type,tracerEvery,lastRoundTracers,alt); \
+CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,tracerEvery,lastRoundTracers,alt)
+
 #define CREATE_MAGAZINE(ammoType,ammoDisplayName,bulletCount,baseClass) CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,magazine,0,RELOAD_TRACER_REMAINING)
 #define CREATE_BOX(ammoType,ammoDisplayName,bulletCount,baseClass) CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,box,MG_TRACER_EVERY,RELOAD_TRACER_REMAINING)
+
+#define CREATE_ALT_MAGAZINE(ammoType,ammoDisplayName,bulletCount,baseClass,alt) CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,magazine,0,RELOAD_TRACER_REMAINING,alt)
+#define CREATE_ALT_BOX(ammoType,ammoDisplayName,bulletCount,baseClass,alt) CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,box,MG_TRACER_EVERY,RELOAD_TRACER_REMAINING,alt)
 
 #define MAGAZINE_WELL_TYPE(ammoType,bulletCount,type) QUOTE(MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))))
 #define MAGAZINE_WELL_RELOAD_TRACER_TYPE(ammoType,bulletCount,colour,type) QUOTE(MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer,colour)))
 #define MAGAZINE_WELL_TRACER_TYPE(ammoType,bulletCount,colour,type) QUOTE(MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour)))
+
+#define MAGAZINE_WELL_ALT_TYPE(ammoType,bulletCount,type,alt) QUOTE(MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)))
+#define MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,colour,type,alt) QUOTE(MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer,colour,alt)))
+#define MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,colour,type,alt) QUOTE(MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour,alt)))
 
 #define MAGAZINE_WELL_MAG(ammoType,bulletCount) \
 MAGAZINE_WELL_TYPE(ammoType,bulletCount,magazine), \
@@ -123,6 +167,32 @@ MAGAZINE_WELL_RELOAD_TRACER_TYPE(ammoType,bulletCount,Green,box), \
 MAGAZINE_WELL_RELOAD_TRACER_TYPE(ammoType,bulletCount,Yellow,box), \
 MAGAZINE_WELL_RELOAD_TRACER_TYPE(ammoType,bulletCount,White,box), \
 MAGAZINE_WELL_RELOAD_TRACER_TYPE(ammoType,bulletCount,IR,box)
+
+#define MAGAZINE_WELL_ALT_MAG(ammoType,bulletCount,alt) \
+MAGAZINE_WELL_ALT_TYPE(ammoType,bulletCount,magazine,alt), \
+MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,Red,magazine,alt), \
+MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,Green,magazine,alt), \
+MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,Yellow,magazine,alt), \
+MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,White,magazine,alt), \
+MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,IR,magazine,alt), \
+MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,Red,magazine,alt), \
+MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,Green,magazine,alt), \
+MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,Yellow,magazine,alt), \
+MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,White,magazine,alt), \
+MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,IR,magazine,alt)
+
+#define MAGAZINE_WELL_ALT_BOX(ammoType,bulletCount,alt) \
+MAGAZINE_WELL_ALT_TYPE(ammoType,bulletCount,box,alt), \
+MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,Red,box,alt), \
+MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,Green,box,alt), \
+MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,Yellow,box,alt), \
+MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,White,box,alt), \
+MAGAZINE_WELL_TRACER_ALT_TYPE(ammoType,bulletCount,IR,box,alt), \
+MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,Red,box,alt), \
+MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,Green,box,alt), \
+MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,Yellow,box,alt), \
+MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,White,box,alt), \
+MAGAZINE_WELL_RELOAD_TRACER_ALT_TYPE(ammoType,bulletCount,IR,box,alt)
 
 #define TRACER_CLASSES(baseClass)\
 class AMMO_CLASS(SCORE_3(baseClass,tracer,Red)): AMMO_CLASS(baseClass) { \

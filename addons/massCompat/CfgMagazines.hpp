@@ -41,7 +41,6 @@ class CfgMagazines {
     class CUP_50Rnd_B_765x17_Ball_M;
     class CUP_5Rnd_86x70_L115A1;
     class CUP_7Rnd_45ACP_1911;
-    class CUP_30Rnd_45ACP_M3A1_M;
     class CUP_40Rnd_46x30_MP7;
     class CUP_20Rnd_46x30_MP7;
     class CUP_5Rnd_127x99_as50_M;
@@ -96,6 +95,11 @@ class CfgMagazines {
     class CUP_5x_22_LR_17_HMR_M;
     class CUP_25Rnd_762x51_Galil_Mag;
     class CUP_35Rnd_556x45_Galil_Mag;
+    class CUP_30Rnd_556x45_AK;
+    class hlc_50Rnd_762x51_B_fal;
+    class hlc_50Rnd_762x51_B_G3;
+    class CUP_30Rnd_45ACP_M3A1_M;
+    class hlc_30rnd_556x45_EPR_HK33;
 
     /* !! spaces are intentionally placed !! */
 
@@ -114,6 +118,8 @@ class CfgMagazines {
     CREATE_MAGAZINE(556x45,5.56x45mm ,20,CUP_20Rnd_556x45_Stanag);
     CREATE_MAGAZINE(556x45,5.56x45mm ,25,CUP_25Rnd_556x45_Famas);
     CREATE_MAGAZINE(556x45,5.56x45mm ,30,30Rnd_556x45_Stanag);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_AK,ak);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,hlc_30rnd_556x45_EPR_HK33,hk33);
     CREATE_MAGAZINE(556x45,5.56x45mm ,35,CUP_35Rnd_556x45_Galil_Mag);
     CREATE_MAGAZINE(556x45,5.56x45mm ,42,hlc_40Rnd_556x45_B_AUG);
     CREATE_MAGAZINE(556x45,5.56x45mm ,45,30Rnd_556x45_Stanag);
@@ -141,6 +147,8 @@ class CfgMagazines {
     CREATE_MAGAZINE(762x51,7.62x51mm ,20,20Rnd_762x51_Mag);
     CREATE_MAGAZINE(762x51,7.62x51mm ,25,CUP_25Rnd_762x51_Galil_Mag);
     CREATE_MAGAZINE(762x51,7.62x51mm ,30,CUP_30Rnd_TE1_Yellow_Tracer_762x51_FNFAL_M);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,50,hlc_50Rnd_762x51_B_fal,fal);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,50,hlc_50Rnd_762x51_B_G3,g3);
     CREATE_MAGAZINE(762x51,7.62x51mm ,50,CUP_50Rnd_762x51_B_SCAR);
     CREATE_BOX(762x51,7.62x51mm ,50,hlc_50Rnd_762x51_B_MG3);
     CREATE_BOX(762x51,7.62x51mm ,100,CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M);
@@ -160,6 +168,7 @@ class CfgMagazines {
     CREATE_MAGAZINE(45_acp,45 ACP ,11,11Rnd_45ACP_Mag);
     CREATE_MAGAZINE(45_acp,45 ACP ,12,11Rnd_45ACP_Mag);
     CREATE_MAGAZINE(45_acp,45 ACP ,30,30Rnd_45ACP_Mag_SMG_01);
+    CREATE_ALT_MAGAZINE(45_acp,45 ACP ,30,CUP_30Rnd_45ACP_M3A1_M,m3a1);
 
     CREATE_MAGAZINE(9x21,9x21mm IMI ,10,16Rnd_9x21_Mag);
 

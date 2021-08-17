@@ -1,7 +1,4 @@
 class CfgWeapons {
-    /*
-
-    */
     class Rifle_Base_F;
     class arifle_TRG20_F;
     class arifle_TRG21_F;
@@ -131,5 +128,9 @@ class CfgWeapons {
 
     class DMR_07_base_F: Rifle_Long_Base_F {
         magazineWell[] += { QGVAR(magwell_65x39_dmr07) };
+    };
+
+    class CUP_arifle_OTS14_GROZA_Base: Rifle_Base_F {
+        magazineWell[] += { "CBA_9x39_VSS" };
     };
 };

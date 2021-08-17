@@ -23,7 +23,7 @@
     };
     class CBA_45ACP_Grease {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(45_acp,30)
+            MAGAZINE_WELL_ALT_MAG(45_acp,30,m3a1)
         };
     };          // Grease Gun
     class CBA_45ACP_Reising {};         // M50/M55 Reising

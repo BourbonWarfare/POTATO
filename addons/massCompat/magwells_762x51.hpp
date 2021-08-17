@@ -65,7 +65,7 @@
     };      // FN FAL long mag (25/30 rounds)
     class CBA_762x51_FAL_XL {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(762x51,50)
+            MAGAZINE_WELL_ALT_MAG(762x51,50,fal)
         };
     };     // FN FAL drum mag (X-Products 50 round)
 
@@ -81,7 +81,7 @@
     };       // H&K G3 long mag (25/30 rounds)
     class CBA_762x51_G3_XL {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(762x51,50)
+            MAGAZINE_WELL_ALT_MAG(762x51,50,g3)
         };
     };      // H&K G3 drum mag (X-Products 50 round)
 

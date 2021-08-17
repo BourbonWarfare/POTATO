@@ -1,10 +1,6 @@
     class CBA_556x45_AK {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(556x45,20),
-            MAGAZINE_WELL_MAG(556x45,30),
-            MAGAZINE_WELL_MAG(556x45,60),
-            MAGAZINE_WELL_MAG(556x45,100),
-            MAGAZINE_WELL_MAG(556x45,150)
+            MAGAZINE_WELL_ALT_MAG(556x45,30,ak)
         };
     };             // AK mags for 5.56 AK type rifles, AK-101, AK-102, etc.
     class CBA_556x45_RPK {
@@ -36,11 +32,7 @@
     };            // H&K G36
     class CBA_556x45_HK33 {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(556x45,20),
-            MAGAZINE_WELL_MAG(556x45,30),
-            MAGAZINE_WELL_MAG(556x45,60),
-            MAGAZINE_WELL_MAG(556x45,100),
-            MAGAZINE_WELL_MAG(556x45,150)
+            MAGAZINE_WELL_ALT_MAG(556x45,30,hk33)
         };
     };           // H&K 33/53/93
     class CBA_556x45_M21 {
