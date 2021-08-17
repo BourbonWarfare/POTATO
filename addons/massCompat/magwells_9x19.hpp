@@ -65,7 +65,11 @@
     class CBA_9x19_P38 {};          // Walther P38
     class CBA_9x19_PM63 {};         // FB PM-63 RAK
     class CBA_9x19_PM84 {};         // FB PM-84 Glauberyt
-    class CBA_9x19_PP19 {};         // PP-19 Bizon-2-01
+    class CBA_9x19_PP19 {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(9x19,64)
+        };
+    };         // PP-19 Bizon-2-01
     class CBA_9x19_PP2000 {};       // PP-2000 SMG
     class CBA_9x19_ScorpionEvo3 {   // CZ Scorpion Evo 3
         GVAR(mags)[] = {
@@ -87,7 +91,12 @@
     };          // UZI
     class CBA_9x19_UZI_Pro {};      // UZI Pro
     class CBA_9x19_Vis {};          // wz. 35 Vis (Radom)
-    class CBA_9x19_Vityaz {};       // Vityaz-SN
+    class CBA_9x19_Vityaz {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(9x19,10),
+            MAGAZINE_WELL_MAG(9x19,30)
+        };
+    };       // Vityaz-SN
     class CBA_9x19_Vz68 {};         // Škorpion (vz. 68)
     class CBA_9x19_Welrod {};       // Welrod MkI in 9x19mm
     class CBA_9x19_wz39Mors {};     // wz.39 Mors

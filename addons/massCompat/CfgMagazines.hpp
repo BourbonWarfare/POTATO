@@ -29,6 +29,7 @@ class CfgMagazines {
     class 150Rnd_762x51_Box;
     class 150Rnd_762x54_Box;
     class 30Rnd_9x21_Mag_SMG_02;
+    class 150Rnd_93x64_Mag;
 
     class hlc_30Rnd_10mm_B_MP5;
     class CUP_5Rnd_762x67_G22;
@@ -163,6 +164,7 @@ class CfgMagazines {
     CREATE_MAGAZINE(127x108_slap,12.7x108mm SLAP ,5,5Rnd_127x108_APDS_Mag);
 
     CREATE_MAGAZINE(93x64,9.3x64mm ,10,10Rnd_93x64_DMR_05_Mag);
+    CREATE_BOX(93x64,9.3x64mm ,150,150Rnd_93x64_Mag);
 
     CREATE_MAGAZINE(57x28,5.7x28mm ,50,50Rnd_570x28_SMG_03);
 

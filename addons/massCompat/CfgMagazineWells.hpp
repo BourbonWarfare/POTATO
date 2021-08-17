@@ -66,4 +66,16 @@ class CfgMagazineWells {
     #include "magwells_12gauge.hpp"                 // 12 Gauge
     #include "magwells_16gauge.hpp"                 // 16 Gauge
     #include "magwells_20gauge.hpp"                 // 20 Gauge
+
+    // Non-CBA Defined Magwells
+    class Cylinder_45ACP {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(45_acp,6)
+        };
+    };
+    class Cyrus_93 {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(93x64,10)
+        };
+    };
 };

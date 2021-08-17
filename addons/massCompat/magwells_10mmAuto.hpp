@@ -5,3 +5,8 @@
             MAGAZINE_WELL_MAG(10x25,30)
         };
     };           // H&K MP5/10 10mm Auto
+    class CBA_10x25_MP5 {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(10x25,30)
+        };
+    };           // H&K MP5/10 10mm Auto

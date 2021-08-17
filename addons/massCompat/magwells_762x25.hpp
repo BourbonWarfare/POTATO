@@ -9,6 +9,6 @@
     class CBA_762x25_PPSh_Stick {}; // PPSh-41 stick magazines
     class CBA_762x25_TT {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAGS(762x25,8)
+            MAGAZINE_WELL_MAG(762x25,8)
         };
     };         // TT-30, TT-33 Tokarev

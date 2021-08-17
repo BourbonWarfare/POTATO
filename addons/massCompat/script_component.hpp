@@ -56,14 +56,14 @@
 #define RELOAD_TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour) QUOTE(CONCAT(æ ,CONCAT(ammoDisplayName,CONCAT(bulletCount,Rnd Reload Tracer (REPEAT(colour)) [POTATO]))))
 
 #define CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type)\
-class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour)): MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),base)) { \
+class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour)): MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))) { \
     displayName = TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = 1; \
     ammoTemp = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
 }
 
 #define CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,tracerEvery,lastRoundTracers)\
-class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer,colour)): MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),base)) { \
+class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer,colour)): MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))) { \
     displayName = RELOAD_TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = tracerEvery; \
     lastRoundsTracer = lastRoundTracers; \
@@ -71,7 +71,7 @@ class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer
 }
 
 #define CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,type,tracerEvery,lastRoundTracers) \
-class MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),base)): baseClass { \
+class MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))): baseClass { \
     author = "Brandon (TCVM)"; \
     scope = 2; \
     displayName = DISPLAY_NAME(ammoDisplayName,bulletCount);\
@@ -94,7 +94,7 @@ CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,tracerEve
 #define CREATE_MAGAZINE(ammoType,ammoDisplayName,bulletCount,baseClass) CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,magazine,0,RELOAD_TRACER_REMAINING)
 #define CREATE_BOX(ammoType,ammoDisplayName,bulletCount,baseClass) CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,box,MG_TRACER_EVERY,RELOAD_TRACER_REMAINING)
 
-#define MAGAZINE_WELL_TYPE(ammoType,bulletCount,type) QUOTE(MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),base)))
+#define MAGAZINE_WELL_TYPE(ammoType,bulletCount,type) QUOTE(MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))))
 #define MAGAZINE_WELL_RELOAD_TRACER_TYPE(ammoType,bulletCount,colour,type) QUOTE(MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer,colour)))
 #define MAGAZINE_WELL_TRACER_TYPE(ammoType,bulletCount,colour,type) QUOTE(MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour)))
 

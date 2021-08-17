@@ -13,7 +13,7 @@
     class CBA_65x39_Mk200 {
         GVAR(mags)[] = {
             MAGAZINE_WELL_BOX(65x39,100),
-            MAGAZINE_WELL_BOX(65x39,100)
+            MAGAZINE_WELL_BOX(65x39,200)
         };
     };
 
