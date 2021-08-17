@@ -19,7 +19,13 @@
             MAGAZINE_WELL_MAG(9x19,30)
         };
     };        // CZ P-07 in 9x19mm
-    class CBA_9x19_CZP09 {};        // CZ P-09 in 9x19mm (also should fit in  9x19mm CZ P-07)
+    class CBA_9x19_CZP09 {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(9x19,16),
+            MAGAZINE_WELL_MAG(9x19,17),
+            MAGAZINE_WELL_MAG(9x19,30)
+        };
+    };        // CZ P-09 in 9x19mm (also should fit in  9x19mm CZ P-07)
     class CBA_9x19_CZ82 {};         // CZ 82, Vz. 82, CZ 83
     class CBA_9x19_GPK199 {};       // Grand Power K100
     class CBA_9x19_GSh18 {};        // GSh-18

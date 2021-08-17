@@ -87,7 +87,7 @@
 
     class CBA_762x51_GALIL {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(762x51,30)
+            MAGAZINE_WELL_MAG(762x51,35)
         };
     };      // IMI Galil
 

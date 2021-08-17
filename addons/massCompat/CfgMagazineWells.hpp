@@ -78,4 +78,72 @@ class CfgMagazineWells {
             MAGAZINE_WELL_MAG(93x64,10)
         };
     };
+
+    class GVAR(magwell_545x39) {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(545x39,30)
+        };
+    };
+
+    class GVAR(magwell_792x39_saiga) {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(762x39,10)
+        };
+    };
+
+    class GVAR(magwell_50ae) {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(50ae,7)
+        };
+    };
+
+    class GVAR(magwell_9x19_m17) {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(9x19,21),
+            MAGAZINE_WELL_MAG(9x19,17)
+        };
+    };
+
+    class GVAR(magwell_45acp_m10) {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(45_acp,30)
+        };
+    };
+
+    class GVAR(magwell_45acp_mk23) {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(45_acp,12)
+        };
+    };
+
+    class GVAR(magwell_9x19_tec9) {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(9x19,32)
+        };
+    };
+
+    class GVAR(magwell_22lr_cz550) {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(22lr,5)
+        };
+    };
+
+    class GVAR(magwell_9x19_pdw) {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(9x19,30),
+            MAGAZINE_WELL_MAG(9x19,16)
+        };
+    };
+
+    class ASP1_127x54 {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(9x19,10)
+        };
+    };
+
+    class GVAR(magwell_65x39_dmr07) {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(65x39,20)
+        };
+    };
 };

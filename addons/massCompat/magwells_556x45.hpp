@@ -21,11 +21,8 @@
     };          // FAMAS F1
     class CBA_556x45_GALIL {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(556x45,20),
-            MAGAZINE_WELL_MAG(556x45,30),
-            MAGAZINE_WELL_MAG(556x45,60),
-            MAGAZINE_WELL_MAG(556x45,100),
-            MAGAZINE_WELL_MAG(556x45,150)
+            MAGAZINE_WELL_MAG(556x45,35),
+            MAGAZINE_WELL_MAG(556x45,50)
         };
     };          // IMI Galil
     class CBA_556x45_G36 {

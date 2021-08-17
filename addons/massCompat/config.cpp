@@ -8,7 +8,7 @@ class CfgPatches {
         weapons[] = {};
         magazines[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core"};
+        requiredAddons[] = { "potato_core", "A3_Data_F_Enoch_Loadorder", "CUP_Weapons_LoadOrder" };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO", "Brandon (TCVM)"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";

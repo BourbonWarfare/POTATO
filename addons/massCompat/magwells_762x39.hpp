@@ -40,5 +40,13 @@
         };
     };           // 762x39mm VZ58 magazine, cannot be used in AKs or vice versa
 
-    class CBA_762x39_SKS {};            // 762x39mm SKS magazines
-    class CBA_762x39_SKS_Clip {};       // 762x39mm SKS clip
+    class CBA_762x39_SKS {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(762x39,10)
+        };
+    };            // 762x39mm SKS magazines
+    class CBA_762x39_SKS_Clip {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(762x39,10)
+        };
+    };       // 762x39mm SKS clip
