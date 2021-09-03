@@ -60,6 +60,7 @@ _settings = [
 [QACEGVAR(weather,showCheckAirTemperature), false],
 [QACEGVAR(zeus,autoAddObjects), true],
 
-["niarms_magSwitch", false] // it's use of setUnitLoadout may cause problems
+["niarms_magSwitch", false], // it's use of setUnitLoadout may cause problems
+["niarms_gripSwitch", false] // it's use of setUnitLoadout may cause problems
 
 ];
