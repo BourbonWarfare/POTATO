@@ -6,6 +6,13 @@
             MAGAZINE_WELL_BOX(762x54,100),
             MAGAZINE_WELL_BOX(762x54,150)
         };
+        GVAR(oldMissionsCompat)[] = {
+            "150Rnd_762x54_Box_Tracer_Red", // these are from potato_miscFixes for some reason
+            "150Rnd_762x54_Box_Tracer_Yellow", 
+            "100Rnd_762x54_Box_Tracer_Green", 
+            "100Rnd_762x54_Box_Tracer_Red", 
+            "100Rnd_762x54_Box_Tracer_Yellow"
+        };
     };
 
     class CBA_762x54R_Maxim {};         // Maxim gun in 7.62x54R
@@ -28,5 +35,9 @@
     class CBA_762x54R_Vz59_LINKS {
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(762x54,50),
+        };
+        GVAR(oldMissionsCompat)[] = {
+            "100rnd_762x54_box_tracer_red", 
+            "cup_100rnd_te4_lrt4_762x54_pk_tracer_green_m"
         };
     };    //Uk vz. 59, UK59, vz 59

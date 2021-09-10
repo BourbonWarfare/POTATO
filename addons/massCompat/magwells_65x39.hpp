@@ -15,6 +15,13 @@
             MAGAZINE_WELL_BOX(65x39,100),
             MAGAZINE_WELL_BOX(65x39,200)
         };
+        GVAR(oldMissionsCompat)[] = {
+            "200Rnd_65x39_cased_Box_Tracer_Red", // these are from potato_miscFixes for some reason
+            "200Rnd_65x39_cased_Box_Tracer_Green", 
+            "100Rnd_65x39_cased_Box_Tracer_Yellow", 
+            "100Rnd_65x39_cased_Box_Tracer_Red", 
+            "100Rnd_65x39_cased_Box_Tracer_Green"
+        };
     };
 
     class CBA_65x39_Katiba {
