@@ -37,7 +37,8 @@
             MAGAZINE_WELL_MAG(762x54,50),
         };
         GVAR(oldMissionsCompat)[] = {
-            "100rnd_762x54_box_tracer_red", 
+            "100rnd_762x54_box_tracer_red",
+            "100Rnd_762x54_Box_Tracer_Green",
             "cup_100rnd_te4_lrt4_762x54_pk_tracer_green_m"
         };
     };    //Uk vz. 59, UK59, vz 59
