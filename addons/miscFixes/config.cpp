@@ -19,7 +19,7 @@ class CfgPatches {
             "potato_core", "ace_ui",
             "rhs_c_weapons", "rhsusf_c_weapons",
             "CUP_Weapons_AK", "hlcweapons_G36",
-            "rhsgref_c_troops"
+            "rhsgref_c_troops", "fallujah_hou"
             ,"Chernarus", "torabora", "DSA_Spooks"
         };
         author = "Potato";
