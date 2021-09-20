@@ -21,3 +21,7 @@ Basic discord bot allowing control of dedicated server functions from discord
 python -m pip install --user discord.py
 python -m pip install --user --upgrade discord.py
 ```
+
+## Discord.py
+As of Aug2021 https://github.com/Rapptz/discord.py has stopped development
+Keep any eye on https://github.com/nextcord/nextcord

@@ -34,6 +34,9 @@
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(762x51,20)
         };
+        GVAR(oldMissionsCompat)[] = {
+            "ACE_10Rnd_762x51_M993_AP_Mag"
+        };
     };       // AR-10 standard mag (20 rounds)
     class CBA_762x51_AR10_L {
         GVAR(mags)[] = {
