@@ -232,14 +232,14 @@ class AMMO_CLASS(SCORE_3(baseClass,tracer,IR)): AMMO_CLASS(baseClass) { \
     nvgOnly = 1; \
 }
 
-#define TYPICAL_CONFIG\
-airLock = 1;\
-indirectHit = 0;\
-indirectHitRange = 0;\
-cost = 1;\
-waterFriction = -0.3;\
-tracerScale = 1;\
-tracerStartTime = 0.05;\
+#define TYPICAL_CONFIG \
+airLock = 1; \
+indirectHit = 0; \
+indirectHitRange = 0; \
+cost = 1; \
+waterFriction = -0.3; \
+tracerScale = 1; \
+tracerStartTime = 0.05; \
 tracerEndTime = 1
 
 #define SMALL_AMMO_CONFIG \
