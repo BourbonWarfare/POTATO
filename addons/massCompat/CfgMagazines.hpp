@@ -234,7 +234,7 @@ class CfgMagazines {
 
     CREATE_MAGAZINE(50ae,.50 Action Express ,7,CUP_7Rnd_50AE_Deagle);
 
-    CREATE_MAGAZINE(22lr,.22 Long Rifle ,5,CUP_5x_22_LR_17_HMR_M);
+    CREATE_MAGAZINE(22_lr,.22 Long Rifle ,5,CUP_5x_22_LR_17_HMR_M);
 
     CREATE_MAGAZINE(127x54,12.7x54mm ,10,10Rnd_127x54_Mag);
 };

@@ -32,19 +32,36 @@
 #define FLYBY_DANGER_SMALL 6
 #define FLYBY_SUPPRESSION_SMALL 8
 #define AUDIBLE_FIRE_SMALL 100
+#define TYPICAL_SPEED_SMALL 920
+#define AIR_FRICTION_SMALL -0.0012
 
-
+#define CALIBER_MEDIUM 1.2
+#define HIT_MEDIUM 11
+#define HIT_DANGER_MEDIUM 12
+#define HIT_SUPPRESSION_MEDIUM 8
+#define FLYBY_DANGER_MEDIUM 8
+#define FLYBY_SUPPRESSION_MEDIUM 8
 #define AUDIBLE_FIRE_MEDIUM 150
+#define TYPICAL_SPEED_MEDIUM 730
+#define AIR_FRICTION_MEDIUM -0.0016
 
-
+#define CALIBER_LARGE 4.6
+#define HIT_LARGE 20
+#define HIT_DANGER_LARGE 14
+#define HIT_SUPPRESSION_LARGE 10
+#define FLYBY_DANGER_LARGE 4
+#define FLYBY_SUPPRESSION_LARGE 2
 #define AUDIBLE_FIRE_LARGE 200
-
+#define TYPICAL_SPEED_LARGE 270
+#define AIR_FRICTION_LARGE -0.0014
 
 #define AUDIBLE_FIRE_SUBSONIC 10
 
 
 
 #define AI_AMMO_USAGE_FLAGS_SMALL "64 + 128 + 256"
+#define AI_AMMO_USAGE_FLAGS_MEDIUM "64 + 128 + 256"
+#define AI_AMMO_USAGE_FLAGS_LARGE "64 + 128 + 256"
 
 #define RED_TRACER "\A3\Weapons_f\Data\bullettracer\tracer_red"
 #define GREEN_TRACER "\A3\Weapons_f\Data\bullettracer\tracer_green"
@@ -60,7 +77,7 @@
 class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour)): MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))) { \
     displayName = TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = 1; \
-    ammoTemp = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
 }
 
 #define CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,tracerEvery,lastRoundTracers)\
@@ -68,7 +85,7 @@ class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer
     displayName = RELOAD_TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = tracerEvery; \
     lastRoundsTracer = lastRoundTracers; \
-    ammoTemp = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
 }
 
 #define CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,type,tracerEvery,lastRoundTracers) \
@@ -79,7 +96,7 @@ class MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))): baseClass 
     count = bulletCount; \
     tracersEvery = 0;\
     lastRoundsTracer = 0;\
-    ammoTemp = AMMO_CLASS(ammoType); \
+    ammo = AMMO_CLASS(ammoType); \
 }; \
 CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type); \
 CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type); \
@@ -96,7 +113,7 @@ CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,tracerEve
 class MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour,alt)): MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)) { \
     displayName = TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = 1; \
-    ammoTemp = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
 }
 
 #define CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,tracerEvery,lastRoundTracers,alt)\
@@ -104,7 +121,7 @@ class MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer
     displayName = RELOAD_TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = tracerEvery; \
     lastRoundsTracer = lastRoundTracers; \
-    ammoTemp = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
 }
 
 #define CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,type,tracerEvery,lastRoundTracers,alt) \
@@ -115,7 +132,7 @@ class MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)): baseCl
     count = bulletCount; \
     tracersEvery = 0;\
     lastRoundsTracer = 0;\
-    ammoTemp = AMMO_CLASS(ammoType); \
+    ammo = AMMO_CLASS(ammoType); \
 }; \
 CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,alt); \
 CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type,alt); \
@@ -215,7 +232,18 @@ class AMMO_CLASS(SCORE_3(baseClass,tracer,IR)): AMMO_CLASS(baseClass) { \
     nvgOnly = 1; \
 }
 
+#define TYPICAL_CONFIG\
+airLock = 1;\
+indirectHit = 0;\
+indirectHitRange = 0;\
+cost = 1;\
+waterFriction = -0.3;\
+tracerScale = 1;\
+tracerStartTime = 0.05;\
+tracerEndTime = 1
+
 #define SMALL_AMMO_CONFIG \
+TYPICAL_CONFIG; \
 dangerRadiusBulletClose = HIT_DANGER_SMALL; \
 dangerRadiusHit = FLYBY_DANGER_SMALL; \
 suppressionRadiusBulletClose = FLYBY_SUPPRESSION_SMALL; \
@@ -225,5 +253,91 @@ audibleFire = AUDIBLE_FIRE_SMALL; \
 caliber = CALIBER_SMALL; \
 aiAmmoUsageFlags = AI_AMMO_USAGE_FLAGS_SMALL; \
 ACE_damageType = "bullet";\
-ace_vehicle_damage_incendiary = 0
+ace_vehicle_damage_incendiary = 0;\
+typicalSpeed = TYPICAL_SPEED_SMALL;\
+airFriction = AIR_FRICTION_SMALL;\
+class CamShakeExplode {\
+    power = 2.24;\
+    duration = 0.4;\
+    frequency = 20;\
+    distance = 6.7;\
+};\
+class CamShakeHit {\
+    power = 5;\
+    duration = 0.2;\
+    frequency = 20;\
+    distance = 1;\
+}
+
+#define MEDIUM_AMMO_CONFIG \
+TYPICAL_CONFIG; \
+dangerRadiusBulletClose = HIT_DANGER_MEDIUM; \
+dangerRadiusHit = FLYBY_DANGER_MEDIUM; \
+suppressionRadiusBulletClose = FLYBY_SUPPRESSION_MEDIUM; \
+suppressionRadiusHit = HIT_SUPPRESSION_MEDIUM; \
+hit = HIT_MEDIUM; \
+audibleFire = AUDIBLE_FIRE_MEDIUM; \
+caliber = CALIBER_MEDIUM; \
+aiAmmoUsageFlags = AI_AMMO_USAGE_FLAGS_MEDIUM; \
+ACE_damageType = "bullet";\
+ace_vehicle_damage_incendiary = 0;\
+typicalSpeed = TYPICAL_SPEED_MEDIUM;\
+airFriction = AIR_FRICTION_MEDIUM;\
+class CamShakeExplode {\
+    power = 2.24;\
+    duration = 0.4;\
+    frequency = 20;\
+    distance = 6.7;\
+};\
+class CamShakeHit {\
+    power = 5;\
+    duration = 0.2;\
+    frequency = 20;\
+    distance = 1;\
+}
+
+#define LARGE_AMMO_CONFIG \
+TYPICAL_CONFIG; \
+dangerRadiusBulletClose = HIT_DANGER_LARGE; \
+dangerRadiusHit = FLYBY_DANGER_LARGE; \
+suppressionRadiusBulletClose = FLYBY_SUPPRESSION_LARGE; \
+suppressionRadiusHit = HIT_SUPPRESSION_LARGE; \
+hit = HIT_LARGE; \
+audibleFire = AUDIBLE_FIRE_LARGE; \
+caliber = CALIBER_LARGE; \
+aiAmmoUsageFlags = AI_AMMO_USAGE_FLAGS_LARGE; \
+ACE_damageType = "bullet";\
+ace_vehicle_damage_incendiary = 0;\
+typicalSpeed = TYPICAL_SPEED_LARGE;\
+airFriction = AIR_FRICTION_LARGE;\
+class CamShakeExplode {\
+    power = 2.24;\
+    duration = 0.4;\
+    frequency = 20;\
+    distance = 6.7;\
+};\
+class CamShakeHit {\
+    power = 15;\
+    duration = 0.4;\
+    frequency = 20;\
+    distance = 1;\
+}
+
+#define CREATE_SMALL_AMMO(type)\
+class AMMO_CLASS(type): BulletBase {\
+    SMALL_AMMO_CONFIG;\
+};\
+TRACER_CLASSES(type)
+
+#define CREATE_MEDIUM_AMMO(type)\
+class AMMO_CLASS(type): BulletBase {\
+    MEDIUM_AMMO_CONFIG;\
+};\
+TRACER_CLASSES(type)
+
+#define CREATE_LARGE_AMMO(type)\
+class AMMO_CLASS(type): BulletBase {\
+    LARGE_AMMO_CONFIG;\
+};\
+TRACER_CLASSES(type)
 
