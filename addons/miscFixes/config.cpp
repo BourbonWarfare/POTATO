@@ -17,7 +17,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "potato_core", "ace_ui",
-            "rhs_c_weapons", "CUP_Weapons_AK", "hlcweapons_G36",
+            "rhs_main_loadorder", "CUP_Weapons_LoadOrder",
             "Chernarus", "torabora", "fallujah_hou",
             "DSA_Spooks"
         };
