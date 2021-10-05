@@ -3,13 +3,13 @@ class CfgAmmo {
     class BulletCore: Default {
         audibleFire = 16;
     };
-    class MissileCore: Default {
+    class RocketCore: Default {
         audibleFire = 32;
     };
     class SubmunitionCore: Default {
         audibleFire = 16;
     };
-    class RocketCore: Default {
+    class MissileCore: Default {
         audibleFire = 32;
     };
     class GrenadeCore: Default {
@@ -40,32 +40,38 @@ class CfgAmmo {
     class FakeAmmo: BulletCore {
         audibleFire = 16;
     };
-    class potato_bullet_556x45: BulletBase {
-        audibleFire = 100;
-    };
-    class B_556x45_Ball: BulletBase {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    class B_20mm: BulletBase {
+        audibleFire = 200;
     };
     class B_9x21_Ball: BulletBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
-    class B_20mm: BulletBase {
-        audibleFire = 200;
-    };
-    class rhs_ammo_LWIRCM: BulletBase {
-        audibleFire = 0;
-    };
-    class rhs_ammo_762x51_M80_Ball: BulletBase {
+    class B_556x45_Ball: BulletBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
-    class rhs_ammo_45ACP_MHP: BulletBase {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
+    class rhs_ammo_792x33_SmE_ball: BulletBase {
+        audibleFire = 18;
     };
-    class rhs_ammo_9x19_FMJ: BulletBase {
+    class rhs_ammo_762x63_M1T_tracer: BulletBase {
+        audibleFire = 18;
+    };
+    class rhs_ammo_762x63_M2B_ball: BulletBase {
+        audibleFire = 18;
+    };
+    class rhs_ammo_75x55_Ball: BulletBase {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class rhs_ammo_792x57_Ball: BulletBase {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class rhs_ammo_8mm_mhp: BulletBase {
+        audibleFire = 9;
+    };
+    class rhs_ammo_762x25_Ball: BulletBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
@@ -73,29 +79,23 @@ class CfgAmmo {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
-    class rhs_ammo_762x25_Ball: BulletBase {
+    class rhs_ammo_9x19_FMJ: BulletBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
-    class rhs_ammo_8mm_mhp: BulletBase {
-        audibleFire = 9;
+    class rhs_ammo_45ACP_MHP: BulletBase {
+        audibleFire = AI_AUDIBLE_FIRE_1;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
     };
-    class rhs_ammo_792x57_Ball: BulletBase {
+    class rhs_ammo_762x51_M80_Ball: BulletBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
-    class rhs_ammo_75x55_Ball: BulletBase {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    class rhs_ammo_LWIRCM: BulletBase {
+        audibleFire = 0;
     };
-    class rhs_ammo_762x63_M2B_ball: BulletBase {
-        audibleFire = 18;
-    };
-    class rhs_ammo_762x63_M1T_tracer: BulletBase {
-        audibleFire = 18;
-    };
-    class rhs_ammo_792x33_SmE_ball: BulletBase {
-        audibleFire = 18;
+    class potato_bullet_556x45: BulletBase {
+        audibleFire = 100;
     };
     class CUP_B_25mm_APFSDS_White_Tracer: BulletBase {
         audibleFire = 32;
@@ -172,7 +172,9 @@ class CfgAmmo {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
-    class CUP_B_9x18_Ball;
+    class CUP_B_9x18_Ball: BulletBase {
+        audibleFire = 5;
+    };
     class CUP_B_86x70_Ball_noTracer: BulletBase {
         audibleFire = 22;
     };
@@ -272,130 +274,8 @@ class CfgAmmo {
         audibleFire = AI_AUDIBLE_FIRE_1;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
     };
-    class rhs_ammo_556x45_M855A1_Ball: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_ammo_556x45_M855_Ball: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_ammo_556x45_Mk318_Ball: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_ammo_556x45_Mk262_Ball: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_ammo_556x45_M193_Ball: B_556x45_Ball {
-        audibleFire = 7;
-    };
-    class rhs_ammo_556x45_M995_AP: B_556x45_Ball {
-        audibleFire = 7;
-    };
-    class rhs_ammo_556x45_blank: B_556x45_Ball {
-        audibleFire = 0;
-    };
-    class HLC_9x19_Ball;
-    class FH_545x39_Ball: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_3006_FMJ: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_68x43_FMJ: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_300WM_BTSP;
-    class HLC_300WM_Tracer: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_300WM_FMJ: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_303Brit_B;
-    class HLC_300Blackout_Ball;
-    class HLC_556NATO_SPR: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_556NATO_SOST: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_556NATO_EPR: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_B_545x39_Ball: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class B_556x45_dual: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
-    class rhs_ammo_46x30_FMJ: rhs_ammo_556x45_M855A1_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class MissileBase: MissileCore {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class M_Titan_AA;
-    class rhs_ammo_M_fgm148_AT: MissileBase {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class M_Mo_82mm_AT;
-    class ammo_Missile_CruiseBase: MissileBase {
-        audibleFire = 64;
-    };
-    class rhs_ammo_fim92_missile: M_Titan_AA {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class SubmunitionBase;
-    class rhs_ammo_30x173mm_GAU8_mixed: SubmunitionBase {
-        audibleFire = 250;
-    };
-    class VOG25P_SubMunition: SubmunitionBase {
-        audibleFire = 6;
-    };
-    class rhs_ammo_mixed_23x115mm: SubmunitionBase {
-        audibleFire = 32;
-    };
-    class rhs_ammo_gsh30_mixed: SubmunitionBase {
-        audibleFire = 32;
-    };
-    class SubmunitionBullet;
-    class rhs_ammo_9x17: B_9x21_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_B_9x21_7BT3: B_9x21_Ball {
-        audibleFire = 5.65;
-    };
-    class rhs_B_9x21_7N29: B_9x21_Ball {
-        audibleFire = 5.65;
-    };
-    class rhs_B_9x21_7N28: B_9x21_Ball {
-        audibleFire = 5.65;
-    };
-    class rhs_B_9x18_57N181S: B_9x21_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_B_9x19_7N21: B_9x21_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    class rhs_ammo_20mm_AP: B_20mm {
+        audibleFire = 28;
     };
     class RocketBase: RocketCore {
         audibleFire = AI_AUDIBLE_FIRE_0;
@@ -506,8 +386,130 @@ class CfgAmmo {
         allowAgainstInfantry = 1;
         cost = 50;
     };
-    class rhs_ammo_20mm_AP: B_20mm {
-        audibleFire = 28;
+    class rhs_ammo_9x17: B_9x21_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class rhs_B_9x21_7BT3: B_9x21_Ball {
+        audibleFire = 5.65;
+    };
+    class rhs_B_9x21_7N29: B_9x21_Ball {
+        audibleFire = 5.65;
+    };
+    class rhs_B_9x21_7N28: B_9x21_Ball {
+        audibleFire = 5.65;
+    };
+    class rhs_B_9x18_57N181S: B_9x21_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class rhs_B_9x19_7N21: B_9x21_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class SubmunitionBase;
+    class rhs_ammo_30x173mm_GAU8_mixed: SubmunitionBase {
+        audibleFire = 250;
+    };
+    class VOG25P_SubMunition: SubmunitionBase {
+        audibleFire = 6;
+    };
+    class rhs_ammo_mixed_23x115mm: SubmunitionBase {
+        audibleFire = 32;
+    };
+    class rhs_ammo_gsh30_mixed: SubmunitionBase {
+        audibleFire = 32;
+    };
+    class SubmunitionBullet;
+    class MissileBase: MissileCore {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class M_Titan_AA;
+    class rhs_ammo_M_fgm148_AT: MissileBase {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class M_Mo_82mm_AT;
+    class ammo_Missile_CruiseBase: MissileBase {
+        audibleFire = 64;
+    };
+    class rhs_ammo_fim92_missile: M_Titan_AA {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class rhs_ammo_556x45_M855A1_Ball: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class rhs_ammo_556x45_blank: B_556x45_Ball {
+        audibleFire = 0;
+    };
+    class rhs_ammo_556x45_M995_AP: B_556x45_Ball {
+        audibleFire = 7;
+    };
+    class rhs_ammo_556x45_M193_Ball: B_556x45_Ball {
+        audibleFire = 7;
+    };
+    class rhs_ammo_556x45_Mk262_Ball: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class rhs_ammo_556x45_Mk318_Ball: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class rhs_ammo_556x45_M855_Ball: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class HLC_9x19_Ball;
+    class FH_545x39_Ball: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class HLC_3006_FMJ: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class HLC_68x43_FMJ: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class HLC_300WM_BTSP;
+    class HLC_300WM_Tracer: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class HLC_300WM_FMJ: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class HLC_303Brit_B;
+    class HLC_300Blackout_Ball;
+    class HLC_556NATO_SPR: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class HLC_556NATO_SOST: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class HLC_556NATO_EPR: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class rhs_B_545x39_Ball: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class B_556x45_dual: B_556x45_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_1;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
+    };
+    class rhs_ammo_46x30_FMJ: rhs_ammo_556x45_M855A1_Ball {
+        audibleFire = AI_AUDIBLE_FIRE_0;
+        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
     class GrenadeBase;
     class FlareCore;
@@ -527,6 +529,9 @@ class CfgAmmo {
     class CUP_B_12Gauge_Pellets: B_12Gauge_Pellets_Submunition {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    };
+    class CUP_B_9x19_Ball_SD: CUP_B_9x19_Ball {
+        audibleFire = 0.35;
     };
     class CUP_B_9x18_SD: CUP_B_9x18_Ball {
         audibleFire = AI_AUDIBLE_FIRE_1;
