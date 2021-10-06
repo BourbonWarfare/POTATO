@@ -9,7 +9,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "potato_core", "ACE_ai",
-            "hlcweapons_core", "hlcweapons_g3", "hlcweapons_mp5", "hlcweapons_stgw57", "hlcweapons_G36", "hlcweapons_MG3s",
+            "hlcweapons_AUG", "hlcweapons_g3", "hlcweapons_G36", "hlcweapons_MG3s", "hlcweapons_mp5", "hlcweapons_stgw57", "hlcweapons_Johnson",
             "rhs_main_loadorder", "CUP_Weapons_LoadOrder"
         };
         author = "Potato";
