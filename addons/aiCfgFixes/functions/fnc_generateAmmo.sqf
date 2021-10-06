@@ -118,10 +118,6 @@ private _setAiUsageFlags = {
     
     _retAmmo = [_retAmmo, "potato_aiCfgFixes_he_rocket",    [64, 128, 512],         [["cost", "100"]]] call _setUsageFlags;
     _retAmmo = [_retAmmo, "CUP_R_70mm_Hydra_HE",            [64, 128, 512],         [["cost", "100"]]] call _setUsageFlags;
-    _retAmmo = [_retAmmo, "rhs_ammo_maaws_HE",              [64, 128, 256],         [["cost", "50"]]] call _setUsageFlags;
-    _retAmmo = [_retAmmo, "rhs_ammo_maaws_HEDP",            [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
-    _retAmmo = [_retAmmo, "rhs_ammo_smaw_HEDP",             [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
-    _retAmmo = [_retAmmo, "rhs_ammo_M136_rocket",           [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
     _retAmmo = [_retAmmo, "rhs_rpg26_rocket",               [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
     
     _retAmmo = [_retAmmo, "CUP_R_SMAW_HEDP_N",              [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;

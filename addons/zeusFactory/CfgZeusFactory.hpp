@@ -24,37 +24,14 @@ class CfgZeusFactory {
         "O_Truck_03_transport_F", // Typhoon
 
         // RHS Cars
-        "rhsusf_m998_w_2dr_halftop", // Woodland troop HMMWV
-        "rhsusf_m998_d_2dr_halftop", // Desert troop HMMWV
-        "rhsusf_m1025_w_m2", // Woodland HMG HMMWV
-        "rhsusf_m1025_d_m2", // Desert HMG HMMWV
-        "rhsusf_m1025_w_mk19", // Woodland GMG HMMWV
-        "rhsusf_m1025_d_mk19", // Desert GMG HMMWV
-        "rhsusf_M1232_usarmy_wd", // Woodland RG-33L
-        "rhsusf_M1232_usarmy_d", // Desert RG-33L
-        "rhsusf_M1232_M2_usarmy_wd", // Woodland HMG RG-33L
-        "rhsusf_M1232_M2_usarmy_d", // Desert HMG RG-33L
-        "rhsusf_M1232_MK19_usarmy_wd", // Woodland GMG RG-33L
-        "rhsusf_M1232_MK19_usarmy_d", // Desert GMG RG-33L
-        "rhsusf_M1117_W", // Woodland ASV HMG/GMG
-        "rhsusf_M1117_D", // Desert ASV HMG/GMG
-        "rhsusf_m1151_usarmy_d", //Desert Armored unarmed HMV
-        "rhsusf_m1151_m240_v1_usarmy_d", //Desert Armored HMG HMV
-        "rhsusf_m1151_usarmy_wd", //Woodland Armored unarmed HMV
-        "rhsusf_m1151_m240_v1_usarmy_wd", //Woodland Armored HMG HMV
         "rhs_uaz_open_Base", // UAZ Jeep Carrier
         "RHS_UAZ_DShKM_Base", // UAZ HMG Jeep
         "RHS_UAZ_AGS30_Base", // UAZ GMG Jeep
         "RHS_UAZ_SPG9_Base", // UAZ SPG Jeep
         "rhs_tigr_vdv", // Tiger
         "rhs_tigr_sts_vdv", // Tiger LMG/GMG
-        "rhsgref_BRDM2_vdv", // BRDM HMG        
 
         // RHS Trucks
-        "rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy", // Woodland US Truck
-        "rhsusf_M1083A1P2_B_d_open_fmtv_usarmy", // Desert US Truck
-        "rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy", // Woodland HMG US Truck
-        "rhsusf_M1083A1P2_B_M2_d_open_fmtv_usarmy", // Desert HMG US Truck
         "rhs_gaz66_msv", // GAZ 66 open truck
         "RHS_Ural_MSV_Base", // Ural 4320 open truck
         "rhs_kamaz5350_open_vdv", // KamAZ 5350
@@ -112,14 +89,6 @@ class CfgZeusFactory {
         "O_APC_Tracked_02_cannon_F", // Stalker IFV
 
         // RHS APCs
-        "rhsusf_m113_usarmy_unarmed", // Woodland M113
-        "rhsusf_m113d_usarmy_unarmed", // Desert M113
-        "rhsusf_m113_usarmy", // Woodland M113 HMG
-        "rhsusf_m113d_usarmy", // Desert M113 HMG
-        "rhsusf_m113_usarmy_MK19", // Woodland M113 GMG
-        "rhsusf_m113d_usarmy_MK19", // Desert M113 GMG
-        "RHS_M2A2_wd", // Woodland Bradley IFV
-        "RHS_M2A2", // Desert Bradley IFV
         "CUP_B_Boxer_HMG_GER_DES", //Desert Boxer HMG
         "CUP_B_Boxer_HMG_GER_WDL", //Woodland Boxer HMG
         "CUP_B_Boxer_HMG_HIL", //Jungle Boxer HMG
@@ -169,17 +138,10 @@ class CfgZeusFactory {
         "O_Heli_Attack_02_F", // Mi 48 Kajman
 
         // RHS Transport Helicopters
-        "RHS_UH1Y_UNARMED", // Venom
-        "rhsusf_CH53E_USMC", // Super Stallion
         "RHS_Mi8AMT_vdv", // Mi 8
 
         // RHS Armed Helicopters
-        "RHS_UH1Y_FFAR", // Venom (armed)
-        "RHS_CH_47F", // Chinook (armed)
-        "RHS_UH60M", // Blackhawk (armed)
         "RHS_Mi8AMTSh_vvs", // Mi 8 (armed)
-        "rhsgref_cdf_reg_Mi17Sh_UPK", // Mi 17 (armed)
-        "rhsgref_mi24g_CAS", // Mi 24
 
         // CUP Transport Helicopters
         "CUP_O_MI6T_RU", // Mi 6 mass trans

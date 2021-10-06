@@ -62,7 +62,7 @@
     class CBA_556x45_TYPE97_XL {
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(556x45,100),
-            MAGAZINE_WELL_MAG(556x45,150),
+            MAGAZINE_WELL_MAG(556x45,150)
         };
     };      // QBB-97 LSW Drums
     class CBA_556x45_SCAR_EGLM {        // SCAR-L with EGLM/FN40GL/Mk 13 Mod 0 grenage launcher (This extends the length of the magwell and prevents mags that are too short or wide from being used)
