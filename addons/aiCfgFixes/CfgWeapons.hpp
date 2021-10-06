@@ -2137,7 +2137,7 @@ class CfgWeapons {
             showToPlayer = 1;
         };
     };
-    // class sp_fwa_sig510_base: srifle_DMR_06_F {
+    // class sp_fwa_sig510_base: srifle_DMR_06_F { // this causes problems for some reason?
     //     modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium","ACE_Burst_far"};
     //     class Single: Single {
     //         midRange = 350;
