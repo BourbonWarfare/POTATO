@@ -13,9 +13,11 @@ _settings = [
 [QACEGVAR(medical,ivFlowRate), 1.5], // default: 1.0
 [QACEGVAR(medical,spontaneousWakeUpChance), 0.4], // default: 0.05
 [QACEGVAR(medical,spontaneousWakeUpEpinephrineBoost), 2], // default: 1
+[QACEGVAR(medical_treatment,advancedDiagnose), 2], // default: 1 (Allows diagnosing death/CA)
 [QACEGVAR(medical_treatment,clearTraumaAfterBandage), true], // default: false
 [QACEGVAR(medical_treatment,litterCleanupDelay), 300], // default: 600
-[QACEGVAR(medical_treatment,cprSuccessChance), 0.75], // default: 0.4
+[QACEGVAR(medical_treatment,cprSuccessChanceMin), 0.75], // default: 0.4
+[QACEGVAR(medical_treatment,cprSuccessChanceMax), 0.85], // default: 0.4
 [QACEGVAR(medical_statemachine,AIUnconsciousness), false], // default: true
 [QACEGVAR(medical_statemachine,cardiacArrestTime), 180], // default: 30
 
@@ -58,6 +60,7 @@ _settings = [
 [QACEGVAR(weather,showCheckAirTemperature), false],
 [QACEGVAR(zeus,autoAddObjects), true],
 
-["niarms_magSwitch", false] // it's use of setUnitLoadout may cause problems
+["niarms_magSwitch", false], // it's use of setUnitLoadout may cause problems
+["niarms_gripSwitch", false] // it's use of setUnitLoadout may cause problems
 
 ];
