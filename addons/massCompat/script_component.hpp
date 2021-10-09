@@ -25,8 +25,18 @@
 #define RELOAD_TRACER_REMAINING 4
 #define MG_TRACER_EVERY 4
 
-#define CALIBER_SMALL 0.9
-#define HIT_SMALL 9
+#define CALIBER_TINY 1.0
+#define HIT_TINY 7.5
+#define HIT_DANGER_TINY 4
+#define HIT_SUPPRESSION_TINY 8
+#define FLYBY_DANGER_TINY 2
+#define FLYBY_SUPPRESSION_TINY 4
+#define AUDIBLE_FIRE_TINY 70
+#define TYPICAL_SPEED_TINY 500
+#define AIR_FRICTION_TINY -0.0016
+
+#define CALIBER_SMALL 1.0
+#define HIT_SMALL 7.5
 #define HIT_DANGER_SMALL 8
 #define HIT_SUPPRESSION_SMALL 12
 #define FLYBY_DANGER_SMALL 6
@@ -52,13 +62,13 @@
 #define FLYBY_DANGER_LARGE 4
 #define FLYBY_SUPPRESSION_LARGE 2
 #define AUDIBLE_FIRE_LARGE 200
-#define TYPICAL_SPEED_LARGE 270
+#define TYPICAL_SPEED_LARGE 900
 #define AIR_FRICTION_LARGE -0.0014
 
 #define AUDIBLE_FIRE_SUBSONIC 10
 
 
-
+#define AI_AMMO_USAGE_FLAGS_TINY "64"
 #define AI_AMMO_USAGE_FLAGS_SMALL "64 + 128 + 256"
 #define AI_AMMO_USAGE_FLAGS_MEDIUM "64 + 128 + 256"
 #define AI_AMMO_USAGE_FLAGS_LARGE "64 + 128 + 256"
@@ -73,22 +83,24 @@
 #define TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour) QUOTE(CONCAT(æ ,CONCAT(ammoDisplayName,CONCAT(bulletCount,Rnd Tracer (REPEAT(colour)) [POTATO]))))
 #define RELOAD_TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour) QUOTE(CONCAT(æ ,CONCAT(ammoDisplayName,CONCAT(bulletCount,Rnd Reload Tracer (REPEAT(colour)) [POTATO]))))
 
-#define CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type)\
+#define CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,speed)\
 class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour)): MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))) { \
     displayName = TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = 1; \
     ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    initSpeed = speed; \
 }
 
-#define CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,tracerEvery,lastRoundTracers)\
+#define CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,tracerEvery,lastRoundTracers,speed)\
 class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer,colour)): MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))) { \
     displayName = RELOAD_TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = tracerEvery; \
     lastRoundsTracer = lastRoundTracers; \
     ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    initSpeed = speed; \
 }
 
-#define CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,type,tracerEvery,lastRoundTracers) \
+#define CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,type,tracerEvery,lastRoundTracers,speed) \
 class MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))): baseClass { \
     author = "Brandon (TCVM)"; \
     scope = 2; \
@@ -97,34 +109,37 @@ class MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))): baseClass 
     tracersEvery = 0;\
     lastRoundsTracer = 0;\
     ammo = AMMO_CLASS(ammoType); \
+    initSpeed = speed; \
 }; \
-CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type); \
-CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type); \
-CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type); \
-CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type); \
-CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type); \
-CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,tracerEvery,lastRoundTracers); \
-CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type,tracerEvery,lastRoundTracers); \
-CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type,tracerEvery,lastRoundTracers); \
-CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type,tracerEvery,lastRoundTracers); \
-CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,tracerEvery,lastRoundTracers)
+CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,speed); \
+CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type,speed); \
+CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type,speed); \
+CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type,speed); \
+CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,speed); \
+CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,tracerEvery,lastRoundTracers,speed); \
+CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type,tracerEvery,lastRoundTracers,speed); \
+CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type,tracerEvery,lastRoundTracers,speed); \
+CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type,tracerEvery,lastRoundTracers,speed); \
+CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,tracerEvery,lastRoundTracers,speed)
 
-#define CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,alt)\
+#define CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,speed,alt)\
 class MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour,alt)): MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)) { \
     displayName = TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = 1; \
     ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    initSpeed = speed; \
 }
 
-#define CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,tracerEvery,lastRoundTracers,alt)\
+#define CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,colour,type,tracerEvery,lastRoundTracers,speed,alt)\
 class MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer,colour,alt)): MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)) { \
     displayName = RELOAD_TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = tracerEvery; \
     lastRoundsTracer = lastRoundTracers; \
     ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    initSpeed = speed; \
 }
 
-#define CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,type,tracerEvery,lastRoundTracers,alt) \
+#define CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,type,tracerEvery,lastRoundTracers,speed,alt) \
 class MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)): baseClass { \
     author = "Brandon (TCVM)"; \
     scope = 2; \
@@ -133,23 +148,24 @@ class MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)): baseCl
     tracersEvery = 0;\
     lastRoundsTracer = 0;\
     ammo = AMMO_CLASS(ammoType); \
+    initSpeed = speed; \
 }; \
-CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,alt); \
-CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type,alt); \
-CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type,alt); \
-CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type,alt); \
-CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,alt); \
-CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,tracerEvery,lastRoundTracers,alt); \
-CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type,tracerEvery,lastRoundTracers,alt); \
-CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type,tracerEvery,lastRoundTracers,alt); \
-CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type,tracerEvery,lastRoundTracers,alt); \
-CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,tracerEvery,lastRoundTracers,alt)
+CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,speed,alt); \
+CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type,speed,alt); \
+CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type,speed,alt); \
+CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type,speed,alt); \
+CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,speed,alt); \
+CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,tracerEvery,lastRoundTracers,speed,alt); \
+CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Green,type,tracerEvery,lastRoundTracers,speed,alt); \
+CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Yellow,type,tracerEvery,lastRoundTracers,speed,alt); \
+CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,White,type,tracerEvery,lastRoundTracers,speed,alt); \
+CREATE_ALT_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,tracerEvery,lastRoundTracers,speed,alt)
 
-#define CREATE_MAGAZINE(ammoType,ammoDisplayName,bulletCount,baseClass) CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,magazine,0,RELOAD_TRACER_REMAINING)
-#define CREATE_BOX(ammoType,ammoDisplayName,bulletCount,baseClass) CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,box,MG_TRACER_EVERY,RELOAD_TRACER_REMAINING)
+#define CREATE_MAGAZINE(ammoType,ammoDisplayName,bulletCount,baseClass,speed) CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,magazine,0,RELOAD_TRACER_REMAINING,speed)
+#define CREATE_BOX(ammoType,ammoDisplayName,bulletCount,baseClass,speed) CREATE_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,box,MG_TRACER_EVERY,RELOAD_TRACER_REMAINING,speed)
 
-#define CREATE_ALT_MAGAZINE(ammoType,ammoDisplayName,bulletCount,baseClass,alt) CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,magazine,0,RELOAD_TRACER_REMAINING,alt)
-#define CREATE_ALT_BOX(ammoType,ammoDisplayName,bulletCount,baseClass,alt) CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,box,MG_TRACER_EVERY,RELOAD_TRACER_REMAINING,alt)
+#define CREATE_ALT_MAGAZINE(ammoType,ammoDisplayName,bulletCount,baseClass,speed,alt) CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,magazine,0,RELOAD_TRACER_REMAINING,speed,alt)
+#define CREATE_ALT_BOX(ammoType,ammoDisplayName,bulletCount,baseClass,speed,alt) CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,box,MG_TRACER_EVERY,RELOAD_TRACER_REMAINING,speed,alt)
 
 #define MAGAZINE_WELL_TYPE(ammoType,bulletCount,type) QUOTE(MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))))
 #define MAGAZINE_WELL_RELOAD_TRACER_TYPE(ammoType,bulletCount,colour,type) QUOTE(MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer,colour)))
@@ -229,6 +245,7 @@ class AMMO_CLASS(SCORE_3(baseClass,tracer,White)): AMMO_CLASS(baseClass) { \
     nvgOnly = 0; \
 }; \
 class AMMO_CLASS(SCORE_3(baseClass,tracer,IR)): AMMO_CLASS(baseClass) { \
+    model = RED_TRACER; \
     nvgOnly = 1; \
 }
 
@@ -241,6 +258,33 @@ waterFriction = -0.3; \
 tracerScale = 1; \
 tracerStartTime = 0.05; \
 tracerEndTime = 1
+
+#define TINY_AMMO_CONFIG \
+TYPICAL_CONFIG; \
+dangerRadiusBulletClose = HIT_DANGER_TINY; \
+dangerRadiusHit = FLYBY_DANGER_TINY; \
+suppressionRadiusBulletClose = FLYBY_SUPPRESSION_TINY; \
+suppressionRadiusHit = HIT_SUPPRESSION_TINY; \
+hit = HIT_TINY; \
+audibleFire = AUDIBLE_FIRE_TINY; \
+caliber = CALIBER_TINY; \
+aiAmmoUsageFlags = AI_AMMO_USAGE_FLAGS_TINY; \
+ACE_damageType = "bullet";\
+ace_vehicle_damage_incendiary = 0;\
+typicalSpeed = TYPICAL_SPEED_TINY;\
+airFriction = AIR_FRICTION_TINY;\
+class CamShakeExplode {\
+    power = 2.24;\
+    duration = 0.4;\
+    frequency = 20;\
+    distance = 6.7;\
+};\
+class CamShakeHit {\
+    power = 5;\
+    duration = 0.2;\
+    frequency = 20;\
+    distance = 1;\
+}
 
 #define SMALL_AMMO_CONFIG \
 TYPICAL_CONFIG; \
@@ -322,6 +366,12 @@ class CamShakeHit {\
     frequency = 20;\
     distance = 1;\
 }
+
+#define CREATE_TINY_AMMO(type)\
+class AMMO_CLASS(type): BulletBase {\
+    TINY_AMMO_CONFIG;\
+};\
+TRACER_CLASSES(type)
 
 #define CREATE_SMALL_AMMO(type)\
 class AMMO_CLASS(type): BulletBase {\
