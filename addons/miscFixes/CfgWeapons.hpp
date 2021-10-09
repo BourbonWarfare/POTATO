@@ -43,17 +43,6 @@ class CfgWeapons {
         visionMode[] = {"Normal","NVG","TI"};
     };
 
-    // create lighter SMAWs for playability
-    class Launcher;
-    class Launcher_Base_F: Launcher {
-        class WeaponSlotsInfo;
-    };
-    class rhs_weap_smaw: Launcher_Base_F {
-        class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 70;
-        };
-    };
-
     // add zeroing to iron sighted G36es
     class hlc_G36_base;
     class hlc_rifle_G36V : hlc_G36_base {
@@ -72,10 +61,7 @@ class CfgWeapons {
             "rhs_30Rnd_762x39mm_U", "CUP_30Rnd_762x39_AK47_M"
         };
         UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
-    };
-    class rhs_weap_M249_base;
-    class rhs_weap_m240_base: rhs_weap_M249_base {
-        UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
+        magazineWell[] = { "AK_762x39", "CBA_762x39_AK", "CBA_762x39_RPK" };
     };
 
     // disable M70's rifle grenades until RHS decides to add rifle grenades
@@ -88,16 +74,10 @@ class CfgWeapons {
     // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
 
     class ItemCore;
-    class Vest_Camo_Base: ItemCore {
+    class CUP_Vest_Camo_Base: ItemCore {
         class ItemInfo;
     };
-    class rhs_6b23: Vest_Camo_Base {
-        class ItemInfo: ItemInfo {};
-    };
-    class rhsgref_alice_webbing: rhs_6b23 {
-        class ItemInfo: ItemInfo {};
-    };
-    class rhsgref_alice_webbing_bwArmorMod: rhsgref_alice_webbing {
+    class rhsgref_alice_webbing_bwArmorMod: CUP_Vest_Camo_Base { // must keep old classname, but this is now based on CUP
         displayName = "ALICE Webbing [coop plot armor]";
         descriptionShort = "Armor Level IV";
         class ItemInfo: ItemInfo {
@@ -123,6 +103,9 @@ class CfgWeapons {
                 };
             };
         };
+    };
+    class Vest_Camo_Base: ItemCore {
+        class ItemInfo;
     };
     class rhs_vydra_3m: Vest_Camo_Base {
         class ItemInfo: ItemInfo {};

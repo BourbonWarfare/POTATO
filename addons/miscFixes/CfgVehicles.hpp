@@ -25,23 +25,15 @@ class CfgVehicles {
     class Box_NATO_Support_F;
     class GVAR(smawBox): Box_NATO_Support_F {
         scope = 1;
-        displayName = "SMAW Weapon Box";
+        displayName = "Fucks given";
         transportMaxWeapons = 9001;
         transportMaxMagazines = 9001;
         transportMaxItems = 9001;
         maximumload = 1000;
 
-        class TransportWeapons {
-            MACRO_ADDWEAPON(rhs_weap_smaw,1);
-        };
-        class TransportMagazines {
-            MACRO_ADDMAGAZINE(rhs_mag_smaw_HEAA,10);
-            MACRO_ADDMAGAZINE(rhs_mag_smaw_HEDP,10);
-            MACRO_ADDMAGAZINE(rhs_mag_smaw_SR,8);
-        };
-        class TransportItems {
-            MACRO_ADDITEM(rhs_weap_optic_smaw,1);
-        };
+        class TransportWeapons {};
+        class TransportMagazines {};
+        class TransportItems {};
         class TransportBackpacks {};
     };
 
@@ -83,4 +75,24 @@ class CfgVehicles {
     class DSA_Trapdoor: DSA_AnomalyBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Trapdoor
     class DSA_DeltaX_Operator: B_Soldier_F { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Delta X Operator
     class DSA_DeltaX_CBRN: B_Soldier_F { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Delta X CBRN
+
+    // Fix fajita
+	class Building;
+	class NonStrategic: Building {
+		class DestructionEffects;
+	};	
+	class HouseBase: NonStrategic {};	
+	class House: HouseBase {
+        class DestructionEffects: DestructionEffects {
+			class Smoke1 {
+				type="HouseDestructionSmoke3";
+			};
+			class Smoke2: Smoke1 {
+				type="HouseDestructionSmoke4";
+			};
+			class Smoke3: Smoke1 {
+				type="HouseDestrSmokeLong";
+            };
+		};
+	};
 };
