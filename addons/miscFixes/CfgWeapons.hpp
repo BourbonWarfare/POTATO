@@ -74,7 +74,8 @@ class CfgWeapons {
     // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
 
     class ItemCore;
-    class CUP_V_B_Alice: ItemCore {
+    class CUP_Vest_Camo_Base;
+    class CUP_V_B_ALICE: CUP_Vest_Camo_Base {
         class ItemInfo;
     };
     class rhsgref_alice_webbing_bwArmorMod: CUP_V_B_Alice { // must keep old classname, but this is now based on CUP
