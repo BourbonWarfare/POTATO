@@ -74,10 +74,10 @@ class CfgWeapons {
     // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
 
     class ItemCore;
-    class CUP_Vest_Camo_Base: ItemCore {
+    class CUP_V_B_Alice: ItemCore {
         class ItemInfo;
     };
-    class rhsgref_alice_webbing_bwArmorMod: CUP_Vest_Camo_Base { // must keep old classname, but this is now based on CUP
+    class rhsgref_alice_webbing_bwArmorMod: CUP_V_B_Alice { // must keep old classname, but this is now based on CUP
         displayName = "ALICE Webbing [coop plot armor]";
         descriptionShort = "Armor Level IV";
         class ItemInfo: ItemInfo {
