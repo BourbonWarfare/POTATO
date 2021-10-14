@@ -50,18 +50,13 @@ class CfgWeapons {
         discreteDistanceInitIndex = 1;
     };
 
-    // Create RPK from CUP RPK-74, just need to fill a gap
     class CUP_arifle_RPK74;
     class potato_arifle_RPK: CUP_arifle_RPK74 {
-        author = "POTATO";
-        displayname = "RPK";
-        magazines[] = {
-            "potato_75Rnd_762x39mm_tracer", "rhs_30Rnd_762x39mm",
-            "rhs_30Rnd_762x39mm_tracer", "rhs_30Rnd_762x39mm_89",
-            "rhs_30Rnd_762x39mm_U", "CUP_30Rnd_762x39_AK47_M"
-        };
+        // CUP_arifle_RPK74 is actually a chambered in 7.62 and just called RPK in-game
+        // CUP_arifle_RPK74_45 is the 5.45 version and is called RPK-74 in game
+        // so this isn't needed anymore
+        scope = 1;
         UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
-        magazineWell[] = { "AK_762x39", "CBA_762x39_AK", "CBA_762x39_RPK" };
     };
 
     // disable M70's rifle grenades until RHS decides to add rifle grenades
