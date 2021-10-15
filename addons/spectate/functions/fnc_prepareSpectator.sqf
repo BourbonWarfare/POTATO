@@ -35,7 +35,7 @@ if !(isNull _unit) then {
     if !(isNull _oldUnit) then {
         _unit setVariable [QGVAR(oldUnit), _oldUnit];
         _unit setVariable [QGVAR(oldSideColor), [[[configFile >> "CfgVehicles" >> (typeOf _oldUnit) >> "side", 7] call CFUNC(getNumber)] call CFUNC(toSide)] call BIS_fnc_sideColor]; // holy chained calls batman
-        _unit setVariable [QEGVAR(miscFixes,eventsString), _oldUnit getVariable [QEGVAR(miscFixes,eventsString), "None"]];
+        _unit setVariable [QEGVAR(miscFixes,eventsString), _oldUnit getVariable [QACEGVAR(killtracker,output), "None"]];
 
         // hack to hopefully keep dead STHUD names longer
         private _name = name _unit;
