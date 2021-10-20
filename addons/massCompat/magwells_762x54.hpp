@@ -18,7 +18,7 @@
     class CBA_762x54R_Maxim {};         // Maxim gun in 7.62x54R
     class CBA_762x54R_Mosin {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(762x54,5),
+            MAGAZINE_WELL_MAG(762x54,5)
         };
     };         // M91/30, M38, M44 Mosin
 
@@ -26,7 +26,7 @@
 
     class CBA_762x54R_SVD {             // SVD
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(762x54,10),
+            MAGAZINE_WELL_MAG(762x54,10)
         };
     };
 
@@ -34,7 +34,7 @@
 
     class CBA_762x54R_Vz59_LINKS {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(762x54,50),
+            MAGAZINE_WELL_MAG(762x54,50)
         };
         GVAR(oldMissionsCompat)[] = {
             "100rnd_762x54_box_tracer_red",
