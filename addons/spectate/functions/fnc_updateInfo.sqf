@@ -21,7 +21,7 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
     if (isNull GVAR(camTarget)) then {
         [player getVariable [QGVAR(oldUnit), player], acex_killTracker_outputText]
     } else {
-        [GVAR(camTarget), GVAR(camTarget) getVariable [QEGVAR(miscFixes,eventsString), "None"]]
+        [GVAR(camTarget), GVAR(camTarget) getVariable [QACEGVAR(killtracker,output), "None"]]
     } params ["_unit", "_killFeed"];
     TRACE_1("Kill Feed", _killFeed);
 
