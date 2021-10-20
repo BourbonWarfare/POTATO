@@ -1,4 +1,13 @@
 [
+    QGVAR(syncFortify),
+    "CHECKBOX",
+    ["Required for Fortify", "Only allow using fortify tool when safe start is enabled"],
+    ["POTATO - Mission Maker", "Safe Start"],
+    true, // default
+    1 // global
+] call cba_settings_fnc_init;
+
+[
     QGVAR(showTimer),
     "CHECKBOX",
     ["Show SafeStart Timer", "False disables the on screen timer, can use to make clean recordings."],
