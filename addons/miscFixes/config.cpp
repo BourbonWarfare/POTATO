@@ -16,7 +16,7 @@ class CfgPatches {
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "potato_core", "ace_ui",
+            "potato_core", "ace_ui", "ace_fortify",
             "rhs_main_loadorder",
             "CUP_Weapons_LoadOrder", "CUP_Creatures_People_LoadOrder",
             "Chernarus", "torabora", "fallujah_hou",
@@ -27,6 +27,7 @@ class CfgPatches {
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
+    BWC_CONFIG(potato_fortify);
 };
 
 
