@@ -1,6 +1,19 @@
 class CBA_Extended_EventHandlers;
 
 class CfgVehicles {
+    // Handle fortify moving to acex
+    class acex_fortify_setupModule; // these still use acex_
+    class EGVAR(fortify,setupModule): acex_fortify_setupModule {
+        scope = 1;
+        displayName = "delete me and use acex_fortify_setupModule";
+    };
+    class acex_fortify_buildLocationModule;
+    class EGVAR(fortify,buildLocationModule): acex_fortify_buildLocationModule {
+        scope = 1;
+        displayName = "delete me and use acex_fortify_buildLocationModule";
+    };
+
+
     // Integrate invisibile backpack from SagJangi
     // https://forums.bohemia.net/forums/topic/222097-battle-belt/
     class Bag_Base;
