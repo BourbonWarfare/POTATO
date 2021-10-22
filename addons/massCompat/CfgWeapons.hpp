@@ -133,10 +133,10 @@ class CfgWeapons {
     class CUP_arifle_G36A_RIS: CUP_arifle_G36_Base {
         initSpeed = -1.0;
     };
-    class CUP_arifle_G36A3: CUP_arifle_G36_Base {
+    class CUP_arifle_G36A3: CUP_arifle_G36A_RIS {
         initSpeed = -1.0;
     };
-    class CUP_arifle_G36A3_grip: CUP_arifle_G36_Base {
+    class CUP_arifle_G36A3_grip: CUP_arifle_G36A3 {
         initSpeed = -1.0;
     };
     class CUP_arifle_G36K: CUP_arifle_G36_Base_CarryhandleOptics {
@@ -151,13 +151,13 @@ class CfgWeapons {
     class CUP_arifle_G36K_KSK: CUP_arifle_G36K_RIS {
         initSpeed = -1.0;
     };
-    class CUP_arifle_G36K_KSK_VFG: CUP_arifle_G36K_RIS {
+    class CUP_arifle_G36K_KSK_VFG: CUP_arifle_G36K_KSK {
         initSpeed = -1.0;
     };
-    class CUP_arifle_G36KA3: CUP_arifle_G36_Base {
+    class CUP_arifle_G36KA3: CUP_arifle_G36K_RIS {
         initSpeed = -1.0;
     };
-    class CUP_arifle_G36KA3_grip: CUP_arifle_G36_Base {
+    class CUP_arifle_G36KA3_grip: CUP_arifle_G36KA3 {
         initSpeed = -1.0;
     };
     class CUP_arifle_G36C: CUP_arifle_G36_Base {
@@ -172,13 +172,13 @@ class CfgWeapons {
     class CUP_arifle_G36CA3: CUP_arifle_G36C {
         initSpeed = -1.0;
     };
-    class CUP_arifle_G36CA3_grip: CUP_arifle_G36C {
+    class CUP_arifle_G36CA3_grip: CUP_arifle_G36CA3 {
         initSpeed = -1.0;
     };
     class CUP_arifle_G36E: CUP_arifle_G36_Base_CarryhandleOptics {
         initSpeed = -1.0;
     };
-    class CUP_arifle_MG36: CUP_arifle_G36C {
+    class CUP_arifle_MG36: CUP_arifle_G36_Base {
         initSpeed = -1.0;
     };
     class CUP_hgun_Glock17: Pistol_Base_F {
@@ -196,7 +196,8 @@ class CfgWeapons {
     class CUP_arifle_L86A2: CUP_l85a2 {
         initSpeed = -1.0;
     };
-    class CUP_lmg_L110A1: Rifle_Long_Base_F {
+    class CUP_lmg_m249_pip4;
+    class CUP_lmg_L110A1: CUP_lmg_m249_pip4 {
         initSpeed = -1.0;
     };
     class CUP_arifle_M4A1_SOMMOD_black: CUP_arifle_M4A1_BUIS_Base {
