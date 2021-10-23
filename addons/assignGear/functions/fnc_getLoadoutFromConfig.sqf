@@ -26,6 +26,7 @@ TRACE_2("getLoadoutFromConfig",_path,_unit);
 private _configUniform = getArray (_path >> "uniform");
 private _configVest = getArray (_path >> "vest");
 private _configHeadgear = getArray (_path >> "headgear");
+private _configGoggles = getArray (_path >> "goggles");	
 private _configBackpack = getArray (_path >> "backpack");
 private _configBackpackItems = getArray (_path >> "backpackItems");
 private _configWeapons = getArray (_path >> "weapons");
@@ -57,6 +58,7 @@ private _containersArray = [];
 TRACE_1("containers",_containersArray);
 
 private _headgear = if (_configHeadgear isEqualTo []) then { "" } else { selectRandom _configHeadgear };
+private _goggles = if (_configGoggles isEqualTo []) then { "" } else { selectRandom _configGoggles };	
 private _binocularArray = [];
 private _assignedItems = ["", "", "", "", "", ""];
 
@@ -110,7 +112,7 @@ TRACE_1("Adding Items End: ",_containersArray);
     (_containersArray select VEST_INDEX) select 1,
     (_containersArray select BACKPACK_INDEX) select 1,
     _headgear,
-    "",
+    _goggles,
     _binocularArray,
     _assignedItems
 ]
