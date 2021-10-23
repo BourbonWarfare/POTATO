@@ -358,7 +358,6 @@ class CfgAmmo {
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
     };
     class CUP_B_762x51_noTracer;
-    class HLC_GP11_FMJ;
     class rhs_B_762x39_Ball: B_762x51_Ball {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
@@ -392,109 +391,9 @@ class CfgAmmo {
     class R_230mm_fly: ShellBase {
         audibleFire = 64;
     };
-    class HLC_9x19_Ball;
     class FH_545x39_Ball: B_556x45_Ball {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_3006_FMJ: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_68x43_FMJ: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_300WM_BTSP;
-    class HLC_300WM_Tracer: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_300WM_FMJ: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_303Brit_B;
-    class HLC_300Blackout_Ball;
-    class HLC_556NATO_SPR: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_556NATO_SOST: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_556NATO_EPR: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_B_545x39_Ball: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class B_556x45_dual: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
-    class HLC_10mm_FMJ;
-    class HLC_9x19_Subsonic: HLC_9x19_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
-    class HLC_763x25_FMJ: HLC_10mm_FMJ {
-        audibleFire = 3;
-    };
-    class FH_545x39_EP: FH_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class FH_545x39_7u1: FH_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
-    class HLC_GP11_tracer: HLC_GP11_FMJ {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class hlc_68x43_Sub: HLC_68x43_FMJ {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
-    class hlc_68x43_OTM: HLC_68x43_FMJ {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_300WM_S_BT: HLC_300WM_BTSP {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
-    class HLC_300WM_BTHP: HLC_300WM_BTSP {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_300WM_AP: HLC_300WM_BTSP {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_792x57_Ball: HLC_303Brit_B {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_792x57_AP: HLC_792x57_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_792x57_Tracer: HLC_792x57_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class HLC_300Blackout_RNBT: HLC_300Blackout_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
-    class HLC_300Blackout_SMK: HLC_300Blackout_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
     };
     class SubmunitionBase;
     class VOG25P_SubMunition: SubmunitionBase {
