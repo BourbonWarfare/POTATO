@@ -7,7 +7,7 @@ class CfgMagazines {
         descriptionShort = "Caliber: 7.62x39mm<br/>Rounds: 75<br/>Used in: RPK";
         displayName = "57-N-231P 75 round Drum Mag";
         mass = 25;
-        picture = "\CUP\Weapons\CUP_Weapons_Ammunition\data\ui\M_RPK_74_CA.paa";
+        picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_red_ca.paa";
     };
 
     class 200Rnd_65x39_cased_Box;
