@@ -48,7 +48,7 @@ class CfgMagazines {
     };
 
 
-    // reloadable m119
+    /* // reloadable m119
     class ACE_1Rnd_82mm_Mo_HE;
     class GVAR(105mm_m119_he): ACE_1Rnd_82mm_Mo_HE {
         author = "Potato";
@@ -66,6 +66,6 @@ class CfgMagazines {
     };
     class GVAR(105mm_m119_illum): GVAR(105mm_m119_he) {
         displayName = "[OLD] 105mm Illum";
-    };
+    }; */
 };
 
