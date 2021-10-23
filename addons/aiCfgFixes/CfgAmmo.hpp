@@ -435,6 +435,7 @@ class CfgAmmo {
         audibleFire = AI_AUDIBLE_FIRE_1;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
     };
+	class rhs_B_545x39_Ball;
     class rhs_B_545x39_7U1_Ball: rhs_B_545x39_Ball {
         audibleFire = AI_AUDIBLE_FIRE_1;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
