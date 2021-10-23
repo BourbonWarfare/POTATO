@@ -42,10 +42,9 @@ if !(isNull MESSAGE_DISPLAY) then {
         TRACE_2("Recruits",_recruits,_recruitCount);
         if (_recruitCount > 0) then {
             MESSAGE_CONTROL ctrlSetStructuredText parseText format [
-                "<t size='0.75'>You have %1 in your group:<br/>%2<br/>Say hello and make sure you vote on their %3</t>",
-                ["a recruit", "some recruits"] select (_recruitCount > 1),
-                _recruits joinString "<br/>",
-                ["thread", "threads"] select (_recruitCount > 1)
+                "<t size='0.75'>You have %1 in your group:<br/>%2<br/><br/>Say hello and make sure they know how to play!</t>",
+                ["a new player", "some new players"] select (_recruitCount > 1),
+                _recruits joinString "<br/>"
             ];
             MESSAGE_CONTROL ctrlSetPosition [
                 0.88 * safezoneW + safezoneX,
