@@ -5,7 +5,7 @@
 class CfgPatches {
     class ADDON {
         units[] = {};
-        weapons[] = { "potato_fakeNVG", "potato_arifle_RPK" };
+        weapons[] = {"potato_fakeNVG"};
         magazines[] = {
             "potato_75Rnd_762x39mm_tracer", "200Rnd_65x39_cased_Box_Tracer_Red",
             "200Rnd_65x39_cased_Box_Tracer_Green", "100Rnd_65x39_cased_Box_Tracer_Yellow",
@@ -16,11 +16,10 @@ class CfgPatches {
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "potato_core", "ace_ui", "ace_fortify",
+            "potato_core","ace_ui","ace_fortify",
             "rhs_main_loadorder",
             "CUP_Weapons_LoadOrder", "CUP_Creatures_People_LoadOrder",
-            "Chernarus", "torabora", "fallujah_hou",
-            "DSA_Spooks", "ffaa_armas"
+            "Chernarus"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};
@@ -50,6 +49,5 @@ class RscChatListDefault {
 #include "CfgMagazines.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
-#include "CfgFontFamilies.hpp"
 
 #endif
