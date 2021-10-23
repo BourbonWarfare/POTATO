@@ -18,8 +18,8 @@ _sortedCounts sort false;
 private _isTVT = (_sortedCounts select 1) > 10;
 INFO_3("Placed on mission: [Units: %1] [Non-unit Objects: %2][Playable Slots: %3]", count _allUnits, (count _allMissionObjects) - (count _allUnits), _sideCounts);
 
-private _bwmfDate = getText (missionConfigFile >> "bwmfDate");
-if (_bwmfDate == "") exitWith {
+private _cmfVers = getText (missionConfigFile >> "cmfVers");
+if (_cmfVers == "") exitWith {
     ["Saving: Non-framework mission (missing description.ext?)"] call BIS_fnc_3DENNotification;
     WARNING("Non-framework mission (missing description.ext?)");
 };
@@ -98,28 +98,20 @@ if (_fog > 0.25) then {
 
 // Check briefing/author/onLoad attributies:
 private _author = "Scenario" get3DENMissionAttribute "author";
-if (_author == "*** Insert author name here. ***") then {
+if (_author == "*** Insert Author Name ***") then {
     _problems pushBackUnique ["Need to set author", ["Attributes -> General -> Author"]];
 };
 private _slottingInfo = "Intel" get3DENMissionAttribute "IntelOverviewText";
-if (_slottingInfo == "*** Insert mission description here. ***") then {
+if (_slottingInfo == "COOP40 - [Attack/Defend] | [Explain faction and gear type] | [Specialties] | [Zeus is/not Required]") then {
     _problems pushBackUnique ["Need to set slotting mission description", ["Attributes -> Multiplayer -> Summary"]];
 } else {
     if (_isTVT && {(parseNumber (_slottingInfo select [0,1])) == 0}) then { // very basic ratio detection
         _problems pushBackUnique ["Should add ratio", ["Attributes -> Multiplayer -> Summary"]];
     };
 };
-private _onLoadName = getText (missionConfigFile >> "onLoadName");
-if (_onLoadName == "*** Insert mission name here. ***") then {
-    _problems pushBackUnique ["Minor: Need to set loading screen info", ["description.ext -> onLoadName"]];
-};
-private _missionType = (getMissionConfigValue QEGVAR(missionTesting,missionType));
-if (_missionType == 0) then {
-    _problems pushBackUnique ["Need to select mission type", ["POTATO -> Mission Testing Attributes -> Mission Type"]];
-};
-private _missionLength = getMissionConfigValue QEGVAR(missionTesting,missionTimeLength);
-if (_missionLength == "") then {
-    _problems pushBackUnique ["Need to set mission length value", ["POTATO -> Mission Testing Attributes -> Mission Length"]];
+private _onLoadName = "Scenario" get3DENMissionAttribute "IntelBriefingName";
+if (_onLoadName == "*** Insert Mission Name ***") then {
+    _problems pushBackUnique ["Minor: Need to set loading screen info", ["Attributes -> General"]];
 };
 
 
@@ -147,7 +139,6 @@ private _classesNone= [];
     if ((!isClass(_path)) && EGVAR(assignGear,useFallback)) then {
         _path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
         if (isClass _path) then {
-            if ((typeOf _x) == "O_helicrew_f") exitWith {}; // todo: fix framework
             if (getText (configFile >> "CfgVehicles" >> typeOf _x >> "simulation") == "UAVPilot") exitWith {}; // Ignore UAV
             TRACE_1("using fallback",typeOf _x);
             _classesFallback pushBackUnique (typeOf _x);
@@ -177,7 +168,6 @@ private _checkDeprecatedGear = [];
     if ((side _unit) != civilian) then { // Ignore all civilians
         // Check all units have a primary weapon:
         if ((primaryWeapon _unit) == "") then {
-            if (_typeOf == "potato_msv_pol") exitWith {};
             TRACE_1("no rifle",_typeOf);
             _checkWeapons pushBackUnique format ["%1 has no primaryWeapon", _typeOf];
         };
@@ -193,30 +183,28 @@ private _checkDeprecatedGear = [];
             if (_x != "") then {
                 private _ammoCount = 0;
                 private _weaponMags = [_weapon] call CBA_fnc_compatibleMagazines;
-                if (!(_weaponMags isEqualTo [])) then { // Prevents alerts for weapons that have no magazines (e.g. CSW)
-                    {
-                        _x params ["_xMagName", "_xAmmo"];
-                        if (_xMagName in _weaponMags) then {
-                            _ammoCount = _ammoCount + _xAmmo;
-                        };
-                    } forEach (magazinesAmmoFull _unit);
-                    if (_ammoCount == 0) then {
-                        TRACE_3("has zero ammo",_typeOf,_weapon,magazines _unit);
-                        _checkMagazines pushBackUnique format ["%1 has no ammo for %2", _typeOf, _weapon];
+                {
+                    _x params ["_xMagName", "_xAmmo"];
+                    if (_xMagName in _weaponMags) then {
+                        _ammoCount = _ammoCount + _xAmmo;
                     };
-                    if (_weapon == (primaryWeapon _unit)) then {
-                        private _desiredAmmo = call {
-                            // allow low ammo count for long range gunners
-                            if ((_typeOf find "marksman" > -1) || {_typeOf find "spotter" > -1} || {_typeOf find "sniper" > -1}) exitWith { 20 };
-                            // suggest hight ammo count for MGs
-                            if ((_typeOf find "_ar" > -1) || {_typeOf find "_mg" > -1} || {_typeOf find "_mmgg" > -1}) exitWith { 250 };
-                            // default rifleman case
-                            100
-                        };
-                        if (_ammoCount <= _desiredAmmo) then {
-                            TRACE_4("limited rifle ammo",_typeOf,_weapon,_ammoCount,_desiredAmmo);
-                            _checkMagazines pushBackUnique format ["%1 only has %2", _typeOf, _ammoCount];
-                        };
+                } forEach (magazinesAmmoFull _unit);
+                if (_ammoCount == 0) then {
+                    TRACE_3("has zero ammo",_typeOf,_weapon,magazines _unit);
+                    _checkMagazines pushBackUnique format ["%1 has no ammo for %2", _typeOf, _weapon];
+                };
+                if (_weapon == (primaryWeapon _unit)) then {
+                    private _desiredAmmo = call {
+                        // allow low ammo count for long range gunners
+                        if ((_typeOf find "marksman" > -1) || {_typeOf find "spotter" > -1} || {_typeOf find "sniper" > -1}) exitWith { 20 };
+                        // suggest hight ammo count for MGs
+                        if ((_typeOf find "_ar" > -1) || {_typeOf find "_mg" > -1} || {_typeOf find "_mmgg" > -1}) exitWith { 250 };
+                        // default rifleman case
+                        100
+                    };
+                    if (_ammoCount <= _desiredAmmo) then {
+                        TRACE_4("limited rifle ammo",_typeOf,_weapon,_ammoCount,_desiredAmmo);
+                        _checkMagazines pushBackUnique format ["%1 only has %2", _typeOf, _ammoCount];
                     };
                 };
             };
