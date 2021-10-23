@@ -84,7 +84,7 @@
     };       // H&K G3 long mag (25/30 rounds)
     class CBA_762x51_G3_XL {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_ALT_MAG(762x51,50,g3)
+            //MAGAZINE_WELL_ALT_MAG(762x51,50,g3)
         };
     };      // H&K G3 drum mag (X-Products 50 round)
 
@@ -113,11 +113,11 @@
 
     class CBA_762x51_LINKS {        // M13 Links for M60, M240, MG3 (DM6/DM60)
         GVAR(mags)[] = {
-            MAGAZINE_WELL_BOX(762x51,50),
+            //MAGAZINE_WELL_BOX(762x51,50),
             MAGAZINE_WELL_BOX(762x51,100),
-            MAGAZINE_WELL_BOX(762x51,150),
-            MAGAZINE_WELL_BOX(762x51,200),
-            MAGAZINE_WELL_BOX(762x51,250)
+            MAGAZINE_WELL_BOX(762x51,150)
+            //MAGAZINE_WELL_BOX(762x51,200),
+            //MAGAZINE_WELL_BOX(762x51,250)
         };
     };
 
@@ -140,11 +140,11 @@
 
     class CBA_762x51_MG3 {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_BOX(762x51,50),
+            //MAGAZINE_WELL_BOX(762x51,50),
             MAGAZINE_WELL_BOX(762x51,100),
             MAGAZINE_WELL_BOX(762x51,150),
-            MAGAZINE_WELL_BOX(762x51,200),
-            MAGAZINE_WELL_BOX(762x51,250)
+            //MAGAZINE_WELL_BOX(762x51,200),
+            //MAGAZINE_WELL_BOX(762x51,250)
         };
     };        // MG3 DM1 link belts
 

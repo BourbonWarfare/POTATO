@@ -33,6 +33,7 @@ class CfgMagazines {
     class 10Rnd_127x54_Mag;
     class 20Rnd_650x39_Cased_Mag_F;
 
+    //class hlc_30Rnd_10mm_B_MP5;
     class CUP_5Rnd_762x67_G22;
     class CUP_10x_303_M;
     class CUP_10Rnd_B_765x17_Ball_M;
@@ -49,6 +50,7 @@ class CfgMagazines {
     class CUP_100Rnd_556x45_BetaCMag_ar15;
     class CUP_60Rnd_556x45_SureFire;
     class CUP_30Rnd_680x43_Stanag;
+    //class hlc_24Rnd_75x55_B_stgw;
     class CUP_8Rnd_762x25_TT;
     class CUP_40Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M;
     class CUP_75Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M;
@@ -59,14 +61,22 @@ class CfgMagazines {
     class CUP_10Rnd_762x51_CZ750_Tracer;
     class CUP_30Rnd_TE1_Yellow_Tracer_762x51_FNFAL_M;
     class CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M;
+    //class hlc_200Rnd_762x51_B_M60E4;
+    //class hlc_50Rnd_762x51_B_MG3;
+    //class hlc_250Rnd_762x51_B_MG3;
     class CUP_20Rnd_762x51_B_SCAR;
     class CUP_50Rnd_762x51_B_SCAR;
+    //class hlc_20Rnd_762x51_b_amt;
     class CUP_5Rnd_762x54_Mosin_M;
     class CUP_50Rnd_UK59_762x54R_Tracer;
+    //class hlc_50Rnd_792x57_B_MG42;
+    //class hlc_100Rnd_792x57_B_MG42;
+    //class hlc_200Rnd_792x57_B_MG42;
     class CUP_8Rnd_9x18_Makarov_M;
     class CUP_12Rnd_9x18_PMM_M;
     class CUP_10Rnd_9x19_Compact;
     class CUP_64Rnd_9x19_Bizon_M;
+    //class hlc_25Rnd_9x19mm_M882_AUG;
     class CUP_10Rnd_9x39_SP5_VSS_M;
     class CUP_20Rnd_9x39_SP5_VSS_M;
     class CUP_30Rnd_9x39_SP5_VIKHR_M;
@@ -79,13 +89,17 @@ class CfgMagazines {
     class CUP_30Rnd_9x19_MP5;
     class CUP_100Rnd_TE4_Red_Tracer_556x45_M249;
     class CUP_200Rnd_TE4_Red_Tracer_556x45_M249;
+    //class hlc_40Rnd_556x45_B_AUG;
     class CUP_7Rnd_50AE_Deagle;
     class CUP_32Rnd_9x19_TEC9;
     class CUP_5x_22_LR_17_HMR_M;
     class CUP_25Rnd_762x51_Galil_Mag;
     class CUP_35Rnd_556x45_Galil_Mag;
     class CUP_30Rnd_556x45_AK;
+    //class hlc_50Rnd_762x51_B_fal;
+    //class hlc_50Rnd_762x51_B_G3;
     class CUP_30Rnd_45ACP_M3A1_M;
+    //class hlc_30rnd_556x45_EPR_HK33;
 
     /* !! spaces are intentionally placed !! */
     // Tiny ammo
@@ -103,6 +117,7 @@ class CfgMagazines {
     CREATE_MAGAZINE(9x19,9x19mm Parabellum ,17,CUP_10Rnd_9x19_Compact,TYPICAL_SPEED_TINY);
     CREATE_MAGAZINE(9x19,9x19mm Parabellum ,18,CUP_10Rnd_9x19_Compact,TYPICAL_SPEED_TINY);
     CREATE_MAGAZINE(9x19,9x19mm Parabellum ,21,CUP_10Rnd_9x19_Compact,TYPICAL_SPEED_TINY);
+    //CREATE_MAGAZINE(9x19,9x19mm Parabellum ,25,hlc_25Rnd_9x19mm_M882_AUG,TYPICAL_SPEED_TINY);
     CREATE_MAGAZINE(9x19,9x19mm Parabellum ,30,CUP_30Rnd_9x19_MP5,TYPICAL_SPEED_TINY);
     CREATE_MAGAZINE(9x19,9x19mm Parabellum ,32,CUP_32Rnd_9x19_TEC9,TYPICAL_SPEED_TINY);
     CREATE_MAGAZINE(9x19,9x19mm Parabellum ,64,CUP_64Rnd_9x19_Bizon_M,TYPICAL_SPEED_TINY);
@@ -121,6 +136,8 @@ class CfgMagazines {
     CREATE_MAGAZINE(45_acp,45 ACP ,30,30Rnd_45ACP_Mag_SMG_01,TYPICAL_SPEED_TINY);
     CREATE_ALT_MAGAZINE(45_acp,45 ACP ,30,CUP_30Rnd_45ACP_M3A1_M,TYPICAL_SPEED_TINY,m3a1);
 
+    //CREATE_MAGAZINE(10x25,10mm Auto ,30,hlc_30Rnd_10mm_B_MP5,TYPICAL_SPEED_TINY);
+
     // Small Ammo
     CREATE_MAGAZINE(50ae,.50 Action Express ,7,CUP_7Rnd_50AE_Deagle,TYPICAL_SPEED_SMALL);
 
@@ -136,7 +153,9 @@ class CfgMagazines {
     CREATE_MAGAZINE(556x45,5.56x45mm ,25,CUP_25Rnd_556x45_Famas,TYPICAL_SPEED_SMALL);
     CREATE_MAGAZINE(556x45,5.56x45mm ,30,30Rnd_556x45_Stanag,TYPICAL_SPEED_SMALL);
     CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_AK,TYPICAL_SPEED_SMALL,ak);
+    //CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,hlc_30rnd_556x45_EPR_HK33,TYPICAL_SPEED_SMALL,hk33);
     CREATE_MAGAZINE(556x45,5.56x45mm ,35,CUP_35Rnd_556x45_Galil_Mag,TYPICAL_SPEED_SMALL);
+    //CREATE_MAGAZINE(556x45,5.56x45mm ,42,hlc_40Rnd_556x45_B_AUG,TYPICAL_SPEED_SMALL);
     CREATE_MAGAZINE(556x45,5.56x45mm ,45,30Rnd_556x45_Stanag,TYPICAL_SPEED_SMALL);
     CREATE_MAGAZINE(556x45,5.56x45mm ,150,150Rnd_556x45_Drum_Mag_F,TYPICAL_SPEED_SMALL);
     CREATE_MAGAZINE(556x45,5.56x45mm ,100,CUP_100Rnd_556x45_BetaCMag_ar15,TYPICAL_SPEED_SMALL);
@@ -187,6 +206,12 @@ class CfgMagazines {
     CREATE_MAGAZINE(762x54,7.62x54mmR ,50,CUP_50Rnd_UK59_762x54R_Tracer,TYPICAL_SPEED_MEDIUM);
     CREATE_BOX(762x54,7.62x54mmR ,100,150Rnd_762x54_Box,TYPICAL_SPEED_MEDIUM);
     CREATE_BOX(762x54,7.62x54mmR ,150,150Rnd_762x54_Box,TYPICAL_SPEED_MEDIUM);
+
+    //CREATE_BOX(792x57,7.92x57mm Mauser ,50,hlc_50Rnd_792x57_B_MG42,TYPICAL_SPEED_MEDIUM);
+    //CREATE_BOX(792x57,7.92x57mm Mauser ,100,hlc_100Rnd_792x57_B_MG42,TYPICAL_SPEED_MEDIUM);
+    //CREATE_BOX(792x57,7.92x57mm Mauser ,200,hlc_200Rnd_792x57_B_MG42,TYPICAL_SPEED_MEDIUM);
+
+    //CREATE_MAGAZINE(75x55,7.5x55mm Swiss ,24,hlc_24Rnd_75x55_B_stgw,TYPICAL_SPEED_MEDIUM);
 
     CREATE_MAGAZINE(300_wm,.300 Win Mag ,5,CUP_5Rnd_762x67_G22,TYPICAL_SPEED_MEDIUM);
 

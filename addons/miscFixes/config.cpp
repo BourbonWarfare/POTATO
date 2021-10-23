@@ -5,7 +5,7 @@
 class CfgPatches {
     class ADDON {
         units[] = {};
-        weapons[] = {"potato_fakeNVG"};
+        weapons[] = { "potato_fakeNVG", "potato_arifle_RPK" };
         magazines[] = {
             "potato_75Rnd_762x39mm_tracer", "200Rnd_65x39_cased_Box_Tracer_Red",
             "200Rnd_65x39_cased_Box_Tracer_Green", "100Rnd_65x39_cased_Box_Tracer_Yellow",
@@ -18,7 +18,7 @@ class CfgPatches {
         requiredAddons[] = {
             "potato_core","ace_ui","ace_fortify",
             "rhs_main_loadorder",
-            "CUP_Weapons_LoadOrder", "CUP_Creatures_People_LoadOrder",
+            "CUP_Weapons_LoadOrder","CUP_Creatures_People_LoadOrder",
             "Chernarus"
         };
         author = "Potato";

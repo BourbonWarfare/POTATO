@@ -7,7 +7,7 @@ class CfgMagazines {
         descriptionShort = "Caliber: 7.62x39mm<br/>Rounds: 75<br/>Used in: RPK";
         displayName = "57-N-231P 75 round Drum Mag";
         mass = 25;
-        picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_red_ca.paa";
+        picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_green_ca.paa";
     };
 
     class 200Rnd_65x39_cased_Box;
@@ -65,7 +65,7 @@ class CfgMagazines {
         descriptionShort = "7.62mm 150Rnd Tracer Box<br/>Caliber: 7.62x54 mm Tracer - Red<br/>Rounds: 150<br/>Used in: Zafir";
         displayName = "7.62mm 150Rnd Tracer Box (Red)";
         displayNameShort = "Tracer";
-        picture = QPATHTOF(data\m_150Rnd_762x51_tracer_red_CA.paa);
+        picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_green_ca.paa";
     };
     class 150Rnd_762x54_Box_Tracer_Yellow: 150Rnd_762x54_Box_Tracer {
         scope = 1;
@@ -74,7 +74,7 @@ class CfgMagazines {
         descriptionShort = "7.62mm 150Rnd Tracer Box<br/>Caliber: 7.62x54 mm Tracer - Yellow<br/>Rounds: 150<br/>Used in: Zafir";
         displayName = "7.62mm 150Rnd Tracer Box (Yellow)";
         displayNameShort = "Tracer";
-        picture = QPATHTOF(data\m_150Rnd_762x51_tracer_yellow_CA.paa);
+        picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_green_ca.paa";
     };
     class 100Rnd_762x54_Box_Tracer_Green: 150Rnd_762x54_Box_Tracer {
         scope = 1;
@@ -92,7 +92,7 @@ class CfgMagazines {
         descriptionShort = "7.62mm 100Rnd Tracer Box<br/>Caliber: 7.62x54 mm Tracer - Red<br/>Rounds: 100<br/>Used in: Zafir";
         displayName = "7.62mm 100Rnd Tracer Box (Red)";
         displayNameShort = "Tracer";
-        picture = QPATHTOF(data\m_150Rnd_762x51_tracer_red_CA.paa);
+        picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_green_ca.paa";
     };
     class 100Rnd_762x54_Box_Tracer_Yellow: 100Rnd_762x54_Box_Tracer_Green {
         scope = 1;
@@ -100,6 +100,6 @@ class CfgMagazines {
         descriptionShort = "7.62mm 100Rnd Tracer Box<br/>Caliber: 7.62x54 mm Tracer - Yellow<br/>Rounds: 100<br/>Used in: Zafir";
         displayName = "7.62mm 100Rnd Tracer Box (Yellow)";
         displayNameShort = "Tracer";
-        picture = QPATHTOF(data\m_150Rnd_762x51_tracer_yellow_CA.paa);
+        picture = "\A3\Weapons_F\Data\UI\m_200rnd_65x39_green_ca.paa";
     };
 };
