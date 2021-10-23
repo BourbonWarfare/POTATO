@@ -66,9 +66,9 @@
 // Default setting values
 #define DEFAULT_ENABLED false
 
-#define DEFAULT_SR_NAMES "Alpha","Bravo","Charlie","1st Platoon","Delta","Echo","Foxtrot","2nd Platoon","Golf","Hotel","India","3rd Platoon","COY","Air","Armor","Fire Support"
-#define DEFAULT_MR_NAMES "PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES","MEDICAL"
-#define DEFAULT_LR_NAMES "PLTNET 1","PLTNET 2","PLTNET 3","COY","CAS","ARMOR","FIRES","MEDICAL"
+#define DEFAULT_SR_NAMES "Alpha 1","Alpha 2","Bravo 1","Bravo 2","Charlie 1","Charlie 2","Delta 1","Delta 2","Weapons"
+#define DEFAULT_MR_NAMES "ALPHA NET","BRAVO NET","CHARLIE NET","DELTA NET","1ST PLATOON NET","2ND PLATOON NET","COMPANY NET","AIR SUPPORT NET","ARMOR NET","FIRE SUPPORT NET","MEDICAL"
+#define DEFAULT_LR_NAMES "ALPHA NET","BRAVO NET","CHARLIE NET","DELTA NET","1ST PLATOON NET","2ND PLATOON NET","COMPANY NET","AIR SUPPORT NET","ARMOR NET","FIRE SUPPORT NET","MEDICAL"
 
 #define DEFAULT_COMMON_CH_NAME "Negotiations"
 #define DEFAULT_COMMON_CH_NUM 9
