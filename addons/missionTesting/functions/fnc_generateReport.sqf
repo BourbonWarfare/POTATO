@@ -48,22 +48,17 @@ private _createReportSection = {
     params["_sectionTitle","_sectionArray","_passFailInt","_sectionNotes","_sectionNotesFlag"];
 
     private _passFailText = BBPASSFAIL_A select _passFailInt;
-    private _notesFlatStr = BBNOTEFLAG_A select _sectionNotesFlag;
-    S_NEWTEXTLINE ["[size=150][u][color=#00BFFF]%1[/color][/u] : %2 [/size] %3",_sectionTitle,_passFailText,_notesFlatStr];
-    S_NEWTEXTLINE ["[spoiler=%1 Checklist + Notes if applicable]",_sectionTitle];
-    S_NEWTEXTLINE ["[list]"];
-    {_x call _checkBoxes;} forEach _sectionArray;
-    S_NEWTEXTLINE ["[/list]"];
-    if(_missionMaker != name ACE_PLAYER) then {
-        S_NEWTEXTLINE ["[u][color=#FF4000][size=150]NOTES :[/size][/color][/u]"];
-        S_NEWTEXTLINE ["%1",_sectionNotes];
+    //private _notesFlatStr = BBNOTEFLAG_A select _sectionNotesFlag;
+    S_NEWTEXTLINE_FORMATTEXT ["__**%1**__ : %2",_sectionTitle,_passFailText];
+    //{_x call _checkBoxes;} forEach _sectionArray;
+    if(_missionMaker != name ACE_PLAYER && _passFailText == ":x:") then {
+        S_NEWTEXTLINE_FORMATTEXT ["NOTES:
+		%1",_sectionNotes];
     };
-    S_NEWTEXTLINE ["[/spoiler]"];
 };
 
 private _missionMaker = getMissionConfigValue ["author","????"];
-private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
-private _missionFrameworkDate = getMissionConfigValue ["bwmfDate", "Pre-March2016"];
+private _missionName = getText (missionConfigFile >> "MissionSQM" >> "Mission" >> "Intel" >> "briefingName");
 private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
 private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
 private _missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText";
@@ -91,26 +86,29 @@ private _textArrayShort = [];
 
 if(_missionMaker == name ACE_PLAYER) then {
     _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
-    S_NEWTEXTLINE ["[size=200][u][b]Mission : [color=#FF4000]%1[/color][/b][/u]   [b][u]Type : [color=#FF4000]%2[/color][/u][/b][/size]", _missionName, _missionType];
-    S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%1[/color][/b][/u][/size]   [size=150][u][b]BWMF Version : [color=#FF4000]%2[/color][/b][/u][/size]",_missionVersion,_missionFrameworkDate];
-    S_NEWTEXTLINE ["[size=150]Mission Tags : [color=#FF4000]%1, %2, %3[/color]  [/size] ",_missionTag1,_missionTag2,_missionTag3];
+	//S_NEWTEXTLINE ["<@251962627561881602>"]; //Ping the QA Master
+	S_NEWTEXTLINE_FORMATTEXT ["My mission has passed the mission maker checklist and is now ready for initial QA.
+	
+	**Mission:** %1
+	**Type:** %2
+	**Version:** %3
+	**Mission Tags:** %4, %5, %6
+	**Recommended Player Count:** %7",_missionName,_missionType,_missionVersion,_missionTag1,_missionTag2,_missionTag3,_missionPlayerCountRec];
     if (isServer && name ACE_PLAYER == _missionMaker) then {
-        S_NEWTEXTLINE ["[size=150][u]Mission Summary (As shown in Slotting screen, Inc of Ratio if TvT) :[/u][/size]"];
-        S_NEWTEXTLINE ["[color=#FF4000]%1[/color]",_missionSummary];
+        S_NEWTEXTLINE_FORMATTEXT ["**Mission Summary:**
+		%1",_missionSummary];
     };
-    S_NEWTEXTLINE ["[size=150]Player Count - MIN: [color=#FF4000]%1[/color] Recommended: [color=#FF4000]%2[/color] MAX: [color=#FF4000]%3[/color][/size]",_missionPlayerCountMin, _missionPlayerCountRec,_missionPlayerCountMax];
-    S_NEWTEXTLINE_FORMATTEXT ["[size=150]Custom Scripting : %1 Custom Loadout : %2 Custom Vic Loadout : %3  Unit Specific Briefings : %4[/size]",_missionCustomScriptingStr,_missionCustomLoadoutStr,_missionCustomVicLoadoutStr,_unitSpecificBriefStr];
 
-    S_NEWTEXTLINE_SHORT ["[size=150][u][b]New Version : [color=#FF4000]%1[/color][/b][/u][/size]",_missionVersion];
+    S_NEWTEXTLINE_SHORT ["**New Version:** %1",_missionVersion];
 
-    {
+    /* {
         _x call _createReportSection;
-    } forEach _masterChecklistArray;
+    } forEach _masterChecklistArray; */
 
-    S_NEWTEXTLINE_SHORT ["[size=150][b][u]Version Changes[/u][/b][/size] :"];
-    S_NEWTEXTLINE_SHORT ["%1",GVAR(GeneraMissionNotesForMM)];
-    S_NEWTEXTLINE["[size=150][b][u]Any other notes for Mission Testers[/u][/b][/size] :"];
-    S_NEWTEXTLINE["[color=#FF4000]%1[/color]",GVAR(GeneraMissionNotesForMM)];
+    S_NEWTEXTLINE_FORMATTEXT_SHORT ["**Version Changes:**
+	%1",GVAR(GeneraMissionNotesForMM)];
+    S_NEWTEXTLINE_FORMATTEXT["**Notes for QA Testers:**
+	```%1```",GVAR(GeneraMissionNotesForMM)];
 
     private _textLong = _textArray joinString (endl + endl);
     private _textShort = _textArrayShort joinString (endl + endl);
@@ -124,7 +122,7 @@ if(_missionMaker == name ACE_PLAYER) then {
         _reportCtrlNewTitle ctrlSetPosition [-0.35,0,0.34,0.05];
         _reportCtrlNewTitle ctrlSetTextColor TEXT_ORANGE;
         _reportCtrlNewTitle ctrlCommit 0;
-        _reportCtrlNewTitle ctrlSetText "Long Form Report";
+        _reportCtrlNewTitle ctrlSetText "Initial Report";
         private _reportCtrlNew = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_REPORT_L];
         _reportCtrlNew ctrlSetPosition [-0.35,0.05,0.34,0.5];
         _reportCtrlNew ctrlCommit 0;
@@ -133,7 +131,7 @@ if(_missionMaker == name ACE_PLAYER) then {
         _reportCtrlNewTitleShort ctrlSetPosition [-0.35,0.55,0.34,0.05];
         _reportCtrlNewTitleShort ctrlSetTextColor TEXT_ORANGE;
         _reportCtrlNewTitleShort ctrlCommit 0;
-        _reportCtrlNewTitleShort ctrlSetText "Short Report (Version Update)";
+        _reportCtrlNewTitleShort ctrlSetText "Update Report (Updates only)";
         private _reportCtrlNewShort = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),IDC_REPORT_S];
         _reportCtrlNewShort ctrlSetPosition [-0.35,0.6,0.34,0.4];
         _reportCtrlNewShort ctrlCommit 0;
@@ -142,20 +140,20 @@ if(_missionMaker == name ACE_PLAYER) then {
         _reportCtrlLong ctrlSetText _textLong;
         _reportCtrlShort ctrlSetText _textShort;
     };
-    hint "Reports Generated. Highlight the contents to the left of the checklist and copy it to forum.";
+    hint "Report generated! Copy the report and comment it in your mission database thread, then click 'Request Testing'.";
 } else {
     _masterChecklistArray = GVAR(MissionTestingChecklistMaster);
-    S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%1[/color][/b][/u][/size]",_missionVersion];
-    S_NEWTEXTLINE ["[size=150]Mission Tester : [color=#FF4000]%1[/color][/size]",name ACE_PLAYER];
+    S_NEWTEXTLINE_FORMATTEXT ["**Version:** %1
+	**QA Tester:** %2
+	**Test Result:** %3",_missionVersion,name ACE_PLAYER,_missionOverallPassFail];
     private _missionOverallPassFail = [_masterChecklistArray] call _overallPassFail;
-    S_NEWTEXTLINE ["[size=200]Test Result : %1[/size]",_missionOverallPassFail];
 
     {
         _x call _createReportSection;
     } forEach _masterChecklistArray;
 
-    S_NEWTEXTLINE["[size=150][b][u]General Feedback from Mission Tester[/u][/b][/size] :"];
-    S_NEWTEXTLINE["%1",GVAR(GeneraMissionNotesForMM)];
+    S_NEWTEXTLINE_FORMATTEXT ["**Feedback from QA Tester:**
+	%1",GVAR(GeneraMissionNotesForMM)];
 
     private _text = _textArray joinString (endl + endl);
     private _reportCtrl = DISPLAY_TESTMENU displayCtrl IDC_REPORT_L;
@@ -170,5 +168,5 @@ if(_missionMaker == name ACE_PLAYER) then {
     } else {
         _reportCtrl ctrlSetText _text;
     };
-    hint "Report Generated. Highlight the contents to the left of the checklist and copy it to forum.";
+    hint "Report generated! Copy the text to the left and post it in the mission database thread. If it failed, tick the 'rejection' box.";
 };

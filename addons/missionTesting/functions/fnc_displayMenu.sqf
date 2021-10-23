@@ -148,7 +148,7 @@ _menuCancel ctrlSetPosition [0.73,1,0.12,0.1];
 _menuCancel buttonSetAction "closeDialog 2;";
 _menuCancel ctrlCommit 0;
 private _menuBreifingPage = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
-_menuBreifingPage ctrlSetText "Brieifing";
+_menuBreifingPage ctrlSetText "Briefing";
 _menuBreifingPage ctrlSetPosition [0.60,1,0.12,0.1];
 _menuBreifingPage buttonSetAction QUOTE([] call FUNC(openBriefings));
 _menuBreifingPage ctrlCommit 0;
@@ -167,14 +167,15 @@ if (!EGVAR(spectate,running)) then {
     _keyBindInst ctrlCommit 0;
 };
 
+/*  Waiting for CTRLSETURL to be added from Dev branch, else it will have to be added via config when I get around to that.... oh well.
 private _openForumFinishedMissions = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
 _openForumFinishedMissions ctrlSetText "Forum";
-_openForumFinishedMissions ctrlSetURL "https://forums.bourbonwarfare.com/viewforum.php?f=30";
+_openForumFinishedMissions ctrlSetURL "http://forums.bourbonwarfare.com/viewforum.php?f=30";
 _openForumFinishedMissions ctrlSetPosition [0.34,1,0.12,0.1];
 _openForumFinishedMissions ctrlCommit 0;
-
+ */
 private _missionMaker = getMissionConfigValue ["author","????"];
-private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
+private _missionName = getText (missionConfigFile >> "MissionSQM" >> "Mission" >> "Intel" >> "briefingName");
 private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
 private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
 private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
@@ -198,8 +199,7 @@ private _unitSpecificBriefVar = getMissionConfigValue QGVAR(missionFlagUnitSpeci
 private _unitSpecificBrief =  if(isNil QUOTE(_unitSpecificBriefVar)) then {"No"} else {A_YESNO select _unitSpecificBriefVar};
 
 private _missionNotesForTester = getMissionConfigValue QGVAR(missionMakerNotesForTesters);
-private _missionSummary = "You are not the mission maker so this is currently unavailable";
-if (isServer && name ACE_PLAYER == _missionMaker) then {_missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText"};
+private _missionSummary = getText (missionConfigFile >> "MissionSQM" >> "Mission" >> "Intel" >> "overviewtext");
 private _masterChecklistArray = nil;
 
 if(_missionMaker == name ACE_PLAYER) then {
@@ -274,14 +274,14 @@ _ctrlCreateInfoBlockText = composeText [
     ,_separator
     ,_missionTag1,", ",_missionTag2,", ",_missionTag3, lineBreak
     ,lineBreak
-    ,parseText "<t color='#FF8000'>MISSION TAGS FOR TESTER</t>"
+    ,parseText "<t color='#FF8000'>MISSION TAGS FOR QA TESTER</t>"
     ,_separator
     ,parseText "<t color='#0080FF'>Custom Scripting:</t> ",_missionCustomScripting, lineBreak
     ,parseText "<t color='#0080FF'>Custom Loadouts:</t> ",_missionCustomLoadout, lineBreak
-    ,parseText "<t color='#0080FF'>Custom Vichicle Loadouts:</t> ",_missionCustomVicLoadout, lineBreak
-    ,parseText "<t color='#0080FF'>Unit specific Breifs:</t> ",_unitSpecificBrief, lineBreak
+    ,parseText "<t color='#0080FF'>Custom Vehicle Loadouts:</t> ",_missionCustomVicLoadout, lineBreak
+    ,parseText "<t color='#0080FF'>Unit specific Briefings:</t> ",_unitSpecificBrief, lineBreak
     ,lineBreak
-    ,parseText "<t color='#FF8000'>MISSION MAKER NOTES FOR TESTER</t>"
+    ,parseText "<t color='#FF8000'>MISSION MAKER NOTES FOR QA TESTER</t>"
     ,_separator
 ];
 TRACE_1("Compose Text: ",_ctrlCreateInfoBlockText);

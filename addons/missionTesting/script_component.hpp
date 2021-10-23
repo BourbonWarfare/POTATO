@@ -30,16 +30,16 @@
 #define A_CHECK ["X","O"]
 #define A_YESNO ["No","Yes"]
 #define A_CHECK_TF [false,true]
-#define A_MISSION_TYPE ["BOTH","COOP","TVT"]
+#define A_MISSION_TYPE ["BOTH","COOP","TVT","COTVT","SPCL"]
 #define A_MISSION_TAGS ["NONE","NIGHT","DAWN","MSV","TvT1","TvT2","AH","FOG","BRIEF ON MAP"]
 
 // BBCode Defines
-#define BBNOTEFLAG_A ["","[size=85][i](Check notes in spoiler tag!!!)[/i][/size]"]
-#define BBTRUE "[color=#00FF00]X[/color]"
-#define BBFALSE "[color=#FF0000]O[/color]"
-#define BBPASS "[color=#00FF00]PASS[/color]"
-#define BBFAIL "[color=#FF0000]FAIL[/color]"
-#define BBNA "[color=#FFFF00]Not Applicable[/color]"
+#define BBNOTEFLAG_A 
+#define BBTRUE ":regional_indicator_t:"
+#define BBFALSE ":regional_indicator_f:"
+#define BBPASS ":white_check_mark:"
+#define BBFAIL ":x:"
+#define BBNA "N/A"
 #define BBPASSFAIL_A [BBFAIL,BBPASS,BBNA]
 
 // Report Defines
@@ -50,6 +50,7 @@
 #define MISSION_TYPE_APPLIES_BOTH 0
 #define MISSION_TYPE_APPLIES_COOP 1
 #define MISSION_TYPE_APPLIES_TVT 2
+#define MISSION_TYPE_APPLIES_COTVT 3
 
 // Menu Defines
 #define CONTROL_SIZE_H 0.05
