@@ -34,8 +34,8 @@ _unit createDiaryRecord ["diary", ["Credits", format ["
 [Sunrise: %6 - Sunset: %7]<br/>
 <br/>
 <br/>
-Bourbon Warfare Mission Framework<br/>
-BWMF Version: %4<br/>
+COALITION Mission Framework<br/>
+CMF Version: %4<br/>
 POTATO Version: %5
 ", _missionName, _authorName, _worldName, _missionFrameworkDate, _potatoVersion
 , [_sunRise, "HH:MM"] call BIS_fnc_timeToString, [_sunSet, "HH:MM"] call BIS_fnc_timeToString]]];
