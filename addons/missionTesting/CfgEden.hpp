@@ -104,6 +104,115 @@ class Cfg3DEN {
 						};
 					};
 				};
+				class MissionTimers {
+                    displayName = "Mission Timers";
+                    collapsed = 0;
+					class Attributes{
+						class GVAR(SSTimeGiven) {
+                            displayName = "Safe Start Time Length (mins):";
+							property = QGVAR(SSTimeGiven);
+                            control = QUOTE(EditShort);
+                            defaultValue = 15;
+                            typeName = "NUMBER";
+						};
+						class GVAR(missionTimeLength) {
+                            displayName = "Mission Length (mins):";
+							property = QGVAR(missionTimeLength);
+                            control = QUOTE(EditShort);
+                            defaultValue = -1;
+                            typeName = "NUMBER";
+						};
+					};
+				};
+				class VDLimiter {
+                    displayName = "View Distance Limit";
+                    collapsed = 0;
+					class Attributes{
+						class GVAR(maxViewDistance) {
+                            displayName = "Max View Distance:";
+							property = QGVAR(maxViewDistance);
+                            control = QUOTE(EditShort);
+                            defaultValue = -1;
+                            typeName = "NUMBER";
+						};
+					};
+				};
+				class ForwardDeploy {
+                    displayName = "Forward Deploy";
+                    collapsed = 0;
+					class Attributes{
+						class GVAR(forwardDeploy) {
+                            displayName = "Enable Forward Deploy:";
+							property = QGVAR(forwardDeploy);
+                            control = QUOTE(Checkbox);
+                            defaultValue = QUOTE(false);
+                            expression = "_this setVariable ['%s',_value];";
+						};
+					};
+				};
+				class MiniArsenal {
+                    displayName = "Mini Arsenal";
+                    collapsed = 0;
+					class Attributes{
+						class GVAR(miniArsenal) {
+                            displayName = "Enable Mini Arsenal:";
+							property = QGVAR(miniArsenal);
+                            control = QUOTE(Checkbox);
+                            defaultValue = QUOTE(true);
+                            expression = "_this setVariable ['%s',_value];";
+						};
+						class GVAR(miniArsenalType) {
+                            displayName = "Arsenal Type:";
+							property = QGVAR(miniArsenalType);
+                            control = QUOTE(combo);
+							typeName = "NUMBER";
+                            defaultValue = 1;
+                            expression = "_this setVariable ['%s',_value];";
+							class Values {
+                                class ROLES {
+                                    name = "Normal (Default)";
+                                    value = 1;
+                                };
+                                class GROUPS {
+                                    name = "Specialized";
+                                    value = 2;
+                                };
+							};
+						};
+					};
+				};
+				class ArmPatches {
+                    displayName = "Arm Patches";
+                    collapsed = 0;
+					class Attributes{
+						class GVAR(armPatches) {
+                            displayName = "Arm Patch Type:";
+							property = QGVAR(armPatches);
+                            control = QUOTE(combo);
+							typeName = "NUMBER";
+                            defaultValue = 1;
+                            expression = "_this setVariable ['%s',_value];";
+							class Values {
+                                class ROLES {
+                                    name = "ROLES";
+                                    value = 0;
+                                };
+                                class GROUPS {
+                                    name = "GROUPS";
+                                    value = 1;
+                                };
+                                class TEAMS {
+                                    name = "COLOR TEAMS";
+                                    value = 2;
+                                };
+								class OFF {
+                                    name = "OFF";
+                                    value = -1;
+                                };
+                            };
+						};
+					};
+				};
 				class MissionTags {
                     displayName = "Mission Tags";
                     collapsed = 0;

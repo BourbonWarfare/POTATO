@@ -114,6 +114,20 @@ if (_onLoadName == "*** Insert Mission Name ***") then {
     _problems pushBackUnique ["Minor: Need to set loading screen info", ["Attributes -> General"]];
 };
 
+private _missionType = (getMissionConfigValue QEGVAR(missionTesting,missionType));
+if (_missionType == 0) then {
+    _problems pushBackUnique ["Need to select mission type", ["POTATO -> Mission Testing Attributes -> Mission Type"]];
+};
+
+private _missionLength = getMissionConfigValue QEGVAR(missionTesting,missionTimeLength);
+if (_missionLength == -1) then {
+    _problems pushBackUnique ["Verify mission time limit. Currently it's set to no time limit.", ["POTATO -> Mission Testing Attributes -> Mission Length"]];
+};
+
+private _vdLimit = getMissionConfigValue QEGVAR(missionTesting,maxViewDistance);
+if (_vdLimit == -1) then {
+    _problems pushBackUnique ["Verify mission view distance. Currently it's set to no limit.", ["POTATO -> Mission Testing Attributes -> View Distance Limit"]];
+};
 
 // Floating units / Fall Damage:
 private _floatingUnits = [];
