@@ -136,6 +136,27 @@ class Cfg3DEN {
                                 };
                             };
 						};
+						class GVAR(FHBuilding) {
+                            displayName = "Hospital (CCP System Only):";
+                            control = QUOTE(EditShort);
+							property = QGVAR(FHBuilding);
+                            defaultValue = "RU_WarfareBFieldhHospital";
+                            typeName = "STRING";
+						};
+						class GVAR(FHVeh) {
+                            displayName = "Hospital Spawns Vehicle:";
+							property = QGVAR(FHVeh);
+                            control = QUOTE(Checkbox);
+                            defaultValue = QUOTE(false);
+                            expression = "_this setVariable ['%s',_value];";
+						};
+						class GVAR(FHVehicle) {
+                            displayName = "Hospital Vehicle (CCP System Only):";
+                            control = QUOTE(EditShort);
+							property = QGVAR(FHVehicle);
+                            defaultValue = "rhsusf_m113_usarmy_medical";
+                            typeName = "STRING";
+						};
 					};
 				};
 				class ForwardDeploy {

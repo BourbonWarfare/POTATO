@@ -23,7 +23,7 @@ if (missionNamespace getVariable [QGVAR(enabled), false]) then {
     INFO("Disabled");
     if (isServer) then { // Warn if not enabled
         [{
-            ["potato_adminMsg", ["Warning: Potato Radios Setting Disabled (This should never happen on a BWMF mission)", "Server"]] call CBA_fnc_globalEvent;
+            ["potato_adminMsg", ["Warning: Potato Radios Setting Disabled (This should never happen on a CMF mission)", "Server"]] call CBA_fnc_globalEvent;
         }, [], 5] call CBA_fnc_waitAndExecute
     };
 };
