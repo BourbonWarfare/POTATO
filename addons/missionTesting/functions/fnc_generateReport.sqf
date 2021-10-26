@@ -62,15 +62,6 @@ private _missionName = getText (missionConfigFile >> "MissionSQM" >> "Mission" >
 private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
 private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
 private _missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText";
-private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
-private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);
-private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
-private _missionTag1Var = getMissionConfigValue QGVAR(missionTag1);
-private _missionTag1 = if(isNil QUOTE(_missionTag1Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag1Var};
-private _missionTag2Var = getMissionConfigValue QGVAR(missionTag2);
-private _missionTag2 = if(isNil QUOTE(_missionTag2Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag2Var};
-private _missionTag3Var = getMissionConfigValue QGVAR(missionTag3);
-private _missionTag3 = if(isNil QUOTE(_missionTag3Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag3Var};
 private _missionCustomScripting = getMissionConfigValue QGVAR(missionFlagCustomScripting);
 private _missionCustomScriptingStr = if(isNil QUOTE(_missionCustomScripting)) then {BBFALSE} else {[_missionCustomScripting] call _trueFalse};
 private _missionCustomLoadout = getMissionConfigValue QGVAR(missionFlagCustomLoadout);
@@ -91,9 +82,9 @@ if(_missionMaker == name ACE_PLAYER) then {
 	
 	**Mission:** %1
 	**Type:** %2
-	**Version:** %3
-	**Mission Tags:** %4, %5, %6
-	**Recommended Player Count:** %7",_missionName,_missionType,_missionVersion,_missionTag1,_missionTag2,_missionTag3,_missionPlayerCountRec];
+	**Version:** %3",
+
+	_missionName,_missionType,_missionVersion];
     if (isServer && name ACE_PLAYER == _missionMaker) then {
         S_NEWTEXTLINE_FORMATTEXT ["**Mission Summary:**
 		%1",_missionSummary];

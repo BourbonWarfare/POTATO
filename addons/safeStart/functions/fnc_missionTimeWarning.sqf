@@ -16,6 +16,7 @@
 TRACE_1("Params",_this);
 
 if !(isServer) exitWith {};
+if (getMissionConfigValue QEGVAR(missionTesting,missionTimeLength) isEqualTo "-1") exitWith {};
 
 params [];
 
@@ -67,10 +68,10 @@ TRACE_1("Mission start time",QGVAR(missionstartTime));
 
 // Check if mission end map marker already exists.
 
-private _startTime = daytime;
-private _missionLengthDec = getMissionConfigValue QEGVAR(missionTesting,missionTimeLength) / 60;
+/* private _startTime = daytime;
+private _missionLengthDec = (parseNumber getMissionConfigValue QEGVAR(missionTesting,missionTimeLength) / 60);
 private _endTimeDec = _startTime + _missionLengthDec;
 private _endTime = [_endTimeDec] call BIS_fnc_timeToString;
 
 private _string = format ["|missionEndMarker_0|[0,0,0.0000]|mil_warning|ICON|[1,1]|0|Solid|colorCivilian|1|Mission End Time - %1",_endTime];
-[_string] call BIS_fnc_stringToMarker;
+[_string] call BIS_fnc_stringToMarker; */

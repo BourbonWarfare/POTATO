@@ -178,16 +178,6 @@ private _missionMaker = getMissionConfigValue ["author","????"];
 private _missionName = getText (missionConfigFile >> "MissionSQM" >> "Mission" >> "Intel" >> "briefingName");
 private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
 private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
-private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
-private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);
-private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
-
-private _missionTag1Var = getMissionConfigValue QGVAR(missionTag1);
-private _missionTag1 = if(isNil QUOTE(_missionTag1Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag1Var};
-private _missionTag2Var = getMissionConfigValue QGVAR(missionTag2);
-private _missionTag2 = if(isNil QUOTE(_missionTag2Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag2Var};
-private _missionTag3Var = getMissionConfigValue QGVAR(missionTag3);
-private _missionTag3 = if(isNil QUOTE(_missionTag3Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag3Var};
 
 private _missionCustomScriptingVar = getMissionConfigValue QGVAR(missionFlagCustomScripting);
 private _missionCustomScripting =  if(isNil QUOTE(_missionCustomScriptingVar)) then {"No"} else {A_YESNO select _missionCustomScriptingVar};
@@ -268,11 +258,9 @@ _ctrlCreateInfoBlockText = composeText [
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION PLAYER COUNT</t>"
     ,_separator
-    ,parseText "<t color='#0080FF'>Min:</t> ",_missionPlayerCountMin,parseText "<t color='#0080FF'>  Rec:</t> ",_missionPlayerCountRec,parseText "<t color='#0080FF'>  Max:</t> ",_missionPlayerCountMax, lineBreak
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION TAGS</t>"
     ,_separator
-    ,_missionTag1,", ",_missionTag2,", ",_missionTag3, lineBreak
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION TAGS FOR QA TESTER</t>"
     ,_separator

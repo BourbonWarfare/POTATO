@@ -13,7 +13,7 @@ class display3DEN {
                     items[] += {QGVAR(missionTesting)};
                 };
                 class GVAR(missionTesting) {
-                    text = "Mission Testing Attributes";
+                    text = "Mission Settings";
                     action = QUOTE(edit3DENMissionAttributes QUOTE(QGVAR(missionTestingInfo)););
                 };
             };
@@ -40,7 +40,7 @@ class Cfg3DEN {
 
 	class Mission {
 		class GVAR(missionTestingInfo) {
-			displayName = "Mission Testing Information";
+			displayName = "Mission Settings";
 			display = "Display3DENEditAttributes";
 			class AttributeCategories {
 				class MissionGeneraInfo {
@@ -77,70 +77,71 @@ class Cfg3DEN {
 						};
 					};
 				};
-				class MissionPlayerCount {
-                    displayName = "Player Count";
-                    collapsed = 0;
-					class Attributes{
-						class GVAR(playerCountMinimum) {
-                            displayName = "Player Count Minimum:";
-							property = QGVAR(playerCountMinimum);
-                            control = QUOTE(EditShort);
-                            defaultValue = "20";
-                            typeName = "STRING";
-						};
-						class GVAR(playerCountRecommended) {
-                            displayName = "Player Count Recommended:";
-							property = QGVAR(playerCountRecommended);
-                            control = QUOTE(EditShort);
-                            defaultValue = "40";
-                            typeName = "STRING";
-						};
-						class GVAR(playerCountMaximum) {
-                            displayName = "Player Count Maximum:";
-							property = QGVAR(playerCountMaximum);
-                            control = QUOTE(EditShort);
-                            defaultValue = "60";
-                            typeName = "STRING";
-						};
-					};
-				};
 				class MissionTimers {
                     displayName = "Mission Timers";
                     collapsed = 0;
-					class Attributes{
+					class Attributes {
 						class GVAR(SSTimeGiven) {
                             displayName = "Safe Start Time Length (mins):";
 							property = QGVAR(SSTimeGiven);
                             control = QUOTE(EditShort);
-                            defaultValue = 15;
-                            typeName = "NUMBER";
+                            defaultValue = "15";
+                            typeName = "STRING";
 						};
 						class GVAR(missionTimeLength) {
                             displayName = "Mission Length (mins):";
 							property = QGVAR(missionTimeLength);
                             control = QUOTE(EditShort);
-                            defaultValue = -1;
-                            typeName = "NUMBER";
+                            defaultValue = "-1";
+                            typeName = "STRING";
 						};
 					};
 				};
 				class VDLimiter {
                     displayName = "View Distance Limit";
                     collapsed = 0;
-					class Attributes{
+					class Attributes {
 						class GVAR(maxViewDistance) {
                             displayName = "Max View Distance:";
 							property = QGVAR(maxViewDistance);
                             control = QUOTE(EditShort);
-                            defaultValue = -1;
-                            typeName = "NUMBER";
+                            defaultValue = "-1";
+                            typeName = "STRING";
+						};
+					};
+				};
+				class medicalSystem {
+                    displayName = "Medical System";
+                    collapsed = 0;
+					class Attributes{
+						class GVAR(medSystem) {
+                            displayName = "Medical System:";
+							property = QGVAR(medSystem);
+                            control = QUOTE(combo);
+							typeName = "NUMBER";
+                            defaultValue = 99;
+                            expression = "_this setVariable ['%s',_value];";
+							class Values {
+								class def {
+                                    name = "SELECT";
+                                    value = 99;
+                                };
+                                class MEV {
+                                    name = "MEV";
+                                    value = 0;
+                                };
+                                class CCP {
+                                    name = "CCPs and FHs";
+                                    value = 1;
+                                };
+                            };
 						};
 					};
 				};
 				class ForwardDeploy {
                     displayName = "Forward Deploy";
                     collapsed = 0;
-					class Attributes{
+					class Attributes {
 						class GVAR(forwardDeploy) {
                             displayName = "Enable Forward Deploy:";
 							property = QGVAR(forwardDeploy);
@@ -153,7 +154,7 @@ class Cfg3DEN {
 				class MiniArsenal {
                     displayName = "Mini Arsenal";
                     collapsed = 0;
-					class Attributes{
+					class Attributes {
 						class GVAR(miniArsenal) {
                             displayName = "Enable Mini Arsenal:";
 							property = QGVAR(miniArsenal);
@@ -166,9 +167,13 @@ class Cfg3DEN {
 							property = QGVAR(miniArsenalType);
                             control = QUOTE(combo);
 							typeName = "NUMBER";
-                            defaultValue = 1;
+                            defaultValue = 0;
                             expression = "_this setVariable ['%s',_value];";
 							class Values {
+								class def {
+									name = "SELECT";
+                                    value = 0;
+								};
                                 class ROLES {
                                     name = "Normal (Default)";
                                     value = 1;
@@ -194,87 +199,64 @@ class Cfg3DEN {
                             expression = "_this setVariable ['%s',_value];";
 							class Values {
                                 class ROLES {
-                                    name = "ROLES";
+                                    name = "Roles";
                                     value = 0;
                                 };
                                 class GROUPS {
-                                    name = "GROUPS";
+                                    name = "Groups";
                                     value = 1;
                                 };
                                 class TEAMS {
-                                    name = "COLOR TEAMS";
+                                    name = "Teams";
                                     value = 2;
                                 };
 								class OFF {
-                                    name = "OFF";
+                                    name = "None";
                                     value = -1;
                                 };
                             };
 						};
 					};
 				};
-				class MissionTags {
-                    displayName = "Mission Tags";
+				class radioSystem {
+                    displayName = "Radio System (Not working yet - use gearscript)";
                     collapsed = 0;
-					class Attributes {
-						class GVAR(missionTag1) {
-                            displayName = "Mission Tag 1:";
+					class Attributes{
+						class GVAR(radioSystem) {
+                            displayName = "Radio System:";
+							property = QGVAR(radioSystem);
                             control = QUOTE(combo);
-							property = QGVAR(missionTag1);
-                            expression = "_this setVariable ['%s', _value];";
-                            typeName = "NUMBER";
-                            defaultValue = 99;
-                            class Values {
-                                class SELECT {
-                                    name = "SELECT";
-                                    value = 99;
-                                };
-                                class NONE {
-                                    name = "NONE";
+							typeName = "NUMBER";
+                            defaultValue = 1;
+                            expression = "_this setVariable ['%s',_value];";
+							class Values {
+                                class snet {
+                                    name = "Squad Nets";
                                     value = 0;
                                 };
-                                class NIGHT {
-                                    name = "NIGHT";
+                                class fnet {
+                                    name = "Fireteam Nets";
                                     value = 1;
                                 };
-                                class DASKDAWN {
-                                    name = "DUSK/DAWN";
+                                class lonly {
+                                    name = "No Radios for GI";
                                     value = 2;
-                                };
-                                class MSV {
-                                    name = "MSV";
-                                    value = 3;
-                                };
-                                class TVT1 {
-                                    name = "TVT1";
-                                    value = 4;
-                                };
-                                class TVT2 {
-                                    name = "TVT2";
-                                    value = 5;
-                                };
-                                class AH {
-                                    name = "AH";
-                                    value = 6;
-                                };
-                                class FOG {
-                                    name = "FOG";
-                                    value = 7;
-                                };
-                                class BriefOnMap {
-                                    name = "BRIEF ON MAP";
-                                    value = 8;
                                 };
                             };
 						};
-                        class GVAR(missionTag2) : GVAR(missionTag1) {
-                            displayName = "Mission Tag 2:";
-                            property = QGVAR(missionTag2);
-                        };
-                        class GVAR(missionTag3) : GVAR(missionTag1) {
-                            displayName = "Mission Tag 3:";
-                            property = QGVAR(missionTag3);
-                        };
+					};
+				};
+				class MapBrief {
+                    displayName = "Map Brief";
+                    collapsed = 0;
+					class Attributes {
+						class GVAR(briefOnMap) {
+                            displayName = "Map Brief:";
+							property = QGVAR(briefOnMap);
+                            control = QUOTE(Checkbox);
+                            defaultValue = QUOTE(false);
+                            expression = "_this setVariable ['%s',_value];";
+						};
 					};
 				};
 				class MissionFlags {

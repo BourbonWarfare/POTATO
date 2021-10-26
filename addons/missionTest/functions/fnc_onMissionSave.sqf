@@ -102,7 +102,7 @@ if (_author == "*** Insert Author Name ***") then {
     _problems pushBackUnique ["Need to set author", ["Attributes -> General -> Author"]];
 };
 private _slottingInfo = "Intel" get3DENMissionAttribute "IntelOverviewText";
-if (_slottingInfo == "COOP40 - [Attack/Defend] | [Explain faction and gear type] | [Specialties] | [Zeus is/not Required]") then {
+if (_slottingInfo isEqualTo "BLU 1:2 OPF | Basic description of the mission | SPECIALTIES | Zeus is/not Required") then {
     _problems pushBackUnique ["Need to set slotting mission description", ["Attributes -> Multiplayer -> Summary"]];
 } else {
     if (_isTVT && {(parseNumber (_slottingInfo select [0,1])) == 0}) then { // very basic ratio detection
@@ -110,24 +110,40 @@ if (_slottingInfo == "COOP40 - [Attack/Defend] | [Explain faction and gear type]
     };
 };
 private _onLoadName = "Scenario" get3DENMissionAttribute "IntelBriefingName";
-if (_onLoadName == "*** Insert Mission Name ***") then {
+if (_onLoadName isEqualTo "*** Insert Mission Name ***") then {
     _problems pushBackUnique ["Minor: Need to set loading screen info", ["Attributes -> General"]];
 };
 
 private _missionType = (getMissionConfigValue QEGVAR(missionTesting,missionType));
-if (_missionType == 0) then {
-    _problems pushBackUnique ["Need to select mission type", ["POTATO -> Mission Testing Attributes -> Mission Type"]];
+if (_missionType isEqualTo 0) then {
+    _problems pushBackUnique ["Need to select mission type", ["POTATO -> Mission Settings -> Mission Type"]];
 };
 
-private _missionLength = getMissionConfigValue QEGVAR(missionTesting,missionTimeLength);
-if (_missionLength == -1) then {
-    _problems pushBackUnique ["Verify mission time limit. Currently it's set to no time limit.", ["POTATO -> Mission Testing Attributes -> Mission Length"]];
+private _missionLength = parseNumber getMissionConfigValue QEGVAR(missionTesting,missionTimeLength);
+if (_missionLength isEqualTo -1) then {
+    _problems pushBackUnique ["Verify mission time limit. Currently it's set to no time limit", ["POTATO -> Mission Settings -> Mission Length"]];
 };
 
-private _vdLimit = getMissionConfigValue QEGVAR(missionTesting,maxViewDistance);
-if (_vdLimit == -1) then {
-    _problems pushBackUnique ["Verify mission view distance. Currently it's set to no limit.", ["POTATO -> Mission Testing Attributes -> View Distance Limit"]];
+private _vdLimit = parseNumber getMissionConfigValue QEGVAR(missionTesting,maxViewDistance);
+if (_vdLimit isEqualTo -1) then {
+    _problems pushBackUnique ["Verify mission view distance. Currently it's set to no limit", ["POTATO -> Mission Settings -> View Distance Limit"]];
 };
+
+private _medCheck = getMissionConfigValue QEGVAR(missionTesting,medSystem);
+Switch (_medCheck) do { 
+	case 99: 
+	{ 
+		_problems pushBackUnique ["Need to choose a medical system", ["POTATO -> Mission Settings -> Medical System"]];
+	};
+	case 0: 
+	{
+		if (!isNil "BLU_MEV_1PL") then { 
+			_problems pushBackUnique ["The MEV is missing. Place a vehicle and name it 'BLU_1PL_MEV' or change the medical system", ["POTATO -> Mission Settings -> Medical System"]];
+		};
+	};
+};
+
+
 
 // Floating units / Fall Damage:
 private _floatingUnits = [];

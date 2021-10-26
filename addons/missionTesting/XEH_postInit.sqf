@@ -84,22 +84,19 @@ GVAR(MissionMakerChecklistMaster) = [
 GVAR(GeneraMissionNotesForMM) = "";
 
 if (hasInterface) then { // Change briefing map's "Continue" button to red "BRIEF ON MAP" if it has the tag
-    {
-        private _missionTagVar = getMissionConfigValue _x;
-        private _missionTag = if(isNil QUOTE(_missionTagVar)) then {"NONE"} else {A_MISSION_TAGS select _missionTagVar};
-        if (_missionTag == "BRIEF ON MAP") exitWith { 
-            INFO("brief on map");
-            [{
-                (!isNull findDisplay 37) || {!isNull findDisplay 52} || {!isNull findDisplay 53} || {!isNull findDisplay 12}
-            }, {
-                {
-                    if (!isNull findDisplay _x) exitWith {
-                        private _okButton = (findDisplay _x) displayCtrl 1;
-                        _okButton ctrlSetText "BRIEF ON MAP";
-                        _okButton ctrlSetTextColor [1,0,0.2,1];
-                    };
-                } forEach [37,52,53]; // ignore 12
-            }] call CBA_fnc_waitUntilAndExecute;
-        };
-    } forEach [QGVAR(missionTag1), QGVAR(missionTag2), QGVAR(missionTag3)];
+	_mapBrief = getMissionConfigValue QEGVAR(missionTesting,briefOnMap);
+	if (_mapBrief) exitWith { 
+		INFO("brief on map");
+		[{
+			(!isNull findDisplay 37) || {!isNull findDisplay 52} || {!isNull findDisplay 53} || {!isNull findDisplay 12}
+		}, {
+			{
+				if (!isNull findDisplay _x) exitWith {
+					private _okButton = (findDisplay _x) displayCtrl 1;
+					_okButton ctrlSetText "BRIEF ON MAP";
+					_okButton ctrlSetTextColor [1,0,0.2,1];
+				};
+			} forEach [37,52,53]; // ignore 12
+		}] call CBA_fnc_waitUntilAndExecute;
+	};
 };
