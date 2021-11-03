@@ -11,6 +11,7 @@ if (missionNamespace getVariable [QGVAR(enabled), false]) then {
     // Warning All presets must exist and match on all clients and especially the server; regardless of where the presets are used.
     // If you create a preset, copy a preset or modify a presets data information; these changes must occur on all clients and the server.
     // If they do not, ACRE may not work.
+	//waitUntil {radiosAssigned}; //Adds radio structure support native to CMF only
     [] call FUNC(initializeRadios);
 
     if (!hasInterface) exitWith {
