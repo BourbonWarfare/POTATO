@@ -41,6 +41,8 @@ _settings = [
 [QACEGVAR(cookoff,enable), 1],
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
 [QACEGVAR(finger,enabled), true],
+[QACEGVAR(fortify,timeCostCoefficient), 0],
+[QACEGVAR(fortify,timeMin), 0],
 [QACEGVAR(frag,maxTrack), 5],
 [QACEGVAR(gforces,enabledFor), 0],
 [QACEGVAR(goggles,effects), 1], // note: user-setting, we don't force
