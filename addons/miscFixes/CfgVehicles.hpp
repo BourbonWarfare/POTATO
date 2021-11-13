@@ -122,4 +122,8 @@ class CfgVehicles {
             };
 		};
 	};
+
+    // Fix AEGIS
+    class C_man_1;
+    class C_man_priest_F: C_man_1 { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; };
 };
