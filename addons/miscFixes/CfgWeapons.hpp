@@ -133,4 +133,25 @@ class CfgWeapons {
             };
         };
     };
+
+    class H_CrewHelmetHeli_B;
+    class potato_rumdaHelmet: H_CrewHelmetHeli_B {
+    displayName="rumda helmet";
+    class ItemInfo {
+        mass=50;
+        uniformModel="A3\Characters_F\Common\headgear_helmet_heli_shield";
+        modelSides[]={3,1};
+        class HitpointsProtectionInfo {
+            class Head {
+                hitpointName="HitHead";
+                armor=6000;
+                passThrough=0.01;
+            };
+            class Face {
+                hitpointName="HitFace";
+                armor=6000;
+                passThrough=0.01;
+            };
+        };
+	};
 };
