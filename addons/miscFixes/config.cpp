@@ -16,16 +16,18 @@ class CfgPatches {
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "potato_core", "ace_ui",
-            "rhs_main_loadorder", "CUP_Weapons_LoadOrder",
+            "potato_core", "ace_ui", "ace_fortify",
+            "rhs_main_loadorder",
+            "CUP_Weapons_LoadOrder", "CUP_Creatures_People_LoadOrder",
             "Chernarus", "torabora", "fallujah_hou",
-            "DSA_Spooks"
+            "DSA_Spooks", "ffaa_armas", "A3_Aegis_Characters_F_Aegis"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
+    BWC_CONFIG(potato_fortify);
 };
 
 

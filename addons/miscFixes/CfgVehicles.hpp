@@ -1,6 +1,19 @@
 class CBA_Extended_EventHandlers;
 
 class CfgVehicles {
+    // Handle fortify moving to acex
+    class acex_fortify_setupModule; // these still use acex_
+    class EGVAR(fortify,setupModule): acex_fortify_setupModule {
+        scope = 1;
+        displayName = "delete me and use acex_fortify_setupModule";
+    };
+    class acex_fortify_buildLocationModule;
+    class EGVAR(fortify,buildLocationModule): acex_fortify_buildLocationModule {
+        scope = 1;
+        displayName = "delete me and use acex_fortify_buildLocationModule";
+    };
+
+
     // Integrate invisibile backpack from SagJangi
     // https://forums.bohemia.net/forums/topic/222097-battle-belt/
     class Bag_Base;
@@ -76,6 +89,20 @@ class CfgVehicles {
     class DSA_DeltaX_Operator: B_Soldier_F { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Delta X Operator
     class DSA_DeltaX_CBRN: B_Soldier_F { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Delta X CBRN
 
+    // Fix: FFAA
+    class FFAA_rapel_logica: Logic { SLX_XEH_DISABLED = 1; }; // @FFAA -> FFAA RAPEL
+    class Air;
+    class FFAA_rapel: Air { SLX_XEH_DISABLED = 1; }; // @FFAA -> Rappel rope
+    class StaticWeapon;
+    class FFAA_rapelf: StaticWeapon { SLX_XEH_DISABLED = 1; }; // @FFAA -> Rappel rope
+    class PlaneWreck;
+    class ffaa_ea_hercules_wreck: PlaneWreck { SLX_XEH_DISABLED = 1; }; // @FFAA -> Wreck
+    class ffaa_AV8BWreck: PlaneWreck { SLX_XEH_DISABLED = 1; }; // @FFAA -> Wreck
+    class ffaa_mq9_reaper_Wreck: PlaneWreck { SLX_XEH_DISABLED = 1; }; // @FFAA -> Wreck
+    class HelicopterWreck;
+    class ffaa_et_ch47Wreck: HelicopterWreck { SLX_XEH_DISABLED = 1; }; // @FFAA -> Wreck
+    class ffaa_famet_cougarWreck: HelicopterWreck { SLX_XEH_DISABLED = 1; }; // @FFAA -> Wreck
+
     // Fix fajita
 	class Building;
 	class NonStrategic: Building {
@@ -95,4 +122,8 @@ class CfgVehicles {
             };
 		};
 	};
+
+    // Fix AEGIS
+    class C_man_1;
+    class C_man_priest_F: C_man_1 { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; };
 };
