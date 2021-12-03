@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: AACO
  * Function used to reopen the spectate UI after another UI closes
@@ -15,8 +16,7 @@
  * Public: No
  */
 
-#include "script_component.hpp"
-TRACE_1("Params",_this);
+TRACE_1("checkToReopen",_this);
 
 if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull])}) then {
     GVAR(uiVisible) = true;
