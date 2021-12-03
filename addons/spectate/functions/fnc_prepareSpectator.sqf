@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: AACO
  * Function used to prepare the spectator unit on all computer
@@ -14,13 +15,11 @@
  * Public: No
  */
 
-#include "script_component.hpp"
-TRACE_1("Params",_this);
-
 params [
     ["_unit", objNull, [objNull]],
     ["_oldUnit", objNull, [objNull]]
 ];
+TRACE_2("prepareSpectator",_unit,_oldUnit);
 
 if !(isNull _unit) then {
     _unit enableSimulation false;
@@ -34,11 +33,14 @@ if !(isNull _unit) then {
 
     if !(isNull _oldUnit) then {
         _unit setVariable [QGVAR(oldUnit), _oldUnit];
-        _unit setVariable [QGVAR(oldSideColor), [[[configFile >> "CfgVehicles" >> (typeOf _oldUnit) >> "side", 7] call CFUNC(getNumber)] call CFUNC(toSide)] call BIS_fnc_sideColor]; // holy chained calls batman
-        _unit setVariable [QACEGVAR(killtracker,output), _oldUnit getVariable [QACEGVAR(killtracker,output), "None"]];
 
-        // hack to hopefully keep dead STHUD names longer
-        private _name = name _unit;
-        _oldUnit setVariable ["sth_name", [false, _name, _name select [0, missionNamespace getVariable ["STHud_MaxNameLen" ,16]]]];
+        private _side = [[configOf _oldUnit >> "side", 7] call CFUNC(getNumber)] call CFUNC(toSide);
+        private _sideColor = if (_side != sideLogic) then { 
+            [_side] call BIS_fnc_sideColor
+        } else {
+            [0.7,0.6,0,1]
+        };
+        _unit setVariable [QGVAR(oldSideColor), _sideColor];
+        _unit setVariable [QACEGVAR(killtracker,output), _oldUnit getVariable [QACEGVAR(killtracker,output), "None"]];
     };
 };
