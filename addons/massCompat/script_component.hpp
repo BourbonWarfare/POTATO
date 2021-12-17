@@ -52,8 +52,8 @@
 #define FLYBY_DANGER_MEDIUM 8
 #define FLYBY_SUPPRESSION_MEDIUM 8
 #define AUDIBLE_FIRE_MEDIUM 150
-#define TYPICAL_SPEED_MEDIUM 730
-#define AIR_FRICTION_MEDIUM -0.0016
+#define TYPICAL_SPEED_MEDIUM 800
+#define AIR_FRICTION_MEDIUM -0.00103739
 
 #define CALIBER_LARGE 4.6
 #define HIT_LARGE 20
@@ -63,7 +63,7 @@
 #define FLYBY_SUPPRESSION_LARGE 2
 #define AUDIBLE_FIRE_LARGE 200
 #define TYPICAL_SPEED_LARGE 900
-#define AIR_FRICTION_LARGE -0.0014
+#define AIR_FRICTION_LARGE -0.00058679
 
 #define AUDIBLE_FIRE_SUBSONIC 10
 
@@ -257,7 +257,7 @@ cost = 1; \
 waterFriction = -0.3; \
 tracerScale = 1; \
 tracerStartTime = 0.05; \
-tracerEndTime = 1
+tracerEndTime = 2.4
 
 #define TINY_AMMO_CONFIG \
 TYPICAL_CONFIG; \
