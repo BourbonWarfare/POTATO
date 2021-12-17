@@ -425,27 +425,27 @@ class GVAR(overlay) {
                             y = 0;
                             w = QUOTE(1.5 * XFACTOR);
                             h = QUOTE(0.5 * YFACTOR);
-                            text = "121";
+                            text = "";
                             shadow = 0;
                             sizeEx = QUOTE(0.5 * YFACTOR);
                         };
                         class InfoWatchesIcon: RscPictureKeepAspect {
                             idc = -1;
                             x = QUOTE(4.0 * XFACTOR);
-                            y = QUOTE(5 * YFACTOR);
+                            y = QUOTE(5.1 * YFACTOR);
                             w = QUOTE(0.5 * XFACTOR);
-                            h = QUOTE(0.5 * YFACTOR);
+                            h = QUOTE(0.4 * YFACTOR);
                             text = "\A3\Weapons_F\Data\UI\gear_item_watch_ca.paa";
                         };
                         class InfoWatchesText: RscText {
                             idc = FOCUS_MEDICAL_INFO_WATCHES_IDC;
                             x = QUOTE(4.25 * XFACTOR);
-                            y = QUOTE(5 * YFACTOR);
+                            y = QUOTE(5.1 * YFACTOR);
                             w = QUOTE(1.5 * XFACTOR);
-                            h = QUOTE(0.5 * YFACTOR);
-                            text = "121";
+                            h = QUOTE(0.4 * YFACTOR);
+                            text = "";
                             shadow = 0;
-                            sizeEx = QUOTE(0.5 * YFACTOR);
+                            sizeEx = QUOTE(0.4 * YFACTOR);
                         };
                     };
                 };
