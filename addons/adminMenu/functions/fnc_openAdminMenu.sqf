@@ -6,7 +6,7 @@ TRACE_1("params",_this);
 disableSerialization;
 
 if (!([] call EFUNC(core,isAuthorized))) exitWith {
-    systemChat "Not Authorized";
+    systemChat "Not authorized";
 };
 
 closeDialog 0;

@@ -16,7 +16,7 @@ private _giveZeus = isNull getAssignedCuratorLogic _selectedUnit;
 [_selectedUnit, _giveZeus] remoteExecCall [QFUNC(zeusConnectCurator), SERVER_CLIENT_ID];
 
 private _debugMsg = if (_giveZeus) then {
-    format ["Enableing ZEUS for %1", name _selectedUnit];
+    format ["Enabling ZEUS for %1", name _selectedUnit];
 } else {
     format ["Disabling ZEUS for %1", name _selectedUnit];
 };
