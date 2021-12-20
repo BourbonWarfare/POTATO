@@ -7,6 +7,7 @@ class RscControlsGroup;
 class RscStructuredText;
 class RscPictureKeepAspect;
 class RscControlsGroupNoScrollbars;
+class RscIGProgress;
 class ACEGVAR(common,CompassControl);
 
 class GVAR(overlay) {
@@ -384,6 +385,67 @@ class GVAR(overlay) {
                         class BodyImgRightLeg: BodyImgHead {
                             idc = FOCUS_MEDICAL_RIGHT_LEG_IDC;
                             text = QPATHTOF(data\body_leg_right.paa);
+                        };
+
+                        class RatioBlood: RscIGProgress {
+                            idc = FOCUS_MEDICAL_RATIO_BLOOD_IDC;
+                            x = QUOTE(0.25 * XFACTOR);
+                            y = 0;
+                            w = QUOTE(0.2 * XFACTOR);
+                            h = QUOTE(5.5 * YFACTOR);
+                            colorBar[] = {0.65,0,0,1};
+                        };
+                        class RatioPain: RscIGProgress {
+                            idc = FOCUS_MEDICAL_RATIO_PAIN_IDC;
+                            x = QUOTE(0.5 * XFACTOR);
+                            y = 0;
+                            w = QUOTE(0.2 * XFACTOR);
+                            h = QUOTE(5.5 * YFACTOR);
+                            colorBar[] = {0.65,0.65,0,1};
+                        };
+                        class RatioPainSuppress: RscIGProgress {
+                            idc = FOCUS_MEDICAL_RATIO_PAINSUPPRESS_IDC;
+                            x = QUOTE(0.5 * XFACTOR);
+                            y = 0;
+                            w = QUOTE(0.2 * XFACTOR);
+                            h = QUOTE(5.5 * YFACTOR);
+                            colorBar[] = {0,0,1,0.4};
+                        };
+                        class InfoHeartIcon: RscPictureKeepAspect {
+                            idc = -1;
+                            x = QUOTE(4.0 * XFACTOR);
+                            y = 0;
+                            w = QUOTE(0.5 * XFACTOR);
+                            h = QUOTE(0.5 * YFACTOR);
+                            text = QPATHTOF(data\heart_ca.paa);
+                        };
+                        class InfoHeartRate: RscText {
+                            idc = FOCUS_MEDICAL_INFO_HR_IDC;
+                            x = QUOTE(4.25 * XFACTOR);
+                            y = 0;
+                            w = QUOTE(1.5 * XFACTOR);
+                            h = QUOTE(0.5 * YFACTOR);
+                            text = "";
+                            shadow = 0;
+                            sizeEx = QUOTE(0.5 * YFACTOR);
+                        };
+                        class InfoWatchesIcon: RscPictureKeepAspect {
+                            idc = -1;
+                            x = QUOTE(4.0 * XFACTOR);
+                            y = QUOTE(5.1 * YFACTOR);
+                            w = QUOTE(0.5 * XFACTOR);
+                            h = QUOTE(0.4 * YFACTOR);
+                            text = "\A3\Weapons_F\Data\UI\gear_item_watch_ca.paa";
+                        };
+                        class InfoWatchesText: RscText {
+                            idc = FOCUS_MEDICAL_INFO_WATCHES_IDC;
+                            x = QUOTE(4.25 * XFACTOR);
+                            y = QUOTE(5.1 * YFACTOR);
+                            w = QUOTE(1.5 * XFACTOR);
+                            h = QUOTE(0.4 * YFACTOR);
+                            text = "";
+                            shadow = 0;
+                            sizeEx = QUOTE(0.4 * YFACTOR);
                         };
                     };
                 };

@@ -1,6 +1,16 @@
 #include "script_component.hpp"
 
 if (isServer) then {
+    // Setting to sync to ace_fortify        
+    ["potato_safeStartOn", {
+        if (!GVAR(syncFortify)) exitWith {};
+        missionNamespace setVariable [QACEGVAR(fortify,fortifyAllowed), true, true];
+    }] call CBA_fnc_addEventHandler;
+    ["potato_safeStartOff", {
+        if (!GVAR(syncFortify)) exitWith {};
+        missionNamespace setVariable [QACEGVAR(fortify,fortifyAllowed), false, true];
+    }] call CBA_fnc_addEventHandler;
+
     [
         {time > 0},
         { [GVAR(enabled)] call FUNC(toggleSafeStart); }

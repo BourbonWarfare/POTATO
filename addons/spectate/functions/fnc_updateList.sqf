@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: AACO
  * Function used to update the player list
@@ -14,9 +15,9 @@
  * Public: No
  */
 
-#include "script_component.hpp"
+
 #define ICON_DEAD "a3\Ui_F_Curator\Data\CfgMarkers\kia_ca.paa"
-TRACE_1("Params",_this);
+TRACE_1("updateList",_this);
 
 private _newUnits = [];
 private _newGroups = [];
@@ -101,7 +102,11 @@ if !(GVAR(curList) isEqualTo _newList) then {
     {
         _x params ["_side", "_sideStr", "_sideTitle", "_nestedGroupData"];
         private _sideIndex = _forEachIndex;
-        private _sideColor = [_side] call BIS_fnc_sideColor;
+        private _sideColor = if (_side != sideLogic) then { 
+            [_side] call BIS_fnc_sideColor
+        } else {
+            [0.7,0.6,0,1]
+        };
 
         if (LIST tvCount [] == _sideIndex) then {
             LIST tvAdd [[], _sideTitle];

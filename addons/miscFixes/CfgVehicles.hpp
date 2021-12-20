@@ -1,6 +1,19 @@
 class CBA_Extended_EventHandlers;
 
 class CfgVehicles {
+    // Handle fortify moving to acex
+    class acex_fortify_setupModule; // these still use acex_
+    class EGVAR(fortify,setupModule): acex_fortify_setupModule {
+        scope = 1;
+        displayName = "delete me and use acex_fortify_setupModule";
+    };
+    class acex_fortify_buildLocationModule;
+    class EGVAR(fortify,buildLocationModule): acex_fortify_buildLocationModule {
+        scope = 1;
+        displayName = "delete me and use acex_fortify_buildLocationModule";
+    };
+
+
     // Integrate invisibile backpack from SagJangi
     // https://forums.bohemia.net/forums/topic/222097-battle-belt/
     class Bag_Base;
@@ -25,23 +38,15 @@ class CfgVehicles {
     class Box_NATO_Support_F;
     class GVAR(smawBox): Box_NATO_Support_F {
         scope = 1;
-        displayName = "SMAW Weapon Box";
+        displayName = "Fucks given";
         transportMaxWeapons = 9001;
         transportMaxMagazines = 9001;
         transportMaxItems = 9001;
         maximumload = 1000;
 
-        class TransportWeapons {
-            MACRO_ADDWEAPON(rhs_weap_smaw,1);
-        };
-        class TransportMagazines {
-            MACRO_ADDMAGAZINE(rhs_mag_smaw_HEAA,10);
-            MACRO_ADDMAGAZINE(rhs_mag_smaw_HEDP,10);
-            MACRO_ADDMAGAZINE(rhs_mag_smaw_SR,8);
-        };
-        class TransportItems {
-            MACRO_ADDITEM(rhs_weap_optic_smaw,1);
-        };
+        class TransportWeapons {};
+        class TransportMagazines {};
+        class TransportItems {};
         class TransportBackpacks {};
     };
 
@@ -76,10 +81,45 @@ class CfgVehicles {
     class DSA_Rake: DSA_SpookBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Rake
     class DSA_Abomination: DSA_411 { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Abomination
     class DSA_Snatcher: DSA_SpookBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Snatcher
+    class DSA_Crazy: DSA_SpookBase2 { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Crazy
     class DSA_Launchpad: DSA_AnomalyBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Launchpad
     class DSA_Leech: DSA_AnomalyBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Leech
     class DSA_Zapper: DSA_AnomalyBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Zapper
     class DSA_Trapdoor: DSA_AnomalyBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Trapdoor
     class DSA_DeltaX_Operator: B_Soldier_F { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Delta X Operator
     class DSA_DeltaX_CBRN: B_Soldier_F { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Delta X CBRN
+
+    // Fix: FFAA
+    class FFAA_rapel_logica: Logic { SLX_XEH_DISABLED = 1; }; // @FFAA -> FFAA RAPEL
+    class Air;
+    class FFAA_rapel: Air { SLX_XEH_DISABLED = 1; }; // @FFAA -> Rappel rope
+    class StaticWeapon;
+    class FFAA_rapelf: StaticWeapon { SLX_XEH_DISABLED = 1; }; // @FFAA -> Rappel rope
+    class PlaneWreck;
+    class ffaa_ea_hercules_wreck: PlaneWreck { SLX_XEH_DISABLED = 1; }; // @FFAA -> Wreck
+    class ffaa_AV8BWreck: PlaneWreck { SLX_XEH_DISABLED = 1; }; // @FFAA -> Wreck
+    class ffaa_mq9_reaper_Wreck: PlaneWreck { SLX_XEH_DISABLED = 1; }; // @FFAA -> Wreck
+    class HelicopterWreck;
+    class ffaa_et_ch47Wreck: HelicopterWreck { SLX_XEH_DISABLED = 1; }; // @FFAA -> Wreck
+    class ffaa_famet_cougarWreck: HelicopterWreck { SLX_XEH_DISABLED = 1; }; // @FFAA -> Wreck
+
+    // Fix fajita
+	class Building;
+	class NonStrategic: Building {
+		class DestructionEffects;
+	};	
+	class HouseBase: NonStrategic {};	
+	class House: HouseBase {
+        class DestructionEffects: DestructionEffects {
+			class Smoke1 {
+				type="HouseDestructionSmoke3";
+			};
+			class Smoke2: Smoke1 {
+				type="HouseDestructionSmoke4";
+			};
+			class Smoke3: Smoke1 {
+				type="HouseDestrSmokeLong";
+            };
+		};
+	};
 };

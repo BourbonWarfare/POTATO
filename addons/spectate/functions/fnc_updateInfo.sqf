@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: AACO
  * Function used to update the info widget
@@ -14,14 +15,13 @@
  * Public: No
  */
 
-#include "script_component.hpp"
-TRACE_1("Params",_this);
+TRACE_1("updateInfo",_this);
 
 if (GVAR(uiVisible) && GVAR(showInfo)) then {
     if (isNull GVAR(camTarget)) then {
         [player getVariable [QGVAR(oldUnit), player], acex_killTracker_outputText]
     } else {
-        [GVAR(camTarget), GVAR(camTarget) getVariable [QEGVAR(miscFixes,eventsString), "None"]]
+        [GVAR(camTarget), GVAR(camTarget) getVariable [QACEGVAR(killtracker,output), "None"]]
     } params ["_unit", "_killFeed"];
     TRACE_1("Kill Feed", _killFeed);
 
@@ -81,8 +81,20 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
             };
             nil
         } count _bodyInfo; // count used here for speed, ensure nil above this line
+
+        private _bloodVol = _unit getVariable [QACEGVAR(medical,bloodVolume), 6];
+        private _pain = _unit getVariable [QACEGVAR(medical,pain), 0];
+        private _painSuppress = _unit getVariable [QACEGVAR(medical,painSuppress), 0];
+        private _heartRate = _unit getVariable [QACEGVAR(medical,heartRate), -1];
+        private _watches = {_x == "ItemWatch"} count items _unit; // note: Doesn't count the one you wear
+        FOCUS_MEDICAL_RATIO_BLOOD progressSetPosition linearConversion [0,6,_bloodVol,0,1,true];
+        FOCUS_MEDICAL_RATIO_PAIN progressSetPosition linearConversion [0,1,_pain,0,1,true];
+        FOCUS_MEDICAL_RATIO_PAINSUPPRESS progressSetPosition linearConversion [0,1,_painSuppress,0,1,true];
+        FOCUS_MEDICAL_INFO_HR ctrlSetText (if (_heartRate == -1) then { "" } else { str floor _heartRate });
+        FOCUS_MEDICAL_INFO_WATCHES ctrlSetText str _watches;
+
     } else {
-        FOCUS_VEHICLE ctrlSetText (getText (configFile >> "CfgVehicles" >> typeOf (vehicle _unit) >> "Picture"));
+        FOCUS_VEHICLE ctrlSetText (getText (configOf (vehicle _unit) >> "Picture"));
         FOCUS_VEHICLE ctrlShow true;
 
         FOCUS_UNIT ctrlSetText "";
