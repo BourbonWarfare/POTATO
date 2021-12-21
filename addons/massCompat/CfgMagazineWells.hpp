@@ -160,7 +160,7 @@ class CfgMagazineWells {
 
     class GVAR(magwell_22lr_cz550) {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(22lr,5)
+            MAGAZINE_WELL_MAG(22_lr,5)
         };
     };
 
