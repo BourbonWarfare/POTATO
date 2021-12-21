@@ -29,6 +29,9 @@ class CfgWeapons {
     class CUP_CZ_BREN2_GL_Base;
     class CUP_hgun_Makarov;
     class CUP_arifle_XM8_Base;
+    class CUP_smg_MP5SD6;
+    class CUP_smg_MP5A5;
+    class CUP_arifle_Colt727;
 
     // init speeds
     class rhs_weap_ak105: rhs_weap_ak74m {
@@ -265,6 +268,26 @@ class CfgWeapons {
     };
 
     // Magazine Wells
+    class cwr3_smg_sterling_sd: CUP_smg_MP5SD6 {
+        magazineWell[] += { "CBA_9x19_STEN"};
+    };
+
+    class cwr3_smg_sterling: CUP_smg_MP5A5 {
+        magazineWell[] += { "CBA_9x19_STEN" };
+    };
+
+    class cwr3_arifle_xm177e2: CUP_arifle_Colt727 {
+        magazineWell[] += { "CBA_556x45_STANAG", "CBA_556x45_STANAG_L", "CBA_556x45_STANAG_2D", "CBA_556x45_STANAG_2D_XL" };
+    };
+
+    class cwr3_arifle_xr47: CUP_arifle_Colt727 {
+        magazineWell[] += { "CBA_762x39_AK" };
+    };
+
+    class cwr3_arifle_xr74: cwr3_arifle_xr47 {
+        magazineWell[] += { "CBA_545x39_AK" };
+    };
+    
     class arifle_MSBS65_base_F: Rifle_Base_F {
         magazineWell[] += { "CBA_65x39_MX" };
     };
@@ -414,4 +437,5 @@ class CfgWeapons {
     class CUP_arifle_OTS14_GROZA_762_base: CUP_arifle_OTS14_GROZA_Base {
         initSpeed = -1.0;
     };
+
 };

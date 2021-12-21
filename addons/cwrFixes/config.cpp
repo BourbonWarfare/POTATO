@@ -8,17 +8,16 @@ class CfgPatches {
         weapons[] = {};
         magazines[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "A3_Data_F_Enoch_Loadorder", "CUP_Weapons_LoadOrder", "cwr3_weapon_config" };
+        requiredAddons[] = {
+            "potato_core", "cwr3_intro"
+        };
         author = "Potato";
-        authors[] = {"PabstMirror", "AACO", "Brandon (TCVM)"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
 };
 
-#include "CfgWeapons.hpp"
-#include "CfgAmmo.hpp"
-#include "CfgMagazines.hpp"
-#include "CfgMagazineWells.hpp"
+#include "CfgEventHandlers.hpp"
+#include "CfgVehicles.hpp"
 
 #endif
