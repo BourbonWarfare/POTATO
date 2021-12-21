@@ -2741,7 +2741,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class sp_fwa_sig510_base: srifle_DMR_06_F {
+    /*class sp_fwa_sig510_base: srifle_DMR_06_F {
         modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium","ACE_Burst_far"};
         class Single: Single {
             midRange = 350;
@@ -2786,7 +2786,7 @@ class CfgWeapons {
             burst = "3 + round random 5";
             aiRateOfFireDistance = 500;
         };
-    };
+    };*/
     class sgun_HunterShotgun_01_base_F: Rifle_Long_Base_F {
         modes[] = {"Single","Single_close","Single_far"};
         class Single: Mode_SemiAuto {
