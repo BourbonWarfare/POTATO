@@ -58,6 +58,7 @@ class CfgVehicles {
         ace_dragging_canDrag = 0;
         ace_cargo_hasCargo = 0;
         ace_cargo_canLoad = 0;
+        ace_artillerytables_showGunLaying = 0;
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 selection = "bubble start";
