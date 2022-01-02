@@ -6,7 +6,7 @@ TRACE_1("params",_this);
 (findDisplay 49) closeDisplay 1;
 
 if (!([] call EFUNC(core,isAuthorized))) exitWith {
-    systemChat "Not Authorized";
+    systemChat "Not authorized";
 };
 
 private _debugMsg = [] call {
@@ -18,7 +18,7 @@ private _debugMsg = [] call {
         [] spawn { createDialog "respawnMenuDialog"; };
         "Opens framework respawn"
     };
-    "Fails to open respawn; POTATO and framework options not found"
+    "Failed to open respawn; POTATO and framework options not found"
 };
 
 ["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
