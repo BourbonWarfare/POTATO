@@ -202,7 +202,7 @@ private _missionSummary = "You are not the mission maker so this is currently un
 if (isServer && name ACE_PLAYER == _missionMaker) then {_missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText"};
 private _masterChecklistArray = nil;
 
-if(_missionMaker == name ACE_PLAYER) then {
+if(_missionMaker == name player) then {
     _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
 } else {
     _masterChecklistArray = GVAR(MissionTestingChecklistMaster);
