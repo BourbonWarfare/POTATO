@@ -4,6 +4,7 @@ from steam import game_servers
 import socket
 import subprocess
 import datetime
+import re
 
 CHANNEL_BOT = 585642663202783236
 ALL_SERVERS_STEAM = [  # Note: port numbers are +1 from the arma server (e.g. Game Port: 2303, Steam Query Port: 2304)
@@ -43,6 +44,20 @@ def steam_getPlayerCount(server_addr):
     return ret
 
 
+def check_rdp_state():
+    """Checks state of RDP"""
+    ret = "[?]"
+    args = ["quser", "insertYourUserName"]
+    process = subprocess.run(args, capture_output=True)
+    output = process.stdout.decode('utf-8')
+    p = re.compile(r"\>[^\s]*[\s]*[^\s]*[\s]*[\d]*[\s]*([^\s]*)")
+    x = re.search(p, output)
+
+    if (x.group(1) == "Active"): ret = "[RDP]"
+    if (x.group(1) == "Disc"): ret = ""
+    return ret
+
+
 class cog_update_bot_status(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -54,6 +69,7 @@ class cog_update_bot_status(commands.Cog):
     @tasks.loop(seconds=60)
     async def update_status(self):
         status = ""
+        status += check_rdp_state()
         for (name, addr) in ALL_SERVERS_STEAM:
             player_count = steam_getPlayerCount(addr)
             if (name == "Main") or (player_count != -1):
