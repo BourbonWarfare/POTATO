@@ -10,4 +10,7 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.5;
         ACEGVAR(vehicle_damage,canHaveFireRing) = 1;  
     };
+
+    class PlaneWreck;
+    class cwr3_f4e_wreck: PlaneWreck { SLX_XEH_DISABLED = 1; };
 };

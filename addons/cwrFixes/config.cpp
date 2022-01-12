@@ -9,7 +9,7 @@ class CfgPatches {
         magazines[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "potato_core", "cwr3_intro"
+            "potato_core", "cwr3_intro", "cwr3_vehicle_m41", "cwr3_vehicle_f4"
         };
         author = "Potato";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
