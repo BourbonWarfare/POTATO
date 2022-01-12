@@ -1593,6 +1593,9 @@ class CfgWeapons {
         class FullAuto: Mode_FullAuto {
 
         };
+        class burst: Mode_Burst {
+
+        };
     };
     class SMG_03C_BASE: SMG_03_TR_BASE {
         modes[] = {"Single","FullAuto"};
@@ -1639,6 +1642,9 @@ class CfgWeapons {
 
         };
         class single_far_optics1: single_medium_optics1 {
+
+        };
+        class fullauto: Mode_FullAuto {
 
         };
     };
@@ -2137,52 +2143,52 @@ class CfgWeapons {
             showToPlayer = 1;
         };
     };
-    // class sp_fwa_sig510_base: srifle_DMR_06_F { // this causes problems for some reason?
-    //     modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium","ACE_Burst_far"};
-    //     class Single: Single {
-    //         midRange = 350;
-    //         maxRange = 500;
-    //         maxRangeProbab = 0.05;
-    //         minRange = 120;
-    //         minRangeProbab = 0.7;
-    //         midRangeProbab = 0.3;
-    //         showToPlayer = 1;
-    //         aiRateOfFire = 2;
-    //         aiRateOfFireDistance = 500;
-    //     };
-    //     class FullAuto: FullAuto {
-    //         minRange = 0;
-    //         minRangeProbab = 0.9;
-    //         midRange = 15;
-    //         midRangeProbab = 0.7;
-    //         maxRange = 30;
-    //         maxRangeProbab = 0.05;
-    //         aiRateOfFire = 1e-006;
-    //         showToPlayer = 1;
-    //         aiRateOfFireDistance = 500;
-    //     };
-    //     class single_close_optics1: single_close_optics1 {
+    /*class sp_fwa_sig510_base: srifle_DMR_06_F {
+        modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium","ACE_Burst_far"};
+        class Single: Single {
+            midRange = 350;
+            maxRange = 500;
+            maxRangeProbab = 0.05;
+            minRange = 120;
+            minRangeProbab = 0.7;
+            midRangeProbab = 0.3;
+            showToPlayer = 1;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 500;
+        };
+        class FullAuto: FullAuto {
+            minRange = 0;
+            minRangeProbab = 0.9;
+            midRange = 15;
+            midRangeProbab = 0.7;
+            maxRange = 30;
+            maxRangeProbab = 0.05;
+            aiRateOfFire = 1e-006;
+            showToPlayer = 1;
+            aiRateOfFireDistance = 500;
+        };
+        class single_close_optics1: single_close_optics1 {
 
-    //     };
-    //     class single_medium_optics1: single_medium_optics1 {
+        };
+        class single_medium_optics1: single_medium_optics1 {
 
-    //     };
-    //     class single_far_optics1: single_far_optics1 {
+        };
+        class single_far_optics1: single_far_optics1 {
 
-    //     };
-    //     class fullauto_medium: fullauto_medium {
-    //         showToPlayer = 0;
-    //         minRangeProbab = 0.5;
-    //         midRange = 50;
-    //         midRangeProbab = 0.7;
-    //         maxRangeProbab = 0.05;
-    //         aiRateOfFire = 2;
-    //         minRange = 20;
-    //         maxRange = 150;
-    //         burst = "3 + round random 5";
-    //         aiRateOfFireDistance = 500;
-    //     };
-    // };
+        };
+        class fullauto_medium: fullauto_medium {
+            showToPlayer = 0;
+            minRangeProbab = 0.5;
+            midRange = 50;
+            midRangeProbab = 0.7;
+            maxRangeProbab = 0.05;
+            aiRateOfFire = 2;
+            minRange = 20;
+            maxRange = 150;
+            burst = "3 + round random 5";
+            aiRateOfFireDistance = 500;
+        };
+    };*/
     class sgun_HunterShotgun_01_base_F: Rifle_Long_Base_F {
         modes[] = {"Single","Single_close","Single_far"};
         class Single: Mode_SemiAuto {
@@ -3466,10 +3472,35 @@ class CfgWeapons {
     };
     class hgun_PDW2000_F: pdw2000_base_F {
         modes[] = {"Single","FullAuto"};
+        class Single: Mode_SemiAuto {
+            showToPlayer = 1;
+            minRange = 30;
+            minRangeProbab = 0.25;
+            midRange = 300;
+            midRangeProbab = 0.58;
+            maxRange = 600;
+            maxRangeProbab = 0.04;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 500;
+        };
+        class FullAuto: Mode_FullAuto {
+            minRange = 1;
+            minRangeProbab = 0.2;
+            midRange = 30;
+            midRangeProbab = 0.58;
+            maxRange = 80;
+            maxRangeProbab = 0.04;
+            showToPlayer = 1;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 500;
+        };
+        class burst: Mode_Burst {
+
+        };
     };
     class rhs_weap_pp2000: hgun_PDW2000_F {
         modes[] = {"Single","FullAuto"};
-        class Single: Single {
+        class Single: single {
             minRange = 2;
             minRangeProbab = 0.3;
             midRange = 200;
@@ -3480,7 +3511,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
             showToPlayer = 1;
         };
-        class FullAuto: FullAuto {
+        class FullAuto: fullauto {
             minRange = 0;
             minRangeProbab = 0.1;
             midRange = 25;
@@ -7591,6 +7622,9 @@ class CfgWeapons {
             showToPlayer = 1;
             aiRateOfFireDistance = 500;
         };
+        class burst: Mode_Burst {
+
+        };
     };
     class CUP_smg_MP5A5: CUP_smg_MP5SD6 {
         modes[] = {"Single","FullAuto"};
@@ -7615,6 +7649,9 @@ class CfgWeapons {
             showToPlayer = 1;
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
+        };
+        class burst: Mode_Burst {
+
         };
     };
     class CUP_smg_P90_BASE: Rifle_Base_F {
@@ -9878,6 +9915,9 @@ class CfgWeapons {
         class single_medium_optics2: single_medium_optics1 {
 
         };
+        class burst: Mode_Burst {
+
+        };
     };
     class CUP_arifle_FNFAL5060: CUP_arifle_FNFAL {
         modes[] = {"Single","Fullauto","FullAuto_medium","single_medium_optics1","single_medium_optics2"};
@@ -10643,6 +10683,9 @@ class CfgWeapons {
 
         };
         class single_medium_optics2: single_medium_optics1 {
+
+        };
+        class burst: Mode_Burst {
 
         };
     };
@@ -12844,6 +12887,472 @@ class CfgWeapons {
         };
         class Burst: Burst {
 
+        };
+    };
+    class CUP_arifle_M16A1: CUP_arifle_XM16E1 {
+        modes[] = {"Single","FullAuto","Burst_medium","single_medium_optics1","single_medium_optics2"};
+    };
+    class cwr3_arifle_m16a1_lsw: CUP_arifle_M16A1 {
+        modes[] = {"single","manual","close","short","medium","far_optic1","far_optic2"};
+        class single: Single {
+            minRange = 2;
+            minRangeProbab = 0.01;
+            midRange = 200;
+            midRangeProbab = 0.01;
+            maxRange = 400;
+            maxRangeProbab = 0.01;
+            showToPlayer = 1;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 500;
+        };
+        class manual: FullAuto {
+            minRange = 0;
+            minRangeProbab = 0.3;
+            midRange = 5;
+            midRangeProbab = 0.7;
+            maxRange = 10;
+            maxRangeProbab = 0.04;
+            showToPlayer = 1;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 500;
+        };
+        class close: manual {
+            burst = 10;
+            aiRateOfFire = 0.4;
+            aiRateOfFireDistance = 50;
+            minRange = 10;
+            minRangeProbab = 0.05;
+            midRange = 20;
+            midRangeProbab = 0.7;
+            maxRange = 50;
+            maxRangeProbab = 0.04;
+            showToPlayer = 0;
+        };
+        class short: close {
+            burst = 8;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 300;
+            minRange = 50;
+            minRangeProbab = 0.05;
+            midRange = 150;
+            midRangeProbab = 0.7;
+            maxRange = 300;
+            maxRangeProbab = 0.04;
+            showToPlayer = 0;
+        };
+        class medium: close {
+            burst = 5;
+            aiRateOfFire = 4;
+            aiRateOfFireDistance = 600;
+            minRange = 200;
+            minRangeProbab = 0.05;
+            midRange = 300;
+            midRangeProbab = 0.7;
+            maxRange = 500;
+            maxRangeProbab = 0.1;
+            showToPlayer = 0;
+        };
+        class far_optic1: close {
+
+        };
+        class far_optic2: far_optic1 {
+
+        };
+    };
+    class cwr3_arifle_m16a1e1_lsw: CUP_arifle_M16A1E1 {
+        modes[] = {"single","manual","close","short","medium","far_optic1","far_optic2"};
+        class single: Single {
+            minRange = 2;
+            minRangeProbab = 0.01;
+            midRange = 200;
+            midRangeProbab = 0.01;
+            maxRange = 400;
+            maxRangeProbab = 0.01;
+            showToPlayer = 1;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 500;
+        };
+        class manual: FullAuto {
+            minRange = 0;
+            minRangeProbab = 0.3;
+            midRange = 5;
+            midRangeProbab = 0.7;
+            maxRange = 10;
+            maxRangeProbab = 0.04;
+            showToPlayer = 1;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 500;
+        };
+        class close: manual {
+            burst = 10;
+            aiRateOfFire = 0.4;
+            aiRateOfFireDistance = 50;
+            minRange = 10;
+            minRangeProbab = 0.05;
+            midRange = 20;
+            midRangeProbab = 0.7;
+            maxRange = 50;
+            maxRangeProbab = 0.04;
+            showToPlayer = 0;
+        };
+        class short: close {
+            burst = 8;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 300;
+            minRange = 50;
+            minRangeProbab = 0.05;
+            midRange = 150;
+            midRangeProbab = 0.7;
+            maxRange = 300;
+            maxRangeProbab = 0.04;
+            showToPlayer = 0;
+        };
+        class medium: close {
+            burst = 5;
+            aiRateOfFire = 4;
+            aiRateOfFireDistance = 600;
+            minRange = 200;
+            minRangeProbab = 0.05;
+            midRange = 300;
+            midRangeProbab = 0.7;
+            maxRange = 500;
+            maxRangeProbab = 0.1;
+            showToPlayer = 0;
+        };
+        class far_optic1: close {
+
+        };
+        class far_optic2: far_optic1 {
+
+        };
+    };
+    class cwr3_lmg_bren: CUP_arifle_FNFAL5060 {
+        modes[] = {"FullAuto","Single","close","short","medium","far_optic1","far_optic2"};
+        class FullAuto: FullAuto {
+            minRange = 0;
+            minRangeProbab = 0.9;
+            midRange = 15;
+            midRangeProbab = 0.7;
+            maxRange = 30;
+            maxRangeProbab = 0.1;
+            aiRateOfFire = 1e-006;
+            showToPlayer = 1;
+            aiRateOfFireDistance = 500;
+        };
+        class Single: Single {
+            minRange = 2;
+            minRangeProbab = 0.01;
+            midRange = 200;
+            midRangeProbab = 0.01;
+            maxRange = 400;
+            maxRangeProbab = 0.01;
+            showToPlayer = 1;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 500;
+        };
+        class close: FullAuto {
+            burst = 10;
+            aiRateOfFire = 0.5;
+            aiRateOfFireDistance = 50;
+            minRange = 0;
+            minRangeProbab = 0.05;
+            midRange = 30;
+            midRangeProbab = 0.7;
+            maxRange = 50;
+            maxRangeProbab = 0.04;
+            showToPlayer = 0;
+        };
+        class short: close {
+            burst = 8;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 300;
+            minRange = 50;
+            minRangeProbab = 0.05;
+            midRange = 150;
+            midRangeProbab = 0.7;
+            maxRange = 300;
+            maxRangeProbab = 0.04;
+            showToPlayer = 0;
+        };
+        class medium: close {
+            burst = 5;
+            aiRateOfFire = 4;
+            aiRateOfFireDistance = 600;
+            minRange = 200;
+            minRangeProbab = 0.05;
+            midRange = 400;
+            midRangeProbab = 0.6;
+            maxRange = 600;
+            maxRangeProbab = 0.1;
+            showToPlayer = 0;
+        };
+        class far_optic1: close {
+
+        };
+        class far_optic2: far_optic1 {
+
+        };
+    };
+    class cwr3_glaunch_mm1: Rifle_Base_F {
+        modes[] = {"Single"};
+        class Single: Mode_SemiAuto {
+            showToPlayer = 1;
+            minRange = 30;
+            minRangeProbab = 0.25;
+            midRange = 300;
+            midRangeProbab = 0.58;
+            maxRange = 600;
+            maxRangeProbab = 0.04;
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 500;
+        };
+    };
+    class cwr3_vhmg_m2_veh: HMG_M2 {
+        modes[] = {"manual","close","short","medium","far"};
+        class manual: MGun {
+            aiRateOfFire = 0.5;
+            aiRateOfFireDistance = 50;
+            maxRange = 3;
+            maxRangeProbab = 0.01;
+            midRange = 2;
+            midRangeProbab = 0.01;
+            minRange = 1;
+            minRangeProbab = 0.01;
+            showToPlayer = 1;
+        };
+        class close: manual {
+            aiRateOfFire = 0.5;
+            aiRateOfFireDistance = 50;
+            burst = 10;
+            maxRange = 100;
+            maxRangeProbab = 0.04;
+            midRange = 20;
+            midRangeProbab = 0.58;
+            minRange = 0;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class short: close {
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 300;
+            burst = 8;
+            maxRange = 300;
+            maxRangeProbab = 0.04;
+            midRange = 150;
+            midRangeProbab = 0.58;
+            minRange = 50;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class medium: close {
+            aiRateOfFire = 3;
+            aiRateOfFireDistance = 600;
+            burst = 4;
+            maxRange = 800;
+            maxRangeProbab = 0.04;
+            midRange = 500;
+            midRangeProbab = 0.58;
+            minRange = 200;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class far: close {
+            aiRateOfFire = 5;
+            aiRateOfFireDistance = 1000;
+            burst = 5;
+            maxRange = 1200;
+            maxRangeProbab = 0.01;
+            midRange = 800;
+            midRangeProbab = 0.4;
+            minRange = 600;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+    };
+    class cwr3_vhmg_m2_twin_veh: cwr3_vhmg_m2_veh {
+        modes[] = {"manual","close","short","medium","far"};
+        class manual: manual {
+            aiRateOfFire = 0.5;
+            aiRateOfFireDistance = 50;
+            maxRange = 3;
+            maxRangeProbab = 0.01;
+            midRange = 2;
+            midRangeProbab = 0.01;
+            minRange = 1;
+            minRangeProbab = 0.01;
+            showToPlayer = 1;
+        };
+        class close: close {
+            aiRateOfFire = 0.5;
+            aiRateOfFireDistance = 50;
+            burst = 10;
+            maxRange = 100;
+            maxRangeProbab = 0.04;
+            midRange = 20;
+            midRangeProbab = 0.58;
+            minRange = 0;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class short: short {
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 300;
+            burst = 8;
+            maxRange = 300;
+            maxRangeProbab = 0.04;
+            midRange = 150;
+            midRangeProbab = 0.58;
+            minRange = 50;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class medium: medium {
+            aiRateOfFire = 3;
+            aiRateOfFireDistance = 600;
+            burst = 4;
+            maxRange = 800;
+            maxRangeProbab = 0.04;
+            midRange = 500;
+            midRangeProbab = 0.58;
+            minRange = 200;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class far: far {
+            aiRateOfFire = 5;
+            aiRateOfFireDistance = 1000;
+            burst = 5;
+            maxRange = 1200;
+            maxRangeProbab = 0.01;
+            midRange = 800;
+            midRangeProbab = 0.4;
+            minRange = 600;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+    };
+    class cwr3_vhmg_nsvt_veh: MGun {
+        modes[] = {"manual","close","short","medium","far"};
+        class manual: MGun {
+            aiRateOfFire = 0.5;
+            aiRateOfFireDistance = 50;
+            maxRange = 3;
+            maxRangeProbab = 0.01;
+            midRange = 2;
+            midRangeProbab = 0.01;
+            minRange = 1;
+            minRangeProbab = 0.01;
+            showToPlayer = 1;
+        };
+        class close: manual {
+            aiRateOfFire = 0.5;
+            aiRateOfFireDistance = 50;
+            burst = 10;
+            maxRange = 100;
+            maxRangeProbab = 0.04;
+            midRange = 20;
+            midRangeProbab = 0.58;
+            minRange = 0;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class short: close {
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 300;
+            burst = 8;
+            maxRange = 300;
+            maxRangeProbab = 0.04;
+            midRange = 150;
+            midRangeProbab = 0.58;
+            minRange = 50;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class medium: close {
+            aiRateOfFire = 3;
+            aiRateOfFireDistance = 600;
+            burst = 4;
+            maxRange = 800;
+            maxRangeProbab = 0.04;
+            midRange = 500;
+            midRangeProbab = 0.58;
+            minRange = 200;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class far: close {
+            aiRateOfFire = 5;
+            aiRateOfFireDistance = 1000;
+            burst = 5;
+            maxRange = 1200;
+            maxRangeProbab = 0.01;
+            midRange = 800;
+            midRangeProbab = 0.4;
+            minRange = 600;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+    };
+    class cwr3_vhmg_nsv_veh: MGun {
+        modes[] = {"manual","close","short","medium","far"};
+        class manual: MGun {
+            aiRateOfFire = 0.5;
+            aiRateOfFireDistance = 50;
+            maxRange = 3;
+            maxRangeProbab = 0.01;
+            midRange = 2;
+            midRangeProbab = 0.01;
+            minRange = 1;
+            minRangeProbab = 0.01;
+            showToPlayer = 1;
+        };
+        class close: manual {
+            aiRateOfFire = 0.5;
+            aiRateOfFireDistance = 50;
+            burst = 10;
+            maxRange = 100;
+            maxRangeProbab = 0.04;
+            midRange = 20;
+            midRangeProbab = 0.58;
+            minRange = 0;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class short: close {
+            aiRateOfFire = 2;
+            aiRateOfFireDistance = 300;
+            burst = 8;
+            maxRange = 300;
+            maxRangeProbab = 0.04;
+            midRange = 150;
+            midRangeProbab = 0.58;
+            minRange = 50;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class medium: close {
+            aiRateOfFire = 3;
+            aiRateOfFireDistance = 600;
+            burst = 4;
+            maxRange = 800;
+            maxRangeProbab = 0.04;
+            midRange = 500;
+            midRangeProbab = 0.58;
+            minRange = 200;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
+        };
+        class far: close {
+            aiRateOfFire = 5;
+            aiRateOfFireDistance = 1000;
+            burst = 5;
+            maxRange = 1200;
+            maxRangeProbab = 0.01;
+            midRange = 800;
+            midRangeProbab = 0.4;
+            minRange = 600;
+            minRangeProbab = 0.05;
+            showToPlayer = 0;
         };
     };
 };

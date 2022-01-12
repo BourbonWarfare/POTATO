@@ -82,7 +82,11 @@
             MAGAZINE_WELL_MAG(9x19,30)
         };
     };
-    class CBA_9x19_STEN {};         // STEN
+    class CBA_9x19_STEN {
+        GVAR(mags)[] = {
+            MAGAZINE_WELL_MAG(9x19,30)
+        };
+    };         // STEN
     class CBA_9x19_STEYR {
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(9x19,25)

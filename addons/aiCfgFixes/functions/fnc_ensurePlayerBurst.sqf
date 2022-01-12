@@ -16,6 +16,7 @@
  */
 #include "script_component.hpp"
 
+private _fine = true;
 {
     private _firemodes = getArray(_x >> "modes");
     {
@@ -23,9 +24,11 @@
             private _errorStr = "Fire Mode: " + configName(_x) + " -- Config: " + str(_x);
             systemChat _errorStr;
             diag_log _errorStr;
+            _fine = false;
         };
     } forEach configProperties[_x, "configName(_x) in _firemodes", false];
 
 } forEach configProperties[configFile >> "CfgWeapons", "isClass(_x) && { !isNull(_x >> 'modes') }"];
 diag_log "done test";
+_fine
 
