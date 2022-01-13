@@ -34,6 +34,10 @@ if !(isNull _unit) then {
     if !(isNull _oldUnit) then {
         _unit setVariable [QGVAR(oldUnit), _oldUnit];
 
+        // try to fix name disappearing on unit death
+        private _name = name _unit;
+        _oldUnit setVariable ["diwako_dui_main_customName", _name, true];
+
         private _side = [[configOf _oldUnit >> "side", 7] call CFUNC(getNumber)] call CFUNC(toSide);
         private _sideColor = if (_side != sideLogic) then { 
             [_side] call BIS_fnc_sideColor
