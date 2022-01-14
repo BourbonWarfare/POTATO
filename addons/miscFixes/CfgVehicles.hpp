@@ -59,14 +59,6 @@ class CfgVehicles {
     // } forEach x3;
 
 
-    // Fix: WARNING: MBG_WaterfallPlugin does not support Extended Event Handlers! Addon: @BourbonMapRotation
-    class Logic;
-    class MBG_WaterfallPlugin: Logic {
-        class EventHandlers {
-            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
-        };
-    };
-
     // Fix: Drongo's Spooks and Anomalies XEH
     class DSA_SpookBase;
     class DSA_SpookBase2;

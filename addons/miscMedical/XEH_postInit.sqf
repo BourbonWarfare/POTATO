@@ -3,15 +3,6 @@
 LOG("Post init start");
 
 
-// https://github.com/acemod/ACE3/pull/8692
-["CAManBase", "AnimDone", {
-    params ["_unit", "_anim"];
-    if (local _unit && {_anim find "ace_medical_engine_uncon_anim_face" != -1 && {lifeState _unit != "INCAPACITATED"}}) then {
-        [_unit, false] call ace_medical_engine_fnc_setUnconsciousAnim;
-    };
-}] call CBA_fnc_addClassEventHandler;
-
-
 if (isServer) then {
     [QGVAR(sLog), {
         params ["_type", "_msg"];
