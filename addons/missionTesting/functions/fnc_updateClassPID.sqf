@@ -50,7 +50,7 @@ switch (_ctrlIDC) do {
     case PID_CLASS_3_IDC: {GVAR(DummyUnits) set [2,_newUnit];};
 };
 
-[] call FUNC(updatePositionPID);
+[5] call FUNC(updatePositionPID);
 private _stanceIDC = _ctrlIDC + 3;
 private _stanceCtrl = _display displayCtrl _stanceIDC;
 private _stanceIndex = lbCurSel _stanceCtrl;

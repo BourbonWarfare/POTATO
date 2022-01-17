@@ -57,19 +57,22 @@
 #define INCREMENT_YCOORD_TEXT GVAR(yStartCoord) = GVAR(yStartCoord) + 0.06
 #define LINE_W 0.81
 
-#define DISPLAY_TESTMENU (findDisplay 9999)
+#define DISPLAY_TESTMENU_IDD 9999
+#define DISPLAY_TESTMENU (findDisplay DISPLAY_TESTMENU_IDD)
 #define CONTROL_GROUP_L_IDC 9991
 #define CONTROL_GROUP_L DISPLAY_TESTMENU displayCtrl CONTROL_GROUP_L_IDC
 #define CONTROL_GROUP_R_IDC 9992
 #define CONTROL_GROUP_R DISPLAY_TESTMENU displayCtrl CONTROL_GROUP_R_IDC
 
-#define DISPLAY_BRIEF (findDisplay 9998)
+#define DISPLAY_BRIEF_IDD 9998
+#define DISPLAY_BRIEF (findDisplay DISPLAY_BRIEF_IDD)
 #define BRIEFINGS_GROUP_L_IDC 9993
 #define BRIEFINGS_GROUP_L DISPLAY_BRIEF displayCtrl BRIEFINGS_GROUP_L_IDC
 #define BRIEFINGS_GROUP_R_IDC 9994
 #define BRIEFINGS_GROUP_R DISPLAY_BRIEF displayCtrl BRIEFINGS_GROUP_R_IDC
 
-#define DISPLAY_PID (findDisplay 9997)
+#define DISPLAY_PID_IDD 9997
+#define DISPLAY_PID (findDisplay DISPLAY_PID_IDD)
 #define PID_SIDE_2_IDC 2100
 #define PID_CLASS_2_IDC 2103
 #define PID_STANCE_2_IDC 2106
@@ -82,6 +85,26 @@
 #define PID_CLASS_3_IDC 2105
 #define PID_STANCE_3_IDC 2108
 #define PID_DIR_SLIDER_3_IDC 1902
+#define PID_ALL_SIDE_IDCS   [\
+                            PID_SIDE_1_IDC\
+                            ,PID_SIDE_2_IDC\
+                            ,PID_SIDE_3_IDC\
+                            ]
+#define PID_ALL_ClASS_IDCS  [\
+                            PID_CLASS_1_IDC\
+                            ,PID_CLASS_2_IDC\
+                            ,PID_CLASS_3_IDC\
+                            ]
+#define PID_ALL_STANCE_IDCS [\
+                            PID_STANCE_1_IDC\
+                            ,PID_STANCE_2_IDC\
+                            ,PID_STANCE_3_IDC\
+                            ]
+#define PID_ALL_DIR_IDCS    [\
+                            PID_DIR_SLIDER_1_IDC\
+                            ,PID_DIR_SLIDER_2_IDC\
+                            ,PID_DIR_SLIDER_3_IDC\
+                            ]
 
 #define PID_DEFAULT_DIR 0
 #define PID_DEFAULT_FACTION 0

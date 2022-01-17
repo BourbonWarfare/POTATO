@@ -27,5 +27,3 @@ switch (_ctrlIDC) do {
 private _dirPlayer = getDir ACE_PLAYER;
 
 _unit setDir  0 - _newValue + (_dirPlayer - 180);
-
-if(_ctrlIDC == PID_DIR_SLIDER_1_IDC) then {[] call FUNC(updatePositionPID);};

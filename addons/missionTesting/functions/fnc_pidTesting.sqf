@@ -124,75 +124,18 @@ TRACE_1("_pidDummy_3",_pidDummy_3);
 GVAR(DummyUnits) pushBack _pidDummy_3;
 _pidDummy_3 enableSimulation false;
 _pidDummy_3 switchMove PID_DEFAULT_STANCE;
+// Create an empty position
+private _pidEmpty = "HeliHEmpty" createVehicle _pos;
+TRACE_1("_pidEmpty",_pidEmpty);
+GVAR(DummyUnits) pushBack _pidEmpty;
 
 private _dir = getDir ACE_PLAYER;
 private _dirD1 = _dir - 180;
 
 {
 _x setDir _dirD1;
-} forEach [_pidDummy_1,_pidDummy_2,_pidDummy_3];
+} forEach [_pidDummy_1,_pidDummy_2,_pidDummy_3,_pidEmpty];
 
-[] call FUNC(updatePositionPID);
+[5] call FUNC(updatePositionPID);
 
-_display displayAddEventHandler [QUOTE(UnLoad), QUOTE({deleteVehicle _x} forEach GVAR(DummyUnits);)];
-
-
-//(QGVAR(LoadoutPID) call BIS_fnc_rscLayer) cutRsc [QGVAR(LoadoutPID), "PLAIN", 0, false];
-
-
-
-/*
-
-=======================================================================================================
-
-_class = "B_officer_F";
-_pos = getPos player;
-//Create a unit.
-vic0 = createVehicle [_class,_pos];
-vic0 enableSimulation false;
-//Create a second unit.
-vic1 = createVehicle [_class,_pos];
-vic1 enableSimulation false;
-//Create a second unit.
-vic2 = createVehicle [_class,_pos];
-vic2 enableSimulation false;
-
-
-onEachFrame{
-private _disBetween = 2; // Distance between the two units.
-private _unit = player;
-private _posUnit = getPos _unit;
-private _beg = eyePos _unit; // Eye position of the player.
-private _end = (_beg vectorAdd (getCameraViewDirection _unit vectorMultiply 1000)); // Draw a line 1000 units long from the camera of the player.
-private _dir = getDir _unit;
-private _ins = terrainIntersectAtASL [_beg, _end]; // Get the position on the terrain where the line from the players camera intersects with the terrain.
-vic0 setPosASLW _ins; // Set the position of vic0 as the intersect point.
-
-// This section uses vector math to set the direction of the vic0 unit to mirror that of the player.
-private _v_unit = vectorDir _unit;
-private _v_vicUnit = vectorDir vic0;
-private _v_diff = _v_vicUnit vectorDiff _v_unit;
-vic0 setVectorDir _v_diff;
-
-// Find some way to move the second unit to be a set distance (_disBetween) way from vic0, on a line perpendicular to the line of the player view.
-
-private _newEnd = vic0 modelToWorldWorld [_disBetween,0,0];
-vic1 setPosASLW _newEnd;
-private _v_unit = vectorDir _unit;
-private _v_vicUnit = vectorDir vic1;
-private _v_diff = _v_vicUnit vectorDiff _v_unit;
-vic1 setVectorDir _v_diff;
-
-private _newEnd = vic0 modelToWorldWorld [-(_disBetween),0,0];
-vic2 setPosASLW _newEnd;
-private _v_unit = vectorDir _unit;
-private _v_vicUnit = vectorDir vic2;
-private _v_diff = _v_vicUnit vectorDiff _v_unit;
-vic2 setVectorDir _v_diff;
-_disStr = str (round (_unit distance vic0));
-
-drawIcon3D ["", [1,0,0,0.50], ASLToAGL _ins, 1, 1, 45, _disStr, 1, 0.1, "TahomaB"];
-
-}
-
-*/
+_display displayAddEventHandler [QUOTE(UnLoad), QUOTE(if((_this select 1)!= 3) then{{deleteVehicle _x} forEach GVAR(DummyUnits);};)];

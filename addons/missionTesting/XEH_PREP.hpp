@@ -20,3 +20,7 @@ PREP(updateClassPID);
 PREP(updateDirPID);
 PREP(updateStancePID);
 PREP(updatePositionPID);
+PREP(freeMoveInitPID);
+PREP(freeMoveUnitsPID);
+PREP(freeMoveExitPID);
+PREP(storeValuesPID);

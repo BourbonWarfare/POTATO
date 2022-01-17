@@ -1,44 +1,41 @@
+#include "script_component.hpp"
+
 class GVAR(displayMissionTesting) {
-    idd = 9999;
+    idd = DISPLAY_TESTMENU_IDD;
     movingEnable = 1;
     enableSimulation = 1;
     enableDisplay = 1;
 };
 class GVAR(displayBreifings) {
-    idd = 9998;
+    idd = DISPLAY_BRIEF_IDD;
     movingEnable = 1;
     enableSimulation = 1;
     enableDisplay = 1;
 };
 
-class IGUIBack;
-class RscPicture;
-class RscCombo;
-class RscSlider;
+import RscPicture;
+import RscCombo;
+import RscXSliderH;
 
 class GVAR(LoadoutPID) {
-    idd = 9997;
-    movingEnable = 1;
-    duration = 9999999;
-    fadein = 0;
-    fadeout = 0;
+    idd = DISPLAY_PID_IDD;
     onLoad = QUOTE(with uiNamespace do {GVAR(LoadoutPID) = _this select 0;};);
-    onKeyDown = QUOTE(with uiNamespace do {_this spawn FUNC(cutRscPID)});
+    onKeyDown = QUOTE(with uiNamespace do {_this call FUNC(freeMoveInitPID)});
 
 
     class controls {
-        class IGUIBack_2200: IGUIBack
+        class IGUIBack_2200: RscPicture
         {
             idc = 2200;
             x = 0.283378 * safezoneW + safezoneX;
             y = 0.6 * safezoneH + safezoneY;
             w = 0.433243 * safezoneW;
             h = 0.175 * safezoneH;
-            moving = 1;
+            moving = 0;
         };
         class RscCombo_2100: RscCombo
         {
-            idc = 2100;
+            idc = PID_SIDE_2_IDC;
             x = 0.29421 * safezoneW + safezoneX;
             y = 0.643 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
@@ -47,7 +44,7 @@ class GVAR(LoadoutPID) {
         };
         class RscCombo_2101: RscCombo
         {
-            idc = 2101;
+            idc = PID_SIDE_1_IDC;
             x = 0.435014 * safezoneW + safezoneX;
             y = 0.643 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
@@ -56,7 +53,7 @@ class GVAR(LoadoutPID) {
         };
         class RscCombo_2102: RscCombo
         {
-            idc = 2102;
+            idc = PID_SIDE_3_IDC;
             x = 0.575818 * safezoneW + safezoneX;
             y = 0.643 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
@@ -65,7 +62,7 @@ class GVAR(LoadoutPID) {
         };
         class RscCombo_2103: RscCombo
         {
-            idc = 2103;
+            idc = PID_CLASS_2_IDC;
             x = 0.29421 * safezoneW + safezoneX;
             y = 0.687 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
@@ -74,7 +71,7 @@ class GVAR(LoadoutPID) {
         };
         class RscCombo_2104: RscCombo
         {
-            idc = 2104;
+            idc = PID_CLASS_1_IDC;
             x = 0.435014 * safezoneW + safezoneX;
             y = 0.687 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
@@ -83,7 +80,7 @@ class GVAR(LoadoutPID) {
         };
         class RscCombo_2105: RscCombo
         {
-            idc = 2105;
+            idc = PID_CLASS_3_IDC;
             x = 0.575818 * safezoneW + safezoneX;
             y = 0.687 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
@@ -92,7 +89,7 @@ class GVAR(LoadoutPID) {
         };
         class RscCombo_2106: RscCombo
         {
-            idc = 2106;
+            idc = PID_STANCE_2_IDC;
             x = 0.29421 * safezoneW + safezoneX;
             y = 0.731 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
@@ -101,7 +98,7 @@ class GVAR(LoadoutPID) {
         };
         class RscCombo_2107: RscCombo
         {
-            idc = 2107;
+            idc = PID_STANCE_1_IDC;
             x = 0.435014 * safezoneW + safezoneX;
             y = 0.731 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
@@ -110,32 +107,32 @@ class GVAR(LoadoutPID) {
         };
         class RscCombo_2108: RscCombo
         {
-            idc = 2108;
+            idc = PID_STANCE_3_IDC;
             x = 0.575818 * safezoneW + safezoneX;
             y = 0.731 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
             h = 0.022 * safezoneH;
             tooltip = "Select Stance"; //--- ToDo: Localize;
         };
-        class RscSlider_1900: RscSlider
+        class RscSlider_1900: RscXSliderH
         {
-            idc = 1900;
+            idc = PID_DIR_SLIDER_2_IDC;
             x = 0.29421 * safezoneW + safezoneX;
             y = 0.61 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
             h = 0.022 * safezoneH;
         };
-        class RscSlider_1901: RscSlider
+        class RscSlider_1901: RscXSliderH
         {
-            idc = 1901;
+            idc = PID_DIR_SLIDER_1_IDC;
             x = 0.435014 * safezoneW + safezoneX;
             y = 0.61 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
             h = 0.022 * safezoneH;
         };
-        class RscSlider_1902: RscSlider
+        class RscSlider_1902: RscXSliderH
         {
-            idc = 1902;
+            idc = PID_DIR_SLIDER_3_IDC;
             x = 0.575818 * safezoneW + safezoneX;
             y = 0.61 * safezoneH + safezoneY;
             w = 0.129973 * safezoneW;
@@ -143,4 +140,17 @@ class GVAR(LoadoutPID) {
         };
     };
     class objects {};
+};
+
+import RscDisplayEmpty;
+
+class RscTitles
+{
+	class GVAR(RscTitleLoadoutPID) : RscDisplayEmpty {
+        movingEnable = 0;
+        duration = 9999999;
+        fadein = 0;
+        fadeout = 0;
+        onKeyDown = QUOTE(with uiNamespace do {_this call FUNC(freeMoveExitPID)});
+    };
 };
