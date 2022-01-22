@@ -5,14 +5,20 @@ import socket
 import subprocess
 import datetime
 import re
+from pathlib import Path
 
 CHANNEL_BOT = 585642663202783236
+CHANNEL_UPLOAD = 934246522911096943
+CHANNEL_LIST = [CHANNEL_BOT,CHANNEL_UPLOAD]
 ALL_SERVERS_STEAM = [  # Note: port numbers are +1 from the arma server (e.g. Game Port: 2303, Steam Query Port: 2304)
     ["Main", ("104.128.50.152", 2304)],
     ["Training", ("104.128.50.152", 2370)],
     ["Offnight", ("104.128.50.152", 2486)],
 ]
 
+file_path = Path("E:\BourbonWarfare\gameservers\plugins\SGDArma3.cs\missions")
+main_path = file_path / "main"
+offnight_path = file_path / "offnight"
 
 class NotInBotChannel(commands.CheckFailure):
     pass
@@ -89,14 +95,15 @@ bot = commands.Bot(command_prefix=commands.when_mentioned)
 @bot.event
 async def on_ready():
     print("Logged in as {}:{}".format(bot.user.name, bot.user.id))
-    print("Bot Active in Channel {}".format(bot.get_channel(CHANNEL_BOT)))
+    for channel in CHANNEL_LIST:
+        print("Bot Active in Channel {}".format(bot.get_channel(channel)))
     print("------")
 
 
 @bot.check
 async def isSpecificChannel(ctx):
     """Checks the bot is called only from a specific channel"""
-    if ctx.channel != bot.get_channel(CHANNEL_BOT):
+    if not ctx.channel.id in CHANNEL_LIST:
         raise NotInBotChannel("Only active in bot channel")
     return True
 
@@ -107,15 +114,6 @@ async def on_command_error(ctx, error):
     print(" WARNING:[on_command_error: {}] {}: {}".format(error, ctx.author, ctx.message.content))
     await ctx.send("Invalid: {}".format(error))
 
-
-@bot.command()
-async def status(ctx):
-    """Command prints status of arma servers"""
-    print(" TRACE:[bot: status] {}: {}".format(ctx.author, ctx.message.content))
-    for (name, addr) in ALL_SERVERS_STEAM:
-        await ctx.send(steam_checkServer(name, addr))
-
-
 @bot.command()
 async def userinfo(ctx, member: discord.Member):
     """Command states when a member joined"""
@@ -123,50 +121,66 @@ async def userinfo(ctx, member: discord.Member):
     msg = "{0.display_name} joined on {0.joined_at} ({0._user})".format(member)
     await ctx.send(msg)
 
-
-@bot.command()
-async def spinup(ctx, *args):
-    """Command starts up extra server [use with: training or offnight]"""
-    print(" TRACE:[bot: spinup {}] {}: {}".format(args, ctx.author, ctx.message.content))
-    server_type = "?"
-    if len(args) > 0:
-        server_type = args[0].lower()
-    if server_type in ["training", "train", "t"]:
-        await ctx.send("starting training server")
-        print("Training.bat")
-        subprocess.call([r"E:\BourbonWarfare\ArmA3\Master\@dedicated_server - Training.bat"], stdout=subprocess.DEVNULL)
-    elif server_type in ["offnight", "oftnight", "on", "o"]:
-        await ctx.send("starting offnight server")
-        print("Offnight.bat")
-        subprocess.call(
-            [r"E:\BourbonWarfare\ArmA3\serverOffNight\@dedicated_server - Offnight.bat"], stdout=subprocess.DEVNULL
-        )
+async def test(ctx, mission):
+    name_list = mission.filename.split(".")
+    if name_list[-1] == "pbo":
+        print(f"Mission File Passed Testing. File [{mission.filename}]")
+        return True
     else:
-        await ctx.send("Need type, use with: training or offnight")
+        await ctx.send(f":stop_sign: The file `{mission.filename}` is not a mission pbo")
+        print(f"File failed testing. File [{mission.filename}]")
+        return False
 
+async def delete_file(fp):
+    try:
+        fp.unlink()
+        print(f"File deleted at location [{fp}]")
+    except OSError as e:
+        print("Error: %s : %s" % (fp, e.strerror))
+
+async def movefile(ctx, mission, mission_path, server_dest):
+    if server_dest in ["session","main","s","m"]:
+        server = "Main and Training"
+        mission_dest_path = main_path / mission.filename
+    elif server_dest in ["offnight","off","o"]:
+        server = "Offnight"
+        mission_dest_path = offnight_path / mission.filename
+    else:
+        raise TypeError(":stop_sign: Check you smelling, deleting uploaded file from server")
+    try:
+        (file_path / mission_path).rename(mission_dest_path)
+        await ctx.send(f":white_check_mark: Mission file `{mission.filename}` successfully uploaded to the `{server}` server.")
+        print(f"Mission file upload successful. Path [{mission_dest_path}]")
+    except:
+        raise TypeError(":stop_sign: File move failed for reasons. Likely because the file already exists.")
 
 @bot.command()
-async def restart(ctx, *args):
-    """Command force closes all arma servers (except public) and restarts Main and HC [use with force if needed]"""
-    print(" TRACE:[bot: restart {}] {}: {}".format(args, ctx.author, ctx.message.content))
-    player_count = steam_getPlayerCount(ALL_SERVERS_STEAM[0][1])
-    is_forced = (len(args) > 0) and (args[0].lower() in ["force", "f"])
-    if (player_count > 2) and not is_forced:
-        await ctx.send("{} players online, use command with ' force' to continue".format(player_count))
-        return
-    await ctx.send("restarting")
-    print("restart_server.bat")
-    subprocess.call([r"E:\BourbonWarfare\ArmA3\Master\restart_server.bat"], stdout=subprocess.DEVNULL)
-
-
-# @bot.command()
-# async def soggyrestart(ctx):
-#     """Command restarts the soggy server and hc [use with care]"""
-#     print(" TRACE:[bot: soggyestart] {}: {}".format(ctx.author, ctx.message.content))
-#     await ctx.send("restarting the soggy server and hc")
-#     subprocess.call([r"E:\BourbonWarfare\ArmA3\serverOffNight\@restart_justSoggy.bat"], stdout=subprocess.DEVNULL)
+async def upload(ctx, *args):
+    attachments = ctx.message.attachments
+    if len(args) > 0:
+        server_dest = args[0].lower()
+        if len(attachments) >  0:
+            for mission in attachments:
+                mission_path = file_path / mission.filename
+                await mission.save(mission_path, seek_begin=True, use_cached=False)
+                print(f"Attempting file upload process for [{mission.filename}] from user [{ctx.author}]")
+                result = await test(ctx,mission)
+                if result is True:
+                    try:
+                        await movefile(ctx, mission, mission_path, server_dest)
+                    except Exception as e:
+                        await ctx.send(f"{e}")
+                        await delete_file(mission_path)
+                else:
+                    await delete_file(mission_path)
+        else:
+            await ctx.send(":stop_sign: There are no attachments to your message. Try again.")
+    else:
+        await ctx.send(":stop_sign: Please specify which server to upload to: 'Main' or 'Offnight' ")
 
 
 print("Starting {}".format(datetime.datetime.now()))
 bot.add_cog(cog_update_bot_status(bot))
 bot.run("")  # don't commit this lol
+
+
