@@ -5,16 +5,11 @@ import socket
 import subprocess
 import datetime
 import re
+import bwBot_settings
 from pathlib import Path
 
-CHANNEL_BOT = 585642663202783236
-CHANNEL_UPLOAD = 934246522911096943
-CHANNEL_LIST = [CHANNEL_BOT,CHANNEL_UPLOAD]
-ALL_SERVERS_STEAM = [  # Note: port numbers are +1 from the arma server (e.g. Game Port: 2303, Steam Query Port: 2304)
-    ["Main", ("104.128.50.152", 2304)],
-    ["Training", ("104.128.50.152", 2370)],
-    ["Offnight", ("104.128.50.152", 2486)],
-]
+CHANNEL_LIST = bwBot_settings.CHANNEL_LIST
+ALL_SERVERS_STEAM = bwBot_settings.ALL_SERVERS_STEAM
 
 file_path = Path("E:\BourbonWarfare\gameservers\plugins\SGDArma3.cs\missions")
 main_path = file_path / "main"
@@ -53,7 +48,7 @@ def steam_getPlayerCount(server_addr):
 def check_rdp_state():
     """Checks state of RDP"""
     ret = "[?]"
-    args = ["quser", "insertYourUserName"]
+    args = ["quser", bwBot_settings.SERVER_USERNAME]
     process = subprocess.run(args, capture_output=True)
     output = process.stdout.decode('utf-8')
     p = re.compile(r"\>[^\s]*[\s]*[^\s]*[\s]*[\d]*[\s]*([^\s]*)")
@@ -181,6 +176,5 @@ async def upload(ctx, *args):
 
 print("Starting {}".format(datetime.datetime.now()))
 bot.add_cog(cog_update_bot_status(bot))
-bot.run("")  # don't commit this lol
-
+bot.run(bwBot_settings.BOT_KEY)
 
