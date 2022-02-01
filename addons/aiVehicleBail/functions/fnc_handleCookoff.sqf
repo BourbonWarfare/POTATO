@@ -1,5 +1,5 @@
 /*
- * Author: Brandon (TCVM)
+ * Author: Dani (TCVM)
  * Checks hitpoint damage and determines if a vehicle should cookoff
  *
  * Arguments:

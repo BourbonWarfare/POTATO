@@ -1,5 +1,5 @@
 /*
- * Author: Brandon (TCVM)
+ * Author: Dani (TCVM)
  * Generates default config data for every weapon in the mod pack
  *
  * Arguments:

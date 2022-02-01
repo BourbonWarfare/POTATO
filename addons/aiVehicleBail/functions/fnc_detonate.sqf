@@ -1,5 +1,5 @@
 /*
- * Author: Brandon (TCVM)
+ * Author: Dani (TCVM)
  * Detonates vehicle ammo and kills all inside
  *
  * Arguments:

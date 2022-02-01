@@ -1,5 +1,5 @@
 /*
- * Author: Brandon (TCVM)
+ * Author: Dani (TCVM)
  * Ensures that the burst value of a weapons firemode is properly defined and log it if it breaks the test
  * I.E if a firemode has a burst = "3 + random 3" and it is shown to the player, this will log to rpt
  *

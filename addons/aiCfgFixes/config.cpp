@@ -13,7 +13,7 @@ class CfgPatches {
             "rhs_main_loadorder", "CUP_Weapons_LoadOrder"
         };
         author = "Potato";
-        authors[] = {"Brandon (TCVM)"};
+        authors[] = {"Dani (TCVM)"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };

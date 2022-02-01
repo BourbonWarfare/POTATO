@@ -10,7 +10,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "potato_core", "potato_aiCfgFixes", "A3_Data_F_Enoch_Loadorder", "CUP_Weapons_LoadOrder", "cwr3_weapon_config" };
         author = "Potato";
-        authors[] = {"PabstMirror", "AACO", "Brandon (TCVM)"};
+        authors[] = {"PabstMirror", "AACO", "Dani (TCVM)"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
