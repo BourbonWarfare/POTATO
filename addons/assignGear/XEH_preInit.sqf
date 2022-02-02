@@ -95,6 +95,15 @@ if (GVAR(usePotato)) then {
                 [],
                 true
             ] call CBA_fnc_addClassEventHandler;
+
+            [ // assign gear to supply drops
+                QGVAR(supply),
+                "initPost",
+                { call FUNC(assignGearSupplyBox); },
+                true,
+                [],
+                true
+            ] call CBA_fnc_addClassEventHandler;
         };
     };
 
