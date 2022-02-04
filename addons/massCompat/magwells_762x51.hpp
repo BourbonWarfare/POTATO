@@ -61,6 +61,8 @@
             MAGAZINE_WELL_MAG(762x51,20),
             MAGAZINE_WELL_ALT_MAG(762x51,20,fal_desert),
             MAGAZINE_WELL_ALT_MAG(762x51,20,fal_woodland),
+            MAGAZINE_WELL_MAG(762x51,30),                   // some mods dont have proper cba configs so add em here
+            MAGAZINE_WELL_ALT_MAG(762x51,50,fal)
         };
     };        // FN FAL
     class CBA_762x51_FAL_L {
@@ -76,7 +78,9 @@
 
     class CBA_762x51_G3 {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(762x51,20)
+            MAGAZINE_WELL_MAG(762x51,20),
+            MAGAZINE_WELL_MAG(762x51,30),
+            MAGAZINE_WELL_ALT_MAG(762x51,50,g3)
         };
     };         // H&K G3
     class CBA_762x51_G3_L {
