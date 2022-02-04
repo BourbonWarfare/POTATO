@@ -2,7 +2,13 @@
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(762x39,10),
             MAGAZINE_WELL_MAG(762x39,20),
-            MAGAZINE_WELL_MAG(762x39,30)
+            MAGAZINE_WELL_MAG(762x39,30),
+            MAGAZINE_WELL_ALT_MAG(762x39,30,ak12),
+            MAGAZINE_WELL_ALT_MAG(762x39,30,ak15),
+            MAGAZINE_WELL_ALT_MAG(762x39,30,ak15_arid),
+            MAGAZINE_WELL_ALT_MAG(762x39,30,ak15_od),
+            MAGAZINE_WELL_ALT_MAG(762x39,30,ak15_tan),
+            MAGAZINE_WELL_ALT_MAG(762x39,30,akm)
         };
     };
 
@@ -18,6 +24,7 @@
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(762x39,40),
             MAGAZINE_WELL_MAG(762x39,45),
+            MAGAZINE_WELL_ALT_MAG(762x39,45,vz58),
             MAGAZINE_WELL_MAG(762x39,75)
         };
     };            // 40/45/75rnd RPK magazines
