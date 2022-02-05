@@ -16,6 +16,7 @@ PREP(skillDebug);
 PREP(toolboxAttributeLoad);
 PREP(toolboxAttributeSave);
 PREP(zeus_banziCharge);
+PREP(zeus_bodyBag);
 PREP(zeus_missionHint);
 PREP(zeusAttributes);
 PREP(zeusAttributes_missionHint);

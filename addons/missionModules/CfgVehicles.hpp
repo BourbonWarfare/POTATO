@@ -122,4 +122,16 @@ class CfgVehicles {
         function = QFUNC(zeus_banziCharge);
         curatorCanAttach = 1;
     };
+
+    class GVAR(zeus_bodyBag): Module_F {
+        author = QUOTE(PREFIX);
+        category = QUOTE(PREFIX);
+        scope = 1;
+        scopeCurator = 2;
+        isTriggerActivated = 0;
+        isGlobal = 1;
+        displayName = "Body Bag";
+        function = QFUNC(zeus_bodyBag);
+        curatorCanAttach = 1;
+    };
 };
