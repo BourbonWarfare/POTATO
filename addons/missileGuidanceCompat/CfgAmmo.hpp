@@ -10,8 +10,8 @@ class CfgAmmo {
         class ace_missileguidance {
             enabled = 1;
 
-            pitchRate = 20;          // Minium flap deflection for guidance
-            yawRate = 20;            // Maximum flap deflection for guidance
+            pitchRate = 30;          // Minium flap deflection for guidance
+            yawRate = 30;            // Maximum flap deflection for guidance
 
             canVanillaLock = 1;          // Can this default vanilla lock? Only applicable to non-cadet mode
 
@@ -20,7 +20,7 @@ class CfgAmmo {
             seekerTypes[] = { "IR" };
 
             flareDistanceFilter = 100;
-            flareAngleFilter = 1.3; // can filter out flares that are >= flareAngleFilter to known target velocity
+            flareAngleFilter = 1.6; // can filter out flares that are >= flareAngleFilter to known target velocity
 
             defaultSeekerLockMode = "LOBL";
             seekerLockModes[] = { "LOBL" };
@@ -32,7 +32,7 @@ class CfgAmmo {
             seekerAngle = 45;           // Angle from the shooter's view that can track the missile
             seekerAccuracy = 0.6;         // seeker accuracy multiplier
 
-            seekerMinRange = 75;
+            seekerMinRange = 10;
             seekerMaxRange = 3700;      // Range from the missile which the seeker can visually search
 
             // Attack profile type selection
@@ -47,8 +47,8 @@ class CfgAmmo {
         class ace_missileguidance {
             enabled = 1;
 
-            pitchRate = 20;          // Minium flap deflection for guidance
-            yawRate = 20;            // Maximum flap deflection for guidance
+            pitchRate = 30;          // Minium flap deflection for guidance
+            yawRate = 43;            // Maximum flap deflection for guidance
 
             canVanillaLock = 1;          // Can this default vanilla lock? Only applicable to non-cadet mode
 
@@ -57,7 +57,7 @@ class CfgAmmo {
             seekerTypes[] = { "IR" };
 
             flareDistanceFilter = 100;
-            flareAngleFilter = 1.3; // can filter out flares that are >= flareAngleFilter to known target velocity
+            flareAngleFilter = 1.1; // can filter out flares that are >= flareAngleFilter to known target velocity
 
             defaultSeekerLockMode = "LOBL";
             seekerLockModes[] = { "LOBL" };
@@ -67,9 +67,9 @@ class CfgAmmo {
 
             seekLastTargetPos = 0;      // seek last target position [if seeker loses LOS of target, continue to last known pos]
             seekerAngle = 45;           // Angle from the shooter's view that can track the missile
-            seekerAccuracy = 0.8;         // seeker accuracy multiplier
+            seekerAccuracy = 0.76;         // seeker accuracy multiplier
 
-            seekerMinRange = 75;
+            seekerMinRange = 5;
             seekerMaxRange = 5200;      // Range from the missile which the seeker can visually search
 
             // Attack profile type selection
@@ -681,8 +681,8 @@ class CfgAmmo {
         class ace_missileguidance {
             enabled = 1;
 
-            pitchRate = 20;          // Minium flap deflection for guidance
-            yawRate = 20;            // Maximum flap deflection for guidance
+            pitchRate = 42;          // Minium flap deflection for guidance
+            yawRate = 42;            // Maximum flap deflection for guidance
 
             canVanillaLock = 1;          // Can this default vanilla lock? Only applicable to non-cadet mode
 
