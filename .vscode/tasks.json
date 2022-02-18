@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "SQFVM Checker",
-            "command": "${config:python.pythonPath}",
+            "command": "python",
             "options": {
                 "cwd": "${workspaceFolder}/tools"
             },
@@ -23,7 +23,7 @@
         },
         {
             "label": "Build: make.py (pboProject)",
-            "command": "${config:python.pythonPath}",
+            "command": "python",
             "options": {
                 "cwd": "${workspaceFolder}/tools"
             },
