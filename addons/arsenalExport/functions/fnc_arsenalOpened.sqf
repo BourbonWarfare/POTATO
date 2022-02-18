@@ -52,7 +52,7 @@ private _fnc_createButton = {
 ["Set MAT", "mat", [QGVAR(loadout_mat), QGVAR(loadout_matMags), QGVAR(loadout_matAttachments)]] call _fnc_createButton;
 ["Set HMG", "hmg", [QGVAR(loadout_hmg), QGVAR(loadout_hmgMags)]] call _fnc_createButton;
 ["Set HMG Tri 1", "hmg_tri_1", [QGVAR(loadout_hmg_tri_1)]] call _fnc_createButton;
-["Set HMG Tri 2", "hmg_tri_2", [QGVAR(loadout_hmg_tri_1)]] call _fnc_createButton;
+["Set HMG Tri 2", "hmg_tri_2", [QGVAR(loadout_hmg_tri_2)]] call _fnc_createButton;
 ["Set HAT", "hat", [QGVAR(loadout_hat), QGVAR(loadout_hatMags)]] call _fnc_createButton;
 ["Set HAT Tri 1", "hat_tri_1", [QGVAR(loadout_hat_tri_1)]] call _fnc_createButton;
 ["Set HAT Tri 2", "hat_tri_2", [QGVAR(loadout_hat_tri_2)]] call _fnc_createButton;

@@ -33,7 +33,7 @@ case ("carryall"): {
         systemChat format ["[Set %1]: %2", _fncString, GVAR(loadout_carryall)];
     };
 case ("headgear_alt"): {
-        GVAR(loadout_headgear_alt) = backpack _unit;
+        GVAR(loadout_headgear_alt) = headgear _unit;
         systemChat format ["[Set %1]: %2", _fncString, GVAR(loadout_headgear_alt)];
     };
 case ("rifle"): {
@@ -102,7 +102,7 @@ case ("hat_tri_2"): {
 case ("sam"): {
         GVAR(loadout_sam) = secondaryWeapon _unit;
         GVAR(loadout_samMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_sam)] call CBA_fnc_compatibleMagazines);
-        systemCsam format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_sam), GVAR(loadout_samMags)];
+        systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_sam), GVAR(loadout_samMags)];
     };
 case ("sniper"): {
         GVAR(loadout_sniper) = primaryWeapon _unit;
