@@ -129,20 +129,21 @@ _lines pushBack format ['#define MAT_MAG %1', [GVAR(loadout_mat), GVAR(loadout_m
 _lines pushBack format ['#define MAT_OPTIC %1', [GVAR(loadout_matAttachments)] call _fnc_formatList];
 
 _lines pushBack format ["// HMG"];
-_lines pushBack format ['#define HMG "%1"', GVAR(loadout_hmg)];
-_lines pushBack format ['#define HMG_TRI_HI "%1"', GVAR(loadout_hmg_tri_1)];
-_lines pushBack format ['#define HMG_TRI_LO "%1"', [GVAR(loadout_hmg_tri_2),GVAR(loadout_hmg_tri_1)] call _fnc_default];
-_lines pushBack format ['#define HMG_MAG %1', [GVAR(loadout_hmg), GVAR(loadout_hmgMags), HMG_ROUNDS] call _fnc_getMags];
+_lines pushBack format ['#define HMG "%1"', [GVAR(loadout_hmg), "ace_cswCompatCUP_cup_m2"] call _fnc_default];
+_lines pushBack format ['#define HMG_TRI_HI "%1"', [GVAR(loadout_hmg_tri_1), "ace_csw_m3CarryTripod"] call _fnc_default];
+_lines pushBack format ['#define HMG_TRI_LO "%1"', [GVAR(loadout_hmg_tri_2), "ace_csw_m3CarryTripodLow"] call _fnc_default];
+_lines pushBack format ['#define HMG_MAG %1', [[GVAR(loadout_hmg), GVAR(loadout_hmgMags), HMG_ROUNDS] call _fnc_getMags, "ace_csw_100Rnd_127x99_mag:3"] call _fnc_default];
 
 _lines pushBack format ["// HAT"];
-_lines pushBack format ['#define HAT "%1"', GVAR(loadout_hat)];
-_lines pushBack format ['#define HAT_TRI_HI "%1"', GVAR(loadout_hat_tri_1)];
-_lines pushBack format ['#define HAT_TRI_LO "%1"', [GVAR(loadout_hat_tri_2),GVAR(loadout_hat_tri_1)] call _fnc_default];
-_lines pushBack format ['#define HAT_MAG %1', [GVAR(loadout_hat), GVAR(loadout_hatMags), HAT_ROUNDS] call _fnc_getMags];
+_lines pushBack format ['#define HAT "%1"', [GVAR(loadout_hat), "CUP_TOW2_carry"] call _fnc_default];
+_lines pushBack format ['#define HAT_TRI_HI "%1"', [GVAR(loadout_hat_tri_1), "ace_csw_m220CarryTripod"] call _fnc_default];
+_lines pushBack format ['#define HAT_TRI_LO "%1"', [GVAR(loadout_hat_tri_2),""] call _fnc_default];
+_lines pushBack format ['#define HAT_MAG %1', [[GVAR(loadout_hat), GVAR(loadout_hatMags), HAT_ROUNDS] call _fnc_getMags, "CUP_compats_TOW2_M"] call _fnc_default];
 
 _lines pushBack format ["// SAM"];
-_lines pushBack format ['#define SAM "%1"', GVAR(loadout_sam)];
-_lines pushBack format ['#define SAM_MAG %1', [GVAR(loadout_sam), GVAR(loadout_samMags), SAM_ROUNDS] call _fnc_getMags];
+_lines pushBack format ['#define SAM "%1"', [GVAR(loadout_sam), "launch_B_Titan_F"] call _fnc_default];
+_lines pushBack format ['#define SAM_MAG %1', [[GVAR(loadout_sam), GVAR(loadout_samMags), SAM_ROUNDS] call _fnc_getMags,"ace_manpad_stinger_man:2"] call _fnc_default];
+_lines pushBack format ['#define SAM_MAG2 %1', [[GVAR(loadout_sam), GVAR(loadout_samMags), SAM_ROUNDS] call _fnc_getMags, "ace_manpad_stinger_man:2"] call _fnc_default];
 
 _lines pushBack format ["// Sniper"];
 _lines pushBack format ['#define SNIPER "%1"', GVAR(loadout_sniper)];
