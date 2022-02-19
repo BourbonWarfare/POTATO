@@ -29,7 +29,7 @@ private _fnc_formatList = {
 };
 private _fnc_default = {
     params ["_gvar",["_default",""]];
-    if(isNil _gvar) exitWith {_default};
+    if(isNil _gvar || _gvar == '""') exitWith {_default};
     _gvar
 };
 private _fnc_getMags = {
