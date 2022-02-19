@@ -27,7 +27,7 @@ PREP_RECOMPILE_END;
         call ACE_PREP_RECOMPILE;
         #endif
         params ["_display"];
-        [_display, false] call FUNC(arsenalOpened);
+        [_display, true] call FUNC(arsenalOpened);
     }
 ] call bis_fnc_addscriptedeventhandler;
 
