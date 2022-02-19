@@ -58,7 +58,11 @@
     class CBA_762x51_FAL {
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(762x51,10),
-            MAGAZINE_WELL_MAG(762x51,20)
+            MAGAZINE_WELL_MAG(762x51,20),
+            MAGAZINE_WELL_ALT_MAG(762x51,20,fal_desert),
+            MAGAZINE_WELL_ALT_MAG(762x51,20,fal_woodland),
+            MAGAZINE_WELL_MAG(762x51,30),                   // some mods dont have proper cba configs so add em here
+            MAGAZINE_WELL_ALT_MAG(762x51,50,fal)
         };
     };        // FN FAL
     class CBA_762x51_FAL_L {
@@ -74,7 +78,9 @@
 
     class CBA_762x51_G3 {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(762x51,20)
+            MAGAZINE_WELL_MAG(762x51,20),
+            MAGAZINE_WELL_MAG(762x51,30),
+            MAGAZINE_WELL_ALT_MAG(762x51,50,g3)
         };
     };         // H&K G3
     class CBA_762x51_G3_L {
@@ -158,13 +164,23 @@
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(762x51,20),
             MAGAZINE_WELL_MAG(762x51,30),
-            MAGAZINE_WELL_MAG(762x51,50)
+            MAGAZINE_WELL_MAG(762x51,50),
+            MAGAZINE_WELL_ALT_MAG(762x51,20,scar_black),
+            MAGAZINE_WELL_ALT_MAG(762x51,20,scar_tan),
+            MAGAZINE_WELL_ALT_MAG(762x51,20,scar_woodland),
+            MAGAZINE_WELL_ALT_MAG(762x51,30,scar_stick),
+            MAGAZINE_WELL_ALT_MAG(762x51,30,scar_curved),
         };
     };       // SCAR-H
     class CBA_762x51_SCAR_EGLM {
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(762x51,20),
-            MAGAZINE_WELL_MAG(762x51,30)
+            MAGAZINE_WELL_MAG(762x51,30),
+            MAGAZINE_WELL_ALT_MAG(762x51,20,scar_black),
+            MAGAZINE_WELL_ALT_MAG(762x51,20,scar_tan),
+            MAGAZINE_WELL_ALT_MAG(762x51,20,scar_woodland),
+            MAGAZINE_WELL_ALT_MAG(762x51,30,scar_stick),
+            MAGAZINE_WELL_ALT_MAG(762x51,30,scar_curved),
         };
     };  // SCAR-H with EGLM/FN40GL/Mk 13 Mod 0 grenage launcher (This extends the length of the magwell and prevents mags that are too short or wide from being used)
     class CBA_762x51_SIGAMT {

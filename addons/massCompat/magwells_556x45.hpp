@@ -25,6 +25,27 @@
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(556x45,20),
             MAGAZINE_WELL_MAG(556x45,30),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,scar_tan),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,scar_woodland),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,emag_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,emag_tan),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,emag_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_pull_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_pull_coyote),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_pull_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_coyote),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_ranger_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_ranger_coyote),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_ranger_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,x95),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,cz805),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_desert),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_woodland),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_hex),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_clear),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,xm8),
             MAGAZINE_WELL_MAG(556x45,60),
             MAGAZINE_WELL_MAG(556x45,100),
             MAGAZINE_WELL_MAG(556x45,150)
@@ -32,13 +53,38 @@
     };            // H&K G36
     class CBA_556x45_HK33 {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_ALT_MAG(556x45,30,hk33)
+            MAGAZINE_WELL_ALT_MAG(556x45,30,hk33),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_desert),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_woodland),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_hex),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_clear)
         };
     };           // H&K 33/53/93
     class CBA_556x45_M21 {
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(556x45,20),
             MAGAZINE_WELL_MAG(556x45,30),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,scar_tan),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,scar_woodland),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,emag_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,emag_tan),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,emag_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_pull_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_pull_coyote),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_pull_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_coyote),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_ranger_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_ranger_coyote),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_ranger_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,x95),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,cz805),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_desert),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_woodland),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_hex),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_clear),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,xm8),
             MAGAZINE_WELL_MAG(556x45,60),
             MAGAZINE_WELL_MAG(556x45,100),
             MAGAZINE_WELL_MAG(556x45,150)
@@ -68,6 +114,8 @@
     class CBA_556x45_SCAR_EGLM {        // SCAR-L with EGLM/FN40GL/Mk 13 Mod 0 grenage launcher (This extends the length of the magwell and prevents mags that are too short or wide from being used)
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(556x45,30),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,scar_tan),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,scar_woodland),
             MAGAZINE_WELL_MAG(556x45,60)
         };
     };
@@ -84,7 +132,28 @@
     class CBA_556x45_STANAG {           // STANAG mags, standard length, including small drums
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(556x45,20),
-            MAGAZINE_WELL_MAG(556x45,30)
+            MAGAZINE_WELL_MAG(556x45,30),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,scar_tan),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,scar_woodland),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,emag_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,emag_tan),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,emag_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_pull_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_pull_coyote),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_pull_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_coyote),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_ranger_black),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_ranger_coyote),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,pmag_ranger_od),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,x95),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,cz805),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_desert),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_woodland),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_hex),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,g36_clear),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,xm8)
         };
     };
 
@@ -96,7 +165,10 @@
     class CBA_556x45_STANAG_XL {};      // STANAG mags, extra long stick or coffin (80/100 rounds, Surefire MAG5-100)
     class CBA_556x45_STANAG_2D {
         GVAR(mags)[] = {
-            MAGAZINE_WELL_MAG(556x45,100)
+            MAGAZINE_WELL_MAG(556x45,100),
+            MAGAZINE_WELL_ALT_MAG(556x45,100,betac_desert),
+            MAGAZINE_WELL_ALT_MAG(556x45,100,betac_hex),
+            MAGAZINE_WELL_ALT_MAG(556x45,100,betac_woodland)
         };
     };      // STANAG mags, twin drums (100rnd Beta C-MAG)
     class CBA_556x45_STANAG_2D_XL {     // STANAG mags, extra large twin-drums (150rnd Armatac SAW-MAG)
@@ -109,6 +181,7 @@
         GVAR(mags)[] = {
             MAGAZINE_WELL_MAG(556x45,20),
             MAGAZINE_WELL_MAG(556x45,30),
+            MAGAZINE_WELL_ALT_MAG(556x45,30,aug),
             MAGAZINE_WELL_MAG(556x45,42),
             MAGAZINE_WELL_MAG(556x45,60),
             MAGAZINE_WELL_MAG(556x45,100),
