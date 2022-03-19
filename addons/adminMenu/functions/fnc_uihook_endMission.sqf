@@ -30,5 +30,5 @@ tnk_saveOcap =
 };
 
 [_side] remoteExecCall ["tnk_saveOcap", 2];
-remoteExecCall ["call CMF_fnc_webhookEnd;", 2];
+remoteExecCall ["CMF_fnc_webhookEnd", 2];
 [_side] remoteExecCall [QFUNC(endMission), 0];

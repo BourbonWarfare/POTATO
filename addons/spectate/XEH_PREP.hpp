@@ -48,3 +48,4 @@ PREP(ui_updateThingsToDraw);
 PREP(updateInfo);
 PREP(updateList);
 PREP(updateListFocus);
+PREP(openGcam);

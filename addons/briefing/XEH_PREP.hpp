@@ -4,6 +4,7 @@ PREP(addBriefingToUnit);
 PREP(addCredits);
 PREP(addIntentToZeus);
 PREP(addMedicalNotes);
+PREP(addMissionSettings);
 PREP(addOrbat);
 PREP(addResponsibilitiesDiary);
 PREP(addTreatmentDiary);

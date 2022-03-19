@@ -69,7 +69,7 @@ DFUNC(checkUnconcCondition) = {
 if (hasInterface) then {
     private _action = [QGVAR(checkUncon), "Check why unconcscious","\A3\ui_f\data\igui\cfg\simpleTasks\types\unknown_ca.paa",{call FUNC(checkUnconcStatement)},{call FUNC(checkUnconcCondition)}] call ace_interact_menu_fnc_createAction;
     ["CaManBase", 0, ["ACE_Head"], _action, true] call ace_interact_menu_fnc_addActionToClass;
-};
+}; 
 
 // overpressure from explosions
 // helper functions. all from https://www.researchgate.net/publication/309610420_Review_of_Analytical_and_Empirical_Estimations_for_Incident_Blast_Pressure

@@ -165,6 +165,9 @@
 #define RESPAWN_IDC 751885
 #define RESPAWN (OVERLAY displayCtrl RESPAWN_IDC)
 
+#define GCAM_IDC 751887
+#define GCAM (OVERLAY displayCtrl GCAM_IDC)
+
 #define HELP_IDC 751886
 #define HELP (OVERLAY displayCtrl HELP_IDC)
 #define HELP_TEXT \
