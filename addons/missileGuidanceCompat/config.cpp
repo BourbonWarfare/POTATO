@@ -6,7 +6,7 @@ class CfgPatches {
     class ADDON {
         units[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "CUP_Weapons_LoadOrder"};
+        requiredAddons[] = {"potato_core", "CUP_Weapons_LoadOrder", "cwr3_weapon_config"};
         author = "Potato";
         authors[] = {"Dani (TCVM)"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -15,5 +15,6 @@ class CfgPatches {
 };
 
 #include "CfgAmmo.hpp"
+#include "CfgMagazines.hpp"
 
 #endif
