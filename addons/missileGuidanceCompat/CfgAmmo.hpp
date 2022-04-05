@@ -185,8 +185,8 @@ class CfgAmmo {
             defaultNavigationType = "Line";
             navigationTypes[] = { "Line" };
 
-            lineGainP = 35;
-            lineGainD = 30;
+            lineGainP = 10;
+            lineGainD = 8.5;
 
             initialPitch = 2;
 
@@ -197,7 +197,6 @@ class CfgAmmo {
             seekerMinRange = 75;
             seekerMaxRange = 4000;      // Range from the missile which the seeker can visually search
 
-            correctionDistance = 30; // distance from center of crosshair where missile slows down
             offsetFromCrosshair[] = { 0, 0, 0 }; // where the missile wants to stay in relation to the center of the crosshair.
 
             // Attack profile type selection
@@ -229,8 +228,8 @@ class CfgAmmo {
             defaultNavigationType = "Line";
             navigationTypes[] = { "Line" };
 
-            lineGainP = 35;
-            lineGainD = 30;
+            lineGainP = 16;
+            lineGainD = 10.44;
 
             initialPitch = 2;
 
@@ -241,7 +240,6 @@ class CfgAmmo {
             seekerMinRange = 75;
             seekerMaxRange = 4000;      // Range from the missile which the seeker can visually search
 
-            correctionDistance = 30; // distance from center of crosshair where missile slows down
             offsetFromCrosshair[] = { 0, 0, 0 }; // where the missile wants to stay in relation to the center of the crosshair.
 
             // Attack profile type selection
@@ -273,8 +271,8 @@ class CfgAmmo {
             defaultNavigationType = "Line";
             navigationTypes[] = { "Line" };
 
-            lineGainP = 35;
-            lineGainD = 30;
+            lineGainP = 16;
+            lineGainD = 10.44;
 
             initialPitch = 2;
 
@@ -285,7 +283,6 @@ class CfgAmmo {
             seekerMinRange = 75;
             seekerMaxRange = 6000;      // Range from the missile which the seeker can visually search
 
-            correctionDistance = 30; // distance from center of crosshair where missile slows down
             offsetFromCrosshair[] = { 0, 0, 0 }; // where the missile wants to stay in relation to the center of the crosshair.
 
             // Attack profile type selection
@@ -317,8 +314,8 @@ class CfgAmmo {
             defaultNavigationType = "Line";
             navigationTypes[] = { "Line" };
 
-            lineGainP = 35;
-            lineGainD = 30;
+            lineGainP = 16;
+            lineGainD = 10.44;
 
             initialPitch = 2;
 
@@ -361,8 +358,8 @@ class CfgAmmo {
             defaultNavigationType = "Line";
             navigationTypes[] = { "Line" };
 
-            lineGainP = 35;
-            lineGainD = 30;
+            lineGainP = 16;
+            lineGainD = 10.44;
 
             initialPitch = 2;
 
@@ -406,8 +403,8 @@ class CfgAmmo {
             defaultNavigationType = "Line";
             navigationTypes[] = { "Line" };
 
-            lineGainP = 30;
-            lineGainD = 30;
+            lineGainP = 16;
+            lineGainD = 10.44;
 
             seekLastTargetPos = 0;      // seek last target position [if seeker loses LOS of target, continue to last known pos]
             seekerAngle = 15;           // Angle from the shooter's view that can track the missile
@@ -448,8 +445,8 @@ class CfgAmmo {
             defaultNavigationType = "Line";
             navigationTypes[] = { "Line" };
 
-            lineGainP = 35;
-            lineGainD = 30;
+            lineGainP = 16;
+            lineGainD = 10.44;
 
             initialPitch = 2;
 
@@ -498,8 +495,8 @@ class CfgAmmo {
             defaultNavigationType = "Line";
             navigationTypes[] = { "Line" };
 
-            lineGainP = 40;
-            lineGainD = 30;
+            lineGainP = 20;
+            lineGainD = 16;
             correctionDistance = 5;
 
             seekLastTargetPos = 0;      // seek last target position [if seeker loses LOS of target, continue to last known pos]
@@ -735,8 +732,8 @@ class CfgAmmo {
             defaultNavigationType = "Line";
             navigationTypes[] = { "Line" };
 
-            lineGainP = 35;
-            lineGainD = 30;
+            lineGainP = 20;
+            lineGainD = 16;
 
             initialPitch = 2;
 
@@ -809,8 +806,8 @@ class CfgAmmo {
             defaultNavigationType = "Line";
             navigationTypes[] = { "Line" };
 
-            lineGainP = 35;
-            lineGainD = 30;
+            lineGainP = 20;
+            lineGainD = 7;
 
             initialPitch = 2;
 
