@@ -13,7 +13,11 @@ class display3DEN {
         class MenuStrip: ctrlMenuStrip {
             class Items {
                 class PREFIX {
-                    items[] += {QGVAR(fixFloating), QGVAR(vehicleReport)};
+                    items[] += {QGVAR(copyMapName), QGVAR(fixFloating), QGVAR(vehicleReport)};
+                };
+                class GVAR(copyMapName) {
+                    text = "Copy Mapname to Clipboard";
+                    action = QUOTE(call compile preprocessFileLineNumbers QUOTE(QPATHTOF(functions\fnc_copyMapName.sqf)););
                 };
                 class GVAR(fixFloating) {
                     text = "Fix Floating Units";
