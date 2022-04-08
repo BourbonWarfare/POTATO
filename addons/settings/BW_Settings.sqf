@@ -55,7 +55,6 @@ _settings = [
 [QACEGVAR(nightvision,fogScaling), 0.2, false, true],
 [QACEGVAR(nightvision,noiseScaling), 0.2, false, true],
 [QACEGVAR(nightvision,aimDownSightsBlur), 0.25, false, true],
-[QACEGVAR(nightvision,disableNVGsWithSights),false],
 [QACEGVAR(overheating,enabled), false],
 [QACEGVAR(refuel,rate), 10],
 [QACEGVAR(respawn,removeDeadBodiesDisconnected), false],
