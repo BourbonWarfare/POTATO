@@ -7,6 +7,7 @@
 */
 
 _settings = [
+// ACE 
 // Medical:
 [QACEGVAR(medical,bleedingcoefficient), 1, true], // default: 1.0 (also set in mission.sqm) [forced to override old bwmf]
 // [QACEGVAR(medical,fatalDamageSource), 1], // default: 0 // wait till L/K values finalized
@@ -35,7 +36,6 @@ _settings = [
 [QACEGVAR(fire,enabled), true],
 [QACEGVAR(fire,enableFlare), false],
 
-
 [QACEGVAR(advanced_fatigue,performanceFactor), 1.4],
 [QACEGVAR(advanced_fatigue,recoveryFactor), 1.6],
 [QACEGVAR(cookoff,enable), 1],
@@ -63,7 +63,28 @@ _settings = [
 [QACEGVAR(weather,showCheckAirTemperature), false],
 [QACEGVAR(zeus,autoAddObjects), true],
 
+// NIARMS (HLC)
 ["niarms_magSwitch", false], // it's use of setUnitLoadout may cause problems
-["niarms_gripSwitch", false] // it's use of setUnitLoadout may cause problems
+["niarms_gripSwitch", false], // it's use of setUnitLoadout may cause problems
 
+// DUI
+// DUI - Squad Radar - Main
+["diwako_dui_main_hide_dialog", true, true], // User-Setting
+["diwako_dui_ace_hide_interaction", true, true], // User-Setting
+
+// DUI - Squad Radar - Indicators
+["diwako_dui_indicators_range", 20], // User-Setting
+
+// DUI - Squad Radar - Radar
+["diwako_dui_compassRange", 35, true], // User-Setting
+["diwako_dui_radar_compassrangecrew", 75, true], // User-Setting
+["diwako_dui_enable_compass_dir", 1, true], // User-Setting "Show Bearing = only in vehicles"
+["diwako_dui_radar_sqlfirst", true],
+["diwako_dui_radar_vehiclecompassenabled", true],
+
+// DUI - Squad Radar - Nametags
+["diwako_dui_nametags_enableocclusion", false, true], // User-Setting
+["diwako_dui_nametags_showunconasdead", true, true], // User-Setting
+["diwako_dui_nametags_renderdistance", 40, true], // User-Setting
+["diwako_dui_nametags_deadrenderdistance", 3.5, true] // User-Setting
 ];
