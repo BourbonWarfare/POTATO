@@ -18,7 +18,7 @@ class CfgPatches {
         requiredAddons[] = {
             "potato_core", "ace_ui", "ace_fortify",
             "rhs_main_loadorder",
-            "CUP_Weapons_LoadOrder", "CUP_Creatures_People_LoadOrder",
+            "CUP_Weapons_LoadOrder", "CUP_Vehicles_LoadOrder", "CUP_Creatures_People_LoadOrder",
             "Chernarus", "torabora", "fallujah_hou",
             "DSA_Spooks"
         };
