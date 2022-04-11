@@ -49,3 +49,4 @@ PREP(updateInfo);
 PREP(updateList);
 PREP(updateListFocus);
 PREP(openGcam);
+PREP(closeGcam);

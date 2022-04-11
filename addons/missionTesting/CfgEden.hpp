@@ -88,6 +88,13 @@ class Cfg3DEN {
                             defaultValue = "15";
                             typeName = "STRING";
 						};
+						class GVAR(ForceSS) {
+                            displayName = "Enforce safestart time:";
+							property = QGVAR(ForceSS);
+                            control = QUOTE(Checkbox);
+                            defaultValue = QUOTE(false);
+                            expression = "_this setVariable ['%s',_value];";
+						};
 						class GVAR(missionTimeLength) {
                             displayName = "Mission Length (mins):";
 							property = QGVAR(missionTimeLength);

@@ -13,5 +13,6 @@
  */
 params["_unit"];
 
+GCamKill = false;
 [] call potato_spectate_fnc_exit;
 [_unit] execVM "gcam\gcam.sqf";

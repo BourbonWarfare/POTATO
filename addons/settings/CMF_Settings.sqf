@@ -12,6 +12,11 @@ _settings = [
 	[QACEGVAR(medical,ivFlowRate), 2.5], // default: 1.0
 	[QACEGVAR(medical,spontaneousWakeUpChance), 0.6, true], // default: 0.05
 	[QACEGVAR(medical,spontaneousWakeUpEpinephrineBoost), 2, true], // default: 1
+	[QACEGVAR(medical,deathChance), 0.35, true],
+	[QACEGVAR(medical,fatalDamageSource), 2, true],
+	[QACEGVAR(medical,fractureChance), 0.5, true],
+	[QACEGVAR(medical,painCoefficient), 2.0, true],
+	[QACEGVAR(medical,painUnconsciousChance), 0.3, true],
 	[QACEGVAR(medical_treatment,advancedDiagnose), 1, true], // default: 1 (Allows diagnosing death/CA)
 	[QACEGVAR(medical_treatment,clearTrauma), 0, true], // default: 0
 	[QACEGVAR(medical_treatment,litterCleanupDelay), 300, true], // default: 600
@@ -28,10 +33,11 @@ _settings = [
 	[QACEGVAR(medical_treatment,woundReopenChance), 0.69, true], // default: who fuckin knows eh bud
 
 	// Medical Extras:
-	[QACEGVAR(medical_ai,enabledFor), 2],
-	[QACEGVAR(medical_blood,enabledFor), 1],
-	[QACEGVAR(medical_treatment,holsterRequired), 2],
+	[QACEGVAR(medical_ai,enabledFor), 1, true],
+	[QACEGVAR(medical_blood,enabledFor), 2],
+	[QACEGVAR(medical_treatment,holsterRequired), 1],
 	[QACEGVAR(medical,AIDamageThreshold), 0.3],
+	[QACEGVAR(medical,playerDamageThreshold), 2.5, true, true],
 
 	// Medical GUI
 	[QACEGVAR(medical_gui,enableActions), 2, true],
