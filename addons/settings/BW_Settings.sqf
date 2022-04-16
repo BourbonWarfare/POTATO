@@ -50,6 +50,7 @@ _settings = [
 [QACEGVAR(hearing,enableCombatDeafness), false],
 [QACEGVAR(interaction,enableGroupRenaming), false],
 [QACEGVAR(laserPointer,enabled), false],
+[QACEGVAR(laser,showLaserOnMap), 2],
 [QACEGVAR(map,DefaultChannel), 1],
 [QACEGVAR(nightvision,effectScaling), 0.2, false, true],
 [QACEGVAR(nightvision,fogScaling), 0.2, false, true],
@@ -80,7 +81,7 @@ _settings = [
 ["diwako_dui_radar_compassrangecrew", 75, true], // User-Setting
 ["diwako_dui_enable_compass_dir", 1, true], // User-Setting "Show Bearing = only in vehicles"
 ["diwako_dui_radar_sqlfirst", true],
-["diwako_dui_radar_vehiclecompassenabled", true],
+["diwako_dui_radar_vehiclecompassenabled", false], // (getting giant markers if this is on w/ low range, so I think leave off??)
 
 // DUI - Squad Radar - Nametags
 ["diwako_dui_nametags_enableocclusion", false, true], // User-Setting

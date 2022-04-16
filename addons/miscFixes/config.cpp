@@ -20,7 +20,7 @@ class CfgPatches {
             "rhs_main_loadorder",
             "CUP_Weapons_LoadOrder", "CUP_Vehicles_LoadOrder", "CUP_Creatures_People_LoadOrder",
             "Chernarus", "torabora", "fallujah_hou",
-            "DSA_Spooks", "mbg_celle2"
+            "DSA_Spooks", "mbg_celle2", "AMP_Breaching_Charge"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};
