@@ -35,43 +35,88 @@ private _fnc_getMags = {
     TRACE_4("getMags",_weapon,_mags,_wantedRounds,_return);
     _return
 };
+/*
+if (typeName GVAR(loadout_uniform) == "ARRAY") then {
+GVAR(loadout_uniform) = GVAR(loadout_uniform) joinString '","'
+};
+if (typeName GVAR(loadout_vest) == "ARRAY") then {
+GVAR(loadout_vest) = GVAR(loadout_vest) joinString '","'
+};
+if (typeName GVAR(loadout_backpack) == "ARRAY") then {
+GVAR(loadout_backpack) = GVAR(loadout_backpack) joinString '","'
+};
+if (typeName GVAR(loadout_headgear) == "ARRAY") then {
+GVAR(loadout_headgear) = GVAR(loadout_headgear) joinString '","'
+};
+if (typeName GVAR(loadout_crewh) == "ARRAY") then {
+GVAR(loadout_crewh) = GVAR(loadout_crewh) joinString '","'
+};
+if (typeName GVAR(loadout_puniform) == "ARRAY") then {
+GVAR(loadout_puniform) = GVAR(loadout_puniform) joinString '","'
+};
+if (typeName GVAR(loadout_pvest) == "ARRAY") then {
+GVAR(loadout_pvest) = GVAR(loadout_pvest) joinString '","'
+};
+if (typeName GVAR(loadout_pbackpack) == "ARRAY") then {
+GVAR(loadout_pbackpack) = GVAR(loadout_pbackpack) joinString '","'
+};
+if (typeName GVAR(loadout_pheadgear) == "ARRAY") then {
+GVAR(loadout_pheadgear) = GVAR(loadout_pheadgear) joinString '","'
+};
+if (typeName GVAR(loadout_goggles) == "ARRAY") then {
+GVAR(loadout_goggles) = GVAR(loadout_goggles) joinString '","'
+};
+*/
 
 private _lines = [];
+
 _lines pushBack format ["// Camo set"];
-_lines pushBack format ['#define CAMO_UNIFORM "%1"', GVAR(loadout_uniform)];
-_lines pushBack format ['#define CAMO_VEST "%1"', GVAR(loadout_vest)];
-_lines pushBack format ['#define CAMO_BACKPACK "%1"', GVAR(loadout_backpack)];
-_lines pushBack format ['#define CAMO_HEADGEAR "%1"', GVAR(loadout_headgear)];
+_lines pushBack format ['#define CAMO_UNIFORM %1', [GVAR(loadout_uniform)] call _fnc_formatList];
+_lines pushBack format ['#define CAMO_VEST %1', [GVAR(loadout_vest)] call _fnc_formatList];
+_lines pushBack format ['#define CAMO_BACKPACK %1', [GVAR(loadout_backpack)] call _fnc_formatList];
+_lines pushBack format ['#define CAMO_HEADGEAR %1', [GVAR(loadout_headgear)] call _fnc_formatList];
+
 
 _lines pushBack format ["// Rifle"];
 _lines pushBack format ['#define RIFLE "%1"', GVAR(loadout_rifle)];
+
 _lines pushBack format ['#define RIFLE_MAG %1', [GVAR(loadout_rifle), GVAR(loadout_rifleMags), 300] call _fnc_getMags];
 _lines pushBack format ['#define RIFLE_ATTACHMENTS %1', [GVAR(loadout_rifleAttachments)] call _fnc_formatList];
-_lines pushBack format ['#define AAR_ATTACHMENTS RIFLE_ATTACHMENTS'];
-_lines pushBack format ['#define ALT_OPTICS "optic_Aco","CUP_optic_CompM2_Black","CUP_optic_TrijiconRx01_black","CUP_optic_MRad"'];
+_lines pushBack format ['#define AR_ATTACHMENTS RIFLE_ATTACHMENTS, %1', [GVAR(loadout_arAttachments)] call _fnc_formatList];
+_lines pushBack format ['#define ALT_OPTICS "optic_Aco","CUP_optic_CompM2_Black","CUP_optic_TrijiconRx01_black","CUP_optic_MRad",STANAG_OPTICS,WARSAW_OPTICS'];
 
 _lines pushBack format ["// GL Rifle"];
 _lines pushBack format ['#define GLRIFLE "%1"', GVAR(loadout_glrifle)];
 _lines pushBack format ['#define GLRIFLE_MAG %1', [GVAR(loadout_glrifle), GVAR(loadout_glRifleMags), 300] call _fnc_getMags];
 
+private _smoke = "";
+private _color = selectRandom ["B","G","O","P","Y"]; 
+switch (_color) do {
+case "B": {_smoke = "1Rnd_SmokeBlue_Grenade_shell:4"};
+case "G": {_smoke = "1Rnd_SmokeGreen_Grenade_shell:4"};
+case "O": {_smoke = "1Rnd_SmokeOrange_Grenade_shell:4"};
+case "P": {_smoke = "1Rnd_SmokePurple_Grenade_shell:4"};
+case "Y": {_smoke = "1Rnd_SmokeYellow_Grenade_shell:4"};
+};
+
 private _glMuzzle = (getArray (configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> "muzzles")) param [1, "no2ndMuzzle"];
 private _glMags = [configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> _glMuzzle] call CBA_fnc_compatibleMagazines;
 switch (true) do {
     case (({"1Rnd_Smoke_Grenade_shell" == _x} count _glMags) > 0):{
-        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "1Rnd_Smoke_Grenade_shell:2","1Rnd_SmokeRed_Grenade_shell:2"'];
-        _lines pushBack format ['#define GLRIFLE_MAG_HE "1Rnd_HE_Grenade_shell:5"'];
         _lines pushBack format ['#define GLRIFLE_MAG_FLARE "UGL_FlareYellow_F:4"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "1Rnd_Smoke_Grenade_shell:6","1Rnd_SmokeRed_Grenade_shell:4","%1",GLRIFLE_MAG_FLARE', _smoke]; 
+        _lines pushBack format ['#define GLRIFLE_MAG_HE "1Rnd_HE_Grenade_shell:4"'];
     };
     case (({"rhs_GRD40_White" == _x} count _glMags) > 0):{
-        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "rhs_GRD40_White:2","rhs_GRD40_Red:2"'];
-        _lines pushBack format ['#define GLRIFLE_MAG_HE "rhs_VOG25:5"'];
         _lines pushBack format ['#define GLRIFLE_MAG_FLARE "rhs_VG40OP_red:4"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "rhs_GRD40_White:6","rhs_GRD40_Red:4","%1",GLRIFLE_MAG_FLARE', _smoke];
+        _lines pushBack format ['#define GLRIFLE_MAG_HE "rhs_VOG25:4"'];
     };
     default {
         _lines pushBack format ["// WARNING - Unknown GL Muzzle [%1->%2]", GVAR(loadout_glrifle), _glMuzzle];
+        _lines pushBack format ['#define GLRIFLE_MAG_FLARE ""'];
         _lines pushBack format ['#define GLRIFLE_MAG_SMOKE ""'];
         _lines pushBack format ['#define GLRIFLE_MAG_HE ""'];
-        _lines pushBack format ['#define GLRIFLE_MAG_FLARE ""'];
     };
 };
 
@@ -83,6 +128,7 @@ _lines pushBack format ["// AR"];
 _lines pushBack format ['#define AR "%1"', GVAR(loadout_ar)];
 _lines pushBack format ['#define AR_MAG %1', [GVAR(loadout_ar), GVAR(loadout_arMags), 500] call _fnc_getMags];
 
+
 _lines pushBack format ["// AT"];
 _lines pushBack format ['#define AT "%1"', GVAR(loadout_at)];
 _lines pushBack format ['#define AT_MAG %1', [GVAR(loadout_at), GVAR(loadout_atMags), -1] call _fnc_getMags];
@@ -90,12 +136,16 @@ _lines pushBack format ['#define AT_MAG %1', [GVAR(loadout_at), GVAR(loadout_atM
 _lines pushBack format ["// MMG"];
 _lines pushBack format ['#define MMG "%1"', GVAR(loadout_mmg)];
 _lines pushBack format ['#define MMG_MAG %1', [GVAR(loadout_mmg), GVAR(loadout_mmgMags), 500] call _fnc_getMags];
+_lines pushBack format ['#define MMG_ATT %1', [GVAR(loadout_mmgAttachments)] call _fnc_formatList];
 
 _lines pushBack format ["// MAT"];
 _lines pushBack format ['#define MAT "%1"', GVAR(loadout_mat)];
 _lines pushBack format ['#define MAT_MAG %1', [GVAR(loadout_mat), GVAR(loadout_matMags), -1] call _fnc_getMags];
 _lines pushBack format ['#define MAT_MAG2 %1', [GVAR(loadout_mat), GVAR(loadout_matMags), -1] call _fnc_getMags];
 _lines pushBack format ['#define MAT_OPTIC %1', [GVAR(loadout_matAttachments)] call _fnc_formatList];
+
+_lines pushBack format ["// Facewear"];
+_lines pushBack format ['#define GOG %1', [GVAR(loadout_goggles)] call _fnc_formatList];
 
 {
     "ace_clipboard" callExtension _x;

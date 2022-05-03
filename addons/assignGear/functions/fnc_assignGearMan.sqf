@@ -24,12 +24,60 @@ private _faction = faction _unit;
 private _typeOf = typeOf _unit;
 private _unitClassname = [_typeOf] call FUNC(cleanPrefix);
 private _loadout = _unit getVariable ["F_Gear", _unitClassname]; //Check variable f_gear, otherwise default to typeof
+private _side = side _unit;
 private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+switch (_side) do{ 
+	case west:{
+		if (JKL_LoadoutWest isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutWest >> _loadout;
+		};
+	};   
+	case east:{ 
+		if (JKL_LoadoutEast isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutEast >> _loadout;
+		};
+	};   
+	case independent:{ 
+		if (JKL_LoadoutInd isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutInd >> _loadout;
+		}; 
+	};
+	default {_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;};
+};
 private _configFace = getArray (_path >> "face");
 private _face = if (_configFace isEqualTo[]) then { "" } else { selectRandom _configFace};
 
 if ((!isClass(_path)) && GVAR(useFallback)) then {
-    _path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
+switch (_side) do{ 
+	case west:{
+		if (JKL_LoadoutWest isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutWest >> "fallback";
+		};
+	};   
+	case east:{ 
+		if (JKL_LoadoutEast isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutEast >> "fallback";
+		};
+	};   
+	case independent:{ 
+		if (JKL_LoadoutInd isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutInd >> "fallback";
+		}; 
+	};
+	default {_path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";};
+};
 };
 
 // Temp? BWC for older missions
@@ -120,7 +168,30 @@ if ((!isClass _path) && {(_typeOf select [0,7]) == "potato_"}) then {
             INFO_2("Convert msv %1:%2",_unitRole,_loadout);
         };
     };
-    _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+switch (_side) do{ 
+	case west:{
+		if (JKL_LoadoutWest isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutWest >> _loadout;
+		};
+	};   
+	case east:{ 
+		if (JKL_LoadoutEast isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutEast >> _loadout;
+		};
+	};   
+	case independent:{ 
+		if (JKL_LoadoutInd isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutInd >> _loadout;
+		}; 
+	};
+	default {_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;};
+};
     if (!isClass(_path)) then { WARNING_3("No bwc class found %1=%2:%3", _typeOf,_faction,_loadout); };
 };
 
