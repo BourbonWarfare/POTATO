@@ -47,14 +47,38 @@ if ((GVAR(setVehicleLoadouts) == -1) || {_loadout == "Empty"}) exitWith {
 };
 
 private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
-
+private _side = [_theVehicle, true] call BIS_fnc_objectSide;
+switch (west) do{ 
+	case west:{
+		if (JKL_LoadoutWest isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutWest >> _loadout;
+		};
+	};   
+	case (east):{ 
+		if (JKL_LoadoutEast isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutEast >> _loadout;
+		};
+	};   
+	case (independent):{ 
+		if (JKL_LoadoutInd isEqualTo "Default") then {
+			_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+		} else {
+			_path = configFile >> "CfgCMFLoadouts" >> JKL_LoadoutInd >> _loadout;
+		}; 
+	};
+	default {_path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;};
+};
 if (!isClass _path) then {
     //No CfgLoadouts for exact loadout, try default
     private _vehConfigSide = [_theVehicle, true] call BIS_fnc_objectSide;
     private _vehConfigFactions = switch (_vehConfigSide) do {
-        case (west): { ["blu_f", "potato_w"] };
-        case (east): { ["opf_f", "potato_e", "potato_msv"] }; // potato_msv is depcrecated but kept for BWC for now
-        case (independent): { ["ind_f", "potato_i"] };
+        case (west): { ["blu_f", "potato_w", JKL_LoadoutWest] };
+        case (east): { ["opf_f", "potato_e", "potato_msv", JKL_LoadoutEast] }; // potato_msv is depcrecated but kept for BWC for now
+        case (independent): { ["ind_f", "potato_i", JKL_LoadoutInd] };
         default { ["civ_f"] };
     };
 
@@ -63,7 +87,30 @@ if (!isClass _path) then {
         private _loadoutToCheck = _x;
 
         {
-            _path = missionConfigFile >> "CfgLoadouts" >> _x >> _loadoutToCheck;
+		switch (_side) do{ 
+			case (west):{
+				if (JKL_LoadoutWest isEqualTo "Default") then {
+					_path = missionConfigFile >> "CfgLoadouts" >> _x >> _loadoutToCheck;
+				} else {
+					_path = configFile >> "CfgCMFLoadouts" >> _x >> _loadoutToCheck;
+				};
+			};   
+			case (east):{ 
+				if (JKL_LoadoutEast isEqualTo "Default") then {
+					_path = missionConfigFile >> "CfgLoadouts" >> _x >> _loadoutToCheck;
+				} else {
+					_path = configFile >> "CfgCMFLoadouts" >> _x >> _loadoutToCheck;
+				};
+			};   
+			case (independent):{ 
+				if (JKL_LoadoutInd isEqualTo "Default") then {
+					_path = missionConfigFile >> "CfgLoadouts" >> _x >> _loadoutToCheck;
+				} else {
+					_path = configFile >> "CfgCMFLoadouts" >> _x >> _loadoutToCheck;
+				}; 
+			};
+			default {_path = missionConfigFile >> "CfgLoadouts" >> _x >> _loadoutToCheck};
+			};
             if (isClass _path) exitWith { _break = true; };
         } forEach _vehConfigFactions;
 
