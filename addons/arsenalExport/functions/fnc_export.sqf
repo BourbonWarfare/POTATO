@@ -35,38 +35,6 @@ private _fnc_getMags = {
     TRACE_4("getMags",_weapon,_mags,_wantedRounds,_return);
     _return
 };
-/*
-if (typeName GVAR(loadout_uniform) == "ARRAY") then {
-GVAR(loadout_uniform) = GVAR(loadout_uniform) joinString '","'
-};
-if (typeName GVAR(loadout_vest) == "ARRAY") then {
-GVAR(loadout_vest) = GVAR(loadout_vest) joinString '","'
-};
-if (typeName GVAR(loadout_backpack) == "ARRAY") then {
-GVAR(loadout_backpack) = GVAR(loadout_backpack) joinString '","'
-};
-if (typeName GVAR(loadout_headgear) == "ARRAY") then {
-GVAR(loadout_headgear) = GVAR(loadout_headgear) joinString '","'
-};
-if (typeName GVAR(loadout_crewh) == "ARRAY") then {
-GVAR(loadout_crewh) = GVAR(loadout_crewh) joinString '","'
-};
-if (typeName GVAR(loadout_puniform) == "ARRAY") then {
-GVAR(loadout_puniform) = GVAR(loadout_puniform) joinString '","'
-};
-if (typeName GVAR(loadout_pvest) == "ARRAY") then {
-GVAR(loadout_pvest) = GVAR(loadout_pvest) joinString '","'
-};
-if (typeName GVAR(loadout_pbackpack) == "ARRAY") then {
-GVAR(loadout_pbackpack) = GVAR(loadout_pbackpack) joinString '","'
-};
-if (typeName GVAR(loadout_pheadgear) == "ARRAY") then {
-GVAR(loadout_pheadgear) = GVAR(loadout_pheadgear) joinString '","'
-};
-if (typeName GVAR(loadout_goggles) == "ARRAY") then {
-GVAR(loadout_goggles) = GVAR(loadout_goggles) joinString '","'
-};
-*/
 
 private _lines = [];
 

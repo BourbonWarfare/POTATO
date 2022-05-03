@@ -11,7 +11,7 @@ if ((count (call BIS_fnc_listPlayers)) > 1) exitWith {INFO_1("hiding export in m
 
 
 private _y = 0;
-_ctrlsToUpdate = [];
+private _ctrlsToUpdate = [];
 
 private _height = (((safezoneW / safezoneH) min 1.2) / 1.2) / 25;
 private _xPos = safezoneX + safezoneW - 10 * _height;
