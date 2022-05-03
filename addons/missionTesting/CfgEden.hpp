@@ -66,6 +66,10 @@ class Cfg3DEN {
                                     name = "TVT";
                                     value = 2;
                                 };
+                                class ZBM {
+                                    name = "ZBM";
+                                    value = 3;
+                                };
                             };
 						};
 						class GVAR(missionVersion) {
