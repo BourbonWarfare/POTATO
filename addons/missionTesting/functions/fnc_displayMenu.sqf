@@ -148,23 +148,25 @@ _menuCancel ctrlSetPosition [0.73,1,0.12,0.1];
 _menuCancel buttonSetAction "closeDialog 2;";
 _menuCancel ctrlCommit 0;
 private _menuBreifingPage = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
-_menuBreifingPage ctrlSetText "Brieifing";
+_menuBreifingPage ctrlSetText "Briefing";
 _menuBreifingPage ctrlSetPosition [0.60,1,0.12,0.1];
 _menuBreifingPage buttonSetAction QUOTE([] call FUNC(openBriefings));
 _menuBreifingPage ctrlCommit 0;
 
-if (!EGVAR(spectate,running)) then {
-    private _killGoToSpec = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
-    _killGoToSpec ctrlSetText "Goto Spec";
-    _killGoToSpec ctrlSetTooltip "Kill player and go to POTATO spectator if enabled (which it should be enabled else MM messed up)";
-    _killGoToSpec buttonSetAction QUOTE(ACE_player setDamage 1);
-    _killGoToSpec ctrlSetPosition [0.47,1,0.12,0.1];
-    _killGoToSpec ctrlCommit 0;
-} else {
-    private _keyBindInst = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1];
-    _keyBindInst ctrlSetText "To reopen this menu in spectator press CTRL + SHIFT + F5";
-    _keyBindInst ctrlSetPosition [0,1,1,0.05];
-    _keyBindInst ctrlCommit 0;
+if (!is3DEN) then {
+    if (!EGVAR(spectate,running)) then {
+        private _killGoToSpec = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
+        _killGoToSpec ctrlSetText "Goto Spec";
+        _killGoToSpec ctrlSetTooltip "Kill player and go to POTATO spectator if enabled (which it should be enabled else MM messed up)";
+        _killGoToSpec buttonSetAction QUOTE(ACE_player setDamage 1);
+        _killGoToSpec ctrlSetPosition [0.47,1,0.12,0.1];
+        _killGoToSpec ctrlCommit 0;
+    } else {
+        private _keyBindInst = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1];
+        _keyBindInst ctrlSetText "To reopen this menu in spectator press CTRL + SHIFT + F5";
+        _keyBindInst ctrlSetPosition [0,1,1,0.05];
+        _keyBindInst ctrlCommit 0;
+    };
 };
 
 private _openForumFinishedMissions = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
@@ -180,6 +182,9 @@ private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
 private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
 private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);
 private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
+
+private _missionSSTime = getMissionConfigValue QGVAR(SSTimeGiven);
+private _missionTimeLength = getMissionConfigValue QGVAR(missionTimeLength);
 
 private _missionTag1Var = getMissionConfigValue QGVAR(missionTag1);
 private _missionTag1 = if(isNil QUOTE(_missionTag1Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag1Var};
@@ -202,7 +207,9 @@ private _missionSummary = "You are not the mission maker so this is currently un
 if (isServer && name ACE_PLAYER == _missionMaker) then {_missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText"};
 private _masterChecklistArray = nil;
 
-if(_missionMaker == name player) then {
+if (is3DEN) then {call compileScript ['\z\potato\addons\missiontesting\XEH_postInit.sqf']};
+
+if(_missionMaker == name player || is3DEN) then {
     _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
 } else {
     _masterChecklistArray = GVAR(MissionTestingChecklistMaster);
@@ -220,7 +227,7 @@ _createCtrlLine4 ctrlCommit 0;
 INCREMENT_YCOORD;
 
 private _ctrlGeneralMMNotesTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
-if(_missionMaker == name ACE_PLAYER) then {
+if(_missionMaker == name ACE_PLAYER || is3DEN) then {
     _ctrlGeneralMMNotesTitle ctrlSetText "Any other Notes for Mission Testers/Version";
 } else {
     _ctrlGeneralMMNotesTitle ctrlSetText "General Notes for Mission Maker:";
@@ -269,6 +276,11 @@ _ctrlCreateInfoBlockText = composeText [
     ,parseText "<t color='#FF8000'>MISSION PLAYER COUNT</t>"
     ,_separator
     ,parseText "<t color='#0080FF'>Min:</t> ",_missionPlayerCountMin,parseText "<t color='#0080FF'>  Rec:</t> ",_missionPlayerCountRec,parseText "<t color='#0080FF'>  Max:</t> ",_missionPlayerCountMax, lineBreak
+    ,lineBreak
+    ,parseText "<t color='#FF8000'>MISSION TIMERS</t>"
+    ,_separator
+    ,parseText "<t color='#0080FF'>Mission SS Time (mins):</t> ",_missionSSTime, linebreak
+    ,parseText "<t color='#0080FF'>Mission Run Time (mins):</t> ",_missionTimeLength, linebreak
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION TAGS</t>"
     ,_separator

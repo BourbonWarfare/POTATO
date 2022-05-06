@@ -10,11 +10,15 @@ class display3DEN {
         class MenuStrip: ctrlMenuStrip {
             class Items {
                 class PREFIX {
-                    items[] += {QGVAR(missionTesting)};
+                    items[] += {QGVAR(missionTesting),QGVAR(editorOpenMenu)};
                 };
                 class GVAR(missionTesting) {
                     text = "Mission Testing Attributes";
                     action = QUOTE(edit3DENMissionAttributes QUOTE(QGVAR(missionTestingInfo)););
+                };
+                class GVAR(editorOpenMenu) {
+                    text = "Open Testing Menu";
+                    action = QUOTE([] call FUNC(displayMenu));
                 };
             };
         };
@@ -112,14 +116,14 @@ class Cfg3DEN {
                             displayName = "Safe Start Time Length (mins):";
 							property = QGVAR(SSTimeGiven);
                             control = QUOTE(EditShort);
-                            defaultValue = "";
+                            defaultValue = 10;
                             typeName = "STRING";
 						};
 						class GVAR(missionTimeLength) {
                             displayName = "Mission Length (mins):";
 							property = QGVAR(missionTimeLength);
                             control = QUOTE(EditShort);
-                            defaultValue = "";
+                            defaultValue = 35;
                             typeName = "STRING";
 						};
 					};
