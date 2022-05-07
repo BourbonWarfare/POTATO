@@ -504,6 +504,20 @@ class GVAR(overlay) {
             colorBackground[] = {0,0,0,0.5};
             sizeEx = QUOTE(1.0 * YFACTOR);
         };
+		class GcamButton: RscButton {
+            idc = GCAM_IDC;
+
+            onButtonClick = QUOTE([player] spawn EFUNC(spectate,openGcam));
+
+            x = safezoneX + safezoneW - 0.4;
+            y = safezoneY + safezoneH - 0.08;
+            w = 0.2;
+            h = 0.08;
+
+            text = "GCAM";
+            colorBackground[] = {0,0,0,0.5};
+            sizeEx = QUOTE(1.0 * YFACTOR);
+        };
         class HelpText: RscStructuredText {
             idc = HELP_IDC;
 

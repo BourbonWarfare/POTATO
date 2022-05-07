@@ -206,4 +206,7 @@ Tasks/diary (default 'J') to open/close the briefings<br/>\
 Compass (default 'K') to open/close the compass<br/>\
 </t>
 
+#define GCAM_IDC 751887
+#define GCAM (OVERLAY displayCtrl GCAM_IDC)
+
 #include "\z\potato\addons\core\script_macros.hpp"
