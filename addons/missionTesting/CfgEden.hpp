@@ -116,15 +116,15 @@ class Cfg3DEN {
                             displayName = "Safe Start Time Length (mins):";
 							property = QGVAR(SSTimeGiven);
                             control = QUOTE(EditShort);
-                            defaultValue = 10;
-                            typeName = "STRING";
+                            defaultValue = 0;
+                            typeName = "NUMBER";
 						};
 						class GVAR(missionTimeLength) {
                             displayName = "Mission Length (mins):";
 							property = QGVAR(missionTimeLength);
                             control = QUOTE(EditShort);
-                            defaultValue = 35;
-                            typeName = "STRING";
+                            defaultValue = 0;
+                            typeName = "NUMBER";
 						};
 					};
 				};
