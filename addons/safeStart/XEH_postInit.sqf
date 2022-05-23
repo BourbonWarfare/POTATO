@@ -17,7 +17,7 @@ if (isServer) then {
     ] call CBA_fnc_waitUntilAndExecute;
 	
 	if (getMissionConfigValue "potato_missionTesting_forceSS") then {
-		if (parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") isEqualTo 0) exitWith {"[CMF] WARNING: THIS MISSION IS LIVE IMMEDIATELY" remoteExec ["systemChat", 0];};
+		if (parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") isEqualTo 0) exitWith {"[CMF] WARNING: THIS MISSION IS LIVE IMMEDIATELY" remoteExec ["systemChat", 0]; [true] spawn JST_fnc_ReadyUp;};
 		
 		[format ["[CMF] Safe start time is enforced: %1 minutes",GetMissionConfigValue "potato_missionTesting_SSTimeGiven"]] remoteExec ["systemChat", 0];
 		
@@ -25,7 +25,10 @@ if (isServer) then {
 			{CBA_missionTime >= ((parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") * 60) / 2)},
 			{ 
 				"[CMF] Half of safe start time remains" remoteExec ["systemChat", 0];	
-			}
+			},
+			[],
+			((parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") * 60) / 2),
+			{true}
 		] call CBA_fnc_waitUntilAndExecute; 
 		
 		[
@@ -33,7 +36,10 @@ if (isServer) then {
 			{ 
 				"[CMF] Safe start time has expired" remoteExec ["systemChat", 0];
 				[true] spawn JST_fnc_ReadyUp;
-			}
+			},
+			[],
+			(parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") * 60),
+			{true}
 		] call CBA_fnc_waitUntilAndExecute;
 	};
 };
