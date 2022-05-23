@@ -133,4 +133,16 @@ class CfgWeapons {
             };
         };
     };
+
+    class mgun;
+    class cup_vlmg_m134_veh: mgun {
+        class lowrof: mode_fullauto {
+            class standardsound {
+                // JSRS uses 
+                // soundsetshot[] = {"jsrs_m134_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+                // but you cannot hear at range?? Just revert back to cup's
+                soundSetShot[] = {"CUP_M134_Shot_SoundSet","CUP_mmg1_Tail_SoundSet"};
+            };
+        };
+    };
 };
