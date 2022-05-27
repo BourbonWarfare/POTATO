@@ -12,7 +12,7 @@
     "SLIDER",
     ["Aiming Accuracy Floor", "Minimum aiming accuracy for a spawned unit."],
     ["POTATO - AI", "AI Skill"],
-    [0, 1, 0.4, 2],
+    [0, 1, 0.05, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -21,7 +21,7 @@
     "SLIDER",
     ["Aiming Accuracy Ceiling", "Maximum aiming accuracy for a spawned unit."],
     ["POTATO - AI", "AI Skill"],
-    [0, 1, 0.6, 2],
+    [0, 1, 0.1, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -30,7 +30,7 @@
     "SLIDER",
     ["Aiming Shake Floor", "Minimum aiming shake for a spawned unit."],
     ["POTATO - AI", "AI Skill"],
-    [0, 1, 0.7, 2],
+    [0, 1, 0.75, 2],
     1
 ] call cba_settings_fnc_init;
 
@@ -39,7 +39,7 @@
     "SLIDER",
     ["Aiming Shake Ceiling", "Maximum aiming shake for a spawned unit."],
     ["POTATO - AI", "AI Skill"],
-    [0, 1, 0.85, 2],
+    [0, 1, 1, 2],
     1
 ] call cba_settings_fnc_init;
 
