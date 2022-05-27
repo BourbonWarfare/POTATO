@@ -118,6 +118,7 @@ if (_missionType == 0) then {
     _problems pushBackUnique ["Need to select mission type", ["POTATO -> Mission Testing Attributes -> Mission Type"]];
 };
 private _missionLength = getMissionConfigValue QEGVAR(missionTesting,missionTimeLength);
+if (_missionLength isEqualType "") then { _missionLength = parseNumber _missionLength; }; // BWC with old attribute that was string
 if (_missionLength == 0) then {
     _problems pushBackUnique ["Need to set mission length value", ["POTATO -> Mission Testing Attributes -> Mission Length"]];
 };

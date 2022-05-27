@@ -20,6 +20,7 @@ if !(isServer) exitWith {};
 params [];
 
 private _missionLength = getMissionConfigValue [QEGVAR(missionTesting,missionTimeLength),0];
+if (_missionLength isEqualType "") then { _missionLength = parseNumber _missionLength; }; // BWC with old attribute that was string
 private _missionLengthSec = _missionLength * 60;
 
 if (_missionLength == 0) then {
