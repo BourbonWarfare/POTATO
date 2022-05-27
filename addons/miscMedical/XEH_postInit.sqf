@@ -451,7 +451,8 @@ if (hasInterface) then {
         TRACE_1("adding woundRecieved handler",GVAR(isTVT));
 
         ["ace_medical_woundReceived", {
-            params ["_unit", "_bodyPart", "_damage", "_shooter", "_typeOfDamage"];
+            params ["_unit", "_damagesArray", "_shooter", "_typeOfDamage"]; // ACE 3.14.2 wound params
+            (_damagesArray select 0) params ["_damage", "_bodyPart"]; // biggest damage first
             if (_unit == ACE_player) then {
                 TRACE_3("player wound",_bodyPart,_damage,_typeOfDamage);
                 if ((_unit getVariable ["ACE_isUnconscious", false]) && {_damage > 0.5}) then {
