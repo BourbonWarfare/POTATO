@@ -197,6 +197,7 @@ class CfgVehicles {
     class CUP_BTR90_HQ_Base: CUP_BTR90_base { delete ace_viewports; }; // no cargo seats
 
     class CUP_M2Bradley_Base: Tank_F {
+        ace_hunterkiller = 1;
         class ace_viewports {
             class view_0 {
                 camLocation[] = {0.987915, -0.324707, -0.0673385};
