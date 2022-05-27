@@ -28,7 +28,7 @@ if (_missionLength == 0) then {
     switch (_missionType) do {
         case 1: {_missionLength = 65};
         case 2: {_missionLength = 35};
-        default {if(true) exitWith {TRACE_1("Something is seriously wrong, exiting timer")}};
+        default {if(true) exitWith {TRACE_1("Something is seriously wrong, exiting timer",_missionType)}};
     };
 };
 
