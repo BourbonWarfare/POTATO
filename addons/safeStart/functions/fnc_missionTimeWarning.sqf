@@ -19,6 +19,19 @@ if !(isServer) exitWith {};
 
 params [];
 
+private _missionLength = getMissionConfigValue [QEGVAR(missionTesting,missionTimeLength),0];
+if (_missionLength isEqualType "") then { _missionLength = parseNumber _missionLength; }; // BWC with old attribute that was string
+private _missionLengthSec = _missionLength * 60;
+
+if (_missionLength == 0) then {
+    private _missionType = getMissionConfigValue QEGVAR(missionTesting,missionType);
+    switch (_missionType) do {
+        case 1: {_missionLength = 65};
+        case 2: {_missionLength = 35};
+        default {if(true) exitWith {TRACE_1("Something is seriously wrong, exiting timer")}};
+    };
+};
+
 missionNamespace setVariable [QGVAR(missionstartTime), CBA_missionTime, true];
 TRACE_1("Mission start time",QGVAR(missionstartTime));
 
@@ -26,8 +39,7 @@ TRACE_1("Mission start time",QGVAR(missionstartTime));
 [
     {
         private _missionStartTime = missionNamespace getVariable QGVAR(missionstartTime);
-        private _missionLength = parseNumber getMissionConfigValue QEGVAR(missionTesting,missionTimeLength) * 60;
-        (CBA_missionTime >= (_missionStartTime + _missionLength - 900))  || !(isNil QGVAR(timerID))
+        (CBA_missionTime >= (_missionStartTime + _missionLengthSec - 900))  || !(isNil QGVAR(timerID))
     },
     {
         if (isNil QGVAR(timerID)) then {
@@ -60,7 +72,7 @@ TRACE_1("Mission start time",QGVAR(missionstartTime));
             ] call CBA_fnc_waitAndExecute;
         };
     },
-    []
+    [_missionLengthSec]
 ] call CBA_fnc_waitUntilAndExecute;
 
 // Add Map Marker at 0,0 position with mission end time.
@@ -68,9 +80,8 @@ TRACE_1("Mission start time",QGVAR(missionstartTime));
 // Check if mission end map marker already exists.
 
 private _startTime = daytime;
-private _missionLengthDec = parseNumber getMissionConfigValue QEGVAR(missionTesting,missionTimeLength) / 60;
-private _endTimeDec = _startTime + _missionLengthDec;
+private _endTimeDec = _startTime + (_missionLength / 60);
 private _endTime = [_endTimeDec] call BIS_fnc_timeToString;
 
-private _string = format ["|missionEndMarker_0|[0,0,0.0000]|mil_warning|ICON|[1,1]|0|Solid|colorCivilian|1|Mission End Time - %1",_endTime];
-[_string] call BIS_fnc_stringToMarker;
+private _string = format ["|_USER_DEFINED missionEndMarker_0|[0,0,0.0000]|mil_warning|ICON|[1,1]|0|Solid|colorCivilian|1|Mission End Time - %1",_endTime];
+[QGVAR(addMissionEndMarkerLocal),[_string]] call CBA_fnc_globalEventJIP;

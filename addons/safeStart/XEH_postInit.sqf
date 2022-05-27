@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 if (isServer) then {
-    // Setting to sync to ace_fortify        
+    // Setting to sync to ace_fortify
     ["potato_safeStartOn", {
         if (!GVAR(syncFortify)) exitWith {};
         missionNamespace setVariable [QACEGVAR(fortify,fortifyAllowed), true, true];
@@ -28,4 +28,18 @@ if (didJip) then {
             };
         }
     ] call CBA_fnc_waitUntilAndExecute;
+};
+
+if(hasInterface) then {
+    [QGVAR(addMissionEndMarkerLocal),{
+        params["_markerStr"];
+        TRACE_1("Params",_this);
+
+        private _markerName = "_USER_DEFINED missionEndMarker_0";
+        private _markerExists = allMapMarkers find _markerName;
+
+        if !(_markerExists isEqualTo -1) then {deleteMarkerLocal _markerName;};
+
+        _markerStr call BIS_fnc_stringToMarkerLocal;
+    }] call CBA_fnc_addEventHandler;
 };

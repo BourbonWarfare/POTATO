@@ -70,6 +70,8 @@ private _missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText";
 private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
 private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);
 private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
+private _missionSSTime = getMissionConfigValue QGVAR(SSTimeGiven);
+private _missionTimeLength = getMissionConfigValue QGVAR(missionTimeLength);
 private _missionTag1Var = getMissionConfigValue QGVAR(missionTag1);
 private _missionTag1 = if(isNil QUOTE(_missionTag1Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag1Var};
 private _missionTag2Var = getMissionConfigValue QGVAR(missionTag2);
@@ -89,11 +91,11 @@ private _masterChecklistArray = nil;
 private _textArray = [];
 private _textArrayShort = [];
 
-if(_missionMaker == name ACE_PLAYER) then {
+if(_missionMaker == name ACE_PLAYER || is3DEN) then {
     _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
     S_NEWTEXTLINE ["[size=200][u][b]Mission : [color=#FF4000]%1[/color][/b][/u]   [b][u]Type : [color=#FF4000]%2[/color][/u][/b][/size]", _missionName, _missionType];
     S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%1[/color][/b][/u][/size]   [size=150][u][b]BWMF Version : [color=#FF4000]%2[/color][/b][/u][/size]",_missionVersion,_missionFrameworkDate];
-    S_NEWTEXTLINE ["[size=150]Mission Tags : [color=#FF4000]%1, %2, %3[/color]  [/size] ",_missionTag1,_missionTag2,_missionTag3];
+    S_NEWTEXTLINE ["[size=150]Mission Tags : [color=#FF4000]%1, %2, %3[/color]  SS Length : [color=#FF4000]%4[/color]  Mission Length : [color=#FF4000]%5[/color][/size] ",_missionTag1,_missionTag2,_missionTag3,_missionSSTime,_missionTimeLength];
     if (isServer && name ACE_PLAYER == _missionMaker) then {
         S_NEWTEXTLINE ["[size=150][u]Mission Summary (As shown in Slotting screen, Inc of Ratio if TvT) :[/u][/size]"];
         S_NEWTEXTLINE ["[color=#FF4000]%1[/color]",_missionSummary];
