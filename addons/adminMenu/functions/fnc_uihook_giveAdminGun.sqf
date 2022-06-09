@@ -6,3 +6,12 @@ if ([ace_player, QEGVAR(adminGun,gun), false] call CBA_fnc_addItem) then {
     [ace_player, QEGVAR(adminGun,physics), false] call CBA_fnc_addItem;
 };
 
+[
+    "potato_adminMsg",
+    [
+        "Giving themselves Admin Gun",
+        profileName
+    ]
+] call CBA_fnc_globalEvent;
+
+
