@@ -77,18 +77,20 @@ private _intersectOffset = _intersectPos vectorDiff (getPosASLVisual _intersectO
         [_handle] call CBA_fnc_removePerFrameHandler;
     };
 
-    if (_intersectObject isEqualTo objNull) then {
+    if (isNil "_intersectObject" || { isNull _intersectObject }) then {
         private _objects = lineIntersectsSurfaces [_startPos, _startPos vectorAdd (_direction vectorMultiply MAX_RANGE), _unit, objNull, true, 1, "FIRE"];
-        private _firstIntersect = _objects select 0;
-        _firstIntersect params ["_newPos", "", "_newObject"];
+        if (_objects isNotEqualTo []) then {
+            private _firstIntersect = _objects select 0;
+            _firstIntersect params ["_newPos", "", "_newObject"];
 
-        if (_newObject isNotEqualTo objNull) then {
-            private _initialDistance = _startPos vectorDistance _newPos;
-            private _intersectOffset = _newPos vectorDiff (getPosASLVisual _newObject);
+            if !(isNull _newObject) then {
+                private _initialDistance = _startPos vectorDistance _newPos;
+                private _intersectOffset = _newPos vectorDiff (getPosASLVisual _newObject);
 
-            _args set [0, _firstIntersect];
-            _args set [1, _initialDistance];
-            _args set [2, _intersectOffset];
+                _args set [0, _firstIntersect];
+                _args set [1, _initialDistance];
+                _args set [2, _intersectOffset];
+            };
         };
 
     } else {

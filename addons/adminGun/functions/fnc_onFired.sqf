@@ -18,11 +18,14 @@
  *
  * Public: No
  */
-params ["", "", "", "", "_ammoType"];
+params ["_unit", "", "", "", "_ammoType"];
 
-switch (_ammoType) do {
-    case QGVAR(physics): {
-        _this call FUNC(physicsPFH);
+if (local _unit && { isPlayer _unit }) then {
+    switch (_ammoType) do {
+        case QGVAR(physics): {
+            _this call FUNC(physicsPFH);
+        };
+        default {};
     };
-    default {};
 };
+
