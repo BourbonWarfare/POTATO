@@ -34,6 +34,7 @@
 #define UI_TAB_FIX_UNIT                ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2308)
 #define UI_TAB_FIX_UNIT_LIST           ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2180)
 #define UI_TAB_FIX_UNIT_GEAR           ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2181)
+#define UI_TAB_GIVE_ITEMS              ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2309)
 
-#define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint",        "Player Fixes"]
-#define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT, UI_TAB_FIX_UNIT]
+#define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint",        "Player Fixes",        "Give Items"]
+#define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT, UI_TAB_FIX_UNIT, UI_TAB_GIVE_ITEMS]
