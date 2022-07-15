@@ -108,6 +108,11 @@ private _transportBackpacks = getArray(_path >> "TransportBackpacks");
 // transportWeapons
 {
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
+    private _disposableName = cba_disposable_LoadedLaunchers getVariable [_classname, ""];
+    if (_disposableName != "") then {
+        TRACE_2("cba_disposable_LoadedLaunchers replace",_classname,_disposableName);
+        _classname = _disposableName;
+    };
     _theVehicle addWeaponCargoGlobal [_classname, parseNumber _amount];
     nil
 } count _transportWeapons; // count used here for speed, make sure nil is above this line
