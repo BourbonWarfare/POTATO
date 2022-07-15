@@ -7,8 +7,6 @@ class CfgZeusFactory {
         "B_T_LSV_01_unarmed_F", // Prowler
         "B_T_LSV_01_armed_F", // Prowler HMG
         "I_MRAP_03_F", // Fennek
-        "I_MRAP_03_hmg_F", // Fennek HMG
-        "I_MRAP_03_gmg_F", // Fennek GMG
         "I_G_Offroad_01_F", // Pickup
         "C_Offroad_02_unarmed_F", // Jeep
         "O_MRAP_02_F", // Punisher
@@ -25,9 +23,6 @@ class CfgZeusFactory {
 
         // RHS Cars
         "rhs_uaz_open_Base", // UAZ Jeep Carrier
-        "RHS_UAZ_DShKM_Base", // UAZ HMG Jeep
-        "RHS_UAZ_AGS30_Base", // UAZ GMG Jeep
-        "RHS_UAZ_SPG9_Base", // UAZ SPG Jeep
         "rhs_tigr_vdv", // Tiger
         "rhs_tigr_sts_vdv", // Tiger LMG/GMG
 
@@ -65,9 +60,7 @@ class CfgZeusFactory {
         "CUP_O_GAZ_Vodnik_AGS_RU", // Vodnik HMG
         "CUP_O_GAZ_Vodnik_BPPU_RU", // Vodnik Cannon
         "CUP_I_Hilux_unarmed_IND_G_F", //Hilux unarmed (Better pickup)
-        "CUP_I_Hilux_DSHKM_IND_G_F", //Hilux HMG
         "CUP_I_Hilux_armored_unarmed_IND_G_F", //Armored Hilux unarmed
-        "CUP_I_Hilux_armored_DSHKM_IND_G_F", //Armored Hilux HMG
 
         // CUP Trucks
         "CUP_B_MTVR_USMC", // Woodland MVTR

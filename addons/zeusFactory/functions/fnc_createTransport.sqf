@@ -30,20 +30,7 @@ private _driver = _group createUnit [_crewType, (getPos _vehicle), [], 0, "NONE"
 _group addVehicle _vehicle;
 _driver moveInDriver _vehicle;
 
-// add a gunner to all available turrets
-// just ace_common_fnc_getDoorTurrets but without getting FFV seats
-
-private _gunnerTurrets = [];
-private _turrets = allTurrets [_vehicle, false];
-
-{
-    private _config = configOf _vehicle;
-    _config = [_config, _x] call ACEFUNC(common,getTurretConfigPath);
-
-    if (((getNumber (_config >> "isCopilot")) == 0) && {count getArray (_config >> "weapons") > 0}) then {
-        _gunnerTurrets pushBack _x;
-    };
-} forEach _turrets;
+([_vehType] call FUNC(getSeatInfo)) params ["_gunnerTurrets"];
 
 {
     private _gunner = _group createUnit [_crewType, (getPos _vehicle), [], 0, "NONE"];

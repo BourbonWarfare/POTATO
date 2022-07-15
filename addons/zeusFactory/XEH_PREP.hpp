@@ -15,6 +15,7 @@ PREP(createTransport);
 PREP(dispatch);
 PREP(factoryLoop);
 PREP(getTransportType);
+PREP(getSeatInfo);
 PREP(module_attackBeacon);
 PREP(module_factory);
 PREP(module_place);

@@ -44,10 +44,14 @@ if (_set) then {(_display displayCtrl 23071) ctrlEnable false};
     {
         private _displayName = getText (configFile >> "CfgVehicles" >> _x >> "displayName");
         private _icon = getText (configFile >> "CfgVehicles" >> _x >> "icon");
-        private _index = (_display displayCtrl _idc) lbAdd format ["[%1] %2", [_x, true] call BIS_fnc_crewCount, _displayName];
+        ([_x] call FUNC(getSeatInfo)) params ["_gunnerTurrets", "_cargo"];
+        if (_cargo < 2) then { TRACE_2("skip",_x,_cargo); continue; }; // skip vics that can't carry anything
+
+        private _toolTip = format ["%1\nCrew %2 Carries %3",_x,1+count _gunnerTurrets,_cargo];
+        private _index = (_display displayCtrl _idc) lbAdd format ["[%1] %2",_cargo, _displayName];
         (_display displayCtrl _idc) lbSetPicture [_index, _icon];
         (_display displayCtrl _idc) lbSetValue [_index, _forEachIndex];
-        (_display displayCtrl _idc) lbSetTooltip [_index, _x];
+        (_display displayCtrl _idc) lbSetTooltip [_index, _toolTip];
         if (_currentValue == _x) then {_setIndex = _index};
     } forEach _vehicleArray;
     (_display displayCtrl _idc) lbSetCurSel _setIndex;
