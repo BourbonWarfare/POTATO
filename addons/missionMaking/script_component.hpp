@@ -1,4 +1,4 @@
-#define COMPONENT missionTest
+#define COMPONENT missionMaking
 #include "\z\potato\addons\core\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
