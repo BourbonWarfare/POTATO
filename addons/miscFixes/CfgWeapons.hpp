@@ -59,13 +59,6 @@ class CfgWeapons {
         UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
     };
 
-    // disable M70's rifle grenades until RHS decides to add rifle grenades
-    class rhs_weap_m70_base;
-    class rhs_weap_m70ab2: rhs_weap_m70_base {
-        muzzles[] = {"this", "SAFE"};
-    };
-
-
     // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
 
     class ItemCore;
