@@ -66,18 +66,15 @@ class Cfg3DEN {
                                     name = "TVT";
                                     value = 2;
                                 };
-                                class ZBM {
-                                    name = "ZBM";
+                                class COTVT {
+                                    name = "COTVT";
                                     value = 3;
                                 };
+                                class ZBM {
+                                    name = "ZBM";
+                                    value = 4;
+                                };
                             };
-						};
-						class GVAR(missionVersion) {
-                            displayName = "Mission Version:";
-                            control = QUOTE(EditShort);
-							property = QGVAR(missionVersion);
-                            defaultValue = 1;
-                            typeName = "STRING";
 						};
 					};
 				};
@@ -250,34 +247,72 @@ class Cfg3DEN {
 						};
 					};
 				};
-				class radioSystem {
-                    displayName = "Radio System (Not working yet - use gearscript)";
+				// class radioSystem {
+                //     displayName = "Radio System (Not working yet - use gearscript)";
+                //     collapsed = 0;
+				// 	class Attributes{
+				// 		class GVAR(radioSystem) {
+                //             displayName = "Radio System:";
+				// 			property = QGVAR(radioSystem);
+                //             control = QUOTE(combo);
+				// 			typeName = "NUMBER";
+                //             defaultValue = 1;
+                //             expression = "_this setVariable ['%s',_value];";
+				// 			class Values {
+                //                 class snet {
+                //                     name = "Squad Nets";
+                //                     value = 0;
+                //                 };
+                //                 class fnet {
+                //                     name = "Fireteam Nets";
+                //                     value = 1;
+                //                 };
+                //                 class lonly {
+                //                     name = "No Radios for GI";
+                //                     value = 2;
+                //                 };
+                //             };
+				// 		};
+				// 	};
+				// };
+                class SquadComp {
+                    displayName = "Squad Composition";
                     collapsed = 0;
-					class Attributes{
-						class GVAR(radioSystem) {
-                            displayName = "Radio System:";
-							property = QGVAR(radioSystem);
-                            control = QUOTE(combo);
-							typeName = "NUMBER";
-                            defaultValue = 1;
+                    class Attributes {
+                        class GVAR(SquadInOneGroup) {
+                            displayName = "Squad in One Group:";
+                            tooltip = "Is the entire squad in one group?";
+							property = QGVAR(SquadInOneGroup);
+                            control = QUOTE(Checkbox);
+                            defaultValue = QUOTE(false);
                             expression = "_this setVariable ['%s',_value];";
-							class Values {
-                                class snet {
-                                    name = "Squad Nets";
-                                    value = 0;
-                                };
-                                class fnet {
-                                    name = "Fireteam Nets";
-                                    value = 1;
-                                };
-                                class lonly {
-                                    name = "No Radios for GI";
-                                    value = 2;
-                                };
-                            };
 						};
-					};
-				};
+                        class GVAR(SquadSize) {
+                            displayName = "Overall Squad Size:";
+                            tooltip = "Used for JIP settings and custom squad compositions. Leave default if unchanged.";
+							property = QGVAR(SquadSize);
+                            control = QUOTE(EditShort);
+                            defaultValue = 12;
+                            typeName = "SCALAR";
+						};
+                        class GVAR(Team1Size) {
+                            displayName = "Team 1 Size (A1, B1, etc..):";
+                            tooltip = "Used for JIP settings and custom squad compositions. Leave default if unchanged.";
+							property = QGVAR(Team1Size);
+                            control = QUOTE(EditShort);
+                            defaultValue = 5;
+                            typeName = "SCALAR";
+						};
+                        class GVAR(Team2Size) {
+                            displayName = "Team 2 Size (A2, B2, etc..):";
+                            tooltip = "Used for JIP settings and custom squad compositions. Leave default if unchanged.";
+							property = QGVAR(Team2Size);
+                            control = QUOTE(EditShort);
+                            defaultValue = 5;
+                            typeName = "SCALAR";
+						};
+                    };
+                };
 				class MapBrief {
                     displayName = "Map Brief";
                     collapsed = 0;
@@ -297,20 +332,30 @@ class Cfg3DEN {
 					class Attributes{
 						class GVAR(missionFlagCustomScripting) {
                             displayName = "Custom Scripting:";
+                            tooltip = "Explain below for the mission tester";
                             control = QUOTE(Checkbox);
 							property = QGVAR(missionFlagCustomScripting);
                             defaultValue = QUOTE(false);
                             expression = "_this setVariable ['%s',_value];";
 						};
-						class GVAR(missionFlagCustomLoadout) {
-                            displayName = "Custom Loadout:";
+                        class GVAR(missionFlagTriggers) {
+                            displayName = "Uses Triggers:";
+                            tooltip = "Explain below for the mission tester";
                             control = QUOTE(Checkbox);
-							property = QGVAR(missionFlagCustomLoadout);
+							property = QGVAR(missionFlagTriggers);
                             defaultValue = QUOTE(false);
                             expression = "_this setVariable ['%s',_value];";
 						};
+						// class GVAR(missionFlagCustomLoadout) {
+                        //     displayName = "Custom Loadout:";
+                        //     control = QUOTE(Checkbox);
+						// 	property = QGVAR(missionFlagCustomLoadout);
+                        //     defaultValue = QUOTE(false);
+                        //     expression = "_this setVariable ['%s',_value];";
+						// };
 						class GVAR(missionFlagCustomVicLoadout) {
                             displayName = "Custom Vehicle Loadout:";
+                            tooltip = "Explain below for the mission tester";
                             control = QUOTE(Checkbox);
 							property = QGVAR(missionFlagCustomVicLoadout);
                             defaultValue = QUOTE(false);
@@ -318,6 +363,7 @@ class Cfg3DEN {
 						};
 						class GVAR(missionFlagUnitSpecificBriefing) {
                             displayName = "Unit Specific Briefings:";
+                            tooltip = "Explain below for the mission tester";
                             control = QUOTE(Checkbox);
 							property = QGVAR(missionFlagUnitSpecificBriefing);
                             defaultValue = QUOTE(false);
@@ -332,7 +378,7 @@ class Cfg3DEN {
 						class GVAR(missionMakerNotesForTesters) {
                             attributeSave = QUOTE(_value call EFUNC(briefing,convertNewLineToHTML));
                             attributeLoad = QUOTE([ARR_2(_this,_value)] call EFUNC(briefing,convertHTMLToNewLine));
-                            displayName = "Any other notes for Mission Testers:";
+                            displayName = "Other notes and mission flag explanations:";
                             control = QUOTE(EditMulti5);
 							property = QGVAR(missionMakerNotesForTesters);
                             defaultValue = "''";

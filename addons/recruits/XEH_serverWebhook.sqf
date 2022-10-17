@@ -24,19 +24,19 @@ GVAR(recruitsSeen) = [];
     TRACE_1("At mission start",count GVAR(recruitsSeen));
 }] call CBA_fnc_waitUntilAndExecute;
 
-[{time > (9 * 60)}, {
+[{gameLive}, {
     private _recruits = allUnits select {(alive _x) && {isPlayer _x} && {[_x] call FUNC(isNotMember)}};
     GVAR(recruitsSeen) append (_recruits apply {name _x});
     GVAR(recruitsSeen) = GVAR(recruitsSeen) arrayIntersect GVAR(recruitsSeen);
-    TRACE_1("At 9 min",count GVAR(recruitsSeen));
+    TRACE_1("At game start",count GVAR(recruitsSeen));
 
-    private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName", "???"]];
+    private _missionName = getText (missionConfigFile >> "MissionSQM" >> "Mission" >> "Intel" >> "briefingName");
     private _authorName = getMissionConfigValue ["author", "???"];
     private _worldName = getText (configFile >> "CfgWorlds" >> worldName >> "description");
     private _playerCount = {isPlayer _x} count allUnits;
 
     // need the endl (\n not working)
-    private _message = format ["[**%1** by **%2** on %3] - **%4** Players At Start%5 - Recruits Present: %6", _missionName, _authorName, _worldName, _playerCount, endl, GVAR(recruitsSeen)];
+    private _message = format ["[**%1** by **%2** on %3] - **%4** Players At Start%5 - Recruits/Publics Present: %6", _missionName, _authorName, _worldName, _playerCount, endl, GVAR(recruitsSeen)];
     INFO_1("Recruit Status: %1",_message);
     if (_playerCount < 15) exitWith { TRACE_1("skipping test/training",_playerCount); };
     private _ret = "potato_webhook" callExtension (_message select [0, 1900]);

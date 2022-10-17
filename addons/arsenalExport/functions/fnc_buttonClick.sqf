@@ -141,17 +141,9 @@ switch (toLower _fncString)
       GVAR(loadout_hmgAttachments) = secondaryWeaponItems _unit;
 	  switch (GVAR(loadout_hmg)) do {
 	  case "CUP_KORD_carry";
-	  case "ace_compat_rhs_afrf3_kord_carry": {
-      GVAR(loadout_hmgtrilo) = "ace_csw_kordCarryTripodLow";
-      GVAR(loadout_hmgtrihi) = "ace_csw_kordCarryTripod";
-	  };
 	  case "CUP_m2_carry";
 	  case "ace_csw_staticM2ShieldCarry";
 	  case "ace_csw_staticHMGCarry";
-	  case "ace_compat_rhs_usf3_m2_carry": {
-      GVAR(loadout_hmgtrilo) = "ace_csw_m3CarryTripodLow";
-      GVAR(loadout_hmgtrihi) = "ace_csw_m3CarryTripod";
-	  };
 	  default {
       GVAR(loadout_hmgtrilo) = "";
       GVAR(loadout_hmgtrihi) = "";

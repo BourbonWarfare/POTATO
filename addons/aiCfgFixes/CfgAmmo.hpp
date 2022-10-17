@@ -132,16 +132,6 @@ class CfgAmmo {
         allowAgainstInfantry = 1;
         cost = 50;
     };
-    class rhs_ammo_rpg75_rocket: R_PG32V_F {
-        audibleFire = 16;
-    };
-    class rhs_rpg26_rocket: R_PG32V_F {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
-        allowAgainstInfantry = 1;
-        cost = 50;
-    };
     class BulletBase: BulletCore {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
@@ -262,9 +252,6 @@ class CfgAmmo {
     class B_30mm_AP: BulletBase {
         audibleFire = 200;
     };
-    class RHS_Ammo_DIRCM_Vitebsk: BulletBase {
-        audibleFire = 0;
-    };
     class B_20mm_AP: BulletBase {
         audibleFire = 200;
     };
@@ -358,14 +345,6 @@ class CfgAmmo {
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
     };
     class CUP_B_762x51_noTracer;
-    class rhs_B_762x39_Ball: B_762x51_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_B_762x54_Ball: B_762x51_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
     class CUP_B_762x51_White_Tracer_3RndBurst: CUP_B_762x51_noTracer {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
@@ -399,75 +378,6 @@ class CfgAmmo {
     class VOG25P_SubMunition: SubmunitionBase {
         audibleFire = 6;
     };
-    class rhs_ammo_mixed_23x115mm: SubmunitionBase {
-        audibleFire = 32;
-    };
-    class rhs_ammo_gsh30_mixed: SubmunitionBase {
-        audibleFire = 32;
-    };
-    class SubmunitionBullet;
-    class rhs_B_9x21_7BT3: B_9x21_Ball {
-        audibleFire = 5.65;
-    };
-    class rhs_B_9x21_7N29: B_9x21_Ball {
-        audibleFire = 5.65;
-    };
-    class rhs_B_9x21_7N28: B_9x21_Ball {
-        audibleFire = 5.65;
-    };
-    class rhs_B_9x18_57N181S: B_9x21_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_B_9x19_7N21: B_9x21_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_rpg7v2_pg7vl: rhs_rpg26_rocket {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_B_9x39_SP5: rhs_B_762x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
-    class rhs_B_762x39_U_Ball: rhs_B_762x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
-	class rhs_B_545x39_Ball;
-    class rhs_B_545x39_7U1_Ball: rhs_B_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
-    class rhs_B_545x39_7N24_Ball: rhs_B_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_B_545x39_7N22_Ball: rhs_B_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_B_545x39_7N10_Ball: rhs_B_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class rhs_B_545x39_7N6_Ball: rhs_B_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class RHS_ammo_23mm_AA: B_35mm_AA {
-        audibleFire = 32;
-    };
-    class rhs_ammo_30x165mm_base: B_30mm_AP {
-        audibleFire = 32;
-    };
-    class rhs_m21OF_fly: R_230mm_fly {
-        audibleFire = 64;
-    };
-    class rhs_ammo_3d17_shell: Grenade {
-        audibleFire = 0.05;
-    };
     class GrenadeHand: Grenade {
         audibleFire = 0.05;
     };
@@ -496,6 +406,7 @@ class CfgAmmo {
     class B_30mm_HE: B_19mm_HE {
         audibleFire = 200;
     };
+    class SubmunitionBullet;
     class B_762x51_Minigun_Tracer_Red: SubmunitionBullet {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
@@ -521,4 +432,3 @@ class CfgAmmo {
         cost = 50;
     };
 };
-

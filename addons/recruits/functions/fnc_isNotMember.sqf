@@ -20,4 +20,4 @@ private _squadParams = squadParams _unit;
 
 if (_squadParams isEqualTo []) exitWith { true };
 if ((_squadParams select 0) isEqualTo []) exitWith { true };
-((_squadParams select 0) select 1) != "Bourbon Warfare"
+((_squadParams select 0) select 1) != "COALITION"

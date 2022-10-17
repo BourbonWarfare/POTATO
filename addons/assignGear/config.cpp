@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {};
+        units[] = {QGVAR(supply_westSquad), QGVAR(supply_westPlatoon), QGVAR(supply_eastSquad), QGVAR(supply_eastPlatoon), QGVAR(supply_indSquad), QGVAR(supply_indPlatoon)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
@@ -13,3 +13,4 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgVehicles.hpp"

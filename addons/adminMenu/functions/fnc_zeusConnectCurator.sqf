@@ -65,9 +65,9 @@ if (_giveZeus) then {
                 ["potato_becomeZeus", [_unit], [_unit]] call CBA_fnc_targetEvent;
 
                 if (missionNamespace getVariable ["ace_zeus_autoAddObjects", false]) then {
-                    TRACE_1("adding all units and veh to zeus",_zeusModule);
-                    _zeusModule addCuratorEditableObjects [vehicles, true];
-                    _zeusModule addCuratorEditableObjects [entities "CaManBase", true];
+                    private _objects = (entities "AllVehicles") select { _x getVariable ["ace_zeus_addObject", true] };
+                    TRACE_2("adding all units and veh to zeus",_zeusModule,count _objects);
+                    _zeusModule addCuratorEditableObjects [_objects, true];
                 };
             },
             [_unit, _canSkipWaiting, _nonPlayerZeuses, diag_tickTime + ZEUS_DC_TIMEOUT]

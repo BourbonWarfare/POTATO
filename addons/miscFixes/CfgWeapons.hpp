@@ -59,13 +59,6 @@ class CfgWeapons {
         UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
     };
 
-    // disable M70's rifle grenades until RHS decides to add rifle grenades
-    class rhs_weap_m70_base;
-    class rhs_weap_m70ab2: rhs_weap_m70_base {
-        muzzles[] = {"this", "SAFE"};
-    };
-
-
     // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
 
     class ItemCore;
@@ -103,10 +96,10 @@ class CfgWeapons {
     class Vest_Camo_Base: ItemCore {
         class ItemInfo;
     };
-    class rhs_vydra_3m: Vest_Camo_Base {
+    class CUP_V_CDF_CrewBelt: Vest_Camo_Base {
         class ItemInfo: ItemInfo {};
     };
-    class rhs_vydra_3m_bwArmorMod: rhs_vydra_3m {
+    class CUP_V_CDF_CrewBelt_bwArmorMod: CUP_V_CDF_CrewBelt {
         displayName = "Vydra-3M [coop plot armor]";
         descriptionShort = "Armor Level IV";
         class ItemInfo: ItemInfo {
@@ -130,6 +123,18 @@ class CfgWeapons {
                     hitpointName = "HitBody";
                     passThrough = 0.2;
                 };
+            };
+        };
+    };
+
+    class mgun;
+    class cup_vlmg_m134_veh: mgun {
+        class lowrof: mode_fullauto {
+            class standardsound {
+                // JSRS uses 
+                // soundsetshot[] = {"jsrs_m134_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+                // but you cannot hear at range?? Just revert back to cup's
+                soundSetShot[] = {"CUP_M134_Shot_SoundSet","CUP_mmg1_Tail_SoundSet"};
             };
         };
     };

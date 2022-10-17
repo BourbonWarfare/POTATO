@@ -488,5 +488,23 @@ class GVAR(adminMenuDialog) {
                 };
             };
         };
+        class CONTROL_GIVE_ITEMS: RscControlsGroup {
+            idc = 2309;
+            x = 0.35 * safezoneW + safezoneX;
+            y = 0.205 * safezoneH + safezoneY;
+            w = 0.54 * safezoneW;
+            h = 0.58 * safezoneH;
+            class controls {
+                class GiveAdminGun: RscButton {
+                    idc = -1;
+                    text = "Give Admin Gun"; //--- ToDo: Localize;
+                    x = 0.01 * safezoneW;
+                    y = 0.01 * safezoneH;
+                    w = 0.52 * safezoneW;
+                    h = 0.05 * safezoneH;
+                    action = QUOTE(_this call FUNC(uihook_giveAdminGun));
+                };
+            };
+        };
     };
 };
