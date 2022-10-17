@@ -50,6 +50,11 @@ class CfgVehicles {
         class TransportBackpacks {};
     };
 
+    // Make vanilla Chinook and EH302 (IDAP/FIA transport heli) float on water. Matches CUP Chinook/CH-53e and other heavy lift helos. Should be extended to all helicopters from mods that could feasibly float. 
+    class Helicopter_Base_H;
+	class Heli_Transport_03_base_F: Helicopter_Base_H {waterLeakiness=0.1;};
+    class Heli_Transport_02_base_F: Helicopter_Base_H {waterLeakiness=0.1;};
+
     // Fix CBA XEH Fallback Code for misc logic/objects that don't support it: [Not needed for RHS as of 4.6]
     // x3 = [true] call CBA_fnc_supportMonitor;
     // {
