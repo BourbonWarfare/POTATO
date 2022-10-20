@@ -84,7 +84,7 @@ class CfgRespawnFactions {
             "CWLTH",
             "CWLAH"
         };
-
+    };
     class civ_f {
         displayName = "Civilian";
         callsignPrefix = "Civ";

@@ -2177,12 +2177,12 @@ class CfgRespawnGroups {
             class Section2IC: BaseSection2IC {
                 displayName = "Section 2IC";
             };
-            class AutomaticRifleman: BaseCWLUnit {
+            class AutomaticRifleman2: BaseCWLUnit {
                 displayName = "Fire Group 2 AR";
                 type = "ar";
                 colorTeam = 3;
             };
-            class AssistantAutomaticRifleman: BaseCWLUnit {
+            class AssistantAutomaticRifleman2: BaseCWLUnit {
                 displayName = "Fire Group 2 AAR";
                 type = "aar";
                 colorTeam = 3;
@@ -2192,7 +2192,7 @@ class CfgRespawnGroups {
                 type = "lat";
                 colorTeam = 4;
             };
-            class Rifleman: BaseCWLUnit {
+            class Rifleman2: BaseCWLUnit {
                 displayName = "Fire Group 2 Rifleman";
             };
         };
