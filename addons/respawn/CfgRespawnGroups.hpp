@@ -1203,6 +1203,9 @@ class CfgRespawnGroups {
             };
         };
     };
+    
+// MSV
+
     class MSVCommand { // if you need to respawn COY, you've fucked up
         displayName = "Command";
 
@@ -2003,6 +2006,772 @@ class CfgRespawnGroups {
                 markerSize = 36;
             };
             class CoPilot: BaseMSVUnit {
+                displayName = "Gunner";
+                type = "cc";
+                rank = "lieutenant";
+            };
+        };
+
+        class Configurations {
+            class AH1: Air {
+                displayName = "AH 1";
+                markerPrefix = "AH1";
+            };
+            class AH2: AH1 {
+                displayName = "AH 2";
+                markerPrefix = "AH2";
+                markerColor[] = {0,0,1,1};
+            };
+            class AH3: AH1 {
+                displayName = "AH 3";
+                markerPrefix = "AH3";
+            };
+            class AH4: AH2 {
+                displayName = "AH 4";
+                markerPrefix = "AH4";
+            };
+        };
+    };
+    
+//Commonwealth
+
+    class CWLCommand { // if you need to respawn COY, you've fucked up
+        displayName = "Command";
+
+        class Units {
+            class CO: BaseCWLUnit {
+                displayName = "Company Commander";
+                type = "coy";
+                rank = "captain";
+                leader = 1;
+            };
+            class COMedic: BaseCWLMedic {
+                displayName = "Company Medic";
+                type = "cm";
+                rank = "corporal";
+            };
+            class CXO: BaseCWLUnit {
+                displayName = "Company Executive Officer";
+                type = "xo";
+                rank = "lieutenant";
+            };
+            class COFAC: BaseCWLUnit {
+                displayName = "Company Forward Air Controller";
+                type = "fac";
+                rank = "lieutenant";
+            };
+            class COUAV: BaseCWLUnit {
+                displayName = "Company UAV Operator";
+                type = "uav";
+            };
+        };
+
+        class Configurations {
+            class COY {
+                displayName = "Company Command";
+                colorTeam1 = "YELLOW";
+
+                markerPrefix = "CO";
+                markerText = "Y";
+                markerColor[] = {1,0.647,0,1};
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
+                markerSize = 24;
+
+                srChannel = 13;
+                mrChannel = 4;
+                lrChannel = 4;
+            };
+        };
+    };
+
+    class CWLPlatoonLead {
+        displayName = "Platoon Lead";
+
+        class Units {
+            class PlatoonLeader: BaseCWLUnit {
+                displayName = "Platoon Leader";
+                type = "plt";
+                rank = "lieutenant";
+                leader = 1;
+            };
+            class PlatoonMedic: BaseCWLMedic {
+                displayName = "Platoon Medic";
+                type = "plm";
+                rank = "corporal";
+            };
+            class AssistantPlatoonLeader: BaseCWLUnit {
+                displayName = "Platoon Sergent";
+                type = "sgt";
+                rank = "sergeant";
+            };
+        };
+
+        class Configurations {
+            class OnePlt {
+                displayName = "First Platoon Command";
+
+                markerPrefix = "1P";
+                markerText = "LT";
+                markerColor[] = {1,0.647,0,1};
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
+                markerSize = 24;
+
+                srChannel = 4;
+                mrChannel = 1;
+                lrChannel = 4;
+            };
+            class TwoPlt: OnePlt {
+                displayName = "Second Platoon Command";
+
+                markerPrefix = "2P";
+
+                srChannel = 8;
+                mrChannel = 2;
+            };
+            class ThreePlt: OnePlt {
+                displayName = "Third Platoon Command";
+
+                markerPrefix = "3P";
+
+                srChannel = 12;
+                mrChannel = 3;
+            };
+            class WeaponsPlt: OnePlt {
+                displayName = "Weapons Platoon Command";
+
+                markerPrefix = "WP";
+
+                srChannel = 16;
+                mrChannel = 7;
+            };
+        };
+    };
+
+    class CWLSection {
+        displayName = "Section";
+
+        class Units {
+            class SquadLeader: BaseCWLUnit {
+                displayName = "Section Commander";
+                type = "sl";
+                rank = "sergeant";
+                leader = 1;
+            };
+            class AutomaticRifleman: BaseCWLUnit {
+                displayName = "Fire Group 1 AR";
+                type = "ar";
+                colorTeam = 2;
+            };
+            class AssistantAutomaticRifleman: BaseCWLUnit {
+                displayName = "Fire Group 1 AAR";
+                type = "aar";
+                colorTeam = 2;
+            };
+            class SquadMedic: BaseCWLMedic {
+                displayName = "Squad Medic";
+                type = "sm";
+            };
+            class Rifleman: BaseCWLUnit {
+                displayName = "Fire Group 1 Rifleman";
+            };
+            class Section2IC: BaseSection2IC {
+                displayName = "Section 2IC";
+            };
+            class AutomaticRifleman2: BaseCWLUnit {
+                displayName = "Fire Group 2 AR";
+                type = "ar";
+                colorTeam = 3;
+            };
+            class AssistantAutomaticRifleman2: BaseCWLUnit {
+                displayName = "Fire Group 2 AAR";
+                type = "aar";
+                colorTeam = 3;
+            };
+            class RiflemanAntiTank: BaseCWLUnit {
+                displayName = "Rifleman Anti-Tank";
+                type = "lat";
+                colorTeam = 4;
+            };
+            class Rifleman2: BaseCWLUnit {
+                displayName = "Fire Group 2 Rifleman";
+            };
+        };
+
+        class Configurations {
+            class CWLAlpha: Alpha {
+                displayName = "Alpha";
+            };
+            class CWLBravo: Bravo {
+                displayName = "Bravo";
+            };
+            class CWLCharlie: Charlie {
+                displayName = "Charlie";
+            };
+            class CWLDelta: Delta {
+                displayName = "Delta";
+            };
+            class CWLEcho: Echo {
+                displayName = "Echo";
+            };
+            class CWLFoxtrot: Foxtrot {
+                displayName = "Foxtrot";
+            };
+            class CWLGolf: Golf {
+                displayName = "Golf";
+            };
+            class CWLHotel: Hotel {
+                displayName = "Hotel";
+            };
+            class CWLIndia: India {
+                displayName = "India";
+            };
+        };
+    };
+
+    class CWLMMG {
+        displayName = "MMG Team";
+
+        class Units {
+          class MMGL: BaseCWLUnit {
+              displayName = "MMG Leader";
+              type = "mmgl";
+              rank = "sergeant";
+              leader = 1;
+          };
+            class MMGG: BaseCWLUnit {
+                displayName = "MMG Gunner";
+                type = "mmgg";
+                rank = "corporal";
+            };
+            class MMGAG: BaseCWLUnit {
+                displayName = "MMG Spotter";
+                type = "mmgag";
+            };
+        };
+
+        class Configurations {
+            class MMG1: Weapons {
+                displayName = "MMG 1";
+                markerText = "MMG1";
+                markerTexture = QPATHTOEF(markers,data\mmg.paa);
+            };
+            class MMG2: MMG1 {
+                displayName = "MMG 2";
+                markerText = "MMG2";
+            };
+            class MMG3: MMG1 {
+                displayName = "MMG 3";
+                markerText = "MMG3";
+            };
+            class MMG4: MMG1 {
+                displayName = "MMG 4";
+                markerText = "MMG4";
+            };
+            class MMG5: MMG1 {
+                displayName = "MMG 5";
+                markerText = "MMG5";
+            };
+            class MMG6: MMG1 {
+                displayName = "MMG 6";
+                markerText = "MMG6";
+            };
+        };
+    };
+
+    class CWLHMG {
+        displayName = "HMG Team";
+
+        class Units {
+            class HMGLeader: BaseCWLUnit {
+                displayName = "HMG Leader";
+                type = "HMGl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class HMGG: BaseCWLUnit {
+                displayName = "HMG Gunner";
+                type = "HMGg";
+            };
+            class HMGAG: BaseCWLUnit {
+                displayName = "HMG Assistant";
+                type = "HMGg";
+            };
+        };
+
+        class Configurations {
+            class HMG1: Weapons {
+                displayName = "HMG 1";
+                markerText = "HMG1";
+                markerTexture = QPATHTOEF(markers,data\support.paa);
+            };
+            class HMG2: HMG1 {
+                displayName = "HMG 2";
+                markerText = "HMG2";
+            };
+            class HMG3: HMG1 {
+                displayName = "HMG 3";
+                markerText = "HMG3";
+            };
+            class HMG4: HMG1 {
+                displayName = "HMG 4";
+                markerText = "HMG4";
+            };
+        };
+    };
+
+    class CWLMAT {
+        displayName = "MAT Team";
+
+        class Units {
+          class MATL: BaseCWLUnit {
+              displayName = "MAT Leader";
+              type = "matl";
+              rank = "sergeant";
+              leader = 1;
+          };
+            class MATG: BaseCWLUnit {
+                displayName = "MAT Gunner";
+                type = "matg";
+                rank = "corporal";
+            };
+            class MATAG: BaseCWLUnit {
+                displayName = "MAT Spotter";
+                type = "matag";
+            };
+        };
+
+        class Configurations {
+            class MAT1: Weapons {
+                displayName = "MAT 1";
+                markerText = "MAT1";
+                markerTexture = QPATHTOEF(markers,data\mat.paa);
+            };
+            class MAT2: MAT1 {
+                displayName = "MAT 2";
+                markerText = "MAT2";
+            };
+            class MAT3: MAT1 {
+                displayName = "MAT 3";
+                markerText = "MAT3";
+            };
+            class MAT4: MAT1 {
+                displayName = "MAT 4";
+                markerText = "MAT4";
+            };
+            class MAT5: MAT1 {
+                displayName = "MAT 5";
+                markerText = "MAT5";
+            };
+            class MAT6: MAT1 {
+                displayName = "MAT 6";
+                markerText = "MAT6";
+            };
+        };
+    };
+
+    class CWLHAT {
+        displayName = "HAT Team";
+
+        class Units {
+            class HATLeader: BaseCWLUnit {
+                displayName = "HAT Leader";
+                type = "HATl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class HATG: BaseCWLUnit {
+                displayName = "HAT Gunner";
+                type = "HATg";
+            };
+            class HATAG: BaseCWLUnit {
+                displayName = "HAT Assistant";
+                type = "HATg";
+            };
+        };
+
+        class Configurations {
+            class HAT1: Weapons {
+                displayName = "HAT 1";
+                markerText = "HAT1";
+                markerTexture = QPATHTOEF(markers,data\support.paa);
+            };
+            class HAT2: HAT1 {
+                displayName = "HAT 2";
+                markerText = "HAT2";
+            };
+            class HAT3: HAT1 {
+                displayName = "HAT 3";
+                markerText = "HAT3";
+            };
+            class HAT4: HAT1 {
+                displayName = "HAT 4";
+                markerText = "HAT4";
+            };
+        };
+    };
+
+    class CWLArty {
+        displayName = "Artillery Team";
+
+        class Units {
+            class ArtLeader: BaseCWLUnit {
+                displayName = "Artillery Leader";
+                type = "Artl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class ArtG1: BaseCWLUnit {
+                displayName = "Artillery Gunner";
+                type = "Artg";
+            };
+            class ArtG2: ArtG1 {
+            };
+            class ArtG3: ArtG1 {
+            };
+            class ArtG4: ArtG1 {
+            };
+        };
+
+        class Configurations {
+            class Art1: Weapons {
+                displayName = "Artillery";
+                markerText = "Artillery";
+                markerTexture = QPATHTOEF(markers,data\mortar.paa);
+            };
+        };
+    };
+
+    class CWLMSAM {
+        displayName = "MSAM Team";
+
+        class Units {
+            class MSAMLeader: BaseCWLUnit {
+                displayName = "MSAM Leader";
+                type = "msaml";
+                rank = "corporal";
+                leader = 1;
+            };
+            class MSAMG: BaseCWLUnit {
+                displayName = "MSAM Gunner";
+                type = "msamg";
+            };
+            class MSAMAG: BaseCWLUnit {
+                displayName = "MSAM Assistant";
+                type = "msamg";
+            };
+        };
+
+        class Configurations {
+            class MSAM1: Weapons {
+                displayName = "MSAM 1";
+                markerText = "MSAM1";
+                markerTexture = QPATHTOEF(markers,data\msam.paa);
+            };
+            class MSAM2: MSAM1 {
+                displayName = "MSAM 2";
+                markerText = "MSAM2";
+            };
+            class MSAM3: MSAM1 {
+                displayName = "MSAM 3";
+                markerText = "MSAM3";
+            };
+            class MSAM4: MSAM1 {
+                displayName = "MSAM 4";
+                markerText = "MSAM4";
+            };
+        };
+    };
+
+    class CWLDEMO {
+        displayName = "Demolitions Team";
+
+        class Units {
+            class EngLead: BaseCWLUnit {
+                displayName = "Demolitions Team Lead";
+                type = "engl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class Eng1: BaseCWLUnit {
+                displayName = "Demolitions Specialist";
+                type = "demo";
+            };
+            class Eng2: Eng1 {
+            };
+            class Eng: Eng1 {
+              displayName = "Mine Specialist";
+                type = "mine";
+            };
+            class Eng4: Eng2 {
+            };
+        };
+
+        class Configurations {
+            class DEMO1: Weapons {
+                displayName = "Demolitions Team 1";
+                markerText = "DEMO1";
+                markerTexture = QPATHTOEF(markers,data\engineer.paa);
+            };
+            class DEMO2: DEMO1 {
+                displayName = "Demolitions Team 2";
+                markerText = "DEMO2";
+            };
+            class DEMO3: DEMO1 {
+                displayName = "Demolitions Team 3";
+                markerText = "DEMO3";
+            };
+            class DEMO4: DEMO1 {
+                displayName = "Demolitions Team 4";
+                markerText = "DEMO4";
+            };
+        };
+    };
+
+    class CWLENG {
+        displayName = "Logistics Team";
+
+        class Units {
+            class EngLead: BaseUnit {
+                displayName = "Engineer Team Lead";
+                type = "engl";
+                rank = "corporal";
+                leader = 1;
+            };
+            class Eng: BaseUnit {
+                displayName = "Engineer";
+                type = "eng";
+            };
+            class Eng2: Eng {
+            };
+            class Eng3: Eng {
+            };
+            class Eng4: Eng {
+            };
+        };
+
+        class Configurations {
+            class ENG1: Weapons {
+                displayName = "Logistics Team 1";
+                markerText = "ENG1";
+                markerTexture = QPATHTOEF(markers,data\maintenance.paa);
+            };
+            class ENG2: ENG1 {
+                displayName = "Logistics Team 2";
+                markerText = "ENG2";
+            };
+            class ENG3: ENG1 {
+                displayName = "Logistics Team 3";
+                markerText = "ENG3";
+            };
+            class ENG4: ENG1 {
+                displayName = "Logistics Team 4";
+                markerText = "ENG4";
+            };
+        };
+    };
+
+    class CWLArmor {
+        displayName = "Armor";
+
+        class Units {
+            class ArmorLead: BaseCWLUnit {
+                displayName = "Vehicle Commander";
+                type = "vicl";
+                rank = "sergeant";
+                leader = 1;
+            };
+            class ArmorGunner: BaseCWLUnit {
+                displayName = "Vehicle Gunner";
+                type = "vicc";
+                rank = "corporal";
+            };
+            class ArmorDriver: BaseCWLUnit {
+                displayName = "Vehicle Driver";
+                type = "vicd";
+            };
+        };
+
+        class Configurations {
+            class Tank1: Armor {
+                displayName = "Tank 1";
+                markerText = "Tank1";
+            };
+            class Tank2: Armor {
+                displayName = "Tank 2";
+                markerText = "Tank2";
+                markerColor[] = {0,0,1,1};
+            };
+            class Tank3: Tank1 {
+                displayName = "Tank 3";
+                markerText = "Tank3";
+            };
+            class Tank4: Tank2 {
+                displayName = "Tank 4";
+                markerText = "Tank4";
+            };
+            class Tank5: Tank1 {
+                displayName = "Tank 5";
+                markerText = "Tank5";
+            };
+            class Tank6: Tank2 {
+                displayName = "Tank 6";
+                markerText = "Tank6";
+            };
+            class Tank7: Tank1 {
+                displayName = "Tank 7";
+                markerText = "Tank7";
+            };
+            class Tank8: Tank2 {
+                displayName = "Tank 8";
+                markerText = "Tank8";
+            };
+            class IFV1: Tank1 {
+                displayName = "IFV 1";
+                markerText = "IFV1";
+                markerTexture = QPATHTOEF(markers,data\mechanized_infantry.paa);
+            };
+            class IFV2: IFV1 {
+                displayName = "IFV 2";
+                markerText = "IFV2";
+                markerColor[] = {0,0,1,1};
+            };
+            class IFV3: IFV1 {
+                displayName = "IFV 3";
+                markerText = "IFV3";
+            };
+            class IFV4: IFV2 {
+                displayName = "IFV 4";
+                markerText = "IFV4";
+            };
+            class IFV5: IFV1 {
+                displayName = "IFV 5";
+                markerText = "IFV5";
+            };
+            class IFV6: IFV2 {
+                displayName = "IFV 6";
+                markerText = "IFV6";
+            };
+            class IFV7: IFV1 {
+                displayName = "IFV 7";
+                markerText = "IFV7";
+            };
+            class IFV8: IFV2 {
+                displayName = "IFV 8";
+                markerText = "IFV8";
+            };
+            class WPLV1: IFV1 {
+                displayName = "WV 1";
+                markerText = "WV1";
+                markerColor[] = {1,0.647,0,1};
+            };
+            class WPLV2: WPLV1 {
+                displayName = "WV 2";
+                markerText = "WV2";
+            };
+            class WPLV3: WPLV1 {
+                displayName = "WV 3";
+                markerText = "WV3";
+            };
+            class WPLV4: WPLV1 {
+                displayName = "WV 4";
+                markerText = "WV4";
+            };
+            class WPLV5: WPLV1 {
+                displayName = "WV 5";
+                markerText = "WV5";
+            };
+            class WPLV6: WPLV1 {
+                displayName = "WV 6";
+                markerText = "WV6";
+            };
+        };
+    };
+
+    class CWLTH {
+        displayName = "Air Transport";
+
+        class Units {
+            class Pilot: BaseCWLUnit {
+                displayName = "Pilot";
+                type = "pilot";
+                rank = "captain";
+                leader = 1;
+
+                markerText = "";
+                markerTexture = QPATHTOEF(markers,data\helicopter.paa);
+                markerColor[] = {0,0,0,0}; // <- same as no color, will be overriden by group cfg
+                markerSize = 36;
+            };
+            class CoPilot: BaseCWLUnit {
+                displayName = "Co-Pilot";
+                type = "pilot";
+                rank = "lieutenant";
+            };
+            class CC: BaseCWLUnit {
+                displayName = "Crew Chief";
+                type = "cc";
+                rank = "sergeant";
+            };
+            class AirCrew: BaseCWLUnit {
+                displayName = "Air Crew";
+                type = "helicrew";
+                rank = "corporal";
+            };
+        };
+
+        class Configurations {
+            class TH1: Air {
+                displayName = "TH 1";
+                markerPrefix = "TH1";
+            };
+            class TH2: TH1 {
+                displayName = "TH 2";
+                markerPrefix = "TH2";
+                markerColor[] = {0,0,1,1};
+            };
+            class TH3: TH1 {
+                displayName = "TH 3";
+                markerPrefix = "TH3";
+            };
+            class TH4: TH2 {
+                displayName = "TH 4";
+                markerPrefix = "TH4";
+            };
+            class TH5: TH1 {
+                displayName = "TH 5";
+                markerPrefix = "TH5";
+            };
+            class TH6: TH2 {
+                displayName = "TH 6";
+                markerPrefix = "TH6";
+            };
+            class TH7: TH1 {
+                displayName = "TH 7";
+                markerPrefix = "TH7";
+            };
+            class TH8: TH2 {
+                displayName = "TH 8";
+                markerPrefix = "TH8";
+            };
+        };
+    };
+
+    class CWLAH {
+        displayName = "Air Attack";
+
+        class Units {
+            class Pilot: BaseCWLUnit {
+                displayName = "Pilot";
+                type = "pilot";
+                rank = "captain";
+                leader = 1;
+
+                markerText = "";
+                markerTexture = QPATHTOEF(markers,data\helicopter.paa);
+                markerColor[] = {0,0,0,0}; // <- same as no color, will be overriden by group cfg
+                markerSize = 36;
+            };
+            class CoPilot: BaseCWLUnit {
                 displayName = "Gunner";
                 type = "cc";
                 rank = "lieutenant";

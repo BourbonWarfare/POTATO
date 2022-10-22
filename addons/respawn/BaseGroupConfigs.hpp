@@ -166,3 +166,35 @@ class BaseMSVMedic: BaseMSVUnit {
     markerColor[] = {1,0.753,0.796,1}; // color override, careful of inheritence
     markerTexture = QPATHTOEF(markers,data\medical.paa);
 };
+
+// base CWL units for inheritence
+class BaseCWLUnit {
+    displayName = "Rifleman";
+    type = "rifleman";
+    rank = "private";
+    colorTeam = 0;
+    leader = 0;
+
+    markerText = "";
+    markerTexture = "";
+    markerColor[] = {0,0,0,0}; // <- same as no color, will be overriden by group cfg
+    markerSize = 12;
+};
+class BaseSection2IC: BaseCWLUnit {
+    displayName = "Section 2IC";
+    type = "ftl";
+    rank = "corporal";
+
+    markerText = "2IC";
+    markerTexture = QPATHTOEF(markers,data\infantry.paa);
+};
+class BaseCWLMedic: BaseCWLUnit {
+    displayName = "Medic";
+    type = "sm";
+    rank = "corporal";
+    colorTeam = 2;
+
+    markerText = "M";
+    markerColor[] = {1,0.753,0.796,1}; // color override, careful of inheritence
+    markerTexture = QPATHTOEF(markers,data\medical.paa);
+};
