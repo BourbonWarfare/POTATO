@@ -1,5 +1,8 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
+
+call compileScript [QPATHTOF(vehicleTags\init.sqf)];
+
 LOG("Post init start");
 
 [
