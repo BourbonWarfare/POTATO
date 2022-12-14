@@ -452,7 +452,10 @@ if (hasInterface) then {
         //[_origin, _mass, _filler] call DFUNC(generateVisuals);
     }] call CBA_fnc_addEventHandler;
 
-    // Increase lethality when taking sustained critical damage to body/head
+
+// rem instakill code. This feels so lame for how many hours I put into this shit. 
+
+    /*/ Increase lethality when taking sustained critical damage to body/head
 
     // ToDo: Move this to ace_medical_damage_fnc_determineIfFatal
     // FATAL_SUM_DAMAGE_WEIBULL_L / K values
