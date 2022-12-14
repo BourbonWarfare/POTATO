@@ -11,7 +11,7 @@ if (isServer) then {
 
     #include "serverOnlyFix.sqf"
 
-    // Determine if TVT or COOP
+    /*// Determine if TVT or COOP
     [{
         private _missionTestingType = GetMissionConfigValue [QEGVAR(missionTesting, missionType),0];
         TRACE_1("_missionTestingType =", missionTestingType);
@@ -34,6 +34,7 @@ if (isServer) then {
         missionNamespace setVariable [QGVAR(isTVT), _isTVT, true];
     }, [], 1] call CBA_fnc_waitAndExecute;
 };
+/*/
 
 
 
