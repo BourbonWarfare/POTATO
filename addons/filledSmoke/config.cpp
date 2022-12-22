@@ -1,7 +1,12 @@
 #include "script_component.hpp"
 
-#ifndef POTATO_LEAN_RHS_CUP_HLC
+#ifdef POTATO_LEAN_RHS_CUP_HLC
+#define PATCH_SKIP POTATO_LEAN_RHS_CUP_HLC
+#endif
 
+#ifdef PATCH_SKIP
+PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
+#else
 class CfgPatches {
     class ADDON {
         units[] = {};
