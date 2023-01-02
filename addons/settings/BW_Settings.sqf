@@ -21,6 +21,7 @@ _settings = [
 [QACEGVAR(medical_treatment,cprSuccessChanceMax), 0.85], // default: 0.4
 [QACEGVAR(medical_statemachine,AIUnconsciousness), false], // default: true
 [QACEGVAR(medical_statemachine,cardiacArrestTime), 180], // default: 30
+[QACEGVAR(medical_treatment,treatmentTimeTourniquet), 4], // default: 7
 
 // Medical Extras:
 [QACEGVAR(medical_ai,enabledFor), 0],
