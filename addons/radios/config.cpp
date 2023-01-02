@@ -5,7 +5,7 @@
 #endif
 #if __has_include("\idi\acre\addons\main\script_component.hpp")
 #else
-#define PATCH_SKIP "\idi\acre\addons\main\script_component.hpp"
+#define PATCH_SKIP "ACRE"
 #endif
 
 #ifdef PATCH_SKIP

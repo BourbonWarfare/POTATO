@@ -265,12 +265,14 @@ def find_depbo_tools():
 
 def pboproject_settings():
     """Use registry entries to configure needed pboproject settings."""
-    value_exclude = "thumbs.db,*.txt,*.dep,*.cpp,*.bak,*.png,*.log,*.pew,source,*.tga"
+    value_exclude = "thumbs.db,*.txt,*.h,*.dep,*.cpp,*.bak,*.png,*.log,*.pew,source,*.tga"
 
     try:
         k = mikero_windows_registry(r"pboProject\Settings", access=winreg.KEY_SET_VALUE)
         winreg.SetValueEx(k, "m_exclude", 0, winreg.REG_SZ, value_exclude)
         winreg.SetValueEx(k, "m_exclude2", 0, winreg.REG_SZ, value_exclude)
+        winreg.SetValueEx(k, "wildcard_exclude_from_pbo_normal", 0, winreg.REG_SZ, value_exclude)
+        winreg.SetValueEx(k, "wildcard_exclude_from_pbo_unbinarised_missions", 0, winreg.REG_SZ, value_exclude)
     except:
         raise Exception("BadDePBO", "pboProject not installed correctly, make sure to run it at least once")
 
@@ -1134,9 +1136,10 @@ See the make.cfg file for additional build options.
                 if ret == 0:
                     print_green("Created: {}".format(os.path.join(private_key_path, key_name + ".biprivatekey")))
                     print("Removing any old signature keys...")
-                    purge(os.path.join(module_root, release_dir, project, "addons"), "^.*\.bisign$","*.bisign")
-                    purge(os.path.join(module_root, release_dir, project, "optionals"), "^.*\.bisign$","*.bisign")
-                    purge(os.path.join(module_root, release_dir, project, "keys"), "^.*\.bikey$","*.bikey")
+                    for root, _dirs, files in os.walk(os.path.join(module_root, release_dir)):
+                        for file in files:
+                            if file.endswith(".bisign") or file.endswith(".bikey"):
+                                os.remove(os.path.join(root, file))
                 else:
                     print_error("Failed to create key!")
 
@@ -1191,17 +1194,15 @@ See the make.cfg file for additional build options.
                     os.remove(os.path.join(root, file))
         if sqfc_compiling:
             print_blue("\nCompiling to sqfc...")
-            try:
-                compiler_exe = os.path.join(module_root_parent, "ArmaScriptCompiler.exe")
-                if not os.path.isfile(compiler_exe):
-                    raise Exception("ArmaScriptCompiler.exe not found in base folder")
-                # compile new sqfc
+            compiler_exe = os.path.join(module_root_parent, "ArmaScriptCompiler.exe")
+            if not os.path.isfile(compiler_exe):
+                print_yellow("ArmaScriptCompiler.exe not found in base mod folder - skipping")
+            else:
                 ret = subprocess.call([compiler_exe], cwd=module_root_parent, stdout=False)
-                if ret != 0:
-                    raise Exception("ArmaScriptCompiler.exe returned {}".format(ret))
-            except Exception as e:
-                print_yellow("sqfc_compiling error detected: {}".format(e))
-                # raise
+                if ret == 0:
+                    print_green("sqfc finished")
+                else:
+                    print_error("ArmaScriptCompiler.exe returned unexpected {}".format(ret))
 
         # For each module, prep files and then build.
         print_blue("\nBuilding...")
@@ -1293,6 +1294,7 @@ See the make.cfg file for additional build options.
             if build_tool == "pboproject":
                 try:
                     nobinFilePath = os.path.join(work_drive, prefix, module, "$NOBIN$")
+                    nobinConfigFilePath = os.path.join(work_drive, prefix, module, "$NOBIN_CONFIG$")
                     backup_config(module)
 
                     version_stamp_pboprefix(module,commit_id)
@@ -1300,9 +1302,11 @@ See the make.cfg file for additional build options.
                     if os.path.isfile(nobinFilePath):
                         print_green("$NOBIN$ Found. Proceeding with non-binarizing!")
                         cmd = [makepboTool, "-P","-A","-X=*.backup", os.path.join(work_drive, prefix, module),os.path.join(module_root, release_dir, project,"addons")]
-
-                    else:
+                    elif os.path.isfile(nobinConfigFilePath):
+                        print_green("$NOBIN_CONFIG$ Found. Proceeding with non-bin config!")
                         cmd = [pboproject, "-B", "-P", os.path.join(work_drive, prefix, module), "+Engine=Arma3", "-S", "+Noisy", "+Clean", "-Warnings", "+Mod="+os.path.join(module_root, release_dir, project), "-Key"]
+                    else:
+                        cmd = [pboproject, "+B", "-P", os.path.join(work_drive, prefix, module), "+Engine=Arma3", "-S", "+Noisy", "+Clean", "-Warnings", "+Mod="+os.path.join(module_root, release_dir, project), "-Key"]
 
                     color("grey")
                     if quiet:

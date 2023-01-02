@@ -5,7 +5,7 @@
 #endif
 #if __has_include("\cwr3\general\cwr3_intro\XEH_preInit.sqf")
 #else
-#define PATCH_SKIP "\cwr3\general\cwr3_intro\XEH_preInit.sqf"
+#define PATCH_SKIP "CWR3"
 #endif
 
 #ifdef PATCH_SKIP

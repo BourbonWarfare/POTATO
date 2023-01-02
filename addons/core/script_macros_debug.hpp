@@ -21,6 +21,6 @@ class CfgPatches { \
         version = VERSION; \
     }; \
 }; \
-class EGVAR(core,notLoaded) { \
+class potato_notLoaded { \
     NAME = CAUSE; \
 };

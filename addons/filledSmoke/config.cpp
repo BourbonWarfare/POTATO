@@ -1,18 +1,11 @@
 #include "script_component.hpp"
 
-#ifdef POTATO_LEAN_RHS_CUP_HLC
-#define PATCH_SKIP POTATO_LEAN_RHS_CUP_HLC
-#endif
-
-#ifdef PATCH_SKIP
-PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
-#else
 class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "rhs_c_weapons"};
+        requiredAddons[] = {"potato_core"};
         author = "Potato";
         authors[] = {"AACO"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -72,11 +65,4 @@ class CfgAmmo {
     class SmokeShellArty: SmokeShell {
         effectsSmoke = QGVAR(bigSmoke);
     };
-    class rhs_ammo_rdg2_white: SmokeShell {
-        effectsSmoke = QGVAR(bigSmoke);
-    };
-    class rhs_ammo_rdg2_black: rhs_ammo_rdg2_white {
-        effectsSmoke = QGVAR(bigSmoke);
-    };
 };
-#endif

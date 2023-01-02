@@ -3,6 +3,10 @@
 #ifdef POTATO_LEAN_RHS_CUP_HLC
 #define PATCH_SKIP POTATO_LEAN_RHS_CUP_HLC
 #endif
+#if __has_include("\CUP\Vehicles\CUP_Vehicles_Core\basicDefines.hpp")
+#else
+#define PATCH_SKIP "CUP Vehicles"
+#endif
 
 #ifdef PATCH_SKIP
 PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
