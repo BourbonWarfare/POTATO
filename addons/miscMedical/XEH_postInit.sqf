@@ -33,8 +33,9 @@ if (isServer) then {
         };
         missionNamespace setVariable [QGVAR(isTVT), _isTVT, true];
     }, [], 1] call CBA_fnc_waitAndExecute;
+    /*/
 };
-/*/
+
 
 
 
