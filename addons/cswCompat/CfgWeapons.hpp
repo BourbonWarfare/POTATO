@@ -19,7 +19,7 @@ class CfgWeapons {
             mass = 840;
         };
         displayName = "[OLD] M2 HMG";
-        author = "Brandon";
+        author = "Dani (TCVM)";
         scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
@@ -40,7 +40,7 @@ class CfgWeapons {
             mass = 840;
         };
         displayName = "[OLD] KORD HMG";
-        author = "Brandon";
+        author = "Dani (TCVM)";
         scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
@@ -60,7 +60,7 @@ class CfgWeapons {
             mass = 750;
         };
         displayName = "[OLD] DSHKM HMG";
-        author = "Brandon";
+        author = "Dani (TCVM)";
         scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
@@ -83,7 +83,7 @@ class CfgWeapons {
         };
 
         displayName = "[OLD] AGS-30 GMG";
-        author = "Brandon";
+        author = "Dani (TCVM)";
         scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
@@ -117,7 +117,7 @@ class CfgWeapons {
         };
 
         displayName = "[OLD] SPG-9";
-        author = "Brandon";
+        author = "Dani (TCVM)";
         scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
@@ -139,7 +139,7 @@ class CfgWeapons {
             mass = 500;
         };
         displayName = "[OLD] BGM-71 TOW";
-        author = "Brandon";
+        author = "Dani (TCVM)";
         scope = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};

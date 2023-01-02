@@ -345,4 +345,22 @@ class CfgMagazines {
 
     CREATE_MAGAZINE(50_bmg,.50 BMG ,5,CUP_5Rnd_127x99_as50_M,TYPICAL_SPEED_LARGE);
     CREATE_MAGAZINE(50_bmg,.50 BMG ,10,CUP_10Rnd_127x99_M107,TYPICAL_SPEED_LARGE);
+
+
+    // from miscFixes (keep for bwc)
+    class potato_75Rnd_762x39mm_tracer: potato_magazine_762x39_75rnd_tracer_Red { scope = 1; }; // nothing actually uses this
+
+    class 200Rnd_65x39_cased_Box_Tracer_Red: potato_box_65x39_200rnd_tracer_Red { scope = 1; };
+    class 200Rnd_65x39_cased_Box_Tracer_Green: potato_box_65x39_200rnd_tracer_Green { scope = 1; };
+
+    class 100Rnd_65x39_cased_Box_Tracer_Yellow: potato_box_65x39_100rnd_tracer_Yellow { scope = 1; };
+    class 100Rnd_65x39_cased_Box_Tracer_Red: potato_box_65x39_100rnd_tracer_Red { scope = 1; };
+    class 100Rnd_65x39_cased_Box_Tracer_Green: potato_box_65x39_100rnd_tracer_Green { scope = 1; };
+
+    class 150Rnd_762x54_Box_Tracer_Red: potato_box_762x54_150rnd_tracer_Red { scope = 1; };
+    class 150Rnd_762x54_Box_Tracer_Yellow: potato_box_762x54_150rnd_tracer_Yellow { scope = 1; };
+    class 100Rnd_762x54_Box_Tracer_Green: potato_box_762x54_150rnd_tracer_Green { scope = 1; };
+
+    class 100Rnd_762x54_Box_Tracer_Red: potato_box_762x54_100rnd_tracer_Red { scope = 1; };
+    class 100Rnd_762x54_Box_Tracer_Yellow: potato_box_762x54_100rnd_tracer_Yellow { scope = 1; };
 };

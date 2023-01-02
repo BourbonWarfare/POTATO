@@ -1,7 +1,3 @@
-class Mode_SemiAuto;
-class Mode_Burst;
-class Mode_FullAuto;
-
 class CfgWeapons {
     // Add invisible NVGs for AI purposes
     class NVGoggles;
@@ -43,12 +39,6 @@ class CfgWeapons {
         visionMode[] = {"Normal","NVG","TI"};
     };
 
-    // add zeroing to iron sighted G36es
-    class hlc_G36_base;
-    class hlc_rifle_G36V : hlc_G36_base {
-        discreteDistance[] = {100, 200, 300, 400, 500};
-        discreteDistanceInitIndex = 1;
-    };
 
     class CUP_arifle_RPK74;
     class potato_arifle_RPK: CUP_arifle_RPK74 {
@@ -123,18 +113,6 @@ class CfgWeapons {
                     hitpointName = "HitBody";
                     passThrough = 0.2;
                 };
-            };
-        };
-    };
-
-    class mgun;
-    class cup_vlmg_m134_veh: mgun {
-        class lowrof: mode_fullauto {
-            class standardsound {
-                // JSRS uses 
-                // soundsetshot[] = {"jsrs_m134_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-                // but you cannot hear at range?? Just revert back to cup's
-                soundSetShot[] = {"CUP_M134_Shot_SoundSet","CUP_mmg1_Tail_SoundSet"};
             };
         };
     };

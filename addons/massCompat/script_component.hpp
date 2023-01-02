@@ -141,7 +141,7 @@ class MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer
 
 #define CREATE_ALT_TYPE(ammoType,ammoDisplayName,bulletCount,baseClass,type,tracerEvery,lastRoundTracers,speed,alt) \
 class MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)): baseClass { \
-    author = "Brandon (TCVM)"; \
+    author = "Dani (TCVM)"; \
     scope = 2; \
     displayName = DISPLAY_NAME(ammoDisplayName,bulletCount);\
     count = bulletCount; \

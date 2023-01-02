@@ -1,7 +1,5 @@
-class CBA_Extended_EventHandlers;
-
 class CfgVehicles {
-    // Handle fortify moving to acex
+    // Handle potato's fortify moving to ace
     class acex_fortify_setupModule; // these still use acex_
     class EGVAR(fortify,setupModule): acex_fortify_setupModule {
         scope = 1;
@@ -34,16 +32,10 @@ class CfgVehicles {
         mass = 60;
     };
 
-    // Add SMAW box
+    // Add SMAW box (no longer used, kept for bwc)
     class Box_NATO_Support_F;
     class GVAR(smawBox): Box_NATO_Support_F {
         scope = 1;
-        displayName = "Fucks given";
-        transportMaxWeapons = 9001;
-        transportMaxMagazines = 9001;
-        transportMaxItems = 9001;
-        maximumload = 1000;
-
         class TransportWeapons {};
         class TransportMagazines {};
         class TransportItems {};
@@ -52,8 +44,9 @@ class CfgVehicles {
 
     // Make vanilla Chinook and EH302 (IDAP/FIA transport heli) float on water. Matches CUP Chinook/CH-53e and other heavy lift helos. Should be extended to all helicopters from mods that could feasibly float. Direction on BIS method from Steam Workshop user "crub"
     class Helicopter_Base_H;
-	class Heli_Transport_03_base_F: Helicopter_Base_H {waterLeakiness=0.1;};
+    class Heli_Transport_03_base_F: Helicopter_Base_H {waterLeakiness=0.1;};
     class Heli_Transport_02_base_F: Helicopter_Base_H {waterLeakiness=0.1;};
+
 
     // Fix CBA XEH Fallback Code for misc logic/objects that don't support it: [Not needed for RHS as of 4.6]
     // x3 = [true] call CBA_fnc_supportMonitor;
@@ -64,54 +57,6 @@ class CfgVehicles {
     // } forEach x3;
 
 
-    // Fix: Drongo's Spooks and Anomalies XEH
-    class DSA_SpookBase;
-    class DSA_SpookBase2;
-    class DSA_AnomalyBase;
-    class B_Soldier_F;
-    class DSA_Vampire: DSA_SpookBase2 { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Vampire
-    class DSA_Wendigo: DSA_SpookBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Wendigo
-    class DSA_Shadowman: DSA_SpookBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Shadowman
-    class DSA_Hatman: DSA_Shadowman { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Hatman
-    class DSA_Mindflayer: DSA_SpookBase2 { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Mindflayer
-    class DSA_411: DSA_SpookBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> 411
-    class DSA_Rake: DSA_SpookBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Rake
-    class DSA_Abomination: DSA_411 { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Abomination
-    class DSA_Snatcher: DSA_SpookBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Snatcher
-    class DSA_Crazy: DSA_SpookBase2 { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Crazy
-    class DSA_Launchpad: DSA_AnomalyBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Launchpad
-    class DSA_Leech: DSA_AnomalyBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Leech
-    class DSA_Zapper: DSA_AnomalyBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Zapper
-    class DSA_Trapdoor: DSA_AnomalyBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Trapdoor
-    class DSA_DeltaX_Operator: B_Soldier_F { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Delta X Operator
-    class DSA_DeltaX_CBRN: B_Soldier_F { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; }; // Drongos Spooks and Anomalies> Delta X CBRN
-    class DSA_ActiveIdol: DSA_SpookBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; };
-    class DSA_ActiveIdol2: DSA_ActiveIdol { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; };
-
-    // AMP_Breaching_Charge
-    class ACE_Explosives_Place_SLAM;
-    class AMP_Breaching_Charge_Place: ACE_Explosives_Place_SLAM { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; };
-
-
-    // Fix fajita
-	class Building;
-	class NonStrategic: Building {
-		class DestructionEffects;
-	};	
-	class HouseBase: NonStrategic {};	
-	class House: HouseBase {
-        class DestructionEffects: DestructionEffects {
-			class Smoke1 {
-				type="HouseDestructionSmoke3";
-			};
-			class Smoke2: Smoke1 {
-				type="HouseDestructionSmoke4";
-			};
-			class Smoke3: Smoke1 {
-				type="HouseDestrSmokeLong";
-            };
-		};
-	};
 
 
 

@@ -1,4 +1,4 @@
-// Fix broken EtelkaNarrowMediumPro font used by ACRE's PRC-148
+// Fix broken EtelkaNarrowMediumPro font (was previously used by ACRE's PRC-148)
 
 class CfgFontFamilies {
     class EtelkaNarrowMediumPro {

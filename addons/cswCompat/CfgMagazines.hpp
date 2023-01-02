@@ -1,7 +1,7 @@
 class CfgMagazines {
     class CUP_16Rnd_PG9_AT_M;
     class GVAR(cup_spg9_at): CUP_16Rnd_PG9_AT_M {
-        author = "Brandon";
+        author = "Dani (TCVM)";
         displayName = "[OLD] SPG-9 AT Round";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
         scope = 1;
@@ -13,7 +13,7 @@ class CfgMagazines {
 
     class CUP_16Rnd_OG9_HE_M;
     class GVAR(cup_spg9_he): CUP_16Rnd_OG9_HE_M {
-        author = "Brandon";
+        author = "Dani (TCVM)";
         displayName = "[OLD] SPG-9 HE Round";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
         scope = 1;
@@ -25,7 +25,7 @@ class CfgMagazines {
 
     class CUP_6Rnd_TOW2_M;
     class GVAR(cup_tow_at): CUP_6Rnd_TOW2_M {
-        author = "Brandon";
+        author = "Dani (TCVM)";
         displayName = "[OLD] BGM-71 TOW Round";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
         scope = 1;
@@ -36,7 +36,7 @@ class CfgMagazines {
     };
     class 40Rnd_20mm_G_belt;
     class GVAR(20Rnd_30mm_G_belt): 40Rnd_20mm_G_belt {
-        author = "Brandon";
+        author = "Dani (TCVM)";
         displayName = "[OLD] 30mm GMG Belt";
         model = "\A3\Structures_F_EPB\Items\Military\Ammobox_rounds_F.p3d";
         scope = 1;
