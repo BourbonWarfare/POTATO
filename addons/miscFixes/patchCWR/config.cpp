@@ -15,7 +15,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "cwr3_intro", "cwr3_vehicle_m41", "cwr3_vehicle_f4" };
+        requiredAddons[] = { "potato_core", "cwr3_intro", "cwr3_vehicle_m41", "cwr3_soldiers_us" };
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -40,8 +40,24 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.5;
         ACEGVAR(vehicle_damage,canHaveFireRing) = 1;  
     };
-    class PlaneWreck;
-    class cwr3_f4e_wreck: PlaneWreck { SLX_XEH_DISABLED = 1; };
+};
+
+class CfgGroups {
+	class West {
+        class CWR3_USA {
+            class Infantry80 {
+                class cwr3_b_rifle_squad80 {
+                    class Unit4 { vehicle = "cwr3_b_soldier80_ar_m16"; };
+                };
+                class cwr3_b_fire_team80 {
+                    class Unit1 { vehicle = "cwr3_b_soldier80_ar_m16"; };
+                };
+                class cwr3_b_support_team80 {
+                    class Unit1 { vehicle = "cwr3_b_soldier80_ar_m16"; };
+                };
+            };
+        };
+    };
 };
 
 #endif
