@@ -31,4 +31,21 @@ class CfgWeapons {
             mass = 1;
         };
     };
+
+
+    class arifle_MX_F;
+    class potato_funGun_red: arifle_MX_F {
+        author = "Potato";
+        displayName = "Candy Cane (Red)";
+        model = "\z\potato\addons\memes\data\funGun_red.p3d";
+        selectionFireAnim = "muzzleFlash";
+        handAnim[] = {"OFP2_ManSkeleton","\A3\Weapons_F\Rifles\MX\data\Anim\mx.rtm"};
+    };
+    class potato_funGun_green: arifle_MX_F {
+        author = "Potato";
+        displayName = "Candy Cane (Green)";
+        model = "\z\potato\addons\memes\data\funGun_green.p3d";
+        selectionFireAnim = "muzzleFlash";
+        handAnim[] = {"OFP2_ManSkeleton","\A3\Weapons_F\Rifles\MX\data\Anim\mx.rtm"};
+    };
 };
