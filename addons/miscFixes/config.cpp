@@ -48,7 +48,6 @@ class RscChatListDefault {
 #include "CfgAmmo.hpp"
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
-#include "CfgMagazines.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
 #include "CfgFontFamilies.hpp"
