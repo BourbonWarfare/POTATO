@@ -61,10 +61,15 @@ _settings = [
 [QACEGVAR(overheating,enabled), false],
 [QACEGVAR(refuel,rate), 10],
 [QACEGVAR(respawn,removeDeadBodiesDisconnected), false],
+[QACEGVAR(towing,addRopeToVehicleInventory), false], // added via potato_assignGear - alwaysAddLandRopes
 [QACEGVAR(ui,ammoCount), false, true], // Forced because it's User settable
 [QACEGVAR(ui,groupBar), false, true], // Forced because it's User settable
-[QACEGVAR(weather,showCheckAirTemperature), false],
+[QACEGVAR(weather,showCheckAirTemperature), false], // note: user-setting, we don't force
 [QACEGVAR(zeus,autoAddObjects), true],
+
+// WBK Melee
+["ims_rifledodgeset", false],
+["ims_isfistsallowd", false],
 
 // NIARMS (HLC)
 ["niarms_magSwitch", false], // it's use of setUnitLoadout may cause problems
