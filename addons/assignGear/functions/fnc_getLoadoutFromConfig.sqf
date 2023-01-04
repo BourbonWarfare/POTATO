@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: PabstMirror
  * Gets a loadout array from a loadout config path
@@ -11,11 +12,11 @@
  *
  * Example:
  * [missionConfigFile >> "CfgLoadouts" >> (faction player) >> (typeOf player), player] call potato_assignGear_fnc_getLoadoutFromConfig
+ * [missionConfigFile >> "CfgLoadouts" >> "potato_w" >> "rifleman", objNull] call potato_assignGear_fnc_getLoadoutFromConfig
  *
  * Public: No
  */
 
-#include "script_component.hpp"
 #define UNIFORM_INDEX 0
 #define VEST_INDEX 1
 #define BACKPACK_INDEX 2
@@ -46,6 +47,37 @@ if ([_unit] call ACEFUNC(common,isMedic)) then {
     _configBackpackItems pushBack "ACE_splint:12";
 };
 
+// temp - handle dropping mnp
+_configUniform = _configUniform apply {
+    if (_x select [0,4] != "mnp_") then { _x } else {
+        GVAR(mnpFallback) = true;
+        switch (getNumber ((configOf _unit) >> "side")) do {
+            case 1: { "U_B_CombatUniform_mcam" }; // west
+            case 2: { "U_I_CombatUniform" }; // indy
+            default { "U_B_CTRG_2" }; // east/unknown
+        };
+    };
+};
+_configVest = _configVest apply {
+    if (_x select [0,4] != "mnp_") then { _x } else {
+        GVAR(mnpFallback) = true;
+        switch (getNumber ((configOf _unit) >> "side")) do {
+            case 1: { "V_PlateCarrier1_blk" }; // west
+            case 2: { "V_PlateCarrierIA1_dgtl" }; // indy
+            default { "V_PlateCarrierL_CTRG" }; // east/unknown
+        };
+    };
+};
+_configBackpack = _configBackpack apply {
+    if (_x select [0,4] != "mnp_") then { _x } else {
+        GVAR(mnpFallback) = true;
+        switch (getNumber ((configOf _unit) >> "side")) do {
+            case 1: { "B_Carryall_mcamo" }; // west
+            case 2: { "B_Carryall_oli" }; // indy
+            default { "B_Carryall_oucamo" }; // east/unknown
+        };
+    };
+};
 
 private _containersArray = [];
 
