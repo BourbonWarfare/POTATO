@@ -22,6 +22,8 @@ class CfgPatches {
 
 #include "RscDisplayMain.hpp"
 
+#include "BW_CfgDiscordRichPresence.hpp"
+
 class CfgMods {
     class PREFIX {
         dir = "@POTATO";
