@@ -13,4 +13,4 @@
 #define REQUIRED_VERSION 2.10
 
 // Warn if starting **NEW** mission on a BWMF version older than this
-#define EXPECTED_BWMF "2022/4/8"
+#define EXPECTED_BWMF "2023/1/5"

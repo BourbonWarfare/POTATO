@@ -11,20 +11,31 @@ if (isServer) then {
 
     #include "serverOnlyFix.sqf"
 
-    // Determine if TVT or COOP
+    /*// Determine if TVT or COOP
     [{
-        private _sideCounts = [west, east, resistance] apply {
-            private _side = _x;
-            {((side _x) == _side) && {isPlayer _x}} count allUnits;
+        private _missionTestingType = GetMissionConfigValue [QEGVAR(missionTesting, missionType),0];
+        TRACE_1("_missionTestingType =", missionTestingType);
+        private _isTVT = true;
+        // check mission testing type from missionTesting module before checking with math 
+        if ((isNil "_missionTestingType") || (_missionTestingType == 0)) then {
+            private _sideCounts = [west, east, resistance] apply {
+                private _side = _x;
+                {((side _x) == _side) && {isPlayer _x}} count allUnits;
+            };
+            private _sortedCounts = +_sideCounts;
+            _sortedCounts sort false;
+            _isTVT = (_sortedCounts select 1) > 8;
+            TRACE_2("",_isTVT,_sideCounts);
+            // can override with global exec: potato_miscMedical_isTVT = false;
+        } else {
+            _isTVT = if (_missionTestingType == 1) then {false} else {true};
+            TRACE_2("Using mission attribute",_missionTestingType, _isTVT);
         };
-        private _sortedCounts = +_sideCounts;
-        _sortedCounts sort false;
-        private _isTVT = (_sortedCounts select 1) > 8;
-        TRACE_2("",_isTVT,_sideCounts);
         missionNamespace setVariable [QGVAR(isTVT), _isTVT, true];
-        // can override with global exec: potato_miscMedical_isTVT = false;
     }, [], 1] call CBA_fnc_waitAndExecute;
+    /*/
 };
+
 
 
 
@@ -443,7 +454,10 @@ if (hasInterface) then {
         //[_origin, _mass, _filler] call DFUNC(generateVisuals);
     }] call CBA_fnc_addEventHandler;
 
-    // Increase lethality when taking sustained critical damage to body/head
+
+// rem instakill code. This feels so lame for how many hours I put into this shit. 
+
+    /*/ Increase lethality when taking sustained critical damage to body/head
 
     // ToDo: Move this to ace_medical_damage_fnc_determineIfFatal
     // FATAL_SUM_DAMAGE_WEIBULL_L / K values
@@ -456,6 +470,7 @@ if (hasInterface) then {
             if (_unit == ACE_player) then {
                 TRACE_3("player wound",_bodyPart,_damage,_typeOfDamage);
                 if ((_unit getVariable ["ACE_isUnconscious", false]) && {_damage > 0.5}) then {
+                    TRACE_1("ACE_isUnconcious=", true);
                     private _bps = _unit getVariable ["ace_medical_bodyPartDamage", [0,0,0,0,0,0]];
                     if (((_bps select 0) + (_bps select 1)) > ([1.75, 3] select GVAR(isTVT))) then {
                         TRACE_1("manually killing", _bps);

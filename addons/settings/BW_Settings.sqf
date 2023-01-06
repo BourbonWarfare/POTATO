@@ -14,6 +14,7 @@ _settings = [
 [QACEGVAR(medical,ivFlowRate), 1.5], // default: 1.0
 [QACEGVAR(medical,spontaneousWakeUpChance), 0.4], // default: 0.05
 [QACEGVAR(medical,spontaneousWakeUpEpinephrineBoost), 2], // default: 1
+[QACEGVAR(medical,playerDamageThreshold), 1], // default: 1
 [QACEGVAR(medical_treatment,advancedDiagnose), 2], // default: 1 (Allows diagnosing death/CA)
 [QACEGVAR(medical_treatment,clearTrauma), 2], // default: 0
 [QACEGVAR(medical_treatment,litterCleanupDelay), 300], // default: 600
@@ -60,10 +61,15 @@ _settings = [
 [QACEGVAR(overheating,enabled), false],
 [QACEGVAR(refuel,rate), 10],
 [QACEGVAR(respawn,removeDeadBodiesDisconnected), false],
+[QACEGVAR(towing,addRopeToVehicleInventory), false], // added via potato_assignGear - alwaysAddLandRopes
 [QACEGVAR(ui,ammoCount), false, true], // Forced because it's User settable
 [QACEGVAR(ui,groupBar), false, true], // Forced because it's User settable
-[QACEGVAR(weather,showCheckAirTemperature), false],
+[QACEGVAR(weather,showCheckAirTemperature), false], // note: user-setting, we don't force
 [QACEGVAR(zeus,autoAddObjects), true],
+
+// WBK Melee
+["ims_rifledodgeset", false],
+["ims_isfistsallowd", false],
 
 // NIARMS (HLC)
 ["niarms_magSwitch", false], // it's use of setUnitLoadout may cause problems
