@@ -230,13 +230,13 @@ class CfgVehicles {
                     class CUP_D_Language_TK {
                         name = "Takistan? [CUP]";
                         value = "CUP_D_Language_TK";
-                        picture = "\CUP\BaseConfigs\CUP_BaseConfigs\Data\Flags\flag_tka_co.paa";
+                        picture = "\a3\Ui_f\data\Map\Markers\Flags\csat_ca.paa";
                         data[] = {"CUP_D_Male01_TK","CUP_D_Male02_TK","CUP_D_Male03_TK","CUP_D_Male04_TK","CUP_D_Male05_TK"};
                     };
                     class CUP_D_Language_CZ { // merged with CUP_D_Language_CZ_ACR
                         name = "Czech [CUP]";
                         value = "CUP_D_Language_CZ";
-                        picture = "\a3\Ui_f\data\Map\Markers\Flags\czechrepublic_ca.paa";
+                        picture = "\A3\ui_f\data\map\markers\flags\CzechRepublic_ca.paa";
                         data[] = {"CUP_D_Male01_CZ","CUP_D_Male02_CZ","CUP_D_Male03_CZ","CUP_D_Male04_CZ","CUP_D_Male05_CZ", "CUP_D_Male01_CZ_ACR","CUP_D_Male02_CZ_ACR","CUP_D_Male03_CZ_ACR","CUP_D_Male04_CZ_ACR","CUP_D_Male05_CZ_ACR"};
                     };
                 };
