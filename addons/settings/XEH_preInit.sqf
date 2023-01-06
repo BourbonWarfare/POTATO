@@ -36,10 +36,12 @@ if (isServer) then {
     }, [_settings], 4] call CBA_fnc_waitAndExecute;
 
     if (isServer && {!hasInterface}) then {
-        private _serverProfile = profileNamespace getVariable ["cba_settings_hash", [] call CBA_fnc_hashCreate];
-        private _size = [_serverProfile] call CBA_fnc_hashSize;
-        if (_size > 0) then {
-            ["potato_adminMsg", [format ["Warning: %1 settings set in profileNamespace", _size], "Mission"]] call CBA_fnc_globalEvent;
-        };
+        [{
+            private _serverProfile = profileNamespace getVariable ["cba_settings_hash", [] call CBA_fnc_hashCreate];
+            private _size = [_serverProfile] call CBA_fnc_hashSize;
+            if (_size > 0) then {
+                ["potato_adminMsg", [format ["Warning: %1 settings set in profileNamespace", _size], "Mission"]] call CBA_fnc_globalEvent;
+            };
+        }, [], 5] call CBA_fnc_waitAndExecute;
     };
 };
