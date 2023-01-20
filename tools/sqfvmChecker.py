@@ -25,7 +25,7 @@ def get_files_to_process(basePath):
             if file.endswith(".sqf") or file == "config.cpp":
                 if file.lower() in files_to_ignore_lower:
                     continue
-                if file == "config.cpp" and os.path.exists(os.path.join(root, "$NOBIN_CONFIG$")):
+                if file == "config.cpp" and (os.path.exists(os.path.join(root, "$NOBIN_CONFIG$")) or os.path.exists(os.path.join(os.path.dirname(root), "$NOBIN_CONFIG$"))):
                     continue  # ignore configs with __has_include
                 filePath = os.path.join(root, file)
                 arma_files.append(filePath)

@@ -29,6 +29,7 @@
             },
             "args": [
                 "make.py",
+                "force",
                 "ci"
             ],
             "group": {

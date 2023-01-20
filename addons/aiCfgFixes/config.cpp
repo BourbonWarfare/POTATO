@@ -9,7 +9,7 @@
 #endif
 
 #ifdef PATCH_SKIP
-PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
+POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
 #else
 class CfgPatches {
     class ADDON {

@@ -11,7 +11,7 @@
 
 
 // macro add a dummy cfgPatch and notLoaded entry
-#define PATCH_NOT_LOADED(NAME,CAUSE) \
+#define POTATO_PATCH_NOT_LOADED(NAME,CAUSE) \
 class CfgPatches { \
     class DOUBLES(NAME,notLoaded) { \
         units[] = {}; \

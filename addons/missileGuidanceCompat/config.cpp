@@ -10,7 +10,7 @@
 
 #ifdef PATCH_SKIP
 // Use double (potato_ prefix) so ace doesn't complain about outdated pbo
-PATCH_NOT_LOADED(DOUBLES(POTATO,ADDON),PATCH_SKIP)
+POTATO_PATCH_NOT_LOADED(DOUBLES(POTATO,ADDON),PATCH_SKIP)
 #else
 class CfgPatches {
     class ADDON {
