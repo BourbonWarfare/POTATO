@@ -16,7 +16,7 @@
  */
 
 #include "script_component.hpp"
-#include "\a3\editor_f\Data\Scripts\dikCodes.h"
+#include "\a3\ui_f/hpp/defineDIKCodes.inc"
 #define MIN_VIEW_DISTANCE 500
 #define MAX_VIEW_DISTANCE 3000
 

@@ -1,5 +1,5 @@
 #define COMPONENT cswCompatCUP
-#include "\z\ace\addons\main\script_mod.hpp"
+#include "\z\potato\addons\core\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
 // #define DISABLE_COMPILE_CACHE
