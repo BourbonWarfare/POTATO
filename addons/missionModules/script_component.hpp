@@ -14,34 +14,63 @@
 #define COLOR_IDC 288066
 #define ICON_IDC 709588
 
-#define ICON_VALUES 'mil_dot_noShadow',\
-'mil_box_noShadow',\
-'mil_triangle_noShadow',\
-'mil_circle_noShadow',\
-'mil_unknown_noShadow',\
-'mil_warning_noShadow',\
-'mil_join_noShadow',\
-'mil_pickup_noShadow',\
-'mil_start_noShadow',\
-'mil_end_noShadow',\
-'mil_destroy_noShadow',\
-'mil_ambush_nowShadow',\
-'mil_arrow_noShadow',\
-'mil_arrow2_noShadow',\
-'mil_flag_noShadow',\
-'mil_marker_noShadow',\
-'mil_objective_noShadow'
+#define ICON_VALUES_STR QUOTE(mil_dot_noShadow),\
+QUOTE(mil_box_noShadow),\
+QUOTE(mil_triangle_noShadow),\
+QUOTE(mil_circle_noShadow),\
+QUOTE(mil_unknown_noShadow),\
+QUOTE(mil_warning_noShadow),\
+QUOTE(mil_join_noShadow),\
+QUOTE(mil_pickup_noShadow),\
+QUOTE(mil_start_noShadow),\
+QUOTE(mil_end_noShadow),\
+QUOTE(mil_destroy_noShadow),\
+QUOTE(mil_ambush_nowShadow),\
+QUOTE(mil_arrow_noShadow),\
+QUOTE(mil_arrow2_noShadow),\
+QUOTE(mil_flag_noShadow),\
+QUOTE(mil_marker_noShadow),\
+QUOTE(mil_objective_noShadow)
 
-#define COLOR_VALUES 'ColorBlack',\
-'ColorRed',\
-'ColorBrown',\
-'ColorOrange',\
-'ColorYellow',\
-'ColorGreen',\
-'ColorBlue',\
-'ColorPink',\
-'ColorCIV',\
-'ColorWhite'
+#define ICON_VALUES QQUOTE(mil_dot_noShadow),\
+QQUOTE(mil_box_noShadow),\
+QQUOTE(mil_triangle_noShadow),\
+QQUOTE(mil_circle_noShadow),\
+QQUOTE(mil_unknown_noShadow),\
+QQUOTE(mil_warning_noShadow),\
+QQUOTE(mil_join_noShadow),\
+QQUOTE(mil_pickup_noShadow),\
+QQUOTE(mil_start_noShadow),\
+QQUOTE(mil_end_noShadow),\
+QQUOTE(mil_destroy_noShadow),\
+QQUOTE(mil_ambush_nowShadow),\
+QQUOTE(mil_arrow_noShadow),\
+QQUOTE(mil_arrow2_noShadow),\
+QQUOTE(mil_flag_noShadow),\
+QQUOTE(mil_marker_noShadow),\
+QQUOTE(mil_objective_noShadow)
+
+#define COLOR_VALUES_STR QUOTE(ColorBlack),\
+QUOTE(ColorRed),\
+QUOTE(ColorBrown),\
+QUOTE(ColorOrange),\
+QUOTE(ColorYellow),\
+QUOTE(ColorGreen),\
+QUOTE(ColorBlue),\
+QUOTE(ColorPink),\
+QUOTE(ColorCIV),\
+QUOTE(ColorWhite)
+
+#define COLOR_VALUES QQUOTE(ColorBlack),\
+QQUOTE(ColorRed),\
+QQUOTE(ColorBrown),\
+QQUOTE(ColorOrange),\
+QQUOTE(ColorYellow),\
+QQUOTE(ColorGreen),\
+QQUOTE(ColorBlue),\
+QQUOTE(ColorPink),\
+QQUOTE(ColorCIV),\
+QQUOTE(ColorWhite)
 
 #define SET_SKILLS_IDD 751000
 #define SET_SKILLS_MASTER_BX_IDC 751001

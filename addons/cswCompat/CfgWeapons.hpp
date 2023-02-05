@@ -25,6 +25,7 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
     };
+    class ace_cswCompatCUP_cup_m2: GVAR(cup_m2) {};
 
     class GVAR(cup_kord): Launcher_Base_F {
         class ACE_CSW {
@@ -46,6 +47,8 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
     };
+    class ace_cswCompatCUP_cup_kord: GVAR(cup_kord) {};
+
     class GVAR(cup_dshkm): Launcher_Base_F {
         class ACE_CSW {
             type = "weapon";
@@ -66,6 +69,7 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
     };
+    class ace_cswCompatCUP_cup_dshkm: GVAR(cup_dshkm) {};
 
 
     /* GMG's */
@@ -89,7 +93,7 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticHGMG_Icon.paa);
     };
-
+    class ace_cswCompatCUP_cup_ags30: GVAR(cup_ags30) {};
 
     class CUP_launch_Metis: Launcher_Base_F {
         class ACE_CSW {
@@ -123,7 +127,7 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);
     };
-
+    class ace_cswCompatCUP_cup_spg9: GVAR(cup_spg9) {};
 
     // Affected Weapons: http://wiki.cup-arma3.org/index.php?title=Arma_3_CfgWeapons_Vehicle_Weapons#CUP_Vmlauncher_TOW_single_veh
     class GVAR(cup_tow): Launcher_Base_F {
@@ -145,6 +149,7 @@ class CfgWeapons {
         modes[] = {};
         picture = ACE_CSW_PATH(UI\StaticAT_Icon.paa);
     };
+    class ace_cswCompatCUP_cup_tow: GVAR(cup_tow) {};
 
     /* Proxy Weapons */
     class CUP_Vhmg_M2_static;

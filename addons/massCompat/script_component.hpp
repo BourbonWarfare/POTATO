@@ -20,7 +20,9 @@
 #define SCORE_6(a,b,c,d,e,f) a##_##b##_##c##_##d##_##e##_##f
 
 #define AMMO_CLASS(type) SCORE_3(potato,bullet,type)
+#define QAMMO_CLASS(type) QUOTE(AMMO_CLASS(type))
 #define MAGAZINE_CLASS(type) SCORE_2(potato,type)
+#define QMAGAZINE_CLASS(type) QUOTE(MAGAZINE_CLASS(type))
 
 #define RELOAD_TRACER_REMAINING 4
 #define MG_TRACER_EVERY 4
@@ -87,7 +89,7 @@
 class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour)): MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))) { \
     displayName = TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = 1; \
-    ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    ammo = QAMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
     initSpeed = speed; \
 }
 
@@ -96,7 +98,7 @@ class MAGAZINE_CLASS(SCORE_5(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer
     displayName = RELOAD_TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = tracerEvery; \
     lastRoundsTracer = lastRoundTracers; \
-    ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    ammo = QAMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
     initSpeed = speed; \
 }
 
@@ -108,7 +110,7 @@ class MAGAZINE_CLASS(SCORE_3(type,ammoType,CONCAT(bulletCount,rnd))): baseClass 
     count = bulletCount; \
     tracersEvery = 0;\
     lastRoundsTracer = 0;\
-    ammo = AMMO_CLASS(ammoType); \
+    ammo = QAMMO_CLASS(ammoType); \
     initSpeed = speed; \
 }; \
 CREATE_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,speed); \
@@ -126,7 +128,7 @@ CREATE_RELOAD_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,IR,type,tracerEve
 class MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),tracer,colour,alt)): MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)) { \
     displayName = TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = 1; \
-    ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    ammo = QAMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
     initSpeed = speed; \
 }
 
@@ -135,7 +137,7 @@ class MAGAZINE_CLASS(SCORE_6(type,ammoType,CONCAT(bulletCount,rnd),reload_tracer
     displayName = RELOAD_TRACER_DISPLAY_NAME(ammoDisplayName,bulletCount,colour);\
     tracersEvery = tracerEvery; \
     lastRoundsTracer = lastRoundTracers; \
-    ammo = AMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
+    ammo = QAMMO_CLASS(CONCAT(ammoType,CONCAT(_tracer_,colour))); \
     initSpeed = speed; \
 }
 
@@ -147,7 +149,7 @@ class MAGAZINE_CLASS(SCORE_4(type,ammoType,CONCAT(bulletCount,rnd),alt)): baseCl
     count = bulletCount; \
     tracersEvery = 0;\
     lastRoundsTracer = 0;\
-    ammo = AMMO_CLASS(ammoType); \
+    ammo = QAMMO_CLASS(ammoType); \
     initSpeed = speed; \
 }; \
 CREATE_ALT_TRACER_TYPE(ammoType,ammoDisplayName,bulletCount,Red,type,speed,alt); \

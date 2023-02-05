@@ -495,8 +495,8 @@ class GVAR(overlay) {
 
             onButtonClick = QUOTE([] spawn EFUNC(respawn,openClientRespawn));
 
-            x = safezoneX + safezoneW - 0.2;
-            y = safezoneY + safezoneH - 0.08;
+            x = QUOTE(safezoneX + safezoneW - 0.2);
+            y = QUOTE(safezoneY + safezoneH - 0.08);
             w = 0.2;
             h = 0.08;
 

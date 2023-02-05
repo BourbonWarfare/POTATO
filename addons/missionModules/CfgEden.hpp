@@ -17,22 +17,22 @@ class Cfg3DEN {
             attributeSave = QUOTE([ARR_3(_this,ICON_IDC,[ICON_VALUES])] call FUNC(toolboxAttributeSave));
             attributeLoad = QUOTE([ARR_4(_this,ICON_IDC,_value,[ICON_VALUES])] call FUNC(toolboxAttributeLoad));
 
-            h = (3 * SIZE_M + 1) * GRID_H;
+            h = QUOTE((3 * SIZE_M + 1) * GRID_H);
             class Controls: Controls {
                 class IconTitle: Title {
                     style = 1;
-                    y = 1 * SIZE_M * GRID_H;
-                    w = (ATTRIBUTE_TITLE_W - SIZE_M) * GRID_W;
+                    y = QUOTE(1 * SIZE_M * GRID_H);
+                    w = QUOTE((ATTRIBUTE_TITLE_W - SIZE_M) * GRID_W);
                     text = "Marker Icon";
                 };
                 class GVAR(iconSelect): ctrlToolbox {
                     idc = ICON_IDC;
-                    style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
+                    style = QUOTE(ST_PICTURE + ST_KEEP_ASPECT_RATIO);
                     colorBackground[] = {0,0,0,0};
-                    x = (ATTRIBUTE_TITLE_W + SIZE_XXS) * GRID_W;
-                    y = 0 * SIZE_M * GRID_H;
-                    w = ATTRIBUTE_CONTENT_W * GRID_W;
-                    h = 3 * SIZE_M * GRID_H;
+                    x = QUOTE((ATTRIBUTE_TITLE_W + SIZE_XXS) * GRID_W);
+                    y = QUOTE(0 * SIZE_M * GRID_H);
+                    w = QUOTE(ATTRIBUTE_CONTENT_W * GRID_W);
+                    h = QUOTE(3 * SIZE_M * GRID_H);
 
                     rows = 3;
                     columns = 6;
@@ -56,7 +56,7 @@ class Cfg3DEN {
                         "\A3\ui_f\data\map\markers\military\marker_CA.paa",
                         "\A3\ui_f\data\map\markers\military\objective_CA.paa"
                     };
-                    values[] = {ICON_VALUES};
+                    values[] = {ICON_VALUES_STR};
                     tooltips[] = {
                         "Dot",
                         "Box",
@@ -83,21 +83,21 @@ class Cfg3DEN {
             attributeSave = QUOTE([ARR_3(_this,COLOR_IDC,[COLOR_VALUES])] call FUNC(toolboxAttributeSave));
             attributeLoad = QUOTE([ARR_4(_this,COLOR_IDC,_value,[COLOR_VALUES])] call FUNC(toolboxAttributeLoad));
 
-            h = (2 * SIZE_M + 1) * GRID_H;
+            h = QUOTE((2 * SIZE_M + 1) * GRID_H);
             class Controls: Controls {
                 class IconTitle: Title {
                     style = 1;
-                    y = 0.5 * SIZE_M * GRID_H;
-                    w = (ATTRIBUTE_TITLE_W - SIZE_M) * GRID_W;
+                    y = QUOTE(0.5 * SIZE_M * GRID_H);
+                    w = QUOTE((ATTRIBUTE_TITLE_W - SIZE_M) * GRID_W);
                     text = "Marker Color";
                 };
                 class GVAR(colorSelect): ctrlToolbox {
                     idc = COLOR_IDC;
                     colorBackground[] = {0,0,0,0};
-                    x = (ATTRIBUTE_TITLE_W + SIZE_XXS) * GRID_W;
-                    y = 0 * SIZE_M * GRID_H;
-                    w = ATTRIBUTE_CONTENT_W * GRID_W;
-                    h = 2 * SIZE_M * GRID_H;
+                    x = QUOTE((ATTRIBUTE_TITLE_W + SIZE_XXS) * GRID_W);
+                    y = QUOTE(0 * SIZE_M * GRID_H);
+                    w = QUOTE(ATTRIBUTE_CONTENT_W * GRID_W);
+                    h = QUOTE(2 * SIZE_M * GRID_H);
 
                     rows = 2;
                     columns = 5;
@@ -114,7 +114,7 @@ class Cfg3DEN {
                         "Purple",
                         "White"
                     };
-                    values[] = {COLOR_VALUES};
+                    values[] = {COLOR_VALUES_STR};
                     tooltips[] = {
                         "Black",
                         "Red",

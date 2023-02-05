@@ -53,7 +53,7 @@ class GVAR(bigSmoke) {
         type = QGVAR(SmokeShellWhiteFilled);
         position[] = {0,0,0};
         intensity = 5;
-        interval = .333;
+        interval = 0.333;
     };
 };
 
