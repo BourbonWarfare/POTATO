@@ -38,15 +38,14 @@
             }
         },
         {
-            "label": "Build: Hemtt Release",
-            "command": "hemtt.exe",
+            "label": "Build: Hemtt New",
+            "command": "hemttNew.exe",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
             "args": [
                 "build",
-                "--release",
-                "--ci"
+                "-v"
             ],
             "group": "build"
         }
