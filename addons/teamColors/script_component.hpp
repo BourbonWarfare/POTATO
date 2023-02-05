@@ -10,7 +10,7 @@
 #endif
 
 #define TEAM_COLOR_IDC 132030
-#define TEAM_COLORS 'MAIN','RED','GREEN','BLUE','YELLOW'
+#define TEAM_COLORS "MAIN","RED","GREEN","BLUE","YELLOW"
 #define TEAM_COLOR_STRINGS "$STR_TEAM_MAIN","$STR_TEAM_RED","$STR_TEAM_GREEN","$STR_TEAM_BLUE","$STR_TEAM_YELLOW"
 
 #include "\z\potato\addons\core\script_macros.hpp"

@@ -12,10 +12,10 @@ class RscTitles {
         class controls {
             class safeStartHint: RscStructuredText {
                 idc = HINT_IDC;
-                x = 0 * safezoneW + safezoneX;
-                y = 0.05 * safezoneH + safezoneY;
-                w = 0.2 * safezoneW;
-                h = 0.2 * safezoneH;
+                x = QUOTE(0 * safezoneW + safezoneX);
+                y = QUOTE(0.05 * safezoneH + safezoneY);
+                w = QUOTE(0.2 * safezoneW);
+                h = QUOTE(0.2 * safezoneH);
             };
         };
     };
@@ -30,10 +30,10 @@ class RscTitles {
             class safeStartHint: RscStructuredText {
                 idc = HINT_IDC;
                 text = "<t align='center'>Safe Start Ending<br/><t color='#ff0000'>Start Mission</t></t>";
-                x = 0.4 * safezoneW + safezoneX;
-                y = 0.4 * safezoneH + safezoneY;
-                w = 0.2 * safezoneW;
-                h = 0.2 * safezoneH;
+                x = QUOTE(0.4 * safezoneW + safezoneX);
+                y = QUOTE(0.4 * safezoneH + safezoneY);
+                w = QUOTE(0.2 * safezoneW);
+                h = QUOTE(0.2 * safezoneH);
             };
         };
     };

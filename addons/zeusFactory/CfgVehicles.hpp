@@ -10,8 +10,8 @@ class CfgVehicles {
         displayName = "Factory";
         function = QFUNC(module_factory);
         curatorInfoType = QGVAR(RscDisplayAttributes_factory);
-        icon = PATHTOF(UI\icon_factory_ca.paa);
-        portrait = PATHTOF(UI\icon_factory_ca.paa);
+        icon = QPATHTOF(UI\icon_factory_ca.paa);
+        portrait = QPATHTOF(UI\icon_factory_ca.paa);
     };
     class GVAR(attackBeacon): GVAR(factory) {
         displayName = "Mark Target";

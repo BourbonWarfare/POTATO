@@ -16,9 +16,9 @@ class RscTitles {
                 idc = MESSAGE_IDC;
                 colorText[] = {1, 1, 1, 1};
                 colorBackground[] = {0, 0, 0, 0.5};
-                x = 0.88 * safezoneW + safezoneX;
-                y = 0.15 * safezoneH + safezoneY;
-                w = 0.105 * safezoneW;
+                x = QUOTE(0.88 * safezoneW + safezoneX);
+                y = QUOTE(0.15 * safezoneH + safezoneY);
+                w = QUOTE(0.105 * safezoneW);
                 h = 0;
                 font = "RobotoCondensed";
             };
