@@ -2,7 +2,7 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchCWR
 
-#if __has_include("\cwr3\general\cwr3_intro\XEH_preInit.sqf")
+#if __has_include("\cwr3\general\cwr3_intro\config.bin")
 #else
 #define PATCH_SKIP "CWR3"
 #endif

@@ -2,7 +2,7 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchAMP
 
-#if __has_include("\z\bcdw\addons\main\script_mod.hpp")
+#if __has_include("\z\bcdw\addons\main\config.bin")
 #else
 #define PATCH_SKIP "AMP Breaching"
 #endif

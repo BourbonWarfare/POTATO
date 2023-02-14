@@ -2,7 +2,7 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchHLC
 
-#if __has_include("\hlc_core\XEH_preInit.sqf")
+#if __has_include("\hlc_core\config.bin")
 #else
 #define PATCH_SKIP "HLC"
 #endif

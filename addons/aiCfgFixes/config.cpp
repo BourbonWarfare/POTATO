@@ -3,7 +3,7 @@
 #ifdef POTATO_LEAN_RHS_CUP_HLC
 #define PATCH_SKIP POTATO_LEAN_RHS_CUP_HLC
 #endif
-#if __has_include("\hlc_core\XEH_preInit.sqf")
+#if __has_include("\hlc_core\config.bin")
 #else
 #define PATCH_SKIP "HLC"
 #endif

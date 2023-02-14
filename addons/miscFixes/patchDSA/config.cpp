@@ -2,7 +2,7 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchDSA
 
-#if __has_include("\DSA\Data\Editor\wendigo.jpg")
+#if __has_include("\DSA\config.bin")
 #else
 #define PATCH_SKIP "DSA Spookies"
 #endif

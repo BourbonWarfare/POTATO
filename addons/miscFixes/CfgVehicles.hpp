@@ -48,7 +48,7 @@ class CfgVehicles {
     class Heli_Transport_02_base_F: Helicopter_Base_H {waterLeakiness=0.1;};
 
 
-    // Fix CBA XEH Fallback Code for misc logic/objects that don't support it: [Not needed for RHS as of 4.6]
+    // Fix CBA XEH Fallback Code for misc logic/objects that don't support it: 
     // x3 = [true] call CBA_fnc_supportMonitor;
     // {
     // _x params ["_vehType", "_addon"];

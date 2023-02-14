@@ -2,7 +2,7 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchJSRS
 
-#if __has_include("\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\small\metal_1.ogg")
+#if __has_include("\jsrs_soundmod_complete\jsrs_soundmod_soundfile\config.bin")
 #else
 #define PATCH_SKIP "JSRS"
 #endif
