@@ -1,6 +1,6 @@
 #include "\z\potato\addons\miscFixes\script_component.hpp"
 #undef COMPONENT
-#define COMPONENT miscFixes_patchHLC
+#define COMPONENT miscFixes_patchRHSAFRF
 
 #ifdef POTATO_LEAN_RHS_CUP_HLC
 #define PATCH_SKIP POTATO_LEAN_RHS_CUP_HLC
@@ -26,6 +26,7 @@ class CfgPatches {
 };
 
 class CfgWeapons {
+    class ItemCore;
     class Vest_Camo_Base: ItemCore {
         class ItemInfo;
     };

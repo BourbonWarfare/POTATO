@@ -4,7 +4,7 @@
 
 #if __has_include("\CUP\Vehicles\CUP_Vehicles_LoadOrder\config.bin")
 #else
-#define PATCH_SKIP "CUP-Vehicles"
+#define PATCH_SKIP "CUP Vehicles"
 #endif
 
 #ifdef PATCH_SKIP
@@ -15,7 +15,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "CUP_Vehicles_LoadOrder" };
+        requiredAddons[] = { "potato_core", "CUP_Weapons_LoadOrder", "CUP_Vehicles_LoadOrder", "CUP_Creatures_People_LoadOrder" };
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -56,6 +56,49 @@ class CfgVehicles {
     };
 };
 
+class CfgWeapons {
+    class CUP_arifle_RPK74;
+    class potato_arifle_RPK: CUP_arifle_RPK74 {
+        // CUP_arifle_RPK74 is actually a chambered in 7.62 and just called RPK in-game
+        // CUP_arifle_RPK74_45 is the 5.45 version and is called RPK-74 in game
+        // so this isn't needed anymore
+        scope = 1;
+        UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
+    };
 
+    // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
+    class ItemCore;
+    class CUP_Vest_Camo_Base;
+    class CUP_V_B_ALICE: CUP_Vest_Camo_Base {
+        class ItemInfo;
+    };
+    class rhsgref_alice_webbing_bwArmorMod: CUP_V_B_Alice { // must keep old classname, but this is now based on CUP
+        displayName = "ALICE Webbing [coop plot armor]";
+        descriptionShort = "Armor Level IV";
+        class ItemInfo: ItemInfo {
+            class HitpointsProtectionInfo {
+                class Chest {
+                    HitpointName = "HitChest";
+                    armor = 20;
+                    PassThrough = 0.2;
+                };
+                class Diaphragm {
+                    HitpointName = "HitDiaphragm";
+                    armor = 20;
+                    PassThrough = 0.2;
+                };
+                class Abdomen {
+                    hitpointName = "HitAbdomen";
+                    armor = 20;
+                    passThrough = 0.2;
+                };
+                class Body {
+                    hitpointName = "HitBody";
+                    passThrough = 0.2;
+                };
+            };
+        };
+    };
+};
 
 #endif

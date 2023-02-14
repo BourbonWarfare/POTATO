@@ -1,11 +1,10 @@
 #include "\z\potato\addons\miscFixes\script_component.hpp"
 #undef COMPONENT
-#define COMPONENT miscFixes_patchJSRSCUP
+#define COMPONENT miscFixes_patchJSRS_CUP
 
-// This is just for the cup compat in JSRS (it has cup in required addons)
 #if __has_include("\jsrs_soundmod_complete\JSRS_Soundmod_CUP_Weapons\config.bin")
 #else
-#define PATCH_SKIP "JSRS CUP Compat"
+#define PATCH_SKIP "JSRS"
 #endif
 
 #ifdef PATCH_SKIP
