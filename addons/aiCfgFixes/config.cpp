@@ -1,7 +1,16 @@
 #include "script_component.hpp"
 
-#ifndef POTATO_LEAN_RHS_CUP_HLC
+#ifdef POTATO_LEAN_RHS_CUP_HLC
+#define PATCH_SKIP POTATO_LEAN_RHS_CUP_HLC
+#endif
+#if __has_include("\hlc_core\config.bin")
+#else
+#define PATCH_SKIP "HLC"
+#endif
 
+#ifdef PATCH_SKIP
+POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
+#else
 class CfgPatches {
     class ADDON {
         units[] = {};

@@ -1,27 +1,13 @@
 #include "script_component.hpp"
 
-#ifndef POTATO_LEAN_RHS_CUP_HLC
-
 class CfgPatches {
     class ADDON {
         units[] = {};
-        weapons[] = { "potato_fakeNVG", "potato_arifle_RPK" };
-        magazines[] = {
-            "potato_75Rnd_762x39mm_tracer", "200Rnd_65x39_cased_Box_Tracer_Red",
-            "200Rnd_65x39_cased_Box_Tracer_Green", "100Rnd_65x39_cased_Box_Tracer_Yellow",
-            "100Rnd_65x39_cased_Box_Tracer_Red", "100Rnd_65x39_cased_Box_Tracer_Green",
-            "150Rnd_762x54_Box_Tracer_Red", "150Rnd_762x54_Box_Tracer_Yellow",
-            "100Rnd_762x54_Box_Tracer_Green", "100Rnd_762x54_Box_Tracer_Red",
-            "100Rnd_762x54_Box_Tracer_Yellow"
-        };
+        weapons[] = { "potato_fakeNVG" };
+        magazines[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "potato_core", "ace_ui", "ace_fortify", "ace_missileguidance",
-            "rhs_main_loadorder",
-            "CUP_Weapons_LoadOrder", "CUP_Vehicles_LoadOrder", "CUP_Creatures_People_LoadOrder",
-            "Chernarus", "torabora", "fallujah_hou",
-            "DSA_Spooks", "mbg_celle2", "AMP_Breaching_Charge",
-            "jsrs_soundmod_cup_weapons", "jsrs_soundmod_cfg_cup_weapons"
+            "potato_core", "ace_ui", "ace_fortify", "ace_missileguidance"
         };
         author = "Potato";
         authors[] = {"PabstMirror", "AACO"};
@@ -31,13 +17,6 @@ class CfgPatches {
     BWC_CONFIG(potato_fortify);
 };
 
-
-// Fix CELLE font error: (reqAddon: "mbg_celle2")
-class CfgLocationTypes {
-    class MBG_celle2_icon_A7 {
-        font = "PuristaMedium";
-    };
-};
 
 // Undo ACE's changes to system messages text brightness
 class RscChatListDefault {
@@ -55,9 +34,6 @@ class ace_missileguidance_SeekerTypes {
 #include "CfgAmmo.hpp"
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
-#include "CfgMagazines.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
 #include "CfgFontFamilies.hpp"
-
-#endif

@@ -15,4 +15,4 @@ include = [
 path = "addons/core/script_version.hpp"
 
 [lint.sqf]
-enabled = false
+enabled = true

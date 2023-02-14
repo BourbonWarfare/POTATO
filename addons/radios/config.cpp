@@ -1,7 +1,16 @@
 #include "script_component.hpp"
 
-#ifndef POTATO_LEAN_ACRE
+#ifdef POTATO_LEAN_ACRE
+#define PATCH_SKIP POTATO_LEAN_ACRE
+#endif
+#if __has_include("\idi\acre\addons\main\script_component.hpp")
+#else
+#define PATCH_SKIP "ACRE"
+#endif
 
+#ifdef PATCH_SKIP
+POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
+#else
 class CfgPatches {
     class ADDON {
         units[] = {};
