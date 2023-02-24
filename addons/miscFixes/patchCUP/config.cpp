@@ -1,6 +1,6 @@
 #include "\z\potato\addons\miscFixes\script_component.hpp"
 #undef COMPONENT
-#define COMPONENT miscFixes_patchCWR
+#define COMPONENT miscFixes_patchCUP
 
 #if __has_include("\CUP\Vehicles\CUP_Vehicles_LoadOrder\config.bin")
 #else
@@ -28,6 +28,7 @@ class CfgVehicles {
     class Tank_F: Tank {
         class EventHandlers;
     };
+    // Fix Leo/Paton tank smoke not working - should be fixed in next cup release
 	class CUP_Leopard2_Base: Tank_F {
         class EventHandlers: EventHandlers {	
             init="";
