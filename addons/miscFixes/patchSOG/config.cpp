@@ -37,7 +37,7 @@ class CfgMagazines {
 
 class CfgMagazineWells {
     class potato_sog_22mmGL {
-        ADDON[] = {"vn_40mm_m680_smoke_w_mag"};
+        ADDON[] = {"vn_22mm_m22_smoke_mag"};
     };
 };
 
