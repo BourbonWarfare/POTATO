@@ -2,13 +2,19 @@
 
 if (!isServer) exitWith {};
 params ["_logic"];
+private _typeOf = typeOf _logic;
 private _side =  _logic getVariable ["side", -1];
-private _voice = _logic getVariable ["voice", ""];
-TRACE_3("",_logic,_side,_voice);
+private _voice = _logic getVariable ["speaker", ""];
+if (_voice == "") then { _voice = _logic getVariable ["voice", ""]; };
+// backward compat for orignal version using "voice" property which is protected//reserved?
+// "" Custom attribute "voice" was updated to engine one. ""
+
+deleteVehicle _logic;
+TRACE_3("",_typeOf,_side,_voice);
 
 if ((_side <= 0) || {_side > 4}) exitWith { ERROR_1("bad side %1",_side); };
 
-private _voices = (getArray (configFile >> "CfgVehicles" >> (typeOf _logic) >> "Attributes" >> "Voice" >> "Values" >> _voice >> "data"));
+private _voices = (getArray (configFile >> "CfgVehicles" >> _typeOf >> "Attributes" >> "Speaker" >> "values" >> _voice >> "data"));
 _voices = _voices select { isClass (configFile >> "CfgVoice" >> _x) }; // check they actually exist
 if ((count _voices) < 1) exitWith { WARNING_1("bad voices %1",_voices); };
 

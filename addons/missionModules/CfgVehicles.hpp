@@ -168,9 +168,9 @@ class CfgVehicles {
                     };
                 };
             };
-            class Voice: Combo {
+            class Speaker: Combo {
                 displayName = "$STR_controls_presets";
-                property = "voice";
+                property = "speaker";
                 defaultValue="'LanguageFRE_F'";
                 class values {
                     class LanguageENG_F {
