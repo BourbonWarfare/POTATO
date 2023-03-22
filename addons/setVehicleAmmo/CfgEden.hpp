@@ -56,16 +56,24 @@ class Cfg3DEN {
 
     class Object {
         class AttributeCategories {
-            class ADDON {
-                displayName = "POTATO: Set Vehicle Ammo";
-                collapsed = 1;
+            class potato_attributes {
                 class Attributes {
+                    class vehicleCustomizationSet {
+                        displayName = "Copy Custom Garage Apperence";
+                        tooltip = "Apply this vehicle's camo customiation to ALL other vehicles spawned with the SAME classname";
+                        property = QGVAR(vehicleCustomizationSet);
+                        control = "Checkbox";
+                        expression = QUOTE(if (_value) then { call FUNC(vehicleCustomizationSet) });
+                        typeName = "BOOL";
+                        condition = "objectVehicle";
+                        defaultValue = "(false)";
+                    };
                     class ADDON {
                         displayName = "Set Vehicle Ammo";
                         tooltip = "";
                         property = QGVAR(vehAmmoAttribute);
                         control = QGVAR(vehAmmoAttribute);
-                        defaultValue = "";
+                        defaultValue = "''";
                         typeName = "STRING";
                         expression = QUOTE([ARR_2(_this,_value)] call FUNC(initVehicle));
                         condition = "objectVehicle";

@@ -12,3 +12,14 @@ class display3DEN {
         };
     };
 };
+
+class Cfg3DEN {
+    class Object {
+        class AttributeCategories {
+            class potato_attributes {
+                displayName = "POTATO";
+                collapsed = 1;
+            };
+        };
+    };
+};
