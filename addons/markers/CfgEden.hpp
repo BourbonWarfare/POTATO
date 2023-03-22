@@ -85,7 +85,7 @@ class Cfg3DEN {
                     rows = 4;
                     columns = 5;
                     strings[] = {UNIT_MARKERS_STRINGS};
-                    values[] = {UNIT_MARKERS_STRINGS};
+                    values[] = {UNIT_MARKERS_STRINGS_STRINGS};
                     tooltips[] = {
                         "Unknown",
                         "Infantry",

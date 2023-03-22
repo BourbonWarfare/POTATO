@@ -100,6 +100,28 @@ QPATHTOF(data\attack_helicopter.paa),\
 QPATHTOF(data\fixed_wing.paa),\
 QPATHTOF(data\attack_fixed_wing.paa)
 
+// e.g. "'\z\potato\addons\markers\data\unknown.paa'"
+#define UNIT_MARKERS_STRINGS_STRINGS QUOTE('PATHTOF(data\unknown.paa)'),\
+QUOTE('PATHTOF(data\infantry.paa)'),\
+QUOTE('PATHTOF(data\motorized_infantry.paa)'),\
+QUOTE('PATHTOF(data\mechanized_infantry.paa)'),\
+QUOTE('PATHTOF(data\hq.paa)'),\
+QUOTE('PATHTOF(data\mmg.paa)'),\
+QUOTE('PATHTOF(data\mat.paa)'),\
+QUOTE('PATHTOF(data\msam.paa)'),\
+QUOTE('PATHTOF(data\mortar.paa)'),\
+QUOTE('PATHTOF(data\engineer.paa)'),\
+QUOTE('PATHTOF(data\maintenance.paa)'),\
+QUOTE('PATHTOF(data\recon.paa)'),\
+QUOTE('PATHTOF(data\support.paa)'),\
+QUOTE('PATHTOF(data\medical.paa)'),\
+QUOTE('PATHTOF(data\artillery.paa)'),\
+QUOTE('PATHTOF(data\armor.paa)'),\
+QUOTE('PATHTOF(data\helicopter.paa)'),\
+QUOTE('PATHTOF(data\attack_helicopter.paa)'),\
+QUOTE('PATHTOF(data\fixed_wing.paa)'),\
+QUOTE('PATHTOF(data\attack_fixed_wing.paa)')
+
 #define UNIT_MARKER_SIZES 16,24,32
 #define UNIT_MARKER_SIZES_STRINGS "Small","Medium","Large"
 
