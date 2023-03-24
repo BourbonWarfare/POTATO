@@ -13,8 +13,8 @@ private _cargo = getNumber (_config >> "transportSoldier");
 private _turrets = [_type, true] call bis_fnc_allTurrets;
 {
     private _turretConfig = [_config, _x] call ACEFUNC(common,getTurretConfigPath);
-    if ((getNumber (_turretConfig >> "CUP_LockTurret")) == 1) then { diag_log "cupTur"; continue; }; // ignore Cup Locked Turret
-    if ((getNumber (_turretConfig >> "isCopilot")) == 1) then { diag_log "copilot"; continue; }; // ignore
+    if ((getNumber (_turretConfig >> "CUP_LockTurret")) == 1) then { continue; }; // ignore Cup Locked Turret
+    if ((getNumber (_turretConfig >> "isCopilot")) == 1) then { continue; }; // ignore
     private _weapons = getArray (_turretConfig >> "weapons");
     if (_weapons isEqualTo [] || {(_weapons # 0) == "rhs_weap_DummyLauncher"}) then { // something rhs does for ffv
         _cargo = _cargo + 1;
