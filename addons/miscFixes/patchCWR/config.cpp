@@ -42,22 +42,4 @@ class CfgVehicles {
     };
 };
 
-class CfgGroups {
-	class West {
-        class CWR3_USA {
-            class Infantry80 {
-                class cwr3_b_rifle_squad80 {
-                    class Unit4 { vehicle = "cwr3_b_soldier80_ar_m16"; };
-                };
-                class cwr3_b_fire_team80 {
-                    class Unit1 { vehicle = "cwr3_b_soldier80_ar_m16"; };
-                };
-                class cwr3_b_support_team80 {
-                    class Unit1 { vehicle = "cwr3_b_soldier80_ar_m16"; };
-                };
-            };
-        };
-    };
-};
-
 #endif
