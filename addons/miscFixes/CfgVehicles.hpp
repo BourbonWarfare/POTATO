@@ -48,18 +48,6 @@ class CfgVehicles {
     class Heli_Transport_02_base_F: Helicopter_Base_H {waterLeakiness=0.1;};
 
 
-    // Fix CBA XEH Fallback Code for misc logic/objects that don't support it: 
-    // x3 = [true] call CBA_fnc_supportMonitor;
-    // {
-    // _x params ["_vehType", "_addon"];
-    // private _parent = configName inheritsFrom (configFile >> "CfgVehicles" >> _vehType);
-    // diag_log text format ["class %1: %2 { SLX_XEH_DISABLED = 1; }; // %3 -> %4", _vehType, _parent, _addon, getText (configFile >> "CfgVehicles" >> _vehType >> "displayName")];
-    // } forEach x3;
-
-
-
-
-
     // CUP-ACE_Viewports compat
     class Wheeled_APC_F;
     class Tank_F;
