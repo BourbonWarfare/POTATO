@@ -126,6 +126,7 @@ class CfgWeapons {
         };
     };
 
+    class Rifle_Long_Base_F;
 	class CUP_lmg_M240: Rifle_Long_Base_F { // Applies good cool m240 custom recoil values defined in cfgrecoil
 			recoil = "recoil_m240";
 	};
@@ -133,7 +134,7 @@ class CfgWeapons {
 	class CUP_lmg_PKM: Rifle_Long_Base_F { // Applies good cool PKM custom recoil values defined in cfgrecoil
 			recoil = "recoil_pkm";
 	};
-	
+	class CUP_saw_base;
 	class CUP_lmg_minimipara: CUP_saw_base { // Applies good cool M249 custom recoil values defined in cfgrecoil
 			recoil = "recoil_SAW";
 	};
