@@ -1,6 +1,6 @@
 // Discord Rich Presence
 class CfgDiscordRichPresence {
-    applicationID="1059590927930368170";                                    // Provided by discord
+    applicationID="1115795653860278354";                                    // Provided by discord
     defaultDetails="BW ARMA";                                               // Upper text
     defaultState="https://bourbonwarfare.com/";                             // Lower text  
     defaultLargeImageKey="bwlogo";                                          // Large image
