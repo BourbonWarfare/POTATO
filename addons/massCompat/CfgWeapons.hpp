@@ -8,10 +8,10 @@ class CfgWeapons {
     class Pistol_Base_F;
     class Rifle_Long_Base_F;
     class Rifle_Short_Base_F;
-    class rhs_weap_ak74m;
-    class rhs_weap_ak103_base;
-    class rhs_weap_aks74;
-    class rhs_weap_svdp;
+    //class RHS_weap_ak74m;
+    //class RHS_weap_ak103_base;
+    //class RHS_weap_aks74;
+    //class RHS_weap_svdp;
     class hgun_PDW2000_F;
     class CUP_arifle_DSA_SA58;
     class CUP_arifle_G36_Base_CarryhandleOptics;
@@ -34,25 +34,25 @@ class CfgWeapons {
     class CUP_arifle_Colt727;
 
     // init speeds
-    class rhs_weap_ak105: rhs_weap_ak74m {
+    //class RHS_weap_ak105: rhs_weap_ak74m {
         initSpeed = -1.0;
     };
-    class rhs_weap_ak104: rhs_weap_ak103_base {
+    //class RHS_weap_ak104: rhs_weap_ak103_base {
         initSpeed = -1.0;
     };
-    class rhs_weap_aks74u: rhs_weap_aks74 {
+    //class RHS_weap_aks74u: rhs_weap_aks74 {
         initSpeed = -1.0;
     };
-    class rhs_weap_asval: rhs_weap_ak74m {
+    //class RHS_weap_asval: rhs_weap_ak74m {
         initSpeed = -1.0;
     };
-    class rhs_weap_vss: rhs_weap_asval {
+    //class RHS_weap_vss: rhs_weap_asval {
         initSpeed = -1.0;
     };
-    class rhs_weap_svds: rhs_weap_svdp {
+    //class RHS_weap_svds: rhs_weap_svdp {
         initSpeed = -1.0;
     };
-    class rhs_weap_pp2000: hgun_PDW2000_F {
+    //class RHS_weap_pp2000: hgun_PDW2000_F {
         initSpeed = -1.0;
     };
     class CUP_arifle_ACR_BASE_556: Rifle_Base_F {

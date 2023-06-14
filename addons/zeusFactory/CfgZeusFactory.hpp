@@ -22,14 +22,14 @@ class CfgZeusFactory {
         "O_Truck_03_transport_F", // Typhoon
 
         // RHS Cars
-        "rhs_uaz_open_Base", // UAZ Jeep Carrier
-        "rhs_tigr_vdv", // Tiger
-        "rhs_tigr_sts_vdv", // Tiger LMG/GMG
+        //"RHS_uaz_open_Base", // UAZ Jeep Carrier
+        //"RHS_tigr_vdv", // Tiger
+        //"RHS_tigr_sts_vdv", // Tiger LMG/GMG
 
         // RHS Trucks
-        "rhs_gaz66_msv", // GAZ 66 open truck
-        "RHS_Ural_MSV_Base", // Ural 4320 open truck
-        "rhs_kamaz5350_open_vdv", // KamAZ 5350
+        //"RHS_gaz66_msv", // GAZ 66 open truck
+        //"RHS_Ural_MSV_Base", // Ural 4320 open truck
+        //"RHS_kamaz5350_open_vdv", // KamAZ 5350
 
         // CUP Cars
         "CUP_B_Jackal2_L2A1_GB_W", // Woodland Jackal HMG
@@ -85,16 +85,16 @@ class CfgZeusFactory {
         "CUP_B_Boxer_HMG_GER_DES", //Desert Boxer HMG
         "CUP_B_Boxer_HMG_GER_WDL", //Woodland Boxer HMG
         "CUP_B_Boxer_HMG_HIL", //Jungle Boxer HMG
-        "rhs_btr60_msv", // BTR 60 APC
-        "rhs_btr70_msv", // BTR 70 APC
-        "rhs_btr80_msv", // BTR 80 APC
-        "rhs_btr80a_msv", // BTR 80A IFV
-        "rhs_bmp1_msv", // BMD 1 IFV
-        "rhs_bmd2m", // BMD 2M IFV
-        "rhs_bmd4m_vdv", // BMD 4 IFV
-        "rhs_bmp1_vdv", // BMP 1 IFV
-        "rhs_bmp2_msv", // BMP 2M IFV
-        "rhs_bmp3_msv", // BMP 3 IFV
+        //"RHS_btr60_msv", // BTR 60 APC
+        //"RHS_btr70_msv", // BTR 70 APC
+        //"RHS_btr80_msv", // BTR 80 APC
+        //"RHS_btr80a_msv", // BTR 80A IFV
+        //"RHS_bmp1_msv", // BMD 1 IFV
+        //"RHS_bmd2m", // BMD 2M IFV
+        //"RHS_bmd4m_vdv", // BMD 4 IFV
+        //"RHS_bmp1_vdv", // BMP 1 IFV
+        //"RHS_bmp2_msv", // BMP 2M IFV
+        //"RHS_bmp3_msv", // BMP 3 IFV
 
         // CUP APCs
         "CUP_B_M1126_ICV_M2_Woodland", // Woodland Styker HMG
@@ -131,10 +131,10 @@ class CfgZeusFactory {
         "O_Heli_Attack_02_F", // Mi 48 Kajman
 
         // RHS Transport Helicopters
-        "RHS_Mi8AMT_vdv", // Mi 8
+        //"RHS_Mi8AMT_vdv", // Mi 8
 
         // RHS Armed Helicopters
-        "RHS_Mi8AMTSh_vvs", // Mi 8 (armed)
+        //"RHS_Mi8AMTSh_vvs", // Mi 8 (armed)
 
         // CUP Transport Helicopters
         "CUP_O_MI6T_RU", // Mi 6 mass trans

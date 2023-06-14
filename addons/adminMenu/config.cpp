@@ -36,7 +36,7 @@ class GVAR(supplies) {
     class I_MRAP_03_hmg_F {};
     class O_APC_Wheeled_02_rcws_F {};
     class B_MBT_01_TUSK_F {};
-    class rhs_t80u {};
+    //class RHS_t80u {};
 
     class B_Heli_Transport_01_F {};
     class O_Heli_Light_02_unarmed_F {};

@@ -30,10 +30,10 @@ class CfgWeapons {
     class Vest_Camo_Base: ItemCore {
         class ItemInfo;
     };
-    class rhs_vydra_3m: Vest_Camo_Base {
+    //class RHS_vydra_3m: Vest_Camo_Base {
         class ItemInfo: ItemInfo {};
     };
-    class rhs_vydra_3m_bwArmorMod: rhs_vydra_3m {
+    //class RHS_vydra_3m_bwArmorMod: rhs_vydra_3m {
         displayName = "Vydra-3M [coop plot armor]";
         descriptionShort = "Armor Level IV";
         class ItemInfo: ItemInfo {

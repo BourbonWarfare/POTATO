@@ -2453,7 +2453,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class rhs_weap_pkt: PKT {
+    //class RHS_weap_pkt: PKT {
         modes[] = {"manual","close","short","medium","far"};
         class manual: MGun {
             showToPlayer = 1;
@@ -2515,7 +2515,7 @@ class CfgWeapons {
             showToPlayer = 0;
         };
     };
-    class rhs_weap_pktm: rhs_weap_pkt {
+    //class RHS_weap_pktm: rhs_weap_pkt {
         modes[] = {"manual","close","short","medium","far"};
         class manual: manual {
             showToPlayer = 1;
@@ -2591,7 +2591,7 @@ class CfgWeapons {
             maxRangeProbab = 0.1;
         };
     };
-    class rhs_weap_DSHKM: LMG_RCWS {
+    //class RHS_weap_DSHKM: LMG_RCWS {
         modes[] = {"manual","close","short","medium","far"};
         class manual: MGun {
             showToPlayer = 1;
@@ -2653,7 +2653,7 @@ class CfgWeapons {
             showToPlayer = 0;
         };
     };
-    class rhs_weap_nsvt: rhs_weap_DSHKM {
+    //class RHS_weap_nsvt: rhs_weap_DSHKM {
         modes[] = {"manual","close","short","medium","far"};
         class manual: MGun {
             showToPlayer = 1;
@@ -2715,10 +2715,10 @@ class CfgWeapons {
             showToPlayer = 0;
         };
     };
-    class rhs_weap_nsvt_effects: rhs_weap_nsvt {
+    //class RHS_weap_nsvt_effects: rhs_weap_nsvt {
         modes[] = {"manual","close","short","medium","far"};
     };
-    class rhs_weap_kord: rhs_weap_nsvt_effects {
+    //class RHS_weap_kord: rhs_weap_nsvt_effects {
         modes[] = {"manual","close","short","medium","far"};
         class manual: manual {
             aiRateOfFire = 0.5;
@@ -2780,7 +2780,7 @@ class CfgWeapons {
             showToPlayer = 0;
         };
     };
-    class rhs_weap_kpvt: MGun {
+    //class RHS_weap_kpvt: MGun {
         modes[] = {"manual","close","short","medium","far"};
         class manual: MGun {
             showToPlayer = 1;
@@ -2842,7 +2842,7 @@ class CfgWeapons {
             showToPlayer = 0;
         };
     };
-    class rhs_weap_pkm_tigr: rhs_weap_pkt {
+    //class RHS_weap_pkm_tigr: rhs_weap_pkt {
         modes[] = {"manual","close","short","medium","far"};
         class manual: manual {
             showToPlayer = 1;
@@ -2904,7 +2904,7 @@ class CfgWeapons {
             showToPlayer = 0;
         };
     };
-    class rhs_weap_azp23: CannonCore {
+    //class RHS_weap_azp23: CannonCore {
         modes[] = {"manual","close","short","medium","far"};
         class manual: CannonCore {
             showToPlayer = 1;
@@ -2966,7 +2966,7 @@ class CfgWeapons {
             showToPlayer = 0;
         };
     };
-    class rhs_weap_2a14: rhs_weap_azp23 {
+    //class RHS_weap_2a14: rhs_weap_azp23 {
         modes[] = {"manual","close","short","medium","far"};
         class manual: manual {
             showToPlayer = 1;
@@ -2980,7 +2980,7 @@ class CfgWeapons {
             maxRangeProbab = 0.01;
         };
     };
-    class RHS_SAFE_BASE: Rifle_Base_F {
+    //class RHS_SAFE_BASE: Rifle_Base_F {
         modes[] = {"Safe"};
         class Safe: Mode_SemiAuto {
             showToPlayer = 0;
@@ -2995,7 +2995,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class RHS_FOLD_BASE: Rifle_Base_F {
+    //class RHS_FOLD_BASE: Rifle_Base_F {
         modes[] = {"Safe"};
         class Safe: Mode_SemiAuto {
             showToPlayer = 0;
@@ -3010,7 +3010,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class rhs_weap_ak74m_Base_F: Rifle_Base_F {
+    //class RHS_weap_ak74m_Base_F: Rifle_Base_F {
         modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
         class Single: Mode_SemiAuto {
             minRange = 2;
@@ -3065,10 +3065,10 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class rhs_weap_ak74m: rhs_weap_ak74m_Base_F {
+    //class RHS_weap_ak74m: rhs_weap_ak74m_Base_F {
         modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
     };
-    class rhs_weap_ak105: rhs_weap_ak74m {
+    //class RHS_weap_ak105: rhs_weap_ak74m {
         modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
         class Single: Single {
             minRange = 2;
@@ -3093,7 +3093,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class rhs_weap_akm: rhs_weap_ak74m {
+    //class RHS_weap_akm: rhs_weap_ak74m {
         modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
         class Single: Mode_SemiAuto {
             minRange = 2;
@@ -3148,7 +3148,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 200;
         };
     };
-    class rhs_weap_ak103_base: rhs_weap_akm {
+    //class RHS_weap_ak103_base: rhs_weap_akm {
         modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
         class Single: Single {
             minRange = 2;
@@ -3194,7 +3194,7 @@ class CfgWeapons {
 
         };
     };
-    class rhs_weap_ak103_1: rhs_weap_ak103_base {
+    //class RHS_weap_ak103_1: rhs_weap_ak103_base {
         modes[] = {"Single","single_medium_optics1","single_far_optics2"};
         class Single: Single {
             minRange = 2;
@@ -3214,7 +3214,7 @@ class CfgWeapons {
 
         };
     };
-    class rhs_weap_ak103_2: rhs_weap_ak103_base {
+    //class RHS_weap_ak103_2: rhs_weap_ak103_base {
         modes[] = {"Single","Burst","single_medium_optics1","single_far_optics2"};
         class Single: Single {
             minRange = 2;
@@ -3245,7 +3245,7 @@ class CfgWeapons {
 
         };
     };
-    class rhs_weap_ak104: rhs_weap_ak103_base {
+    //class RHS_weap_ak104: rhs_weap_ak103_base {
         modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
         class Single: Single {
             minRange = 2;
@@ -3270,13 +3270,13 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class rhs_weap_ak74: rhs_weap_ak74m {
+    //class RHS_weap_ak74: rhs_weap_ak74m {
         modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
     };
-    class rhs_weap_aks74: rhs_weap_ak74 {
+    //class RHS_weap_aks74: rhs_weap_ak74 {
         modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
     };
-    class rhs_weap_aks74u: rhs_weap_aks74 {
+    //class RHS_weap_aks74u: rhs_weap_aks74 {
         modes[] = {"FullAuto","Single","single_medium_optics1","single_far_optics2","fullauto_medium"};
         class FullAuto: FullAuto {
             minRange = 0;
@@ -3319,7 +3319,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class rhs_weap_asval: rhs_weap_ak74m {
+    //class RHS_weap_asval: rhs_weap_ak74m {
         modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
         class Single: Single {
             minRange = 2;
@@ -3362,7 +3362,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 75;
         };
     };
-    class rhs_weap_vss: rhs_weap_asval {
+    //class RHS_weap_vss: rhs_weap_asval {
         modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
         class Single: Single {
             minRange = 2;
@@ -3387,7 +3387,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class rhs_weap_svd: rhs_weap_ak74m {
+    //class RHS_weap_svd: rhs_weap_ak74m {
         modes[] = {"Single","single_close_optics1","single_medium_optics1","single_far_optics1"};
         class Single: Mode_SemiAuto {
             minRange = 2;
@@ -3410,7 +3410,7 @@ class CfgWeapons {
 
         };
     };
-    class rhs_weap_svdp: rhs_weap_svd {
+    //class RHS_weap_svdp: rhs_weap_svd {
         modes[] = {"Single","single_close_optics1","single_medium_optics1","single_far_optics1"};
         class Single: Mode_SemiAuto {
             minRange = 2;
@@ -3433,7 +3433,7 @@ class CfgWeapons {
 
         };
     };
-    class rhs_weap_svds: rhs_weap_svdp {
+    //class RHS_weap_svds: rhs_weap_svdp {
         modes[] = {"Single","single_close_optics1","single_medium_optics1","single_far_optics1"};
         class Single: Single {
             minRange = 2;
@@ -3447,7 +3447,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class rhs_weap_orsis_Base_F: Rifle_Base_F {
+    //class RHS_weap_orsis_Base_F: Rifle_Base_F {
         modes[] = {"Single","far_optic1","medium_optic2","far_optic2"};
         class Single: Mode_SemiAuto {
             minRange = 2;
@@ -3498,7 +3498,7 @@ class CfgWeapons {
 
         };
     };
-    class rhs_weap_pp2000: hgun_PDW2000_F {
+    //class RHS_weap_pp2000: hgun_PDW2000_F {
         modes[] = {"Single","FullAuto"};
         class Single: single {
             minRange = 2;
@@ -3523,7 +3523,7 @@ class CfgWeapons {
             showToPlayer = 1;
         };
     };
-    class rhs_weap_an94_base: Rifle_Base_F {
+    //class RHS_weap_an94_base: Rifle_Base_F {
         modes[] = {"Single","Burst","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
         class Single: Mode_SemiAuto {
             minRange = 2;
@@ -3589,7 +3589,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class rhs_pkp_base: Rifle_Long_Base_F {
+    //class RHS_pkp_base: Rifle_Long_Base_F {
         modes[] = {"FullAuto","Single","close","short","medium","far_optic1","far_optic2"};
         class FullAuto: Mode_FullAuto {
             minRange = 0;
@@ -3657,10 +3657,10 @@ class CfgWeapons {
 
         };
     };
-    class rhs_weap_pkp: rhs_pkp_base {
+    //class RHS_weap_pkp: rhs_pkp_base {
         modes[] = {"FullAuto","Single","close","short","medium","far_optic1","far_optic2"};
     };
-    class rhs_weap_pkm: rhs_weap_pkp {
+    //class RHS_weap_pkm: rhs_weap_pkp {
         modes[] = {"manual","close","short","medium","far_optic1","far_optic2"};
         class manual: FullAuto {
             minRange = 0;
@@ -3716,7 +3716,7 @@ class CfgWeapons {
 
         };
     };
-    class rhs_weap_rpk_base: Rifle_Long_Base_F {
+    //class RHS_weap_rpk_base: Rifle_Long_Base_F {
         modes[] = {"single","manual","close","short","medium","far_optic1","far_optic2"};
         class single: Mode_SemiAuto {
             minRange = 0;
