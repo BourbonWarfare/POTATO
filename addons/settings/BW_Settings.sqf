@@ -94,5 +94,9 @@ _settings = [
 ["diwako_dui_nametags_enableocclusion", false, true], // User-Setting
 ["diwako_dui_nametags_showunconasdead", true, true], // User-Setting
 ["diwako_dui_nametags_renderdistance", 40, true], // User-Setting
-["diwako_dui_nametags_deadrenderdistance", 3.5, true] // User-Setting
+["diwako_dui_nametags_deadrenderdistance", 3.5, true], // User-Setting
+
+// ACE Armor Adjuster
+["AAA_VAR_MOD_ENABLED", false]
+
 ];
