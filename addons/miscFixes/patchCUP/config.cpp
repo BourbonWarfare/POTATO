@@ -59,24 +59,24 @@ class CfgVehicles {
 
 class CfgRecoils
 {
-	class GVAR(recoil_m240): recoil_default {
-		muzzleOuter[] = {0.9,1.3,0.35,0.25};
-		kickBack[] = {0.015,0.02};
-		permanent = 0.05;
-		temporary = 0.005;
-	};
-	class GVAR(recoil_pkm): recoil_default {
-		muzzleOuter[] = {1.1,0.8,0.4,0.2};
-		kickBack[] = {0.015,0.03};
-		permanent = 0.1;
-		temporary = 0.005;
-	};
-	class GVAR(recoil_SAW): recoil_default {
-		muzzleOuter[] = {0.8,1.4,0.35,0.25};
-		kickBack[] = {0.015,0.02};
-		permanent = 0.08;
-		temporary = 0.009;
-	};
+    class GVAR(recoil_m240): recoil_default {
+        muzzleOuter[] = {0.9,1.3,0.35,0.25};
+        kickBack[] = {0.015,0.02};
+        permanent = 0.05;
+        temporary = 0.005;
+    };
+    class GVAR(recoil_pkm): recoil_default {
+        muzzleOuter[] = {1.1,0.8,0.4,0.2};
+        kickBack[] = {0.015,0.03};
+        permanent = 0.1;
+        temporary = 0.005;
+    };
+    class GVAR(recoil_SAW): recoil_default {
+        muzzleOuter[] = {0.8,1.4,0.35,0.25};
+        kickBack[] = {0.015,0.02};
+        permanent = 0.08;
+        temporary = 0.009;
+    };
 };
 
 class CfgWeapons {
@@ -125,15 +125,15 @@ class CfgWeapons {
 
     class Rifle_Long_Base_F;
 	class CUP_lmg_M240: Rifle_Long_Base_F { // Applies good cool m240 custom recoil values defined in cfgrecoil
-			recoil = QGVAR(recoil_m240);
+        recoil = QGVAR(recoil_m240);
 	};
 	
 	class CUP_lmg_PKM: Rifle_Long_Base_F { // Applies good cool PKM custom recoil values defined in cfgrecoil
-			recoil = QGVAR(recoil_pkm);
+        recoil = QGVAR(recoil_pkm);
 	};
 	class CUP_saw_base;
 	class CUP_lmg_minimipara: CUP_saw_base { // Applies good cool M249 custom recoil values defined in cfgrecoil
-			recoil = QGVAR(recoil_SAW);
+        recoil = QGVAR(recoil_SAW);
 	};
 };
 
