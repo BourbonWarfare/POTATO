@@ -35,26 +35,26 @@ class CfgWeapons {
 
     // init speeds
     //class RHS_weap_ak105: rhs_weap_ak74m {
-        initSpeed = -1.0;
-    };
+    //     initSpeed = -1.0;
+    // };
     //class RHS_weap_ak104: rhs_weap_ak103_base {
-        initSpeed = -1.0;
-    };
+    //     initSpeed = -1.0;
+    // };
     //class RHS_weap_aks74u: rhs_weap_aks74 {
-        initSpeed = -1.0;
-    };
+    //     initSpeed = -1.0;
+    // };
     //class RHS_weap_asval: rhs_weap_ak74m {
-        initSpeed = -1.0;
-    };
+    //     initSpeed = -1.0;
+    // };
     //class RHS_weap_vss: rhs_weap_asval {
-        initSpeed = -1.0;
-    };
+    //     initSpeed = -1.0;
+    // };
     //class RHS_weap_svds: rhs_weap_svdp {
-        initSpeed = -1.0;
-    };
+    //     initSpeed = -1.0;
+    // };
     //class RHS_weap_pp2000: hgun_PDW2000_F {
-        initSpeed = -1.0;
-    };
+    //     initSpeed = -1.0;
+    // };
     class CUP_arifle_ACR_BASE_556: Rifle_Base_F {
         initSpeed = -1.0;
     };
@@ -287,7 +287,7 @@ class CfgWeapons {
     class cwr3_arifle_xr74: cwr3_arifle_xr47 {
         magazineWell[] += { "CBA_545x39_AK" };
     };
-    
+
     class arifle_MSBS65_base_F: Rifle_Base_F {
         magazineWell[] += { "CBA_65x39_MX" };
     };

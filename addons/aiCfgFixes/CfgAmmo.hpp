@@ -133,15 +133,15 @@ class CfgAmmo {
         cost = 50;
     };
     //class RHS_ammo_rpg75_rocket: R_PG32V_F {
-        audibleFire = 16;
-    };
+    //     audibleFire = 16;
+    // };
     //class RHS_rpg26_rocket: R_PG32V_F {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
-        allowAgainstInfantry = 1;
-        cost = 50;
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    //     aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+    //     allowAgainstInfantry = 1;
+    //     cost = 50;
+    // };
     class BulletBase: BulletCore {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
@@ -263,8 +263,8 @@ class CfgAmmo {
         audibleFire = 200;
     };
     //class RHS_Ammo_DIRCM_Vitebsk: BulletBase {
-        audibleFire = 0;
-    };
+    //     audibleFire = 0;
+    // };
     class B_20mm_AP: BulletBase {
         audibleFire = 200;
     };
@@ -360,13 +360,13 @@ class CfgAmmo {
     class CUP_B_762x51_noTracer;
     class HLC_GP11_FMJ;
     //class RHS_B_762x39_Ball: B_762x51_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    // };
     //class RHS_B_762x54_Ball: B_762x51_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    // };
     class CUP_B_762x51_White_Tracer_3RndBurst: CUP_B_762x51_noTracer {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
@@ -429,9 +429,9 @@ class CfgAmmo {
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
     //class RHS_B_545x39_Ball: B_556x45_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    // };
     class B_556x45_dual: B_556x45_Ball {
         audibleFire = AI_AUDIBLE_FIRE_1;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
@@ -501,73 +501,73 @@ class CfgAmmo {
         audibleFire = 6;
     };
     //class RHS_ammo_mixed_23x115mm: SubmunitionBase {
-        audibleFire = 32;
-    };
+    //     audibleFire = 32;
+    // };
     //class RHS_ammo_gsh30_mixed: SubmunitionBase {
-        audibleFire = 32;
-    };
-    class SubmunitionBullet;
+    //     audibleFire = 32;
+    // };
+    // class SubmunitionBullet;
     //class RHS_B_9x21_7BT3: B_9x21_Ball {
-        audibleFire = 5.65;
-    };
+    //     audibleFire = 5.65;
+    // };
     //class RHS_B_9x21_7N29: B_9x21_Ball {
-        audibleFire = 5.65;
-    };
+    //     audibleFire = 5.65;
+    // };
     //class RHS_B_9x21_7N28: B_9x21_Ball {
-        audibleFire = 5.65;
-    };
+    //     audibleFire = 5.65;
+    // };
     //class RHS_B_9x18_57N181S: B_9x21_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    // };
     //class RHS_B_9x19_7N21: B_9x21_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    // };
     //class RHS_rpg7v2_pg7vl: rhs_rpg26_rocket {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    // };
     //class RHS_B_9x39_SP5: rhs_B_762x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_1;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
+    // };
     //class RHS_B_762x39_U_Ball: rhs_B_762x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_1;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
+    // };
     //class RHS_B_545x39_7U1_Ball: rhs_B_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_1;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_1;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
+    // };
     //class RHS_B_545x39_7N24_Ball: rhs_B_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    // };
     //class RHS_B_545x39_7N22_Ball: rhs_B_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    // };
     //class RHS_B_545x39_7N10_Ball: rhs_B_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    // };
     //class RHS_B_545x39_7N6_Ball: rhs_B_545x39_Ball {
-        audibleFire = AI_AUDIBLE_FIRE_0;
-        GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
+    //     audibleFire = AI_AUDIBLE_FIRE_0;
+    //     GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
+    // };
     //class RHS_ammo_23mm_AA: B_35mm_AA {
-        audibleFire = 32;
-    };
+    //     audibleFire = 32;
+    // };
     //class RHS_ammo_30x165mm_base: B_30mm_AP {
-        audibleFire = 32;
-    };
+    //     audibleFire = 32;
+    // };
     //class RHS_m21OF_fly: R_230mm_fly {
-        audibleFire = 64;
-    };
+    //     audibleFire = 64;
+    // };
     //class RHS_ammo_3d17_shell: Grenade {
-        audibleFire = 0.05;
-    };
+    //     audibleFire = 0.05;
+    // };
     class GrenadeHand: Grenade {
         audibleFire = 0.05;
     };
@@ -621,4 +621,3 @@ class CfgAmmo {
         cost = 50;
     };
 };
-
