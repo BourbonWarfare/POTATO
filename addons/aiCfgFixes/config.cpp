@@ -1,11 +1,8 @@
 #include "script_component.hpp"
 
-#ifdef POTATO_LEAN_RHS_CUP_HLC
-#define PATCH_SKIP POTATO_LEAN_RHS_CUP_HLC
-#endif
-#if __has_include("\hlc_core\config.bin")
+#if __has_include("\CUP\Vehicles\CUP_Vehicles_LoadOrder\config.bin")
 #else
-#define PATCH_SKIP "HLC"
+#define PATCH_SKIP "CUP Vehicles"
 #endif
 
 #ifdef PATCH_SKIP
@@ -17,9 +14,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "potato_core", "ACE_ai",
-            "hlcweapons_AUG", "hlcweapons_g3", "hlcweapons_G36", "hlcweapons_MG3s", "hlcweapons_mp5", "hlcweapons_stgw57", "hlcweapons_Johnson",
-            "rhs_main_loadorder", "CUP_Weapons_LoadOrder"
+            "potato_core", "ACE_ai", "CUP_Weapons_LoadOrder"
         };
         author = "Potato";
         authors[] = {"Dani (TCVM)"};

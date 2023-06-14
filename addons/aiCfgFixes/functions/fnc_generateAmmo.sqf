@@ -9,19 +9,38 @@
  * None
  *
  * Example:
- * [] call potato_aiCfgFixes_fnc_generateAmmo;
+ * [[], ["potato_bullet", "rhs_", "hlc_", "vn_", "hafm"]] call potato_aiCfgFixes_fnc_generateAmmo
+ * [["rhs_", "hlc_", "vn_", "hafm"], ["potato_bullet"]] call potato_aiCfgFixes_fnc_generateAmmo
  *
  * Public: Yes
  */
 #include "script_component.hpp"
 #define SEARCH_CONFIG "configName(_x) isEqualTo 'audibleFire'"
 
-systemChat "Generating...";
+diag_log text "Generating...";
+
+params [["_filterAllow", []], ["_filterBlock", []]];
+_filterAllow = _filterAllow apply { toLower _x };
+_filterBlock = _filterBlock apply { toLower _x };
+private _fnc_filter = {
+    params ["_class"];
+    _class = toLower _class;
+    private _ret = (_filterAllow isEqualTo []);
+    {
+        if ((_class find _x) == 0) exitWith { _ret = true; };
+    } forEach _filterAllow;
+    {
+        if ((_class find _x) == 0) exitWith { _ret = false; };
+    } forEach _filterBlock;
+    _ret
+};
 
 private _ammoToGenerate = [];
 private _baseClasses = [];
 {
     // _x = ammo_config
+    if (((toLower configName _x) find "potato_bullet") == 0) then { continue; };
+    if (!([toLower configName _x] call _fnc_filter)) then { continue; }; 
     if (count configProperties[_x, SEARCH_CONFIG, false] > 0) then {
         private _inherited = inheritsFrom(_x);
         private _prevInherited = [];
@@ -35,9 +54,9 @@ private _baseClasses = [];
         };
         _ammoToGenerate append _prevInherited;
     };
-} forEach configProperties[configFile >> "CfgAmmo", "isClass _x"];
+} forEach configProperties [configFile >> "CfgAmmo", "isClass _x"];
 
-systemChat "Reversing...";
+diag_log text "Reversing...";
 reverse _ammoToGenerate;
 private _ammoToGenerateCorrect = [];
 {
@@ -80,14 +99,17 @@ private _retAmmo = [];
         };
     };
 } forEach _ammoToGenerate;
+diag_log text format ["_retAmmo = %1", count _retAmmo];
 
-systemChat "Setting usage flags...";
+diag_log text "Setting usage flags...";
 private _setAiUsageFlags = {
     params["_retAmmo"];
     
     private _setUsageFlags = {
         params["_retAmmo", "_ammo", "_flags", ["_extra", []]];
         
+        if (!([toLower _ammo] call _fnc_filter)) exitWith { _retAmmo };
+
         private _ammoUsageFlags = '"';
         {
             _ammoUsageFlags = _ammoUsageFlags + str(_x);
@@ -118,7 +140,7 @@ private _setAiUsageFlags = {
     
     _retAmmo = [_retAmmo, "potato_aiCfgFixes_he_rocket",    [64, 128, 512],         [["cost", "100"]]] call _setUsageFlags;
     _retAmmo = [_retAmmo, "CUP_R_70mm_Hydra_HE",            [64, 128, 512],         [["cost", "100"]]] call _setUsageFlags;
-    _retAmmo = [_retAmmo, "rhs_rpg26_rocket",               [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
+    // _retAmmo = [_retAmmo, "rhs_rpg26_rocket",               [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
     
     _retAmmo = [_retAmmo, "CUP_R_SMAW_HEDP_N",              [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
     _retAmmo = [_retAmmo, "CUP_R_RPG18_AT",                 [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
@@ -139,15 +161,15 @@ private _setAiUsageFlags = {
 
 _retAmmo = [_retAmmo] call _setAiUsageFlags;
 
-systemChat "Creating Config...";
+diag_log text "Creating Config...";
 private _finalStr = "class CfgAmmo {" + LINE_BREAK;
 
-systemChat "Printing base classes...";
+diag_log text "Printing base classes...";
 {
     _finalStr = _finalStr + INDENT + "class " + configName(_x) + ";" + LINE_BREAK;
 } forEach _baseClasses;
 
-systemChat "Printing modified classes...";
+diag_log text "Printing modified classes...";
 {
     _x params ["_ammoArr", "_printValues"];
     _ammoArr params["_ammoCfg", "_ammoName"];
@@ -167,6 +189,6 @@ systemChat "Printing modified classes...";
 _finalStr = _finalStr + CFG_FOOTER;
 
 copyToClipboard _finalStr;
-systemChat "Done Generating CfgAmmo";
-systemChat "Finished";
+diag_log text "Done Generating CfgAmmo";
+diag_log text "Finished";
 
