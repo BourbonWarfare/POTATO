@@ -22,7 +22,7 @@ class CfgPatches {
     };
 };
 
-class CfgVehicles {    
+class CfgWeapons {    
     class CUP_smg_MP5SD6;
     class cwr3_smg_sterling_sd: CUP_smg_MP5SD6 {
         magazineWell[] += { "CBA_9x19_STEN"};
@@ -38,7 +38,6 @@ class CfgVehicles {
     class cwr3_arifle_xr47: CUP_arifle_Colt727 {
         magazineWell[] += { "CBA_762x39_AK" };
     };
-    class cwr3_arifle_xr47;
     class cwr3_arifle_xr74: cwr3_arifle_xr47 {
         magazineWell[] += { "CBA_545x39_AK" };
     };

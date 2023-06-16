@@ -57,8 +57,8 @@ class CfgVehicles {
     };
 };
 
-class CfgRecoils
-{
+class CfgRecoils {
+    class recoil_default;
     class GVAR(recoil_m240): recoil_default {
         muzzleOuter[] = {0.9,1.3,0.35,0.25};
         kickBack[] = {0.015,0.02};
