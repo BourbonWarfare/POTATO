@@ -1,4 +1,4 @@
-name = "Potato 1.3.31";
+name = "Potato 0.0.0";
 picture = "potato_icon_ca.paa";
 actionName = "GitHub";
 action = "https://github.com/BourbonWarfare/POTATO";
