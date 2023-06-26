@@ -35,6 +35,8 @@ The project is entirely open-source and all contributions are welcome. Feel free
 No releases are planned, but everyone is welcome to build from source and adapt to their own needs.
 Note that it may require dev versions of [CBA](https://github.com/CBATeam/CBA_A3) and [ACE](https://github.com/acemod/ACE3)
 
+IMPORTANT: Do not the latest version of HEMTT. Use: https://github.com/BrettMayson/HEMTT/releases/tag/v0.10.0-rc1
+
 ## Building Info
 
 I'll add more here later, but TLDR; same build process as ACE: https://ace3.acemod.org/wiki/development/setting-up-the-development-environment.html#4-setup-and-building
