@@ -75,7 +75,7 @@ class CfgRecoils {
         muzzleOuter[] = {0.8,1.4,0.35,0.25};
         kickBack[] = {0.015,0.02};
         permanent = 0.08;
-        temporary = 0.009;
+        temporary = 0.005;
     };
 };
 
