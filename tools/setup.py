@@ -14,10 +14,12 @@ import winreg
 ######## GLOBALS #########
 MAINDIR = "z"
 PROJECTDIR = "potato"
+CBA = "P:\\x\\cba"
 ##########################
 
+
 def main():
-    FULLDIR = "{}\\{}".format(MAINDIR,PROJECTDIR)
+    FULLDIR = "{}\\{}".format(MAINDIR, PROJECTDIR)
     print("""
   ######################################
   # POTATO Development Environment Setup #
@@ -34,14 +36,14 @@ def main():
   This script will create two hard links on your system, both pointing to your POTATO project folder:
     [Arma 3 installation directory]\\{} => POTATO project folder
     P:\\{}                              => POTATO project folder
-""".format(FULLDIR,FULLDIR))
+""".format(FULLDIR, FULLDIR))
     print("\n")
 
     try:
         reg = winreg.ConnectRegistry(None, winreg.HKEY_LOCAL_MACHINE)
         key = winreg.OpenKey(reg,
-                r"SOFTWARE\Wow6432Node\bohemia interactive\arma 3")
-        armapath = winreg.EnumValue(key,1)[1]
+                             r"SOFTWARE\Wow6432Node\bohemia interactive\arma 3")
+        armapath = winreg.EnumValue(key, 1)[1]
     except:
         print("Failed to determine Arma 3 Path.")
         return 1
@@ -61,15 +63,26 @@ def main():
     if repl.lower() != "y":
         return 3
 
-    print("\n# Creating links ...")
+    hemmt_path = os.path.join(projectpath, ".hemttout", "dev")
+    print("\n# Use Hemmit Dev Path for arma filepatching:")
+    print(f"  y: {hemmt_path}")
+    print(f"  n: {projectpath}")
+    repl = input("(y/n): ")
+    filepatching_path = projectpath
+    if repl.lower() == "y":
+        if not os.path.exists(hemmt_path):
+            print(f"creating {hemmt_path}")
+            os.makedirs(hemmt_path)
+        filepatching_path = hemmt_path
 
-    if os.path.exists("P:\\{}\\{}".format(MAINDIR,PROJECTDIR)):
+    if os.path.exists("P:\\{}\\{}".format(MAINDIR, PROJECTDIR)):
         print("Link on P: already exists. Please finish the setup manually.")
         return 4
 
     if os.path.exists(os.path.join(armapath, MAINDIR, PROJECTDIR)):
         print("Link in Arma directory already exists. Please finish the setup manually.")
         return 5
+    print("\n# Creating links ...")
 
     try:
         if not os.path.exists("P:\\{}".format(MAINDIR)):
@@ -77,11 +90,12 @@ def main():
         if not os.path.exists(os.path.join(armapath, MAINDIR)):
             os.mkdir(os.path.join(armapath, MAINDIR))
 
-        subprocess.call(["cmd", "/c", "mklink", "/J", "P:\\{}\\{}".format(MAINDIR,PROJECTDIR), projectpath])
-        subprocess.call(["cmd", "/c", "mklink", "/J", os.path.join(armapath, MAINDIR, PROJECTDIR), projectpath])
+        subprocess.call(["cmd", "/c", "mklink", "/J", "P:\\{}\\{}".format(MAINDIR, PROJECTDIR), projectpath])
+        subprocess.call(["cmd", "/c", "mklink", "/J", os.path.join(armapath, MAINDIR, PROJECTDIR), filepatching_path])
     except:
-        print("Something went wrong during the link creation. Please finish the setup manually.")
         raise
+        print("Something went wrong during the link creation. Please finish the setup manually.")
+        return 6
 
     print("# Links created successfully.")
 
@@ -92,7 +106,7 @@ if __name__ == "__main__":
     exitcode = main()
 
     if exitcode > 0:
-        print("\nSomething went wrong during the setup")
+        print("\nSomething went wrong during the setup. Make sure you run this script as administrator. If these issues persist, please follow the instructions on the ACE3 wiki to perform the setup manually.")
     else:
         print("\nSetup successfully completed.")
 

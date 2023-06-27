@@ -37,6 +37,7 @@ Note that it may require dev versions of [CBA](https://github.com/CBATeam/CBA_A3
 
 ## Building Info
 
-I'll add more here later, but TLDR; same build process as ACE: https://ace3.acemod.org/wiki/development/setting-up-the-development-environment.html#4-setup-and-building
-
-IMPORTANT: Do not the latest version of HEMTT. Use: https://github.com/BrettMayson/HEMTT/releases/tag/v0.10.0-rc1
+Similar build process as ACE: https://ace3.acemod.org/wiki/development/setting-up-the-development-environment.html#4-setup-and-building
+- Grab Hemtt: https://github.com/BrettMayson/HEMTT/releases/latest
+- Optionally run setup.py to setup filepatching paths
+- Run `hemtt.exe dev` or `hemtt.exe build`

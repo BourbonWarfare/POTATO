@@ -1,4 +1,4 @@
-#include "\a3\ui_f_curator\ui\defineResinclDesign.inc"
+#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
 _mode = _this select 0;
 _params = _this select 1;
