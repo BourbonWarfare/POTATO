@@ -54,16 +54,34 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
             [false, 0, FOCUS_MEDICAL_RIGHT_LEG_IDC]
         ];
 
-        {
-            _x params ["", "_selectionIndex", "_amountOf", "_x4"];
-            // Find how much this bodypart is bleeding
-            if (_amountOf > 0) then {
-                private _bodySelection = _bodyInfo select _selectionIndex;
-                _bodySelection set [0, true];
-                _bodySelection set [1, (_bodySelection select 1) + (20 * _x4 * _amountOf)];
-            };
-            nil
-        } count (_unit getVariable [QACEGVAR(medical,openWounds), []]); // count used here for speed, ensure nil above this line
+        private _wounds = _unit getVariable [QACEGVAR(medical,openWounds), []];
+
+        if (_wounds isEqualType []) then {
+            {
+                _x params ["", "_selectionIndex", "_amountOf", "_x4"];
+                // Find how much this bodypart is bleeding
+                if (_amountOf > 0) then {
+                    private _bodySelection = _bodyInfo select _selectionIndex;
+                    _bodySelection set [0, true];
+                    _bodySelection set [1, (_bodySelection select 1) + (20 * _x4 * _amountOf)];
+                };
+            } forEach _wounds;
+        } else {
+            // hashmaps for ace 3.16.0
+            {
+                private _selectionIndex = ["head", "body", "leftarm", "rightarm", "leftleg", "rightleg"] find _x;
+                private _woundsOnPart = _y;
+                {
+                    _x params ["", "_amountOf", "_x4"];
+                    // Find how much this bodypart is bleeding
+                    if (_amountOf > 0) then {
+                        private _bodySelection = _bodyInfo select _selectionIndex;
+                        _bodySelection set [0, true];
+                        _bodySelection set [1, (_bodySelection select 1) + (20 * _x4 * _amountOf)];
+                    };
+                } forEach _woundsOnPart;
+            } forEach _wounds;
+        };
 
         {
             _x params ["_damaged", "_bloodLoss", "_idc"];
