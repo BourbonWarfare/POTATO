@@ -6,7 +6,6 @@ TRACE_2("canAttach",_display,_fncString);
 private _unit = missionNamespace getVariable ["ace_arsenal_center", player]; /// supports ace arsanal in 3den
 
 switch (toLower _fncString) do {
-case ("init"): {systemChat "Init";};
 case ("uniform"): {
         GVAR(loadout_uniform) = uniform _unit;
         GVAR(loadout_vest) = vest _unit;
