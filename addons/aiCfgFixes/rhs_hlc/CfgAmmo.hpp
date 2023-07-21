@@ -75,9 +75,6 @@ class CfgAmmo {
     class RHS_Ammo_DIRCM_Vitebsk: BulletBase {
         audibleFire = 0;
     };
-    class HAFM_50cal_red: BulletBase {
-        audibleFire = 32;
-    };
     class HLC_9x19_Ball;
     class HLC_3006_FMJ: B_556x45_Ball {
         audibleFire = AI_AUDIBLE_FIRE_0;
@@ -109,18 +106,6 @@ class CfgAmmo {
     class HLC_556NATO_EPR: B_556x45_Ball {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class hafm_ammo_arrow: B_556x45_Ball {
-        audibleFire = 0.1;
-    };
-    class hafm_ammo_556x45_Mk318_Ball: B_556x45_Ball {
-        audibleFire = 5.5;
-    };
-    class hafm_ammo_556x45_M855_Ball: B_556x45_Ball {
-        audibleFire = 6;
-    };
-    class hafm_ammo_556x45_M855A1_Ball: B_556x45_Ball {
-        audibleFire = 6;
     };
     class rhs_B_545x39_Ball: B_556x45_Ball {
         audibleFire = AI_AUDIBLE_FIRE_0;
@@ -187,9 +172,6 @@ class CfgAmmo {
         audibleFire = AI_AUDIBLE_FIRE_1;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_1";
     };
-    class HAFM_Naval_B_100mm_HE: B_19mm_HE {
-        audibleFire = 18;
-    };
     class B_30mm_HE: B_19mm_HE {
         audibleFire = 200;
     };
@@ -214,22 +196,9 @@ class CfgAmmo {
     class R_230mm_fly: ShellBase {
         audibleFire = 64;
     };
-    class hafm_ammo_arrow_exp: B_30mm_HE {
-        audibleFire = 0.1;
-    };
     class MissileBase: MissileCore {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-    };
-    class hafm_ammo_M_fgm148_AT: MissileBase {
-        audibleFire = 32;
-    };
-    class hafm_ammo_M136: MissileBase {
-        audibleFire = 16;
-    };
-    class hafm_ammo_M136_hedp;
-    class HAFM_ammo_M72: hafm_ammo_M136_hedp {
-        audibleFire = 16;
     };
     class vn_145x114: vn_20x110 {
         audibleFire = 25;
