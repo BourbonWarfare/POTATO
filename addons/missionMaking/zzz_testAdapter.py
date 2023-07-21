@@ -3,6 +3,15 @@ import os
 
 path_root = os.path.realpath(os.path.dirname(__file__))
 
+cleanup_warning = False
+if not os.path.isdir(os.path.join(path_root, "loadouts")):
+    path_bwmf = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(path_root))), "bwmf")
+    print(f"not in mission.sqm, trying bwmf path = {path_bwmf}")
+    if not os.path.isdir(os.path.join(path_bwmf, "loadouts")):
+        raise
+    cleanup_warning = True
+    path_root = path_bwmf
+
 
 def main():
     loadout_files = []
@@ -36,6 +45,8 @@ def main():
 
         f.write(f"}};\n")
 
+    if (cleanup_warning):
+        print("WARNING: potato_checkLoadouts added directly to bwmf, make sure to cleanup")
     return 0
 
 
