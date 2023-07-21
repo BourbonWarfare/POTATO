@@ -1299,7 +1299,11 @@ See the make.cfg file for additional build options.
                     skipPreprocessing = False
                     if os.path.isfile(addonTomlPath):
                         with open(addonTomlPath, "r") as f:
-                            skipPreprocessing = "preprocess = false" in f.read() #python 3.11 has real toml but this is fine for now
+                            tomlFile = f.read()
+                            if "preprocess = false" in tomlFile: 
+                                print_error("'preprocess = false' not supported")
+                                raise
+                            skipPreprocessing = "[preprocess]\nenabled = false" in tomlFile
 
                     backup_config(module)
 
