@@ -97,6 +97,10 @@ _settings = [
 ["diwako_dui_nametags_deadrenderdistance", 3.5, true], // User-Setting
 
 // ACE Armor Adjuster
-["AAA_VAR_MOD_ENABLED", false]
+["AAA_VAR_MOD_ENABLED", false],
+
+// LAMBS
+
+["lambs_danger_disableAIHideFromTanksAndAircraft", true]
 
 ];
