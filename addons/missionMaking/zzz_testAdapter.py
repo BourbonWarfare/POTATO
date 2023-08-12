@@ -21,6 +21,7 @@ def main():
                 if file.is_file() and os.stat(file).st_size > 5000:  # this is dumb but works
                     if (file.name.startswith("blankForArsenal")): continue
                     if (file.name.startswith("DoNoUse")): continue
+                    if (file.name.startswith("zNeedsUpdating")): continue
                     loadout_files.append(file.path)
 
     print(f"Checking {len(loadout_files)} loadout_files")
@@ -34,6 +35,7 @@ def main():
 
         for index, path_loadout in enumerate(loadout_files):
             loadout_name = os.path.basename(path_loadout).split(".")[0]
+            loadout_name = loadout_name.replace(" ", "_").replace("-", "_").replace("(", "x").replace(")", "x")
             loadout_relPath = os.path.relpath(path_loadout, path_root)
             print(f"loadout: {index}: {loadout_name}")
 
