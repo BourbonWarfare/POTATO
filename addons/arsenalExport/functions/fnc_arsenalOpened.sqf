@@ -20,18 +20,23 @@ if (_shiftLeft) then {
 };
 private _yPos = (safezoneY + 1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)) + 16 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25);
 
+private _ctrlGroup = _display ctrlCreate ["RscControlsGroup", IDC_CTRLGROUP];
+_ctrlGroup ctrlSetPosition [_xPos, _yPos, 5, 5];
+_ctrlGroup ctrlCommit 0;
+
+
 private _fnc_createButton = {
     params ["_text", "_fncString", "_varsArray"];
 
     {if (isNil _x) then {missionNamespace setVariable [_x, "NotSet"];}} forEach _varsArray;
 
-    private _rscButton = _display ctrlCreate ["RscButton", -1];
+    private _rscButton = _display ctrlCreate ["RscButton", -1, _ctrlGroup];
     _rscButton ctrlSetText _text;
     _rscButton ctrlSetEventHandler ["ButtonClick", format ['[ctrlParent (_this select 0), "%1"] call FUNC(buttonClick)', _fncString]];
-    _rscButton ctrlSetPosition [_xPos, _yPos + _height * _y, 5 * _height, _height];
+    _rscButton ctrlSetPosition [0, 0 + _height * _y, 5 * _height, _height];
     _rscButton ctrlCommit 0.25;
-    private _rscText = _display ctrlCreate ["RscText", -1];
-    _rscText ctrlSetPosition [_xPos + (5 * _height), _yPos + _height * _y, 7 * _height, _height];
+    private _rscText = _display ctrlCreate ["RscText", -1, _ctrlGroup];
+    _rscText ctrlSetPosition [0 + (5 * _height), 0 + _height * _y, 7 * _height, _height];
     _rscText ctrlCommit 0.25;
     _rscText setVariable [QGVAR(vars), _varsArray];
     _ctrlsToUpdate pushBack _rscText;
@@ -62,10 +67,10 @@ private _fnc_createButton = {
 ["Set SMG", "smg", [QGVAR(loadout_smg), QGVAR(loadout_smgMags)]] call _fnc_createButton;
 ["Set Pistol", "pistol", [QGVAR(loadout_pistol), QGVAR(loadout_pistolMags), QGVAR(loadout_pistolAttachments)]] call _fnc_createButton;
 
-private _rscButton = _display ctrlCreate ["RscButton", -1];
+private _rscButton = _display ctrlCreate ["RscButton", -1, _ctrlGroup];
 _rscButton ctrlSetText "Export";
 _rscButton ctrlSetEventHandler ["ButtonClick", 'call FUNC(export)'];
-_rscButton ctrlSetPosition [_xPos + (1 * _height), _yPos + _height * (_y + 0.25), 8 * _height, _height];
+_rscButton ctrlSetPosition [0 + (1 * _height), 0 + _height * (_y + 0.25), 8 * _height, _height];
 _rscButton ctrlCommit 0.25;
 
 // update the display:

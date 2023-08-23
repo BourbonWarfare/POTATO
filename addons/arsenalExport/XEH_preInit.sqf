@@ -31,4 +31,12 @@ PREP_RECOMPILE_END;
     }
 ] call bis_fnc_addscriptedeventhandler;
 
+
+["ace_arsenal_statsToggle", {
+    params ["_display", "_showStats"];
+    private _ctrlGroup = _display displayCtrl IDC_CTRLGROUP;
+    _ctrlGroup ctrlShow _showStats;
+}] call CBA_fnc_addEventHandler;
+
+
 ADDON = true;
