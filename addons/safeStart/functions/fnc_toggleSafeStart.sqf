@@ -26,4 +26,5 @@ if (_makeSafe) then {
 } else {
     missionNamespace setVariable [QGVAR(startTime_PV), -1, true];
     ["potato_safeStartOff"] call CBA_fnc_globalEvent;
+    if (hasInterface) then { ["potato_adminMenu_resetMarkers", [player]] call cba_fnc_localEvent; }; // Resets BFT for missions using staged load-in
 };
