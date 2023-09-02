@@ -12,21 +12,17 @@
  * Public: No
  */
 
-private _version = "potato_extension" callExtension "version";
-TRACE_1("Server Extension Version",_version);
-if (isNil "_version" || {_version == ""}) exitWith {};
-
 // Adaptation of Pabst's script for the old webhook
 GVAR(recruitsSeen) = [];
 
 [{time > 1}, {
-    private _recruits = allUnits select {(alive _x) && {isPlayer _x} && {[_x] call EFUNC(recurits, isNotMember)}};
+    private _recruits = allUnits select {(alive _x) && {isPlayer _x} && {[_x] call EFUNC(recurits,isNotMember)}};
     GVAR(recruitsSeen) append (_recruits apply {name _x});
     TRACE_1("At mission start",count GVAR(recruitsSeen));
 }] call CBA_fnc_waitUntilAndExecute;
 
 [{time > (9 * 60)}, {
-    private _recruits = allUnits select {(alive _x) && {isPlayer _x} && {[_x] call EFUNC(recurits, isNotMember)}};
+    private _recruits = allUnits select {(alive _x) && {isPlayer _x} && {[_x] call EFUNC(recurits,isNotMember)}};
     GVAR(recruitsSeen) append (_recruits apply {name _x});
     GVAR(recruitsSeen) = GVAR(recruitsSeen) arrayIntersect GVAR(recruitsSeen);
     TRACE_1("At 9 min",count GVAR(recruitsSeen));
@@ -41,13 +37,12 @@ GVAR(recruitsSeen) = [];
     private _title = format ["**%1** by **%2** on %3", _missionName, _authorName, _worldName];
     INFO_1("Recruit Status: %1",_message);
     if (_playerCount < 15) exitWith { TRACE_1("skipping test/training",_playerCount); };
-    ["staff", "embed", "staff", _message, _title] call FUNC(botMessage)
+    ["staff", "embed", "staff", _message, _title] call FUNC(botMessage);
 }] call CBA_fnc_waitUntilAndExecute;
 
 addMissionEventHandler ["ExtensionCallback", {
     params ["_name", "_component", "_data"];
     if ((tolower _name) != "potato_extension_log") exitWith {};
     (parseSimpleArray _data) params ["_level", "_message"];
-    TRACE_2("ExtensionCallback", _component, _level, _message];
+    TRACE_3("ExtensionCallback", _component, _level, _message);
 }];
-
