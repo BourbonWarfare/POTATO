@@ -4,15 +4,14 @@ if (isServer) then {
     [QGVAR(serverTag), {
         params ["_vehicle", "_tag", "_unit"];
         INFO_3("serverTag",_vehicle,_tag,name _unit);
-        private _selectionClan = getText (configOf _vehicle >> "selectionClan");
-        _vehicle setObjectTextureGlobal [_selectionClan, _tag]
+        [_vehicle, _tag] call ace_tagging_fnc_stencilVehicle;
     }] call CBA_fnc_addEventHandler;
 };
 
 if (!hasInterface) exitWith {};
 
 GVAR(tags) = [
-    [["Blank", ""], "#(argb,1,1,1)color(0,0,0,0)"],
+    [["Blank", ""], " "],
     [["COY"]], [["1PLT"]], [["2PLT"]],
     [["ASL", "Alpha"]], [["A1"]], [["A2"]],
     [["BSL", "Bravo"]], [["B1"]], [["B2"]],
@@ -40,7 +39,7 @@ private _fnc_children = {
     private _fnc_childStatement = {
         params ["_target", "_player", "_xTag"];
 
-        TRACE_2("sending tag",_target, _xTag);
+        TRACE_2("sending tag",_target,_xTag);
         [QGVAR(serverTag), [_target, _xTag, _player]] call CBA_fnc_serverEvent;
     };
 
@@ -50,9 +49,9 @@ private _fnc_children = {
         if ((_xNames findIf {_x in _groupID}) == -1) then { continue };
 
         private _name = _xNames # 0;
-        if (_xTag == "") then { _xTag = format [QPATHTOF(vehicleTags\%1_ca.paa), _name] };
+        if (_xTag == "") then { _xTag = _name };
 
-        private _action = [str _forEachIndex, _name, _xTag, _fnc_childStatement, {true}, {}, _xTag] call ace_interact_menu_fnc_createAction;
+        private _action = [str _forEachIndex, _name, "", _fnc_childStatement, {true}, {}, _xTag] call ace_interact_menu_fnc_createAction;
         _actions pushBack [_action, [], _target];
     } forEach GVAR(tags);
 
