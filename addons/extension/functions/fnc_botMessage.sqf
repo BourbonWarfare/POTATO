@@ -25,7 +25,7 @@ if (_type == "message") then {
     _title = "";
 };
 
-if (_type == "embed" && isNil "_type") then {
+if (_type == "embed" && isNil "_title") then {
     _title = "Potato Server";
 };
 
