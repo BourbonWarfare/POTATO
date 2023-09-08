@@ -1,2 +1,3 @@
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+
+#include "XEH_PREP.hpp"

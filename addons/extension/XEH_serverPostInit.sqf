@@ -1,4 +1,3 @@
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 /*
@@ -11,6 +10,8 @@
  *
  * Public: No
  */
+
+if (hasInterface) exitWith {}; // ignore for mission makers
 
 // Adaptation of Pabst's script for the old webhook
 GVAR(recruitsSeen) = [];
