@@ -89,7 +89,7 @@ private _delay = 0;
             private _newRespawnGroup = createGroup [_factionSide, true]; // explicitly mark for cleanup
             TRACE_2("new group", _factionSide, _newRespawnGroup);
 
-            if (_markerTexture != "") then {
+            if ((_markerTexture != "") && {!(missionNamespace getVariable [QGVAR(noMarkers), false])}) then {
                 _newRespawnGroup setVariable [QEGVAR(markers,addMarker), true, true];
                 _newRespawnGroup setVariable [QEGVAR(markers,markerText), format ["%1%2", _markerPrefix, _markerText], true];
                 _newRespawnGroup setVariable [QEGVAR(markers,markerTexture), _markerTexture, true];

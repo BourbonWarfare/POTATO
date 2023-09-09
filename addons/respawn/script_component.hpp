@@ -124,6 +124,8 @@ If these rules and conditions are not met in full you or zeuses in general can a
 #define ADMIN_MAP_IDC 800027
 #define ADMIN_MAP (ADMIN_RESPAWN displayCtrl ADMIN_MAP_IDC)
 
+#define ADMIN_NOMARKERS_IDC 800028
+
 // eula display defines
 #define RESPAWN_EULA_IDD 800100
 #define RESPAWN_EULA (findDisplay RESPAWN_EULA_IDD)
