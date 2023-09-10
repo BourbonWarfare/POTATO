@@ -2,20 +2,13 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchSOG
 
-#if __has_include("\vn\weapons_f_vietnam\config.bin")
-#else
-#define PATCH_SKIP "SOG-Vietnam"
-#endif
-
-#ifdef PATCH_SKIP
-POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
-#else
 class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "potato_core", "loadorder_f_vietnam" };
+        skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -59,5 +52,3 @@ class CfgWeapons {
         };
     };
 };
-
-#endif

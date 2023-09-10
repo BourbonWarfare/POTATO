@@ -2,20 +2,13 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchCUP
 
-#if __has_include("\CUP\Vehicles\CUP_Vehicles_LoadOrder\config.bin")
-#else
-#define PATCH_SKIP "CUP Vehicles"
-#endif
-
-#ifdef PATCH_SKIP
-POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
-#else
 class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "potato_core", "CUP_Weapons_LoadOrder", "CUP_Vehicles_LoadOrder", "CUP_Creatures_People_LoadOrder" };
+        skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -136,5 +129,3 @@ class CfgWeapons {
         recoil = QGVAR(recoil_SAW);
     };
 };
-
-#endif

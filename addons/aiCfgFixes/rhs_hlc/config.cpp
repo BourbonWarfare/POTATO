@@ -2,14 +2,6 @@
 #undef COMPONENT
 #define COMPONENT aiCfgFixes_rhs_hlc
 
-#if __has_include("\hlc_core\config.bin")
-#else
-#define PATCH_SKIP "hlc_core"
-#endif
-
-#ifdef PATCH_SKIP
-POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
-#else
 class CfgPatches {
     class ADDON {
         units[] = {};
@@ -21,6 +13,7 @@ class CfgPatches {
             "rhs_main_loadorder"
             // todo VN?
         };
+        skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -29,5 +22,3 @@ class CfgPatches {
 
 #include "CfgWeapons.hpp"
 #include "CfgAmmo.hpp"
-
-#endif

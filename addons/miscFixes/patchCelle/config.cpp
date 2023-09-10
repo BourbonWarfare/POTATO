@@ -2,20 +2,13 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchCelle
 
-#if __has_include("\mbg\mbg_celle2\mbg_celle2.wrp")
-#else
-#define PATCH_SKIP "Celle 2"
-#endif
-
-#ifdef PATCH_SKIP
-POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
-#else
 class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "potato_core", "mbg_celle2" };
+        skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -28,5 +21,3 @@ class CfgLocationTypes {
         font = "PuristaMedium";
     };
 };
-
-#endif

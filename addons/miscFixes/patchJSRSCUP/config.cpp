@@ -2,20 +2,13 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchJSRS_CUP
 
-#if __has_include("\jsrs_soundmod_complete\JSRS_Soundmod_CUP_Weapons\config.bin")
-#else
-#define PATCH_SKIP "JSRS"
-#endif
-
-#ifdef PATCH_SKIP
-POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
-#else
 class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "potato_core", "jsrs_soundmod_cup_weapons" };
+        skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -65,5 +58,3 @@ class CfgWeapons {
         };
     };
 };
-
-#endif
