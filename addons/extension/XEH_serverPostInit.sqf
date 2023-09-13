@@ -23,7 +23,7 @@ GVAR(recruitsSeen) = [];
 }] call CBA_fnc_waitUntilAndExecute;
 
 [{time > (9 * 60)}, {
-    private _recruits = allUnits select {(alive _x) && {isPlayer _x} && {[_x] call EFUNC(recurits,isNotMember)}};
+    private _recruits = allUnits select {(alive _x) && {isPlayer _x} && {[_x] call EFUNC(recruits,isNotMember)}};
     GVAR(recruitsSeen) append (_recruits apply {name _x});
     GVAR(recruitsSeen) = GVAR(recruitsSeen) arrayIntersect GVAR(recruitsSeen);
     TRACE_1("At 9 min",count GVAR(recruitsSeen));
