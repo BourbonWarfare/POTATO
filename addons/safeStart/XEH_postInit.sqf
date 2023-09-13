@@ -5,6 +5,7 @@ if (isServer) then {
     ["potato_safeStartOn", {
         if (!GVAR(syncFortify)) exitWith {};
         missionNamespace setVariable [QACEGVAR(fortify,fortifyAllowed), true, true];
+        call EFUNC(adminMenu, allPlayersResetMarkersButton);
     }] call CBA_fnc_addEventHandler;
     ["potato_safeStartOff", {
         if (!GVAR(syncFortify)) exitWith {};
