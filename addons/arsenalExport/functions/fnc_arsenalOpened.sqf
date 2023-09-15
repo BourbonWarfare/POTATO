@@ -21,8 +21,6 @@ if (_shiftLeft) then {
 private _yPos = (safezoneY + 1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)) + 16 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25);
 
 private _ctrlGroup = _display ctrlCreate ["RscControlsGroup", IDC_CTRLGROUP];
-_ctrlGroup ctrlSetPosition [_xPos, _yPos, 5, 5];
-_ctrlGroup ctrlCommit 0;
 
 
 private _fnc_createButton = {
@@ -72,6 +70,9 @@ _rscButton ctrlSetText "Export";
 _rscButton ctrlSetEventHandler ["ButtonClick", 'call FUNC(export)'];
 _rscButton ctrlSetPosition [0 + (1 * _height), 0 + _height * (_y + 0.25), 8 * _height, _height];
 _rscButton ctrlCommit 0.25;
+
+_ctrlGroup ctrlSetPosition [_xPos, _yPos, 12*_height, _height * (_y + 1.5)];
+_ctrlGroup ctrlCommit 0;
 
 // update the display:
 _display setVariable [QGVAR(ctrlsToUpdate), _ctrlsToUpdate];
