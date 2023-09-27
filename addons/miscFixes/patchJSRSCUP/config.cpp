@@ -21,7 +21,7 @@ class Mode_FullAuto;
 class CfgWeapons {
     class mgun;
     class cup_vlmg_m134_veh: mgun {
-        class lowrof: mode_fullauto {
+        class lowrof: Mode_FullAuto {
             class standardsound {
                 // JSRS uses 
                 // soundsetshot[] = {"jsrs_m134_shot_soundset","jsrs_5x56mm_reverb_soundset"};
@@ -35,7 +35,7 @@ class CfgWeapons {
     class CUP_arifle_M16_Base: Rifle_Base_f {
         class Single: Mode_SemiAuto {};
     };
-    class cup_arifle_colt727: cup_arifle_m16_base {
+    class cup_arifle_colt727: CUP_arifle_M16_Base {
         class Single: Single {
             class basesoundmodetype;
             class standardsound: basesoundmodetype {
@@ -46,7 +46,7 @@ class CfgWeapons {
             };
         };
     };
-    class cup_arifle_g36_base: rifle_base_f {
+    class cup_arifle_g36_base: Rifle_Base_f {
         class Burst: Mode_Burst {
             class basesoundmodetype;
             class standardsound: basesoundmodetype {

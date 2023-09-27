@@ -88,7 +88,7 @@ class CfgWeapons {
     class CUP_V_B_ALICE: CUP_Vest_Camo_Base {
         class ItemInfo;
     };
-    class rhsgref_alice_webbing_bwArmorMod: CUP_V_B_Alice { // must keep old classname, but this is now based on CUP
+    class rhsgref_alice_webbing_bwArmorMod: CUP_V_B_ALICE { // must keep old classname, but this is now based on CUP
         displayName = "ALICE Webbing [coop plot armor]";
         descriptionShort = "Armor Level IV";
         class ItemInfo: ItemInfo {

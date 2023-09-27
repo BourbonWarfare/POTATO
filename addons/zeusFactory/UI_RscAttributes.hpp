@@ -1,6 +1,6 @@
 class RscControlsGroupNoScrollbars;
 class RscText;
-class RscListbox;
+class RscListBox;
 class RscToolbox;
 class RscXSliderH;
 class RscEdit;
@@ -129,7 +129,7 @@ class GVAR(RscDisplayAttributes_place): RscDisplayAttributes {
                             w = "8 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                         };
-                        class transportList: RscListbox {
+                        class transportList: RscListBox {
                             idc = 23071;
                             x = "0.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             y = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
@@ -144,7 +144,7 @@ class GVAR(RscDisplayAttributes_place): RscDisplayAttributes {
                             w = "8 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                         };
-                        class ordersList: RscListbox {
+                        class ordersList: RscListBox {
                             idc = 23072;
                             x = "9 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             y = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
