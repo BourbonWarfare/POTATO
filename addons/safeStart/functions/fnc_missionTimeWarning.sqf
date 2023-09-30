@@ -38,6 +38,7 @@ TRACE_1("Mission start time",QGVAR(missionstartTime));
 // 15 min Warning
 [
     {
+        params ["_missionLengthSec"];
         private _missionStartTime = missionNamespace getVariable QGVAR(missionstartTime);
         (CBA_missionTime >= (_missionStartTime + _missionLengthSec - 900))  || !(isNil QGVAR(timerID))
     },
