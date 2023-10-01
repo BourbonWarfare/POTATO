@@ -51,7 +51,6 @@ _settings = [
 [QACEGVAR(hearing,autoAddEarplugsToUnits), false],
 [QACEGVAR(hearing,enableCombatDeafness), false],
 [QACEGVAR(interaction,enableGroupRenaming), false],
-[QACEGVAR(laserPointer,enabled), false],
 [QACEGVAR(laser,showLaserOnMap), 2],
 [QACEGVAR(map,DefaultChannel), 1],
 [QACEGVAR(nightvision,effectScaling), 0.2, false, true],
