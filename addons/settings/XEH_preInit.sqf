@@ -8,10 +8,12 @@ RHS_ENGINE_STARTUP_OFF = 1; // any non-nil value turns this off
 ace_nametags_useFactionIcons = false;
 
 if (isServer) then {
+    private _skip = [];
     private _settings = [];
     #include "BW_Settings.sqf"
 
     INFO_1("Setting server values for [%1] settings", count _settings);
+    if ((count _skip) > 1) then { WARNING_1("skipping %1",_skip) };
     {
         _x params ["_settingName", "_settingValue", ["_force", false]];
         if (isNil _settingName) then { WARNING_1("Setting not init: %1",_settingName); };
