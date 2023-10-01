@@ -16,5 +16,6 @@ releases/*
 keys/*
 .hemtt/local
 sqfvm.exe
+.vscode/sqfvm-lsp/*
 ArmaScriptCompiler.exe
 *.sqfc
