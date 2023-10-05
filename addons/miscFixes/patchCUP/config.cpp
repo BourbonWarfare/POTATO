@@ -22,20 +22,20 @@ class CfgVehicles {
         class EventHandlers;
     };
     // Fix Leo/Paton tank smoke not working - should be fixed in next cup release
-	class CUP_Leopard2_Base: Tank_F {
-        class EventHandlers: EventHandlers {	
+    class CUP_Leopard2_Base: Tank_F {
+        class EventHandlers: EventHandlers {    
             init="";
             fired="_this call (uinamespace getvariable 'BIS_fnc_effectFired');";
             killed="_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
-			class CUP_TrackedVehicles_Leopard2 {
-				init = " \
-					[_this select 0] call CUP_fnc_initNumbers; \
-					_this call CUP_fnc_tankAmmoStoreInit; \
-					if (local (_this select 0)) then {[(_this select 0), """", [], false] call bis_fnc_initVehicle;}; \
-				";
-				Fired = "[_this, ""recoil_source"", ""CUP_Vcannon_L55_veh""] call CUP_fnc_cannonAnimate;";
-			};
-		};
+            class CUP_TrackedVehicles_Leopard2 {
+                init = " \
+                    [_this select 0] call CUP_fnc_initNumbers; \
+                    _this call CUP_fnc_tankAmmoStoreInit; \
+                    if (local (_this select 0)) then {[(_this select 0), """", [], false] call bis_fnc_initVehicle;}; \
+                ";
+                Fired = "[_this, ""recoil_source"", ""CUP_Vcannon_L55_veh""] call CUP_fnc_cannonAnimate;";
+            };
+        };
     };
     class CUP_M60A3_Base: Tank_F {
         class EventHandlers: DefaultEventHandlers {
@@ -47,6 +47,33 @@ class CfgVehicles {
                 Fired = "[_this, ""recoil_source"", ""CUP_Vcannon_M68_veh""] call CUP_fnc_cannonAnimate;";
             };
         };
+    };
+    // Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
+    class CUP_B_FV432_Bulldog_GB_D;
+    class CUP_B_FV432_Base: CUP_B_FV432_Bulldog_GB_D {
+        class Turrets;
+    };
+    class CUP_B_FV432_GB_GPMG: CUP_B_FV432_Base {
+        class NewTurret;
+        class Turrets: Turrets {
+            class MainTurret;
+            class Commander;
+        };
+    };
+    class CUP_B_FV432_Mortar: CUP_B_FV432_GB_GPMG {
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                primaryGunner = 0;
+            };
+            class Commander: Commander {
+                primaryGunner = 0;
+            };
+            class MortarTurret: NewTurret {
+                primaryGunner = 1; // this breaks "stow gpmg" user action
+                gunnerOutOpticsModel = "\A3\weapons_f\reticle\Optics_Commander_02_F";
+            };
+        };
+        class UserActions {}; // clear all user actions (not a big deal)
     };
 };
 
