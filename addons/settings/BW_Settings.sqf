@@ -73,6 +73,13 @@ if (["WBK_MeleeMechanics"] call ACEFUNC(common,isModLoaded)) then { _settings ap
 ["ims_isfistsallowd", false]
 ];} else { _skip pushBack "WBK_MeleeMechanics" };
 
+// WBK Melee
+if (["WBK_DyingAnimationsMod"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["WBK_DeathAnimMod_Deaths_PLR", false],
+["WBK_DeathAnimMod_Hit_PLR", false],
+["WBK_DeathAnimMod_Flinch_PLR", false]
+];} else { _skip pushBack "WBK_DyingAnimationsMod" };
+
 
 // NIARMS (HLC)
 if (["hlcweapons_core"] call ACEFUNC(common,isModLoaded)) then { _settings append [
@@ -109,4 +116,10 @@ if (["diwako_dui_main"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 if (["AAA"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 ["AAA_VAR_MOD_ENABLED", false]
 ];} else { _skip pushBack "AAA" };
+
+// Reeveli Uncon Moaning
+if (["Rev_ACE_moaning"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["Rev_moaning_time", 60],
+["Rev_moaning_probability", 95]
+];} else { _skip pushBack "Rev_ACE_moaning" };
 
