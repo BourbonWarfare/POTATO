@@ -30,7 +30,7 @@ _source disableCollisionWith _object;
 [{
     params ["_object", "_source", "_parachuteClassname"];
     _object allowDamage true;
-	_object enableCollisionWith _source;
+    _object enableCollisionWith _source;
 
     private _chute = createVehicle [_parachuteClassname, [0, 0, 0], [], 0, "NONE"];
 

@@ -58,7 +58,7 @@ private _flyInHeight = _paradropInfo get "flyInHeight";
 } forEach _vehicles;
 
 [{
-	params ["_args", "_pfhId"];
+    params ["_args", "_pfhId"];
     _args params ["_paradropInfo", "_vehicles"];
     private _ingressPos = _paradropInfo get "ingressPosition";
     private _egressPos = _paradropInfo get "egressPosition";
@@ -66,10 +66,10 @@ private _flyInHeight = _paradropInfo get "flyInHeight";
     private _parachuteClassname = _paradropInfo get "infantryParachuteClassname";
     private _flyInHeight = _paradropInfo get "flyInHeight";
 
-	private _planesExist = false;
+    private _planesExist = false;
     {
         if (local _x && !isNull _x) then {
-			_planesExist = true;
+            _planesExist = true;
             private _state = _x getVariable QGVAR(state);
             private _origDot = _x getVariable QGVAR(initialDot);
             private _dropPos = _x getVariable QGVAR(dzPosition);
@@ -206,7 +206,7 @@ private _flyInHeight = _paradropInfo get "flyInHeight";
         };
     } forEach _vehicles;
 
-	if !(_planesExist) then {
-		[_pfhId] call CBA_fnc_removePerFrameHandler;	
-	};
+    if !(_planesExist) then {
+        [_pfhId] call CBA_fnc_removePerFrameHandler;    
+    };
 }, 0, [_paradropInfo, _vehicles]] call CBA_fnc_addPerFrameHandler;

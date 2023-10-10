@@ -1,12 +1,12 @@
 class CfgVehicles {
-	class Logic;
-	class Module_F: Logic {};
+    class Logic;
+    class Module_F: Logic {};
 
-	class GVAR(ingress): Module_F {
-		author = QUOTE(PREFIX);
+    class GVAR(ingress): Module_F {
+        author = QUOTE(PREFIX);
         displayName = "Ingress Point";
         category = QGVAR(faction);
-		scope = 2;
+        scope = 2;
         scopeCurator = 0;
         isTriggerActivated = 0;
         isGlobal = 0;
@@ -23,14 +23,14 @@ class CfgVehicles {
                 defaultValue = 0;
             };
             class GVAR(flyInHeight) {
-				displayName = "Fly in height";
+                displayName = "Fly in height";
                 tooltip = "How high the planes will drop from";
                 property = QGVAR(flyInHeight);
                 control = "Edit";
                 expression = "_this setVariable ['%s', _value, true];";
                 defaultValue = "'150'";
             };
-			class GVAR(dropDelay) {
+            class GVAR(dropDelay) {
                 displayName = "Drop Delay";
                 tooltip = "How long between drops";
                 property = QGVAR(dropDelay);
@@ -38,7 +38,7 @@ class CfgVehicles {
                 expression = "_this setVariable ['%s', _value, true];";
                 defaultValue = "'0.3'";
             };
-			class GVAR(infantryParachuteType) {
+            class GVAR(infantryParachuteType) {
                 displayName = "Infantry Parachute Type";
                 tooltip = "Classname of parachute to deploy on units";
                 property = QGVAR(infantryParachuteType);
@@ -55,31 +55,31 @@ class CfgVehicles {
                 defaultValue = "'B_Parachute_02_F'";
             };
         };
-	};
+    };
 
-	class GVAR(dz): Module_F {
-		author = QUOTE(PREFIX);
+    class GVAR(dz): Module_F {
+        author = QUOTE(PREFIX);
         displayName = "Drop Zone";
         category = QGVAR(faction);
-		scope = 2;
+        scope = 2;
         scopeCurator = 0;
         isTriggerActivated = 0;
         isGlobal = 0;
         curatorCost = 0;
         class Arguments {};
         class Attributes {};
-	};
+    };
 
-	class GVAR(exit): Module_F {
-		author = QUOTE(PREFIX);
+    class GVAR(exit): Module_F {
+        author = QUOTE(PREFIX);
         displayName = "Egress Point";
         category = QGVAR(faction);
-		scope = 2;
+        scope = 2;
         scopeCurator = 0;
         isTriggerActivated = 0;
         isGlobal = 0;
         curatorCost = 0;
         class Arguments {};
         class Attributes {};
-	};
+    };
 };
