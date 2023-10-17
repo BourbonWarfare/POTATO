@@ -65,7 +65,7 @@ class display3DEN {
                 action = QUOTE(['uav'] call compileScript [QUOTE(QPATHTOF(functions\fnc_changeUnitType.sqf))];);
             };
             class GVAR(changeUnitType_sm) {
-                text = "SM (medic)";
+                text = "SM (Medic)";
                 action = QUOTE(['sm'] call compileScript [QUOTE(QPATHTOF(functions\fnc_changeUnitType.sqf))];);
             };
             class GVAR(changeUnitType_vicd) {
