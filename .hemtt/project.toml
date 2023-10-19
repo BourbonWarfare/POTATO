@@ -16,3 +16,12 @@ path = "addons/core/script_version.hpp"
 
 [lint.sqf]
 enabled = true
+
+[asc]
+enabled = true
+exclude = [
+    "/initsettings.sqf",
+    "/initkeybinds.sqf",
+    "/serverOnlyFix.sqf",
+    "/BW_Settings.sqf",
+]

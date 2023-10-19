@@ -1,7 +1,7 @@
 class RscPicture;
 class RscFrame;
 class RscText;
-class RscListbox;
+class RscListBox;
 class RscControlsGroup;
 class RscCombo;
 class RscButton;
@@ -160,7 +160,7 @@ class GVAR(adminMenuDialog) {
         };
     };
     class controls {
-        class RscListbox_1500: RscListbox {
+        class RscListbox_1500: RscListBox {
             idc = 1500;
             x = QUOTE(0.21 * safezoneW + safezoneX);
             y = QUOTE(0.205 * safezoneH + safezoneY);
@@ -175,7 +175,7 @@ class GVAR(adminMenuDialog) {
             w = QUOTE(0.54 * safezoneW);
             h = QUOTE(0.58 * safezoneH);
             class controls {
-                class RscCombo_2100: RscListbox {
+                class RscCombo_2100: RscListBox {
                     idc = 2100;
                     x = QUOTE(0.01 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);
@@ -262,7 +262,7 @@ class GVAR(adminMenuDialog) {
             w = QUOTE(0.54 * safezoneW);
             h = QUOTE(0.58 * safezoneH);
             class controls {
-                class RscCombo_21xx00: RscListbox {
+                class RscCombo_21xx00: RscListBox {
                     idc = 2120;
                     x = QUOTE(0.01 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);
@@ -270,7 +270,7 @@ class GVAR(adminMenuDialog) {
                     h = QUOTE(0.56 * safezoneH);
                     sizeEx = QUOTE(0.025 * safezoneH);
                 };
-                class RscCombo_21xx01: RscListbox {
+                class RscCombo_21xx01: RscListBox {
                     idc = 2121;
                     x = QUOTE(0.22 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);
@@ -296,7 +296,7 @@ class GVAR(adminMenuDialog) {
             w = QUOTE(0.54 * safezoneW);
             h = QUOTE(0.58 * safezoneH);
             class controls {
-                class RscCombo_2100: RscListbox {
+                class RscCombo_2100: RscListBox {
                     idc = 2130;
                     x = QUOTE(0.01 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);
@@ -304,7 +304,7 @@ class GVAR(adminMenuDialog) {
                     h = QUOTE(0.56 * safezoneH);
                     sizeEx = QUOTE(0.025 * safezoneH);
                 };
-                class RscCombo_2101: RscListbox {
+                class RscCombo_2101: RscListBox {
                     idc = 2131;
                     x = QUOTE(0.22 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);
@@ -393,7 +393,7 @@ class GVAR(adminMenuDialog) {
             w = QUOTE(0.54 * safezoneW);
             h = QUOTE(0.58 * safezoneH);
             class controls {
-                class RscCombo_side: RscListbox {
+                class RscCombo_side: RscListBox {
                     idc = 23071;
                     x = QUOTE(0.01 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);
@@ -401,7 +401,7 @@ class GVAR(adminMenuDialog) {
                     h = QUOTE(0.2 * safezoneH);
                     sizeEx = QUOTE(0.02 * safezoneH);
                 };
-                class RscCombo_rank: RscListbox {
+                class RscCombo_rank: RscListBox {
                     idc = 23072;
                     x = QUOTE(0.32 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);
@@ -435,7 +435,7 @@ class GVAR(adminMenuDialog) {
             w = QUOTE(0.54 * safezoneW);
             h = QUOTE(0.58 * safezoneH);
             class controls {
-                class PlayerList: RscListbox {
+                class PlayerList: RscListBox {
                     idc = 2180;
                     x = QUOTE(0.01 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);

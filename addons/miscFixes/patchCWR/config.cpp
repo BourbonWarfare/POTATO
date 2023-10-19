@@ -2,20 +2,13 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchCWR
 
-#if __has_include("\cwr3\general\cwr3_intro\config.bin")
-#else
-#define PATCH_SKIP "CWR3"
-#endif
-
-#ifdef PATCH_SKIP
-POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
-#else
 class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "potato_core", "cwr3_intro", "cwr3_vehicle_m41", "cwr3_soldiers_us" };
+        skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -41,5 +34,3 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,canHaveFireRing) = 1;  
     };
 };
-
-#endif

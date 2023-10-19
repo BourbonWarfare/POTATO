@@ -1,10 +1,19 @@
 #include "script_component.hpp"
 
 // [] call compileScript ["\z\potato\addons\missionMaking\functions\fnc_testAllLoadouts.sqf"]
+// [-1, [0,3,4]] call compileScript ["\z\potato\addons\missionMaking\functions\fnc_testAllLoadouts.sqf"]
 
-params [["_testIndex", -1, [0]]];
-
+params [["_testIndex", -1, [0]], ["_ignore", [], [[]]]];
 private _loadouts = "true" configClasses (missionConfigFile >> "potato_checkLoadouts");
+
+private _checkScopeHidden = !(0 in _ignore);
+private _checkBadAttachmentMacro = !(1 in _ignore);
+private _checkHaveSomeAmmo = !(2 in _ignore);
+private _checkPotatoMags = !(3 in _ignore);
+private _checkAttachments = !(4 in _ignore);
+private _checkResupply = !(5 in _ignore);
+
+
 
 
 diag_log text "";
@@ -33,8 +42,20 @@ private _getArrayAndCheck = {
     (getArray (_path >> _name)) select {
         if (_x == "") then { continueWith false };
         (_x splitString ":") params ["_classname"];
-        if ((_sources findIf { isClass (_x >> _classname) }) == -1) then {
-            [format ["%1 does not exist (from %2[])", _classname, _name]] call _fnc_error;
+        if ((_sources findIf { 
+            private _config = _x >> _classname;
+            if (isClass _config) then {
+                if (_checkScopeHidden && {getNumber (_config >> "scope") < 2}) then {
+                    if (_name == "launchers") exitWith {}; // ignore disposables
+                    [format ["%1 scope<2 (from %2[])", _classname, _name]] call _fnc_error;
+                };
+                true
+            } else {
+                false
+            }}) == -1) then {
+            if (!(_checkBadAttachmentMacro && {"_ATTACHMENTS" in _classname})) then { 
+                [format ["%1 does not exist (from %2[])", _classname, _name]] call _fnc_error;
+            };
             false
         } else {
             true
@@ -90,13 +111,13 @@ private _getArrayAndCheck = {
                 private _weaponMags = compatibleMagazines [_weapon, "this"];
                 private _weaponMagsPotato = _weaponMags select {(_x select [0,7]) == "potato_"};
 
-                // Check we haves some ammo
-                if ((_weaponIndex != 1) && {_weaponMags isNotEqualTo []} && {(_configMagazines arrayIntersect _weaponMags) isEqualTo []}) then {
-                    [format ["%1 has no magazines %2", _weapon]] call _fnc_error;
+                // Check we haves some ammo (besides launchers)
+                if (_checkHaveSomeAmmo && {_weaponIndex != 1} && {_weaponMags isNotEqualTo []} && {(_configMagazines arrayIntersect _weaponMags) isEqualTo []}) then {
+                    [format ["%1 has no magazines %2 from %3", _weapon, _configMagazines]] call _fnc_error;
                 };
 
                 // Check we use potato mags if they exist for the weapon
-                if ((_weaponMagsPotato isNotEqualTo []) && {(_configMagazines arrayIntersect (_weaponMags - _weaponMagsPotato)) isNotEqualTo []}) then {
+                if (_checkPotatoMags && {_weaponMagsPotato isNotEqualTo []} && {(_configMagazines arrayIntersect (_weaponMags - _weaponMagsPotato)) isNotEqualTo []}) then {
                     private _currentMags = _configMagazines arrayIntersect _weaponMags;
                     if ([format ["%1 using non-potato mags", _x], _currentMags] call _fnc_error) then {
                         {
@@ -129,18 +150,20 @@ private _getArrayAndCheck = {
                 };
 
                 // Check core slots have rifle resupply ammo
-                if ((_weaponIndex == 0) && {(toLower _unitName) in ["rifleman", "ftl", "ar", "lat"]}) then {
+                if (_checkResupply && {_weaponIndex == 0} && {(toLower _unitName) in ["rifleman", "ftl", "ar", "lat"]}) then {
                     if ((_weaponMags arrayIntersect _transportMags) isEqualTo []) then {
                         [format ["%1 has no resupply %2", _x], _transportMags] call _fnc_error;
                     };
                 };
 
                 // Check attachments are valid for gun
-                // {
-                //     if (!(_x in _weaponItems)) then {
-                //         [format ["%1 not compatible with %2", _x, _weapon]] call _fnc_error;
-                //     };
-                // } forEach _attachments;
+                if (_checkAttachments) then {
+                    {
+                        if (!(_x in _weaponItems)) then {
+                            [format ["%1 not compatible with %2", _x, _weapon]] call _fnc_error;
+                        };
+                    } forEach _attachments;
+                };
 
             } forEach _weapons;
         } forEach [

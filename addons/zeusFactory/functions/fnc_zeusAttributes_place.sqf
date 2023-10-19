@@ -98,11 +98,11 @@ private _fnc_onConfirm = {
 
     private _attackTarget = cbChecked (_display displayCtrl 23076);
     GVAR(attackTarget) = _attackTarget;
-    _logicVariable setVariable [QGVAR(attackTarget), _attackTarget, true];
+    _logicObject setVariable [QGVAR(attackTarget), _attackTarget, true];
 
     private _useLAMBS = cbChecked (_display displayCtrl 23077);
     GVAR(useLAMBS) = _useLAMBS;
-    _logicVariable setVariable [QGVAR(useLAMBS), _useLAMBS, true];
+    _logicObject setVariable [QGVAR(useLAMBS), _useLAMBS, true];
 
     _logicObject setVariable [QGVAR(set), true, true];
     TRACE_3("set",_transportType,_ordersType,_radius);

@@ -254,7 +254,7 @@ class CfgWeapons {
     class CUP_srifle_VSSVintorez: Rifle_Base_F {
         initSpeed = -1.0;
     };
-    class CUP_arifle_XM8_Railed_Base: Rifle_Base_f {
+    class CUP_arifle_XM8_Railed_Base: Rifle_Base_F {
         initSpeed = -1.0;
     };
     class CUP_arifle_XM8_Carbine: CUP_arifle_XM8_Base {

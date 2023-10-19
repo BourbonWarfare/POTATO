@@ -134,7 +134,7 @@ class CfgVehicles {
             };
         };
     };
-    class CUP_BTR90_HQ_Base: CUP_BTR90_base { delete ace_viewports; }; // no cargo seats
+    class CUP_BTR90_HQ_Base: CUP_BTR90_Base { delete ace_viewports; }; // no cargo seats
 
     class CUP_M2Bradley_Base: Tank_F {
         ace_hunterkiller = 1;

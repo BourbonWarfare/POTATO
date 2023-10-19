@@ -13,7 +13,7 @@ class RscControlsGroup;
 class RscControlsGroupNoScrollbars;
 class RscEdit;
 class RscFrame;
-class RscListbox;
+class RscListBox;
 class RscText;
 class RscXSliderH;
 
@@ -42,14 +42,14 @@ class GVAR(RscDisplayAttributes_missionHint): RscDisplayAttributes {
                     w = "26 * (((safezoneW / safezoneH) min 1.2) / 40)";
                     h = "9 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                     class controls {
-                        class RscCombo_side: RscListbox {
+                        class RscCombo_side: RscListBox {
                             idc = 23071;
                             x = "0.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             y = "0 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                             w = "12 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             h = "7 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                         };
-                        class RscCombo_rank: RscListbox {
+                        class RscCombo_rank: RscListBox {
                             idc = 23072;
                             x = "13.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             y = "0 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";

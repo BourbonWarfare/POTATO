@@ -17,27 +17,26 @@ TRACE_1("Params",_this);
 
 if !(isServer) exitWith {};
 
-params [];
-
 private _missionLength = getMissionConfigValue [QEGVAR(missionTesting,missionTimeLength),0];
 if (_missionLength isEqualType "") then { _missionLength = parseNumber _missionLength; }; // BWC with old attribute that was string
+
+// if (_missionLength == 0) then {
+//     private _missionType = getMissionConfigValue QEGVAR(missionTesting,missionType);
+//     switch (_missionType) do {
+//         case 1: {_missionLength = 65};
+//         case 2: {_missionLength = 35};
+//     };
+// };
+
+if (_missionLength <= 0) exitWith { WARNING_1("[_missionLength = %1] - ignoring",_missionLength) };
 private _missionLengthSec = _missionLength * 60;
-
-if (_missionLength == 0) then {
-    private _missionType = getMissionConfigValue QEGVAR(missionTesting,missionType);
-    switch (_missionType) do {
-        case 1: {_missionLength = 65};
-        case 2: {_missionLength = 35};
-        default {if(true) exitWith {TRACE_1("Something is seriously wrong, exiting timer",_missionType)}};
-    };
-};
-
 missionNamespace setVariable [QGVAR(missionstartTime), CBA_missionTime, true];
-TRACE_1("Mission start time",QGVAR(missionstartTime));
+TRACE_2("",GVAR(missionstartTime),_missionLength);
 
 // 15 min Warning
 [
     {
+        params ["_missionLengthSec"];
         private _missionStartTime = missionNamespace getVariable QGVAR(missionstartTime);
         (CBA_missionTime >= (_missionStartTime + _missionLengthSec - 900))  || !(isNil QGVAR(timerID))
     },

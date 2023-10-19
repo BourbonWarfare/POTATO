@@ -27,9 +27,9 @@ private _newGroup = createGroup [_side, true]; // explicitly mark for cleanup
 
 private _cargoSelection = getText (configFile >> "CfgVehicles" >> (typeOf _attachedVehicle) >> "memoryPointsGetInCargo");
 if (_cargoSelection == "") then {
-    private _cargoSelection = getArray (configFile >> "CfgVehicles" >> (typeOf _attachedVehicle) >> "memoryPointsGetInCargo");
-    if (_cargoSelection isEqualTo []) exitWith {};
-    _cargoSelection = _cargoSelection select ((count _cargoSelection) - 1);
+    private _cargoSelectionArr = getArray (configFile >> "CfgVehicles" >> (typeOf _attachedVehicle) >> "memoryPointsGetInCargo");
+    if (_cargoSelectionArr isEqualTo []) exitWith {};
+    _cargoSelection = _cargoSelectionArr select -1;
 };
 
 private _modelOffset = _attachedVehicle selectionPosition _cargoSelection;

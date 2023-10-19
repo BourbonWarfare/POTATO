@@ -2,23 +2,13 @@
 #undef COMPONENT
 #define COMPONENT miscFixes_patchRHSAFRF
 
-#ifdef POTATO_LEAN_RHS_CUP_HLC
-#define PATCH_SKIP POTATO_LEAN_RHS_CUP_HLC
-#endif
-#if __has_include("\rhsafrf\addons\rhs_main\config.bin")
-#else
-#define PATCH_SKIP "RHS AFRF"
-#endif
-
-#ifdef PATCH_SKIP
-POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
-#else
 class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "potato_core", "rhs_main_loadorder" };
+        skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -61,5 +51,3 @@ class CfgWeapons {
         };
     };
 };
-
-#endif

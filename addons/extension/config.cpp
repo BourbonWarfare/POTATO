@@ -3,14 +3,14 @@
 class CfgPatches {
     class ADDON {
         units[] = {};
+        weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "ace_missileguidance", "CUP_Weapons_LoadOrder"};
-        skipWhenMissingDependencies = 1;
+        requiredAddons[] = {"potato_core"};
         author = "Potato";
-        authors[] = {"Dani (TCVM)"};
+        authors[] = {"BadWolf"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
 };
 
-#include "CfgAmmo.hpp"
+#include "CfgEventHandlers.hpp"

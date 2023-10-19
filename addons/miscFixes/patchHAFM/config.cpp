@@ -1,20 +1,14 @@
 #include "\z\potato\addons\miscFixes\script_component.hpp"
 #undef COMPONENT
 #define COMPONENT miscFixes_patchHAFM
-#if __has_include("\HAFM_Vehicles_Configs\config.bin")
-#else
-#define PATCH_SKIP "HAFM"
-#endif
 
-#ifdef PATCH_SKIP
-POTATO_PATCH_NOT_LOADED(ADDON,PATCH_SKIP)
-#else
 class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "potato_core", "HAFM_Army_Units2","HAFM_Air_Configs","HAFM_ArmA2_Helis","HAFM_Kiowa_Config","HAFM_NH90_Config","HAFM_ArmA2","HAFM_Vehicles_Configs","HAFM_Naval" };
+        skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
@@ -56,5 +50,3 @@ class CfgVehicles {
     class HAFM_Naval_CB90: Ship_F { XEH_ENABLED; }; // "CB90 Attack boat" @HAFM
     class HAFM_Naval_Russen: Ship_F { XEH_ENABLED; }; // "Roussen-Class Missile Boat" @HAFM
 };
-
-#endif

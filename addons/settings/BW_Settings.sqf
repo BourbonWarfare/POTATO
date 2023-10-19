@@ -5,7 +5,7 @@
     Force (can't be changed by mission or user) <BOOL>
     Skip warning if changed by mission <BOOL>
 */
-
+_skip = [];
 _settings = [
 // ACE 
 // Medical:
@@ -51,7 +51,6 @@ _settings = [
 [QACEGVAR(hearing,autoAddEarplugsToUnits), false],
 [QACEGVAR(hearing,enableCombatDeafness), false],
 [QACEGVAR(interaction,enableGroupRenaming), false],
-[QACEGVAR(laserPointer,enabled), false],
 [QACEGVAR(laser,showLaserOnMap), 2],
 [QACEGVAR(map,DefaultChannel), 1],
 [QACEGVAR(nightvision,effectScaling), 0.2, false, true],
@@ -65,17 +64,32 @@ _settings = [
 [QACEGVAR(ui,ammoCount), false, true], // Forced because it's User settable
 [QACEGVAR(ui,groupBar), false, true], // Forced because it's User settable
 [QACEGVAR(weather,showCheckAirTemperature), false], // note: user-setting, we don't force
-[QACEGVAR(zeus,autoAddObjects), true],
+[QACEGVAR(zeus,autoAddObjects), true]
+];
 
 // WBK Melee
+if (["WBK_MeleeMechanics"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 ["ims_rifledodgeset", false],
-["ims_isfistsallowd", false],
+["ims_isfistsallowd", false]
+];} else { _skip pushBack "WBK_MeleeMechanics" };
+
+// WBK Melee
+if (["WBK_DyingAnimationsMod"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["WBK_DeathAnimMod_Deaths_PLR", false],
+["WBK_DeathAnimMod_Hit_PLR", false],
+["WBK_DeathAnimMod_Flinch_PLR", false]
+];} else { _skip pushBack "WBK_DyingAnimationsMod" };
+
 
 // NIARMS (HLC)
+if (["hlcweapons_core"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 ["niarms_magSwitch", false], // it's use of setUnitLoadout may cause problems
-["niarms_gripSwitch", false], // it's use of setUnitLoadout may cause problems
+["niarms_gripSwitch", false] // it's use of setUnitLoadout may cause problems
+];} else { _skip pushBack "hlcweapons_core" };
+
 
 // DUI
+if (["diwako_dui_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 // DUI - Squad Radar - Main
 ["diwako_dui_main_hide_dialog", true, true], // User-Setting
 ["diwako_dui_ace_hide_interaction", true, true], // User-Setting
@@ -94,13 +108,22 @@ _settings = [
 ["diwako_dui_nametags_enableocclusion", false, true], // User-Setting
 ["diwako_dui_nametags_showunconasdead", true, true], // User-Setting
 ["diwako_dui_nametags_renderdistance", 40, true], // User-Setting
-["diwako_dui_nametags_deadrenderdistance", 3.5, true], // User-Setting
+["diwako_dui_nametags_deadrenderdistance", 3.5, true] // User-Setting
+];} else { _skip pushBack "diwako_dui_main" };
+
 
 // ACE Armor Adjuster
-["AAA_VAR_MOD_ENABLED", false],
+if (["AAA"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["AAA_VAR_MOD_ENABLED", false]
+];} else { _skip pushBack "AAA" };
+
+// Reeveli Uncon Moaning
+if (["Rev_ACE_moaning"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["Rev_moaning_time", 60],
+["Rev_moaning_probability", 95]
+];} else { _skip pushBack "Rev_ACE_moaning" };
 
 // LAMBS
 
 ["lambs_danger_disableAIHideFromTanksAndAircraft", true]
 
-];

@@ -36,6 +36,26 @@ GVAR(currentSpectators) = [];
 // wait until the dialog is created
 waitUntil {dialog};
 
+params ["_display"];
+private _ctrlNoMarkerFrame = _display ctrlCreate ["RscText", -1];
+private _ctrlNoMarkerCheckBox = _display ctrlCreate ["RscCheckBox", ADMIN_NOMARKERS_IDC];
+
+_ctrlNoMarkerFrame ctrlSetPosition [0.62 * safezoneW + safezoneX, 0.22 * safezoneH + safezoneY, 0.11 * safezoneW, 0.05 * safezoneH];
+_ctrlNoMarkerFrame ctrlCommit 0;
+_ctrlNoMarkerFrame ctrlSetText "No Markers";
+
+_ctrlNoMarkerCheckBox ctrlSetPosition [0.69 * safezoneW + safezoneX, 0.23 * safezoneH + safezoneY, 0.02 * safezoneW, 4/3 * 0.02 * safezoneW];
+_ctrlNoMarkerCheckBox ctrlCommit 0;
+_ctrlNoMarkerCheckBox ctrlSetTooltip "Secret Respawn";
+_ctrlNoMarkerCheckBox cbSetChecked (missionNamespace getVariable [QGVAR(noMarkers), false]);
+_ctrlNoMarkerCheckBox ctrlAddEventHandler ["checkedChanged", {
+    params ["", "_checked"];
+    _checked = [false, true] select _checked;
+    missionNamespace setVariable [QGVAR(noMarkers), _checked, true];
+    systemChat format ["Respawn No-Markers: %1", _checked];
+}];
+
+
 // validate user
 if (!([] call EFUNC(core,isAuthorized)) && !(ZEUS_ENABLED && !((getPlayerUID player) in BLACK_LIST_UIDS) && profileNamespace getVariable [EULA_CHECK, false])) exitWith {
     WARNING("Not authorized for respawn");
@@ -47,8 +67,20 @@ ctrlShow [ADMIN_MAP_IDC, false];
 [] call FUNC(updateChatButton);
 [] call FUNC(updateOpenButton);
 
+// get count of players on each faction so we don't respawn on the wrong side
+private _allFactions = createHashMap; 
+{ 
+    if (isPlayer _x) then { 
+        private _faction = faction _x; 
+        _allFactions set [_faction, 1 + (_allFactions getOrDefault [_faction, 0])]; 
+    }; 
+} forEach allUnits;
+
 {
     (GVAR(factionsToInfo) getVariable _x) params ["_displayName", "", "_factionClassname"];
+    private _count = _allFactions getOrDefault [_factionClassname, 0];
+    if (_count > 0) then { _displayName = _displayName + format [" [%1]", _count]; };
+
     private _index = lbAdd [ADMIN_FACTION_COMBO_IDC, _displayName];
     if (isText (configfile >> "CfgFactionClasses" >> _factionClassname >> "icon")) then {
         lbSetPicture [ADMIN_FACTION_COMBO_IDC, _index, getText (configfile >> "CfgFactionClasses" >> _factionClassname >> "icon")];

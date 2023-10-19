@@ -1,54 +1,24 @@
 #include "script_component.hpp"
 
-DFUNC(seekerType_SACLOS_fix) = {
-params ["", "_args"];
-_args params ["_firedEH", "", "", "_seekerParams", "_stateParams", "_targetData"];
-_firedEH params ["_shooter","_weapon","","","","","_projectile"];
-_seekerParams params ["_seekerAngle"];
-_stateParams params ["", "_seekerStateParams"];
-_seekerStateParams params ["_memoryPointGunnerOptics", "_animationSourceBody", "_animationSourceGun", "_usePilotCamera"];
-
-private _shooterPos = AGLToASL (_shooter modelToWorldVisual (_shooter selectionPosition _memoryPointGunnerOptics));
-private _projPos = getPosASL _projectile;
-
-private _lookDirection = if !(_shooter isKindOf "CAManBase" || {_shooter isKindOf "StaticWeapon"}) then {
-    private _finalLookDirection = if (_usePilotCamera) then {
-        _shooterPos = _shooter modelToWorldVisualWorld getPilotCameraPosition _shooter;
-        private _trackingTarget = getPilotCameraTarget _shooter;
-        _trackingTarget params ["_isTracking", "_trackingPos"];
-        // Because ARMA doesnt update the camera rotation if you are locked on immediatly, we have to calculate the look direction manually or else the SACLOS target will be wrong, especially if shooter is moving
-        if (_isTracking) then {
-            vectorNormalized (_trackingPos vectorDiff _shooterPos);
-        } else {
-            _shooter vectorModelToWorldVisual getPilotCameraDirection _shooter;
+// fix Error in expression <layer getVariable "concentrationParam") <= 0.15};
+if (fileExists "WebKnight_StarWars_Mechanic\bootstrap\XEH_postInit.sqf") then {
+    INFO("trying to fix webknight melee popup");
+    ["unit", {
+        if (isNil {player getVariable "concentrationParam"}) then {
+            INFO("fixing webknight melee popup");
+            player setVariable ["concentrationParam", 0.5];
         };
-    } else {
-        // use animationSourcePhase
-        private _gBody = -deg(_shooter animationSourcePhase _animationSourceBody);
-        private _gGun = deg(_shooter animationSourcePhase _animationSourceGun);
-        _shooter vectorModelToWorldVisual ([1, _gBody, _gGun] call CBA_fnc_polar2vect);
-    };
-    _finalLookDirection
-} else {
-    _shooterPos = eyePos _shooter;
-    _shooter weaponDirection _weapon
+    }, true] call CBA_fnc_addPlayerEventHandler;
 };
 
-private _distanceToProj = _shooterPos vectorDistance _projPos;
-private _testPointVector = vectorNormalized (_projPos vectorDiff _shooterPos);
-private _testDotProduct = (_lookDirection vectorDotProduct _testPointVector);
 
-private _testIntersections = lineIntersectsSurfaces [_shooterPos, _projPos, _shooter];
-
-if ((_testDotProduct < (cos _seekerAngle)) || {_testIntersections isNotEqualTo []}) exitWith {
-    // out of LOS of seeker
-    [0, 0, 0]
-};
-
-private _returnPos = _shooterPos vectorAdd (_lookDirection vectorMultiply _distanceToProj);
-
-_targetData set [0, _projPos vectorFromTo _returnPos];
-_targetData set [2, _returnPos vectorDistance getPosASLVisual _projectile];
-
-_returnPos
+if (["WBK_ZombieCreatures"] call ACEFUNC(common,isModLoaded)) then {
+    private _wbkZombiesBase = ["Zombie_Special_OPFOR_Leaper_1","Zombie_Special_OPFOR_Screamer","Zombie_Special_OPFOR_Boomer","Zombie_O_Crawler_CSAT","Zombie_O_Walker_CSAT","Zombie_O_Shambler_CSAT","Zombie_O_RunnerCalm_CSAT","Zombie_O_RunnerAngry_CSAT","Zombie_O_Shooter_CSAT"];
+    {
+        [_x, "init", {
+            params ["_unit"];
+            TRACE_1("disabling lambs on zombie creturd",_unit);
+            _unit setVariable ["lambs_danger_disableAI", true];
+        }] call CBA_fnc_addClassEventHandler;
+    } forEach _wbkZombiesBase;
 };
