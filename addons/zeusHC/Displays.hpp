@@ -14,6 +14,8 @@ class RscListBox;
 class RscButton;
 class RscEdit;
 class RscSlider;
+class RscText;
+class RscCheckBox;
 
 class GVAR(bg): IGUIBack {
     idc = BG_IDC;
@@ -199,6 +201,22 @@ class GVAR(garrison_dialog) {
             colorBackgroundFocused[] = {0,0.8,0,1};
             tooltip = "Garrison";
             action = QUOTE([] spawn FUNC(garrisonDialogSpawn));
+        };
+        class GVAR(garrison_enable_lambs_checkbox): RscCheckBox {
+            idc = GARRISON_ENABLE_LAMBS_IDC;
+            x = QUOTE(1 * GUI_GRID_W + GUI_GRID_X);
+            y = QUOTE(28 * GUI_GRID_H + GUI_GRID_Y);
+            w = QUOTE(1 * GUI_GRID_W);
+            h = QUOTE(1 * GUI_GRID_H);
+            tooltip = "Enable LAMBS so these enemy can respond to contact";
+        };
+        class GVAR(garrison_enable_lambs_text): RscText {
+            idc = -1;
+            x = QUOTE(2 * GUI_GRID_W + GUI_GRID_X);
+            y = QUOTE(28 * GUI_GRID_H + GUI_GRID_Y);
+            w = QUOTE(13 * GUI_GRID_W);
+            h = QUOTE(1 * GUI_GRID_H);
+            text = "Enable LAMBS for garrisoned units";
         };
         class GVAR(garrison_factions): RscCombo {
             idc = GARRISON_FACTIONS_IDC;

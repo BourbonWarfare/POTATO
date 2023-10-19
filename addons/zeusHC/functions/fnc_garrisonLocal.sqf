@@ -32,6 +32,9 @@ _this spawn {
         _unit setPos _position;
 
         // nail the dude to the floor
+        if !(GVAR(lastGarrisonEnableLambs)) then {
+            _unit setVariable ["lambs_danger_disableai", true, true]; // disable LAMBS so they don't get called for reinforcement
+        };
         doStop _unit;
         _unit disableAI "PATH";
 
