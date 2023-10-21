@@ -2,11 +2,7 @@
 
 if (GVAR(enabled) && hasInterface) then {
     // setup babel
-    GVAR(availableLanguages) = [];
-    {
-        GVAR(availableLanguages) pushBack (_x select 0);
-    } forEach EGVAR(radios,availableLanguages);
-
+    GVAR(availableLanguages) = (missionNamespace getVariable [QEGVAR(radios,availableLanguages), []]) apply {_x select 0};
     GVAR(classEHInstalled) = false;
 
     GVAR(boundingBoxCache) = call CBA_fnc_createNamespace;

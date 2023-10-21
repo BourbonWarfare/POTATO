@@ -7,12 +7,16 @@ TRACE_3("createGroup",_factoryLogic,_side,_placeLogic);
 private _soldierList = getArray (configFile >> "CfgVehicles" >> (typeOf _placeLogic) >> QGVAR(soldierList));
 
 private _transportType = _placeLogic getVariable [QGVAR(transportType), 0];
-([_factoryLogic,_transportType,_side] call FUNC(getTransportType)) params ["", "", "_maxCargoRoom"];
+([_factoryLogic,_transportType,_side] call FUNC(getTransportType)) params ["_vehType"];
+private _maxCargoRoom = 20;
+if (_vehType != "") then {
+    _maxCargoRoom = _maxCargoRoom min (([_vehType] call FUNC(getSeatInfo)) # 1);
+};
 
 switch (_side) do {
-case (west): {_soldierList = _soldierList apply {"potato_w_"+_x};};
-case (east): {_soldierList = _soldierList apply {"potato_e_"+_x};};
-case (resistance): {_soldierList = _soldierList apply {"potato_i_"+_x};};
+    case (west): {_soldierList = _soldierList apply {"potato_w_"+_x};};
+    case (east): {_soldierList = _soldierList apply {"potato_e_"+_x};};
+    case (resistance): {_soldierList = _soldierList apply {"potato_i_"+_x};};
 };
 
 if ((count _soldierList) > _maxCargoRoom) then {
@@ -20,7 +24,8 @@ if ((count _soldierList) > _maxCargoRoom) then {
     _soldierList resize _maxCargoRoom
 };
 if (_soldierList isEqualTo []) exitWith {
-    WARNING_1("bad side/size [%1-%2]", _side, _maxCargoRoom);
+    WARNING_3("bad side/size [%1-%2-%3]", _side,_vehType,_maxCargoRoom);
+    ["possible factory issue"] call EFUNC(zeusHC,sendCuratorHint);
     []
 };
 if (!([_side, count _soldierList, false] call EFUNC(zeusHC,canCreateGroup))) exitWith {

@@ -63,7 +63,28 @@ class CfgRespawnFactions {
             "MSVAH"
         };
     };
-
+    class cwl {
+        displayName = "BluFor: Commonwealth";
+        callsignPrefix = "CWL";
+        factionClassname = "potato_w";
+        factionPrefix = "potato_w_";
+        groups[] = {
+            "CWLCommand",
+            "CWLPlatoonLead",
+            "CWLSection",
+            "CWLMMG",
+            "CWLHMG",
+            "CWLMAT",
+            "CWLHAT",
+            "CWLArty",
+            "CWLMSAM",
+            "CWLDEMO",
+            "CWLENG",
+            "CWLArmor",
+            "CWLTH",
+            "CWLAH"
+        };
+    };
     class civ_f {
         displayName = "Civilian";
         callsignPrefix = "Civ";

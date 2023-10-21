@@ -18,6 +18,8 @@ if (GVAR(usePotato)) then {
     GVAR(useFallback) = [missionConfigFile >> "CfgLoadouts" >> "useFallback"] call CFUNC(getBool);
     GVAR(maxRandomization) = [missionConfigFile >> "CfgLoadouts" >> "maxRandomization", 5] call CFUNC(getNumber);
     GVAR(setVehicleLoadouts) = [missionConfigFile >> "CfgLoadouts" >> "setVehicleLoadouts", 1] call CFUNC(getNumber);
+    GVAR(alwaysAddToolkits) = [missionConfigFile >> "CfgLoadouts" >> "alwaysAddToolkits", true] call CFUNC(getBool);
+    GVAR(alwaysAddLandRopes) = [missionConfigFile >> "CfgLoadouts" >> "alwaysAddLandRopes", true] call CFUNC(getBool);
     GVAR(prefixes) = [missionConfigFile >> "CfgLoadouts" >> "prefixes"] call CFUNC(getArray);
 
     if (isServer) then {
@@ -89,6 +91,15 @@ if (GVAR(usePotato)) then {
                 "Ship_F",
                 "initPost",
                 { [_this select 0, "Ship_F"] call FUNC(assignGearVehicle); },
+                true,
+                [],
+                true
+            ] call CBA_fnc_addClassEventHandler;
+
+            [ // assign gear to supply drops
+                QGVAR(supply),
+                "initPost",
+                { call FUNC(assignGearSupplyBox); },
                 true,
                 [],
                 true

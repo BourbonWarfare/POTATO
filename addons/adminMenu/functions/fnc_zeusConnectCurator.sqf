@@ -5,7 +5,7 @@ params ["_unit", "_giveZeus"];
 TRACE_2("zeusConnectCurator",_unit,_giveZeus);
 
 if (!isServer) exitWith {};
-if (isNull _unit) exitWith {WARNING("Unit wasn null");};
+if (isNull _unit) exitWith {WARNING("Unit was null");};
 
 private _zeusModule = getAssignedCuratorLogic _unit;
 
@@ -23,7 +23,7 @@ if (_giveZeus) then {
                 if !(isPlayer _assignedUnit) then {
                     _nonPlayerZeuses pushBack _x;
                     unassignCurator _x;
-                    diag_log text format ["[POTATO] Unassigning non-player [%1](%2) from zeus [%3]", _assignedUnit, typeOf _assignedUnit, _x];
+                    diag_log text format ["[POTATO] Unassigning non-player [%1](%2) from Zeus [%3]", _assignedUnit, typeOf _assignedUnit, _x];
                 };
             };
         } forEach allCurators;
@@ -45,7 +45,7 @@ if (_giveZeus) then {
                 } forEach allCurators;
 
                 if (isNull _zeusModule) then { //Only create a new zeus module if no free available
-                    diag_log text format ["[POTATO] No free zeus module found, creating new"];
+                    diag_log text format ["[POTATO] No free Zeus module found, creating new"];
 
                     private _zeusGroup = createGroup GVAR(zeusCenter);
                     _zeusModule = _zeusGroup createUnit ["ModuleCurator_F", [0,0,0], [], 0, "NONE"];
@@ -65,9 +65,9 @@ if (_giveZeus) then {
                 ["potato_becomeZeus", [_unit], [_unit]] call CBA_fnc_targetEvent;
 
                 if (missionNamespace getVariable ["ace_zeus_autoAddObjects", false]) then {
-                    TRACE_1("adding all units and veh to zeus",_zeusModule);
-                    _zeusModule addCuratorEditableObjects [vehicles, true];
-                    _zeusModule addCuratorEditableObjects [entities "CaManBase", true];
+                    private _objects = (entities "AllVehicles") select { _x getVariable ["ace_zeus_addObject", true] };
+                    TRACE_2("adding all units and veh to zeus",_zeusModule,count _objects);
+                    _zeusModule addCuratorEditableObjects [_objects, true];
                 };
             },
             [_unit, _canSkipWaiting, _nonPlayerZeuses, diag_tickTime + ZEUS_DC_TIMEOUT]
@@ -75,7 +75,7 @@ if (_giveZeus) then {
     };
 } else {
     if (!isNull _zeusModule) then {
-        diag_log text format ["[POTATO] Unassign [%1] to Zeus [%2]", name _unit, _zeusModule];
+        diag_log text format ["[POTATO] Unassigning [%1] from Zeus [%2]", name _unit, _zeusModule];
         unassignCurator _zeusModule;
     };
 };

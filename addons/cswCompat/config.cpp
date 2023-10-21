@@ -5,8 +5,9 @@ class CfgPatches {
         units[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"ace_csw", "CUP_Weapons_StaticWeapons", "CUP_Creatures_StaticWeapons"};
+        skipWhenMissingDependencies = 1;
         author = "Potato";
-        authors[] = {"Brandon"};
+        authors[] = {"Dani (TCVM)"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
@@ -16,4 +17,3 @@ class CfgPatches {
 #include "CfgVehicles.hpp"
 #include "CfgMagazines.hpp"
 #include "CfgMagazineGroups.hpp"
-

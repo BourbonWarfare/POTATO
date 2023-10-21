@@ -7,8 +7,6 @@ class CfgZeusFactory {
         "B_T_LSV_01_unarmed_F", // Prowler
         "B_T_LSV_01_armed_F", // Prowler HMG
         "I_MRAP_03_F", // Fennek
-        "I_MRAP_03_hmg_F", // Fennek HMG
-        "I_MRAP_03_gmg_F", // Fennek GMG
         "I_G_Offroad_01_F", // Pickup
         "C_Offroad_02_unarmed_F", // Jeep
         "O_MRAP_02_F", // Punisher
@@ -24,35 +22,13 @@ class CfgZeusFactory {
         "O_Truck_03_transport_F", // Typhoon
 
         // RHS Cars
-        "rhsusf_m998_w_2dr_halftop", // Woodland troop HMMWV
-        "rhsusf_m998_d_2dr_halftop", // Desert troop HMMWV
-        "rhsusf_m1025_w_m2", // Woodland HMG HMMWV
-        "rhsusf_m1025_d_m2", // Desert HMG HMMWV
-        "rhsusf_m1025_w_mk19", // Woodland GMG HMMWV
-        "rhsusf_m1025_d_mk19", // Desert GMG HMMWV
-        "rhsusf_M1232_usarmy_wd", // Woodland RG-33L
-        "rhsusf_M1232_usarmy_d", // Desert RG-33L
-        "rhsusf_M1232_M2_usarmy_wd", // Woodland HMG RG-33L
-        "rhsusf_M1232_M2_usarmy_d", // Desert HMG RG-33L
-        "rhsusf_M1232_MK19_usarmy_wd", // Woodland GMG RG-33L
-        "rhsusf_M1232_MK19_usarmy_d", // Desert GMG RG-33L
-        "rhsusf_M1117_W", // Woodland ASV HMG/GMG
-        "rhsusf_M1117_D", // Desert ASV HMG/GMG
-        "rhsgref_ins_uaz_open", // UAZ Jeep Carrier
-        "rhsgref_ins_uaz_dshkm", // UAZ HMG Jeep
-        "rhsgref_ins_uaz_ags", // UAZ GMG Jeep
-        "rhsgref_ins_uaz_spg9", // UAZ SPG Jeep
+        "rhs_uaz_open_Base", // UAZ Jeep Carrier
         "rhs_tigr_vdv", // Tiger
         "rhs_tigr_sts_vdv", // Tiger LMG/GMG
-        "rhsgref_BRDM2_vdv", // BRDM HMG
 
         // RHS Trucks
-        "rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy", // Woodland US Truck
-        "rhsusf_M1083A1P2_B_d_open_fmtv_usarmy", // Desert US Truck
-        "rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy", // Woodland HMG US Truck
-        "rhsusf_M1083A1P2_B_M2_d_open_fmtv_usarmy", // Desert HMG US Truck
-        "rhsgref_ins_gaz66", // GAZ 66 open truck
-        "rhsgref_ins_ural_open", // Ural 4320 open truck
+        "rhs_gaz66_msv", // GAZ 66 open truck
+        "RHS_Ural_MSV_Base", // Ural 4320 open truck
         "rhs_kamaz5350_open_vdv", // KamAZ 5350
 
         // CUP Cars
@@ -83,11 +59,13 @@ class CfgZeusFactory {
         "CUP_O_GAZ_Vodnik_PK_RU", // Vodnik LMG
         "CUP_O_GAZ_Vodnik_AGS_RU", // Vodnik HMG
         "CUP_O_GAZ_Vodnik_BPPU_RU", // Vodnik Cannon
+        "CUP_I_Hilux_unarmed_IND_G_F", //Hilux unarmed (Better pickup)
+        "CUP_I_Hilux_armored_unarmed_IND_G_F", //Armored Hilux unarmed
 
         // CUP Trucks
         "CUP_B_MTVR_USMC", // Woodland MVTR
         "CUP_B_MTVR_USA", // Desert MVTR
-        "CUP_O_V3S_Open_TKA", // Praga
+        "CUP_I_V3S_Open_TKG", // Praga
         "CUP_C_Ikarus_TKC" // Bus
     };
 
@@ -104,14 +82,9 @@ class CfgZeusFactory {
         "O_APC_Tracked_02_cannon_F", // Stalker IFV
 
         // RHS APCs
-        "rhsusf_m113_usarmy_unarmed", // Woodland M113
-        "rhsusf_m113d_usarmy_unarmed", // Desert M113
-        "rhsusf_m113_usarmy", // Woodland M113 HMG
-        "rhsusf_m113d_usarmy", // Desert M113 HMG
-        "rhsusf_m113_usarmy_MK19", // Woodland M113 GMG
-        "rhsusf_m113d_usarmy_MK19", // Desert M113 GMG
-        "RHS_M2A2_wd", // Woodland Bradley IFV
-        "RHS_M2A2", // Desert Bradley IFV
+        "CUP_B_Boxer_HMG_GER_DES", //Desert Boxer HMG
+        "CUP_B_Boxer_HMG_GER_WDL", //Woodland Boxer HMG
+        "CUP_B_Boxer_HMG_HIL", //Jungle Boxer HMG
         "rhs_btr60_msv", // BTR 60 APC
         "rhs_btr70_msv", // BTR 70 APC
         "rhs_btr80_msv", // BTR 80 APC
@@ -158,17 +131,10 @@ class CfgZeusFactory {
         "O_Heli_Attack_02_F", // Mi 48 Kajman
 
         // RHS Transport Helicopters
-        "RHS_UH1Y_UNARMED", // Venom
-        "rhsusf_CH53E_USMC", // Super Stallion
         "RHS_Mi8AMT_vdv", // Mi 8
 
         // RHS Armed Helicopters
-        "RHS_UH1Y_FFAR", // Venom (armed)
-        "RHS_CH_47F", // Chinook (armed)
-        "RHS_UH60M", // Blackhawk (armed)
         "RHS_Mi8AMTSh_vvs", // Mi 8 (armed)
-        "rhsgref_cdf_reg_Mi17Sh_UPK", // Mi 17 (armed)
-        "rhsgref_mi24g_CAS", // Mi 24
 
         // CUP Transport Helicopters
         "CUP_O_MI6T_RU", // Mi 6 mass trans

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: AACO
  * Function used to reopen the spectate UI after another UI closes
@@ -15,8 +16,7 @@
  * Public: No
  */
 
-#include "script_component.hpp"
-TRACE_1("Params",_this);
+TRACE_1("checkToReopen",_this);
 
 if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull])}) then {
     GVAR(uiVisible) = true;
@@ -45,6 +45,5 @@ if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemot
     [GVAR(currentCamIndex)] call FUNC(ui_changeCamera);
 
     // add ACRE passthrough to display
-    disableSerialization;
-    [OVERLAY] call acre_api_fnc_addDisplayPassthroughKeys;
+    [OVERLAY] call FUNC(acreSpectateCompat);
 };

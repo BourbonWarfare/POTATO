@@ -58,13 +58,8 @@ case (_fuze == "prx"): {3.5}; //M734 says "PRX = Proximity air burst between 3 a
 
     TRACE_3("",_height,_detonationHeight,diag_fps);
 
-    private _position = getPosATL _projectile;
-    private _subMunition = createVehicle [QGVAR(ammo_he_airburst), _position, [], 0, "FLY"];
+    triggerAmmo _projectile;
 
-    _subMunition setPosATL _position;
-    _subMunition setVelocity [0, 0, -10];
-
-    deleteVehicle _projectile;
     [_pfID] call CBA_fnc_removePerFrameHandler;
 
 }, 0, [_projectile, _detonationHeight, (time + 5)]] call CBA_fnc_addPerFrameHandler;

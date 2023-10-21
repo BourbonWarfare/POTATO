@@ -6,10 +6,10 @@ class ctrlToolbox;
 class ctrlMenuStrip;
 
 class GVAR(setAttribute): ctrlToolbox {
-    x = (ATTRIBUTE_TITLE_W + SIZE_XXS) * GRID_W;
-    y = 0.02 * SIZE_M * GRID_H;
-    w = ATTRIBUTE_CONTENT_W * GRID_W;
-    h = 0.96 * SIZE_M * GRID_H;
+    x = QUOTE((ATTRIBUTE_TITLE_W + SIZE_XXS) * GRID_W);
+    y = QUOTE(0.02 * SIZE_M * GRID_H);
+    w = QUOTE(ATTRIBUTE_CONTENT_W * GRID_W);
+    h = QUOTE(0.96 * SIZE_M * GRID_H);
 
     rows = 1;
     columns = 2;
@@ -55,15 +55,15 @@ class Cfg3DEN {
             attributeSave = QUOTE(_this call FUNC(briefingAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(briefingAttributeLoad));
 
-            h = "5 * 5 * (pixelH * pixelGrid * 0.50)";
+            h = QUOTE(5 * 5 * (pixelH * pixelGrid * 0.50));
             class Controls: Controls {
                 class Title: Title {
-                    h = "5 * 5 * (pixelH * pixelGrid * 0.50)";
+                    h = QUOTE(5 * 5 * (pixelH * pixelGrid * 0.50));
                 };
                 class Value: Value {
                     idc = TEXT_IDC;
                     style = 16; //multi line
-                    h = "5 * 5 * (pixelH * pixelGrid * 0.50)";
+                    h = QUOTE(5 * 5 * (pixelH * pixelGrid * 0.50));
                 };
             };
         };
@@ -71,12 +71,12 @@ class Cfg3DEN {
             onLoad = QUOTE(_this call FUNC(briefingSettingsControlLoad));
             attributeSave = QUOTE(_this call FUNC(briefingSettingsAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(briefingSettingsAttributeLoad));
-            h = (2 * SIZE_M + 1) * GRID_H;
+            h = QUOTE((2 * SIZE_M + 1) * GRID_H);
 
             class Controls: Controls {
                 class SetCreditsTitle: Title {
                     style = 1;
-                    w = (ATTRIBUTE_TITLE_W - SIZE_M) * GRID_W;
+                    w = QUOTE((ATTRIBUTE_TITLE_W - SIZE_M) * GRID_W);
                     text = "Auto Credits";
                 };
                 class SetCreditsControl: GVAR(setAttribute) {
@@ -84,12 +84,12 @@ class Cfg3DEN {
                 };
                 class SetOrbatTitle: SetCreditsTitle {
                     style = 1;
-                    y = 1 * SIZE_M * GRID_H;
+                    y = QUOTE(1 * SIZE_M * GRID_H);
                     text = "Order of Battle";
                 };
                 class SetOrbatControl: GVAR(setAttribute) {
                     idc = ORBAT_SET_IDC;
-                    y = 1 * SIZE_M * GRID_H;
+                    y = QUOTE(1 * SIZE_M * GRID_H);
                 };
             };
         };

@@ -1,5 +1,5 @@
 /*
- * Author: Brandon (TCVM)
+ * Author: Dani (TCVM)
  * Determines if the current damage done to the vehicle is enough to bail them out. Must be called next frame in order to avoid RHS errors
  *
  * Arguments:

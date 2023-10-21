@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: AACO
  * Function called when the transfer all AI to HC module is placed in zeus
@@ -11,11 +12,10 @@
  * Public: No
  */
 
-#include "script_component.hpp"
-TRACE_1("Params",_this);
-
 params ["_logic"];
-if (isNull _logic) exitWith { TRACE_1("Logic for zeus object is somehow null, exiting"); };
+TRACE_1("transferAllToHCZeus",_logic);
+
+if (isNull _logic) exitWith { TRACE_1("Logic for zeus object is somehow null - exiting", _logic); };
 
 [true] spawn FUNC(transferGroupsToHC);
 

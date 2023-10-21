@@ -7,3 +7,15 @@ texHeaders.bin
 *.biprivatekey
 *.dll
 Thumbs.db
+
+hemtt.exe
+hemttNew.exe
+hemtt
+.hemttout
+releases/*
+keys/*
+.hemtt/local
+sqfvm.exe
+.vscode/sqfvm-lsp/*
+ArmaScriptCompiler.exe
+*.sqfc

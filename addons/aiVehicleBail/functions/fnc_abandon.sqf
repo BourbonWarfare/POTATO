@@ -1,5 +1,5 @@
 /*
- * Author: Brandon (TCVM)
+ * Author: Dani (TCVM)
  * Forces the AI currently in a vehicle to bail out
  *
  * Arguments:

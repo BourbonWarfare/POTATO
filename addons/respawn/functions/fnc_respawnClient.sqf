@@ -72,7 +72,7 @@ _newUnit setVariable [QEGVAR(radios,mrChannel), _mrChannel];
 _newUnit setVariable [QEGVAR(radios,lrChannel), _lrChannel];
 
 // add unit marker if exists
-if (_markerTexture != "") then {
+if ((_markerTexture != "") && {!(missionNamespace getVariable [QGVAR(noMarkers), false])}) then {
     _newUnit setVariable [QEGVAR(markers,addMarker), true, true];
     _newUnit setVariable [QEGVAR(markers,markerText), _markerText, true];
     _newUnit setVariable [QEGVAR(markers,markerTexture), _markerTexture, true];

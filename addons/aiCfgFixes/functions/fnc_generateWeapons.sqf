@@ -1,5 +1,5 @@
 /*
- * Author: Brandon (TCVM)
+ * Author: Dani (TCVM)
  * Generates default config data for every weapon in the mod pack
  *
  * Arguments:
@@ -9,7 +9,8 @@
  * None
  *
  * Example:
- * [] call potato_aiCfgFixes_fnc_generateWeapons;
+ * [[], [ "rhs_", "hlc_", "vn_", "hafm", "WBK_", "DSA_", "sp_fwa_sig510_base"]] call potato_aiCfgFixes_fnc_generateWeapons
+ * [["rhs_", "hlc_", "vn_", "hafm"], ["WBK_", "DSA_"]] call potato_aiCfgFixes_fnc_generateWeapons
  *
  * Public: Yes
  */
@@ -18,6 +19,21 @@
 #define CFG_WEAPONS_HEADER "class Mode_FullAuto;" + LINE_BREAK + "class Mode_Burst;" + LINE_BREAK + "class Mode_SemiAuto;" + LINE_BREAK + "class CfgWeapons {" + LINE_BREAK
 #define DEFAULT_MODE_VALUES INDENT + INDENT + INDENT + "minRangeProbab = 0; midRangeProbab = 0; maxRangeProbab = 0;" + LINE_BREAK
 
+params [["_filterAllow", []], ["_filterBlock", []]];
+_filterAllow = _filterAllow apply { toLower _x };
+_filterBlock = _filterBlock apply { toLower _x };
+private _fnc_filter = {
+    params ["_class"];
+    _class = toLower _class;
+    private _ret = (_filterAllow isEqualTo []);
+    {
+        if ((_class find _x) == 0) exitWith { _ret = true; };
+    } forEach _filterAllow;
+    {
+        if ((_class find _x) == 0) exitWith { _ret = false; };
+    } forEach _filterBlock;
+    _ret
+};
 
 private _types = [  ["AssaultRifle", "Rifle"],
                     ["Shotgun"],
@@ -45,6 +61,7 @@ systemChat "Generating...";
 {
     private _weaponCfg = _x;
     private _weapon = toLower configName _weaponCfg;
+    if (!([_weapon] call _fnc_filter)) then { continue; }; 
     // Because of how ARMA figures out what type of weapon a weapon is, some weapons (i.e rhs_weap_m107 as of 24/11/17) are defined as "rifles" (cursor="arifle")
     // and as such don't get the proper definitions. Can't figure out better way to determine weapon type so we have to deal with that
     private _weaponType = (_weapon call bis_fnc_itemType);

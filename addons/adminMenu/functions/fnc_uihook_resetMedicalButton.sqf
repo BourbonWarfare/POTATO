@@ -14,4 +14,4 @@ if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit, disconnect?", _selected
 if (!alive _selectedUnit) exitWith {hint "No zombies!";};
 
 [QACEGVAR(medical_treatment,fullHealLocal), [_selectedUnit, _selectedUnit], _selectedUnit] call CBA_fnc_targetEvent;
-["potato_adminMsg", [format ["FullHeal on %1", (name _selectedUnit)], profileName]] call CBA_fnc_globalEvent;
+["potato_adminMsg", [format ["Fully healed %1", (name _selectedUnit)], profileName]] call CBA_fnc_globalEvent;

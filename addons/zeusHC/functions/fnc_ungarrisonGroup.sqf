@@ -25,8 +25,9 @@ if (isNull _group || !(local _group)) exitWith { ERROR("Group is null/not local,
 
 // unset any doWatches, re enables AI
 {
+    _x setVariable ["lambs_danger_disableai", false, true];
     _x doWatch objNull;
-    _unit enableAI "PATH";
+    _x enableAI "PATH";
     _x doMove (getPos _x);
     _x doFollow (leader _group);
 } forEach (units _group);

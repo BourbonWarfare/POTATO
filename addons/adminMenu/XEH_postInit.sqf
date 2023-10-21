@@ -2,7 +2,7 @@
 
 [QGVAR(resetGear), {
     params [["_unit", objNull, [objNull]]];
-    diag_log text format ["[POTATO] Reseting Gear on %1 [%2]", (name _unit), _unit];
+    diag_log text format ["[POTATO] Resetting Gear on %1 [%2]", (name _unit), _unit];
     if ((isNull _unit) || {!alive _unit} || {!local _unit}) exitWith {};
 
     removeAllWeapons _unit;
@@ -28,7 +28,7 @@
 
     params [["_unit", objNull, [objNull]]];
 
-    diag_log text format ["[POTATO] Reseting spectator on %1 [%2]", (name _unit), _unit];
+    diag_log text format ["[POTATO] Resetting spectator on %1 [%2]", (name _unit), _unit];
     if (isNull _unit || {!local _unit} || {alive _unit && !(_unit isKindOf QEGVAR(spectate,spectator))}) exitWith {};
 
     diag_log text format ["[POTATO] Calling %1", QEFUNC(spectate,exit)];
@@ -41,7 +41,7 @@
 [QGVAR(resetMarkers), {
     params [["_unit", objNull, [objNull]]];
 
-    diag_log text format ["[POTATO] Reseting markers on %1 [%2]", (name _unit), _unit];
+    diag_log text format ["[POTATO] Resetting markers on %1 [%2]", (name _unit), _unit];
     if (isNull _unit || {!local _unit}) exitWith {};
 
     diag_log text format ["[POTATO] Calling %1", QEFUNC(markers,initMarkerHash)];

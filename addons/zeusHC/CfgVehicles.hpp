@@ -48,22 +48,27 @@ class CfgVehicles {
     };
     class GVAR(east_manpadTeam): GVAR(east_rifleman) {
         displayName = "#MANPAD Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_msamg","potato_e_msamag"};
     };
     class GVAR(east_matTeam): GVAR(east_rifleman) {
         displayName = "#MAT Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_matg","potato_e_matag"};
     };
     class GVAR(east_patrol): GVAR(east_rifleman) {
         displayName = "#Patrol (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_rifleman","potato_e_rifleman"};
     };
     class GVAR(east_fireteam): GVAR(east_rifleman) {
         displayName = "#Fireteam (4)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_ftl","potato_e_AR","potato_e_rifleman","potato_e_LAT"};
     };
     class GVAR(east_squad): GVAR(east_rifleman) {
         displayName = "#Squad (8)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_sl","potato_e_ftl","potato_e_ar","potato_e_ar","potato_e_lat","potato_e_rifleman","potato_e_rifleman","potato_e_rifleman"};
     };
     class GVAR(east_aaModern): GVAR(east_rifleman) {
@@ -169,10 +174,6 @@ class CfgVehicles {
     class GVAR(east_cupMi8): GVAR(east_rifleman) {
         displayName = "Heli-Attack (Light): MI-8 (CUP)";
         GVAR(createVic) = "CUP_O_Mi8_RU";
-    };
-    class GVAR(east_rhsMi24): GVAR(east_rifleman) {
-        displayName = "Heli-Attack (Heavy): MI-24G Hind (RHS)";
-        GVAR(createVic) = "rhsgref_mi24g_CAS";
     };
     class GVAR(east_cupMi24): GVAR(east_rifleman) {
         displayName = "Heli-Attack (Heavy): MI-24P Hind (CUP)";
@@ -310,22 +311,27 @@ class CfgVehicles {
     };
     class GVAR(west_manpadTeam): GVAR(west_rifleman) {
         displayName = "#MANPAD Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_msamg","potato_w_msamag"};
     };
     class GVAR(west_matTeam): GVAR(west_rifleman) {
         displayName = "#MAT Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_matg","potato_w_matag"};
     };
     class GVAR(west_patrol): GVAR(west_rifleman) {
         displayName = "#Patrol (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_rifleman","potato_w_rifleman"};
     };
     class GVAR(west_fireteam): GVAR(west_rifleman) {
         displayName = "#Fireteam (4)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_ftl","potato_w_ar","potato_w_rifleman","potato_w_lat"};
     };
     class GVAR(west_squad): GVAR(west_rifleman) {
         displayName = "#Squad (8)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_sl","potato_w_ftl","potato_w_ar","potato_w_ar","potato_w_lat","potato_w_rifleman","potato_w_rifleman","potato_w_rifleman"};
     };
     class GVAR(west_cupAvenger): GVAR(west_rifleman) {
@@ -340,14 +346,6 @@ class CfgVehicles {
         displayName = "AA: Bardelas (A3)";
         GVAR(createVic) = "B_APC_Tracked_01_AA_F";
     };
-    class GVAR(west_rhsLinebackerD): GVAR(west_rifleman) {
-        displayName = "AA: M6A2 Linebacker (Desert) (RHS)";
-        GVAR(createVic) = "RHS_M6";
-    };
-    class GVAR(west_rhsLinebackerW): GVAR(west_rifleman) {
-        displayName = "AA: M6A2 Linebacker (Woodland) (RHS)";
-        GVAR(createVic) = "RHS_M6_wd";
-    };
     class GVAR(west_cupLinebackerD): GVAR(west_rifleman) {
         displayName = "AA: M6A2 Linebacker (Desert) (CUP)";
         GVAR(createVic) = "CUP_B_M6LineBacker_USA_D";
@@ -355,22 +353,6 @@ class CfgVehicles {
     class GVAR(west_cupLinebackerW): GVAR(west_rifleman) {
         displayName = "AA: M6A2 Linebacker (Woodland) (CUP)";
         GVAR(createVic) = "CUP_B_M6LineBacker_USA_W";
-    };
-    class GVAR(west_rhsM113GmgD): GVAR(west_rifleman) {
-        displayName = "APC: M113 GMG (Desert) (RHS)";
-        GVAR(createVic) = "rhsusf_m113d_usarmy_MK19";
-    };
-    class GVAR(west_rhsM113HmgD): GVAR(west_rifleman) {
-        displayName = "APC: M113 HMG (Desert) (RHS)";
-        GVAR(createVic) = "rhsusf_m113d_usarmy";
-    };
-    class GVAR(west_rhsM113GmgW): GVAR(west_rifleman) {
-        displayName = "APC: M113 GMG (Woodland) (RHS)";
-        GVAR(createVic) = "rhsusf_m113_usarmy_MK19";
-    };
-    class GVAR(west_rhsM113HmgW): GVAR(west_rifleman) {
-        displayName = "APC: M113 HMG (Woodland) (RHS)";
-        GVAR(createVic) = "rhsusf_m113_usarmy";
     };
     class GVAR(west_cupM113HmgW): GVAR(west_rifleman) {
         displayName = "APC: M113 HMG (Woodland) (CUP)";
@@ -391,14 +373,6 @@ class CfgVehicles {
     class GVAR(west_cupFV432MmgW): GVAR(west_rifleman) {
         displayName = "APC: FV432 Bulldog MMG (Woodland) (CUP)";
         GVAR(createVic) = "CUP_B_FV432_Bulldog_GB_W";
-    };
-    class GVAR(west_rhsM1117GmgHmgD): GVAR(west_rifleman) {
-        displayName = "APC: M1117 ASV (Desert) (RHS)";
-        GVAR(createVic) = "rhsusf_M1117_D";
-    };
-    class GVAR(west_rhsM1117GmgHmgW): GVAR(west_rifleman) {
-        displayName = "APC: M1117 ASV (Woodland) (RHS)";
-        GVAR(createVic) = "rhsusf_M1117_W";
     };
     class GVAR(west_apcModern): GVAR(west_rifleman) {
         displayName = "APC: Namer GMG/HMG (A3)";
@@ -427,22 +401,6 @@ class CfgVehicles {
     class GVAR(west_a3ProwlerHmg): GVAR(west_rifleman) {
         displayName = "Car: Prowler HMG (A3)";
         GVAR(createVic) = "B_LSV_01_armed_F";
-    };
-    class GVAR(west_rhsHmmwvGmgD): GVAR(west_rifleman) {
-        displayName = "Car: HMMWV GMG (Desert) (RHS)";
-        GVAR(createVic) = "rhsusf_m1025_d_mk19";
-    };
-    class GVAR(west_rhsHmmwvHmgD): GVAR(west_rifleman) {
-        displayName = "Car: HMMWV HMG (Desert) (RHS)";
-        GVAR(createVic) = "rhsusf_m1025_d_m2";
-    };
-    class GVAR(west_rhsHmmwvGmgW): GVAR(west_rifleman) {
-        displayName = "Car: HMMWV GMG (Woodland) (RHS)";
-        GVAR(createVic) = "rhsusf_m1025_w_mk19";
-    };
-    class GVAR(west_rhsHmmwvHmgW): GVAR(west_rifleman) {
-        displayName = "Car: HMMWV HMG (Woodland) (RHS)";
-        GVAR(createVic) = "rhsusf_m1025_w_m2";
     };
     class GVAR(west_cupHmmwvAtgmD): GVAR(west_rifleman) {
         displayName = "Car: HMMWV TOW (Desert) (CUP)";
@@ -532,22 +490,6 @@ class CfgVehicles {
         displayName = "Car: RG-31 Nyala HMG (Woodland) (CUP)";
         GVAR(createVic) = "CUP_B_RG31_M2_OD_USMC";
     };
-    class GVAR(west_rhsRG33LGmgD): GVAR(west_rifleman) {
-        displayName = "Car: M1232 RG-33L GMG (Desert) (RHS)";
-        GVAR(createVic) = "rhsusf_M1232_MK19_usarmy_d";
-    };
-    class GVAR(west_rhsRG33LHmgD): GVAR(west_rifleman) {
-        displayName = "Car: M1232 RG-33L HMG (Desert) (RHS)";
-        GVAR(createVic) = "rhsusf_M1232_M2_usarmy_d";
-    };
-    class GVAR(west_rhsRG33LGmgW): GVAR(west_rifleman) {
-        displayName = "Car: M1232 RG-33L GMG (Woodland) (RHS)";
-        GVAR(createVic) = "rhsusf_M1232_MK19_usarmy_wd";
-    };
-    class GVAR(west_rhsRG33LHmgW): GVAR(west_rifleman) {
-        displayName = "Car: M1232 RG-33L HMG (Woodland) (RHS)";
-        GVAR(createVic) = "rhsusf_M1232_M2_usarmy_wd";
-    };
     class GVAR(west_carModernGmg): GVAR(west_rifleman) {
         displayName = "Car: M-ATV GMG (A3)";
         GVAR(createVic) = "B_MRAP_01_gmg_F";
@@ -564,17 +506,9 @@ class CfgVehicles {
         displayName = "Heli-Attack (Heavy): RAH-66 Comanche (A3)";
         GVAR(createVic) = "B_Heli_Attack_01_F";
     };
-    class GVAR(west_rhsHeliAttackHeavy): GVAR(west_rifleman) {
-        displayName = "Heli-Attack (Heavy): AH-1Z Viper (RHS)";
-        GVAR(createVic) = "RHS_AH1Z";
-    };
     class GVAR(west_cupHeliAttackHeavy): GVAR(west_rifleman) {
         displayName = "Heli-Attack (Heavy): AH-1Z Viper (CUP)";
         GVAR(createVic) = "CUP_B_AH1Z_USMC";
-    };
-    class GVAR(west_rhsAH64): GVAR(west_rifleman) {
-        displayName = "Heli-Attack (Heavy): AH-64D Apache (RHS)";
-        GVAR(createVic) = "RHS_AH64D";
     };
     class GVAR(west_cupAH64): GVAR(west_rifleman) {
         displayName = "Heli-Attack (Heavy): AH-64D Apache (CUP)";
@@ -583,10 +517,6 @@ class CfgVehicles {
     class GVAR(west_heliAttack): GVAR(west_rifleman) {
         displayName = "Heli-Attack (Light): AH-9 Littlebird (A3)";
         GVAR(createVic) = "B_Heli_Light_01_armed_F";
-    };
-    class GVAR(west_rhsHeliAttack): GVAR(west_rifleman) {
-        displayName = "Heli-Attack (Light): AH-6 Littlebird (RHS)";
-        GVAR(createVic) = "RHS_MELB_AH6M_L";
     };
     class GVAR(west_cupHeliAttack): GVAR(west_rifleman) {
         displayName = "Heli-Attack (Light): AH-6 Littlebird (CUP)";
@@ -616,14 +546,6 @@ class CfgVehicles {
         displayName = "IFV: LAV-25 (Woodland) (CUP)";
         GVAR(createVic) = "CUP_B_LAV25M240_USMC";
     };
-    class GVAR(west_rhsBradleyD): GVAR(west_rifleman) {
-        displayName = "IFV: M2A2 Bradley (Desert) (RHS)";
-        GVAR(createVic) = "RHS_M2A2";
-    };
-    class GVAR(west_rhsBradleyW): GVAR(west_rifleman) {
-        displayName = "IFV: M2A2 Bradley (Woodland) (RHS)";
-        GVAR(createVic) = "RHS_M2A2_wd";
-    };
     class GVAR(west_cupBradleyD): GVAR(west_rifleman) {
         displayName = "IFV: M2A2 Bradley (Desert) (CUP)";
         GVAR(createVic) = "CUP_B_M2Bradley_USA_D";
@@ -635,14 +557,6 @@ class CfgVehicles {
     class GVAR(west_ifvModern): GVAR(west_rifleman) {
         displayName = "IFV: Marshall (A3)";
         GVAR(createVic) = "B_APC_Wheeled_01_cannon_F";
-    };
-    class GVAR(west_rhsM1A1D): GVAR(west_rifleman) {
-        displayName = "Tank: M1A1 (Desert) (RHS)";
-        GVAR(createVic) = "rhsusf_m1a1aimd_usarmy";
-    };
-    class GVAR(west_rhsM1A1W): GVAR(west_rifleman) {
-        displayName = "Tank: M1A1 (Woodland) (RHS)";
-        GVAR(createVic) = "rhsusf_m1a1aimwd_usarmy";
     };
     class GVAR(west_cupM1A1D): GVAR(west_rifleman) {
         displayName = "Tank: M1A1 (Desert) (CUP)";
@@ -700,27 +614,28 @@ class CfgVehicles {
     };
     class GVAR(ind_manpadTeam): GVAR(ind_rifleman) {
         displayName = "#MANPAD Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_msamg","potato_i_msamag"};
     };
     class GVAR(ind_matTeam): GVAR(ind_rifleman) {
         displayName = "#MAT Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_matg","potato_i_matag"};
     };
     class GVAR(ind_patrol): GVAR(ind_rifleman) {
         displayName = "#Patrol (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_rifleman","potato_i_rifleman"};
     };
     class GVAR(ind_fireteam): GVAR(ind_rifleman) {
         displayName = "#Fireteam (4)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_ftl","potato_i_ar","potato_i_rifleman","potato_i_lat"};
     };
     class GVAR(ind_squad): GVAR(ind_rifleman) {
         displayName = "#Squad (8)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_sl","potato_i_ftl","potato_i_ar","potato_i_ar","potato_i_lat","potato_i_rifleman","potato_i_rifleman","potato_i_rifleman"};
-    };
-    class GVAR(ind_gazZu): GVAR(ind_rifleman) {
-        displayName = "AA: GAZ ZU 23 (RHS)";
-        GVAR(createVic) = "rhsgref_ins_g_gaz66_zu23";
     };
     class GVAR(ind_rhsZsu): GVAR(ind_rifleman) {
         displayName = "AA: ZSU 23 Shilka (RHS)";
@@ -733,10 +648,6 @@ class CfgVehicles {
     class GVAR(ind_cupBTR40): GVAR(ind_rifleman) {
         displayName = "APC: BTR-40 (CUP)";
         GVAR(createVic) = "CUP_I_BTR40_MG_TKG";
-    };
-    class GVAR(ind_rhsBTR60): GVAR(ind_rifleman) {
-        displayName = "APC: BTR-60 (RHS)";
-        GVAR(createVic) = "rhsgref_cdf_btr60";
     };
     class GVAR(ind_cupBTR60): GVAR(ind_rifleman) {
         displayName = "APC: BTR-60 (CUP)";
@@ -814,14 +725,6 @@ class CfgVehicles {
         displayName = "Heli-Attack: Wildcat (A3)";
         GVAR(createVic) = "I_Heli_light_03_F";
     };
-    class GVAR(ind_rhsBmd): GVAR(ind_rifleman) {
-        displayName = "IFV: BMD-1 (RHS)";
-        GVAR(createVic) = "rhsgref_cdf_bmd1";
-    };
-    class GVAR(ind_rhsBmp): GVAR(ind_rifleman) {
-        displayName = "IFV: BMP-1 (RHS)";
-        GVAR(createVic) = "rhsgref_cdf_bmp1";
-    };
     class GVAR(ind_cupBmp): GVAR(ind_rifleman) {
         displayName = "IFV: BMP-1 (CUP)";
         GVAR(createVic) = "CUP_O_BMP1_TKA";
@@ -841,10 +744,6 @@ class CfgVehicles {
     class GVAR(ind_cupT55): GVAR(ind_rifleman) {
         displayName = "Tank: T55 (CUP)";
         GVAR(createVic) = "CUP_O_T55_TK";
-    };
-    class GVAR(ind_rhsT72): GVAR(ind_rifleman) {
-        displayName = "Tank: T72B (RHS)";
-        GVAR(createVic) = "rhsgref_cdf_t72ba_tv";
     };
     class GVAR(ind_cupT72): GVAR(ind_rifleman) {
         displayName = "Tank: T72 (CUP)";

@@ -5,9 +5,10 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core"};
+        requiredAddons[] = {"potato_core","CUP_Vehicles_LoadOrder"};
+        skipWhenMissingDependencies = 1;
         author = "Potato";
-        authors[] = {"Brandon (TCVM)"};
+        authors[] = {"Dani (TCVM)"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
@@ -15,4 +16,3 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
-

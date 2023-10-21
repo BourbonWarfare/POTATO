@@ -27,7 +27,7 @@ class CfgVehicles {
                 condition = QUOTE(_this call FUNC(canDeployWeapon));
                 statement = QUOTE(_this call FUNC(doDeployWeapon));
                 exceptions[] = {};
-                icon = PATHTOF(UI\action_mortar_ca.paa);
+                icon = QPATHTOF(UI\action_mortar_ca.paa);
             };
         };
     };
@@ -58,6 +58,7 @@ class CfgVehicles {
         ace_dragging_canDrag = 0;
         ace_cargo_hasCargo = 0;
         ace_cargo_canLoad = 0;
+        ace_artillerytables_showGunLaying = 0;
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 selection = "bubble start";
@@ -76,12 +77,12 @@ class CfgVehicles {
                 condition = QUOTE(([QUOTE(QGVAR(HE))] call FUNC(canSelectNextMagazine) || {[QUOTE(QGVAR(HE_multi))] call FUNC(canSelectNextMagazine)}));
                 statement = QUOTE([QUOTE(QGVAR(HE))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
-                icon = PATHTOF(UI\action_shell_ca.paa);
+                icon = QPATHTOF(UI\action_shell_ca.paa);
                 class GVAR(load_HE_charge0) {
                     displayName = "@ Charge 0";
                     condition = QUOTE(true);
                     statement = QUOTE([QUOTE(QGVAR(HE_charge0))] call FUNC(doSelectNextMagazine));
-                    icon = PATHTOF(UI\action_shell_ca.paa);
+                    icon = QPATHTOF(UI\action_shell_ca.paa);
                 };
             };
             class GVAR(load_HE_PRX) {
@@ -89,12 +90,12 @@ class CfgVehicles {
                 condition = QUOTE([QUOTE(QGVAR(HE_PRX))] call FUNC(canSelectNextMagazine));
                 statement = QUOTE([QUOTE(QGVAR(HE_PRX))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
-                icon = PATHTOF(UI\action_shell_ca.paa);
+                icon = QPATHTOF(UI\action_shell_ca.paa);
                 class GVAR(load_HE_charge0) {
                     displayName = "@ Charge 0";
                     condition = QUOTE(true);
                     statement = QUOTE([QUOTE(QGVAR(HE_PRX_charge0))] call FUNC(doSelectNextMagazine));
-                    icon = PATHTOF(UI\action_shell_ca.paa);
+                    icon = QPATHTOF(UI\action_shell_ca.paa);
                 };
             };
             class GVAR(load_smokeWhite) {
@@ -102,12 +103,12 @@ class CfgVehicles {
                 condition = QUOTE([QUOTE(QGVAR(smokeWhite))] call FUNC(canSelectNextMagazine));
                 statement = QUOTE([QUOTE(QGVAR(smokeWhite))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
-                icon = PATHTOF(UI\action_shell_ca.paa);
+                icon = QPATHTOF(UI\action_shell_ca.paa);
                 class GVAR(load_smokeWhite_charge0) {
                     displayName = "@ Charge 0";
                     condition = QUOTE(true);
                     statement = QUOTE([QUOTE(QGVAR(smokeWhite_charge0))] call FUNC(doSelectNextMagazine));
-                    icon = PATHTOF(UI\action_shell_ca.paa);
+                    icon = QPATHTOF(UI\action_shell_ca.paa);
                 };
             };
             class GVAR(load_smokeRed) {
@@ -115,12 +116,12 @@ class CfgVehicles {
                 condition = QUOTE([QUOTE(QGVAR(smokeRed))] call FUNC(canSelectNextMagazine));
                 statement = QUOTE([QUOTE(QGVAR(smokeRed))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
-                icon = PATHTOF(UI\action_shell_ca.paa);
+                icon = QPATHTOF(UI\action_shell_ca.paa);
                 class GVAR(load_smokeRed_charge0) {
                     displayName = "@ Charge 0";
                     condition = QUOTE(true);
                     statement = QUOTE([QUOTE(QGVAR(smokeRed_charge0))] call FUNC(doSelectNextMagazine));
-                    icon = PATHTOF(UI\action_shell_ca.paa);
+                    icon = QPATHTOF(UI\action_shell_ca.paa);
                 };
             };
             class GVAR(load_flare) {
@@ -128,18 +129,18 @@ class CfgVehicles {
                 condition = QUOTE([QUOTE(QGVAR(flare))] call FUNC(canSelectNextMagazine));
                 statement = QUOTE([QUOTE(QGVAR(flare))] call FUNC(doSelectNextMagazine));
                 exceptions[] = {};
-                icon = PATHTOF(UI\action_shell_ca.paa);
+                icon = QPATHTOF(UI\action_shell_ca.paa);
                 class GVAR(load_flare_charge0) {
                     displayName = "@ Charge 0";
                     condition = QUOTE(true);
                     statement = QUOTE([QUOTE(QGVAR(flare_charge0))] call FUNC(doSelectNextMagazine));
-                    icon = PATHTOF(UI\action_shell_ca.paa);
+                    icon = QPATHTOF(UI\action_shell_ca.paa);
                 };
             };
         };
 
 
-        model = QUOTE(PATHTOF(data\vz99_vehicle));
+        model = QPATHTOF(data\vz99_vehicle);
         class AnimationSources {
             class Level {
                 source = "user"; //The controller is defined as a user animation.

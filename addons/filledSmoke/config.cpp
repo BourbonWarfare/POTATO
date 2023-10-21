@@ -1,13 +1,11 @@
 #include "script_component.hpp"
 
-#ifndef POTATO_LEAN_CONFIGS
-
 class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "rhs_c_weapons"};
+        requiredAddons[] = {"potato_core"};
         author = "Potato";
         authors[] = {"AACO"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -55,7 +53,7 @@ class GVAR(bigSmoke) {
         type = QGVAR(SmokeShellWhiteFilled);
         position[] = {0,0,0};
         intensity = 5;
-        interval = .333;
+        interval = 0.333;
     };
 };
 
@@ -67,11 +65,4 @@ class CfgAmmo {
     class SmokeShellArty: SmokeShell {
         effectsSmoke = QGVAR(bigSmoke);
     };
-    class rhs_ammo_rdg2_white: SmokeShell {
-        effectsSmoke = QGVAR(bigSmoke);
-    };
-    class rhs_ammo_rdg2_black: rhs_ammo_rdg2_white {
-        effectsSmoke = QGVAR(bigSmoke);
-    };
 };
-#endif

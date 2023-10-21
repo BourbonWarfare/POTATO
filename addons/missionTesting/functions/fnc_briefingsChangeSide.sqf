@@ -17,7 +17,7 @@ params["_side"];
 
 GVAR(yStartCoord) = 0;
 
-private _situtation = nil;
+private _situation = nil;
 private _mission = nil;
 private _admin = nil;
 private _weaponsReport = nil;
@@ -32,25 +32,25 @@ if (!isNil QGVAR(TestRan)) then {
 
 switch (_side) do {
     case 0: {
-        _situtation = getMissionConfigValue [QEGVAR(briefing,briefWestSituation), ""];
+        _situation = getMissionConfigValue [QEGVAR(briefing,briefWestSituation), ""];
         _mission = getMissionConfigValue [QEGVAR(briefing,briefWestMission), ""];
         _admin = getMissionConfigValue [QEGVAR(briefing,briefWestAdministration), ""];
         _weaponsReport = GVAR(westClasses) joinString "<br/>";
     };
     case 1: {
-        _situtation = getMissionConfigValue [QEGVAR(briefing,briefEastSituation), ""];
+        _situation = getMissionConfigValue [QEGVAR(briefing,briefEastSituation), ""];
         _mission = getMissionConfigValue [QEGVAR(briefing,briefEastMission), ""];
-        _admin = getMissionConfigValue [QEGVAR(briefing,brieEastAdministration), ""];
+        _admin = getMissionConfigValue [QEGVAR(briefing,briefEastAdministration), ""];
         _weaponsReport = GVAR(eastClasses) joinString "<br/>";
     };
     case 2: {
-        _situtation = getMissionConfigValue [QEGVAR(briefing,briefIndependentSituation), ""];
+        _situation = getMissionConfigValue [QEGVAR(briefing,briefIndependentSituation), ""];
         _mission = getMissionConfigValue [QEGVAR(briefing,briefIndependentMission), ""];
         _admin = getMissionConfigValue [QEGVAR(briefing,briefIndependentAdministration), ""];
         _weaponsReport = GVAR(indyClasses) joinString "<br/>";
     };
     case 3: {
-        _situtation = getMissionConfigValue [QEGVAR(briefing,briefCivilianSituation), ""];
+        _situation = getMissionConfigValue [QEGVAR(briefing,briefCivilianSituation), ""];
         _mission = getMissionConfigValue [QEGVAR(briefing,briefCivilianMission), ""];
         _admin = getMissionConfigValue [QEGVAR(briefing,briefCivilianAdministration), ""];
         _weaponsReport = GVAR(civiClasses) joinString "<br/>";
@@ -69,7 +69,7 @@ private _controls = [
     ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 8)
     ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 9)
 ];
-private _textArray = ["Zues Intent",_zuesIntent,"Situtation",_situtation,"Mission",_mission,"Administration",_admin,"WEAPONS REPORT",_weaponsReport];
+private _textArray = ["Zues Intent",_zuesIntent,"Situation",_situation,"Mission",_mission,"Administration",_admin,"WEAPONS REPORT",_weaponsReport];
 
 {
     private _ctrlClass = ctrlClassName _x;

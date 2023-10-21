@@ -45,7 +45,7 @@ _mortarVeh disableNVGEquipment ((hmd _player) == "");
                 {[_player, _mortarVeh, []] call ACEFUNC(common,canInteractWith)}) then {
             private _weaponDir = _mortarVeh weaponDirection (currentWeapon _mortarVeh);
             private _azimuth = (_weaponDir select 0) atan2 (_weaponDir select 1);
-            TRACE_1("CAN pickup - set dir",_mortarVeh,_azimuth);
+            TRACE_2("CAN pickup - set dir",_mortarVeh,_azimuth);
             _player setDir _azimuth;
             [_mortarVeh, _player] call FUNC(doPickupWeapon);
         } else {

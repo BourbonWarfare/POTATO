@@ -1,0 +1,66 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "SQFVM Checker",
+            "command": "python",
+            "options": {
+                "cwd": "${workspaceFolder}/tools"
+            },
+            "args": [
+                "sqfvmChecker.py"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Test All",
+            "dependsOn": [
+                "SQFVM Checker"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build: make.py (pboProject)",
+            "command": "python",
+            "options": {
+                "cwd": "${workspaceFolder}/tools"
+            },
+            "args": [
+                "make.py",
+                "force",
+                "ci"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build: Hemtt v1",
+            "command": "hemtt.exe",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "build",
+                "-v"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Pack: Hemtt v1",
+            "command": "hemtt.exe",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "dev",
+                "-v"
+            ],
+            "group": "build"
+        }
+    ]
+}

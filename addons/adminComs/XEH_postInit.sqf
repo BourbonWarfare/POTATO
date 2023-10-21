@@ -49,6 +49,6 @@ if (isServer) then {
     [{
         private _authorName = getMissionConfigValue ["author", "???"];
         private _authorPresent = (allUnits findIf {(name _x) == _authorName}) > -1;
-        ["potato_adminMsg", [format ["-Mision Maker [Present: %1]", _authorPresent], _authorName]] call CBA_fnc_globalEvent;
+        ["potato_adminMsg", [format ["-Mission Maker [Present: %1]", _authorPresent], _authorName]] call CBA_fnc_globalEvent;
     }, [], 1] call CBA_fnc_waitAndExecute;
 };

@@ -1,47 +1,366 @@
 class CfgMagazines {
     class CA_Magazine;
+    // temp inheritance
+    class 30Rnd_545x39_Mag_F;
+    class 30Rnd_762x39_Mag_F;
+    class 30Rnd_556x45_Stanag;
+    class 150Rnd_556x45_Drum_Mag_F;
+    class 200Rnd_556x45_Box_F;
+    class 30Rnd_65x39_caseless_black_mag;
+    class 100Rnd_65x39_caseless_black_mag;
+    class 200Rnd_65x39_cased_Box;
+    class 30Rnd_580x42_Mag_F;
+    class 100Rnd_580x42_Mag_F;
+    class 20Rnd_762x51_Mag;
+    class 10Rnd_762x54_Mag;
+    class 9Rnd_45ACP_Mag;
+    class 16Rnd_9x21_Mag;
+    class 30Rnd_9x21_Mag;
+    class 11Rnd_45ACP_Mag;
+    class 6Rnd_45ACP_Cylinder;
+    class 10Rnd_338_Mag;
+    class 7Rnd_408_Mag;
+    class 5Rnd_127x108_Mag;
+    class 5Rnd_127x108_APDS_Mag;
+    class 130Rnd_338_Mag;
+    class 10Rnd_93x64_DMR_05_Mag;
+    class 30Rnd_45ACP_Mag_SMG_01;
+    class 50Rnd_570x28_SMG_03;
+    class 150Rnd_762x51_Box;
+    class 150Rnd_762x54_Box;
+    class 30Rnd_9x21_Mag_SMG_02;
+    class 150Rnd_93x64_Mag;
+    class 10Rnd_127x54_Mag;
+    class 20Rnd_650x39_Cased_Mag_F;
 
-    // 556x45
-    class CUP_30Rnd_556x45_Stanag: CA_Magazine {
-        modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_556x45_stanag_usgi_30rnd";
-        modelSpecialIsProxy = 1;
-    };
-    class CUP_200Rnd_TE4_Green_Tracer_556x45_M249: CA_Magazine {
-        modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_556x45_m249_pouch_200rnd";
-        modelSpecialIsProxy = 1;
-    };
-    class CUP_100Rnd_TE4_Green_Tracer_556x45_M249: CUP_200Rnd_TE4_Green_Tracer_556x45_M249 {
-        modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_556x45_m249_pouch_100rnd";
-        modelSpecialIsProxy = 1;
-    };
-    class 200Rnd_556x45_Box_F: CA_Magazine {
-        modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_556x45_m249_pouch_100rnd";
-        modelSpecialIsProxy = 1;
-    };
+    class hlc_30Rnd_10mm_B_MP5;
+    class CUP_5Rnd_762x67_G22;
+    class CUP_10x_303_M;
+    class CUP_10Rnd_B_765x17_Ball_M;
+    class CUP_20Rnd_B_765x17_Ball_M;
+    class CUP_50Rnd_B_765x17_Ball_M;
+    class CUP_5Rnd_86x70_L115A1;
+    class CUP_7Rnd_45ACP_1911;
+    class CUP_40Rnd_46x30_MP7;
+    class CUP_20Rnd_46x30_MP7;
+    class CUP_5Rnd_127x99_as50_M;
+    class CUP_10Rnd_127x99_M107;
+    class CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M;
+    class CUP_60Rnd_545x39_AK74M_M;
+    class CUP_100Rnd_556x45_BetaCMag_ar15;
+    class CUP_60Rnd_556x45_SureFire;
+    class CUP_30Rnd_680x43_Stanag;
+    class hlc_24Rnd_75x55_B_stgw;
+    class CUP_8Rnd_762x25_TT;
+    class CUP_40Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M;
+    class CUP_75Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M;
+    class CUP_30Rnd_Sa58_M;
+    class CUP_1Rnd_762x51_CZ584;
+    class CUP_5Rnd_762x51_M24;
+    class CUP_20Rnd_762x51_B_M110;
+    class CUP_10Rnd_762x51_CZ750_Tracer;
+    class CUP_30Rnd_TE1_Yellow_Tracer_762x51_FNFAL_M;
+    class CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M;
+    class hlc_200Rnd_762x51_B_M60E4;
+    class hlc_50Rnd_762x51_B_MG3;
+    class hlc_250Rnd_762x51_B_MG3;
+    class CUP_20Rnd_762x51_B_SCAR;
+    class CUP_50Rnd_762x51_B_SCAR;
+    class hlc_20Rnd_762x51_b_amt;
+    class CUP_5Rnd_762x54_Mosin_M;
+    class CUP_50Rnd_UK59_762x54R_Tracer;
+    class hlc_50Rnd_792x57_B_MG42;
+    class hlc_100Rnd_792x57_B_MG42;
+    class hlc_200Rnd_792x57_B_MG42;
+    class CUP_8Rnd_9x18_Makarov_M;
+    class CUP_12Rnd_9x18_PMM_M;
+    class CUP_10Rnd_9x19_Compact;
+    class CUP_64Rnd_9x19_Bizon_M;
+    class hlc_25Rnd_9x19mm_M882_AUG;
+    class CUP_10Rnd_9x39_SP5_VSS_M;
+    class CUP_20Rnd_9x39_SP5_VSS_M;
+    class CUP_30Rnd_9x39_SP5_VIKHR_M;
+    class CUP_20Rnd_556x45_Stanag;
+    class CUP_10Rnd_762x39_SaigaMk03_M;
+    class CUP_20Rnd_762x39_AMD63_M;
+    class CUP_20Rnd_545x39_AKSU_M;
+    class CUP_10Rnd_762x51_FNFAL_M;
+    class CUP_25Rnd_556x45_Famas;
+    class CUP_30Rnd_9x19_MP5;
+    class CUP_100Rnd_TE4_Red_Tracer_556x45_M249;
+    class CUP_200Rnd_TE4_Red_Tracer_556x45_M249;
+    class hlc_40Rnd_556x45_B_AUG;
+    class CUP_7Rnd_50AE_Deagle;
+    class CUP_32Rnd_9x19_TEC9;
+    class CUP_5x_22_LR_17_HMR_M;
+    class CUP_25Rnd_762x51_Galil_Mag;
+    class CUP_35Rnd_556x45_Galil_Mag;
+    class CUP_30Rnd_556x45_AK;
+    class hlc_50Rnd_762x51_B_fal;
+    class hlc_50Rnd_762x51_B_G3;
+    class CUP_30Rnd_45ACP_M3A1_M;
+    class hlc_30rnd_556x45_EPR_HK33;
+    class CUP_50Rnd_556x45_Galil_Mag;
+    class CUP_30Rnd_556x45_Stanag_Mk16;
+    class CUP_30Rnd_556x45_Stanag_Mk16_woodland;
+    class CUP_30Rnd_556x45_Emag;
+    class CUP_30Rnd_556x45_EMAG_Tan;
+    class CUP_30Rnd_556x45_EMAG_Olive;
+    class CUP_30Rnd_556x45_PMAG_BLACK_PULL;
+    class CUP_30Rnd_556x45_PMAG_COYOTE_PULL;
+    class CUP_30Rnd_556x45_PMAG_OD_PULL;
+    class CUP_30Rnd_556x45_PMAG_BLACK;
+    class CUP_30Rnd_556x45_PMAG_COYOTE;
+    class CUP_30Rnd_556x45_PMAG_OD;
+    class CUP_30Rnd_556x45_PMAG_BLACK_RPL;
+    class CUP_30Rnd_556x45_PMAG_COYOTE_RPL;
+    class CUP_30Rnd_556x45_PMAG_OD_RPL;
+    class CUP_30Rnd_556x45_X95;
+    class CUP_30Rnd_556x45_CZ805;
+    class CUP_30Rnd_556x45_G36_camo;
+    class CUP_30Rnd_556x45_G36_hex;
+    class CUP_30Rnd_556x45_G36_wdl;
+    class CUP_30Rnd_556x45_G36;
+    class CUP_30Rnd_556x45_XM8;
+    class CUP_100Rnd_556x45_BetaCMag_camo;
+    class CUP_100Rnd_556x45_BetaCMag_hex;
+    class CUP_100Rnd_556x45_BetaCMag_wdl;
+    class CUP_20Rnd_762x51_FNFAL_Desert_M;
+    class CUP_20Rnd_762x51_FNFAL_Woodland_M;
+    class CUP_30Rnd_545x39_Fort224_M;
+    class CUP_30Rnd_556x45_AUG;
+    class 30Rnd_65x39_caseless_khaki_mag;
+    class 30Rnd_65x39_caseless_mag;
+    class 100Rnd_65x39_caseless_khaki_mag;
+    class 100Rnd_65x39_caseless_mag;
+    class 30Rnd_762x39_AK12_Mag_F;
+    class CUP_30Rnd_762x39_AK15_M;
+    class CUP_30Rnd_762x39_AK15_Desert_M;
+    class CUP_30Rnd_762x39_AK15_OD_M;
+    class CUP_30Rnd_762x39_AK15_Tan_M;
+    class CUP_30Rnd_762x39_AK47_bakelite_M;
+    class CUP_30Rnd_545x39_AK12_M;
+    class CUP_30Rnd_545x39_AK12_Green_M;
+    class CUP_30Rnd_545x39_AK12_Grey_M;
+    class CUP_30Rnd_545x39_AK12_Tan_M;
+    class CUP_30Rnd_545x39_AK74M_M;
+    class CUP_30Rnd_545x39_AK74_plum_M;
+    class CUP_30Rnd_545x39_AK74M_camo_M;
+    class CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK74M_M;
+    class CUP_45Rnd_Sa58_M;
+    class CUP_20Rnd_762x51_B_SCAR_bkl;
+    class CUP_20Rnd_762x51_B_SCAR_wdl;
+    class CUP_30Rnd_762x51_1_B_SCAR;
+    class CUP_30Rnd_762x51_2_B_SCAR;
 
-    // 545x39
-    class CUP_30Rnd_545x39_AK_M: CA_Magazine {
-        modelSpecial = "\rhsafrf\addons\rhs_weapons\mag_proxies\rhs_mag_545x39_6l20_30rnd.p3d";
-        modelSpecialIsProxy = 1;
-    };
-    class CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M;
-    class CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M: CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M {
-        modelSpecial = "\rhsafrf\addons\rhs_weapons\mag_proxies\rhs_mag_545x39_6l18_45rnd.p3d";
-        modelSpecialIsProxy = 1;
-    };
+    /* !! spaces are intentionally placed !! */
+    // Tiny ammo
+    CREATE_MAGAZINE(22_lr,.22 Long Rifle ,5,CUP_5x_22_LR_17_HMR_M,TYPICAL_SPEED_TINY);
+
+    CREATE_MAGAZINE(762x25,7.62x25mm Tokarev Swiss ,8,CUP_8Rnd_762x25_TT,TYPICAL_SPEED_TINY);
+
+    CREATE_MAGAZINE(9x18,9x18mm PM ,8,CUP_8Rnd_9x18_Makarov_M,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x18,9x18mm PM ,12,CUP_12Rnd_9x18_PMM_M,TYPICAL_SPEED_TINY);
+
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,10,CUP_10Rnd_9x19_Compact,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,13,CUP_10Rnd_9x19_Compact,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,15,CUP_10Rnd_9x19_Compact,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,16,CUP_10Rnd_9x19_Compact,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,17,CUP_10Rnd_9x19_Compact,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,18,CUP_10Rnd_9x19_Compact,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,21,CUP_10Rnd_9x19_Compact,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,25,hlc_25Rnd_9x19mm_M882_AUG,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,30,CUP_30Rnd_9x19_MP5,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,32,CUP_32Rnd_9x19_TEC9,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(9x19,9x19mm Parabellum ,64,CUP_64Rnd_9x19_Bizon_M,TYPICAL_SPEED_TINY);
+
+    CREATE_MAGAZINE(9x21,9x21mm IMI ,10,16Rnd_9x21_Mag,TYPICAL_SPEED_TINY);
+
+    CREATE_MAGAZINE(32_acp,.32 ACP ,10,CUP_10Rnd_B_765x17_Ball_M,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(32_acp,.32 ACP ,20,CUP_20Rnd_B_765x17_Ball_M,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(32_acp,.32 ACP ,50,CUP_50Rnd_B_765x17_Ball_M,TYPICAL_SPEED_TINY);
+
+    CREATE_MAGAZINE(45_acp,45 ACP ,6,6Rnd_45ACP_Cylinder,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(45_acp,45 ACP ,7,CUP_7Rnd_45ACP_1911,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(45_acp,45 ACP ,9,9Rnd_45ACP_Mag,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(45_acp,45 ACP ,11,11Rnd_45ACP_Mag,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(45_acp,45 ACP ,12,11Rnd_45ACP_Mag,TYPICAL_SPEED_TINY);
+    CREATE_MAGAZINE(45_acp,45 ACP ,30,30Rnd_45ACP_Mag_SMG_01,TYPICAL_SPEED_TINY);
+    CREATE_ALT_MAGAZINE(45_acp,45 ACP ,30,CUP_30Rnd_45ACP_M3A1_M,TYPICAL_SPEED_TINY,m3a1);
+
+    CREATE_MAGAZINE(10x25,10mm Auto ,30,hlc_30Rnd_10mm_B_MP5,TYPICAL_SPEED_TINY);
+
+    // Small Ammo
+    CREATE_MAGAZINE(50ae,.50 Action Express ,7,CUP_7Rnd_50AE_Deagle,TYPICAL_SPEED_SMALL);
+
+    CREATE_MAGAZINE(46x30,4.6x30mm ,20,CUP_20Rnd_46x30_MP7,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(46x30,4.6x30mm ,40,CUP_40Rnd_46x30_MP7,TYPICAL_SPEED_SMALL);
+
+    CREATE_MAGAZINE(545x39,5.45x39mm ,20,CUP_20Rnd_545x39_AKSU_M,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(545x39,5.45x39mm ,30,30Rnd_545x39_Mag_F,TYPICAL_SPEED_SMALL);
+    CREATE_ALT_MAGAZINE(545x39,5.45x39mm ,30,CUP_30Rnd_545x39_Fort224_M,TYPICAL_SPEED_SMALL,fort);
+    CREATE_ALT_MAGAZINE(545x39,5.45x39mm ,30,CUP_30Rnd_545x39_AK12_M,TYPICAL_SPEED_SMALL,ak12);
+    CREATE_ALT_MAGAZINE(545x39,5.45x39mm ,30,CUP_30Rnd_545x39_AK12_Green_M,TYPICAL_SPEED_SMALL,ak12_green);
+    CREATE_ALT_MAGAZINE(545x39,5.45x39mm ,30,CUP_30Rnd_545x39_AK12_Grey_M,TYPICAL_SPEED_SMALL,ak12_gray);
+    CREATE_ALT_MAGAZINE(545x39,5.45x39mm ,30,CUP_30Rnd_545x39_AK12_Tan_M,TYPICAL_SPEED_SMALL,ak12_tan);
+    CREATE_ALT_MAGAZINE(545x39,5.45x39mm ,30,CUP_30Rnd_545x39_AK74M_M,TYPICAL_SPEED_SMALL,black);
+    CREATE_ALT_MAGAZINE(545x39,5.45x39mm ,30,CUP_30Rnd_545x39_AK74_plum_M,TYPICAL_SPEED_SMALL,plum);
+    CREATE_ALT_MAGAZINE(545x39,5.45x39mm ,30,CUP_30Rnd_545x39_AK74M_camo_M,TYPICAL_SPEED_SMALL,woodland);
+    CREATE_MAGAZINE(545x39,5.45x39mm ,45,CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M,TYPICAL_SPEED_SMALL);
+    CREATE_ALT_MAGAZINE(545x39,5.45x39mm ,45,CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK74M_M,TYPICAL_SPEED_SMALL,black);
+    CREATE_MAGAZINE(545x39,5.45x39mm ,60,CUP_60Rnd_545x39_AK74M_M,TYPICAL_SPEED_SMALL);
+
+    CREATE_MAGAZINE(556x45,5.56x45mm ,20,CUP_20Rnd_556x45_Stanag,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(556x45,5.56x45mm ,25,CUP_25Rnd_556x45_Famas,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(556x45,5.56x45mm ,30,30Rnd_556x45_Stanag,TYPICAL_SPEED_SMALL);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_AK,TYPICAL_SPEED_SMALL,ak);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,hlc_30rnd_556x45_EPR_HK33,TYPICAL_SPEED_SMALL,hk33);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_Stanag_Mk16,TYPICAL_SPEED_SMALL,scar_tan);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_Stanag_Mk16_woodland,TYPICAL_SPEED_SMALL,scar_woodland);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_Emag,TYPICAL_SPEED_SMALL,emag_black);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_EMAG_Tan,TYPICAL_SPEED_SMALL,emag_tan);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_EMAG_Olive,TYPICAL_SPEED_SMALL,emag_od);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_PMAG_BLACK_PULL,TYPICAL_SPEED_SMALL,pmag_pull_black);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_PMAG_COYOTE_PULL,TYPICAL_SPEED_SMALL,pmag_pull_coyote);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_PMAG_OD_PULL,TYPICAL_SPEED_SMALL,pmag_pull_od);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_PMAG_BLACK,TYPICAL_SPEED_SMALL,pmag_black);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_PMAG_COYOTE,TYPICAL_SPEED_SMALL,pmag_coyote);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_PMAG_OD,TYPICAL_SPEED_SMALL,pmag_od);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_PMAG_BLACK_RPL,TYPICAL_SPEED_SMALL,pmag_ranger_black);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_PMAG_COYOTE_RPL,TYPICAL_SPEED_SMALL,pmag_ranger_coyote);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_PMAG_OD_RPL,TYPICAL_SPEED_SMALL,pmag_ranger_od);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_X95,TYPICAL_SPEED_SMALL,x95);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_CZ805,TYPICAL_SPEED_SMALL,cz805);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_G36_camo,TYPICAL_SPEED_SMALL,g36_desert);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_G36_hex,TYPICAL_SPEED_SMALL,g36_hex);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_G36_wdl,TYPICAL_SPEED_SMALL,g36_woodland);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_G36,TYPICAL_SPEED_SMALL,g36_clear);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_XM8,TYPICAL_SPEED_SMALL,xm8);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,30,CUP_30Rnd_556x45_AUG,TYPICAL_SPEED_SMALL,aug);
+    CREATE_MAGAZINE(556x45,5.56x45mm ,35,CUP_35Rnd_556x45_Galil_Mag,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(556x45,5.56x45mm ,42,hlc_40Rnd_556x45_B_AUG,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(556x45,5.56x45mm ,45,30Rnd_556x45_Stanag,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(556x45,5.56x45mm ,50,CUP_50Rnd_556x45_Galil_Mag,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(556x45,5.56x45mm ,150,150Rnd_556x45_Drum_Mag_F,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(556x45,5.56x45mm ,100,CUP_100Rnd_556x45_BetaCMag_ar15,TYPICAL_SPEED_SMALL);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,100,CUP_100Rnd_556x45_BetaCMag_camo,TYPICAL_SPEED_SMALL,betac_desert);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,100,CUP_100Rnd_556x45_BetaCMag_hex,TYPICAL_SPEED_SMALL,betac_hex);
+    CREATE_ALT_MAGAZINE(556x45,5.56x45mm ,100,CUP_100Rnd_556x45_BetaCMag_wdl,TYPICAL_SPEED_SMALL,betac_woodland);
+    CREATE_MAGAZINE(556x45,5.56x45mm ,60,CUP_60Rnd_556x45_SureFire,TYPICAL_SPEED_SMALL);
+    CREATE_BOX(556x45,5.56x45mm ,100,CUP_100Rnd_TE4_Red_Tracer_556x45_M249,TYPICAL_SPEED_SMALL);
+    CREATE_BOX(556x45,5.56x45mm ,200,CUP_200Rnd_TE4_Red_Tracer_556x45_M249,TYPICAL_SPEED_SMALL);
+
+    CREATE_MAGAZINE(57x28,5.7x28mm ,50,50Rnd_570x28_SMG_03,TYPICAL_SPEED_SMALL);
+
+    CREATE_MAGAZINE(580x42,5.8x42mm ,30,30Rnd_580x42_Mag_F,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(580x42,5.8x42mm ,100,100Rnd_580x42_Mag_F,TYPICAL_SPEED_SMALL);
+
+    CREATE_MAGAZINE(65x39,6.5x39mm ,30,30Rnd_65x39_caseless_black_mag,TYPICAL_SPEED_SMALL);
+    CREATE_ALT_MAGAZINE(65x39,6.5x39mm ,30,30Rnd_65x39_caseless_khaki_mag,TYPICAL_SPEED_SMALL,khaki);
+    CREATE_ALT_MAGAZINE(65x39,6.5x39mm ,30,30Rnd_65x39_caseless_mag,TYPICAL_SPEED_SMALL,sand);
+    CREATE_MAGAZINE(65x39,6.5x39mm ,100,100Rnd_65x39_caseless_black_mag,TYPICAL_SPEED_SMALL);
+    CREATE_ALT_MAGAZINE(65x39,6.5x39mm ,100,100Rnd_65x39_caseless_khaki_mag,TYPICAL_SPEED_SMALL,khaki_large);
+    CREATE_ALT_MAGAZINE(65x39,6.5x39mm ,100,100Rnd_65x39_caseless_mag,TYPICAL_SPEED_SMALL,sand_large);
+    CREATE_MAGAZINE(65x39,6.5x39mm ,20,20Rnd_650x39_Cased_Mag_F,TYPICAL_SPEED_SMALL);
+    CREATE_BOX(65x39,6.5x39mm ,100,200Rnd_65x39_cased_Box,TYPICAL_SPEED_SMALL);
+    CREATE_BOX(65x39,6.5x39mm ,200,200Rnd_65x39_cased_Box,TYPICAL_SPEED_SMALL);
+
+    CREATE_MAGAZINE(9x39,9x39mm ,10,CUP_10Rnd_9x39_SP5_VSS_M,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(9x39,9x39mm ,20,CUP_20Rnd_9x39_SP5_VSS_M,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(9x39,9x39mm ,30,CUP_30Rnd_9x39_SP5_VIKHR_M,TYPICAL_SPEED_SMALL);
+
+    CREATE_MAGAZINE(762x39,7.62x39mm ,10,CUP_10Rnd_762x39_SaigaMk03_M,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(762x39,7.62x39mm ,20,CUP_20Rnd_762x39_AMD63_M,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(762x39,7.62x39mm ,30,30Rnd_762x39_Mag_F,TYPICAL_SPEED_SMALL);
+    CREATE_ALT_MAGAZINE(762x39,7.62x39mm ,30,30Rnd_762x39_AK12_Mag_F,TYPICAL_SPEED_SMALL,ak12);
+    CREATE_ALT_MAGAZINE(762x39,7.62x39mm ,30,CUP_30Rnd_762x39_AK15_M,TYPICAL_SPEED_SMALL,ak15);
+    CREATE_ALT_MAGAZINE(762x39,7.62x39mm ,30,CUP_30Rnd_762x39_AK15_Desert_M,TYPICAL_SPEED_SMALL,ak15_arid);
+    CREATE_ALT_MAGAZINE(762x39,7.62x39mm ,30,CUP_30Rnd_762x39_AK15_OD_M,TYPICAL_SPEED_SMALL,ak15_od);
+    CREATE_ALT_MAGAZINE(762x39,7.62x39mm ,30,CUP_30Rnd_762x39_AK15_Tan_M,TYPICAL_SPEED_SMALL,ak15_tan);
+    CREATE_ALT_MAGAZINE(762x39,7.62x39mm ,30,CUP_30Rnd_762x39_AK47_bakelite_M,TYPICAL_SPEED_SMALL,akm);
+    CREATE_MAGAZINE(762x39,7.62x39mm ,40,CUP_40Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M,TYPICAL_SPEED_SMALL);
+    CREATE_MAGAZINE(762x39,7.62x39mm ,45,CUP_40Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M,TYPICAL_SPEED_SMALL);
+    CREATE_ALT_MAGAZINE(762x39,7.62x39mm ,45,CUP_45Rnd_Sa58_M,TYPICAL_SPEED_SMALL,vz58);
+    CREATE_MAGAZINE(762x39,7.62x39mm ,75,CUP_75Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M,TYPICAL_SPEED_SMALL);
+
+    CREATE_MAGAZINE(68_spc,6.8 SPC ,30,CUP_30Rnd_680x43_Stanag,TYPICAL_SPEED_SMALL);
+
+    // Medium Ammo
+    CREATE_MAGAZINE(762x51,7.62x51mm ,1,CUP_1Rnd_762x51_CZ584,TYPICAL_SPEED_MEDIUM);
+    CREATE_MAGAZINE(762x51,7.62x51mm ,2,CUP_1Rnd_762x51_CZ584,TYPICAL_SPEED_MEDIUM);
+    CREATE_MAGAZINE(762x51,7.62x51mm ,3,CUP_1Rnd_762x51_CZ584,TYPICAL_SPEED_MEDIUM);
+    CREATE_MAGAZINE(762x51,7.62x51mm ,4,CUP_1Rnd_762x51_CZ584,TYPICAL_SPEED_MEDIUM);
+    CREATE_MAGAZINE(762x51,7.62x51mm ,5,CUP_5Rnd_762x51_M24,TYPICAL_SPEED_MEDIUM);
+    CREATE_MAGAZINE(762x51,7.62x51mm ,10,CUP_10Rnd_762x51_FNFAL_M,TYPICAL_SPEED_MEDIUM);
+    CREATE_MAGAZINE(762x51,7.62x51mm ,20,20Rnd_762x51_Mag,TYPICAL_SPEED_MEDIUM);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,20,CUP_20Rnd_762x51_FNFAL_Desert_M,TYPICAL_SPEED_MEDIUM,fal_desert);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,20,CUP_20Rnd_762x51_FNFAL_Woodland_M,TYPICAL_SPEED_MEDIUM,fal_woodland);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,20,CUP_20Rnd_762x51_B_SCAR_bkl,TYPICAL_SPEED_MEDIUM,scar_black);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,20,CUP_20Rnd_762x51_B_SCAR,TYPICAL_SPEED_MEDIUM,scar_tan);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,20,CUP_20Rnd_762x51_B_SCAR_wdl,TYPICAL_SPEED_MEDIUM,scar_woodland);
+    CREATE_MAGAZINE(762x51,7.62x51mm ,25,CUP_25Rnd_762x51_Galil_Mag,TYPICAL_SPEED_MEDIUM);
+    CREATE_MAGAZINE(762x51,7.62x51mm ,30,CUP_30Rnd_TE1_Yellow_Tracer_762x51_FNFAL_M,TYPICAL_SPEED_MEDIUM);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,30,CUP_30Rnd_762x51_1_B_SCAR,TYPICAL_SPEED_MEDIUM,scar_stick);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,30,CUP_30Rnd_762x51_2_B_SCAR,TYPICAL_SPEED_MEDIUM,scar_curved);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,50,hlc_50Rnd_762x51_B_fal,TYPICAL_SPEED_MEDIUM,fal);
+    CREATE_ALT_MAGAZINE(762x51,7.62x51mm ,50,hlc_50Rnd_762x51_B_G3,TYPICAL_SPEED_MEDIUM,g3);
+    CREATE_MAGAZINE(762x51,7.62x51mm ,50,CUP_50Rnd_762x51_B_SCAR,TYPICAL_SPEED_MEDIUM);
+    CREATE_BOX(762x51,7.62x51mm ,50,hlc_50Rnd_762x51_B_MG3,TYPICAL_SPEED_MEDIUM);
+    CREATE_BOX(762x51,7.62x51mm ,100,CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M,TYPICAL_SPEED_MEDIUM);
+    CREATE_BOX(762x51,7.62x51mm ,150,150Rnd_762x51_Box,TYPICAL_SPEED_MEDIUM);
+    CREATE_BOX(762x51,7.62x51mm ,200,hlc_200Rnd_762x51_B_M60E4,TYPICAL_SPEED_MEDIUM);
+    CREATE_BOX(762x51,7.62x51mm ,250,hlc_250Rnd_762x51_B_MG3,TYPICAL_SPEED_MEDIUM);
+
+    CREATE_MAGAZINE(762x54,7.62x54mmR ,5,CUP_5Rnd_762x54_Mosin_M,TYPICAL_SPEED_MEDIUM);
+    CREATE_MAGAZINE(762x54,7.62x54mm ,10,10Rnd_762x54_Mag,TYPICAL_SPEED_MEDIUM);
+    CREATE_MAGAZINE(762x54,7.62x54mmR ,50,CUP_50Rnd_UK59_762x54R_Tracer,TYPICAL_SPEED_MEDIUM);
+    CREATE_BOX(762x54,7.62x54mmR ,100,150Rnd_762x54_Box,TYPICAL_SPEED_MEDIUM);
+    CREATE_BOX(762x54,7.62x54mmR ,150,150Rnd_762x54_Box,TYPICAL_SPEED_MEDIUM);
+
+    CREATE_BOX(792x57,7.92x57mm Mauser ,50,hlc_50Rnd_792x57_B_MG42,TYPICAL_SPEED_MEDIUM);
+    CREATE_BOX(792x57,7.92x57mm Mauser ,100,hlc_100Rnd_792x57_B_MG42,TYPICAL_SPEED_MEDIUM);
+    CREATE_BOX(792x57,7.92x57mm Mauser ,200,hlc_200Rnd_792x57_B_MG42,TYPICAL_SPEED_MEDIUM);
+
+    CREATE_MAGAZINE(75x55,7.5x55mm Swiss ,24,hlc_24Rnd_75x55_B_stgw,TYPICAL_SPEED_MEDIUM);
+
+    CREATE_MAGAZINE(300_wm,.300 Win Mag ,5,CUP_5Rnd_762x67_G22,TYPICAL_SPEED_MEDIUM);
+
+    CREATE_MAGAZINE(303_b,.303 British ,10,CUP_10x_303_M,TYPICAL_SPEED_MEDIUM);
+
+    CREATE_MAGAZINE(338_lm,.338 Lapua Magnum ,5,CUP_5Rnd_86x70_L115A1,TYPICAL_SPEED_MEDIUM);
+    CREATE_MAGAZINE(338_lm,.338 Lapua Magnum ,10,10Rnd_338_Mag,TYPICAL_SPEED_MEDIUM);
+
+    CREATE_BOX(338_nm,.338 Norma Magnum ,130,130Rnd_338_Mag,TYPICAL_SPEED_MEDIUM);
+
+    CREATE_MAGAZINE(408,408 Chey Tac ,7,7Rnd_408_Mag,TYPICAL_SPEED_MEDIUM);
+
+    CREATE_MAGAZINE(127x54,12.7x54mm ,10,10Rnd_127x54_Mag,TYPICAL_SPEED_MEDIUM);
+
+    // Large Ammo
+    CREATE_MAGAZINE(93x64,9.3x64mm ,10,10Rnd_93x64_DMR_05_Mag,TYPICAL_SPEED_LARGE);
+    CREATE_BOX(93x64,9.3x64mm ,150,150Rnd_93x64_Mag,TYPICAL_SPEED_LARGE);
+
+    CREATE_MAGAZINE(127x108,12.7x108mm ,5,5Rnd_127x108_Mag,TYPICAL_SPEED_LARGE);
+    CREATE_MAGAZINE(127x108_slap,12.7x108mm SLAP ,5,5Rnd_127x108_APDS_Mag,TYPICAL_SPEED_LARGE);
+
+    CREATE_MAGAZINE(50_bmg,.50 BMG ,5,CUP_5Rnd_127x99_as50_M,TYPICAL_SPEED_LARGE);
+    CREATE_MAGAZINE(50_bmg,.50 BMG ,10,CUP_10Rnd_127x99_M107,TYPICAL_SPEED_LARGE);
 
 
-    // 762x39
-    class CUP_30Rnd_762x39_AK47_M: CA_Magazine {
-        modelSpecial = "rhsafrf\addons\rhs_weapons\mag_proxies\rhs_mag_762x39_steel_30rnd";
-        modelSpecialIsProxy = 1;
-    };
-    class 150Rnd_762x51_Box: CA_Magazine {
-        modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_762x51_m240_pouch_100rnd";
-        modelSpecialIsProxy = 1;
-    };
-    class CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M: CA_Magazine {
-        modelSpecial = "rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_762x51_m240_pouch_100rnd";
-        modelSpecialIsProxy = 1;
-    };
+    // from miscFixes (keep for bwc)
+    class potato_75Rnd_762x39mm_tracer: potato_magazine_762x39_75rnd_tracer_Red { scope = 1; }; // nothing actually uses this
+
+    class 200Rnd_65x39_cased_Box_Tracer_Red: potato_box_65x39_200rnd_tracer_Red { scope = 1; };
+    class 200Rnd_65x39_cased_Box_Tracer_Green: potato_box_65x39_200rnd_tracer_Green { scope = 1; };
+
+    class 100Rnd_65x39_cased_Box_Tracer_Yellow: potato_box_65x39_100rnd_tracer_Yellow { scope = 1; };
+    class 100Rnd_65x39_cased_Box_Tracer_Red: potato_box_65x39_100rnd_tracer_Red { scope = 1; };
+    class 100Rnd_65x39_cased_Box_Tracer_Green: potato_box_65x39_100rnd_tracer_Green { scope = 1; };
+
+    class 150Rnd_762x54_Box_Tracer_Red: potato_box_762x54_150rnd_tracer_Red { scope = 1; };
+    class 150Rnd_762x54_Box_Tracer_Yellow: potato_box_762x54_150rnd_tracer_Yellow { scope = 1; };
+    class 100Rnd_762x54_Box_Tracer_Green: potato_box_762x54_150rnd_tracer_Green { scope = 1; };
+
+    class 100Rnd_762x54_Box_Tracer_Red: potato_box_762x54_100rnd_tracer_Red { scope = 1; };
+    class 100Rnd_762x54_Box_Tracer_Yellow: potato_box_762x54_100rnd_tracer_Yellow { scope = 1; };
 };

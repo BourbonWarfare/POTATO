@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: AACO
  * Function to set the potato_zeusHC_addGroupToHC flag on groups.
@@ -13,10 +14,8 @@
  * Public: No
  */
 
-#include "script_component.hpp"
-TRACE_1("Params",_this);
-
-params ["_group","_value"];
+params ["_group", "_value"];
+TRACE_2("transferSetVar",_group,_value);
 
 [{
     params ["_group","_value"];

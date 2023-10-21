@@ -66,7 +66,7 @@ class CfgWeapons {
         maxLeadSpeed = 100;
         autoReload = 1;
         canLock = 0;
-        magazines[] = {QGVAR(HE), QGVAR(HE_charge0), QGVAR(HE_multi), QGVAR(HE_multi_charge0), QGVAR(HE_PRX), QGVAR(HE_PRX_charge0), QGVAR(smokeWhite), QGVAR(smokeWhite_charge0), GVAR(smokeRed), GVAR(smokeRed_charge0), QGVAR(flare), QGVAR(flare_charge0)};
+        magazines[] = {QGVAR(HE), QGVAR(HE_charge0), QGVAR(HE_multi), QGVAR(HE_multi_charge0), QGVAR(HE_PRX), QGVAR(HE_PRX_charge0), QGVAR(smokeWhite), QGVAR(smokeWhite_charge0), QGVAR(smokeRed), QGVAR(smokeRed_charge0), QGVAR(flare), QGVAR(flare_charge0)};
         ballisticsComputer = 0;
         class GunParticles {
             class FirstEffect {

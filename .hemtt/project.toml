@@ -1,0 +1,27 @@
+name = "potato"
+mainprefix = "z"
+prefix = "potato"
+author = "Potato Mashers"
+
+[files]
+include = [
+    "mod.cpp",
+    "README.md",
+    "LICENSE.md",
+    "potato_icon_ca.paa"
+]
+
+[version]
+path = "addons/core/script_version.hpp"
+
+[lint.sqf]
+enabled = true
+
+[asc]
+enabled = true
+exclude = [
+    "/initsettings.sqf",
+    "/initkeybinds.sqf",
+    "/serverOnlyFix.sqf",
+    "/BW_Settings.sqf",
+]

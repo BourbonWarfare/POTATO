@@ -16,11 +16,13 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("Params",_this);
 
 params ["", "_button"];
+TRACE_1("handleMouseDoubleClick",_this);
 
+/* function had never worked, probably not needed?
 // left click
-if (_key == 0 && {!(isNull _cursorObject)}) then {
+if (_button == 0 && {!isNull GVAR(cursorObject)}) then {
     [GVAR(cursorObject)] call FUNC(prepareTarget);
 };
+*/

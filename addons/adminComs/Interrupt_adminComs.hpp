@@ -1,7 +1,7 @@
 class RscPicture;
 class RscFrame;
 class RscText;
-class RscListbox;
+class RscListBox;
 class RscControlsGroup;
 class RscCombo;
 class RscButton;
@@ -43,7 +43,7 @@ class GVAR(sendMessageToAdmin): RscButtonMenu {
     h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
     action = QUOTE([] spawn FUNC(sendMessageToAdmin););
 };
-class GVAR(chatList): RscListbox {
+class GVAR(chatList): RscListBox {
     idc = 840431;
     x = "1 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX";
     y = "6 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";

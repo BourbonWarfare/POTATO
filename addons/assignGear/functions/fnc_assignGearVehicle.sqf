@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: PabstMirror
  * Applies a loadout to a vehicle
@@ -15,10 +16,8 @@
  * Public: Yes
  */
 
-#include "script_component.hpp"
-
-TRACE_1("params",_this);
 params ["_theVehicle", "_defaultLoadout"];
+TRACE_2("assignGearVehicle",_theVehicle,_defaultLoadout);
 
 private _typeOf = typeOf _theVehicle;
 private _loadout = _theVehicle getVariable ["F_Gear", _typeOf];
@@ -27,7 +26,12 @@ private _faction = toLower faction _theVehicle;
 TRACE_2("",GVAR(setVehicleLoadouts),_loadout);
 
 //Leave default gear when "F_Gear" is "Default" or GVAR(setVehicleLoadouts) is 0
-if ((GVAR(setVehicleLoadouts) == 0) || {_loadout == "Default"}) exitWith {};
+if ((GVAR(setVehicleLoadouts) == 0) || {_loadout == "Default"}) exitWith {
+    if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
+    if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then { 
+        _theVehicle addItemCargoGlobal ["ACE_rope15", 1]; // note: this rope is probably too short to fastrope with, so don't add to air
+    };
+};
 
 //Clean out starting inventory when "F_Gear" is "Empty" or GVAR(setVehicleLoadouts) is -1
 if ((GVAR(setVehicleLoadouts) == -1) || {_loadout == "Empty"}) exitWith {
@@ -35,6 +39,11 @@ if ((GVAR(setVehicleLoadouts) == -1) || {_loadout == "Empty"}) exitWith {
     clearMagazineCargoGlobal _theVehicle;
     clearItemCargoGlobal _theVehicle;
     clearBackpackCargoGlobal _theVehicle;
+    //Add a Toolkit
+    if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
+    if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then { 
+        _theVehicle addItemCargoGlobal ["ACE_rope15", 1];
+    };
 };
 
 private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
@@ -71,6 +80,11 @@ clearWeaponCargoGlobal _theVehicle;
 clearMagazineCargoGlobal _theVehicle;
 clearItemCargoGlobal _theVehicle;
 clearBackpackCargoGlobal _theVehicle;
+//Add a Toolkit
+if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
+if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then { 
+    _theVehicle addItemCargoGlobal ["ACE_rope15", 1];
+};
 
 private _transportMagazines = getArray(_path >> "TransportMagazines");
 private _transportItems = getArray(_path >> "TransportItems");
@@ -94,6 +108,11 @@ private _transportBackpacks = getArray(_path >> "TransportBackpacks");
 // transportWeapons
 {
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
+    private _disposableName = cba_disposable_LoadedLaunchers getVariable [_classname, ""];
+    if (_disposableName != "") then {
+        TRACE_2("cba_disposable_LoadedLaunchers replace",_classname,_disposableName);
+        _classname = _disposableName;
+    };
     _theVehicle addWeaponCargoGlobal [_classname, parseNumber _amount];
     nil
 } count _transportWeapons; // count used here for speed, make sure nil is above this line

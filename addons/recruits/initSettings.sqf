@@ -2,7 +2,7 @@
     QGVAR(showMessage),
     "CHECKBOX",
     ["Show Recuit Message", "Show the recruit message dialog."],
-    "POTATO UI",
+    ["POTATO - User", "Recruits"],
     true,
     0,
     {
@@ -17,7 +17,7 @@
     QGVAR(showTags),
     "CHECKBOX",
     ["Show Recuit Tags", "Show recruit tags above their heads."],
-    "POTATO UI",
+    ["POTATO - User", "Recruits"],
     true,
     0,
     {
