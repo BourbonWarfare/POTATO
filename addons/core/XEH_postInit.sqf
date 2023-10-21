@@ -28,6 +28,40 @@ if (hasInterface) then {
             };
         };
     }, true] call CBA_fnc_addPlayerEventHandler;
+
+
+    // Cleanup chat
+    addMissionEventHandler ["HandleChatMessage", {
+        params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType"];
+        diag_log text format ["Chat: %1", _this];
+        private _returnValue = nil;
+        if (isPlayer _person) then {
+            if ((_text select [0,5]) == "force") then {
+                // _returnValue = _text select [5]; // optionally clean up text
+            } else {
+                INFO_2("hiding player chat [%1: %1]",_name,_text);
+                _returnValue = true; // block
+                if (_person == player) then {
+                    // Chats from inside the EH don't seem to trigger the EH but they say not to
+                    [{
+                        systemChat "POTATO [Your message was blocked, to send in channel start with 'force']";
+                        systemChat "POTATO [Use admin message (hit escape) for help with Problems/JIP]";
+                    }] call CBA_fnc_execNextFrame;
+                };
+            };
+          } else {
+                if ((_channel == 16) && {GVAR(hideSystemPlayerConnecting)} && {
+                (_text regexMatch "Player .* connecting")
+                || {_text regexMatch "Player .* connected"}
+                || {_text regexMatch "Player .* is losing connection"}
+                || {_text regexMatch "Player .* disconnected"}
+                }) then {
+                    INFO_1("hiding connection spam [%1]",_text);
+                    _returnValue = true;
+                };
+          };
+          _returnValue // don't use exitWith in eh
+    }];
 };
 
 ["potato_adminMsg", {
