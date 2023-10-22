@@ -13,5 +13,7 @@
  */
 params["_unit"];
 
+GCamKill = false;
 [] call potato_spectate_fnc_exit;
 [_unit] execVM "gcam\gcam.sqf";
+[true] call acre_api_fnc_setSpectator;
