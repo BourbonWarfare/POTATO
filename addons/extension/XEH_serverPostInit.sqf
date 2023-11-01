@@ -34,7 +34,8 @@ GVAR(recruitsSeen) = [];
     private _playerCount = {isPlayer _x} count allUnits;
 
     // need the endl (\n not working)
-    private _message = format ["**%1** Players At Start%2 - Recruits Present: %3", _playerCount, endl, GVAR(recruitsSeen)];
+    private _recruit_list = GVAR(recruitsSeen) joinString "\n - ";
+    private _message = format ["**%1** Players At Start%2 **Recruits** Present: %3", _playerCount, endl, _recruit_list];
     private _title = format ["**%1** by **%2** on %3", _missionName, _authorName, _worldName];
     INFO_1("Recruit Status: %1",_message);
     if (_playerCount < 15) exitWith { TRACE_1("skipping test/training",_playerCount); };
