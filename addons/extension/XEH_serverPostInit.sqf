@@ -50,7 +50,7 @@ addMissionEventHandler ["MPEnded", {
         [
             "potato",
             "embed",
-            "general",
+            "arma",
             "TVT is over.\n Slotting for COOP will be starting up immediately",
             "TVT Finished"
         ] call EFUNC(extension, botMessage);
