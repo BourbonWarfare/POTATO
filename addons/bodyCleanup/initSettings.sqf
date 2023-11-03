@@ -16,12 +16,3 @@
     true, // isGlobal
     {[QGVAR(hideInsteadOfDelete), _this] call ACEFUNC(common,cbaSettings_settingChanged)}
 ] call CBA_settings_fnc_init;
-[
-    QGVAR(allowVehicles),
-    "CHECKBOX",
-    ["Operate on Vehicles", "Whether or not dead vehicles are considered for cleanup"],
-    ["POTATO - Body Cleanup", "Body Cleanup"],
-    false, // default value
-    true, // isGlobal
-    {[QGVAR(allowVehicles), _this] call ACEFUNC(common,cbaSettings_settingChanged)}
-] call CBA_settings_fnc_init;
