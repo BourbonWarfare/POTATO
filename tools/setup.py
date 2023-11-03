@@ -1,4 +1,4 @@
-#!/usr/bin/env py
+#!/usr/bin/env python3
 
 #######################
 #  POTATO Setup Script (From ACE3) #
