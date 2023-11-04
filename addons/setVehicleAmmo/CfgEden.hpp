@@ -14,7 +14,7 @@ class Cfg3DEN {
             };
         };
         class GVAR(vehAmmoAttribute): TitleWide {
-            attributeLoad = QUOTE([ARR_2(_this, _value)] call FUNC(attributeLoad));
+            attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(attributeLoad));
             attributeSave = QUOTE([_this] call FUNC(attributeSave));
 
             h = "(15 * 5 + 1) * (pixelH * pixelGrid * 0.5)";

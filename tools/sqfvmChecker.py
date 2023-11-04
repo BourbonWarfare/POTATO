@@ -49,7 +49,7 @@ def get_files_to_process(basePath):
     return arma_files
 
 
-def process_file(filePath, skipA3Warnings=True):
+def process_file(filePath, skipA3Warnings=True, skipPragmaHemtt=True):
     with open(filePath, "r", encoding="utf-8", errors="ignore") as file:
         content = file.read()
         if content.startswith("//pragma SKIP_COMPILE"):
@@ -78,10 +78,8 @@ def process_file(filePath, skipA3Warnings=True):
             if line.startswith("[ERR]"):
                 fileHasError = True
             if not (
-                skipA3Warnings
-                and line.startswith("[WRN]")
-                and ("a3/" in line)
-                and (("Unexpected IFDEF" in line) or ("defined twice" in line))
+                (skipA3Warnings and line.startswith("[WRN]") and ("a3/" in line) and (("Unexpected IFDEF" in line) or ("defined twice" in line)))
+                or (skipPragmaHemtt and line.startswith("[WRN]") and ("Unknown pragma instruction 'hemtt'" in line))
             ):
                 print("  {}".format(line))
     return fileHasError

@@ -39,7 +39,7 @@
             }
         },
         {
-            "label": "Build: Hemtt v1",
+            "label": "Build: HEMTT",
             "command": "hemtt.exe",
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -51,7 +51,7 @@
             "group": "build"
         },
         {
-            "label": "Pack: Hemtt v1",
+            "label": "Pack: HEMTT",
             "command": "hemtt.exe",
             "options": {
                 "cwd": "${workspaceFolder}"
