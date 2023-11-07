@@ -1,4 +1,4 @@
-#define COMPONENT strongerFlashLights
+#define COMPONENT strongerFlashlights
 #include "\z\potato\addons\core\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
