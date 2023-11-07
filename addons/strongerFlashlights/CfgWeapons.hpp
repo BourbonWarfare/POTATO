@@ -12,7 +12,7 @@ class CfgWeapons {
 /////////////////////////////////////////    
     
     class GVAR(CUP_LED_flashlight_Beam): cup_acc_flashlight {
-        author = "Carl, Chesheire";
+        author = "Potato";
         scope = 1;
         displayName = "Tactical LED Flashlight (Multi-Mode)";
         descriptionUse = "Mode: Focused White Beam. Ctrl+L to change Mode";
@@ -50,7 +50,7 @@ class CfgWeapons {
         };
     };
     class GVAR(CUP_LED_flashlight): cup_acc_flashlight {
-        author = "Carl, Chesheire";
+        author = "Potato";
         scope = 2;
         displayName = "Tactical LED Flashlight (Multi-Mode)";
         descriptionUse = "Mode: White Light. Ctrl+L to change Mode";
@@ -88,7 +88,7 @@ class CfgWeapons {
         };
     };
     class GVAR(CUP_LED_flashlight_Flood): cup_acc_flashlight {
-        author = "Carl, Chesheire";
+        author = "Potato";
         scope = 1;
         displayName = "Tactical LED Flashlight (Multi-Mode)";
         descriptionUse = "Mode: White Floodlight. Ctrl+L to change Mode";
@@ -132,7 +132,7 @@ class CfgWeapons {
 //////////////////////////////////////////////////    
     
     class GVAR(Vanilla_HG_LED_flashlight_Beam): acc_flashlight_pistol {
-        author = "Carl, Chesheire";
+        author = "Potato";
         scope = 1;
         displayName = "Tactical Handgun LED Flashlight (Multi-Mode)";
         descriptionUse = "Mode: Focused White Beam. Ctrl+L to change Mode";
@@ -170,7 +170,7 @@ class CfgWeapons {
         };
     };
     class GVAR(Vanilla_HG_LED_flashlight): acc_flashlight_pistol {
-        author = "Carl, Chesheire";
+        author = "Potato";
         scope = 2;
         displayName = "Tactical Handgun LED Flashlight (Multi-Mode)";
         descriptionUse = "Mode: White Light. Ctrl+L to change Mode";
@@ -208,7 +208,7 @@ class CfgWeapons {
         };
     };
     class GVAR(Vanilla_HG_LED_flashlight_Flood): acc_flashlight_pistol {
-        author = "Carl, Chesheire";
+        author = "Potato";
         scope = 1;
         displayName = "Tactical Handgun LED Flashlight (Multi-Mode)";
         descriptionUse = "Mode: White Floodlight. Ctrl+L to change Mode";
