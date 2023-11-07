@@ -5,13 +5,13 @@ class CfgPatches
 		weapons[]=
 		{
 //Base
-			"GVAR(Vanilla_HG_LED_flashlight_Flood)",
-			"GVAR(Vanilla_HG_LED_flashlight_Beam)",
-			"GVAR(Vanilla_HG_LED_flashlight)",
+			QGVAR(Vanilla_HG_LED_flashlight_Flood),
+			QGVAR(Vanilla_HG_LED_flashlight_Beam),
+			QGVAR(Vanilla_HG_LED_flashlight),
 //CUP flashlight
-			"GVAR(CUP_LED_flashlight_Flood)",
-			"GVAR(CUP_LED_flashlight_Beam)",
-			"GVAR(CUP_LED_flashlight)"
+			QGVAR(CUP_LED_flashlight_Flood),
+			QGVAR(CUP_LED_flashlight_Beam),
+			QGVAR(CUP_LED_flashlight)
 		};
 		units[]=
 		{
