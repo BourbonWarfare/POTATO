@@ -144,7 +144,7 @@ class CfgWeapons {
     };
 
     class Rifle_Base_F;
-    class Rifle_Short_Base_F; Rifle_Base_F
+    class Rifle_Short_Base_F: Rifle_Base_F
     class Rifle_Long_Base_F;
     class CUP_lmg_M240: Rifle_Long_Base_F { // Applies good cool m240 custom recoil values defined in cfgrecoil
         recoil = QGVAR(recoil_m240);
