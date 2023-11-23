@@ -123,3 +123,7 @@ if (["Rev_ACE_moaning"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 ["Rev_moaning_probability", 95]
 ];} else { _skip pushBack "Rev_ACE_moaning" };
 
+// LAMBS
+if (["lambs_danger"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["lambs_danger_disableAIHideFromTanksAndAircraft", true]
+];} else { _skip pushBack "lambs_danger" };
