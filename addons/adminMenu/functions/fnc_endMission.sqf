@@ -3,27 +3,14 @@
 params ["_winningSide"];
 TRACE_1("params",_this);
 
-// OCAP
-potato_saveOcap =
-{
-	params ["_side"];
+private _missionType = getMissionConfigValue[QEGVAR(missionTesting, missionType), "other"];
 
-	_playableSideArray = [];
-	{
-		if ((playersNumber _x) > 0) then {
-			_playableSideArray pushBack _x;
-		};
-	} forEach [WEST, EAST, RESISTANCE];
-	if ((count _playableSideArray) > 1) then {
-		_gameMode = "TvT";
-	} else {
-		_gameMode = "COOP";
-	};
+[_winningSide, "Mission ended", _missionType] call ocap_fnc_exportData;
 
-	[_side, "Mission ended", _gameMode] call ocap_fnc_exportData;
+if (isServer) then {
+    ["potato_adminMsg", [_debugMsg, profileName, "#ALL"]] call CBA_fnc_globalEvent;
+    private _debugMsg = format ["Saving OCAP recording with side %1 and mission type %2", _winningSide, _missionType];
 };
-
-[_side] remoteExecCall ["potato_saveOcap", 2];
 
 if ((!hasInterface) || {EGVAR(core,playerStartingSide) == _winningSide}) then {
     ["", true, 1] call BIS_fnc_endMission;
