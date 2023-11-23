@@ -143,6 +143,8 @@ class CfgWeapons {
         };
     };
 
+    class Rifle_Base_F;
+    class Rifle_Short_Base_F: Rifle_Base_F
     class Rifle_Long_Base_F;
     class CUP_lmg_M240: Rifle_Long_Base_F { // Applies good cool m240 custom recoil values defined in cfgrecoil
         recoil = QGVAR(recoil_m240);
@@ -154,5 +156,8 @@ class CfgWeapons {
     class CUP_saw_base;
     class CUP_lmg_minimipara: CUP_saw_base { // Applies good cool M249 custom recoil values defined in cfgrecoil
         recoil = QGVAR(recoil_SAW);
+    };
+    class CUP_smg_MP7: Rifle_Short_Base_F { // Applies the APEX dlc MP5 recoil to the CUP MP7
+        recoil = "recoil_smg_05";
     };
 };
