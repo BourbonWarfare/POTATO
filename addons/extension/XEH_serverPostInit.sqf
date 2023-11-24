@@ -45,7 +45,7 @@ GVAR(recruitsSeen) = [];
 
 // Anouncement for people waiting for COOP to start.
 addMissionEventHandler ["MPEnded", {
-    private _missionType = getMissionConfigValue QEGVAR(missionTesting, missionType);
+    private _missionType = getMissionConfigValue QEGVAR(missionTesting,missionType);
     private _playerCount = {isPlayer _x} count allUnits;
 
     if (_missionType == 2 && _playerCount < 15) then {
@@ -55,7 +55,7 @@ addMissionEventHandler ["MPEnded", {
             "arma",
             "TVT is over.\n Slotting for COOP will be starting up immediately",
             "TVT Finished"
-        ] call EFUNC(extension, botMessage);
+        ] call FUNC(botMessage);
     };
 }];
 
