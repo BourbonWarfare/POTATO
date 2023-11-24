@@ -1,16 +1,16 @@
 class CfgWeapons {
-    class InventoryFlashLightItem_Base_F;    
-    
+    class InventoryFlashLightItem_Base_F;
+
     class cup_acc_flashlight; //CUP Flashlight -surefire
-    
+
     class ItemCore;
     class ACE_acc_pointer_green;
     class acc_flashlight_pistol;
-    
+
 /////////////////////////////////////////
 //////////Multimode Flashlight///////////
-/////////////////////////////////////////    
-    
+/////////////////////////////////////////
+
     class GVAR(CUP_LED_flashlight_Beam): cup_acc_flashlight {
         author = "Potato";
         scope = 1;
@@ -31,7 +31,7 @@ class CfgWeapons {
                 direction = "flash";
                 flareMaxDistance = 554;
                 flareSize = 4;
-                innerAngle = 8;    
+                innerAngle = 8;
                 outerAngle = 14;
                 coneFadeCoef = 4;
                 intensity = 400;
@@ -125,12 +125,12 @@ class CfgWeapons {
             };
         };
     };
-    
-    
+
+
 //////////////////////////////////////////////////
 //////A3 Vanilla Handgun Multimode Flashlight//////
-//////////////////////////////////////////////////    
-    
+//////////////////////////////////////////////////
+
     class GVAR(Vanilla_HG_LED_flashlight_Beam): acc_flashlight_pistol {
         author = "Potato";
         scope = 1;
@@ -151,7 +151,7 @@ class CfgWeapons {
                 direction = "flash";
                 flareMaxDistance = 554;
                 flareSize = 4;
-                innerAngle = 8;    
+                innerAngle = 8;
                 outerAngle = 14;
                 coneFadeCoef = 4;
                 intensity = 400;
@@ -244,7 +244,7 @@ class CfgWeapons {
                 };
             };
         };
-    };        
+    };
 };
 
 //////////////////////////////
@@ -273,5 +273,5 @@ class asdg_PistolUnderRail: asdg_SlotInfo {
         GVAR(Vanilla_HG_LED_flashlight_Flood) = 1;
         GVAR(Vanilla_HG_LED_flashlight_Beam) = 1;
         GVAR(Vanilla_HG_LED_flashlight) = 1;
-    }
+    };
 };
