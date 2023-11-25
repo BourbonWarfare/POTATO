@@ -16,6 +16,7 @@ class CfgPatches {
 class CfgCloudlets {
     class SmokeShellWhiteSmall;
     class GVAR(SmokeShellWhiteFilled): SmokeShellWhiteSmall {
+        circleRadius=0.5;
         animationSpeedCoef=0.75; //default 1
         colorCoef[] = {"colorR", "colorG", "colorB", 3}; //default 1.8
         sizeCoef = 2; //default 1
@@ -24,11 +25,8 @@ class CfgCloudlets {
         moveVelocity[] = {0,0.1,0}; //default {0,0.3,0}
         weight = 6.4; //default 1.26
         volume = 5; //default 1
-        destroyOnWaterSurface = 1;
-        destroyOnWaterSurfaceOffset = 0.05; //default -0.3
-        destroyAfterCrossing = "true";
-        onSurface = "true";
-        keepOnSurface = "true";
+        destroyAfterCrossing=1;
+		destroyOnWaterSurfaceOffset=0.1;
     };
 };
 

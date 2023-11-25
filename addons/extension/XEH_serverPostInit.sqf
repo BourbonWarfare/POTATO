@@ -48,12 +48,12 @@ addMissionEventHandler ["MPEnded", {
     private _missionType = getMissionConfigValue QEGVAR(missionTesting,missionType);
     private _playerCount = {isPlayer _x} count allUnits;
 
-    if (_missionType == 2 && _playerCount < 15) then {
+    if (_missionType == 2 && _playerCount > 15) then {
         [
             "potato",
             "embed",
             "arma",
-            "TVT is over.\n Slotting for COOP will be starting up immediately",
+            "TVT has concluded. Slotting for COOP will be starting now",
             "TVT Finished"
         ] call FUNC(botMessage);
     };
