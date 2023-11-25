@@ -53,7 +53,7 @@ addMissionEventHandler ["MPEnded", {
             "potato",
             "embed",
             "arma",
-            "TVT is over. Slotting for COOP will be starting up immediately",
+            "TVT has concluded. Slotting for COOP will be starting now",
             "TVT Finished"
         ] call FUNC(botMessage);
     };
