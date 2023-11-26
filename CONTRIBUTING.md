@@ -10,3 +10,5 @@ We use a similar build process to ACE: https://ace3.acemod.org/wiki/development/
 3. Run hemtt.exe dev or hemtt.exe build
 
 Please note we have a code of conduct (CODE_OF_CONDUCT.md), please follow it in all your interactions with the project
+
+Style guide: https://ace3.acemod.org/wiki/development/coding-guidelines
