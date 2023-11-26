@@ -2,11 +2,12 @@ import os
 import sys
 import subprocess
 import concurrent.futures
+import tomllib
 
-addon_base_path = os.path.dirname(os.getcwd())
+addon_base_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 files_to_ignore_lower = [
-    x.lower() for x in ["initSettings.sqf", "initKeybinds.sqf", "XEH_PREP.sqf"]
+    x.lower() for x in []
 ]
 sqfvm_exe = os.path.join(addon_base_path, "sqfvm.exe")
 virtual_paths = [
@@ -23,25 +24,17 @@ def get_files_to_process(basePath):
     for root, _dirs, files in os.walk(os.path.join(addon_base_path, "addons")):
         for file in files:
             if file.endswith(".sqf") or file == "config.cpp":
-                if file.lower() in files_to_ignore_lower:
+                if file.endswith(".inc.sqf") or file.lower() in files_to_ignore_lower:
                     continue
                 skipPreprocessing = False
-                addonTomlPath = os.path.join(root, "addon.toml")
-                if os.path.isfile(addonTomlPath):
-                    with open(addonTomlPath, "r") as f:
-                        tomlFile = f.read()
-                        if "preprocess = false" in tomlFile:
-                            print("'preprocess = false' not supported")
-                            raise
-                        skipPreprocessing = "[preprocess]\nenabled = false" in tomlFile
-                addonTomlPath = os.path.join(os.path.dirname(root), "addon.toml")
-                if os.path.isfile(addonTomlPath):
-                    with open(addonTomlPath, "r") as f:
-                        tomlFile = f.read()
-                        if "preprocess = false" in tomlFile:
-                            print("'preprocess = false' not supported")
-                            raise
-                        skipPreprocessing = "[preprocess]\nenabled = false" in tomlFile
+                for addonTomlPath in [os.path.join(root, "addon.toml"), os.path.join(os.path.dirname(root), "addon.toml")]:
+                    if os.path.isfile(addonTomlPath):
+                        with open(addonTomlPath, "rb") as f:
+                            tomlFile = tomllib.load(f)
+                            try:
+                                skipPreprocessing = tomlFile.get('tools')['sqfvm_skipConfigChecks']
+                            except:
+                                pass
                 if file == "config.cpp" and skipPreprocessing:
                     continue  # ignore configs with __has_include
                 filePath = os.path.join(root, file)
@@ -61,7 +54,7 @@ def process_file(filePath, skipA3Warnings=True, skipPragmaHemtt=True):
     # cmd.append("-V")
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, universal_newlines=True)
     try:
-        ret = proc.wait(15)  # max wait - seconds
+        ret = proc.wait(12)  # max wait - seconds
     except Exception as _e:
         print("sqfvm timed out: {}".format(filePath))
         return True

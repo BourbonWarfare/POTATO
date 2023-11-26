@@ -10,7 +10,7 @@ ace_nametags_useFactionIcons = false;
 if (isServer) then {
     private _skip = [];
     private _settings = [];
-    #include "BW_Settings.sqf"
+    #include "BW_Settings.inc.sqf"
 
     INFO_1("Setting server values for [%1] settings", count _settings);
     if ((count _skip) > 1) then { WARNING_1("skipping %1",_skip) };
