@@ -251,7 +251,7 @@ class CfgWeapons {
 //////////////RAILS///////////
 //////////////////////////////
 
-
+class SlotInfo;
 class asdg_SlotInfo;
 class asdg_FrontSideRail: asdg_SlotInfo {
     class compatibleItems {
@@ -274,4 +274,13 @@ class asdg_PistolUnderRail: asdg_SlotInfo {
         GVAR(Vanilla_HG_LED_flashlight_Beam) = 1;
         GVAR(Vanilla_HG_LED_flashlight) = 1;
     }
+};
+class rhs_russian_ak_barrel_slot: SlotInfo {
+	class compatibleItems {
+		rhs_acc_2dpZenit = 1;
+		rhs_acc_perst1ik = 1;
+        GVAR(CUP_LED_flashlight_Flood) = 1;
+        GVAR(CUP_LED_flashlight_Beam) = 1;
+        GVAR(CUP_LED_flashlight) = 1;
+	};
 };
