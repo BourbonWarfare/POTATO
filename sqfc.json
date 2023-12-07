@@ -6,7 +6,7 @@
         "P:/"
     ],
     "excludeList": [
-        ".int.sqf"
+        ".inc.sqf"
     ],
     "outputDir": "P:/",
     "workerThreads": 12
