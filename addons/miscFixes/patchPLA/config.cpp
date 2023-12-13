@@ -70,7 +70,6 @@ class CfgVehicles {
     class ZBL09_base: Wheeled_APC_F {
         damageResistance = 0.02;
         crewVulnerable = 1; //formerly 0
-        transportSoldier = 7;
         armor = 480; //formerly 500 -> 270?
         armorStructural = 5;
         class HitPoints: HitPoints {
@@ -327,7 +326,6 @@ class CfgVehicles {
     class ZBD04A_base: Tank_F {
         damageResistance = 0.02;
         crewVulnerable = 1;
-        transportSoldier = 7;
         armor = 500;
         armorStructural = 6;
         class HitPoints: HitPoints {
@@ -416,7 +414,6 @@ class CfgVehicles {
     class ZBD05_base: Tank_F {
         damageResistance = 0.02;
         crewVulnerable = 1;
-        transportSoldier = 8;
         armor = 500;
         armorStructural = 6;
         class HitPoints: HitPoints {
@@ -504,7 +501,6 @@ class CfgVehicles {
     class ZTD05_base: Tank_F {
         damageResistance = 0.02;
         crewVulnerable = 1;
-        transportSoldier = 8;
         armor = 500;
         armorStructural = 6;
         class HitPoints: HitPoints {
