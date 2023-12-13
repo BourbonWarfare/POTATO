@@ -109,7 +109,7 @@ if (GVAR(usePotato)) then {
             [ // assign gear to any supply box
                 "ReammoBox_F",
                 "initPost",
-                { call FUNC(assignGearSupplyBox); },
+                { [_this select 0], call FUNC(assignGearSupplyBox); },
                 true,
                 [],
                 true
@@ -117,7 +117,7 @@ if (GVAR(usePotato)) then {
         };
     };
 
-    diag_log text format ["[POTATO-assignGear] Enabled [useFallback: %1, allowMagnifiedOptics: %2, allowChangeableOptics: %3, maxRandomization: %4, setVehicleLoadouts: %5, prefixes: %6]", GVAR(useFallback), GVAR(allowMagnifiedOptics), GVAR(allowChangeableOptics), GVAR(maxRandomization), GVAR(setVehicleLoadouts), GVAR(prefixes)];
+    diag_log text format ["[POTATO-assignGear] Enabled [useFallback: %1, allowMagnifiedOptics: %2, allowChangeableOptics: %3, maxRandomization: %4, setVehicleLoadouts: %5, setSupplyBoxLoadouts: %6, prefixes: %7]", GVAR(useFallback), GVAR(allowMagnifiedOptics), GVAR(allowChangeableOptics), GVAR(maxRandomization), GVAR(setVehicleLoadouts), GVAR(setSupplyBoxLoadouts), GVAR(prefixes)];
 } else {
     GVAR(allowChangeableOptics) = false;
     diag_log text format ["[POTATO-assignGear] Disabled"];
