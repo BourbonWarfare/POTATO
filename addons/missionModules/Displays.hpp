@@ -27,8 +27,8 @@ class RscDisplayAttributes {
     };
 };
 class GVAR(RscDisplayAttributes_missionHint): RscDisplayAttributes {
-    onLoad = QUOTE([ARR_3('onLoad', _this, QUOTE(QGVAR(RscDisplayAttributes_missionHint)))] call FUNC(zeusAttributes));
-    onUnload = QUOTE([ARR_3('onUnload', _this, QUOTE(QGVAR(RscDisplayAttributes_missionHint)))] call FUNC(zeusAttributes));
+    onLoad = QUOTE([ARR_3('onLoad',_this,QUOTE(QGVAR(RscDisplayAttributes_missionHint)))] call FUNC(zeusAttributes));
+    onUnload = QUOTE([ARR_3('onUnload',_this,QUOTE(QGVAR(RscDisplayAttributes_missionHint)))] call FUNC(zeusAttributes));
     class Controls: Controls {
         class Background: Background {};
         class Title: Title {};

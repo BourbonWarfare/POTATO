@@ -10,7 +10,7 @@ if (isServer) then {
     missionNameSpace setVariable [QGVAR(aiTransfered), false, true];
 };
 
-#include "initSettings.sqf"
+#include "initSettings.inc.sqf"
 
 ADDON = true;
 
