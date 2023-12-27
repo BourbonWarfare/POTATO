@@ -9,7 +9,7 @@ class CfgPatches {
             QGVAR(c7a2GL)
         };
         units[] = {};
-        requiredVersion = REQUIRED_VERSION
+        requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"CUP_Weapons_M16","CUP_Weapons_WeaponsCore","CUP_Weapons_Ammunition","CUP_Weapons_West_Attachments","CUP_Weapons_WeaponsData","CUP_Weapons_Sounds"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
