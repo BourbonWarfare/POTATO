@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [cursorObject] call potato_assignGear_fnc_assignGearSupplyBox
+ * [cursorObject] call potato_assignGear_fnc_assignGearPotatoBox
  *
  * Public: No
  */
