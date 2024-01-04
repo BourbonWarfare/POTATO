@@ -10,7 +10,7 @@ class CfgPatches {
         };
         units[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"CUP_Weapons_M16","CUP_Weapons_WeaponsCore","CUP_Weapons_Ammunition","CUP_Weapons_West_Attachments","CUP_Weapons_WeaponsData","CUP_Weapons_Sounds"};
+        requiredAddons[] = {"potato_core", "CUP_Weapons_LoadOrder", "jsrs_soundmod_cup_weapons"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"Chesheire"};
