@@ -16,7 +16,6 @@ if (hasInterface) then {
         };
     }] call CBA_fnc_addEventHandler;
 };
-
 if (isServer) then {
     [{
         private _authorName = getMissionConfigValue ["author", "???"];
