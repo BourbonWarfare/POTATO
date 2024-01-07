@@ -18,6 +18,7 @@ if (GVAR(usePotato)) then {
     GVAR(useFallback) = [missionConfigFile >> "CfgLoadouts" >> "useFallback"] call CFUNC(getBool);
     GVAR(maxRandomization) = [missionConfigFile >> "CfgLoadouts" >> "maxRandomization", 5] call CFUNC(getNumber);
     GVAR(setVehicleLoadouts) = [missionConfigFile >> "CfgLoadouts" >> "setVehicleLoadouts", 1] call CFUNC(getNumber);
+    GVAR(setSupplyBoxLoadouts) = [missionConfigFile >> "CfgLoadouts" >> "setSupplyBoxLoadouts", 1] call CFUNC(getNumber);
     GVAR(alwaysAddToolkits) = [missionConfigFile >> "CfgLoadouts" >> "alwaysAddToolkits", true] call CFUNC(getBool);
     GVAR(alwaysAddLandRopes) = [missionConfigFile >> "CfgLoadouts" >> "alwaysAddLandRopes", true] call CFUNC(getBool);
     GVAR(prefixes) = [missionConfigFile >> "CfgLoadouts" >> "prefixes"] call CFUNC(getArray);
@@ -99,7 +100,16 @@ if (GVAR(usePotato)) then {
             [ // assign gear to supply drops
                 QGVAR(supply),
                 "initPost",
-                { call FUNC(assignGearSupplyBox); },
+                { call FUNC(assignGearPotatoBox); },
+                true,
+                [],
+                true
+            ] call CBA_fnc_addClassEventHandler;
+
+            [ // assign gear to any supply box
+                "ReammoBox_F",
+                "initPost",
+                { [_this select 0], call FUNC(assignGearSupplyBox); },
                 true,
                 [],
                 true
@@ -107,7 +117,7 @@ if (GVAR(usePotato)) then {
         };
     };
 
-    diag_log text format ["[POTATO-assignGear] Enabled [useFallback: %1, allowMagnifiedOptics: %2, allowChangeableOptics: %3, maxRandomization: %4, setVehicleLoadouts: %5, prefixes: %6]", GVAR(useFallback), GVAR(allowMagnifiedOptics), GVAR(allowChangeableOptics), GVAR(maxRandomization), GVAR(setVehicleLoadouts), GVAR(prefixes)];
+    diag_log text format ["[POTATO-assignGear] Enabled [useFallback: %1, allowMagnifiedOptics: %2, allowChangeableOptics: %3, maxRandomization: %4, setVehicleLoadouts: %5, setSupplyBoxLoadouts: %6, prefixes: %7]", GVAR(useFallback), GVAR(allowMagnifiedOptics), GVAR(allowChangeableOptics), GVAR(maxRandomization), GVAR(setVehicleLoadouts), GVAR(setSupplyBoxLoadouts), GVAR(prefixes)];
 } else {
     GVAR(allowChangeableOptics) = false;
     diag_log text format ["[POTATO-assignGear] Disabled"];

@@ -1,3 +1,6 @@
+#pragma hemtt suppress pw3_padded_arg file
+// so much padding
+
 class CfgMagazines {
     class CA_Magazine;
     // temp inheritance

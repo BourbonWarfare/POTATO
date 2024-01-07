@@ -16,8 +16,8 @@ class RscDisplayAttributes {
     };
 };
 class GVAR(RscDisplayAttributes_factory): RscDisplayAttributes {
-    onLoad = QUOTE([ARR_3('onLoad', _this, QUOTE(QGVAR(RscDisplayAttributes_factory)))] call ace_zeus_fnc_zeusAttributes);
-    onUnload = QUOTE([ARR_3('onUnload', _this, QUOTE(QGVAR(RscDisplayAttributes_factory)))] call ace_zeus_fnc_zeusAttributes);
+    onLoad = QUOTE([ARR_3('onLoad',_this,QUOTE(QGVAR(RscDisplayAttributes_factory)))] call ace_zeus_fnc_zeusAttributes);
+    onUnload = QUOTE([ARR_3('onUnload',_this,QUOTE(QGVAR(RscDisplayAttributes_factory)))] call ace_zeus_fnc_zeusAttributes);
     class Controls: Controls {
         class Background: Background {};
         class Title: Title {};
@@ -106,8 +106,8 @@ class GVAR(RscDisplayAttributes_factory): RscDisplayAttributes {
     };
 };
 class GVAR(RscDisplayAttributes_place): RscDisplayAttributes {
-    onLoad = QUOTE([ARR_3('onLoad', _this, QUOTE(QGVAR(RscDisplayAttributes_place)))] call ace_zeus_fnc_zeusAttributes);
-    onUnload = QUOTE([ARR_3('onUnload', _this, QUOTE(QGVAR(RscDisplayAttributes_place)))] call ace_zeus_fnc_zeusAttributes);
+    onLoad = QUOTE([ARR_3('onLoad',_this,QUOTE(QGVAR(RscDisplayAttributes_place)))] call ace_zeus_fnc_zeusAttributes);
+    onUnload = QUOTE([ARR_3('onUnload',_this,QUOTE(QGVAR(RscDisplayAttributes_place)))] call ace_zeus_fnc_zeusAttributes);
     class Controls: Controls {
         class Background: Background {};
         class Title: Title {};
