@@ -32,14 +32,14 @@ if (hasInterface) then {
 
     // Cleanup chat
     addMissionEventHandler ["HandleChatMessage", {
-        params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType"];
-        diag_log text format ["Chat: %1", _this];
+        params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType", "_chatComposition"];
+        INFO_1("ChatMessage: %1",_this);
         private _returnValue = nil;
         if (isPlayer _person) then {
             if ((_text select [0,5]) == "force") then {
                 // _returnValue = _text select [5]; // optionally clean up text
             } else {
-                INFO_2("hiding player chat [%1: %1]",_name,_text);
+                INFO_2("hiding player chat [%1: %2]",_name,_text);
                 _returnValue = true; // block
                 if (_person == player) then {
                     // Chats from inside the EH don't seem to trigger the EH but they say not to
@@ -50,13 +50,11 @@ if (hasInterface) then {
                 };
             };
           } else {
-                if ((_channel == 16) && {GVAR(hideSystemPlayerConnecting)} && {
-                (_text regexMatch "Player .* connecting")
-                || {_text regexMatch "Player .* connected"}
-                || {_text regexMatch "Player .* is losing connection"}
-                || {_text regexMatch "Player .* disconnected"}
+                if ((_channel == 16) && {GVAR(hideSystemPlayerConnecting)} && {_chatComposition isNotEqualTo []} && {
+                    _chatComposition params ["_stringID"];
+                    (toLower _stringID) in ["$str_mp_connecting", "$str_mp_connect", "$str_mp_connection_loosing", "$str_mp_disconnect"]
                 }) then {
-                    INFO_1("hiding connection spam [%1]",_text);
+                    INFO_1("hiding connection info [%1]",_chatComposition);
                     _returnValue = true;
                 };
           };
