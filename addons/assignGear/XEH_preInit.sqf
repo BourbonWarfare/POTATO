@@ -109,7 +109,7 @@ if (GVAR(usePotato)) then {
             [ // assign gear to any supply box
                 "ReammoBox_F",
                 "initPost",
-                { [_this select 0], call FUNC(assignGearSupplyBox); },
+                { [_this select 0] call FUNC(assignGearSupplyBox); },
                 true,
                 [],
                 true
