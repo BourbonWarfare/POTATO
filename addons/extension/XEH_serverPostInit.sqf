@@ -40,11 +40,17 @@ GVAR(recruitsSeen) = [];
         "None";
     };
 
-    private _message = format ["**%1 [%2]** Players At Start%3 **Recruits** Present: %4%4", _playerCount, _playerAllCount, endl, toString _recruit_list];
+    // Message in staff tech showing player count, mission and recruit info.
+    private _message = format ["**%1 [%2]** Players At Start%3 **Recruits** Present: %3%4", _playerCount, _playerAllCount, endl, toString _recruit_list];
     private _title = format ["**%1** by **%2** on %3", _missionName, _authorName, _worldName];
     INFO_1("Recruit Status: %1",_message);
     if (_playerCount < 15) exitWith { TRACE_1("skipping test/training",_playerCount); };
     ["embed", "tech", _message, _title] call FUNC(botMessage);
+    // Message in arma general showing player count and mission
+    private _message = format ["**%1 [%2]** Players At Start%3", _playerCount, _playerAllCount, endl];
+    private _title = format ["**%1** by **%2** on %3", _missionName, _authorName, _worldName];
+    ["embed", "arma", _message, _title] call FUNC(botMessage);
+
 }] call CBA_fnc_waitUntilAndExecute;
 
 // Anouncement for people waiting for COOP to start.
