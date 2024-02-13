@@ -34,23 +34,27 @@ GVAR(recruitsSeen) = [];
     private _playerCount = {isPlayer _x} count allUnits;
     private _playerAllCount = {!(_x isKindOf "HeadlessClient_F")} count allPlayers; // allPlayers isn't great but should work on server
 
-    // need the endl (\n not working)
-    private _recruit_list = GVAR(recruitsSeen) joinString "\n - ";
-    private _message = format ["**%1 [%2]** Players At Start%3 **Recruits** Present: %4", _playerCount, _playerAllCount, endl, _recruit_list];
+    private _recruit_list = if (count GVAR(recruitsSeen) > 0) then {
+        GVAR(recruitsSeen) joinString endl;
+    } else {
+        "None";
+    };
+
+    private _message = format ["**%1 [%2]** Players At Start%3 **Recruits** Present: %4%4", _playerCount, _playerAllCount, endl, toString _recruit_list];
     private _title = format ["**%1** by **%2** on %3", _missionName, _authorName, _worldName];
     INFO_1("Recruit Status: %1",_message);
     if (_playerCount < 15) exitWith { TRACE_1("skipping test/training",_playerCount); };
-    ["staff", "embed", "staff", _message, _title] call FUNC(botMessage);
+    ["embed", "tech", _message, _title] call FUNC(botMessage);
 }] call CBA_fnc_waitUntilAndExecute;
 
 // Anouncement for people waiting for COOP to start.
-addMissionEventHandler ["MPEnded", {
+addMissionEventHandler ["Ended", {
+    params ["_endType"];
     private _missionType = getMissionConfigValue QEGVAR(missionTesting,missionType);
     private _playerCount = {isPlayer _x} count allUnits;
 
     if (_missionType == 2 && _playerCount > 15) then {
         [
-            "potato",
             "embed",
             "arma",
             "TVT has concluded. Slotting for COOP will be starting now",
@@ -65,3 +69,7 @@ addMissionEventHandler ["ExtensionCallback", {
     (parseSimpleArray _data) params ["_level", "_message"];
     TRACE_3("ExtensionCallback", _component, _level, _message);
 }];
+
+// Init connection to bot by calling init on expection
+private _return = "potato_extension" callExtension ["init:socket_init", []];
+

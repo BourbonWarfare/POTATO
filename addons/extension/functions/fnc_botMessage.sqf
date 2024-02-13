@@ -29,6 +29,6 @@ if (_type == "embed" && isNil "_title") then {
     _title = "Potato Server";
 };
 
-private _return = "potato_extension" callExtension ["message:bot_message", [_target, _type, _channel, _message, _title]];
+private _return = "potato_extension" callExtension ["message:bot_message", [_type, _channel, _message, _title]];
 
 TRACE_1("Return",_return);
