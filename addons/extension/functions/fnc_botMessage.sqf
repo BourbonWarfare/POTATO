@@ -17,9 +17,9 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("Params",_this);
+TRACE_1("Params",_this);extfunctextfunct
 
-params ["_target", "_type", "_channel", "_message", ["_title",""]];
+params ["_type", "_channel", "_message", ["_title",""]];
 
 if (_type == "message") then {
     _title = "";
