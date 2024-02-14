@@ -3,21 +3,20 @@
  * Function used to send a message to the discord bots
  *
  * Arguments:
- * 0: target bot - string
- * 1: message type - string
- * 2: target channel - string
- * 3: message - string
- * 4: title - string (optional)
+ * 0: message type - string
+ * 1: target channel - string
+ * 2: message - string
+ * 3: title - string (optional)
  *
  * Examples:
- * ["staff", "message", "staff", "A message"] call potato_extension_fnc_botMessage;
- * ["potato", "embed", "arma", "Embed Body", "Embed Title"] call potato_extension_fnc_botMessage;
+ * ["message", "staff", "A message"] call potato_extension_fnc_botMessage;
+ * ["embed", "arma", "Embed Body", "Embed Title"] call potato_extension_fnc_botMessage;
  *
  * Public: Yes
  */
 
 #include "script_component.hpp"
-TRACE_1("Params",_this);extfunctextfunct
+TRACE_1("Params",_this);
 
 params ["_type", "_channel", "_message", ["_title",""]];
 
