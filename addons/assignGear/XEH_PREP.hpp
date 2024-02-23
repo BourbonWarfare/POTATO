@@ -3,6 +3,7 @@ TRACE_1("",QUOTE(ADDON));
 PREP(addItemsToContainer);
 PREP(assignGearMan);
 PREP(assignGearSupplyBox);
+PREP(assignGearPotatoBox);
 PREP(assignGearVehicle);
 PREP(cleanPrefix);
 PREP(changeableOptics_getChildren);
