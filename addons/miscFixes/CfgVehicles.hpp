@@ -15,6 +15,7 @@ class CfgVehicles {
     // Integrate invisibile backpack from SagJangi
     // https://forums.bohemia.net/forums/topic/222097-battle-belt/
     class Bag_Base;
+    class B_CombinationUnitRespirator_01_F; //Contact DLC - Combionation Unit Respirator
     class B_Battle_Belt_F: Bag_Base {
         picture = "\A3\Characters_F\data\ui\icon_V_Belt_CA.paa";
         displayName = "Battle Belt";
@@ -30,6 +31,11 @@ class CfgVehicles {
         author = "Alablm";
         maximumLoad = 320;
         mass = 60;
+    };
+    class B_CombinationUnitRespirator_XL_F: B_CombinationUnitRespirator_01_F {
+        displayName = "Combination Unit Respirator (Large)";
+        author = "AChesheireCat";
+        maximumLoad = 160;
     };
 
     // Add SMAW box (no longer used, kept for bwc)
