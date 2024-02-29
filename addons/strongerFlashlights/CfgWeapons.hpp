@@ -45,8 +45,6 @@ class CfgWeapons {
                 };
                 dayLight = 1;
                 useFlare = 1;
-                flareSize = 4;
-                flareMaxDistance = 554;
                 position = "flash dir";
             };
         };
@@ -167,8 +165,6 @@ class CfgWeapons {
                 };
                 dayLight = 1;
                 useFlare = 1;
-                flareSize = 4;
-                flareMaxDistance = 554;
                 position = "flash dir";
             };
         };
