@@ -41,7 +41,7 @@ class ace_medical_treatment {
           timeInSystem = 180;
           timeTillMaxEffect = 1;
           maxDose = 0.1;
-          onOverDose = FUNC(Naloxone);
+          onOverDose = QFUNC(Naloxone);
           incompatibleMedication[] = {};
           viscosityChange = 0;
         };
