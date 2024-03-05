@@ -9,7 +9,7 @@ private _selectedUnit = missionNamespace getVariable [
 
 TRACE_1("Selected unit: ",_selectedUnit);
 
-if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit, disconnect?", _selectedUnit);};
+if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit,disconnect?",_selectedUnit);};
 
 private _selectedGroupIndex = lbCurSel UI_TAB_TELEPORT_GROUP;
 if ((_selectedGroupIndex < 0) || (_selectedGroupIndex >= (count GVAR(groupsArray)))) exitWith {};

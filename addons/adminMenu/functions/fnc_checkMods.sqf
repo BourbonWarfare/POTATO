@@ -34,7 +34,7 @@ if (_createOrginalVersionInfo) then {
     if (isNil QGVAR(modCheckRun)) then {
         GVAR(pvModVersions) = _modsAndVersionsPairs;
         publicVariable QGVAR(pvModVersions);
-        TRACE_1("broadcasting our versions", count GVAR(pvModVersions));
+        TRACE_1("broadcasting our versions",count GVAR(pvModVersions));
         sleep 1;
     };
     [[false], QFUNC(checkMods), true] call BIS_fnc_MP;

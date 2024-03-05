@@ -38,7 +38,7 @@ if (_allHCs isEqualTo []) exitWith {
 private _hcIDs = _allHCs apply { owner _x };
 
 private _timeBetweenTransfers = if (isNil QGVAR(timeBetweenTransfers)) then { 0.5 } else { GVAR(timeBetweenTransfers) };
-TRACE_1("Time between transfers", _timeBetweenTransfers);
+TRACE_1("Time between transfers",_timeBetweenTransfers);
 
 //loop all groups
 {

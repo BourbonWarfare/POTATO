@@ -14,11 +14,11 @@ if (_author == "*** Insert author name here. ***") then {
    };
    private _missionBwmfVersion = getText (missionConfigFile >> "bwmfDate");
    // EXPECTED_BWMF is defined in core/script_mod.hpp
-   INFO_2("Creating new mission on framework [Mission: %1 - Expected: %2]", _missionBwmfVersion, EXPECTED_BWMF);
+   INFO_2("Creating new mission on framework [Mission: %1 - Expected: %2]",_missionBwmfVersion,EXPECTED_BWMF);
     if (_missionBwmfVersion == "") exitWith {
-        ERROR_WITH_TITLE("Problem Reading description.ext", "");
+        ERROR_WITH_TITLE("Problem Reading description.ext","");
     };
    if ((EXPECTED_BWMF call _fnc_daysSinceJesus) > (_missionBwmfVersion call _fnc_daysSinceJesus)) then {
-      ERROR_WITH_TITLE("Old Framework", "~~~~~~~~~~~~~~~~~~~~ Download a newer framework ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+      ERROR_WITH_TITLE("Old Framework","~~~~~~~~~~~~~~~~~~~~ Download a newer framework ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
    };
 };

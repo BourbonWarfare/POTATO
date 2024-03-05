@@ -30,7 +30,7 @@ if (GVAR(groupAndUnitEnabled)) then {
     private _recalc = diag_tickTime > GVAR(nextUpdate);
 
     {
-        TRACE_1("icon data", _x);
+        TRACE_1("icon data",_x);
         _x params ["_text", "_texture", "_color", "_size", "_position"];
 
         if (_recalc) then {

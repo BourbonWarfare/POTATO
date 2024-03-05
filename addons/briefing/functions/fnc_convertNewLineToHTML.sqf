@@ -17,7 +17,7 @@
 
 #include "script_component.hpp"
 
-TRACE_1("params", _this);
+TRACE_1("params",_this);
 params ["_input"];
 
 private _output = _input;
@@ -32,5 +32,5 @@ while {_index > -1} do {
  _index = _output find (toString [10]);
 };
 
-TRACE_1("output", _output);
+TRACE_1("output",_output);
 _output

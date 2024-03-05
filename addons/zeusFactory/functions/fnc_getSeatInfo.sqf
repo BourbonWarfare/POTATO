@@ -5,7 +5,7 @@ params ["_type"];
 
 private _config = configFile >> "CfgVehicles" >> _type;
 
-if ((getNumber (_config >> "hasDriver")) != 1) exitWith { WARNING_1("%1 has no driver?", _type); [[], -1] };
+if ((getNumber (_config >> "hasDriver")) != 1) exitWith { WARNING_1("%1 has no driver?",_type); [[], -1] };
 
 private _crewTurrets = [];
 private _cargo = getNumber (_config >> "transportSoldier");

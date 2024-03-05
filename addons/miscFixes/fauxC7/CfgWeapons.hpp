@@ -11,7 +11,7 @@ class CfgWeapons {
             class StandardSound: BaseSoundModeType {
                 soundsetshot[] = {"jsrs_m16a4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
             };
-            class SilencedSound: basesoundmodetype {
+            class SilencedSound: BaseSoundModeType {
                 soundsetshot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
             };
             soundBurst = 0;
@@ -41,7 +41,7 @@ class CfgWeapons {
             class StandardSound: BaseSoundModeType {
                 soundsetshot[] = {"jsrs_m16a4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
             };
-            class SilencedSound: basesoundmodetype {
+            class SilencedSound: BaseSoundModeType {
                 soundsetshot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
             };
             soundBurst = 0;
@@ -66,7 +66,7 @@ class CfgWeapons {
             class StandardSound: BaseSoundModeType {
                 soundsetshot[] = {"jsrs_m16a4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
             };
-            class SilencedSound: basesoundmodetype {
+            class SilencedSound: BaseSoundModeType {
                 soundsetshot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
             };
             soundBurst = 0;

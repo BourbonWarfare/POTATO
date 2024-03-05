@@ -21,7 +21,7 @@ if (hasInterface) then {
                 if ((((units _x) findIf {isPlayer _x}) > -1) && {((groupID _x) find "-") > -1}) then {
                     private _markerText = _x getVariable [QEGVAR(markers,markerText), ""];
                     if (_markerText == "") then { _markerText = (leader _x) getVariable [QEGVAR(markers,markerText), ""]; };
-                    WARNING_2("Player Group with vanilla callsign: %1 [Marker: %2]", _x, _markerText);
+                    WARNING_2("Player Group with vanilla callsign: %1 [Marker: %2]",_x,_markerText);
                     if (_markerText != "") then { _x setGroupIdGlobal [format ["%1 [%2?]", groupId _x, _markerText]]; };
                 };
             } forEach allGroups;

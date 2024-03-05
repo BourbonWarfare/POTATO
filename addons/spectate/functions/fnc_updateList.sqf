@@ -60,7 +60,7 @@ private _newList = [
     nil
 } count (allGroups + [GVAR(group)]); // count used for speed, ensure nil above this line
 
-TRACE_1("New List:", _newList);
+TRACE_1("New List:",_newList);
 
 if !(GVAR(curList) isEqualTo _newList) then {
     // Remove groups/units that are no longer there

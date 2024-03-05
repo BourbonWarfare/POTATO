@@ -83,7 +83,7 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
         private _unitPositions = [];
         private _index = 0;
         while {_index < _numberOfUnits && _index < (count _x)} do {
-            if ((_unitsAdded + _index) >= _unitLimit) exitWith { TRACE_1("Unit limit reached, exiting while loop",_unitLimit); };
+            if ((_unitsAdded + _index) >= _unitLimit) exitWith { TRACE_1("Unit limit reached,exiting while loop",_unitLimit); };
             private _position = selectRandom _x;
             _x = _x - [_position];
 
@@ -92,7 +92,7 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
             _index = _index + 1;
         };
 
-        TRACE_2("",_unitsToAdd, _unitPositions);
+        TRACE_2("",_unitsToAdd,_unitPositions);
 
         if (count _unitsToAdd > 0) then {
             [
@@ -103,7 +103,7 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
             _unitsAdded = _unitsAdded + (count _unitsToAdd);
         };
 
-        if (_unitsAdded >= _unitLimit) exitWith { TRACE_1("Unit limit reached, exiting count loop",_unitLimit); };
+        if (_unitsAdded >= _unitLimit) exitWith { TRACE_1("Unit limit reached,exiting count loop",_unitLimit); };
 
         sleep GVAR(delayBetweenGroupCreation);
     } forEach _buildingPositions;

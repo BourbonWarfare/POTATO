@@ -9,7 +9,7 @@ private _selectedUnit = missionNamespace getVariable [
 
 TRACE_1("Selected unit: ",_selectedUnit);
 
-if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit, disconnect?", _selectedUnit);};
+if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit,disconnect?",_selectedUnit);};
 
 [QGVAR(resetSpectator), [_selectedUnit], [_selectedUnit]] call CBA_fnc_targetEvent;
 

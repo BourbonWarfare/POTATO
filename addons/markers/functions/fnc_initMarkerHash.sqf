@@ -14,7 +14,7 @@ TRACE_1("Params",_this);
 
 private _sideArray = [] call FUNC(getSideArray);
 
-TRACE_2("sides", _sideArray, side (group player));
+TRACE_2("sides",_sideArray,side (group player));
 
 GVAR(drawHash) = [[],[]];
 

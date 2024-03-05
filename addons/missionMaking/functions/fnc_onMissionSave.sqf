@@ -16,7 +16,7 @@ private _sideCounts = [west, east, resistance] apply {
 private _sortedCounts = +_sideCounts;
 _sortedCounts sort false;
 private _isTVT = (_sortedCounts select 1) > 10;
-INFO_3("Placed on mission: [Units: %1] [Non-unit Objects: %2][Playable Slots: %3]", count _allUnits, (count _allMissionObjects) - (count _allUnits), _sideCounts);
+INFO_3("Placed on mission: [Units: %1] [Non-unit Objects: %2][Playable Slots: %3]",count _allUnits,(count _allMissionObjects) - (count _allUnits),_sideCounts);
 
 private _bwmfDate = getText (missionConfigFile >> "bwmfDate");
 if (_bwmfDate == "") exitWith {
@@ -128,7 +128,7 @@ if (_missionLength == 0) then {
 private _floatingUnits = [];
 {
     if (((getPos vehicle _x) select 2) > 0.5) then {
-        WARNING_3("[%1:%2] is floating %3", _x, typeOf _x, getPos _x);
+        WARNING_3("[%1:%2] is floating %3",_x,typeOf _x,getPos _x);
         _floatingUnits pushBack _x;
     };
 } forEach _allUnits;
@@ -272,7 +272,7 @@ private _fortifies = (all3DENEntities select 3) select {_x isKindOf "potato_fort
 } forEach _fortifies;
 
 TRACE_1("",_problems);
-INFO_2("Finished test with %1 problems in %2 ms:", count _problems, ((diag_ticktime - _startTime) * 1000) toFixed 1);
+INFO_2("Finished test with %1 problems in %2 ms:",count _problems,((diag_ticktime - _startTime) * 1000) toFixed 1);
 
 if (_problems isEqualTo []) then {
     private _msg = "Saved: No Problems Detected!";

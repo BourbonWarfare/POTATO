@@ -13,7 +13,7 @@ params ["_logic", "_units", "_activated"];
 
 if (!_activated || !hasInterface) exitWith {};
 
-TRACE_1("", allVariables _logic);
+TRACE_1("",allVariables _logic);
 
 private _sideArray = [];
 if (_logic getVariable ["east", false]) then { _sideArray pushBack east; };

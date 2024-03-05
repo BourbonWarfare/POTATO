@@ -18,14 +18,14 @@ if ((_transportType != TRANSPORT_FOOT) && {_transportInfo = [_factoryLogic, _tra
 };
 
 while {(count (waypoints _group)) > 0} do {
-    TRACE_1("clearing base group waypoint", ((waypoints _group) select 0));
+    TRACE_1("clearing base group waypoint",((waypoints _group) select 0));
     deleteWaypoint ((waypoints _group) select 0);
 };
 
 if (_transportInfo isEqualTo []) then {
     private _baseMove = _group addWaypoint [getPos _placeLogic, 0];
     _baseMove setWaypointType "MOVE";
-    TRACE_1("Adding move on foot wp", _baseMove);
+    TRACE_1("Adding move on foot wp",_baseMove);
 } else {
     _transportInfo params ["_vehicle", "_vehicleGroup"];
 
@@ -33,7 +33,7 @@ if (_transportInfo isEqualTo []) then {
 
     TRACE_3("transport",_vehicleGroup,_vehicle,typeOf _vehicle);
     while {(count (waypoints _vehicleGroup)) > 0} do {
-        TRACE_1("clearing transport waypoint", ((waypoints _vehicleGroup) select 0));
+        TRACE_1("clearing transport waypoint",((waypoints _vehicleGroup) select 0));
         deleteWaypoint ((waypoints _vehicleGroup) select 0);
     };
 

@@ -18,7 +18,7 @@ private _checkResupply = !(5 in _ignore);
 
 diag_log text "";
 diag_log text "";
-INFO_1("Found %1 loadouts", count _loadouts);
+INFO_1("Found %1 loadouts",count _loadouts);
 diag_log text "";
 diag_log text "";
 

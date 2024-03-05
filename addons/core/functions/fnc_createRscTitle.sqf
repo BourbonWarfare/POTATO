@@ -24,6 +24,6 @@ TRACE_1("Params",_this);
 params [["_displayClass", "", [""]], ["_showOnMap", false, [false]]];
 
 if (isNull (uiNamespace getVariable [_displayClass, displayNull])) then {
-    TRACE_2("Creating RscTitle", _displayClass, _showOnMap);
+    TRACE_2("Creating RscTitle",_displayClass,_showOnMap);
     (_displayClass cutFadeOut 0) cutRsc [_displayClass, "PLAIN", 1, _showOnMap];
 };

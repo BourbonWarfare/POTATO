@@ -22,7 +22,7 @@ params [
     ["_colorArray", [], [[]]]
 ];
 
-if (isNull _object || count _colorArray != 4) exitWith { WARNING_2("Bad input parameters", _object, _colorArray); };
+if (isNull _object || count _colorArray != 4) exitWith { WARNING_2("Bad input parameters",_object,_colorArray); };
 
 if (_object isEqualType grpNull && {groupId _object != ""}) then {
     [groupId _object, _colorArray, _colorArray] call ACEFUNC(map_gestures,addGroupColorMapping);

@@ -29,5 +29,5 @@ private _index = GVAR(registeredClients) find _clientId;
 if (_index > -1) then {
     GVAR(registeredClients) deleteAt _clientId;
 } else {
-    WARNING_2("Trying to deregister an unregistered clientID", _clientId, GVAR(registeredClients));
+    WARNING_2("Trying to deregister an unregistered clientID",_clientId,GVAR(registeredClients));
 };

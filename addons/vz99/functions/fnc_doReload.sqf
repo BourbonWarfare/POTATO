@@ -26,7 +26,7 @@ if (!(_loadedFull isEqualTo [])) exitWith {TRACE_1("loaded",_loadedFull);};
 //Make sure empty mag is removed so it "autoloads"
 private _loadedEmpty = _mortarVeh magazinesTurret [0];
 if (!(_loadedEmpty isEqualTo [])) then {
-    TRACE_1("removing empty mag", _loadedEmpty);
+    TRACE_1("removing empty mag",_loadedEmpty);
     _mortarVeh removeMagazinesTurret [(_loadedEmpty select 0), [0]];
 };
 

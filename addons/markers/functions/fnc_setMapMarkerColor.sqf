@@ -30,13 +30,13 @@ private _markerColorString = (COLOR_TO_MARKER_HASH select 1) select _lookup;
 _lookup = -1;
 
 {
-    TRACE_2("loop", _markerColorString, _x select 0);
+    TRACE_2("loop",_markerColorString,_x select 0);
     if (_markerColorString == (_x select 0)) exitWith {
         _lookup = _forEachIndex;
     };
 } forEach ACEGVAR(markers,MarkerColorsCache);
 
-TRACE_4("vars", str _markerColor, _markerColorString, _lookup, ACEGVAR(markers,MarkerColorsCache));
+TRACE_4("vars",str _markerColor,_markerColorString,_lookup,ACEGVAR(markers,MarkerColorsCache));
 
 if (_lookup < 0) exitWith { WARNING("Provided color doesn't have matching ace MarkerColorsCache"); };
 

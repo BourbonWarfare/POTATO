@@ -26,6 +26,6 @@ if (_index >= (count GVAR(logs))) exitWith {};
 
 private _msgUser = (GVAR(logs) select _index) select 2;
 
-TRACE_1("user", _msgUser);
+TRACE_1("user",_msgUser);
 
 ["potato_adminMsg", [_text, profileName, _msgUser]] call CBA_fnc_globalEvent;

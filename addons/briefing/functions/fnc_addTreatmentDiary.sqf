@@ -50,11 +50,11 @@ private _maxEffectiveness = -9999;
                 private _effectiveness = if (isNumber (_treatmentCfg >> _subWound >> "effectiveness")) then {
                      getNumber (_treatmentCfg >> _subWound >> "effectiveness")
                 } else {
-                    WARNING_2("No config for wound type [%1] config base [%2]", _woundClassName, _subWound);
+                    WARNING_2("No config for wound type [%1] config base [%2]",_woundClassName,_subWound);
                     getNumber (_treatmentCfg >> "effectiveness")
                 };
 
-                TRACE_2("", _subWound, _effectiveness);
+                TRACE_2("",_subWound,_effectiveness);
 
                 if (_effectiveness < (((_woundEffectiveness select 1) select _index) select 0)) then {
                     ((_woundEffectiveness select 1) select _index) set [0, _effectiveness];
@@ -68,25 +68,25 @@ private _maxEffectiveness = -9999;
             } forEach ["Minor","Medium","Large"];
 
             _woundList pushBack _wound;
-            TRACE_1("", _wound);
+            TRACE_1("",_wound);
         } forEach _wounds;
 
         _treatment pushBack _woundList;
         _treatmentInfo pushBack _treatment;
-        TRACE_2("", _treatment, _woundList);
+        TRACE_2("",_treatment,_woundList);
     };
 } forEach ("true" configClasses (configfile >> "ACE_Medical_Advanced" >> "Treatment" >> "Bandaging"));
 
-TRACE_2("", _woundEffectiveness, _treatmentInfo);
+TRACE_2("",_woundEffectiveness,_treatmentInfo);
 
 _treatmentsDiaryBuilder pushBack "Bandages and their effect on injuries:";
 {
-    TRACE_1("treatment", _x);
+    TRACE_1("treatment",_x);
     _x params ["_treatmentName", "_woundList"];
     _treatmentsDiaryBuilder pushBack format ["  • %1", _treatmentName];
 
     {
-        TRACE_1("wound info", _x);
+        TRACE_1("wound info",_x);
         _x params ["_woundName", "_minorEffectiveness", "_mediumEffectiveness", "_largeEffectiveness"];
 
         private _index = (_woundEffectiveness select 0) find _woundName;

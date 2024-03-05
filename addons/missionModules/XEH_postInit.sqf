@@ -7,7 +7,7 @@ GVAR(ehAdded) = false;
 
     //If EH is not installed, add it now
     if (!GVAR(ehAdded)) exitWith {
-        TRACE_1("Adding Man Init EH", GVAR(ehAdded));
+        TRACE_1("Adding Man Init EH",GVAR(ehAdded));
         GVAR(ehAdded) = true;
         ["CaManBase", "init", {_this call FUNC(manInitEH)}, true, [], true] call CBA_fnc_addClassEventHandler;
     };
@@ -21,7 +21,7 @@ GVAR(ehAdded) = false;
 }] call CBA_fnc_addEventHandler;
 
 ["CBA_settingsInitialized", {
-    TRACE_1("CBA_settingsInitialized eh", GVAR(aiSkill_set));
+    TRACE_1("CBA_settingsInitialized eh",GVAR(aiSkill_set));
     if (GVAR(aiSkill_set)) then {
         [QGVAR(updateAISettings), []] call CBA_fnc_localEvent;
     };
@@ -29,7 +29,7 @@ GVAR(ehAdded) = false;
 
 [QGVAR(banzi), {
     params ["_group"];
-    TRACE_1("banzi eh", _group);
+    TRACE_1("banzi eh",_group);
 
     TRACE_4("",behaviour leader _group,combatMode _group,speedMode _group,formation _group);
     _group setBehaviour "AWARE";

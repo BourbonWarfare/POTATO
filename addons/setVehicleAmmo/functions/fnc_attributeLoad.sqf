@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 params ["_control", "_loadoutValue"];
-TRACE_2("params",_control ,_loadoutValue);
+TRACE_2("params",_control,_loadoutValue);
 
 GVAR(turretMagsArray) = [];
 GVAR(defaultLoad) = [];

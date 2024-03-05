@@ -14,7 +14,7 @@ LOG("Post init start");
     },
     {
         TRACE_2("ACE Settings initilized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
-        if (isNil QEGVAR(miscFixes,groupCleanupRan)) then {ERROR_1("Server never set %1", QEGVAR(miscFixes,groupCleanupRan));};
+        if (isNil QEGVAR(miscFixes,groupCleanupRan)) then {ERROR_1("Server never set %1",QEGVAR(miscFixes,groupCleanupRan));};
         if (hasInterface && {GVAR(groupAndUnitEnabled) || {GVAR(intraFireteamEnabled)}}) then {
             GVAR(skipInstallingEH) = false;
 

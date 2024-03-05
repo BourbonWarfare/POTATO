@@ -17,7 +17,7 @@ private _driver = _group createUnit [_crewType, (getPos _vehicle), [], 0, "NONE"
 
 [{
     params ["_driver"];
-    TRACE_1("setting driver skill", _driver);
+    TRACE_1("setting driver skill",_driver);
     if (isNull _driver || {!local _driver}) exitWith {};
     // Let's have the driver be as competent as possible, because AI drivers are terrible
     _driver setSkill ["general", 1];

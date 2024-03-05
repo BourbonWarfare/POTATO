@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-TRACE_3("", missionNamespace getVariable QGVAR(enabled), hasInterface, EGVAR(assignGear,usePotato));
+TRACE_3("",missionNamespace getVariable QGVAR(enabled),hasInterface,EGVAR(assignGear,usePotato));
 
 if (missionNamespace getVariable [QGVAR(enabled), false]) then {
     if !(missionNamespace getVariable [QEGVAR(assignGear,usePotato), false]) exitWith {
@@ -15,7 +15,7 @@ if (missionNamespace getVariable [QGVAR(enabled), false]) then {
 
     if (!hasInterface) exitWith {
         GVAR(initState) = 999;
-        INFO_2("%1 - [InitState %2] DONE (Non Interface)", diag_frameNo, GVAR(initState));
+        INFO_2("%1 - [InitState %2] DONE (Non Interface)",diag_frameNo,GVAR(initState));
     };
 
     ["unit", {_this call FUNC(setupPlayer)}, true] call CBA_fnc_addPlayerEventHandler;

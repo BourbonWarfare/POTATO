@@ -13,6 +13,19 @@
             "problemMatcher": []
         },
         {
+            "label": "HEMTT check",
+            "command": "hemtt.exe",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "check"
+            ],
+            "group": {
+                "kind": "test"
+            }
+        },
+        {
             "label": "Test All",
             "dependsOn": [
                 "SQFVM Checker"

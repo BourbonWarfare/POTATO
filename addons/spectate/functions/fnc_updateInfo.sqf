@@ -23,7 +23,7 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
     } else {
         [GVAR(camTarget), GVAR(camTarget) getVariable [QACEGVAR(killtracker,output), "None"]]
     } params ["_unit", "_killFeed"];
-    TRACE_1("Kill Feed", _killFeed);
+    TRACE_1("Kill Feed",_killFeed);
 
     if !(ctrlShown FOCUS_GROUP) then {
         FOCUS_GROUP ctrlShow true;
