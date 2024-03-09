@@ -49,7 +49,7 @@ class CfgVehicles {
     class B_RadioBag_01_tropic_F: B_RadioBag_01_base_F {maximumLoad=300;};
     class B_RadioBag_01_oucamo_F: B_RadioBag_01_base_F {maximumLoad=300;};
     class B_RadioBag_01_wdl_F: B_RadioBag_01_base_F {maximumLoad=300;};
-    class ptv_RadioBag_01_Desert: B_RadioBag_01_base_F {maximumLoad=300;};
+    class ptv_RadioBag_01_Desert: B_RadioBag_01_base_F {maximumLoad=300;}; // from Project True Viking
     class ptv_RadioBag_01_Woodland: B_RadioBag_01_base_F {maximumLoad=300;};
 
     // Add SMAW box (no longer used, kept for bwc)
