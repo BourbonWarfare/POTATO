@@ -38,6 +38,20 @@ class CfgVehicles {
         maximumLoad = 160;
     };
 
+    // Increase storage capacity of Contact DLC Radio Backpack to hold ACRE radios and radio accessories.
+    class B_RadioBag_01_base_F;
+    class B_RadioBag_01_black_F: B_RadioBag_01_base_F {maximumLoad=300;};
+    class B_RadioBag_01_digi_F: B_RadioBag_01_base_F {maximumLoad=300;};
+    class B_RadioBag_01_eaf_F: B_RadioBag_01_base_F {maximumLoad=300;};
+    class B_RadioBag_01_ghex_F: B_RadioBag_01_base_F {maximumLoad=300;};
+    class B_RadioBag_01_hex_F: B_RadioBag_01_base_F {maximumLoad=300;};
+    class B_RadioBag_01_mtp_F: B_RadioBag_01_base_F {maximumLoad=300;};
+    class B_RadioBag_01_tropic_F: B_RadioBag_01_base_F {maximumLoad=300;};
+    class B_RadioBag_01_oucamo_F: B_RadioBag_01_base_F {maximumLoad=300;};
+    class B_RadioBag_01_wdl_F: B_RadioBag_01_base_F {maximumLoad=300;};
+    class ptv_RadioBag_01_Desert: B_RadioBag_01_base_F {maximumLoad=300;}; // from Project True Viking
+    class ptv_RadioBag_01_Woodland: B_RadioBag_01_base_F {maximumLoad=300;};
+
     // Add SMAW box (no longer used, kept for bwc)
     class Box_NATO_Support_F;
     class GVAR(smawBox): Box_NATO_Support_F {
