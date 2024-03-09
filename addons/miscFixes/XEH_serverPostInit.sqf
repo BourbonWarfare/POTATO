@@ -62,7 +62,7 @@ DFUNC(updateHCPosition) = {
             };
 
             _x setPos _groupAvgPos;
-            INFO_2("Moving HC [%1] to pos %2",_x, _groupAvgPos);
+            INFO_2("Moving HC [%1] to pos %2",_x,_groupAvgPos);
         };
     } forEach (_hcs select 2);
 

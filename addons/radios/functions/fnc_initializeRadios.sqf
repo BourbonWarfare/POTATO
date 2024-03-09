@@ -5,7 +5,7 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 
-INFO_2("%1 - [InitState %2] Creating radio presets", diag_frameNo, GVAR(initState));
+INFO_2("%1 - [InitState %2] Creating radio presets",diag_frameNo,GVAR(initState));
 
 //Setup babble languages:
 {

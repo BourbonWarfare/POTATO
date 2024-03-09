@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 
 params ["_unit"];
-TRACE_3("assignGearMan",_unit, local _unit, typeOf _unit);
+TRACE_3("assignGearMan",_unit,local _unit,typeOf _unit);
 
 BEGIN_COUNTER(assignGearMan);
 
@@ -119,7 +119,7 @@ if ((!isClass _path) && {(_typeOf select [0,7]) == "potato_"}) then {
         };
     };
     _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
-    if (!isClass(_path)) then { WARNING_3("No bwc class found %1=%2:%3", _typeOf,_faction,_loadout); };
+    if (!isClass(_path)) then { WARNING_3("No bwc class found %1=%2:%3",_typeOf,_faction,_loadout); };
 };
 
 
@@ -138,7 +138,7 @@ if (isNil "_loadoutArray") then {
     BEGIN_COUNTER(getLoadoutFromConfig);
     _loadoutArray = [_path, _unit] call FUNC(getLoadoutFromConfig);
     END_COUNTER(getLoadoutFromConfig);
-    TRACE_1("", _loadoutArray);
+    TRACE_1("",_loadoutArray);
     GVAR(loadoutCache) setVariable [_loadoutKey, _loadoutArray];
 };
 
@@ -147,7 +147,7 @@ _loadoutArray set [LA_FACEWARE_INDEX, goggles _unit];
 _unit setUnitLoadout _loadoutArray;
 
 if (isText (_path >> "init")) then {
-    TRACE_1("calling init code", getText (_path >> "init"));
+    TRACE_1("calling init code",getText (_path >> "init"));
     _unit call compile ("this = _this;"+ getText (_path >> "init"));
 };
 

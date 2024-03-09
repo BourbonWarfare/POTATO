@@ -24,7 +24,7 @@ if ((count _soldierList) > _maxCargoRoom) then {
     _soldierList resize _maxCargoRoom
 };
 if (_soldierList isEqualTo []) exitWith {
-    WARNING_3("bad side/size [%1-%2-%3]", _side,_vehType,_maxCargoRoom);
+    WARNING_3("bad side/size [%1-%2-%3]",_side,_vehType,_maxCargoRoom);
     ["possible factory issue"] call EFUNC(zeusHC,sendCuratorHint);
     []
 };
@@ -42,7 +42,7 @@ _group selectLeader _unit;
 _unit setDir (_factoryLogic getDir _placeLogic);
 
 if ((isNull _group) || {isNull leader _group}) exitWith {
-    ERROR_1("failed to create group [%1]", _group);
+    ERROR_1("failed to create group [%1]",_group);
     []
 };
 

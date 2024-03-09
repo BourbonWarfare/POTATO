@@ -44,7 +44,7 @@ if (_markerInfo isEqualType true && {_markerInfo}) exitWith { LOG("Marker not se
         default { WHITE_ARRAY };
     };
 
-    TRACE_5("Object properies",_object, _markerText, _markerIcon, _colorArray, _markerSize);
+    TRACE_5("Object properies",_object,_markerText,_markerIcon,_colorArray,_markerSize);
 
     if (_object isEqualType grpNull) then {
         [_object, _colorArray] remoteExecCall [QFUNC(addGestureColor), 0, true];

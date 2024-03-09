@@ -21,10 +21,10 @@ private _cfgPatchUnits = (getArray (configFile >> "CfgPatches" >> QUOTE(ADDON) >
 {
     private _vic = getText (_x >> QGVAR(createVic));
     if ((_vic != "") && {!isClass (configFile >> "CfgVehicles" >> _vic)}) then {
-        ERROR_2("createVic [%1] Does Not Exist For Module [%2]", _vic, configName _x);
+        ERROR_2("createVic [%1] Does Not Exist For Module [%2]",_vic,configName _x);
     };
     if (!((toLower configName _x) in _cfgPatchUnits)) then {
-        ERROR_1("[%1] Not in CfgPatches units[] array", configName _x);
+        ERROR_1("[%1] Not in CfgPatches units[] array",configName _x);
     };
 } forEach _configs;
 INFO_1("Checked [%1] configs",count _configs);

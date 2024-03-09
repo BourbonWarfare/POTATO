@@ -81,7 +81,7 @@ private _fnc_onConfirm = {
     if (isNull _display) exitWith {};
 
     private _logicObject = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target", objnull];
-    if (isNull _logicObject) exitWith {ERROR_1("Logic [%1] is null on confirm", _logicObject);};
+    if (isNull _logicObject) exitWith {ERROR_1("Logic [%1] is null on confirm",_logicObject);};
 
 
     private _transportType = (lbCurSel (_display displayCtrl 23071)) max 0;

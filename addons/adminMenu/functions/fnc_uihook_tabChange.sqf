@@ -38,7 +38,7 @@ private _fnc_setListOfPlayers = {
              _listCtrl lbSetColor [_index, [[1,0,0,1], [1,1,1,1]] select (_recentMessages isEqualTo [])];
              _listCtrl lbSetTooltip [_index, _recentMessages joinString "\n"];
 
-             TRACE_6("Item added to list", _listCtrl, _unit, _name, _weight, [_unit] call BIS_fnc_objectVar, _recentMessages);
+             TRACE_6("Item added to list",_listCtrl,_unit,_name,_weight,[_unit] call BIS_fnc_objectVar,_recentMessages);
         };
     } forEach _playerList;
 
@@ -52,7 +52,7 @@ private _fnc_setListOfPlayers = {
 
 switch (_sel) do {
 case (0): {
-        TRACE_1("showing zeus tab", _sel);
+        TRACE_1("showing zeus tab",_sel);
         [
             UI_TAB_ZEUS_PLAYERS,
             {
@@ -69,7 +69,7 @@ case (0): {
         ] call _fnc_setListOfPlayers;
     };
 case (1): {
-        TRACE_1("showing supplies tab", _sel);
+        TRACE_1("showing supplies tab",_sel);
         lbClear UI_TAB_SUPPLIES_TYPE;
         GVAR(supplyClassNames) = [];
         {
@@ -105,7 +105,7 @@ case (1): {
         UI_TAB_SUPPLIES_GROUP lbSetCurSel 0;
     };
 case (2): {
-        TRACE_2("showing end mission tab", _sel, GVAR(openEndMission));
+        TRACE_2("showing end mission tab",_sel,GVAR(openEndMission));
         if (GVAR(openEndMission)) then {
             UI_TAB_END_TEXT ctrlShow true;
             UI_TAB_END_UNLOCK ctrlShow false;
@@ -121,7 +121,7 @@ case (2): {
         };
     };
 case (3): {
-        TRACE_1("showing teleport tab", _sel);
+        TRACE_1("showing teleport tab",_sel);
         [
             UI_TAB_TELEPORT_PERSON,
             nil, // default to ace name
@@ -143,7 +143,7 @@ case (3): {
         UI_TAB_TELEPORT_GROUP lbSetCurSel 0;
     };
 case (6): {
-        TRACE_1("showing mission hint tab", _sel);
+        TRACE_1("showing mission hint tab",_sel);
         lbClear UI_TAB_MISSIONHINT_SIDE;
         lbClear UI_TAB_MISSIONHINT_RANK;
         {
@@ -168,7 +168,7 @@ case (6): {
         UI_TAB_MISSIONHINT_RANK lbSetCurSel 0;
     };
 case (7): {
-        TRACE_1("showing fix unit tab", _sel);
+        TRACE_1("showing fix unit tab",_sel);
 
         private _loadouts = [
             ["", "Default Gear"],

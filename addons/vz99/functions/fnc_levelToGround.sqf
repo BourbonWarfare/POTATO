@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 
 params ["_mortarVeh", ["_desiredAngle", false, [false, 0]]];
-TRACE_2("params", _mortarVeh,_desiredAngle);
+TRACE_2("params",_mortarVeh,_desiredAngle);
 
 private _vUp = vectorUp _mortarVeh;
 (_vUp call CBA_fnc_vect2Polar) params ["", "_dir", "_elev"];

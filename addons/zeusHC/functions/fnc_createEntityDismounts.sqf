@@ -6,7 +6,7 @@
 #include "script_component.hpp"
 
 params ["_attachedVehicle", "_side", "_createUnits", "_placerOwner"];
-TRACE_4("params",_attachedVehicle, _side, _createUnits,_placerOwner);
+TRACE_4("params",_attachedVehicle,_side,_createUnits,_placerOwner);
 
 
 //Exit if bad conditions and send hint back to orginal module placer:

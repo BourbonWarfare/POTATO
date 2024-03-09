@@ -20,7 +20,7 @@ if (_opticClassname == "") exitWith { ERROR("No optic classname provided"); fals
 
 private _isMagnified = GVAR(magnifiedOpticCache) getVariable _opticClassname;
 if (isNil "_isMagnified") then { // cache magnification check
-    TRACE_1("Looking up key: ", _opticClassname);
+    TRACE_1("Looking up key: ",_opticClassname);
     private _minZoom = 999; //FOV, so smaller is more zoomed in
 
     {

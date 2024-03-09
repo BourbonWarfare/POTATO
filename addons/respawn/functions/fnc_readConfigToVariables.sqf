@@ -29,7 +29,7 @@ GVAR(factionsToInfo) = [] call CBA_fnc_createNamespace;
     _infoArray pushBack ([_x >> "factionPrefix"] call CFUNC(getText));
     _infoArray pushBack ([_x >> "groups"] call CFUNC(getArray));
 
-    TRACE_2("Faction info", configName _x, _infoArray);
+    TRACE_2("Faction info",configName _x,_infoArray);
     GVAR(factionsToInfo) setVariable [configName _x, _infoArray]; // possible to override mission side
 } forEach (
     ("true" configClasses (configFile >> "CfgRespawnFactions")) +
@@ -103,7 +103,7 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
     _infoArray pushBack _configsArray;
 
 
-    TRACE_2("Group info", configName _x, _infoArray);
+    TRACE_2("Group info",configName _x,_infoArray);
     GVAR(groupsToInfo) setVariable [configName _x, _infoArray]; // possible to override mission side
 } forEach (
     ("isClass (_x >> 'Units') && isClass (_x >> 'Configurations')" configClasses (configFile >> "CfgRespawnGroups")) +

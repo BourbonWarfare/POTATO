@@ -22,7 +22,7 @@ params [
     ["_zeusModule", objNull, [objNull]]
 ];
 
-if (isNull _newUnit || isNull _zeusModule) exitWith { WARNING_2("Null parameters", _newUnit, _zeusModule); };
+if (isNull _newUnit || isNull _zeusModule) exitWith { WARNING_2("Null parameters",_newUnit,_zeusModule); };
 
 unassignCurator _zeusModule;
 waitUntil {isNull (getAssignedCuratorUnit _zeusModule)};

@@ -14,7 +14,7 @@
 
 // ACRE functions
 #ifdef DEBUG_ACRE_API
-    #define ACRE_FUNC(var1) {if (QUOTE(var1) != QUOTE(isInitialized)) then {INFO_2("API call %1 with %2", QUOTE(DOUBLES(acre_api_fnc,var1)), _this);}; _this call DOUBLES(acre_api_fnc,var1);}
+    #define ACRE_FUNC(var1) {if (QUOTE(var1) != QUOTE(isInitialized)) then {INFO_2("API call %1 with %2",QUOTE(DOUBLES(acre_api_fnc,var1)),_this);}; _this call DOUBLES(acre_api_fnc,var1);}
     #define ACRE_QFUNC(var1) QUOTE(DOUBLES(acre_api_fnc,var1))
 #else
     #define ACRE_FUNC(var1) DOUBLES(acre_api_fnc,var1)

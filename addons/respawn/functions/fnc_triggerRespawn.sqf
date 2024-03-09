@@ -70,7 +70,7 @@ private _delay = 0;
         } forEach _configsArray;
 
         if (_configArray isEqualTo []) then {
-            ERROR_1("Could not find a matching configuration for the given classname", _configData);
+            ERROR_1("Could not find a matching configuration for the given classname",_configData);
         } else {
             _configArray params [
                 "", // config name
@@ -87,7 +87,7 @@ private _delay = 0;
             ];
 
             private _newRespawnGroup = createGroup [_factionSide, true]; // explicitly mark for cleanup
-            TRACE_2("new group", _factionSide, _newRespawnGroup);
+            TRACE_2("new group",_factionSide,_newRespawnGroup);
 
             if ((_markerTexture != "") && {!(missionNamespace getVariable [QGVAR(noMarkers), false])}) then {
                 _newRespawnGroup setVariable [QEGVAR(markers,addMarker), true, true];

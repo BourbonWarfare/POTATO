@@ -45,10 +45,10 @@ if (isNil QGVAR(vehicleList)) then { GVAR(vehicleList) = []; };
         if (_category == "") exitWith {};
 
         private _displayName = format [">>> %1", getText (configOf _veh >> "displayName")];
-        private _code = compile format [QUOTE([ARR_3(_this select 0, '%1', %2)] call DFUNC(autoModule_module)), _type, _side];
+        private _code = compile format [QUOTE([ARR_3(_this select 0,'%1',%2)] call DFUNC(autoModule_module)), _type, _side];
         private _icon = getText (configOf _veh >> "icon");
         private _ret = [_category, _displayName, _code, _icon] call zen_custom_modules_fnc_register;
         TRACE_3("added custom",_type,_side,_ret);
     };
 } forEach vehicles;
-INFO_1("autoModule - Total %1", count GVAR(vehicleList));
+INFO_1("autoModule - Total %1",count GVAR(vehicleList));

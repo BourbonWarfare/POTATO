@@ -32,12 +32,12 @@ _mortarVeh disableNVGEquipment ((hmd _player) == "");
     _args params ["_player", "_mortarVeh", "_levelCheck"];
 
     if ((!alive _player) || {!alive _mortarVeh} || {ACE_player != _player}) exitWith {
-        TRACE_2("exiting PFEH, null/change",_player,_mortarVeh);
+        TRACE_2("exiting PFEH,null/change",_player,_mortarVeh);
         [_pfID] call CBA_fnc_removePerFrameHandler;
     };
 
     if ((vehicle _player) != _mortarVeh) exitWith {
-        TRACE_1("exiting PFEH - clean getout", _this);
+        TRACE_1("exiting PFEH - clean getout",_this);
         [_pfID] call CBA_fnc_removePerFrameHandler;
 
         if (((_player distance _mortarVeh) < 5) &&

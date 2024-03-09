@@ -20,5 +20,5 @@ if (_index >= (count GVAR(logs))) exitWith {};
 
 private _msgUser = (GVAR(logs) select _index) select 2;
 
-TRACE_1("user", _msgUser);
+TRACE_1("user",_msgUser);
 _replyButton ctrlSetText format ["Reply: %1", _msgUser];

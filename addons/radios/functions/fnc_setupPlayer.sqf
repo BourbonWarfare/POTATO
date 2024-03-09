@@ -8,10 +8,10 @@ params [["_player", objNull, [objNull]]];
 
 if (GVAR(initState) < 1) exitWith {  ERROR("initializeRadios failed to set initSate"); };
 if (GVAR(initState) != 1) then {
-    INFO_1("Reseting init state from %1 back to 1", GVAR(initState));
+    INFO_1("Reseting init state from %1 back to 1",GVAR(initState));
     GVAR(initState) = 1;
 };
-INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]", diag_frameNo, GVAR(initState), _player, typeOf _player);
+INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]",diag_frameNo,GVAR(initState),_player,typeOf _player);
 
 [
 {
@@ -21,7 +21,7 @@ INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]", diag_frameNo, GVAR(
     private _return = false;
 
     if (GVAR(initState) == 1) then {
-        INFO_2("%1 - [InitState %2] Setting player presets", diag_frameNo, GVAR(initState));
+        INFO_2("%1 - [InitState %2] Setting player presets",diag_frameNo,GVAR(initState));
 
         private _presetArray = switch ((getNumber (configFile >> "CfgVehicles" >> (typeOf _player) >> "side"))) do {
             case 0: { [EAST_SR, EAST_MR, EAST_LR, missionNamespace getVariable [QGVAR(eastDefaultLanguages), [DEFAULT_EAST_LANGS]]] };
@@ -31,7 +31,7 @@ INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]", diag_frameNo, GVAR(
         };
 
         _presetArray params ["_sr", "_mr", "_lr", "_babel"];
-        INFO_4("radio info [SR:%1 MR:%2 LR:%3 BAB:%4]", _sr, _mr, _lr, _babel);
+        INFO_4("radio info [SR:%1 MR:%2 LR:%3 BAB:%4]",_sr,_mr,_lr,_babel);
 
         GVAR(sideLanguages) = _babel;
 
@@ -43,13 +43,13 @@ INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]", diag_frameNo, GVAR(
     };
     if (GVAR(initState) == 2) then {
         if (!(_player getVariable [QEGVAR(assignGear,gearSetup), false])) exitWith {};
-        INFO_2("%1 - [InitState %2] Setting briefing", diag_frameNo, GVAR(initState));
+        INFO_2("%1 - [InitState %2] Setting briefing",diag_frameNo,GVAR(initState));
         [] call FUNC(addAcreBriefing);
         GVAR(initState) = 3;
     };
     if (GVAR(initState) == 3) then {
         if (!([_player] call ACRE_FUNC(isInitialized))) exitWith {};
-        INFO_2("%1 - [InitState %2] Setting Channels", diag_frameNo, GVAR(initState));
+        INFO_2("%1 - [InitState %2] Setting Channels",diag_frameNo,GVAR(initState));
         [] call FUNC(configureRadios);
         GVAR(initState) = 4;
         _return = true;
@@ -57,5 +57,5 @@ INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]", diag_frameNo, GVAR(
     _return
 },
 {
-    INFO_2("%1 - [InitState %2] DONE", diag_frameNo, GVAR(initState));
+    INFO_2("%1 - [InitState %2] DONE",diag_frameNo,GVAR(initState));
 }, [_player]] call CBA_fnc_waitUntilAndExecute;
