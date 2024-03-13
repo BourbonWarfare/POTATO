@@ -7,7 +7,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "ptv_vehicles", "ptv_characters_cfg" , "ptv_characters" };
+        requiredAddons[] = { "potato_core", "ptv_vehicles", "ptv_characters_cfg", "ptv_characters" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -36,7 +36,7 @@ class CfgVehicles {
     class ptv_RadioBag_01_Woodland: B_RadioBag_01_base_F {maximumLoad=300;};
 };
 
-class cfgWeapons {
+class CfgWeapons {
     class Pistol;
     class Pistol_Base_F: Pistol {};
     class Rifle;
