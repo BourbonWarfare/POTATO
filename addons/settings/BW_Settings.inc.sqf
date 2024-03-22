@@ -24,6 +24,8 @@ _settings = [
 [QACEGVAR(medical_statemachine,cardiacArrestTime), 180], // default: 30
 [QACEGVAR(medical_treatment,treatmentTimeTourniquet), 4], // default: 7
 
+["ace_medical_engine_damagepassthrougheffect", 0],
+
 // Medical Extras:
 [QACEGVAR(medical_ai,enabledFor), 0],
 [QACEGVAR(medical_blood,enabledFor), 1],
@@ -43,6 +45,7 @@ _settings = [
 [QACEGVAR(cookoff,enable), 1],
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
 [QACEGVAR(finger,enabled), true],
+[QACEGVAR(finger,maxrange), 7],
 [QACEGVAR(fortify,timeCostCoefficient), 0],
 [QACEGVAR(fortify,timeMin), 0],
 [QACEGVAR(frag,maxTrack), 5],
@@ -64,20 +67,27 @@ _settings = [
 [QACEGVAR(ui,ammoCount), false, true], // Forced because it's User settable
 [QACEGVAR(ui,groupBar), false, true], // Forced because it's User settable
 [QACEGVAR(weather,showCheckAirTemperature), false], // note: user-setting, we don't force
-[QACEGVAR(zeus,autoAddObjects), true]
+[QACEGVAR(zeus,autoAddObjects), true],
+["ace_marker_flags_placeanywhere", true]
 ];
 
 // WBK Melee
 if (["WBK_MeleeMechanics"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 ["ims_rifledodgeset", false],
-["ims_isfistsallowd", false]
+["ims_isfistsallowd", false],
+["ims_isimscanhitallies", false],
+["ims_bluntweapon", true] // uncon instead of kill
 ];} else { _skip pushBack "WBK_MeleeMechanics" };
 
 // WBK Melee
 if (["WBK_DyingAnimationsMod"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 ["WBK_DeathAnimMod_Deaths_PLR", false],
 ["WBK_DeathAnimMod_Hit_PLR", false],
-["WBK_DeathAnimMod_Flinch_PLR", false]
+["WBK_DeathAnimMod_Flinch_PLR", false],
+["wbk_deathanimmod_death_chance", "50"], // why are these strings??
+["wbk_deathanimmod_hit_chance", "70"],
+["wbk_zombiesisusestatdeathcontrol", true],
+["wbk_zombiesisusebitinganimation", false]
 ];} else { _skip pushBack "WBK_DyingAnimationsMod" };
 
 
@@ -95,6 +105,7 @@ if (["diwako_dui_main"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 ["diwako_dui_ace_hide_interaction", true, true], // User-Setting
 
 // DUI - Squad Radar - Indicators
+["diwako_dui_indicators_show", false, true], // User-Setting
 ["diwako_dui_indicators_range", 20], // User-Setting
 
 // DUI - Squad Radar - Radar
@@ -119,7 +130,8 @@ if (["AAA"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 
 // Reeveli Uncon Moaning
 if (["Rev_ACE_moaning"] call ACEFUNC(common,isModLoaded)) then { _settings append [
-["Rev_moaning_time", 60],
+["Rev_moaning_time", 90],
+["rev_moaning_speech", false],
 ["Rev_moaning_probability", 95]
 ];} else { _skip pushBack "Rev_ACE_moaning" };
 
@@ -127,3 +139,25 @@ if (["Rev_ACE_moaning"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 if (["lambs_danger"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 ["lambs_danger_disableAIHideFromTanksAndAircraft", true]
 ];} else { _skip pushBack "lambs_danger" };
+
+// ACRE
+if (["acre_sys_core"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["acre_sys_core_fullduplex", true]
+];} else { _skip pushBack "acre_sys_core" };
+
+if (["tuncon_unconinfo"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["tuncon_unconinfo_enableshowepinephrine", false],
+["tuncon_unconinfo_enableshowbleeding", false],
+["tuncon_unconinfo_enableshowheartrate", false],
+["tuncon_unconinfo_enableshowstablevitals", false],
+["tuncon_unconinfo_allownearestunit", false],
+["tuncon_unconinfo_nofriendliesnearbytext", "You are near death."]
+];} else { _skip pushBack "tuncon_unconinfo" };
+
+if (["OCAP_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["ocap_administratorlist", "[76561198029918230]"],
+["ocap_settings_minplayercount", 10],
+["ocap_settings_savetag", "Mission"],
+["ocap_settings_minmissiontime", 15],
+["ocap_settings_tracktickets", false]
+];} else { _skip pushBack "OCAP_main" };

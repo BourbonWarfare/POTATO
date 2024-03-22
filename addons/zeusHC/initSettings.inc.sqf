@@ -3,7 +3,7 @@
     "SLIDER",
     ["Maximum AI Count", "Maximum active AI allowed at one time."],
     ["POTATO - Mission Maker", "ZeusHC Spawning"],
-    [1, 200, 90, 0],
+    [1, 250, 120, 0],
     1
 ] call cba_settings_fnc_init;
 
