@@ -36,11 +36,11 @@ class CfgVehicles {
     class ptv_RadioBag_01_Woodland: B_RadioBag_01_base_F {maximumLoad=300;};
 };
 
-class CfgWeapons {
+
 class Mode_SemiAuto;
 class Mode_Burst;
 class Mode_FullAuto;
-class cfgWeapons {
+class CfgWeapons {
     class Pistol;
     class Pistol_Base_F: Pistol {};
     class Rifle;
