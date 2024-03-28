@@ -44,6 +44,7 @@ _settings = [
 [QACEGVAR(advanced_fatigue,recoveryFactor), 1.6],
 [QACEGVAR(cookoff,enable), 1],
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
+[QACEGVAR(dragging,weightCoefficient), 0.25], // allows carry/drag 4x the normal weight
 [QACEGVAR(finger,enabled), true],
 [QACEGVAR(finger,maxrange), 7],
 [QACEGVAR(fortify,timeCostCoefficient), 0],
@@ -55,6 +56,7 @@ _settings = [
 [QACEGVAR(hearing,enableCombatDeafness), false],
 [QACEGVAR(interaction,enableGroupRenaming), false],
 [QACEGVAR(laser,showLaserOnMap), 2],
+[QACEGVAR(marker_flags,placeanywhere), true],
 [QACEGVAR(map,DefaultChannel), 1],
 [QACEGVAR(nightvision,effectScaling), 0.2, false, true],
 [QACEGVAR(nightvision,fogScaling), 0.2, false, true],
@@ -67,8 +69,7 @@ _settings = [
 [QACEGVAR(ui,ammoCount), false, true], // Forced because it's User settable
 [QACEGVAR(ui,groupBar), false, true], // Forced because it's User settable
 [QACEGVAR(weather,showCheckAirTemperature), false], // note: user-setting, we don't force
-[QACEGVAR(zeus,autoAddObjects), true],
-["ace_marker_flags_placeanywhere", true]
+[QACEGVAR(zeus,autoAddObjects), true]
 ];
 
 // WBK Melee
