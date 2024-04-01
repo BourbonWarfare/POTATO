@@ -17,37 +17,6 @@ class CfgPatches {
 
 class DefaultEventHandlers;
 class CfgVehicles {
-    class Tank;
-    class Tank_F: Tank {
-        class EventHandlers;
-    };
-    // Fix Leo/Paton tank smoke not working - should be fixed in next cup release
-    class CUP_Leopard2_Base: Tank_F {
-        class EventHandlers: EventHandlers {    
-            init="";
-            fired="_this call (uinamespace getvariable 'BIS_fnc_effectFired');";
-            killed="_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
-            class CUP_TrackedVehicles_Leopard2 {
-                init = " \
-                    [_this select 0] call CUP_fnc_initNumbers; \
-                    _this call CUP_fnc_tankAmmoStoreInit; \
-                    if (local (_this select 0)) then {[(_this select 0), """", [], false] call bis_fnc_initVehicle;}; \
-                ";
-                Fired = "[_this, ""recoil_source"", ""CUP_Vcannon_L55_veh""] call CUP_fnc_cannonAnimate;";
-            };
-        };
-    };
-    class CUP_M60A3_Base: Tank_F {
-        class EventHandlers: DefaultEventHandlers {
-            init="";
-            fired="_this call (uinamespace getvariable 'BIS_fnc_effectFired');";
-            killed="_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
-            class CUP_TrackedVehicles_M60 {
-                init = "_this call CUP_fnc_tankAmmoStoreInit;";
-                Fired = "[_this, ""recoil_source"", ""CUP_Vcannon_M68_veh""] call CUP_fnc_cannonAnimate;";
-            };
-        };
-    };
     // Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
     class CUP_B_FV432_Bulldog_GB_D;
     class CUP_B_FV432_Base: CUP_B_FV432_Bulldog_GB_D {
