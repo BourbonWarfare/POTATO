@@ -129,41 +129,4 @@ class CfgWeapons {
     class CUP_smg_MP7: Rifle_Short_Base_F { // Applies the APEX dlc MP5 recoil to the CUP MP7
         recoil = "recoil_smg_05";
     };
-    
-    // Adds White Phosphor (WP) versions of CUP NVGs that have IRL WP versions
-    class Binocular;
-    class NVGoggles: Binocular {
-        class ItemInfo;
-    };
-    class CUP_NVG_PVS14: NVGoggles {};
-    class CUP_NVG_PVS14_WP: CUP_NVG_PVS14 {
-        displayname = "AN/PVS-14 WP";
-        ace_nightvision_colorPreset[] = {0.0,{0.0,0.0,0.0,0.0},{1.1,0.8,1.9,0.9},{1,1,6,0.0}};
-        ace_nightvision_border = "z\ace\addons\nightvision\data\nvg_mask_4096.paa";
-        ace_nightvision_bluRadius = 0.13;
-        ace_nightvision_generation = 3;
-    };
-    class CUP_NVG_PVS15_black: NVGoggles {};
-    class CUP_NVG_PVS15_black_WP: CUP_NVG_PVS15_black {
-        displayname = "AN/PVS-15 WP";
-        ace_nightvision_colorPreset[] = {0.0,{0.0,0.0,0.0,0.0},{1.1,0.8,1.9,0.9},{1,1,6,0.0}};
-        ace_nightvision_border = "z\ace\addons\nightvision\data\nvg_mask_binos_4096.paa";
-        ace_nightvision_bluRadius = 0.13;
-        ace_nightvision_generation = 4;
-    };
-    class CUP_NVG_GPNVG_black: NVGoggles {};
-    class CUP_NVG_GPNVG_black_WP: NVGoggles {
-        displayname = "GPNVG-18 WP";
-        model = "CUP\Weapons\CUP_Weapons_NVG\model\CUP_GPNVG_black_On";
-        picture = "\CUP\Weapons\CUP_Weapons_NVG\data\icon_gpnvg_black_ca.paa";
-        class ItemInfo: ItemInfo
-        {
-            uniformModel = "CUP\Weapons\CUP_Weapons_NVG\model\CUP_GPNVG_black_on";
-            modelOff = "CUP\Weapons\CUP_Weapons_NVG\model\CUP_GPNVG_black_off";
-        };
-        ace_nightvision_colorPreset[] = {0.0,{0.0,0.0,0.0,0.0},{1.1,0.8,1.9,0.9},{1,1,6,0.0}};
-        ace_nightvision_border = "z\ace\addons\nightvision\data\nvg_mask_quad_4096.paa";
-        ace_nightvision_bluRadius = 0.13;
-        ace_nightvision_generation = 4;
-    };
 };
