@@ -155,7 +155,7 @@ class CfgWeapons {
                 soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
             };
         };
-    class ptv_AG: Rifle_Base_F {};
+    };
     class ptv_AG_k: ptv_AG {
         bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.0099,1,10};
         bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.0099,1,10};
@@ -299,8 +299,7 @@ class CfgWeapons {
             };
         };
     };
-	};
-    
+
     class Vest_Base;
     class VestItem;
     class V_PlateCarrier1_rgr;
