@@ -123,6 +123,10 @@ if (_missionLength == 0) then {
     _problems pushBackUnique ["Need to set mission length value", ["POTATO -> Mission Testing Attributes -> Mission Length"]];
 };
 
+// Check if cleanup.bat still exists
+if (fileExists "cleanup.bat") then {
+    _problems pushBack ["Need to run cleanup.bat (If finished with loadouts)", []];
+};
 
 // Floating units / Fall Damage:
 private _floatingUnits = [];
