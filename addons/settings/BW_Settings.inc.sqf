@@ -52,7 +52,7 @@ _settings = [
 [QACEGVAR(frag,maxTrack), 5],
 [QACEGVAR(gforces,enabledFor), 0],
 [QACEGVAR(goggles,effects), 1], // note: user-setting, we don't force
-[QACEGVAR(hearing,autoAddEarplugsToUnits), false],
+[QACEGVAR(hearing,autoAddEarplugsToUnits), 0],
 [QACEGVAR(hearing,enableCombatDeafness), false],
 [QACEGVAR(interaction,enableGroupRenaming), false],
 [QACEGVAR(laser,showLaserOnMap), 2],
