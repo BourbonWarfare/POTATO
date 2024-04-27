@@ -82,8 +82,7 @@ class CfgWeapons {
             };
         };
         class M203: UGL_F {
-                magazines[] = {"ptv_1Rnd_HE_Grenade_shell", __BIGL_MAGS, "CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_StarCluster_White_M203", "CUP_1Rnd_StarCluster_Red_M203", "CUP_1Rnd_StarCluster_Green_M203", "CUP_1Rnd_StarFlare_White_M203", "CUP_1Rnd_StarFlare_Red_M203", "CUP_1Rnd_StarFlare_Green_M203", "CUP_FlareWhite_M203", "CUP_FlareGreen_M203", "CUP_FlareRed_M203", "CUP_FlareYellow_M203", "CUP_1Rnd_Smoke_M203", "CUP_1Rnd_SmokeRed_M203", "CUP_1Rnd_SmokeGreen_M203", "CUP_1Rnd_SmokeYellow_M203"};
-                magazineWell[] = {UGL_40x36,CBA_40mm_M203,CBA_40mm_EGLM};
+            magazineWell[] = {"UGL_40x36", "CBA_40mm_M203"};
         };
     };
     class ptv_rs556s: ptv_rs556 {
@@ -238,8 +237,7 @@ class CfgWeapons {
             };
         };
         class EGLM: UGL_F {
-                magazines[] = {"ptv_1Rnd_HE_Grenade_shell", __BIGL_MAGS, "CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_StarCluster_White_M203", "CUP_1Rnd_StarCluster_Red_M203", "CUP_1Rnd_StarCluster_Green_M203", "CUP_1Rnd_StarFlare_White_M203", "CUP_1Rnd_StarFlare_Red_M203", "CUP_1Rnd_StarFlare_Green_M203", "CUP_FlareWhite_M203", "CUP_FlareGreen_M203", "CUP_FlareRed_M203", "CUP_FlareYellow_M203", "CUP_1Rnd_Smoke_M203", "CUP_1Rnd_SmokeRed_M203", "CUP_1Rnd_SmokeGreen_M203", "CUP_1Rnd_SmokeYellow_M203"};
-                magazineWell[] = {UGL_40x36,CBA_40mm_M203,CBA_40mm_EGLM};
+            magazineWell[] = {"UGL_40x36", "CBA_40mm_M203", "CBA_40mm_EGLM"};
         };
     };
     class ptv_AG_k : ptv_AG {
@@ -332,8 +330,7 @@ class CfgWeapons {
     };
 
     class ptv_hk69_Base_F: Pistol_Base_F {
-        magazines[] = {"ptv_1Rnd_HE_Grenade_shell", __BIGL_MAGS, "CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_StarCluster_White_M203", "CUP_1Rnd_StarCluster_Red_M203", "CUP_1Rnd_StarCluster_Green_M203", "CUP_1Rnd_StarFlare_White_M203", "CUP_1Rnd_StarFlare_Red_M203", "CUP_1Rnd_StarFlare_Green_M203", "CUP_FlareWhite_M203", "CUP_FlareGreen_M203", "CUP_FlareRed_M203", "CUP_FlareYellow_M203", "CUP_1Rnd_Smoke_M203", "CUP_1Rnd_SmokeRed_M203", "CUP_1Rnd_SmokeGreen_M203", "CUP_1Rnd_SmokeYellow_M203"};
-        magazineWell[] = {UGL_40x36,CBA_40mm_M203,CBA_40mm_EGLM};
+        magazineWell[] = {"UGL_40x36", "CBA_40mm_M203", "CBA_40mm_EGLM"};
     };
 
     class Vest_Base;
