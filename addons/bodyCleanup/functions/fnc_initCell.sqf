@@ -16,7 +16,7 @@
  *                [Number,        Array,        Number,              Boolean,     Array,       Array]
  *
  * Example:
- * [50] spawn potato_bodyCleanup_fnc_initGrid;
+ * [50] spawn potato_bodyCleanup_fnc_initCell;
  *
  * Public: No
  */
