@@ -44,7 +44,7 @@ private _meanPosition = [0, 0, 0];
     _x params ["_position"];
     _meanPosition = _meanPosition vectorAdd _position;
 } forEach _viewCones;
-_meanPosition = _meanPosition vectorMultiply (1 / count _viewCones);
+_meanPosition = _meanPosition vectorMultiply (1 / (1 max count _viewCones));
 
 private _maxDistance = 0;
 {
@@ -74,7 +74,7 @@ private _visibleCells = [];
 
         // If we are within the minimum cleanup distance, then we will update the cell
         if ((_origin vectorDistance _cellCenter) <= MIN_CLEANUP_DISTANCE) then {
-            _visibleCells pushBack _x;
+            _visibleCells pushBack (_cellsToCheck deleteAt _forEachIndex);
             continue;
         };
 
@@ -113,9 +113,9 @@ private _visibleCells = [];
         // Third: Determine if cell lays within the triangle
         // We only check if the cell's center is within the FOV. This is for optimisation. We miss a few, but no biggie
         if ([_cellCenter, _p1, _p2, _p3] call _inTriangle) then {
-            _visibleCells pushBack _x;
+            _visibleCells pushBack (_cellsToCheck deleteAt _forEachIndex);
         };
-    } forEach _cellsToCheck;
+    } forEachReversed _cellsToCheck;
 } forEach _viewCones;
 
 {
