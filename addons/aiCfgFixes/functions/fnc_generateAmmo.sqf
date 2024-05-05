@@ -179,7 +179,7 @@ diag_log text "Printing modified classes...";
     if ((count _printValues) > 0) then {
         _classText = _classText + _inherit + " {" + LINE_BREAK;
         {
-            _classText = _classText + CFG_CLASS_DATA((_x select 0), (_x select 1));
+            _classText = _classText + CFG_CLASS_DATA((_x select 0),(_x select 1));
         } forEach _printValues;
         _classText = _classText + INDENT + "}";
     };
