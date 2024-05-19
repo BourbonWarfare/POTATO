@@ -75,7 +75,7 @@ private _ratioCanidate = (_description splitString " ") select 0;
 TRACE_2("prefill info",_description,_ratioCanidate);
 
 // if the ratio information looks good, try to parse it
-if ((!isNil "_ratioCanidate") && {(_ratioCanidate find ":") > -1}) then {
+if ((!isNil "_ratioCanidate") && {":" in _ratioCanidate}) then {
     private _ratioArray = _ratioCanidate splitString ":";
     private _ratioCount = count _ratioArray;
 

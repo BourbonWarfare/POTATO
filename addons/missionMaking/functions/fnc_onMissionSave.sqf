@@ -187,7 +187,7 @@ private _checkDeprecatedGear = [];
             _checkWeapons pushBackUnique format ["%1 has no primaryWeapon", _typeOf];
         };
         // Check AT actualy have some kind of AT
-        if ((_typeOf find "matg" > -1) || {_typeOf find "lat" > -1} || {_typeOf find "msv_g" > -1} || {_typeOf find "msv_matg" > -1}) then {
+        if (("matg" in _typeOf) || {"lat" in _typeOf} || {"msv_g" in _typeOf} || {"msv_matg" in _typeOf}) then {
             if ((secondaryWeapon _unit) == "") then {
                 TRACE_1("no AT",_typeOf);
                 _checkWeapons pushBackUnique format ["%1 has no secondaryWeapon", _typeOf];
@@ -212,9 +212,9 @@ private _checkDeprecatedGear = [];
                     if (_weapon == (primaryWeapon _unit)) then {
                         private _desiredAmmo = call {
                             // allow low ammo count for long range gunners
-                            if ((_typeOf find "marksman" > -1) || {_typeOf find "spotter" > -1} || {_typeOf find "sniper" > -1}) exitWith { 20 };
+                            if (("marksman" in _typeOf) || {"spotter" in _typeOf} || {"sniper" in _typeOf}) exitWith { 20 };
                             // suggest hight ammo count for MGs
-                            if ((_typeOf find "_ar" > -1) || {_typeOf find "_mg" > -1} || {_typeOf find "_mmgg" > -1}) exitWith { 250 };
+                            if (("_ar" in _typeOf) || {"_mg" in _typeOf} || {"_mmgg" in _typeOf}) exitWith { 250 };
                             // default rifleman case
                             100
                         };

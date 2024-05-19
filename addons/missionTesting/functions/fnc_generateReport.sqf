@@ -18,7 +18,7 @@ params[""];
 
 private _trueFalse = {
     params["_cbValue"];
-    if (_cbValue) then {BBTRUE} else {BBFALSE};
+    [BBFALSE, BBTRUE] select _cbValue
 };
 
 private _checkBoxes = {

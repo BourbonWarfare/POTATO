@@ -37,11 +37,7 @@ private _return = if (_vehicle == _leader) then {
         "Teleporting to position"
     } else {
         _success = _selectedUnit setVehiclePosition [_leader, [], 15];
-        if (_success) then {
-            "No empty position for teleport"
-        } else {
-            "Teleporting to position"
-        }
+        ["Teleporting to position", "No empty position for teleport"] select _success
     }
 } else {
     private _fullCrewCount = 0;

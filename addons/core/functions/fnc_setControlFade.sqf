@@ -22,7 +22,7 @@ TRACE_1("params",_this);
 
 params ["_status", "_controls"];
 
-private _fade = if (_status) then { FADE_ENABLED } else { FADE_DISABLED };
+private _fade = [FADE_DISABLED ,FADE_ENABLED] select _status;
 
 {
     _x ctrlEnable _status;

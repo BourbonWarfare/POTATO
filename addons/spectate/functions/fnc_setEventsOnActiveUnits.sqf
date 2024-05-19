@@ -31,11 +31,7 @@ if (_add && !GVAR(classEHInstalled)) then {
     GVAR(classEHInstalled) = true;
 } else {
     // only evaluate add/remove once, instead of per-unit
-    private _fnc_dealWithUnit = if (_add) then {
-        FUNC(addEventHandlers)
-    } else {
-        FUNC(removeEventHandlers)
-    };
+    private _fnc_dealWithUnit = [FUNC(removeEventHandlers), FUNC(addEventHandlers)] select _add;
 
     {
         // we should only need to check for alive, but belts/suspenders

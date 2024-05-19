@@ -20,7 +20,7 @@ TRACE_1("Params",_this);
 params [["_target", objNull, [objNull]]];
 
 if !(isNull _target) then {
-    private _zoom = if (GVAR(currentCamIndex) == THIRD_PERSON) then { GVAR(thirdPersonCamZoom) } else { 0.0 };
+    private _zoom = [0, GVAR(thirdPersonCamZoom)] select (GVAR(currentCamIndex) == THIRD_PERSON);
     if (GVAR(thirdPersonCamZoomTemp) != _zoom) then {
         GVAR(thirdPersonCamZoomTemp) = (GVAR(thirdPersonCamZoomTemp) * (1.0 - GVAR(camDeltaTime) * 10.0)) + (_zoom * GVAR(camDeltaTime) * 10.0);
     };

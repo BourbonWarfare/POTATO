@@ -123,7 +123,7 @@ private _thingsToDraw = [];
         // Draw unit icon
         _thingsToDraw pushBack [_x, 1, [
             if (_x getVariable ["ACE_isUnconscious", false]) then {
-                if (_x getVariable ["ace_medical_inCardiacArrest", false]) then { ICON_CRDC_ARRST } else { ICON_REVIVE_3D }
+                [ICON_REVIVE_3D, ICON_CRDC_ARRST] select (_x getVariable ["ace_medical_inCardiacArrest", false])
             } else { ICON_UNIT },
             _groupColor,
             ZERO_POS,
