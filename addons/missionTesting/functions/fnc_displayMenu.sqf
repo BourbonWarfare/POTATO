@@ -203,8 +203,9 @@ private _unitSpecificBriefVar = getMissionConfigValue QGVAR(missionFlagUnitSpeci
 private _unitSpecificBrief =  if(isNil QUOTE(_unitSpecificBriefVar)) then {"No"} else {A_YESNO select _unitSpecificBriefVar};
 
 private _missionNotesForTester = getMissionConfigValue QGVAR(missionMakerNotesForTesters);
-private _missionSummary = "You are not the mission maker so this is currently unavailable";
-if (isServer && name ACE_PLAYER == _missionMaker) then {_missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText"};
+private _missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText";
+// if (isServer && name ACE_PLAYER == _missionMaker) then {_missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText"};
+// Above code deprecated, retained if needed for future use.
 private _masterChecklistArray = nil;
 
 if (is3DEN) then {call compileScript ['\z\potato\addons\missiontesting\XEH_postInit.sqf']};
