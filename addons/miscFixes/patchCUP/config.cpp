@@ -129,4 +129,37 @@ class CfgWeapons {
     class CUP_smg_MP7: Rifle_Short_Base_F { // Applies the APEX dlc MP5 recoil to the CUP MP7
         recoil = "recoil_smg_05";
     };
+    class CUP_arifle_ACR_BASE_556: Rifle_Base_F {
+        reloadAction = "ptv_GestureReloadHK433";
+        magazineReloadSwitchPhase = 0.3;
+        reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M16_Reload",1,1,10};
+    };
+    class CUP_arifle_ACR_BASE_68: Rifle_Base_F {
+        reloadAction = "ptv_GestureReloadHK433";
+        magazineReloadSwitchPhase = 0.3;
+        reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M16_Reload",1,1,10};
+    };
+    class CUP_arifle_M16_Base: Rifle_Base_f {};
+    class CUP_arifle_M4_Base: CUP_arifle_M16_Base {};
+    class CUP_arifle_M4A1_BUIS_Base: CUP_arifle_M4_Base {};
+    class CUP_arifle_M4A1_MOE_black: CUP_arifle_M4A1_BUIS_Base{
+		reloadAction = "GestureReloadSPAR_01";
+        magazineReloadSwitchPhase = 0.1829;
+        reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M16_Reload",1,1,10};
+	};
+    class CUP_arifle_M4A1_MOE_short_black: CUP_arifle_M4A1_BUIS_Base {
+        reloadAction = "GestureReloadSPAR_01";
+        magazineReloadSwitchPhase = 0.1829;
+        reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M16_Reload",1,1,10};
+	};
+    class CUP_arifle_M4A1_standard_black: CUP_arifle_M4A1_BUIS_Base {
+		reloadAction = "GestureReloadSPAR_01";
+        magazineReloadSwitchPhase = 0.1829;
+        reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M16_Reload",1,1,10};
+	};
+    class CUP_arifle_M4A1_standard_short_black: CUP_arifle_M4A1_BUIS_Base {
+        reloadAction = "GestureReloadSPAR_01";
+        magazineReloadSwitchPhase = 0.1829;
+        reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M16_Reload",1,1,10};
+    };
 };
