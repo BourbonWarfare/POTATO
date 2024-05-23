@@ -17,7 +17,6 @@ class CfgPatches {
 
 class CfgWeapons {
     class ItemCore;
-    class B_AssaultPack_Base;
     class Vest_Camo_Base: ItemCore {
         class ItemInfo;
     };
@@ -51,6 +50,10 @@ class CfgWeapons {
             };
         };
     };
+};
+
+class CfgVehicles {
+    class B_AssaultPack_Base;
     class rhs_medic_bag: B_AssaultPack_Base {};
     class rhs_medic_bag_XL: rhs_medic_bag {
         author = "RHS & AChesheireCat";
