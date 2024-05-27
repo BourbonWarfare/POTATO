@@ -15,7 +15,7 @@ _settings = [
 [QACEGVAR(medical,spontaneousWakeUpChance), 0.4], // default: 0.05
 [QACEGVAR(medical,spontaneousWakeUpEpinephrineBoost), 2], // default: 1
 [QACEGVAR(medical,playerDamageThreshold), 1], // default: 1
-[QACEGVAR(medical_treatment,advancedDiagnose), 2], // default: 1 (Allows diagnosing death/CA)
+[QACEGVAR(medical_treatment,advancedDiagnose), 3], // default: 1 (Allows diagnosing death/CA)
 [QACEGVAR(medical_treatment,clearTrauma), 2], // default: 0
 [QACEGVAR(medical_treatment,litterCleanupDelay), 300], // default: 600
 [QACEGVAR(medical_treatment,cprSuccessChanceMin), 0.75], // default: 0.4
