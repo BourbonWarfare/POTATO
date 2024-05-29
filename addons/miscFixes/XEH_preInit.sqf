@@ -22,3 +22,53 @@ if (["WBK_ZombieCreatures"] call ACEFUNC(common,isModLoaded)) then {
         }] call CBA_fnc_addClassEventHandler;
     } forEach _wbkZombiesBase;
 };
+
+//add EH to fix weapon lowering while walking fix
+addUserActionEventHandler ["toggleRaiseWeapon","Activate",{ 
+	private _lAnim = animationState player;
+	if("stp" in _lAnim || "non" in _lAnim)exitWith{};
+	_lAnim = _lAnim splitString "";
+	private _state = [_lAnim #13,_lAnim #14,_lAnim #15] joinString "";
+	switch(_state)do{
+		case "ras": {
+			_lAnim set [13,"l"];
+			_lAnim set [14,"o"];
+			_lAnim set [15,"w"];
+		};
+		case "low": {
+			_lAnim set [13,"r"];
+			_lAnim set [14,"a"];
+			_lAnim set [15,"s"];
+		};
+	};
+	private _nAnim = _lAnim joinString "";
+    [_nAnim] spawn {
+        params ["_nAnim"];
+        sleep 0.5;
+        private _f = inputAction "MoveForward";
+        private _b = inputAction "MoveBack";
+        private _l = inputAction "TurnLeft";
+        private _r = inputAction "TurnRight";
+        private _tot = _f + _b + _l + _r;
+        if(_tot == 0)then{
+        //systemChat "stopping";
+        private _tAnim = _nAnim splitString "_";
+        _nAnim = _tAnim #0 splitString "";
+        _nAnim set [9,"s"];
+        _nAnim set [10,"t"];
+        _nAnim set [11,"p"];
+        _nAnim set [21,"n"];
+        _nAnim set [22,"o"];
+        _nAnim set [23,"n"];
+        _nAnim = _nAnim joinString "";
+        player playMoveNow _nAnim;
+        if(isMultiplayer)then{
+            [player,_nAnim] remoteExec {
+                params ['_u','_nAnim'];
+                _u playMove _nAnim;
+            };
+        };
+        };
+        //systemChat _nAnim;
+    };
+}];
