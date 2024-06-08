@@ -1,4 +1,5 @@
 class ace_medical_treatment_actions {
+    class BasicBandage;
     class ApplyTourniquet: BasicBandage {
         sounds[] = {{"x\POTATO\addons\miscMedical\data\tourniquet.ogg",5,1,50}};
     };
