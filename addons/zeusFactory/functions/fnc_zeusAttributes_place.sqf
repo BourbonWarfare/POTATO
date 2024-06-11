@@ -9,7 +9,7 @@ TRACE_2("zeusAttributes_place",_control,_logicObject);
 
 private _display = ctrlparent _control;
 private _ctrlButtonOK = _display displayctrl 1; //IDC_OK
-_control ctrlRemoveAllEventHandlers "setFocus";
+_control ctrlRemoveAllEventHandlers "SetFocus";
 
 if (isNil QGVAR(lastTransport)) then {GVAR(lastTransport) = 0};
 if (isNil QGVAR(lastOrders)) then {GVAR(lastOrders) = 0};

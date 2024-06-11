@@ -27,7 +27,7 @@ TRACE_2("zeusAttributes_factory",_control,_logicObject);
 
 private _display = ctrlparent _control;
 private _ctrlButtonOK = _display displayctrl 1; //IDC_OK
-_control ctrlRemoveAllEventHandlers "setFocus";
+_control ctrlRemoveAllEventHandlers "SetFocus";
 
 
 // Init: Side List (If already set, do not allow changing)

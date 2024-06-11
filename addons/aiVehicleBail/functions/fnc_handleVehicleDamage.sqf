@@ -25,7 +25,7 @@ TRACE_4("handleVehicleDamage",_vehicle,_hitPoint,_hitIndex,_injurer);
 if !(alive _vehicle) exitWith {
     private _eventHandler = _vehicle getVariable[QGVAR(handle_damage), nil];
     if !(isNil "_eventHandler") then {
-        _vehicle removeEventHandler ["handleDamage", _eventHandler];
+        _vehicle removeEventHandler ["HandleDamage", _eventHandler];
     };
 };
 
