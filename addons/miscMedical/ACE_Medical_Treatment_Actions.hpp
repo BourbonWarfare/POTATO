@@ -1,4 +1,12 @@
 class ace_medical_treatment_actions {
+    class Morphine;
+    class Naloxone: Morphine {
+        displayName = "Inject Naloxone";
+        displayNameProgress = "Injecting Naloxone";
+        condition = "ace_medical_treatment_advancedMedication";
+        items[] = {"potato_naloxone"};
+        litter[] = {{"ACE_MedicalLitter_atropine"}};
+    };
     class BasicBandage;
     class ApplyTourniquet: BasicBandage {
         sounds[] = {{"x\POTATO\addons\miscMedical\data\tourniquet.ogg",5,1,50}};
