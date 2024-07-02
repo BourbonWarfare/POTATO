@@ -48,7 +48,7 @@ _ctrlNoMarkerCheckBox ctrlSetPosition [0.69 * safezoneW + safezoneX, 0.23 * safe
 _ctrlNoMarkerCheckBox ctrlCommit 0;
 _ctrlNoMarkerCheckBox ctrlSetTooltip "Secret Respawn";
 _ctrlNoMarkerCheckBox cbSetChecked (missionNamespace getVariable [QGVAR(noMarkers), false]);
-_ctrlNoMarkerCheckBox ctrlAddEventHandler ["checkedChanged", {
+_ctrlNoMarkerCheckBox ctrlAddEventHandler ["CheckedChanged", {
     params ["", "_checked"];
     _checked = [false, true] select _checked;
     missionNamespace setVariable [QGVAR(noMarkers), _checked, true];
