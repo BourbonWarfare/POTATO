@@ -55,6 +55,7 @@ _settings = [
 [QACEGVAR(hearing,autoAddEarplugsToUnits), 0],
 [QACEGVAR(hearing,enableCombatDeafness), false],
 [QACEGVAR(interaction,enableGroupRenaming), false],
+[QACEGVAR(killTracker,showCrewKills), true],
 [QACEGVAR(laser,showLaserOnMap), 2],
 [QACEGVAR(marker_flags,placeanywhere), true],
 [QACEGVAR(map,DefaultChannel), 1],
