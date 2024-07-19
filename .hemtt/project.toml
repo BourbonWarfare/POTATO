@@ -32,7 +32,7 @@ exclude = [
 workshop = [
     "450814997", # CBA_A3's Workshop ID
     "2987524550", # BW ACE
-    "2987528956", # BW ACRE
+    "751965892", # ACRE
 ]
 parameters = [
     "-skipIntro",           # These parameters are passed to the Arma 3 executable
@@ -52,7 +52,7 @@ presets = [
 workshop = [
     "450814997", # CBA_A3's Workshop ID
     "2987524550", # BW ACE
-    "2987528956", # BW ACRE
+    "751965892", # ACRE
 ]
 parameters = [
     "-skipIntro",           # These parameters are passed to the Arma 3 executable
