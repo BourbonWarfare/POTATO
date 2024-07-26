@@ -58,17 +58,17 @@ private _aiCount = {
 private _message = [];
 
 _message pushBack (["Total AI count: %1", _aiCount] call _fnc_logAndFormat);
-_message pushBack (["Overall AI skill max: %1%", (_skill select 1) * 100] call _fnc_logAndFormat);
-_message pushBack (["Overall AI skill average: %1%", ((_skill select 2) / _aiCount) * 100] call _fnc_logAndFormat);
-_message pushBack (["Overall AI skill min: %1%", (_skill select 0) * 100] call _fnc_logAndFormat);
+_message pushBack (["Overall AI skill max: %1", (_skill select 1) * 100] call _fnc_logAndFormat);
+_message pushBack (["Overall AI skill average: %1", ((_skill select 2) / _aiCount) * 100] call _fnc_logAndFormat);
+_message pushBack (["Overall AI skill min: %1" (_skill select 0) * 100] call _fnc_logAndFormat);
 
 {
  (_values select _forEachIndex) params ["_min", "_max", "_total"];
 
     _message pushBack (["  Specific skill: %1", _x] call _fnc_logAndFormat);
-    _message pushBack (["    max: %1%", _max * 100] call _fnc_logAndFormat);
-    _message pushBack (["    average: %1%", (_total / _aiCount) * 100] call _fnc_logAndFormat);
-    _message pushBack (["    min: %1%", _min * 100] call _fnc_logAndFormat);
+    _message pushBack (["    max: %1", _max * 100] call _fnc_logAndFormat);
+    _message pushBack (["    average: %1", (_total / _aiCount) * 100] call _fnc_logAndFormat);
+    _message pushBack (["    min: %1", _min * 100] call _fnc_logAndFormat);
 } forEach _skills;
 
 hintSilent (_message joinString "\n");
