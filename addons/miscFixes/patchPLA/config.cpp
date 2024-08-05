@@ -7,7 +7,7 @@ class CfgPatches {
         weapons[] = {};
         units[] = {"O_ZBL09", "O_ZTL11", "O_ZBD04A", "O_ZBD05","O_ZTD05", "O_ZTQ15","O_ZTQ15B","O_ZTZ96A","O_ZTZ96B","O_ZTZ99","O_ZTZ99A"};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"ZBL09_LK", "ZTL11_LK", "ZBD04_LK", "ZBD05_LK", "ZTD05_LK", "ZTZ99_LK"};
+        requiredAddons[] = {"ZBL09_LK", "ZTL11_LK", "ZBD04_LK", "ZBD05_LK", "ZTD05_LK", "ZTQ15_LK", "ZTZ96_c_LK", "ZTZ96A_LK", "ZTZ96B_LK", "ZTZ99_LK", "ZTZ99A_LK"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"Chesheire","watermelon"};
@@ -593,17 +593,240 @@ class CfgVehicles {
     // - ZTZ96_c, ZTZ96A and ZTZ96B uses values of CUP T90
     // - ZTZ99 and ZTZ99A uses values of CUP T90M
 
-    // ZTQ15
-    
-    // ZTQ15B
+    // ZTQ15 & ZTQ15B
+    class ZTQ15_base: Tank_F
+	{
+		damageResistance=0.0049999999; // old value 0.02
+		crewVulnerable=1; // old value 0
+		armor=500; // old value 600
+		armorStructural=4; // old value 6
+		class HitPoints: HitPoints
+		{
+			class HitHull: HitHull
+			{
+				armor=1.6; // old value 0.80000001
+				passThrough=1; // old value 0.89999998
+				minimalHit=0.30000001; // old value 0.14
+				explosionShielding=0.0089999996; // old value 2
+			};
+			class HitEngine: HitEngine
+			{
+				armor=-15; // old value 0.5
+				passThrough=0.2; // old value 0.30000001
+				minimalHit=0.1; // old value 0.23999999
+				explosionShielding=0.2; // old value 0.2
+			};
+			class HitLTrack: HitLTrack
+			{
+				armor=0.30000001; // old value 0.5
+				passThrough=0; // old value 0
+				minimalHit=0.15000001; // old value 0.079999998
+				explosionShielding=0.40000001; // old value 1.4400001
+			};
+			class HitRTrack: HitRTrack
+			{
+				armor=0.30000001; // old value 0.5
+				passThrough=0; // old value 0
+				minimalHit=0.15000001; // old value 0.079999998
+				explosionShielding=0.40000001; // old value 1.4400001
+			};
+			class HitFuel: HitFuel
+			{
+				armor=0.5;
+				passThrough=0.1; // old value 0.15000001
+				minimalHit=0.1;
+				explosionShielding=0.60000002;
+			};
+			class HitArmor
+			{
+				armor=0.5;
+				passThrough=0.5;
+				minimalHit=0.1;
+				explosionShielding=2;
+				isTurret=0;
+			};
+		};
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
+				class Turrets: Turrets
+				{
+					class CommanderOptics: CommanderOptics
+					{
+						class HitPoints
+						{
+							class HitComTurret
+							{
+								armor=0.30000001;
+								material=-1;
+								armorComponent="hit_com_turret";
+								name="vezVelitele";
+								visual="vezVelitele";
+								passThrough=0;
+								minimalHit=0.029999999;
+								explosionShielding=0.60000002;
+								radius=0.25;
+								isTurret=1;
+							};
+							class HitComGun
+							{
+								armor=0.30000001;
+								material=-1;
+								armorComponent="hit_com_gun";
+								name="zbranVelitele";
+								visual="zbranVelitele";
+								passThrough=0;
+								minimalHit=0.029999999;
+								explosionShielding=0.60000002;
+								radius=0.25;
+								isGun=1;
+							};
+						};
+						selectionFireAnim="muzzleflash_HMG";
+					};
+				};
+				class HitPoints
+				{
+					class HitTurret
+					{
+						armor=2; // old value 1.2
+						passThrough=0;
+						minimalHit=0.30000001; // old value 0.1
+						explosionShielding=0.0089999996; // old value 0.30000001
+					};
+					class HitGun
+					{
+						armor=0.60000002; // old value 0.80000001
+						passThrough=0;
+						minimalHit=0.15000001; // old value 0
+						explosionShielding=0.40000001; // old value 0.40000001
+					};
+				};
+			};
+		};
+	};
+    class O_ZTQ15: ZTQ15_base {}
+    class O_ZTQ15B: O_ZTQ15 {}
 
-    // ZTZ96_c
+    // ZTZ96A & ZTZ96B
+    class ZTZ96A_base: Tank_F
+	{
+		damageResistance=0.02;
+		crewVulnerable=0;
+		armor=700;
+		armorStructural=6;
+		class HitPoints: HitPoints
+		{
+			class HitHull: HitHull
+			{
+				armor=1.8; // old value 0.60000002
+				passThrough=1; // old value 0.5
+				minimalHit=0.30000001; // old value 0.14
+				explosionShielding=0.0089999996; // old value 2
+			};
+			class HitEngine: HitEngine
+			{
+				armor=0.40000001; // old value 0.5
+				passThrough=0.2; // old value 0.30000001
+				minimalHit=0.2; // old value 0.23999999
+				explosionShielding=0.2; // old value 0.2
+			};
+			class HitLTrack: HitLTrack
+			{
+				armor=0.30000001; // old value 0.5
+				passThrough=0;
+				minimalHit=0.15000001; // old value 0.079999998
+				explosionShielding=0.40000001; // old value 1.4400001
+			};
+			class HitRTrack: HitRTrack
+			{
+				armor=0.30000001; // old value 0.5
+				passThrough=0;
+				minimalHit=0.15000001; // old value 0.079999998
+				explosionShielding=0.40000001; // old value 1.4400001
+			};
+			class HitFuel: HitFuel
+			{
+				armor=0.30000001; // value 0.5
+				passThrough=0.1; // old value 0.30000001
+				minimalHit=0.1; // old value 0.1
+				explosionShielding=0.60000002; // old value 0.60000002
+			};
+			class HitArmor
+			{
+				armor=0.5;
+				passThrough=0.5;
+				minimalHit=0.1;
+				explosionShielding=2;
+				isTurret=0;
+			};
+        };
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
+				class Turrets: Turrets
+				{
+					class CommanderOptics: CommanderOptics
+					{
+						class HitPoints
+						{
+							class HitComTurret
+							{
+								armor=0.30000001;
+								material=-1;
+								armorComponent="hit_com_turret";
+								name="vezVelitele";
+								visual="vezVelitele";
+								passThrough=0;
+								minimalHit=0.029999999;
+								explosionShielding=0.60000002;
+								radius=0.25;
+								isTurret=1;
+							};
+							class HitComGun
+							{
+								armor=0.30000001;
+								material=-1;
+								armorComponent="hit_com_gun";
+								name="zbranVelitele";
+								visual="zbranVelitele";
+								passThrough=0;
+								minimalHit=0.029999999;
+								explosionShielding=0.60000002;
+								radius=0.25;
+								isGun=1;
+							};
+						};
+					};
+				};
+				class HitPoints
+				{
+					class HitTurret
+					{
+						armor=0.30000001; // old value 1.2
+						passThrough=0;
+						minimalHit=0.1;
+						explosionShielding=0.2; // old value 0.30000001
+					};
+					class HitGun
+					{
+						armor=0.60000002; // old value 0.80000001
+						passThrough=0;
+						minimalHit=0.1; // old value 0
+						explosionShielding=0.40000001;
+					};
+				};
+			};
+		};
+	};
+	class O_ZTZ96A: ZTZ96A_base {};
+	// and because i am lazy, this inherits from ZTZ96A
+    class ZTZ96B_base: ZTZ96A_base {};
+    class O_ZTZ96B: ZTZ96B_base {};
 
-    // ZTZ96A
-
-    // ZTZ96B
-
-    // ZTZ99
+    // ZTZ99 & ZTZ99A
     class ZTZ99_base: Tank_F
 	{
 		damageResistance=0.02;
@@ -719,9 +942,9 @@ class CfgVehicles {
 			};
 		};
 	};
-    class O_ZTZ99_base: ZTZ99_base {};
-    class O_ZTZ99 : O_ZTZ99_base {};
-
-    // ZTZ99A
+    class O_ZTZ99: ZTZ99_base {};
+	// and because i am lazy again, this inherits from ZTZ99
+    class ZTZ99A_base: ZTZ99_base {};
+    class O_ZTZ99A: ZTZ99A_base {};
     
 };
