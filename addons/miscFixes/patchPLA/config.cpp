@@ -706,8 +706,8 @@ class CfgVehicles {
 			};
 		};
 	};
-    class O_ZTQ15: ZTQ15_base {}
-    class O_ZTQ15B: O_ZTQ15 {}
+    class O_ZTQ15: ZTQ15_base {};
+    class O_ZTQ15B: O_ZTQ15 {};
 
     // ZTZ96A & ZTZ96B
     class ZTZ96A_base: Tank_F
