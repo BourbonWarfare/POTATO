@@ -239,6 +239,12 @@ class CfgVehicles {
                         picture = "\A3\ui_f\data\map\markers\flags\CzechRepublic_ca.paa";
                         data[] = {"CUP_D_Male01_CZ","CUP_D_Male02_CZ","CUP_D_Male03_CZ","CUP_D_Male04_CZ","CUP_D_Male05_CZ", "CUP_D_Male01_CZ_ACR","CUP_D_Male02_CZ_ACR","CUP_D_Male03_CZ_ACR","CUP_D_Male04_CZ_ACR","CUP_D_Male05_CZ_ACR"};
                     };
+                    class gm_language_deu_male {
+                        name = "German [GM]";
+                        value = "gm_language_deu_male";
+                        picture = "\A3\Ui_f\data\Map\Markers\Flags\germany_ca.paa";
+                        data[] = {"gm_voice_male_deu_01","gm_voice_male_deu_02","gm_voice_male_deu_03","gm_voice_male_deu_04","gm_voice_male_deu_05","gm_voice_male_deu_06","gm_voice_male_deu_07","gm_voice_male_deu_08","gm_voice_male_deu_09"};
+                    };
                 };
             };
         };
