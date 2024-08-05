@@ -291,7 +291,7 @@ class CfgVehicles {
                 class Turrets: Turrets {
                     class CommanderOptics: CommanderOptics {
                         class HitPoints {
-                            class HitTurret {
+                            class HitComTurret {
                                 armor = 0.3;
                                 passThrough = 0;
                                 minimalHit = 0.03;
@@ -554,13 +554,6 @@ class CfgVehicles {
                                 minimalHit = 0.1;
                                 explosionShielding = 1;
                                 isTurret = 1;
-                            };
-                            class HitComGun {
-                                armor = 0.04;
-                                passThrough = 0;
-                                minimalHit = 0.1;
-                                explosionShielding = 1;
-                                isGun = 1;
                             };
                         };
                     };
