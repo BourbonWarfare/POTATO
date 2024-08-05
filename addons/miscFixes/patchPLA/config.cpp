@@ -5,12 +5,12 @@
 class CfgPatches {
     class ADDON {
         weapons[] = {};
-        units[] = {"O_ZBL09", "O_ZTL11", "O_ZBD04A", "O_ZBD05","O_ZTD05"};
+        units[] = {"O_ZBL09", "O_ZTL11", "O_ZBD04A", "O_ZBD05","O_ZTD05", "O_ZTQ15","O_ZTQ15B","O_ZTZ96A","O_ZTZ96B","O_ZTZ99","O_ZTZ99A"};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"ZBL09_LK", "ZTL11_LK", "ZBD04_LK", "ZBD05_LK", "ZTD05_LK"};
+        requiredAddons[] = {"ZBL09_LK", "ZTL11_LK", "ZBD04_LK", "ZBD05_LK", "ZTD05_LK", "ZTZ99_LK"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
-        authors[] = {"Chesheire"};
+        authors[] = {"Chesheire","watermelon"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
@@ -586,4 +586,142 @@ class CfgVehicles {
     };
     class O_ZTD05_base: ZTD05_base {};
     class O_ZTD05: O_ZTD05_base {};
+
+    // watermelon's addition from here on out
+    // list of changes:
+    // - ZTQ15 and ZTQ15B uses values of CUP T72
+    // - ZTZ96_c, ZTZ96A and ZTZ96B uses values of CUP T90
+    // - ZTZ99 and ZTZ99A uses values of CUP T90M
+
+    // ZTQ15
+    
+    // ZTQ15B
+
+    // ZTZ96_c
+
+    // ZTZ96A
+
+    // ZTZ96B
+
+    // ZTZ99
+    class ZTZ99_base: Tank_F
+	{
+		damageResistance=0.02;
+		crewVulnerable=1; // old value 0
+		armor=700; // old value 600
+		armorStructural=4; // old value 6
+		class HitPoints: HitPoints
+		{
+			class HitHull: HitHull
+			{
+				armor=1.8; // old value 1
+				passThrough=1; // old value 0.75
+				minimalHit=0.2; // old value 0.14
+				explosionShielding=0.0089999996; // old value 2
+			};
+			class HitEngine: HitEngine
+			{
+				armor=0.69999999; // old value 0.5
+				explosionShielding=0.015; // old value 2
+			};
+			class HitLTrack: HitLTrack
+			{
+				minimalHit=0.1; // old value 0.079999998
+				explosionShielding=0.2; // old value 1.4400001
+			};
+			class HitRTrack: HitRTrack
+			{
+				minimalHit=0.1; // old value 0.079999998
+				explosionShielding=0.2; // old value 1.4400001
+			};
+			class HitFuel: HitFuel
+			{
+				passThrough=0.40000001; // old value 0.15000001
+			};
+            class HitArmor
+            {
+                armor = 0.5;
+                passThrough = 0.5;
+                minimalHit = 0.1;
+                explosionShielding = 2;
+                isTurret = 0;
+            };
+		};
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
+				class Turrets: Turrets
+				{
+					class CommanderOptics: CommanderOptics
+					{
+						class HitPoints
+						{
+							class HitComTurret
+							{
+								armor=0.30000001;
+								material=-1;
+								armorComponent="hit_com_turret";
+								name="vezVelitele";
+								visual="vezVelitele";
+								passThrough=0;
+								minimalHit=0.029999999;
+								explosionShielding=0.60000002;
+								radius=0.25;
+								isTurret=1;
+							};
+							class HitComGun
+							{
+								armor=0.30000001;
+								material=-1;
+								armorComponent="hit_com_gun";
+								name="zbranVelitele";
+								visual="zbranVelitele";
+								passThrough=0;
+								minimalHit=0.029999999;
+								explosionShielding=0.60000002;
+								radius=0.25;
+								isGun=1;
+							};
+						};
+						selectionFireAnim="";
+					};
+				};
+				class HitPoints
+				{
+					class HitTurret
+					{
+						armor=0.30000001; // old value 1.2
+						material=-1;
+						armorComponent="hit_main_turret";
+						name="vez";
+						visual="";
+						passThrough=0;
+						minimalHit=0.1;
+						explosionShielding=0.2; // old value 0.30000001
+						radius=0.1;
+						isTurret=1;
+					};
+					class HitGun
+					{
+						armor=0.60000002; // old value 0.80000001
+						material=-1;
+						armorComponent="hit_main_gun";
+						name="zbran";
+						visual="";
+						passThrough=0;
+						minimalHit=0.1; // old value 0
+						explosionShielding=0.40000001;
+						radius=0.1;
+						isGun=1;
+					};
+				};
+			};
+		};
+	};
+    class O_ZTZ99_base: ZTZ99_base {};
+    class O_ZTZ99 : O_ZTZ99_base {};
+
+    // ZTZ99A
+    
 };
