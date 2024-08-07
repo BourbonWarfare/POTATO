@@ -32,6 +32,7 @@ if (hasInterface) then {
 
     // Cleanup chat
     addMissionEventHandler ["HandleChatMessage", {
+        if (missionNamespace getVariable [QGVAR(skipChatHandler), false]) exitWith {}; // way to disable system if it causes problem with a mission
         params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType", "_chatComposition"];
         INFO_1("ChatMessage: %1",_this);
         private _returnValue = nil;
