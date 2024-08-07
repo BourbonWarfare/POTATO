@@ -486,6 +486,15 @@ class GVAR(adminMenuDialog) {
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE(_this call FUNC(uihook_resetMarkersButton));
                 };
+                class AllPlayersResetMarkersButton: RscButton {
+                    idc = -1;
+                    text = "Reset ALL PLAYERS Markers";
+                    x = QUOTE(0.255 * safezoneW);
+                    y = QUOTE(0.42 * safezoneH);
+                    w = QUOTE(0.26 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE(_this call FUNC(uihook_allPlayersResetMarkersButton));
+                };
             };
         };
         class CONTROL_GIVE_ITEMS: RscControlsGroup {
