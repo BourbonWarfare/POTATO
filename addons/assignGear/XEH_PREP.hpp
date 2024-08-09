@@ -9,6 +9,7 @@ PREP(cleanPrefix);
 PREP(changeableOptics_getChildren);
 PREP(changeableOptics_setOptic);
 PREP(getContainerInfo);
+PREP(getDisposableInfo); // temp?? for cba change to disposable hash maps
 PREP(getLinkedIndex);
 PREP(getLoadoutFromConfig);
 PREP(getWeaponArray);

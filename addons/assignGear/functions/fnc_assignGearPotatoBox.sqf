@@ -50,7 +50,7 @@ private _boxItems = createHashMapFromArray [
         private _launcher = (getArray (_loadout >> "launchers")) param [0, "#"];
         private _launcherConfig = configFile >> "CfgWeapons" >> _launcher;
         if (isNull _launcherConfig) then { continue };
-        if (((getNumber (_launcherConfig >> "rhs_disposable")) == 1) || {!isNil {cba_disposable_normalLaunchers getVariable _launcher}}) then {
+        if (((getNumber (_launcherConfig >> "rhs_disposable")) == 1) || {[cba_disposable_normalLaunchers, _launcher, "in"] call FUNC(getDisposableInfo)}) then {
             private _count = _boxWeapons getOrDefault [_launcher, 0];
             _boxWeapons set [_launcher, _count + _size * 2]
         };
