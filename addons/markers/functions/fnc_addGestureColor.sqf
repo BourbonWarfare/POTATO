@@ -25,10 +25,10 @@ params [
 if (isNull _object || count _colorArray != 4) exitWith { WARNING_2("Bad input parameters",_object,_colorArray); };
 
 if (_object isEqualType grpNull && {groupId _object != ""}) then {
-    [groupId _object, _colorArray, _colorArray] call ACEFUNC(map_gestures,addGroupColorMapping);
+    [toLower groupId _object, _colorArray, _colorArray] call ACEFUNC(map_gestures,addGroupColorMapping);
 } else {
-    private _groupId = groupId (group _object);
-    if (_groupId != "" && {isNil {ACEGVAR(map_gestures,GroupColorCfgMappingNew) getVariable _groupId}}) then {
+    private _groupId = toLower groupId (group _object);
+    if (_groupId in ACEGVAR(map_gestures,GroupColorCfgMappingNew)) then {
         [_groupId, _colorArray, _colorArray] call ACEFUNC(map_gestures,addGroupColorMapping);
     };
 };
