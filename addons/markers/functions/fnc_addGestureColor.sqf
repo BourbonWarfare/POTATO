@@ -28,7 +28,7 @@ if (_object isEqualType grpNull && {groupId _object != ""}) then {
     [toLower groupId _object, _colorArray, _colorArray] call ACEFUNC(map_gestures,addGroupColorMapping);
 } else {
     private _groupId = toLower groupId (group _object);
-    if (_groupId in ACEGVAR(map_gestures,GroupColorCfgMappingNew)) then {
+    if (_groupId != "" && {!(_groupId in ACEGVAR(map_gestures,GroupColorCfgMappingNew))}) then {
         [_groupId, _colorArray, _colorArray] call ACEFUNC(map_gestures,addGroupColorMapping);
     };
 };
