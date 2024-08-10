@@ -842,6 +842,9 @@ class CfgWeapons {
 class SlotInfo;
 class CowsSlot: SlotInfo {};
 class CowsSlot_Rail: CowsSlot {
+    class compatibleItems {};
+};
+class gm_slotOptic_risrail: CowsSlot_Rail {
     class compatibleItems {
         ptv_rmr = 1;
         ptv_rmr_des = 1;

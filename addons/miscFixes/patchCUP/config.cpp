@@ -134,6 +134,9 @@ class CfgWeapons {
 class SlotInfo;
 class CowsSlot: SlotInfo {};
 class CowsSlot_Rail: CowsSlot {
+    class compatibleItems {};
+};
+class gm_slotOptic_risrail: CowsSlot_Rail {
     class compatibleItems {
         CUP_optic_SB_3_12x50_PMII = 1;
         CUP_optic_SB_3_12x50_PMII_Tan = 1;
