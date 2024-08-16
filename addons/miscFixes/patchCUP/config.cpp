@@ -66,6 +66,12 @@ class CfgRecoils {
         permanent = 0.08;
         temporary = 0.005;
     };
+    class GVAR(recoil_uk59): recoil_default {
+        muzzleOuter[] = {0.71,1.22,0.35,0.55};
+        kickBack[] = {0.026,0.064};
+        permanent = 0.13;
+        temporary = 0.005;
+    };
 };
 
 class CfgWeapons {
@@ -128,5 +134,8 @@ class CfgWeapons {
     };
     class CUP_smg_MP7: Rifle_Short_Base_F { // Applies the APEX dlc MP5 recoil to the CUP MP7
         recoil = "recoil_smg_05";
+    };
+    class CUP_lmg_UK59: Rifle_Long_Base_F { // Tones down the horrific standing recoil to a more manageable state. Still stucks, but less now
+        recoil = QGVAR(recoil_uk59);
     };
 };
