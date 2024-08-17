@@ -21,8 +21,4 @@ class CfgMagazines {
     class cwr3_redeye_m: CA_LauncherMagazine {
         ammo = QEGVAR(missileGuidanceCompat,redeye);
     };
-    class CUP_Dragon_EP1_M: CA_LauncherMagazine {
-        ammo = "ace_dragon_super";
-        initSpeed = 120;
-    };
 };
