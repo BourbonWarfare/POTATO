@@ -24,7 +24,7 @@ class ace_missileguidance {
     initialPitch = -0.4;
 
     seekLastTargetPos = 0;      // seek last target position [if seeker loses LOS of target, continue to last known pos]
-    seekerAngle = 30;           // Angle from the shooter's view that can track the missile, implemented
+    seekerAngle = 5;           // Angle from the shooter's view that can track the missile, implemented
     seekerAccuracy = 1;         // seeker accuracy multiplier, not implemented?
 
     seekerMinRange = 100;
