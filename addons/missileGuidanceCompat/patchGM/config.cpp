@@ -61,7 +61,8 @@ class CfgAmmo {
             pitchRate = 25;
             yawRate = 25;
             initialPitch = 0;
-            lineGainD = -3;
+            lineGainP = 7;
+            lineGainD = 4;
         };
     };
     // HOT missile
@@ -89,13 +90,13 @@ class CfgAmmo {
     class gm_missile_maljutka_heat_9m14: gm_missile_maljutka_base {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
-            showTrail = 0;
+            showTrail = 1;
         };
     };
     class gm_missile_maljutka_heat_9m14m: gm_missile_maljutka_base {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
-            showTrail = 0;
+            showTrail = 1;
         };
     };
     // Milan
