@@ -36,6 +36,7 @@ class CfgAmmo {
             yawRate = 25;
             lineGainP = 6;
             lineGainD = 5;
+            showTrail = 0;
         };
     };
     class gm_missile_bastion_heat_9M117M: gm_missile_bastion_base {
@@ -45,6 +46,7 @@ class CfgAmmo {
             yawRate = 25;
             lineGainP = 6;
             lineGainD = 5;
+            showTrail = 0;
         };
     };
     // Fagot missile
@@ -55,9 +57,11 @@ class CfgAmmo {
     class gm_missile_fagot_heat_9m111: gm_missile_fagot_base {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
+            showTrail = 0;
             pitchRate = 25;
             yawRate = 25;
             initialPitch = 0;
+            lineGainD = -3;
         };
     };
     // HOT missile
@@ -85,11 +89,13 @@ class CfgAmmo {
     class gm_missile_maljutka_heat_9m14: gm_missile_maljutka_base {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
+            showTrail = 0;
         };
     };
     class gm_missile_maljutka_heat_9m14m: gm_missile_maljutka_base {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
+            showTrail = 0;
         };
     };
     // Milan
