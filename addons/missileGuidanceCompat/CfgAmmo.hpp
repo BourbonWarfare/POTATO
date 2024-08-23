@@ -4,6 +4,11 @@ class CfgAmmo {
     class M_Titan_AT;
     class Bo_GBU12_LGB;
 
+    class ShellBase;
+    class ace_dragon_serviceCharge: ShellBase {
+        soundSetExplosion[] = {};
+    };
+
     class CUP_M_9K32_Strela_2_AA: M_Titan_AA {
         maneuvrability = 0;
         #include "CfgMissileStrela.hpp"
