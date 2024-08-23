@@ -22,6 +22,15 @@ private _yPos = (safezoneY + 1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 
 
 private _ctrlGroup = _display ctrlCreate ["RscControlsGroup", IDC_CTRLGROUP];
 
+private _fnc_updateInfo = {
+    params ["_display"];
+    private _aceCtrlMenu = _display displayCtrl 10;
+    private _ctrlGroup = _display displayCtrl IDC_CTRLGROUP;
+    if (isNull _aceMenuCtrl) exitWith {};
+    _ctrlGroup ctrlShow (ctrlShown _aceCtrlMenu); 
+};
+_display displayAddEventHandler ["MouseMoving", _fnc_updateInfo];
+_display displayAddEventHandler ["MouseHolding", _fnc_updateInfo];
 
 private _fnc_createButton = {
     params ["_text", "_fncString", "_varsArray"];
