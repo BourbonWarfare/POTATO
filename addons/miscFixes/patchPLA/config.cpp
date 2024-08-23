@@ -194,8 +194,7 @@ class CfgVehicles {
             };
         };
     };
-    class O_ZBL09_base: ZBL09_base {};
-    class O_ZBL09: O_ZBL09_base {};
+
     class ZTL11_base: Wheeled_APC_F {
         crewVulnerable = 1; //formerly 0
         armor = 480; //formerly 500 -> 270?
@@ -322,7 +321,7 @@ class CfgVehicles {
             };
         };
     };
-    class O_ZTL11: ZTL11_base {};
+
     class ZBD04A_base: Tank_F {
         damageResistance = 0.02;
         crewVulnerable = 1;
@@ -409,8 +408,7 @@ class CfgVehicles {
             };
         };
     };
-    class O_ZBD04A_base: ZBD04A_base {};
-    class O_ZBD04A: O_ZBD04A_base {};
+
     class ZBD05_base: Tank_F {
         damageResistance = 0.02;
         crewVulnerable = 1;
@@ -497,7 +495,7 @@ class CfgVehicles {
             };
         };
     };
-    class O_ZBD05: ZBD05_base {};
+
     class ZTD05_base: Tank_F {
         damageResistance = 0.02;
         crewVulnerable = 1;
@@ -577,6 +575,4 @@ class CfgVehicles {
             };
         };
     };
-    class O_ZTD05_base: ZTD05_base {};
-    class O_ZTD05: O_ZTD05_base {};
 };
