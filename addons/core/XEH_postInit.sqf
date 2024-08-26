@@ -37,6 +37,7 @@ if (hasInterface) then {
         INFO_1("ChatMessage: %1",_this);
         private _returnValue = nil;
         if (isPlayer _person) then {
+            if (getNumber (configOf _person >> "isPlayableLogic") == 1) exitWith {};
             if ((_text select [0,5]) == "force") then {
                 // _returnValue = _text select [5]; // optionally clean up text
             } else {
