@@ -42,7 +42,6 @@ _settings = [
 
 [QACEGVAR(advanced_fatigue,performanceFactor), 1.4],
 [QACEGVAR(advanced_fatigue,recoveryFactor), 1.6],
-[QACEGVAR(cookoff,enable), 1],
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
 [QACEGVAR(dragging,weightCoefficient), 0.25], // allows carry/drag 4x the normal weight
 [QACEGVAR(finger,enabled), true],
@@ -55,6 +54,7 @@ _settings = [
 [QACEGVAR(hearing,autoAddEarplugsToUnits), 0],
 [QACEGVAR(hearing,enableCombatDeafness), false],
 [QACEGVAR(interaction,enableGroupRenaming), false],
+[QACEGVAR(killTracker,showCrewKills), true],
 [QACEGVAR(laser,showLaserOnMap), 2],
 [QACEGVAR(marker_flags,placeanywhere), true],
 [QACEGVAR(map,DefaultChannel), 1],

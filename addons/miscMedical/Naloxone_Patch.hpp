@@ -21,16 +21,6 @@ class CfgWeapons {
         descriptionUse = "A drug widely used to treat opioid overdoses by blocking opioid receptors";
     };
 };
-class ace_medical_treatment_actions {
-    class Morphine;
-    class Naloxone: Morphine {
-      displayName = "Inject Naloxone";
-      displayNameProgress = "Injecting Naloxone";
-      condition = "ace_medical_treatment_advancedMedication";
-      items[] = {"potato_naloxone"};
-      litter[] = {{"ACE_MedicalLitter_atropine"}};
-    };
-};
 class ace_medical_treatment {
     class Medication {
         class Naloxone {

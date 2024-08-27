@@ -42,7 +42,7 @@ private _enableLBChangedEH = {
         ((ctrlParentControlsGroup _control) controlsGroupCtrl 102) ctrlCommit 0;
     };
 };
-(_control controlsGroupCtrl 100) ctrlAddEventHandler ["ToolboxSelChanged", _enableLBChangedEH];
+(_control controlsGroupCtrl 100) ctrlAddEventHandler ["ToolBoxSelChanged", _enableLBChangedEH];
 
 if (GVAR(deltaLoad) isEqualTo []) then {
     (_control controlsGroupCtrl 100) lbSetCurSel 0;
