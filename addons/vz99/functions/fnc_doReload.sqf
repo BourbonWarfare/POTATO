@@ -26,7 +26,7 @@ if (!(_loadedFull isEqualTo [])) exitWith {TRACE_1("loaded",_loadedFull);};
 //Make sure empty mag is removed so it "autoloads"
 private _loadedEmpty = _mortarVeh magazinesTurret [0];
 if (!(_loadedEmpty isEqualTo [])) then {
-    TRACE_1("removing empty mag", _loadedEmpty);
+    TRACE_1("removing empty mag",_loadedEmpty);
     _mortarVeh removeMagazinesTurret [(_loadedEmpty select 0), [0]];
 };
 
@@ -39,7 +39,7 @@ TRACE_2("",_magToLoad,_baseMag);
 //HE - Impact can be done by basic HE shells or the multi-fuze, only use multi if we have no basic
 if ((_baseMag == QGVAR(HE)) && {!(_baseMag in (magazines _player))}) then {
     _baseMag = QGVAR(HE_multi);
-    _magToLoad = if (_magToLoad == QGVAR(HE)) then {QGVAR(HE_multi)} else {QGVAR(HE_multi_charge0)};
+    _magToLoad = [QGVAR(HE_multi_charge0), QGVAR(HE_multi)] select (_magToLoad == QGVAR(HE));
     TRACE_2("using multi fuze @ impact",_baseMag,_magToLoad);
 };
 

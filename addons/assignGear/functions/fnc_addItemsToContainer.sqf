@@ -65,7 +65,7 @@ private _returnArray = [];
 
         if (_mass < 0) exitWith {
             diag_log text format ["[POTATO-assignGear] Item Not Found [%1]", _itemToAdd];
-            ERROR_MSG_1("[%1] Bad Item Classname", _itemToAdd);
+            ERROR_MSG_1("[%1] Bad Item Classname",_itemToAdd);
             ""
         };
 

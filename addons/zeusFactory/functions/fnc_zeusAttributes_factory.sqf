@@ -11,7 +11,7 @@ if (isNil QGVAR(carArray)) then { // init vehicle arrays if they don't exist
 
     GVAR(helicopterArray) = [];
     [GVAR(helicopterArray), "helicopters"] call FUNC(addVehiclesToArray);
-    TRACE_3("", count GVAR(carArray), count GVAR(apcArray), count GVAR(helicopterArray));
+    TRACE_3("",count GVAR(carArray),count GVAR(apcArray),count GVAR(helicopterArray));
 };
 
 if (isNil QGVAR(lastSide)) then {GVAR(lastSide) = east};
@@ -27,7 +27,7 @@ TRACE_2("zeusAttributes_factory",_control,_logicObject);
 
 private _display = ctrlparent _control;
 private _ctrlButtonOK = _display displayctrl 1; //IDC_OK
-_control ctrlRemoveAllEventHandlers "setFocus";
+_control ctrlRemoveAllEventHandlers "SetFocus";
 
 
 // Init: Side List (If already set, do not allow changing)
@@ -84,7 +84,7 @@ private _fnc_onConfirm = {
     if (isNull _display) exitWith {};
 
     private _logicObject = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target", objnull];
-    if (isNull _logicObject) exitWith {ERROR_1("Logic [%1] is null on confirm", _logicObject);};
+    if (isNull _logicObject) exitWith {ERROR_1("Logic [%1] is null on confirm",_logicObject);};
 
     private _set = _logicObject getVariable [QGVAR(set), false];
 

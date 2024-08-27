@@ -27,7 +27,7 @@ GVAR(hitpointTypes) = [false] call CBA_fnc_createNamespace;
 }] call CBA_fnc_addEventHandler;
 
 ["ace_settingsInitialized", {
-    TRACE_1("settingsInit", GVAR(enableCrewBailing));
+    TRACE_1("settingsInit",GVAR(enableCrewBailing));
 
     ["Tank", "init", LINKFUNC(addEventHandler), nil, nil, true] call CBA_fnc_addClassEventHandler;
     ["Wheeled_APC_F", "init", LINKFUNC(addEventHandler), nil, nil, true] call CBA_fnc_addClassEventHandler;

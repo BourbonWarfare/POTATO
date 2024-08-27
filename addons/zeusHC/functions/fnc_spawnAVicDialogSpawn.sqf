@@ -15,7 +15,7 @@ GVAR(lastVicFactionIndex) = lbCurSel SPAWN_VIC_FACTIONS_IDC;
 GVAR(lastVicIndex) = lbCurSel SPAWN_VIC_LIST_IDC;
 
 private _vehicleClass = lbData [SPAWN_VIC_LIST_IDC, lbCurSel SPAWN_VIC_LIST_IDC];
-TRACE_1("Vehicle class", _vehicleClass);
+TRACE_1("Vehicle class",_vehicleClass);
 private _side = switch (getNumber (configFile >> "CfgVehicles" >> _vehicleClass >> "side")) do { case 0: {east}; case 1: {west}; case 2: {resistance}; default {civilian}; };
 
 [

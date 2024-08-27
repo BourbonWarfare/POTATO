@@ -12,7 +12,7 @@ private _selectedUnit = missionNamespace getVariable [
 
 TRACE_2("",_selectedUnit,_selectedLoadout);
 
-if (isNull _selectedUnit) exitWith { WARNING_1("Bad unit - disconnect?", _selectedUnit); };
+if (isNull _selectedUnit) exitWith { WARNING_1("Bad unit - disconnect?",_selectedUnit); };
 
 if (_selectedLoadout == "") then {
     _selectedUnit setVariable ["F_Gear", nil, true];

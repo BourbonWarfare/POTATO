@@ -16,7 +16,7 @@ private _sideCounts = [west, east, resistance] apply {
 private _sortedCounts = +_sideCounts;
 _sortedCounts sort false;
 private _isTVT = (_sortedCounts select 1) > 10;
-INFO_3("Placed on mission: [Units: %1] [Non-unit Objects: %2][Playable Slots: %3]", count _allUnits, (count _allMissionObjects) - (count _allUnits), _sideCounts);
+INFO_3("Placed on mission: [Units: %1] [Non-unit Objects: %2][Playable Slots: %3]",count _allUnits,(count _allMissionObjects) - (count _allUnits),_sideCounts);
 
 private _bwmfDate = getText (missionConfigFile >> "bwmfDate");
 if (_bwmfDate == "") exitWith {
@@ -123,12 +123,16 @@ if (_missionLength == 0) then {
     _problems pushBackUnique ["Need to set mission length value", ["POTATO -> Mission Testing Attributes -> Mission Length"]];
 };
 
+// Check if cleanup.bat still exists
+if (fileExists "cleanup.bat") then {
+    _problems pushBack ["Need to run cleanup.bat (If finished with loadouts)", []];
+};
 
 // Floating units / Fall Damage:
 private _floatingUnits = [];
 {
     if (((getPos vehicle _x) select 2) > 0.5) then {
-        WARNING_3("[%1:%2] is floating %3", _x, typeOf _x, getPos _x);
+        WARNING_3("[%1:%2] is floating %3",_x,typeOf _x,getPos _x);
         _floatingUnits pushBack _x;
     };
 } forEach _allUnits;
@@ -183,7 +187,7 @@ private _checkDeprecatedGear = [];
             _checkWeapons pushBackUnique format ["%1 has no primaryWeapon", _typeOf];
         };
         // Check AT actualy have some kind of AT
-        if ((_typeOf find "matg" > -1) || {_typeOf find "lat" > -1} || {_typeOf find "msv_g" > -1} || {_typeOf find "msv_matg" > -1}) then {
+        if (("matg" in _typeOf) || {"lat" in _typeOf} || {"msv_g" in _typeOf} || {"msv_matg" in _typeOf}) then {
             if ((secondaryWeapon _unit) == "") then {
                 TRACE_1("no AT",_typeOf);
                 _checkWeapons pushBackUnique format ["%1 has no secondaryWeapon", _typeOf];
@@ -208,9 +212,9 @@ private _checkDeprecatedGear = [];
                     if (_weapon == (primaryWeapon _unit)) then {
                         private _desiredAmmo = call {
                             // allow low ammo count for long range gunners
-                            if ((_typeOf find "marksman" > -1) || {_typeOf find "spotter" > -1} || {_typeOf find "sniper" > -1}) exitWith { 20 };
+                            if (("marksman" in _typeOf) || {"spotter" in _typeOf} || {"sniper" in _typeOf}) exitWith { 20 };
                             // suggest hight ammo count for MGs
-                            if ((_typeOf find "_ar" > -1) || {_typeOf find "_mg" > -1} || {_typeOf find "_mmgg" > -1}) exitWith { 250 };
+                            if (("_ar" in _typeOf) || {"_mg" in _typeOf} || {"_mmgg" in _typeOf}) exitWith { 250 };
                             // default rifleman case
                             100
                         };
@@ -272,7 +276,7 @@ private _fortifies = (all3DENEntities select 3) select {_x isKindOf "potato_fort
 } forEach _fortifies;
 
 TRACE_1("",_problems);
-INFO_2("Finished test with %1 problems in %2 ms:", count _problems, ((diag_ticktime - _startTime) * 1000) toFixed 1);
+INFO_2("Finished test with %1 problems in %2 ms:",count _problems,((diag_ticktime - _startTime) * 1000) toFixed 1);
 
 if (_problems isEqualTo []) then {
     private _msg = "Saved: No Problems Detected!";

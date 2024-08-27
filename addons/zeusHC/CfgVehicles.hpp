@@ -59,7 +59,7 @@ class CfgVehicles {
     class GVAR(east_patrol): GVAR(east_rifleman) {
         displayName = "#Patrol (2)";
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
-        GVAR(createUnits)[] = {"potato_e_rifleman","potato_e_rifleman"};
+        GVAR(createUnits)[] = {"potato_e_rifleman","potato_e_rifleman_02"};
     };
     class GVAR(east_fireteam): GVAR(east_rifleman) {
         displayName = "#Fireteam (4)";
@@ -69,7 +69,7 @@ class CfgVehicles {
     class GVAR(east_squad): GVAR(east_rifleman) {
         displayName = "#Squad (8)";
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
-        GVAR(createUnits)[] = {"potato_e_sl","potato_e_ftl","potato_e_ar","potato_e_ar","potato_e_lat","potato_e_rifleman","potato_e_rifleman","potato_e_rifleman"};
+        GVAR(createUnits)[] = {"potato_e_sl","potato_e_ftl","potato_e_ar","potato_e_ar","potato_e_lat","potato_e_rifleman","potato_e_rifleman_02","potato_e_rifleman_03"};
     };
     class GVAR(east_aaModern): GVAR(east_rifleman) {
         displayName = "AA: Tigris (A3)";
@@ -280,7 +280,7 @@ class CfgVehicles {
         scope = 1;
         displayName = "#Dismounts (6) [attach]";
         portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
-        GVAR(createUnits)[] = {"potato_e_sl","potato_e_ar","potato_e_lat","potato_e_rifleman","potato_e_rifleman","potato_e_rifleman"};
+        GVAR(createUnits)[] = {"potato_e_sl","potato_e_ar","potato_e_lat","potato_e_rifleman","potato_e_rifleman_02","potato_e_rifleman_03"};
     };
 
     //------------ West ----------
@@ -322,7 +322,7 @@ class CfgVehicles {
     class GVAR(west_patrol): GVAR(west_rifleman) {
         displayName = "#Patrol (2)";
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
-        GVAR(createUnits)[] = {"potato_w_rifleman","potato_w_rifleman"};
+        GVAR(createUnits)[] = {"potato_w_rifleman","potato_w_rifleman_02"};
     };
     class GVAR(west_fireteam): GVAR(west_rifleman) {
         displayName = "#Fireteam (4)";
@@ -332,7 +332,7 @@ class CfgVehicles {
     class GVAR(west_squad): GVAR(west_rifleman) {
         displayName = "#Squad (8)";
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
-        GVAR(createUnits)[] = {"potato_w_sl","potato_w_ftl","potato_w_ar","potato_w_ar","potato_w_lat","potato_w_rifleman","potato_w_rifleman","potato_w_rifleman"};
+        GVAR(createUnits)[] = {"potato_w_sl","potato_w_ftl","potato_w_ar","potato_w_ar","potato_w_lat","potato_w_rifleman","potato_w_rifleman_02","potato_w_rifleman_03"};
     };
     class GVAR(west_cupAvenger): GVAR(west_rifleman) {
         displayName = "AA: Avenger (CUP)";
@@ -583,7 +583,7 @@ class CfgVehicles {
         scope = 1;
         displayName = "#Dismounts (6) [attach]";
         portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
-        GVAR(createUnits)[] = {"potato_w_sl","potato_w_ar","potato_w_lat","potato_w_rifleman","potato_w_rifleman","potato_w_rifleman"};
+        GVAR(createUnits)[] = {"potato_w_sl","potato_w_ar","potato_w_lat","potato_w_rifleman","potato_w_rifleman_02","potato_w_rifleman_03"};
     };
 
     //------------ Independent ----------
@@ -625,7 +625,7 @@ class CfgVehicles {
     class GVAR(ind_patrol): GVAR(ind_rifleman) {
         displayName = "#Patrol (2)";
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
-        GVAR(createUnits)[] = {"potato_i_rifleman","potato_i_rifleman"};
+        GVAR(createUnits)[] = {"potato_i_rifleman","potato_i_rifleman_02"};
     };
     class GVAR(ind_fireteam): GVAR(ind_rifleman) {
         displayName = "#Fireteam (4)";
@@ -635,7 +635,7 @@ class CfgVehicles {
     class GVAR(ind_squad): GVAR(ind_rifleman) {
         displayName = "#Squad (8)";
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
-        GVAR(createUnits)[] = {"potato_i_sl","potato_i_ftl","potato_i_ar","potato_i_ar","potato_i_lat","potato_i_rifleman","potato_i_rifleman","potato_i_rifleman"};
+        GVAR(createUnits)[] = {"potato_i_sl","potato_i_ftl","potato_i_ar","potato_i_ar","potato_i_lat","potato_i_rifleman","potato_i_rifleman_02","potato_i_rifleman_03"};
     };
     class GVAR(ind_rhsZsu): GVAR(ind_rifleman) {
         displayName = "AA: ZSU 23 Shilka (RHS)";
@@ -758,7 +758,7 @@ class CfgVehicles {
         scope = 1;
         displayName = "#Dismounts (6) [attach]";
         portrait = "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa";
-        GVAR(createUnits)[] = {"potato_i_sl","potato_i_ar","potato_i_lat","potato_i_rifleman","potato_i_rifleman","potato_i_rifleman"};
+        GVAR(createUnits)[] = {"potato_i_sl","potato_i_ar","potato_i_lat","potato_i_rifleman","potato_i_rifleman_02","potato_i_rifleman_03"};
     };
 
     //------------ Utility modules ----------

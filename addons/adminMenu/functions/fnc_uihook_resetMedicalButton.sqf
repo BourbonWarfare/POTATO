@@ -9,7 +9,7 @@ private _selectedUnit = missionNamespace getVariable [
 
 TRACE_1("Selected unit: ",_selectedUnit);
 
-if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit, disconnect?", _selectedUnit);};
+if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit,disconnect?",_selectedUnit);};
 
 if (!alive _selectedUnit) exitWith {hint "No zombies!";};
 

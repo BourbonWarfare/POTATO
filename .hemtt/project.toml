@@ -20,8 +20,59 @@ enabled = true
 [asc]
 enabled = true
 exclude = [
-    "/initsettings.sqf",
-    "/initkeybinds.sqf",
+    ".inc.sqf",
     "/serverOnlyFix.sqf",
     "/BW_Settings.sqf",
+]
+
+
+# Launched with `hemtt launch`
+# min modset w/ static ws builds of cba/ace/acre
+[hemtt.launch.default]
+workshop = [
+    "450814997", # CBA_A3's Workshop ID
+    "2987524550", # BW ACE
+    "751965892", # ACRE
+]
+parameters = [
+    "-skipIntro",           # These parameters are passed to the Arma 3 executable
+    "-noSplash",            # They do not need to be added to your list
+    "-showScriptErrors",    # You can add additional parameters here
+    "-debug",
+    "-filePatching"
+]
+
+
+# Launched with `hemtt launch fullsteam`
+# full steam workshop mods w/ static ws builds of cba/ace/acre
+[hemtt.launch.fullsteam]
+presets = [
+    "bw", # .html presets from .hemtt/presets/    # removed cba/ace/potato/acre links
+]
+workshop = [
+    "450814997", # CBA_A3's Workshop ID
+    "2987524550", # BW ACE
+    "751965892", # ACRE
+]
+parameters = [
+    "-skipIntro",           # These parameters are passed to the Arma 3 executable
+    "-noSplash",            # They do not need to be added to your list
+    "-showScriptErrors",    # You can add additional parameters here
+    "-debug",
+    "-filePatching"
+]
+
+# Launched with `hemtt launch fulldev`
+# full steam workshop mods w/ dev builds of cba/ace/acre
+[hemtt.launch.fulldev]
+presets = [
+    "bw", # .html presets from .hemtt/presets/    # removed cba/ace/potato/acre links
+]
+parameters = [
+    "-skipIntro",           # These parameters are passed to the Arma 3 executable
+    "-noSplash",            # They do not need to be added to your list
+    "-showScriptErrors",    # You can add additional parameters here
+    "-debug",
+    "-filePatching",
+    "-mod=x\\cba;z\\ace;idi\\acre;"
 ]

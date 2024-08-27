@@ -46,7 +46,7 @@ switch (_controlIndex) do {
     };
 };
 
-if (_sliderIdc == -1 || _editIdc == -1) exitWith { TRACE_1("Control index is in a bad state", _controlIndex) };
+if (_sliderIdc == -1 || _editIdc == -1) exitWith { TRACE_1("Control index is in a bad state",_controlIndex) };
 
 private _newValue = if (_isSlider) then {
     floor (sliderPosition _sliderIdc)

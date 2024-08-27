@@ -14,7 +14,7 @@ if (isServer) then {
     /*// Determine if TVT or COOP
     [{
         private _missionTestingType = GetMissionConfigValue [QEGVAR(missionTesting, missionType),0];
-        TRACE_1("_missionTestingType =", missionTestingType);
+        TRACE_1("_missionTestingType =",missionTestingType);
         private _isTVT = true;
         // check mission testing type from missionTesting module before checking with math 
         if ((isNil "_missionTestingType") || (_missionTestingType == 0)) then {
@@ -29,7 +29,7 @@ if (isServer) then {
             // can override with global exec: potato_miscMedical_isTVT = false;
         } else {
             _isTVT = if (_missionTestingType == 1) then {false} else {true};
-            TRACE_2("Using mission attribute",_missionTestingType, _isTVT);
+            TRACE_2("Using mission attribute",_missionTestingType,_isTVT);
         };
         missionNamespace setVariable [QGVAR(isTVT), _isTVT, true];
     }, [], 1] call CBA_fnc_waitAndExecute;
@@ -309,7 +309,7 @@ FUNC(calculateHemisphericalBlastWeight) = {
 
     private _coefficient = GVAR(baseMaterialTable) getOrDefault [_surfaceAtPosition, GROUND_MATERIAL_DEFAULT];
 
-    TRACE_5("hemisphere check", _positionAboveGround, _objectsBelow, _surfaceAtPosition, _coefficient, _originalWeight * 2 * _coefficient);
+    TRACE_5("hemisphere check",_positionAboveGround,_objectsBelow,_surfaceAtPosition,_coefficient,_originalWeight * 2 * _coefficient);
     _originalWeight * 2 * _coefficient
 };
 
@@ -397,6 +397,9 @@ if (isServer) then {
     // add explosion event handler
     [QACEGVAR(frag,frag_eh), {
         params ["_lastPos", "", "_explosive"];
+        if (_explosive isEqualType []) then {
+            _explosive = _this # 1; // frag rewrite uses [_posASL, _ammo, [objNull, _instigator]]
+        };
         private _explosiveConfig = configFile >> "CfgAmmo" >> _explosive;
 
         // ACE_frag defines mass as grams, we do as kilograms
@@ -470,10 +473,10 @@ if (hasInterface) then {
             if (_unit == ACE_player) then {
                 TRACE_3("player wound",_bodyPart,_damage,_typeOfDamage);
                 if ((_unit getVariable ["ACE_isUnconscious", false]) && {_damage > 0.5}) then {
-                    TRACE_1("ACE_isUnconcious=", true);
+                    TRACE_1("ACE_isUnconcious=",true);
                     private _bps = _unit getVariable ["ace_medical_bodyPartDamage", [0,0,0,0,0,0]];
                     if (((_bps select 0) + (_bps select 1)) > ([1.75, 3] select GVAR(isTVT))) then {
-                        TRACE_1("manually killing", _bps);
+                        TRACE_1("manually killing",_bps);
                         // _unit setDamage 1;
                         [_unit, "Fatal Damage"] call ace_medical_status_fnc_setDead; // this should show correct killer instead of "#scripted"
                     };

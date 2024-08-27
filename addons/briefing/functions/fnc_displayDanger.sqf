@@ -34,19 +34,11 @@ params ["_value", "_min", "_range", ["_inverse", false, [false]]];
 private _offsetValue = _value - _min;
 
 if (_offsetValue <= (_range * 0.20)) exitWith {
-    if (_inverse) then {
-        INVERSE_TEXT_VERY_LOW
-    } else {
-        TEXT_VERY_LOW
-    }
+    [TEXT_VERY_LOW, INVERSE_TEXT_VERY_LOW] select _inverse;
 };
 
 if (_offsetValue <= (_range * 0.40)) exitWith {
-    if (_inverse) then {
-        INVERSE_TEXT_LOW
-    } else {
-        TEXT_LOW
-    }
+    [TEXT_LOW, INVERSE_TEXT_LOW] select _inverse;
 };
 
 if (_offsetValue <= (_range * 0.60)) exitWith {
@@ -54,15 +46,8 @@ if (_offsetValue <= (_range * 0.60)) exitWith {
 };
 
 if (_offsetValue <= (_range * 0.60)) exitWith {
-    if (_inverse) then {
-        INVERSE_TEXT_HIGH
-    } else {
-        TEXT_HIGH
-    }
+    [TEXT_HIGH, INVERSE_TEXT_HIGH] select _inverse
 };
 
-if (_inverse) then {
-    INVERSE_TEXT_VERY_HIGH
-} else {
-    TEXT_VERY_HIGH
-}
+
+[TEXT_VERY_HIGH, INVERSE_TEXT_VERY_HIGH] select _inverse

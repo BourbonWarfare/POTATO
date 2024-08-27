@@ -3,7 +3,7 @@
 params ["_side"];
 TRACE_1("params",_side);
 
-if (!GVAR(openEndMission)) exitWith {TRACE_1("locked", GVAR(openEndMission));};
+if (!GVAR(openEndMission)) exitWith {TRACE_1("locked",GVAR(openEndMission));};
 
 private _debugMsg = format ["Ending mission for winning side %1", _side];
 

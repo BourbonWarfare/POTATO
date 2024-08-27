@@ -7,7 +7,7 @@
 params ["_display", ["_shiftLeft", false]];
 TRACE_2("arsenalOpened",_display,_shiftLeft);
 
-if ((count (call BIS_fnc_listPlayers)) > 1) exitWith {INFO_1("hiding export in mp - %1", (count (call BIS_fnc_listPlayers)));};
+if ((count (call BIS_fnc_listPlayers)) > 1) exitWith {INFO_1("hiding export in mp - %1",(count (call BIS_fnc_listPlayers)));};
 
 
 private _y = 0;
@@ -22,6 +22,15 @@ private _yPos = (safezoneY + 1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 
 
 private _ctrlGroup = _display ctrlCreate ["RscControlsGroup", IDC_CTRLGROUP];
 
+private _fnc_updateInfo = {
+    params ["_display"];
+    private _aceCtrlMenu = _display displayCtrl 10;
+    private _ctrlGroup = _display displayCtrl IDC_CTRLGROUP;
+    if (isNull _aceMenuCtrl) exitWith {};
+    _ctrlGroup ctrlShow (ctrlShown _aceCtrlMenu); 
+};
+_display displayAddEventHandler ["MouseMoving", _fnc_updateInfo];
+_display displayAddEventHandler ["MouseHolding", _fnc_updateInfo];
 
 private _fnc_createButton = {
     params ["_text", "_fncString", "_varsArray"];

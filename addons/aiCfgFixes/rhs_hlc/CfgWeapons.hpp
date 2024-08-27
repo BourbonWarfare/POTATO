@@ -10,8 +10,8 @@ class CfgWeapons {
     class CannonCore;
     class Rifle_Short_Base_F;
     class rhs_weap_pkt: PKT {
-        modes[] = {"manual","close","short","medium","far"};
-        class manual: MGun {
+        modes[] = {"Manual","close","short","medium","far"};
+        class Manual: MGun {
             showToPlayer = 1;
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
@@ -22,7 +22,7 @@ class CfgWeapons {
             maxRange = 3;
             maxRangeProbab = 0.01;
         };
-        class close: manual {
+        class close: Manual {
             showToPlayer = 0;
             burst = 12;
             aiRateOfFire = 1;
@@ -72,8 +72,8 @@ class CfgWeapons {
         };
     };
     class rhs_weap_pktm: rhs_weap_pkt {
-        modes[] = {"manual","close","short","medium","far"};
-        class manual: manual {
+        modes[] = {"Manual","close","short","medium","far"};
+        class Manual: Manual {
             showToPlayer = 1;
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
@@ -86,8 +86,8 @@ class CfgWeapons {
         };
     };
     class LMG_RCWS: MGun {
-        modes[] = {"manual","close","short","medium","far"};
-        class manual: MGun {
+        modes[] = {"Manual","close","short","medium","far"};
+        class Manual: MGun {
             aiRateOfFire = 1;
             aiRateOfFireDistance = 10;
             minRange = 0;
@@ -98,7 +98,7 @@ class CfgWeapons {
             maxRangeProbab = 0.01;
             showToPlayer = 1;
         };
-        class close: manual {
+        class close: Manual {
             showToPlayer = 0;
             burst = 8;
             aiRateOfFire = 0.5;
@@ -148,8 +148,8 @@ class CfgWeapons {
         };
     };
     class rhs_weap_DSHKM: LMG_RCWS {
-        modes[] = {"manual","close","short","medium","far"};
-        class manual: MGun {
+        modes[] = {"Manual","close","short","medium","far"};
+        class Manual: MGun {
             showToPlayer = 1;
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
@@ -160,7 +160,7 @@ class CfgWeapons {
             maxRange = 3;
             maxRangeProbab = 0.01;
         };
-        class close: manual {
+        class close: Manual {
             showToPlayer = 0;
             burst = 10;
             aiRateOfFire = 0.5;
@@ -210,8 +210,8 @@ class CfgWeapons {
         };
     };
     class rhs_weap_nsvt: rhs_weap_DSHKM {
-        modes[] = {"manual","close","short","medium","far"};
-        class manual: MGun {
+        modes[] = {"Manual","close","short","medium","far"};
+        class Manual: MGun {
             showToPlayer = 1;
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
@@ -222,7 +222,7 @@ class CfgWeapons {
             maxRange = 3;
             maxRangeProbab = 0.01;
         };
-        class close: manual {
+        class close: Manual {
             showToPlayer = 0;
             burst = 10;
             aiRateOfFire = 0.5;
@@ -272,11 +272,11 @@ class CfgWeapons {
         };
     };
     class rhs_weap_nsvt_effects: rhs_weap_nsvt {
-        modes[] = {"manual","close","short","medium","far"};
+        modes[] = {"Manual","close","short","medium","far"};
     };
     class rhs_weap_kord: rhs_weap_nsvt_effects {
-        modes[] = {"manual","close","short","medium","far"};
-        class manual: manual {
+        modes[] = {"Manual","close","short","medium","far"};
+        class Manual: Manual {
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
             minRange = 1;
@@ -287,7 +287,7 @@ class CfgWeapons {
             maxRangeProbab = 0.01;
             showToPlayer = 1;
         };
-        class close: manual {
+        class close: Manual {
             showToPlayer = 0;
             burst = 10;
             aiRateOfFire = 0.5;
@@ -337,8 +337,8 @@ class CfgWeapons {
         };
     };
     class rhs_weap_kpvt: MGun {
-        modes[] = {"manual","close","short","medium","far"};
-        class manual: MGun {
+        modes[] = {"Manual","close","short","medium","far"};
+        class Manual: MGun {
             showToPlayer = 1;
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
@@ -349,7 +349,7 @@ class CfgWeapons {
             maxRange = 3;
             maxRangeProbab = 0.01;
         };
-        class close: manual {
+        class close: Manual {
             showToPlayer = 0;
             burst = 8;
             aiRateOfFire = 0.5;
@@ -399,8 +399,8 @@ class CfgWeapons {
         };
     };
     class rhs_weap_pkm_tigr: rhs_weap_pkt {
-        modes[] = {"manual","close","short","medium","far"};
-        class manual: manual {
+        modes[] = {"Manual","close","short","medium","far"};
+        class Manual: Manual {
             showToPlayer = 1;
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
@@ -411,7 +411,7 @@ class CfgWeapons {
             maxRange = 3;
             maxRangeProbab = 0.01;
         };
-        class close: manual {
+        class close: Manual {
             showToPlayer = 0;
             burst = 12;
             aiRateOfFire = 1;
@@ -461,8 +461,8 @@ class CfgWeapons {
         };
     };
     class rhs_weap_azp23: CannonCore {
-        modes[] = {"manual","close","short","medium","far"};
-        class manual: CannonCore {
+        modes[] = {"Manual","close","short","medium","far"};
+        class Manual: CannonCore {
             showToPlayer = 1;
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
@@ -473,7 +473,7 @@ class CfgWeapons {
             maxRange = 3;
             maxRangeProbab = 0.01;
         };
-        class close: manual {
+        class close: Manual {
             showToPlayer = 0;
             burst = 10;
             aiRateOfFire = 2;
@@ -523,8 +523,8 @@ class CfgWeapons {
         };
     };
     class rhs_weap_2a14: rhs_weap_azp23 {
-        modes[] = {"manual","close","short","medium","far"};
-        class manual: manual {
+        modes[] = {"Manual","close","short","medium","far"};
+        class Manual: Manual {
             showToPlayer = 1;
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
@@ -567,7 +567,7 @@ class CfgWeapons {
         };
     };
     class rhs_weap_ak74m_Base_F: Rifle_Base_F {
-        modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","Single_AI","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
         class Single: Mode_SemiAuto {
             minRange = 2;
             minRangeProbab = 0.3;
@@ -602,13 +602,13 @@ class CfgWeapons {
             showToPlayer = 1;
             aiRateOfFireDistance = 500;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: single_medium_optics1 {
+        class Single_far_optics2: Single_medium_optics1 {
 
         };
-        class fullauto_medium: FullAuto {
+        class FullAuto_medium: FullAuto {
             showToPlayer = 0;
             burst = 2;
             minRange = 2;
@@ -622,10 +622,10 @@ class CfgWeapons {
         };
     };
     class rhs_weap_ak74m: rhs_weap_ak74m_Base_F {
-        modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","Single_AI","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
     };
     class rhs_weap_ak105: rhs_weap_ak74m {
-        modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","Single_AI","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
         class Single: Single {
             minRange = 2;
             minRangeProbab = 0.3;
@@ -650,7 +650,7 @@ class CfgWeapons {
         };
     };
     class rhs_weap_akm: rhs_weap_ak74m {
-        modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","Single_AI","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
         class Single: Mode_SemiAuto {
             minRange = 2;
             minRangeProbab = 0.5;
@@ -685,13 +685,13 @@ class CfgWeapons {
             showToPlayer = 1;
             aiRateOfFireDistance = 500;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: single_medium_optics1 {
+        class Single_far_optics2: Single_medium_optics1 {
 
         };
-        class fullauto_medium: FullAuto {
+        class FullAuto_medium: FullAuto {
             showToPlayer = 0;
             burst = 2;
             minRange = 2;
@@ -705,7 +705,7 @@ class CfgWeapons {
         };
     };
     class rhs_weap_ak103_base: rhs_weap_akm {
-        modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
         class Single: Single {
             minRange = 2;
             minRangeProbab = 0.5;
@@ -728,13 +728,13 @@ class CfgWeapons {
             showToPlayer = 1;
             aiRateOfFireDistance = 500;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: single_medium_optics1 {
+        class Single_far_optics2: Single_medium_optics1 {
 
         };
-        class fullauto_medium: FullAuto {
+        class FullAuto_medium: FullAuto {
             showToPlayer = 0;
             burst = 2;
             minRange = 2;
@@ -751,7 +751,7 @@ class CfgWeapons {
         };
     };
     class rhs_weap_ak103_1: rhs_weap_ak103_base {
-        modes[] = {"Single","single_medium_optics1","single_far_optics2"};
+        modes[] = {"Single","Single_medium_optics1","Single_far_optics2"};
         class Single: Single {
             minRange = 2;
             minRangeProbab = 0.5;
@@ -763,15 +763,15 @@ class CfgWeapons {
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: single_medium_optics1 {
+        class Single_far_optics2: Single_medium_optics1 {
 
         };
     };
     class rhs_weap_ak103_2: rhs_weap_ak103_base {
-        modes[] = {"Single","Burst","single_medium_optics1","single_far_optics2"};
+        modes[] = {"Single","Burst","Single_medium_optics1","Single_far_optics2"};
         class Single: Single {
             minRange = 2;
             minRangeProbab = 0.5;
@@ -794,15 +794,15 @@ class CfgWeapons {
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: single_medium_optics1 {
+        class Single_far_optics2: Single_medium_optics1 {
 
         };
     };
     class rhs_weap_ak104: rhs_weap_ak103_base {
-        modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
         class Single: Single {
             minRange = 2;
             minRangeProbab = 0.5;
@@ -827,13 +827,13 @@ class CfgWeapons {
         };
     };
     class rhs_weap_ak74: rhs_weap_ak74m {
-        modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","Single_AI","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
     };
     class rhs_weap_aks74: rhs_weap_ak74 {
-        modes[] = {"Single","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","Single_AI","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
     };
     class rhs_weap_aks74u: rhs_weap_aks74 {
-        modes[] = {"FullAuto","Single","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"FullAuto","Single","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
         class FullAuto: FullAuto {
             minRange = 0;
             minRangeProbab = 0.9;
@@ -856,13 +856,13 @@ class CfgWeapons {
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: single_medium_optics1 {
+        class Single_far_optics2: Single_medium_optics1 {
 
         };
-        class fullauto_medium: FullAuto {
+        class FullAuto_medium: FullAuto {
             showToPlayer = 0;
             burst = 2;
             minRange = 2;
@@ -876,7 +876,7 @@ class CfgWeapons {
         };
     };
     class rhs_weap_asval: rhs_weap_ak74m {
-        modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
         class Single: Single {
             minRange = 2;
             minRangeProbab = 0.3;
@@ -899,13 +899,13 @@ class CfgWeapons {
             showToPlayer = 1;
             aiRateOfFireDistance = 500;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: Single {
+        class Single_far_optics2: Single {
 
         };
-        class fullauto_medium: FullAuto {
+        class FullAuto_medium: FullAuto {
             showToPlayer = 0;
             burst = 2;
             minRange = 2;
@@ -919,7 +919,7 @@ class CfgWeapons {
         };
     };
     class rhs_weap_vss: rhs_weap_asval {
-        modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
         class Single: Single {
             minRange = 2;
             minRangeProbab = 0.3;
@@ -944,7 +944,7 @@ class CfgWeapons {
         };
     };
     class rhs_weap_svd: rhs_weap_ak74m {
-        modes[] = {"Single","single_close_optics1","single_medium_optics1","single_far_optics1"};
+        modes[] = {"Single","Single_Close_optics1","Single_medium_optics1","Single_far_optics1"};
         class Single: Mode_SemiAuto {
             minRange = 2;
             minRangeProbab = 0.3;
@@ -956,18 +956,18 @@ class CfgWeapons {
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
         };
-        class single_close_optics1: Single {
+        class Single_Close_optics1: Single {
 
         };
-        class single_medium_optics1: single_close_optics1 {
+        class Single_medium_optics1: Single_Close_optics1 {
 
         };
-        class single_far_optics1: single_medium_optics1 {
+        class Single_far_optics1: Single_medium_optics1 {
 
         };
     };
     class rhs_weap_svdp: rhs_weap_svd {
-        modes[] = {"Single","single_close_optics1","single_medium_optics1","single_far_optics1"};
+        modes[] = {"Single","Single_Close_optics1","Single_medium_optics1","Single_far_optics1"};
         class Single: Mode_SemiAuto {
             minRange = 2;
             minRangeProbab = 0.3;
@@ -979,18 +979,18 @@ class CfgWeapons {
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
         };
-        class single_close_optics1: Single {
+        class Single_Close_optics1: Single {
 
         };
-        class single_medium_optics1: single_close_optics1 {
+        class Single_medium_optics1: Single_Close_optics1 {
 
         };
-        class single_far_optics1: single_medium_optics1 {
+        class Single_far_optics1: Single_medium_optics1 {
 
         };
     };
     class rhs_weap_svds: rhs_weap_svdp {
-        modes[] = {"Single","single_close_optics1","single_medium_optics1","single_far_optics1"};
+        modes[] = {"Single","Single_Close_optics1","Single_medium_optics1","Single_far_optics1"};
         class Single: Single {
             minRange = 2;
             minRangeProbab = 0.3;
@@ -1084,7 +1084,7 @@ class CfgWeapons {
     };
     class rhs_weap_pp2000: hgun_PDW2000_F {
         modes[] = {"Single","FullAuto"};
-        class Single: single {
+        class Single: Single {
             minRange = 2;
             minRangeProbab = 0.3;
             midRange = 200;
@@ -1095,7 +1095,7 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
             showToPlayer = 1;
         };
-        class FullAuto: fullauto {
+        class FullAuto: FullAuto {
             minRange = 0;
             minRangeProbab = 0.1;
             midRange = 25;
@@ -1108,7 +1108,7 @@ class CfgWeapons {
         };
     };
     class rhs_weap_an94_base: Rifle_Base_F {
-        modes[] = {"Single","Burst","Single_AI","FullAuto","single_medium_optics1","single_far_optics2","fullauto_medium"};
+        modes[] = {"Single","Burst","Single_AI","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
         class Single: Mode_SemiAuto {
             minRange = 2;
             minRangeProbab = 0.3;
@@ -1154,13 +1154,13 @@ class CfgWeapons {
             showToPlayer = 1;
             aiRateOfFireDistance = 500;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: single_medium_optics1 {
+        class Single_far_optics2: Single_medium_optics1 {
 
         };
-        class fullauto_medium: FullAuto {
+        class FullAuto_medium: FullAuto {
             showToPlayer = 0;
             burst = 2;
             minRange = 2;
@@ -1245,8 +1245,8 @@ class CfgWeapons {
         modes[] = {"FullAuto","Single","close","short","medium","far_optic1","far_optic2"};
     };
     class rhs_weap_pkm: rhs_weap_pkp {
-        modes[] = {"manual","close","short","medium","far_optic1","far_optic2"};
-        class manual: FullAuto {
+        modes[] = {"Manual","close","short","medium","far_optic1","far_optic2"};
+        class Manual: FullAuto {
             minRange = 0;
             minRangeProbab = 0.3;
             midRange = 5;
@@ -1257,7 +1257,7 @@ class CfgWeapons {
             aiRateOfFire = 1e-006;
             aiRateOfFireDistance = 500;
         };
-        class close: manual {
+        class close: Manual {
             burst = 6;
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
@@ -1301,8 +1301,8 @@ class CfgWeapons {
         };
     };
     class rhs_weap_rpk_base: Rifle_Long_Base_F {
-        modes[] = {"single","manual","close","short","medium","far_optic1","far_optic2"};
-        class single: Mode_SemiAuto {
+        modes[] = {"Single","Manual","close","short","medium","far_optic1","far_optic2"};
+        class Single: Mode_SemiAuto {
             minRange = 0;
             minRangeProbab = 0.01;
             midRange = 0;
@@ -1313,7 +1313,7 @@ class CfgWeapons {
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
         };
-        class manual: Mode_FullAuto {
+        class Manual: Mode_FullAuto {
             minRange = 0;
             minRangeProbab = 0.3;
             midRange = 5;
@@ -1645,8 +1645,8 @@ class CfgWeapons {
         };
     };
     class vn_lmg: vn_rifle {
-        modes[] = {"manual","close","short","medium","far_optic1","far_optic2"};
-        class manual: Mode_FullAuto {
+        modes[] = {"Manual","close","short","medium","far_optic1","far_optic2"};
+        class Manual: Mode_FullAuto {
             minRange = 0;
             minRangeProbab = 0.3;
             midRange = 5;
@@ -1657,7 +1657,7 @@ class CfgWeapons {
             aiRateOfFire = 2;
             aiRateOfFireDistance = 500;
         };
-        class close: manual {
+        class close: Manual {
             burst = 10;
             aiRateOfFire = 0.5;
             aiRateOfFireDistance = 50;
@@ -1701,8 +1701,8 @@ class CfgWeapons {
         };
     };
     class vn_m1911: vn_pistol {
-        modes[] = {"single"};
-        class single: Single {
+        modes[] = {"Single"};
+        class Single: Single {
             minRange = 5;
             minRangeProbab = 0.3;
             midRange = 30;
@@ -1715,8 +1715,8 @@ class CfgWeapons {
         };
     };
     class vn_hp: vn_m1911 {
-        modes[] = {"single"};
-        class single: Single {
+        modes[] = {"Single"};
+        class Single: Single {
             minRange = 5;
             minRangeProbab = 0.3;
             midRange = 30;
@@ -1771,8 +1771,8 @@ class CfgWeapons {
         };
     };
     class vn_pm: vn_pistol {
-        modes[] = {"single"};
-        class single: Single {
+        modes[] = {"Single"};
+        class Single: Single {
             minRange = 5;
             minRangeProbab = 0.3;
             midRange = 25;
@@ -5161,7 +5161,7 @@ class CfgWeapons {
         };
     };
     class hlc_aug_base: Rifle_Base_F {
-        modes[] = {"FullAuto","Single","fullauto_medium","single_medium_optics1","single_far_optics2"};
+        modes[] = {"FullAuto","Single","FullAuto_medium","Single_medium_optics1","Single_far_optics2"};
         class FullAuto: Mode_FullAuto {
             aiRateOfFire = 0.1;
             aiRateOfFireDistance = 50;
@@ -5184,7 +5184,7 @@ class CfgWeapons {
             maxRange = 500;
             maxRangeProbab = 0.1;
         };
-        class fullauto_medium: FullAuto {
+        class FullAuto_medium: FullAuto {
             showToPlayer = 0;
             burst = 4;
             aiRateOfFire = 1;
@@ -5196,10 +5196,10 @@ class CfgWeapons {
             maxRange = 20;
             maxRangeProbab = 0.2;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: single_medium_optics1 {
+        class Single_far_optics2: Single_medium_optics1 {
 
         };
     };
@@ -5494,7 +5494,7 @@ class CfgWeapons {
         };
     };
     class hlc_rifle_augpara: hlc_aug_base {
-        modes[] = {"FullAuto","Single","fullauto_medium"};
+        modes[] = {"FullAuto","Single","FullAuto_medium"};
         class FullAuto: Mode_FullAuto {
             aiRateOfFire = 0.1;
             aiRateOfFireDistance = 50;
@@ -5517,7 +5517,7 @@ class CfgWeapons {
             maxRange = 300;
             maxRangeProbab = 0.01;
         };
-        class fullauto_medium: FullAuto {
+        class FullAuto_medium: FullAuto {
             showToPlayer = 0;
             burst = 3;
             aiRateOfFire = 1;
@@ -5531,7 +5531,7 @@ class CfgWeapons {
         };
     };
     class hlc_rifle_auga2para: hlc_aug_base {
-        modes[] = {"FullAuto","Single","fullauto_medium"};
+        modes[] = {"FullAuto","Single","FullAuto_medium"};
         class FullAuto: Mode_FullAuto {
             aiRateOfFire = 0.2;
             aiRateOfFireDistance = 50;
@@ -5554,7 +5554,7 @@ class CfgWeapons {
             maxRange = 250;
             maxRangeProbab = 0.1;
         };
-        class fullauto_medium: FullAuto {
+        class FullAuto_medium: FullAuto {
             burst = 3;
             showToPlayer = 0;
             aiRateOfFire = 1;
@@ -6599,11 +6599,11 @@ class CfgWeapons {
         };
     };
     class hlc_rifle_G36KA1KSK: hlc_rifle_G36KV {
-        modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2"};
-        class single_medium_optics1: Single {
+        modes[] = {"Single","FullAuto","Single_medium_optics1","Single_far_optics2"};
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: single_medium_optics1 {
+        class Single_far_optics2: Single_medium_optics1 {
 
         };
     };
@@ -7008,7 +7008,7 @@ class CfgWeapons {
         };
     };
     class hlc_rifle_psg1: hlc_g3_base {
-        modes[] = {"Single","single_medium_optics1"};
+        modes[] = {"Single","Single_medium_optics1"};
         class Single: Single {
             aiRateOfFire = 7;
             aiRateOfFireDistance = 1000;
@@ -7020,7 +7020,7 @@ class CfgWeapons {
             maxRangeProbab = 0.01;
             showToPlayer = 1;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
     };
@@ -8222,7 +8222,7 @@ class CfgWeapons {
         };
     };
     class hlc_sg550_base: Rifle_Base_F {
-        modes[] = {"Single","Burst","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2"};
+        modes[] = {"Single","Burst","FullAuto","FullAuto_medium","Single_medium_optics1","Single_far_optics2"};
         class Single: Mode_SemiAuto {
             showToPlayer = 1;
             aiRateOfFire = 1;
@@ -8256,7 +8256,7 @@ class CfgWeapons {
             maxRangeProbab = 0.1;
             showToPlayer = 1;
         };
-        class fullauto_medium: FullAuto {
+        class FullAuto_medium: FullAuto {
             showToPlayer = 0;
             burst = 4;
             aiRateOfFire = 1;
@@ -8268,15 +8268,15 @@ class CfgWeapons {
             maxRange = 20;
             maxRangeProbab = 0.2;
         };
-        class single_medium_optics1: Single {
+        class Single_medium_optics1: Single {
 
         };
-        class single_far_optics2: single_medium_optics1 {
+        class Single_far_optics2: Single_medium_optics1 {
 
         };
     };
     class hlc_rifle_SG551SB: hlc_sg550_base {
-        modes[] = {"Single","Burst","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2"};
+        modes[] = {"Single","Burst","FullAuto","FullAuto_medium","Single_medium_optics1","Single_far_optics2"};
         class Single: Single {
             showToPlayer = 1;
             aiRateOfFire = 1;
@@ -8310,7 +8310,7 @@ class CfgWeapons {
             maxRangeProbab = 0.1;
             showToPlayer = 1;
         };
-        class fullauto_medium: fullauto_medium {
+        class FullAuto_medium: FullAuto_medium {
             showToPlayer = 0;
             burst = 4;
             aiRateOfFire = 1;
@@ -8322,15 +8322,15 @@ class CfgWeapons {
             maxRange = 20;
             maxRangeProbab = 0.2;
         };
-        class single_medium_optics1: single_medium_optics1 {
+        class Single_medium_optics1: Single_medium_optics1 {
 
         };
-        class single_far_optics2: single_far_optics2 {
+        class Single_far_optics2: Single_far_optics2 {
 
         };
     };
     class hlc_rifle_SG551LB: hlc_rifle_SG551SB {
-        modes[] = {"Single","Burst","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2"};
+        modes[] = {"Single","Burst","FullAuto","FullAuto_medium","Single_medium_optics1","Single_far_optics2"};
         class Single: Single {
             showToPlayer = 1;
             aiRateOfFire = 1;
@@ -8364,7 +8364,7 @@ class CfgWeapons {
             maxRangeProbab = 0.1;
             showToPlayer = 1;
         };
-        class fullauto_medium: fullauto_medium {
+        class FullAuto_medium: FullAuto_medium {
             showToPlayer = 0;
             burst = 4;
             aiRateOfFire = 1;
@@ -8376,15 +8376,15 @@ class CfgWeapons {
             maxRange = 20;
             maxRangeProbab = 0.2;
         };
-        class single_medium_optics1: single_medium_optics1 {
+        class Single_medium_optics1: Single_medium_optics1 {
 
         };
-        class single_far_optics2: single_far_optics2 {
+        class Single_far_optics2: Single_far_optics2 {
 
         };
     };
     class hlc_rifle_SG553SB: hlc_sg550_base {
-        modes[] = {"Single","Burst","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2"};
+        modes[] = {"Single","Burst","FullAuto","FullAuto_medium","Single_medium_optics1","Single_far_optics2"};
         class Single: Single {
             showToPlayer = 1;
             aiRateOfFire = 1;
@@ -8418,7 +8418,7 @@ class CfgWeapons {
             maxRangeProbab = 0.1;
             showToPlayer = 1;
         };
-        class fullauto_medium: fullauto_medium {
+        class FullAuto_medium: FullAuto_medium {
             showToPlayer = 0;
             burst = 4;
             aiRateOfFire = 1;
@@ -8430,15 +8430,15 @@ class CfgWeapons {
             maxRange = 20;
             maxRangeProbab = 0.2;
         };
-        class single_medium_optics1: single_medium_optics1 {
+        class Single_medium_optics1: Single_medium_optics1 {
 
         };
-        class single_far_optics2: single_far_optics2 {
+        class Single_far_optics2: Single_far_optics2 {
 
         };
     };
     class hlc_rifle_SG553LB: hlc_rifle_SG551SB {
-        modes[] = {"Single","Burst","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2"};
+        modes[] = {"Single","Burst","FullAuto","FullAuto_medium","Single_medium_optics1","Single_far_optics2"};
         class Single: Single {
             showToPlayer = 1;
             aiRateOfFire = 1;
@@ -8472,7 +8472,7 @@ class CfgWeapons {
             maxRangeProbab = 0.1;
             showToPlayer = 1;
         };
-        class fullauto_medium: fullauto_medium {
+        class FullAuto_medium: FullAuto_medium {
             showToPlayer = 0;
             burst = 4;
             aiRateOfFire = 1;
@@ -8484,15 +8484,15 @@ class CfgWeapons {
             maxRange = 20;
             maxRangeProbab = 0.2;
         };
-        class single_medium_optics1: single_medium_optics1 {
+        class Single_medium_optics1: Single_medium_optics1 {
 
         };
-        class single_far_optics2: single_far_optics2 {
+        class Single_far_optics2: Single_far_optics2 {
 
         };
     };
     class hlc_rifle_SG550Sniper: hlc_sg550_base {
-        modes[] = {"Single","fullauto_medium","single_medium_optics1","single_far_optics2"};
+        modes[] = {"Single","FullAuto_medium","Single_medium_optics1","Single_far_optics2"};
         class Single: Single {
             showToPlayer = 1;
             aiRateOfFire = 1;
@@ -8504,7 +8504,7 @@ class CfgWeapons {
             maxRange = 500;
             maxRangeProbab = 0.1;
         };
-        class fullauto_medium: fullauto_medium {
+        class FullAuto_medium: FullAuto_medium {
             showToPlayer = 0;
             burst = 4;
             aiRateOfFire = 1;
@@ -8516,15 +8516,15 @@ class CfgWeapons {
             maxRange = 20;
             maxRangeProbab = 0.2;
         };
-        class single_medium_optics1: single_medium_optics1 {
+        class Single_medium_optics1: Single_medium_optics1 {
 
         };
-        class single_far_optics2: single_far_optics2 {
+        class Single_far_optics2: Single_far_optics2 {
 
         };
     };
     class hlc_rifle_sg553RSB: hlc_rifle_SG553SB {
-        modes[] = {"Single","Burst","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2"};
+        modes[] = {"Single","Burst","FullAuto","FullAuto_medium","Single_medium_optics1","Single_far_optics2"};
         class Single: Single {
             showToPlayer = 1;
             aiRateOfFire = 1;
@@ -8558,7 +8558,7 @@ class CfgWeapons {
             maxRangeProbab = 0.1;
             showToPlayer = 1;
         };
-        class fullauto_medium: fullauto_medium {
+        class FullAuto_medium: FullAuto_medium {
             showToPlayer = 0;
             burst = 4;
             aiRateOfFire = 1;
@@ -8570,15 +8570,15 @@ class CfgWeapons {
             maxRange = 20;
             maxRangeProbab = 0.2;
         };
-        class single_medium_optics1: single_medium_optics1 {
+        class Single_medium_optics1: Single_medium_optics1 {
 
         };
-        class single_far_optics2: single_far_optics2 {
+        class Single_far_optics2: Single_far_optics2 {
 
         };
     };
     class hlc_rifle_sg553RLB: hlc_rifle_sg553RSB {
-        modes[] = {"Single","Burst","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2"};
+        modes[] = {"Single","Burst","FullAuto","FullAuto_medium","Single_medium_optics1","Single_far_optics2"};
         class Single: Single {
             showToPlayer = 1;
             aiRateOfFire = 1;
@@ -8612,7 +8612,7 @@ class CfgWeapons {
             maxRangeProbab = 0.1;
             showToPlayer = 1;
         };
-        class fullauto_medium: fullauto_medium {
+        class FullAuto_medium: FullAuto_medium {
             showToPlayer = 0;
             burst = 4;
             aiRateOfFire = 1;
@@ -8624,10 +8624,10 @@ class CfgWeapons {
             maxRange = 20;
             maxRangeProbab = 0.2;
         };
-        class single_medium_optics1: single_medium_optics1 {
+        class Single_medium_optics1: Single_medium_optics1 {
 
         };
-        class single_far_optics2: single_far_optics2 {
+        class Single_far_optics2: Single_far_optics2 {
 
         };
     };

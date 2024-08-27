@@ -25,7 +25,7 @@ if !(isServer) exitWith {
 params [["_clientId", 0, [0]]];
 
 // we don't want to do global commands
-if (_clientId < 1) exitWith { WARNING_1("Invalid client ID provided", _clientId); };
+if (_clientId < 1) exitWith { WARNING_1("Invalid client ID provided",_clientId); };
 
 // register client
 GVAR(registeredClients) pushBack _clientId;

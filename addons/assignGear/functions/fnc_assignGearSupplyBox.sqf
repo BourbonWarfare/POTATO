@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * Author: PabstMirror
+ * Author: Bailey
  * Fills supply box with gear for a faction
  *
  * Arguments:
@@ -15,64 +15,71 @@
  * Public: No
  */
 
-params ["_box"];
+params ["_theBox"];
 
-private _config = configOf _box;
+private _config = configOf _theBox;
 private _faction = getText (_config >> QGVAR(faction));
-private _path = missionConfigFile >> "CfgLoadouts" >> _faction;
 private _type = getText (_config >> QGVAR(type)); // 1=squad, 2=platoon
-TRACE_3("suppy_initBox",_box,_faction,_type);
 
-private _size = 1; // scaling factor for medical and ammo
-private _classes = ["rifleman", "ar", "ar", "lat", "ftl"];
-private _checkDisposable = ["lat"];
+TRACE_1("",GVAR(setSupplyBoxLoadouts));
 
-if (_type == "platoon") then {
-    _size = 2;
-    _classes append ["mmgg", "matg", "msamg"];
-    _checkDisposable pushBack "matg";
+//Leave default gear when GVAR(setSupplyBoxLoadouts) is 0
+if (GVAR(setSupplyBoxLoadouts) == 0) exitWith {};
+
+//Clean out starting inventory when GVAR(setSupplyBoxLoadouts) is -1
+if (GVAR(setSupplyBoxLoadouts) == -1) exitWith {
+    clearWeaponCargoGlobal _theBox;
+    clearMagazineCargoGlobal _theBox;
+    clearItemCargoGlobal _theBox;
+    clearBackpackCargoGlobal _theBox;
 };
 
-private _boxWeapons = createHashMap;
-private _boxMags = createHashMap;
-private _boxItems = createHashMapFromArray [
-    ["ACE_elasticBandage", _size * 20],
-    ["ACE_packingBandage", _size * 20],
-    ["ACE_epinephrine", _size * 10],
-    ["ACE_morphine", _size * 10],
-    ["ACE_splint", _size * 10],
-    ["ACE_salineIV_500", _size * 10]
-];
+private _path = missionConfigFile >> "CfgLoadouts" >> "SupplyBoxes" >> typeOf _theBox;
 
+if (!isClass _path) exitWith {
+    diag_log text format ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2)", _theBox, typeof _theBox];
+};
+
+//Clean out starting inventory (even if there is no class)
+clearWeaponCargoGlobal _theBox;
+clearMagazineCargoGlobal _theBox;
+clearItemCargoGlobal _theBox;
+clearBackpackCargoGlobal _theBox;
+
+private _transportMagazines = getArray(_path >> "TransportMagazines");
+private _transportItems = getArray(_path >> "TransportItems");
+private _transportWeapons = getArray(_path >> "TransportWeapons");
+private _transportBackpacks = getArray(_path >> "TransportBackpacks");
+
+// transportMagazines
 {
-    private _loadout = _path >> _x;
-    if (_x in _checkDisposable) then {
-        private _launcher = (getArray (_loadout >> "launchers")) param [0, "#"];
-        private _launcherConfig = configFile >> "CfgWeapons" >> _launcher;
-        if (isNull _launcherConfig) then { continue };
-        if (((getNumber (_launcherConfig >> "rhs_disposable")) == 1) || {!isNil {cba_disposable_normalLaunchers getVariable _launcher}}) then {
-            private _count = _boxWeapons getOrDefault [_launcher, 0];
-            _boxWeapons set [_launcher, _count + _size * 2]
-        };
+    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
+    _theBox addMagazineCargoGlobal [_classname, parseNumber _amount];
+    nil
+} count _transportMagazines; // count used here for speed, make sure nil is above this line
+
+// transportItems
+{
+    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
+    _theBox addItemCargoGlobal [_classname, parseNumber _amount];
+    nil
+} count _transportItems; // count used here for speed, make sure nil is above this line
+
+// transportWeapons
+{
+    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
+    private _disposableName = [cba_disposable_LoadedLaunchers, _classname, "get", ""] call FUNC(getDisposableInfo);
+    if (_disposableName != "") then {
+        TRACE_2("cba_disposable_LoadedLaunchers replace",_classname,_disposableName);
+        _classname = _disposableName;
     };
+    _theBox addWeaponCargoGlobal [_classname, parseNumber _amount];
+    nil
+} count _transportWeapons; // count used here for speed, make sure nil is above this line
 
-    {
-        (_x splitString ":") params ["_xClass", ["_xCount", "1", [""]]];
-        private _count = _boxMags getOrDefault [_xClass, 0];
-        _boxMags set [_xClass, _count + _size * parseNumber _xCount];
-    } forEach getArray (_loadout >> "magazines");
-} forEach _classes;
-
-
+// transportBackpacks
 {
-    TRACE_2("weapons",_x,_y);
-    _box addWeaponCargoGlobal [_x, _y];
-} forEach _boxWeapons;
-{
-    TRACE_2("mags",_x,_y);
-    _box addMagazineCargoGlobal [_x, _y];
-} forEach _boxMags;
-{
-    TRACE_2("items",_x,_y);
-    _box addItemCargoGlobal [_x, _y];
-} forEach _boxItems;
+    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
+    _theBox addBackpackCargoGlobal [_classname, parseNumber _amount];
+    nil
+} count _transportBackpacks; // count used here for speed, make sure nil is above this line

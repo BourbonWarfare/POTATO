@@ -13,6 +13,19 @@
             "problemMatcher": []
         },
         {
+            "label": "HEMTT check",
+            "command": "hemtt.exe",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "check"
+            ],
+            "group": {
+                "kind": "test"
+            }
+        },
+        {
             "label": "Test All",
             "dependsOn": [
                 "SQFVM Checker"
@@ -35,11 +48,11 @@
             ],
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": false
             }
         },
         {
-            "label": "Build: Hemtt v1",
+            "label": "Build: HEMTT",
             "command": "hemtt.exe",
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -51,7 +64,7 @@
             "group": "build"
         },
         {
-            "label": "Pack: Hemtt v1",
+            "label": "Pack: HEMTT",
             "command": "hemtt.exe",
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -60,7 +73,10 @@
                 "dev",
                 "-v"
             ],
-            "group": "build"
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

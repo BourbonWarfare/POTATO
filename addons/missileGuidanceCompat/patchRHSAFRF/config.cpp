@@ -1,0 +1,395 @@
+#include "\z\potato\addons\missileGuidanceCompat\script_component.hpp"
+#undef COMPONENT
+#define COMPONENT missileGuidanceCompat_patchRHSAFRF
+
+class CfgPatches {
+    class ADDON {
+        units[] = {};
+        weapons[] = {};
+        requiredVersion = REQUIRED_VERSION;
+        requiredAddons[] = {"potato_missileGuidanceCompat", "rhs_c_airweapons", "rhs_c_heavyweapons"};
+        skipWhenMissingDependencies = 1;
+        author = "Bourbon Warfare";
+        authorUrl = "https://github.com/BourbonWarfare/POTATO";
+        VERSION_CONFIG;
+    };
+};
+
+
+class CfgAmmo {
+    class Missile_AGM_01_F;
+    class Missile_AGM_02_F;
+    class Missile_AA_04_F;
+    class rhs_ammo_r27_base;
+    class M_Titan_AA;
+    class MissileBase;
+    class M_Titan_AT;
+    class rhs_ammo_atgmCore_base: M_Titan_AT {
+        class EventHandlers;
+    };
+    class rhs_ammo_atgmBase_base: M_Titan_AT {
+        class EventHandlers;
+    };
+    class rhs_ammo_9k32: M_Titan_AA {
+        maneuvrability = 0;
+        #include "../CfgMissileStrela.hpp"
+    };
+    class rhs_ammo_9k38: rhs_ammo_9k32 {
+        maneuvrability = 0;
+        #include "../CfgMissileIgla.hpp"
+    };
+    class rhs_ammo_9m114: rhs_ammo_atgmBase_base {
+        maneuvrability = 0;
+        #include "../CfgMissileShturm.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+    class rhs_ammo_9m114m: rhs_ammo_9m114 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+    class rhs_ammo_9m114f: rhs_ammo_9m114 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+    class rhs_ammo_9m114m1: rhs_ammo_9m114 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            maxSeekerRange = 6000;
+        };
+    };
+    class rhs_ammo_9m114m2: rhs_ammo_9m114 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            maxSeekerRange = 7000;
+        };
+    };
+    class rhs_ammo_9m120: rhs_ammo_atgmBase_base {
+        maneuvrability = 0;
+        #include "../CfgMissileAtaka.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+    class rhs_ammo_9m120m: rhs_ammo_9m120 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            maxSeekerRange = 8000;
+        };
+    };
+    class rhs_ammo_9m120f: rhs_ammo_9m120 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+    class rhs_ammo_9m120o: rhs_ammo_9m120 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+    class rhs_ammo_9m127: rhs_ammo_9m120 {
+        maneuvrability = 0;
+        #include "../CfgMissileVikhr.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+    class rhs_ammo_9m127m: rhs_ammo_9m127 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+    class rhs_ammo_r27t: rhs_ammo_r27_base {
+        maneuvrability = 0;
+        #include "../CfgMissileVympel.hpp"
+    };
+    class rhs_ammo_r27et: rhs_ammo_r27t {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_r60_base: Missile_AA_04_F {
+        maneuvrability = 0;
+        #include "../CfgMissileMolniya.hpp"
+    };
+	class rhs_ammo_r60: rhs_ammo_r60_base {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_r60m: rhs_ammo_r60_base {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            seekerMaxRange = 8000;      // Range from the missile which the seeker can visually search
+        };
+    };
+	class rhs_ammo_r73: Missile_AA_04_F {
+        maneuvrability = 0;
+        #include "../CfgMissileR73.hpp"
+    };
+	class rhs_ammo_r73m: rhs_ammo_r73 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_r74: rhs_ammo_r73m {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_r74m2: rhs_ammo_r74 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_r77: rhs_ammo_r73 {
+        maneuvrability = 0;
+        #include "../CfgMissileR77.hpp"
+    };
+	class rhs_ammo_r77m: rhs_ammo_r77 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_kh25_base: Missile_AGM_01_F {
+        maneuvrability = 0;
+        #include "../CfgMissileKH25.hpp"
+    };
+	class rhs_ammo_kh25: rhs_ammo_kh25_base {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            seekerMaxRange = 7000;
+        };
+    };
+	class rhs_ammo_kh25ml: rhs_ammo_kh25_base {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_kh25ma: rhs_ammo_kh25_base {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            defaultSeekerType = "MillimeterWaveRadar";
+            seekerTypes[] = { "MillimeterWaveRadar" };
+            activeRadarEngageDistance = 1000;
+        };
+    };
+	class rhs_ammo_kh25mtp: rhs_ammo_kh25_base {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            defaultSeekerType = "Optic";
+            seekerTypes[] = { "Optic" };
+            seekerMaxRange = 9000;
+        };
+    };
+	class rhs_ammo_kh29_base: Missile_AGM_02_F {
+        maneuvrability = 0;
+        #include "../CfgMissileKH29.hpp"
+    };
+	class rhs_ammo_kh29l: rhs_ammo_kh29_base {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_kh29ml: rhs_ammo_kh29_base {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_kh29mp: rhs_ammo_kh29_base {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            defaultSeekerType = "MillimeterWaveRadar";
+            seekerTypes[] = { "MillimeterWaveRadar" };
+            activeRadarEngageDistance = 1000;
+        };
+    };
+	class rhs_ammo_kh29d: rhs_ammo_kh29_base {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            defaultSeekerType = "Optic";
+            seekerTypes[] = { "Optic" };
+        };
+    };
+    class rhs_ammo_9m14: rhs_ammo_atgmBase_base {
+        maneuvrability = 0;
+        #include "../CfgMissileMalyutka.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+	class rhs_ammo_9m14m: rhs_ammo_9m14 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_mclos_training: rhs_ammo_9m14m {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_9m17: rhs_ammo_atgmBase_base {
+        maneuvrability = 0;
+        #include "../CfgMissileFleyta.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+	class rhs_ammo_9m17p: rhs_ammo_9m17 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            defaultSeekerType = "SACLOS";
+            seekerTypes[] = { "SACLOS" };
+        };
+    };
+	class rhs_ammo_9m112: rhs_ammo_atgmCore_base {
+        maneuvrability = 0;
+        #include "../CfgMissileRefleks.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+	class rhs_ammo_9m112m: rhs_ammo_9m112 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_9m112m2: rhs_ammo_9m112m {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_9m124: rhs_ammo_9m112m {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_9m128: rhs_ammo_atgmCore_base {
+        maneuvrability = 0;
+        #include "../CfgMissileKobra.hpp"
+    };
+	class rhs_ammo_9m111: rhs_ammo_atgmBase_base {
+        maneuvrability = 0;
+        #include "../CfgMissileFagot.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+	class rhs_ammo_9m111m: rhs_ammo_9m111 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            seekerMaxRange = 2500;
+        };
+    };
+	class rhs_ammo_9m113: rhs_ammo_atgmBase_base {
+        maneuvrability = 0;
+        #include "../CfgMissileKonkurs.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+	class rhs_ammo_9m113m: rhs_ammo_9m113 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_9m117: rhs_ammo_atgmCore_base {
+        maneuvrability = 0;
+        #include "../CfgMissileBastion.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+	class rhs_ammo_9m117m: rhs_ammo_9m117 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            seekerMaxRange = 5500;
+        };
+    };
+	class rhs_ammo_9m117m1: rhs_ammo_9m117m {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            seekerMaxRange = 6000;
+        };
+    };
+	class rhs_ammo_9m118: rhs_ammo_9m117 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_9m119: rhs_ammo_atgmCore_base {
+        maneuvrability = 0;
+        #include "../CfgMissileRefleks.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+	class rhs_ammo_9m119m: rhs_ammo_9m119 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_9m119f: rhs_ammo_9m119 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_9m115: rhs_ammo_9m119 {
+        maneuvrability = 0;
+        #include "../CfgMissileMetis.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+	class rhs_ammo_9m131: rhs_ammo_9m115 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            seekerMaxRange = 1500;
+        };
+    };
+	class rhs_ammo_9m131m: rhs_ammo_9m131 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+            seekerMaxRange = 2000;
+        };
+    };
+	class rhs_ammo_9m131f: rhs_ammo_9m131m {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_9m133f: rhs_ammo_9m131f {
+        maneuvrability = 0;
+        #include "../CfgMissileKonkurs.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+	class rhs_ammo_9m133: rhs_ammo_atgmBase_base {
+        maneuvrability = 0;
+        #include "../CfgMissileKonkurs.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+	class rhs_ammo_9m1331: rhs_ammo_9m133 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_9m133m2: rhs_ammo_9m133 {
+        class ace_missileguidance: ace_missileguidance {
+            enabled = 1;
+        };
+    };
+	class rhs_ammo_3m7: rhs_ammo_atgmBase_base {
+        maneuvrability = 0;
+        #include "../CfgMissileDrakon.hpp"
+        class EventHandlers: EventHandlers {
+            class RHS_Guidance {};
+        };
+    };
+};

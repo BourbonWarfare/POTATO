@@ -48,7 +48,7 @@ _ctrlNoMarkerCheckBox ctrlSetPosition [0.69 * safezoneW + safezoneX, 0.23 * safe
 _ctrlNoMarkerCheckBox ctrlCommit 0;
 _ctrlNoMarkerCheckBox ctrlSetTooltip "Secret Respawn";
 _ctrlNoMarkerCheckBox cbSetChecked (missionNamespace getVariable [QGVAR(noMarkers), false]);
-_ctrlNoMarkerCheckBox ctrlAddEventHandler ["checkedChanged", {
+_ctrlNoMarkerCheckBox ctrlAddEventHandler ["CheckedChanged", {
     params ["", "_checked"];
     _checked = [false, true] select _checked;
     missionNamespace setVariable [QGVAR(noMarkers), _checked, true];
@@ -88,26 +88,26 @@ private _allFactions = createHashMap;
     lbSetData [ADMIN_FACTION_COMBO_IDC, _index, _x];
 } forEach (allVariables GVAR(factionsToInfo));
 
-private _factionIndex = if !(isNil QGVAR(lastFactionIndex)) then {
-    GVAR(lastFactionIndex)
-} else {
+private _factionIndex = if (isNil QGVAR(lastFactionIndex)) then {
     0
+} else {
+    GVAR(lastFactionIndex)
 };
 lbSetCurSel [ADMIN_FACTION_COMBO_IDC, _factionIndex];
 [ADMIN_FACTION_COMBO, _factionIndex] call FUNC(ui_handleFactionChange);
 
-private _groupIndex = if !(isNil QGVAR(lastGroupIndex)) then {
-    GVAR(lastGroupIndex)
-} else {
+private _groupIndex = if (isNil QGVAR(lastGroupIndex)) then {
     0
+} else {
+    GVAR(lastGroupIndex)
 };
 lbSetCurSel [ADMIN_GROUP_COMBO_IDC, _groupIndex];
 [ADMIN_GROUP_COMBO, _groupIndex] call FUNC(ui_handleGroupChange);
 
-private _configIndex = if !(isNil QGVAR(lastConfigIndex)) then {
-    GVAR(lastConfigIndex)
-} else {
+private _configIndex = if (isNil QGVAR(lastConfigIndex)) then {
     0
+} else {
+    GVAR(lastConfigIndex)
 };
 lbSetCurSel [ADMIN_CONFIG_COMBO_IDC, _configIndex];
 

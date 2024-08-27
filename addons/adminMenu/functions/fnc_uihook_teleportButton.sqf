@@ -9,7 +9,7 @@ private _selectedUnit = missionNamespace getVariable [
 
 TRACE_1("Selected unit: ",_selectedUnit);
 
-if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit, disconnect?", _selectedUnit);};
+if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit,disconnect?",_selectedUnit);};
 
 private _selectedGroupIndex = lbCurSel UI_TAB_TELEPORT_GROUP;
 if ((_selectedGroupIndex < 0) || (_selectedGroupIndex >= (count GVAR(groupsArray)))) exitWith {};
@@ -37,11 +37,7 @@ private _return = if (_vehicle == _leader) then {
         "Teleporting to position"
     } else {
         _success = _selectedUnit setVehiclePosition [_leader, [], 15];
-        if (_success) then {
-            "No empty position for teleport"
-        } else {
-            "Teleporting to position"
-        }
+        ["Teleporting to position", "No empty position for teleport"] select _success
     }
 } else {
     private _fullCrewCount = 0;

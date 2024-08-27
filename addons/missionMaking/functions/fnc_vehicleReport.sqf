@@ -12,7 +12,7 @@ private _output = [];
         private _displayName = getText (configFile >> "CfgVehicles" >> _typeOf >> "displayName");
         // Some RHS are Vehicle-in-Vehicle transports and won't take any troops
         private _vivCargo = getArray (configFile >> "CfgVehicles" >> _typeOf >> "VehicleTransport" >> "Carrier" >> "cargoBayDimensions");
-        private _vivWarn = if (_vivCargo isEqualTo []) then { "" } else { "[VIV Carrier - Probably not for infantry!]" };
+        private _vivWarn = ["[VIV Carrier - Probably not for infantry!]", ""] select (_vivCargo isEqualTo []);
         // Fullcrew is usually good enough, some RHS/CUP? vics may have scripted locked turrets for complex weapon systems
         _output pushBack format ["%1 - %2 %3", _displayName, count fullCrew [_x, "", true], _vivWarn];
     };

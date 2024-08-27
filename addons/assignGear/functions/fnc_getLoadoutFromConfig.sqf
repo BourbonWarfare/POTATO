@@ -112,23 +112,23 @@ TRACE_1("Adding Items Start: ",_containersArray);
 _configItems = [_configItems, _containersArray, UNIFORM_INDEX] call FUNC(addItemsToContainer);
 _configItems = [_configItems, _containersArray, VEST_INDEX] call FUNC(addItemsToContainer);
 _configItems = [_configItems, _containersArray, BACKPACK_INDEX] call FUNC(addItemsToContainer);
-TRACE_1("Remaining items: ", _configItems);
+TRACE_1("Remaining items: ",_configItems);
 
 _configBackpackItems = [_configBackpackItems, _containersArray, BACKPACK_INDEX] call FUNC(addItemsToContainer);
 _configBackpackItems = [_configBackpackItems, _containersArray, VEST_INDEX] call FUNC(addItemsToContainer);
 _configBackpackItems = [_configBackpackItems, _containersArray, UNIFORM_INDEX] call FUNC(addItemsToContainer);
-TRACE_1("Remaining backpack items: ", _configBackpackItems);
+TRACE_1("Remaining backpack items: ",_configBackpackItems);
 
 _configMagazines = [_configMagazines, _containersArray, VEST_INDEX] call FUNC(addItemsToContainer);
 _configMagazines = [_configMagazines, _containersArray, BACKPACK_INDEX] call FUNC(addItemsToContainer);
 _configMagazines = [_configMagazines, _containersArray, UNIFORM_INDEX] call FUNC(addItemsToContainer);
-TRACE_1("Remaining magazines: ", _configBackpackItems);
+TRACE_1("Remaining magazines: ",_configBackpackItems);
 
 if (((count _configItems) + (count _configBackpackItems) + (count _configMagazines)) > 0) then {
-    WARNING_1("~~~~~~~~~ Items not added for: %1 ~~~~~~~~~~~", configName _path);
-    WARNING_1("Items: %1%",_configItems);
-    WARNING_1("BackpackItems: %1%",_configBackpackItems);
-    WARNING_1("Magazines: %1%",_configMagazines);
+    WARNING_1("~~~~~~~~~ Items not added for: %1 ~~~~~~~~~~~",configName _path);
+    WARNING_1("Items: %1",_configItems);
+    WARNING_1("BackpackItems: %1",_configBackpackItems);
+    WARNING_1("Magazines: %1",_configMagazines);
 };
 
 TRACE_1("Adding Items End: ",_containersArray);

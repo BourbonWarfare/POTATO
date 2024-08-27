@@ -39,7 +39,7 @@ TRACE_1("params",_player);
         ACE_player moveInGunner _mortarVeh;
     };
 
-    [2, [], _codeFinish, {TRACE_1("failed to deploy",_this);}, "Deploying..."] call ACEFUNC(common,progressBar);
+    [2, [], _codeFinish, {TRACE_1("failed to deploy",_this);},"Deploying..."] call ACEFUNC(common,progressBar);
 }, []] call CBA_fnc_execNextFrame; //Delay a frame for interaction menu
 
 _player playAction "SecondaryWeapon";

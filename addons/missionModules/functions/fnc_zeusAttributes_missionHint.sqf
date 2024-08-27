@@ -18,7 +18,7 @@ private _ctrlButtonOK = _display displayctrl 1; //IDC_OK
 private _logicObject = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objnull];
 TRACE_1("logicObject",_logicObject);
 
-_control ctrlRemoveAllEventHandlers "setFocus";
+_control ctrlRemoveAllEventHandlers "SetFocus";
 
 
 

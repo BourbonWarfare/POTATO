@@ -9,7 +9,7 @@ TRACE_2("zeusAttributes_place",_control,_logicObject);
 
 private _display = ctrlparent _control;
 private _ctrlButtonOK = _display displayctrl 1; //IDC_OK
-_control ctrlRemoveAllEventHandlers "setFocus";
+_control ctrlRemoveAllEventHandlers "SetFocus";
 
 if (isNil QGVAR(lastTransport)) then {GVAR(lastTransport) = 0};
 if (isNil QGVAR(lastOrders)) then {GVAR(lastOrders) = 0};
@@ -81,7 +81,7 @@ private _fnc_onConfirm = {
     if (isNull _display) exitWith {};
 
     private _logicObject = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target", objnull];
-    if (isNull _logicObject) exitWith {ERROR_1("Logic [%1] is null on confirm", _logicObject);};
+    if (isNull _logicObject) exitWith {ERROR_1("Logic [%1] is null on confirm",_logicObject);};
 
 
     private _transportType = (lbCurSel (_display displayCtrl 23071)) max 0;
