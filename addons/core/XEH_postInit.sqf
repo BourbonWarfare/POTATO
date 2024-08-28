@@ -36,8 +36,8 @@ if (hasInterface) then {
         params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType", "_chatComposition"];
         INFO_1("ChatMessage: %1",_this);
         private _returnValue = nil;
-        if (isPlayer _person) then {
-            if (getNumber (configOf _person >> "isPlayableLogic") == 1) exitWith {};
+        // Block player messages, not on breifing, who are not spectators
+        if ((isPlayer _person) && {CBA_missionTime > 0} && {getNumber (configOf _person >> "isPlayableLogic") != 1}) then {
             if ((_text select [0,5]) == "force") then {
                 // _returnValue = _text select [5]; // optionally clean up text
             } else {
