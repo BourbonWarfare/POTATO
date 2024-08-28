@@ -107,7 +107,7 @@ class CfgWeapons {
             };
         };
     };
-    
+
     class ptv_rk62m2: Rifle_Base_F {
         bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.0099,1,10};
         bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.0099,1,10};
@@ -143,7 +143,7 @@ class CfgWeapons {
             };
         };
     };
-    
+
     class ptv_hk433: Rifle_Base_F {
         bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.01,1,10};
         bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.01,1,10};
@@ -201,7 +201,7 @@ class CfgWeapons {
             };
         };
     };
-    
+
     class ptv_AG : Rifle_Base_F {
         bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.0099,1,10};
         bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.0099,1,10};
@@ -975,5 +975,12 @@ class gm_slotOptic_risrail: CowsSlot_Rail {
         ptv_CWS = 1;
         ptv_vipir2 = 1;
         ptv_vipir2p = 1;
+    };
+};
+
+
+class CfgMagazineWells {
+    class CBA_556x45_SCAR_EGLM {
+        PTV_Magazines[] = {"ptv_30Rnd_556x45_Stanag","ptv_30Rnd_556x45_Stanag_g","ptv_30Rnd_556x45_Stanag_t","ptv_30Rnd_556x45_Stanag_pull","ptv_30Rnd_556x45_Stanag_pull_t","ptv_30Rnd_556x45_Stanag_pull_g","ptv_30Rnd_556x45_Stanag_Red","ptv_30Rnd_556x45_Stanag_g_Red","ptv_30Rnd_556x45_Stanag_t_Red","ptv_30Rnd_556x45_Stanag_pull_Red","ptv_30Rnd_556x45_Stanag_pull_t_Red","ptv_30Rnd_556x45_Stanag_pull_g_Red","ptv_40Rnd_556x45_Pmag","ptv_40Rnd_556x45_Pmag_g","ptv_40Rnd_556x45_Pmag_t","ptv_40Rnd_556x45_Pmag_Red","ptv_40Rnd_556x45_Pmag_g_Red","ptv_40Rnd_556x45_Pmag_t_Red","ptv_30Rnd_556x45_Pmag","ptv_30Rnd_556x45_Pmag_g","ptv_30Rnd_556x45_Pmag_t","ptv_30Rnd_556x45_Pmag_Red","ptv_30Rnd_556x45_Pmag_g_Red","ptv_30Rnd_556x45_Pmag_t_Red","ptv_30Rnd_556x45_Pmagw","ptv_30Rnd_556x45_Pmagw_g","ptv_30Rnd_556x45_Pmagw_t","ptv_30Rnd_556x45_Pmagw_Red","ptv_30Rnd_556x45_Pmagw_g_Red","ptv_30Rnd_556x45_Pmagw_t_Red","ptv_30Rnd_556x45_L5awm","ptv_30Rnd_556x45_L5awm_g","ptv_30Rnd_556x45_L5awm_t","ptv_30Rnd_556x45_L5awm_Red","ptv_30Rnd_556x45_L5awm_g_Red","ptv_30Rnd_556x45_L5awm_t_Red","ptv_30Rnd_556x45_L5awmc","ptv_30Rnd_556x45_L5awmc_Red","ptv_30Rnd_556x45_L5awmc_pull","ptv_30Rnd_556x45_L5awmc_pull_Red"};
     };
 };

@@ -532,4 +532,3 @@ class gm_slotOptic_risrail: CowsSlot_Rail {
         CUP_optic_SERedDot = 1;
     };
 };
-#include "CfgMagazineWells.hpp"
