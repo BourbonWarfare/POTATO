@@ -56,7 +56,7 @@ class GVAR(chatList): RscListBox {
 class GVAR(sendMessageToUser): RscButtonMenu {
     idc = 840432;
     text = "Reply: ";
-    tooltip = "Select a message in the log to replay to that user";
+    tooltip = "Select a message in the log to reply to that user";
     x = "1 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX";
     y = "4.9 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
     w = "7.4 * (((safezoneW / safezoneH) min 1.2) / 40)";

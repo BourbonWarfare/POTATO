@@ -16,23 +16,27 @@ if (isServer) then {
         { [GVAR(enabled)] call FUNC(toggleSafeStart); }
     ] call CBA_fnc_waitUntilAndExecute;
 
-	if (getMissionConfigValue "potato_missionTesting_forceSS") then {
-		if (parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") isEqualTo 0) exitWith {"[BWMF] WARNING: THIS MISSION IS LIVE IMMEDIATELY" remoteExec ["systemChat", 0];};
-		
-		[format ["[BWMF] Safe start time is enforced: %1 minutes",GetMissionConfigValue "potato_missionTesting_SSTimeGiven"]] remoteExec ["systemChat", 0];
-		
+	if (getMissionConfigValue "potato_missionTesting_SSTimeGiven") then {
+		if (parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") isEqualTo 0) exitWith ["potato_adminMsg", [format ["[BWMF] WARNING: THIS MISSION IS LIVE IMMEDIATELY"]]], call CBA_fnc_globalEvent;
+			
 		[
-			{CBA_missionTime >= ((parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") * 60) / 2)},
+			{CBA_missionTime >= ((parseNumber (getMissionConfigValue QGVAR(SSTimeGiven)) * 60) / 2)},
 			{ 
-				"[BWMF] Half of safe start time remains" remoteExec ["systemChat", 0];	
+				["potato_adminMsg", [format ["[BWMF] Half of SafeStart time remains"]]]	
 			}
 		] call CBA_fnc_waitUntilAndExecute; 
+
+        [
+			{CBA_missionTime >= (parseNumber (getMissionConfigValue QGVAR(SSTimeGiven)) * 60 - 60)},
+			{ 
+				["potato_adminMsg", [format ["[BWMF] One minute of SafeStart time remains"]]]
+			}
+		] call CBA_fnc_waitUntilAndExecute;
 		
 		[
-			{CBA_missionTime >= (parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") * 60)},
+			{CBA_missionTime >= (parseNumber (getMissionConfigValue QGVAR(SSTimeGiven)) * 60)},
 			{ 
-				"[BWMF] Safe start time has expired" remoteExec ["systemChat", 0];
-				["potato_safeStartOff"] call CBA_fnc_globalEvent;
+				["potato_adminMsg", [format ["[BWMF] SafeStart time has expired"]]]
 			}
 		] call CBA_fnc_waitUntilAndExecute;
 	};
