@@ -3,7 +3,7 @@
 if (isServer) then {
     [QGVAR(serverTag), {
         params ["_vehicle", "_tag", "_unit"];
-        INFO_3("serverTag",_vehicle,_tag,name _unit);
+        INFO_3("serverTag [%1-%2-%3]",_vehicle,_tag,name _unit);
         [_vehicle, _tag] call ace_tagging_fnc_stencilVehicle;
     }] call CBA_fnc_addEventHandler;
 };
