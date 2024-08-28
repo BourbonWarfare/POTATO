@@ -62,12 +62,6 @@ addUserActionEventHandler ["toggleRaiseWeapon","Activate",{
         _nAnim set [23,"n"];
         _nAnim = _nAnim joinString "";
         player playMoveNow _nAnim;
-        if(isMultiplayer)then{
-            [player,_nAnim] remoteExec {
-                params ['_u','_nAnim'];
-                _u playMove _nAnim;
-            };
-        };
         };
         //systemChat _nAnim;
     };
