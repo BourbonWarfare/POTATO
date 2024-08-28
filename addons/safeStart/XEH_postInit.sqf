@@ -17,7 +17,7 @@ if (isServer) then {
     ] call CBA_fnc_waitUntilAndExecute;
 
 	if (getMissionConfigValue "potato_missionTesting_SSTimeGiven") then {
-		if (parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") isEqualTo 0) exitWith ["potato_adminMsg", [format ["[BWMF] WARNING: THIS MISSION IS LIVE IMMEDIATELY"]]], call CBA_fnc_globalEvent;
+		if (parseNumber (GetMissionConfigValue "potato_missionTesting_SSTimeGiven") isEqualTo 0) exitWith ["potato_adminMsg", [format ["[BWMF] WARNING: THIS MISSION IS LIVE IMMEDIATELY"]]] call CBA_fnc_globalEvent;
 			
 		[
 			{CBA_missionTime >= ((parseNumber (getMissionConfigValue QGVAR(SSTimeGiven)) * 60) / 2)},
