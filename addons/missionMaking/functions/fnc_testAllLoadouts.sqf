@@ -152,7 +152,7 @@ private _getArrayAndCheck = {
                 // Check core slots have rifle resupply ammo
                 if (_checkResupply && {_weaponIndex == 0} && {(toLower _unitName) in ["rifleman", "ftl", "ar", "lat"]}) then {
                     if ((_weaponMags arrayIntersect _transportMags) isEqualTo []) then {
-                        [format ["%1 has no resupply %2", _x], _transportMags] call _fnc_error;
+                        [format ["%1 has no resupply", _x], _transportMags] call _fnc_error;
                     };
                 };
 
