@@ -8,12 +8,10 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "potato_miscFixes",
-            "gm_characters_xx_revolutionaries",
             "gm_structures_euro_80",
             "gm_structures_euro_80_winter"
         };
         units[] = {
-            "gm_xx_army_rifleman_01_akm_alp_full",
             "land_gm_euro_bridge_02_20_mainroad",
             "land_gm_euro_bridge_02_20_mainroad_win",
             "land_gm_euro_bridge_02_20_normalroad",
@@ -40,4 +38,3 @@ class CfgPatches {
     };
 };
 #include "CfgVehicles.hpp"
-#include "CfgWeapons.hpp"
