@@ -26,7 +26,7 @@ private _fnc_updateInfo = {
     params ["_display"];
     private _aceCtrlMenu = _display displayCtrl 10;
     private _ctrlGroup = _display displayCtrl IDC_CTRLGROUP;
-    if (isNull _aceMenuCtrl) exitWith {};
+    if (isNull _aceCtrlMenu) exitWith {};
     _ctrlGroup ctrlShow (ctrlShown _aceCtrlMenu); 
 };
 _display displayAddEventHandler ["MouseMoving", _fnc_updateInfo];
