@@ -23,7 +23,7 @@ class CfgVehicles {
     };
 
     // Single pier bridges
-    class lmd_land_gm_euro_bridge_02_20_mainroad: GVAR(land_basic_gm_structure_euro_bridge_base) {
+    class land_gm_euro_bridge_02_20_mainroad: GVAR(land_basic_gm_structure_euro_bridge_base) {
         displayName = "Two-Lane Bridge";
         model = "\gm\gm_structures\gm_roads_euro_80\gm_euro_bridge_02_20_mainroad.p3d";
         scope = 2;
@@ -71,41 +71,41 @@ class CfgVehicles {
                 verticalOffsetWorld = 0;
         };
     };
-    class lmd_land_gm_euro_bridge_02_20_mainroad_win: lmd_land_gm_euro_bridge_02_20_mainroad {
+    class land_gm_euro_bridge_02_20_mainroad_win: land_gm_euro_bridge_02_20_mainroad {
         displayName = "Two-Lane Bridge";
         editorCategory = "gm_edcat_structures_weferlingen_winter";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_02_20_mainroad_win.p3d";
     };
-    class lmd_land_gm_euro_bridge_02_20_normalroad: lmd_land_gm_euro_bridge_02_20_mainroad {
+    class land_gm_euro_bridge_02_20_normalroad: land_gm_euro_bridge_02_20_mainroad {
         displayName = "One-Lane Bridge";
         model = "\gm\gm_structures\gm_roads_euro_80\gm_euro_bridge_02_20_normalroad.p3d";
     };
-    class lmd_land_gm_euro_bridge_02_20_normalroad_win: lmd_land_gm_euro_bridge_02_20_normalroad {
+    class land_gm_euro_bridge_02_20_normalroad_win: land_gm_euro_bridge_02_20_normalroad {
         displayName = "One-Lane Bridge";
         editorCategory = "gm_edcat_structures_weferlingen_winter";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_02_20_normalroad_win.p3d";
     };
-    class lmd_land_gm_euro_bridge_02_20_mainroad_half: lmd_land_gm_euro_bridge_02_20_mainroad {
+    class land_gm_euro_bridge_02_20_mainroad_half: land_gm_euro_bridge_02_20_mainroad {
         displayName = "Two-Lane Bridge (Single Collapse)";
         model = "\gm\gm_structures\gm_roads_euro_80\gm_euro_bridge_02_20_mainroad_half.p3d";
     };
-    class lmd_land_gm_euro_bridge_02_20_mainroad_half_win: lmd_land_gm_euro_bridge_02_20_mainroad {
+    class land_gm_euro_bridge_02_20_mainroad_half_win: land_gm_euro_bridge_02_20_mainroad {
         displayName = "Two-Lane Bridge (Single Collapse)";
         editorCategory = "gm_edcat_structures_weferlingen_winter";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_02_20_mainroad_half_win.p3d";
     };
-    class lmd_land_gm_euro_bridge_02_20_normalroad_half: lmd_land_gm_euro_bridge_02_20_mainroad {
+    class land_gm_euro_bridge_02_20_normalroad_half: land_gm_euro_bridge_02_20_mainroad {
         displayName = "One-Lane Bridge (Single Collapse)";
         model = "\gm\gm_structures\gm_roads_euro_80\gm_euro_bridge_02_20_normalroad_half.p3d";
     };
-    class lmd_land_gm_euro_bridge_02_20_normalroad_half_win: lmd_land_gm_euro_bridge_02_20_normalroad {
+    class land_gm_euro_bridge_02_20_normalroad_half_win: land_gm_euro_bridge_02_20_normalroad {
         displayName = "One-Lane Bridge (Single Collapse)";
         editorCategory = "gm_edcat_structures_weferlingen_winter";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_02_20_normalroad_half_win.p3d";
     };
 
     // Arch bridges
-    class lmd_land_gm_euro_bridge_01_25_badroad: GVAR(land_basic_gm_structure_euro_bridge_base) {
+    class land_gm_euro_bridge_01_25_badroad: GVAR(land_basic_gm_structure_euro_bridge_base) {
         displayName = "Arch Bridge";
         model = "\gm\gm_structures\gm_roads_euro_80\gm_euro_bridge_01_25_badroad.p3d";
         scope = 2;
@@ -124,30 +124,30 @@ class CfgVehicles {
             verticalOffsetWorld = 0;
         };
     };
-    class lmd_land_gm_euro_bridge_01_25_badroad_win: lmd_land_gm_euro_bridge_01_25_badroad {
+    class land_gm_euro_bridge_01_25_badroad_win: land_gm_euro_bridge_01_25_badroad {
         displayName = "Arch Bridge";
         editorCategory = "gm_edcat_structures_weferlingen_winter";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_01_25_badroad_win.p3d";
     };
-    class lmd_land_gm_euro_bridge_01_25_patrolPath: lmd_land_gm_euro_bridge_01_25_badroad {
+    class land_gm_euro_bridge_01_25_patrolPath: land_gm_euro_bridge_01_25_badroad {
         displayName = "Patrol Path Bridge";
         model = "\gm\gm_structures\gm_roads_euro_80\gm_euro_bridge_01_25_patrolpath.p3d";
     };
-    class lmd_land_gm_euro_bridge_01_25_patrolPath_win: lmd_land_gm_euro_bridge_01_25_badroad_win {
+    class land_gm_euro_bridge_01_25_patrolPath_win: land_gm_euro_bridge_01_25_badroad_win {
         displayName = "Patrol Path Bridge";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_01_25_patrolpath_win.p3d";
     };
-    class lmd_land_gm_euro_bridge_01_25_track: lmd_land_gm_euro_bridge_01_25_badroad {
+    class land_gm_euro_bridge_01_25_track: land_gm_euro_bridge_01_25_badroad {
         displayName = "Dirt Track Bridge";
         model = "\gm\gm_structures\gm_roads_euro_80\gm_euro_bridge_01_25_track.p3d";
     };
-    class lmd_land_gm_euro_bridge_01_25_track_win: lmd_land_gm_euro_bridge_01_25_badroad_win {
+    class land_gm_euro_bridge_01_25_track_win: land_gm_euro_bridge_01_25_badroad_win {
         displayName = "Dirt Track Bridge";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_01_25_track_win.p3d";
     };
 
     // Highway bridges
-    class lmd_land_gm_euro_bridge_03_50_highway: GVAR(land_basic_gm_structure_euro_bridge_base) {
+    class land_gm_euro_bridge_03_50_highway: GVAR(land_basic_gm_structure_euro_bridge_base) {
         displayName = "Highway Bridge";
         model = "\gm\gm_structures\gm_roads_euro_80\gm_euro_bridge_03_50_highway.p3d";
         scope = 2;
@@ -166,17 +166,17 @@ class CfgVehicles {
             verticalOffsetWorld = 0;
         };
     };
-    class lmd_land_gm_euro_bridge_03_50_highway_win: lmd_land_gm_euro_bridge_03_50_highway {
+    class land_gm_euro_bridge_03_50_highway_win: land_gm_euro_bridge_03_50_highway {
         displayName = "Highway Bridge";
         editorCategory = "gm_edcat_structures_weferlingen_winter";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_03_50_highway_win.p3d";
     };
-    class lmd_land_gm_euro_bridge_03_50_highway_half: lmd_land_gm_euro_bridge_03_50_highway {
+    class land_gm_euro_bridge_03_50_highway_half: land_gm_euro_bridge_03_50_highway {
         displayName = "Highway Bridge (Single Collapse)";
         model = "\gm\gm_structures\gm_roads_euro_80\gm_euro_bridge_03_50_highway_half.p3d";
 
     };
-    class lmd_land_gm_euro_bridge_03_50_highway_half_win: lmd_land_gm_euro_bridge_03_50_highway_win {
+    class land_gm_euro_bridge_03_50_highway_half_win: land_gm_euro_bridge_03_50_highway_win {
         displayName = "Highway Bridge (Single Collapse)";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_03_50_highway_half_win.p3d";
     };
