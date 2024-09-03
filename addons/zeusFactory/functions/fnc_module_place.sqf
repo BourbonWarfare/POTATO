@@ -37,7 +37,7 @@ if (_factories isEqualTo []) exitWith {
 
     {
         // Basic load balancing:
-        private _effectiveDistance = (_x distance2d _placeLogic) + 1000 * (count (_x getVariable [QGVAR(dispatchQueue), []]));
+        private _effectiveDistance = (_x distance2D _placeLogic) + 1000 * (count (_x getVariable [QGVAR(dispatchQueue), []]));
 
         if (_effectiveDistance < _closestRange) then {
             _closestRange = _effectiveDistance;

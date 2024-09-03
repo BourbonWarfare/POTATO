@@ -79,13 +79,13 @@ private _treeSelChangedEH = {
         private _magCount = 0;
         {
             _x params ["_xPath", "_xMag", "_xCount"];
-            if ((_xPath isEqualTo GVAR(selectedTurretPath)) && {_xMag == GVAR(selectedMagazine)}) exitwith {
+            if ((_xPath isEqualTo GVAR(selectedTurretPath)) && {_xMag == GVAR(selectedMagazine)}) exitWith {
                 _magCount = _xCount;
             };
         } forEach GVAR(defaultLoad);
         {
             _x params ["_xPath", "_xMag", "_xCount"];
-            if ((_xPath isEqualTo GVAR(selectedTurretPath)) && {_xMag == GVAR(selectedMagazine)}) exitwith {
+            if ((_xPath isEqualTo GVAR(selectedTurretPath)) && {_xMag == GVAR(selectedMagazine)}) exitWith {
                 _magCount = _magCount + _xCount;
             };
         } forEach GVAR(deltaLoad);
@@ -113,7 +113,7 @@ private _sliderChangedEH = {
     private _defaultCount = 0;
     {
         _x params ["_xPath", "_xMag", "_xCount"];
-        if ((_xPath isEqualTo GVAR(selectedTurretPath)) && {_xMag == GVAR(selectedMagazine)}) exitwith {
+        if ((_xPath isEqualTo GVAR(selectedTurretPath)) && {_xMag == GVAR(selectedMagazine)}) exitWith {
             _defaultCount = _xCount;
         };
     } forEach GVAR(defaultLoad);
@@ -122,7 +122,7 @@ private _sliderChangedEH = {
     private _found = false;
     {
         _x params ["_xPath", "_xMag", "_xCount"];
-        if ((_xPath isEqualTo GVAR(selectedTurretPath)) && {_xMag == GVAR(selectedMagazine)}) exitwith {
+        if ((_xPath isEqualTo GVAR(selectedTurretPath)) && {_xMag == GVAR(selectedMagazine)}) exitWith {
             _found = true;
             _x set [2, _delta];
         };
@@ -157,7 +157,7 @@ private _addWeaponSystem = {
         _found = false;
         {
             _x params ["_xPath", "_xMag", "_xCount"];
-            if ((_xPath isEqualTo _path) && {_xMag == _magToAdd}) exitwith {
+            if ((_xPath isEqualTo _path) && {_xMag == _magToAdd}) exitWith {
                 _found = true;
                 _x set [2, (_xCount + 1)];
             };
@@ -193,13 +193,13 @@ private _addWeaponSystem = {
             private _magCount = 0;
             {
                 _x params ["_xPath", "_xMag", "_xCount"];
-                if ((_xPath isEqualTo _path) && {_xMag == _magToAdd}) exitwith {
+                if ((_xPath isEqualTo _path) && {_xMag == _magToAdd}) exitWith {
                     _magCount = _xCount;
                 };
             } forEach GVAR(defaultLoad);
             {
                 _x params ["_xPath", "_xMag", "_xCount"];
-                if ((_xPath isEqualTo _path) && {_xMag == _magToAdd}) exitwith {
+                if ((_xPath isEqualTo _path) && {_xMag == _magToAdd}) exitWith {
                     _magCount = _magCount + _xCount;
                 };
             } forEach GVAR(deltaLoad);

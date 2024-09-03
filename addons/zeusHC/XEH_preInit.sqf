@@ -7,7 +7,7 @@ PREP_RECOMPILE_START;
 PREP_RECOMPILE_END;
 
 if (isServer) then {
-    missionNameSpace setVariable [QGVAR(aiTransfered), false, true];
+    missionNamespace setVariable [QGVAR(aiTransfered), false, true];
 };
 
 #include "initSettings.inc.sqf"

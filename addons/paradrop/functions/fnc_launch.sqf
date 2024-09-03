@@ -114,7 +114,7 @@ private _flyInHeight = _paradropInfo get "flyInHeight";
 
                     private _targetPos = _dropPos vectorAdd (_directionOfTravel vectorMultiply (300 max (_distanceToPlane * 2)));
                     _targetPos set [2, _flyInHeight];
-                    _targetPos = ASLtoATL _targetPos;
+                    _targetPos = ASLToATL _targetPos;
 
                     // ARMA doesnt like doMoves in consecutive frames: we want to have some delay to correct, but allow the AI to make movements without confusion
                     private _lastMoveTime = _x getVariable QGVAR(lastMoveTime);
@@ -142,7 +142,7 @@ private _flyInHeight = _paradropInfo get "flyInHeight";
 
                         private _targetPos = _dropPos vectorAdd (_directionOfTravel vectorMultiply (_distanceToPlane * 2));
                         _targetPos set [2, _flyInHeight];
-                        _targetPos = ASLtoATL _targetPos;
+                        _targetPos = ASLToATL _targetPos;
 
                         _x doMove _targetPos;
                         (driver _x) doMove _targetPos;

@@ -37,7 +37,7 @@ if (GVAR(setSupplyBoxLoadouts) == -1) exitWith {
 private _path = missionConfigFile >> "CfgLoadouts" >> "SupplyBoxes" >> typeOf _theBox;
 
 if (!isClass _path) exitWith {
-    diag_log text format ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2)", _theBox, typeof _theBox];
+    diag_log text format ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2)", _theBox, typeOf _theBox];
 };
 
 //Clean out starting inventory (even if there is no class)

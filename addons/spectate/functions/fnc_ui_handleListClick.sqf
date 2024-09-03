@@ -21,7 +21,7 @@ TRACE_1("Params",_this);
 params ["_isSingleClick"];
 
 private _handled = false;
-private _object	= missionNamespace getVariable [LIST tvData (tvCurSel LIST), objNull];
+private _object	= missionNamespace getVariable [list tvData (tvCurSel LIST_CTR), objNull];
 
 
 if !(isNull _object) then {
@@ -30,7 +30,7 @@ if !(isNull _object) then {
     if (_isSingleClick) then {
         if (_object != GVAR(camTarget)) then {
             [_object] call FUNC(setFocus);
-            playsound "ReadoutClick";
+            playSound "ReadoutClick";
 
             _handled = true;
         };
@@ -42,7 +42,7 @@ if !(isNull _object) then {
         GVAR(cam) setPosASL _pos;
 
         [_object] call FUNC(setFocus);
-        playsound "ReadoutClick";
+        playSound "ReadoutClick";
 
         _handled = true;
     };

@@ -64,19 +64,19 @@ TRACE_1("New List:",_newList);
 
 if !(GVAR(curList) isEqualTo _newList) then {
     // Remove groups/units that are no longer there
-    for "_sideIndex" from (LIST tvCount []) to 1 step -1 do {
-        for "_groupIndex" from (LIST tvCount [_sideIndex - 1]) to 1  step -1 do {
-            for "_unitIndex" from (LIST tvCount [_sideIndex - 1, _groupIndex - 1]) to 1 step -1 do {
-                private _lookup = _newUnits find (LIST tvData [_sideIndex - 1, _groupIndex - 1, _unitIndex - 1]);
+    for "_sideIndex" from (LIST_CTR tvCount []) to 1 step -1 do {
+        for "_groupIndex" from (LIST_CTR tvCount [_sideIndex - 1]) to 1  step -1 do {
+            for "_unitIndex" from (LIST_CTR tvCount [_sideIndex - 1, _groupIndex - 1]) to 1 step -1 do {
+                private _lookup = _newUnits find (LIST_CTR tvData [_sideIndex - 1, _groupIndex - 1, _unitIndex - 1]);
                 if (_lookup < 0) then {
-                    LIST tvDelete [_sideIndex - 1, _groupIndex - 1, _unitIndex - 1];
+                    LIST_CTR tvDelete [_sideIndex - 1, _groupIndex - 1, _unitIndex - 1];
                 } else {
                     _newUnits deleteAt _lookup;
                 };
             };
-            private _lookup = _newGroups find (LIST tvData [_sideIndex - 1, _groupIndex - 1]);
+            private _lookup = _newGroups find (LIST_CTR tvData [_sideIndex - 1, _groupIndex - 1]);
             if (_lookup < 0) then {
-                LIST tvDelete [_sideIndex - 1, _groupIndex - 1];
+                LIST_CTR tvDelete [_sideIndex - 1, _groupIndex - 1];
             } else {
                 _newGroups deleteAt _lookup;
             };
@@ -87,12 +87,12 @@ if !(GVAR(curList) isEqualTo _newList) then {
     private _groupDataToPathHash = [[], []];
     private _unitDataToPathHash = [[], []];
 
-    for "_sideIndex" from 0 to ((LIST tvCount []) - 1) do {
-        for "_groupIndex" from 0 to ((LIST tvCount [_sideIndex]) - 1) do {
-            (_groupDataToPathHash select 0) pushBack (LIST tvData [_sideIndex, _groupIndex]);
+    for "_sideIndex" from 0 to ((LIST_CTR tvCount []) - 1) do {
+        for "_groupIndex" from 0 to ((LIST_CTR tvCount [_sideIndex]) - 1) do {
+            (_groupDataToPathHash select 0) pushBack (LIST_CTR tvData [_sideIndex, _groupIndex]);
             (_groupDataToPathHash select 1) pushBack [_sideIndex, _groupIndex];
-            for "_unitIndex" from 0 to ((LIST tvCount [_sideIndex, _groupIndex]) - 1) do {
-                (_unitDataToPathHash select 0) pushBack (LIST tvData [_sideIndex, _groupIndex, _unitIndex]);
+            for "_unitIndex" from 0 to ((LIST_CTR tvCount [_sideIndex, _groupIndex]) - 1) do {
+                (_unitDataToPathHash select 0) pushBack (LIST_CTR tvData [_sideIndex, _groupIndex, _unitIndex]);
                 (_unitDataToPathHash select 1) pushBack [_sideIndex, _groupIndex, _unitIndex];
             };
         };
@@ -108,12 +108,12 @@ if !(GVAR(curList) isEqualTo _newList) then {
             [0.7,0.6,0,1]
         };
 
-        if (LIST tvCount [] == _sideIndex) then {
-            LIST tvAdd [[], _sideTitle];
-            LIST tvSetData [[_sideIndex], _sideStr];
+        if (LIST_CTR tvCount [] == _sideIndex) then {
+            LIST_CTR tvAdd [[], _sideTitle];
+            LIST_CTR tvSetData [[_sideIndex], _sideStr];
         };
 
-        LIST tvExpand [_sideIndex];
+        LIST_CTR tvExpand [_sideIndex];
 
         {
             _x params ["_groupInfo", "_nestedUnitData"];
@@ -122,43 +122,43 @@ if !(GVAR(curList) isEqualTo _newList) then {
             private _groupIndex = -1;
             private _lookup = (_groupDataToPathHash select 0) find _groupStr;
             if (_lookup < 0) then {
-                _groupIndex = LIST tvAdd [[_sideIndex], _groupId];
-                LIST tvSetData [[_sideIndex, _groupIndex], _groupStr];
-                LIST tvSetTooltip [[_sideIndex, _groupIndex], _groupId];
+                _groupIndex = LIST_CTR tvAdd [[_sideIndex], _groupId];
+                LIST_CTR tvSetData [[_sideIndex, _groupIndex], _groupStr];
+                LIST_CTR tvSetTooltip [[_sideIndex, _groupIndex], _groupId];
 
                 if (_group getVariable [QEGVAR(markers,addMarker), false]) then {
-                    LIST tvSetPicture [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerTexture), ""]];
-                    LIST tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
-                    LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                    LIST_CTR tvSetPicture [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerTexture), ""]];
+                    LIST_CTR tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                    LIST_CTR tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
                 } else {
                     private _leader = leader _group;
                     if (_leader getVariable [QEGVAR(markers,addMarker), false]) then {
-                        LIST tvSetPicture [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerTexture), ""]];
-                        LIST tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
-                        LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                        LIST_CTR tvSetPicture [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerTexture), ""]];
+                        LIST_CTR tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                        LIST_CTR tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
                     };
                 };
 
-                LIST tvExpand [_sideIndex, _groupIndex];
+                LIST_CTR tvExpand [_sideIndex, _groupIndex];
             } else {
                 // pop data out of hash to improve later lookups
                 (_groupDataToPathHash select 0) deleteAt _lookup;
                 private _path = (_groupDataToPathHash select 1) deleteAt _lookup;
                 _groupIndex = _path select 1;
 
-                LIST tvSetText [_path, _groupId];
-                LIST tvSetTooltip [_path, _groupId];
+                LIST_CTR tvSetText [_path, _groupId];
+                LIST_CTR tvSetTooltip [_path, _groupId];
 
                 if (_group getVariable [QEGVAR(markers,addMarker), false]) then {
-                    LIST tvSetPicture [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerTexture), ""]];
-                    LIST tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
-                    LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                    LIST_CTR tvSetPicture [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerTexture), ""]];
+                    LIST_CTR tvSetPictureColor [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                    LIST_CTR tvSetPictureColorSelected [[_sideIndex, _groupIndex], _group getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
                 } else {
                     private _leader = leader _group;
                     if (_leader getVariable [QEGVAR(markers,addMarker), false]) then {
-                        LIST tvSetPicture [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerTexture), ""]];
-                        LIST tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
-                        LIST tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                        LIST_CTR tvSetPicture [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerTexture), ""]];
+                        LIST_CTR tvSetPictureColor [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
+                        LIST_CTR tvSetPictureColorSelected [[_sideIndex, _groupIndex], _leader getVariable [QEGVAR(markers,markerColor), [0,0,0,0]]];
                     };
                 };
             };
@@ -176,19 +176,19 @@ if !(GVAR(curList) isEqualTo _newList) then {
 
                 private _lookup = (_unitDataToPathHash select 0) find ([_unit] call BIS_fnc_objectVar);
                 if (_lookup < 0) then {
-                    private _unitIndex = LIST tvAdd [[_sideIndex, _groupIndex], _name];
-                    LIST tvSetData [[_sideIndex, _groupIndex, _unitIndex], [_unit] call BIS_fnc_objectVar];
-                    LIST tvSetPicture [[_sideIndex, _groupIndex, _unitIndex], _texture];
-                    LIST tvSetPictureColor [[_sideIndex, _groupIndex, _unitIndex], _unitColor];
-                    LIST tvSetTooltip [[_sideIndex, _groupIndex, _unitIndex], _tooltip];
+                    private _unitIndex = LIST_CTR tvAdd [[_sideIndex, _groupIndex], _name];
+                    LIST_CTR tvSetData [[_sideIndex, _groupIndex, _unitIndex], [_unit] call BIS_fnc_objectVar];
+                    LIST_CTR tvSetPicture [[_sideIndex, _groupIndex, _unitIndex], _texture];
+                    LIST_CTR tvSetPictureColor [[_sideIndex, _groupIndex, _unitIndex], _unitColor];
+                    LIST_CTR tvSetTooltip [[_sideIndex, _groupIndex, _unitIndex], _tooltip];
                 } else {
                     // pop data out of hash to improve later lookups
                     (_unitDataToPathHash select 0) deleteAt _lookup;
                     private _path = (_unitDataToPathHash select 1) deleteAt _lookup;
-                    LIST tvSetText [_path, _name];
-                    LIST tvSetPicture [_path, _texture];
-                    LIST tvSetPictureColor [_path, _unitColor];
-                    LIST tvSetTooltip [_path, _tooltip];
+                    LIST_CTR tvSetText [_path, _name];
+                    LIST_CTR tvSetPicture [_path, _texture];
+                    LIST_CTR tvSetPictureColor [_path, _unitColor];
+                    LIST_CTR tvSetTooltip [_path, _tooltip];
                 };
                 nil
             } count _nestedUnitData; // count used for speed, ensure nil above this line

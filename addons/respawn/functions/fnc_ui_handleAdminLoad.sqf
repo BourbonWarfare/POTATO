@@ -40,11 +40,11 @@ params ["_display"];
 private _ctrlNoMarkerFrame = _display ctrlCreate ["RscText", -1];
 private _ctrlNoMarkerCheckBox = _display ctrlCreate ["RscCheckBox", ADMIN_NOMARKERS_IDC];
 
-_ctrlNoMarkerFrame ctrlSetPosition [0.62 * safezoneW + safezoneX, 0.22 * safezoneH + safezoneY, 0.11 * safezoneW, 0.05 * safezoneH];
+_ctrlNoMarkerFrame ctrlSetPosition [0.62 * safeZoneW + safeZoneX, 0.22 * safeZoneH + safeZoneY, 0.11 * safeZoneW, 0.05 * safeZoneH];
 _ctrlNoMarkerFrame ctrlCommit 0;
 _ctrlNoMarkerFrame ctrlSetText "No Markers";
 
-_ctrlNoMarkerCheckBox ctrlSetPosition [0.69 * safezoneW + safezoneX, 0.23 * safezoneH + safezoneY, 0.02 * safezoneW, 4/3 * 0.02 * safezoneW];
+_ctrlNoMarkerCheckBox ctrlSetPosition [0.69 * safeZoneW + safeZoneX, 0.23 * safeZoneH + safeZoneY, 0.02 * safeZoneW, 4/3 * 0.02 * safeZoneW];
 _ctrlNoMarkerCheckBox ctrlCommit 0;
 _ctrlNoMarkerCheckBox ctrlSetTooltip "Secret Respawn";
 _ctrlNoMarkerCheckBox cbSetChecked (missionNamespace getVariable [QGVAR(noMarkers), false]);
@@ -82,8 +82,8 @@ private _allFactions = createHashMap;
     if (_count > 0) then { _displayName = _displayName + format [" [%1]", _count]; };
 
     private _index = lbAdd [ADMIN_FACTION_COMBO_IDC, _displayName];
-    if (isText (configfile >> "CfgFactionClasses" >> _factionClassname >> "icon")) then {
-        lbSetPicture [ADMIN_FACTION_COMBO_IDC, _index, getText (configfile >> "CfgFactionClasses" >> _factionClassname >> "icon")];
+    if (isText (configFile >> "CfgFactionClasses" >> _factionClassname >> "icon")) then {
+        lbSetPicture [ADMIN_FACTION_COMBO_IDC, _index, getText (configFile >> "CfgFactionClasses" >> _factionClassname >> "icon")];
     };
     lbSetData [ADMIN_FACTION_COMBO_IDC, _index, _x];
 } forEach (allVariables GVAR(factionsToInfo));

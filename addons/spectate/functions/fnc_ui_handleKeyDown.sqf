@@ -93,13 +93,13 @@ if (inputAction "headlights" > 0) exitWith {
         { deleteVehicle _x; } forEach GVAR(camLights);
         GVAR(camLights) = [];
     } else {
-        private _cameraLight = "#lightpoint" createvehicleLocal getPosASL GVAR(cam);
+        private _cameraLight = "#lightpoint" createVehicleLocal getPosASL GVAR(cam);
         _cameraLight setLightBrightness 2;
         _cameraLight setLightAmbient [1,1,1];
         _cameraLight setLightColor [0,0,0];
         _cameraLight lightAttachObject [GVAR(cam), [0,0,0]];
 
-        private _pointerLight = "#lightpoint" createvehicleLocal getPosASL GVAR(cam);
+        private _pointerLight = "#lightpoint" createVehicleLocal getPosASL GVAR(cam);
         _pointerLight setLightBrightness 1;
         _pointerLight setLightAmbient [1,1,1];
         _pointerLight setLightColor [0,0,0];

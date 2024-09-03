@@ -31,7 +31,7 @@ private _path = (
 private _possibleAttachments = [primaryWeapon _player] call CBA_fnc_compatibleItems; // in config-case
 private _opticClassnames = [];
 {
-    private _xConfig = configfile >> "CfgWeapons" >> _x;
+    private _xConfig = configFile >> "CfgWeapons" >> _x;
     private _xConfigName = configName _xConfig;
     if ((isNumber (_xConfig >> "ItemInfo" >> "optics")) 
         && {GVAR(allowMagnifiedOptics) || {!([_xConfigName] call FUNC(isOpticMagnified))}}
@@ -43,7 +43,7 @@ private _opticClassnames = [];
 
 {
     if (_x != ((primaryWeaponItems _player) param [2, ""])) then {
-        private _xConfig = configfile >> "CfgWeapons" >> _x;
+        private _xConfig = configFile >> "CfgWeapons" >> _x;
         private _picture = QPATHTOF(data\scope.paa);
         if (isText (_xConfig >> "picture")) then { _picture = getText (_xConfig >> "picture"); };
         private _name = _x;

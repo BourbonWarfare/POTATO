@@ -24,10 +24,10 @@ params ["", "_button"];
 if (_button == 0) exitWith {
     if (isNull GVAR(cursorObject)) then {
         if (!isNull GVAR(camTarget)) then {
-            playsound "ReadoutHideClick1";
+            playSound "ReadoutHideClick1";
         };
     } else {
-        playsound "ReadoutClick";
+        playSound "ReadoutClick";
         setMousePosition [0.5, 0.5];
     };
     [GVAR(cursorObject)] call FUNC(setFocus);

@@ -30,7 +30,7 @@ if (_factionIndex > -1) then {
         private _unitIndex = lbAdd [SPAWN_VIC_LIST_IDC, _displayName];
         lbSetPicture [SPAWN_VIC_LIST_IDC, _unitIndex,  _icon];
         lbSetData [SPAWN_VIC_LIST_IDC, _unitIndex, _classname];
-        lbSetToolTip [SPAWN_VIC_LIST_IDC, _unitIndex, _classname];
+        lbSetTooltip [SPAWN_VIC_LIST_IDC, _unitIndex, _classname];
         nil
     } count _unitArray;
 };

@@ -51,7 +51,7 @@ TRACE_2("",GVAR(missionstartTime),_missionLength);
             ] call CBA_fnc_globalEvent;
             {
                 [QGVAR(curatorHint_TimeKeeper_15min),[],getAssignedCuratorUnit _x] call CBA_fnc_targetEvent;
-            } forEach allcurators;
+            } forEach allCurators;
             //End Warning
             [
                 {
@@ -64,7 +64,7 @@ TRACE_2("",GVAR(missionstartTime),_missionLength);
                     ] call CBA_fnc_globalEvent;
                     {
                         [QGVAR(curatorHint_TimeKeeper_end),[],getAssignedCuratorUnit _x] call CBA_fnc_targetEvent;
-                    } forEach allcurators;
+                    } forEach allCurators;
                 },
                 [],
                 900
@@ -78,7 +78,7 @@ TRACE_2("",GVAR(missionstartTime),_missionLength);
 
 // Check if mission end map marker already exists.
 
-private _startTime = daytime;
+private _startTime = dayTime;
 private _endTimeDec = _startTime + (_missionLength / 60);
 private _endTime = [_endTimeDec] call BIS_fnc_timeToString;
 

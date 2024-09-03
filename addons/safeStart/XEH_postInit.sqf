@@ -17,7 +17,7 @@ if (isServer) then {
     ] call CBA_fnc_waitUntilAndExecute;
 };
 
-if (didJip) then {
+if (didJIP) then {
     [
         {time > 1},
         {

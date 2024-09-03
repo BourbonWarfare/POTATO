@@ -12,7 +12,7 @@ if (isNull _logic || !_activated) exitWith {};
 
 private _posATL = getPosATL _logic;
 private _typeOf = typeOf _logic;
-private _attachedVehicle = _logic getVariable ["bis_fnc_curatorAttachObject_object",objnull];
+private _attachedVehicle = _logic getVariable ["bis_fnc_curatorAttachObject_object",objNull];
 private _placerOwner = owner _logic;
 TRACE_4("",_posATL,_typeOf,_attachedVehicle,_placerOwner);
 

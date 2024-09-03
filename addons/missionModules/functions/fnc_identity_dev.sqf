@@ -16,7 +16,7 @@ z = z select {private _name = _x; (ignore findIf {_x in toLower _name}) == -1 };
         };
     } forEach x;
 
-    if (match isequalto []) then {continue};
+    if (match isEqualTo []) then {continue};
 
     private _first = configFile >> "CfgVoice" >> (match # 0);
 

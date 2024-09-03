@@ -28,7 +28,7 @@ if (!isNull GVAR(camTarget) || _index == FREE_CAMERA) then {
 
         // Reset vision mode
         camUseNVG false;
-        false setCamUseTi 0;
+        false setCamUseTI 0;
         GVAR(visionModeIndex) = 0;
 
         [] call FUNC(resetTarget);
