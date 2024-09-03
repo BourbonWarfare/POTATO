@@ -63,7 +63,7 @@ class CfgVehicles {
             };
         };
         class SimpleObject {
-                animate [] = {};
+                animate[] = {};
                 eden = 1;
                 hide[] = {};
                 init = "''";
@@ -116,7 +116,7 @@ class CfgVehicles {
             };
         };
         class SimpleObject {
-            animate [] = {};
+            animate[] = {};
             eden = 1;
             hide[] = {};
             init = "''";
@@ -158,7 +158,7 @@ class CfgVehicles {
             };
         };
         class SimpleObject {
-            animate [] = {};
+            animate[] = {};
             eden = 1;
             hide[] = {};
             init = "''";
