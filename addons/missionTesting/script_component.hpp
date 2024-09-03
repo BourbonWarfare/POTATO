@@ -44,9 +44,9 @@
 
 // Report Defines
 #define S_NEWTEXTLINE _textArray pushBack format
-#define S_NEWTEXTLINE_FORMATTEXT _textArray pushBack formattext
+#define S_NEWTEXTLINE_FORMATTEXT _textArray pushBack formatText
 #define S_NEWTEXTLINE_SHORT _textArrayShort pushBack format
-#define S_NEWTEXTLINE_FORMATTEXT_SHORT _textArrayShort pushBack formattext
+#define S_NEWTEXTLINE_FORMATTEXT_SHORT _textArrayShort pushBack formatText
 #define MISSION_TYPE_APPLIES_BOTH 0
 #define MISSION_TYPE_APPLIES_COOP 1
 #define MISSION_TYPE_APPLIES_TVT 2

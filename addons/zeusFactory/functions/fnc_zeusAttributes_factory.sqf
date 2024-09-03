@@ -110,5 +110,5 @@ private _fnc_onConfirm = {
     TRACE_3("setting vehicles",_carType,_apcType,_heliType);
 };
 
-_display displayAddEventHandler ["unload", _fnc_onUnload];
-_ctrlButtonOK ctrlAddEventHandler ["buttonclick", _fnc_onConfirm];
+_display displayAddEventHandler ["Unload", _fnc_onUnload];
+_ctrlButtonOK ctrlAddEventHandler ["ButtonClick", _fnc_onConfirm];
