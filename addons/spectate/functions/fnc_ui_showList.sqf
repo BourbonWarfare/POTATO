@@ -22,14 +22,14 @@ params ["_showList"];
 
 if (GVAR(uiVisible)) then {
     if (_showList) then {
-        LIST ctrlSetBackgroundColor [0,0,0,0.75];
-        LIST ctrlSetFade 0.0;
+        LIST_CTR ctrlSetBackgroundColor [0,0,0,0.75];
+        LIST_CTR ctrlSetFade 0.0;
         ctrlSetFocus LIST;
         GVAR(cam) camCommand "manual off";
         showChat false;
     } else {
-        LIST ctrlSetBackgroundColor [0,0,0,0];
-        LIST ctrlSetFade 0.8;
+        LIST_CTR ctrlSetBackgroundColor [0,0,0,0];
+        LIST_CTR ctrlSetFade 0.8;
         ctrlSetFocus MOUSE;
         if (GVAR(currentCamIndex) == FREE_CAMERA) then {
             GVAR(cam) camCommand "manual on";
@@ -37,5 +37,5 @@ if (GVAR(uiVisible)) then {
         showChat true;
     };
 
-    LIST ctrlCommit 0.2;
+    LIST_CTR ctrlCommit 0.2;
 };

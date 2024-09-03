@@ -58,7 +58,7 @@
 #define MENU (OVERLAY displayCtrl MENU_IDC)
 
 #define LIST_IDC 769790
-#define LIST (OVERLAY displayCtrl LIST_IDC)
+#define LIST_CTR (OVERLAY displayCtrl LIST_IDC)
 
 #define COMPASS_IDC 769795
 #define COMPASS (OVERLAY displayCtrl COMPASS_IDC)
