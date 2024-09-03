@@ -57,7 +57,7 @@ _modelOffset = _modelOffset vectorAdd ((vectorNormalized _modelOffset) vectorMul
     TRACE_2("created unit",_unitType,_unit);
 
     if (_attachedVehicle isKindOf "Air") then { //Add velocity and move into parachute
-        _unit setPosASL (AGLtoASL _posAGL);
+        _unit setPosASL (AGLToASL _posAGL);
         _unit setVelocity ((velocity _attachedVehicle) vectorAdd ((vectorNormalized _modelOffset) vectorMultiply (random 10)));
 
         [{

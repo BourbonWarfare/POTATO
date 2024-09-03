@@ -11,7 +11,7 @@
 params ["_display"];
 TRACE_1("",_display);
 
-if (!is3den) exitWith {};
+if (!is3DEN) exitWith {};
 
 private _infoBar = _display ctrlCreate ["RscText", -1];
 _infoBar ctrlSetBackgroundColor [1,0,0,0.25];

@@ -24,7 +24,7 @@ TRACE_1("Params",_this);
 params ["_location","_vehicleToAdd","_side"];
 
 private _simulation = getText(configFile >> "CfgVehicles" >> _vehicleToAdd >> "simulation");
-private _vehicle = switch (tolower _simulation) do {
+private _vehicle = switch (toLower _simulation) do {
     case "airplanex";
     case "helicopterrtd";
     case "helicopterx": {

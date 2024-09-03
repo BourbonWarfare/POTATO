@@ -88,7 +88,7 @@ private _createChecklistSection  = {
 
         private _idcPassFail = IDC_CBITEMS + _forEachIndex;
         private _ctrlCreateSectionInstruction = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscCombo),_idcPassFail,CONTROL_GROUP_L];
-        lbCLear _ctrlCreateSectionInstruction;
+        lbClear _ctrlCreateSectionInstruction;
         {
             _ctrlCreateSectionInstruction lbAdd _x;
         } forEach A_PASSFAIL;
@@ -280,8 +280,8 @@ _ctrlCreateInfoBlockText = composeText [
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION TIMERS</t>"
     ,_separator
-    ,parseText "<t color='#0080FF'>Mission SS Time (mins):</t> ",_missionSSTime, linebreak
-    ,parseText "<t color='#0080FF'>Mission Run Time (mins):</t> ",_missionTimeLength, linebreak
+    ,parseText "<t color='#0080FF'>Mission SS Time (mins):</t> ",_missionSSTime, lineBreak
+    ,parseText "<t color='#0080FF'>Mission Run Time (mins):</t> ",_missionTimeLength, lineBreak
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION TAGS</t>"
     ,_separator

@@ -18,7 +18,7 @@ private _ctrlSize = _ctrlGroup controlsGroupCtrl MARKER_SIZE_IDC;
 private _ctrlColor = _ctrlGroup controlsGroupCtrl MARKER_COLOR_IDC;
 
 // register event handlers
-_ctrlSet ctrlAddeventHandler ["toolboxselchanged",{_this call FUNC(markerControlSetChange);}];
+_ctrlSet ctrlAddEventHandler ["toolboxselchanged",{_this call FUNC(markerControlSetChange);}];
 _ctrlSet lbSetCurSel 0;
 [_ctrlSet,0] call FUNC(markerControlSetChange);
 

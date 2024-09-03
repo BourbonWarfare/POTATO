@@ -3,7 +3,7 @@
 // clean up empty groups
 {
     if ((units _x) isEqualTo []) then {
-        TRACE_2("Deleting Empty Group",_x,groupID _x);
+        TRACE_2("Deleting Empty Group",_x,groupId _x);
         deleteGroup _x;
     };
 } forEach allGroups;

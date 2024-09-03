@@ -3,8 +3,8 @@
 params [["_type", "", [""]]];
 if (_type == "") exitWith {};
 
-private _input = uinamespace getvariable ["bis_fnc_3DENEntityMenu_data",[]];
-private _entity = _input param [1,objnull];
+private _input = uiNamespace getVariable ["bis_fnc_3DENEntityMenu_data",[]];
+private _entity = _input param [1,objNull];
 
 systemChat format ["Change %1 to %2", _entity, _type];
 

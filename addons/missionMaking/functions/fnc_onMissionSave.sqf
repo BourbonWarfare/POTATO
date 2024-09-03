@@ -276,7 +276,7 @@ private _fortifies = (all3DENEntities select 3) select {_x isKindOf "potato_fort
 } forEach _fortifies;
 
 TRACE_1("",_problems);
-INFO_2("Finished test with %1 problems in %2 ms:",count _problems,((diag_ticktime - _startTime) * 1000) toFixed 1);
+INFO_2("Finished test with %1 problems in %2 ms:",count _problems,((diag_tickTime - _startTime) * 1000) toFixed 1);
 
 if (_problems isEqualTo []) then {
     private _msg = "Saved: No Problems Detected!";
@@ -291,7 +291,7 @@ if (_problems isEqualTo []) then {
             _x params ["_errorCode", "_errorArray"];
             private _errorCount = count _errorArray;
             if (_errorCount > 5) then {
-                _errorArray reSize 5;
+                _errorArray resize 5;
                 _errorArray pushBack format [" + %1 more", _errorCount - 5];
             };
             private _msg = format ["[%1/%2] %3:%4", (_forEachIndex + 1), count _problems, _errorCode, _errorArray];

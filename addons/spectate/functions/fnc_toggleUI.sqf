@@ -26,7 +26,7 @@ if (GVAR(uiVisible)) then {
     [GVAR(respawnOpen)] call FUNC(setRespawn);
 
     showChat true;
-    playsound "HintCollapse";
+    playSound "HintCollapse";
 } else {
     FOCUS_GROUP ctrlSetFade 1;
     CAM_GROUP ctrlSetFade 1;
@@ -34,7 +34,7 @@ if (GVAR(uiVisible)) then {
     [false] call FUNC(setRespawn);
 
     showChat false;
-    playsound "HintExpand";
+    playSound "HintExpand";
 };
 
 FOCUS_GROUP ctrlCommit 0.25;

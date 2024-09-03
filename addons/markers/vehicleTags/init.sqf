@@ -26,7 +26,7 @@ GVAR(tags) = [
 private _fnc_statement = {};
 private _fnc_condition = {
     (missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1)  // safe start active
-    && {(rankID _player) >= 1}
+    && {(rankId _player) >= 1}
     && {
         private _selectionClan = getText (configOf _target >> "selectionClan");
         (_selectionClan in selectionNames _target)
@@ -43,7 +43,7 @@ private _fnc_children = {
         [QGVAR(serverTag), [_target, _xTag, _player]] call CBA_fnc_serverEvent;
     };
 
-    private _groupID = groupID (group _player);
+    private _groupID = groupId (group _player);
     {
         _x params ["_xNames", ["_xTag", ""]];
         if ((_xNames findIf {_x in _groupID}) == -1) then { continue };

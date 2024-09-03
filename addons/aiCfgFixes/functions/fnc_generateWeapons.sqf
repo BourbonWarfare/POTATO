@@ -69,14 +69,14 @@ systemChat "Generating...";
     private _weaponTypeSpecific = _weaponType select 1;
     private _weaponTypeID = -1;
     {
-        if (_weaponTypeSpecific in _x) exitwith {_weaponTypeID = _foreachindex};
-    } foreach _types;
+        if (_weaponTypeSpecific in _x) exitWith {_weaponTypeID = _foreachindex};
+    } forEach _types;
 
     private _weaponDefinedConfig = configProperties[_weaponCfg, "isClass _x", false];
     private _allModes = [getArray(_weaponCfg >> "modes")] call _removeDuplicates;
     private _hasDefinedMode = {
         if (configName(_x) in _allModes) exitWith {true};
-    } foreach _weaponDefinedConfig;
+    } forEach _weaponDefinedConfig;
 
     if (!isNil {_hasDefinedMode} && _weaponTypeCategory != "VehicleWeapon" && _weaponTypeID >= 0) then {
         private _procStr = "Processing '" + _weapon;
@@ -90,7 +90,7 @@ systemChat "Generating...";
             while {count _inherited > 0} do {
                 // If the immediate class above this one does not have any modes defined, that means that it is a base of a base class and we can
                 // ignore it
-                if (getArray(inheritsFrom(_inherited) >> "modes") select 0 == "this" && getArray(_inherited >> "modes") select 0 == "this") exitwith {
+                if (getArray(inheritsFrom(_inherited) >> "modes") select 0 == "this" && getArray(_inherited >> "modes") select 0 == "this") exitWith {
                     // we flag this as the lowest base class
                     _prevInherited pushBack [LOWEST_BASE_CLASS, _inherited];
                     true
@@ -102,8 +102,8 @@ systemChat "Generating...";
                 _weaponTypeSpecific = (_weapon call bis_fnc_itemType) select 1;
                 _weaponTypeID = -1;
                 {
-                    if (_weaponTypeSpecific in _x) exitwith {_weaponTypeID = _foreachindex};
-                } foreach _types;
+                    if (_weaponTypeSpecific in _x) exitWith {_weaponTypeID = _foreachindex};
+                } forEach _types;
                 _prevInherited pushBack [_weaponTypeID, _inherited];
                 _inherited = inheritsFrom(_inherited);
             };
@@ -127,7 +127,7 @@ private _alreadyDefined = [];
 {
     // _x = {{index, inherited_classname}, ...}
     private _reversedArray = _x;
-    private _definedDefault = False;
+    private _definedDefault = false;
     reverse _reversedArray;
     {
         // _x = {index, inherited_classname}
@@ -161,7 +161,7 @@ private _alreadyDefined = [];
                             // narrow-phase checking to ensure that the mode has not already been defined, even if the wrong capitalization
                             private _modeInside = {
                                 if (toLower _x == toLower _currentTestModeName) exitWith {true};
-                            } foreach _allModes;
+                            } forEach _allModes;
                             if (isNil {_modeInside}) then {
                                 _allModes pushBack configName(_x);
                                 // we pushBack the mode so we don't add it to the mode list in the next loop
@@ -172,7 +172,7 @@ private _alreadyDefined = [];
                                 diag_log _procStr;
                             };
                         };
-                    } foreach configProperties[_weaponCfg, "isClass _x", false];
+                    } forEach configProperties[_weaponCfg, "isClass _x", false];
 
                     {
                         // _x = inherited_classname::modes (string)
@@ -194,7 +194,7 @@ private _alreadyDefined = [];
                                         // _modeClass = INDENT + INDENT + "class " + _modeName + ": " + configName(_x) + " {" + LINE_BREAK;
                                         true
                                     };
-                                } foreach _configClasses;
+                                } forEach _configClasses;
                             };
 
                             private _configCheck = 'configName(_x) == "burst" ||
@@ -228,7 +228,7 @@ private _alreadyDefined = [];
                                         _modeDef = _modeDef + CFG_CLASS_DATA(INDENT + configName(_x),str(getText(_x)));
                                     };
                                 };
-                            } foreach configProperties[_weaponCfg >> _x, _configCheck, true];
+                            } forEach configProperties[_weaponCfg >> _x, _configCheck, true];
 
                             private _uniqueIndex = _addedModes pushBackUnique (toLower _x);
                             // "Fix" bug where ACE modes would be duplicated endlessly
@@ -248,7 +248,7 @@ private _alreadyDefined = [];
 
                             _predefinedModes pushBack [_x, configName(inheritsFrom(_weaponCfg >> _x)), (_modeClass + _modeDef + INDENT + INDENT + "};" + LINE_BREAK)];
                         };
-                    } foreach _allModes;
+                    } forEach _allModes;
 
                     // This next bit is to make sure that all the modes are defined in an order that guarentees that
                     // inheritance will work.
@@ -291,8 +291,8 @@ private _alreadyDefined = [];
                 };
             };
         };
-    } foreach _reversedArray;
-} foreach _allWeapons;
+    } forEach _reversedArray;
+} forEach _allWeapons;
 
 private _finalStr = CFG_WEAPONS_HEADER + _baseClasses + _weaponClasses + CFG_FOOTER;
 

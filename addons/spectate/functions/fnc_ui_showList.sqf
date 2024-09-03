@@ -24,7 +24,7 @@ if (GVAR(uiVisible)) then {
     if (_showList) then {
         LIST_CTR ctrlSetBackgroundColor [0,0,0,0.75];
         LIST_CTR ctrlSetFade 0.0;
-        ctrlSetFocus LIST;
+        ctrlSetFocus LIST_CTR;
         GVAR(cam) camCommand "manual off";
         showChat false;
     } else {

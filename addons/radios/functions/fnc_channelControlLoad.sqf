@@ -43,7 +43,7 @@ if (_ctrlGroup getVariable QGVAR(channelsInvalid) || {count _selected <= 0}) exi
 [_ctrlGroup, _side] call FUNC(setChannelArrays);
 
 // register event handlers
-_ctrlSet ctrlAddeventHandler ["ToolBoxSelChanged", {_this call FUNC(channelControlSetChange);}];
+_ctrlSet ctrlAddEventHandler ["ToolBoxSelChanged", {_this call FUNC(channelControlSetChange);}];
 _ctrlSet lbSetCurSel 0;
 [_ctrlSet, 0] call FUNC(channelControlSetChange);
 

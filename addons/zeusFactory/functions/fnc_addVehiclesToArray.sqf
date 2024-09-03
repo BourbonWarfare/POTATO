@@ -44,7 +44,7 @@ private _zeusAutoVics = missionNamespace getVariable [QEGVAR(zeusHC,vehicleList)
         if (_type isKindOf "Helicopter") exitWith { // note: pularality (helicopters/Helicopter)s
             if (_lookup == "helicopters") then { _storageArray pushBack _type; };
         };
-        if ((_type isKindOf "Wheeled_APC") || {_type IsKindOf "Wheeled_APC_F"} || {_type IsKindOf "Tank"}) exitWith { 
+        if ((_type isKindOf "Wheeled_APC") || {_type isKindOf "Wheeled_APC_F"} || {_type isKindOf "Tank"}) exitWith { 
             if (_lookup == "apcs") then { _storageArray pushBack _type; };
         };
         if (_lookup == "cars") then { _storageArray pushBack _type; };

@@ -10,7 +10,7 @@
 params ["_posASL", "_vehType", "_side"];
 TRACE_3("autoModule_createLocal",_posASL,_vehType,_side);
 
-private _posATL = aslToAtl _posASL;
+private _posATL = ASLToATL _posASL;
 private _sideUnitConfig = switch (_side) do {
     case west: { configFile >> "CfgVehicles" >> QGVAR(west_rifleman) };
     case east: { configFile >> "CfgVehicles" >> QGVAR(east_rifleman) };

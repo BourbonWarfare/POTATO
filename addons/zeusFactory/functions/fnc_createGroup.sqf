@@ -50,7 +50,7 @@ if ((isNull _group) || {isNull leader _group}) exitWith {
 private _factoryID = _factoryLogic getVariable [QGVAR(factoryID), -1];
 private _groupCount = _factoryLogic getVariable [QGVAR(groupCount), 0];
 _groupCount = _groupCount + 1;
-_group setGroupIDGlobal [format ["Factory %1-%2", _factoryID, _groupCount]];
+_group setGroupIdGlobal [format ["Factory %1-%2", _factoryID, _groupCount]];
 _factoryLogic setVariable [QGVAR(groupCount), _groupCount];
 
 

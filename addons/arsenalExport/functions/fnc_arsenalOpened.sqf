@@ -13,12 +13,12 @@ if ((count (call BIS_fnc_listPlayers)) > 1) exitWith {INFO_1("hiding export in m
 private _y = 0;
 private _ctrlsToUpdate = [];
 
-private _height = (((safezoneW / safezoneH) min 1.2) / 1.2) / 25;
-private _xPos = safezoneX + safezoneW - 15 * _height;
+private _height = (((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25;
+private _xPos = safeZoneX + safeZoneW - 15 * _height;
 if (_shiftLeft) then {
     _xPos = _xPos - 93 * GRID_W;
 };
-private _yPos = (safezoneY + 1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)) + 16 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25);
+private _yPos = (safeZoneY + 1.5 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25)) + 16 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25);
 
 private _ctrlGroup = _display ctrlCreate ["RscControlsGroup", IDC_CTRLGROUP];
 

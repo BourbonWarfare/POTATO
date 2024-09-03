@@ -34,10 +34,10 @@ _this spawn {
                     case (civilian): { "#880099" };
                     default { "#FFFFFF" };
                 };
-                _diaryBuilder pushBack format ["<font color='%1' size='16'>%2</font>", _color, (groupID _x)];
+                _diaryBuilder pushBack format ["<font color='%1' size='16'>%2</font>", _color, (groupId _x)];
                 {
-                    private _xIcon = gettext (configfile >> "CfgVehicles" >> typeOf (vehicle _x) >> "icon");
-                    private _image = gettext (configfile >> "CfgVehicleIcons" >> _xIcon);
+                    private _xIcon = getText (configFile >> "CfgVehicles" >> typeOf (vehicle _x) >> "icon");
+                    private _image = getText (configFile >> "CfgVehicleIcons" >> _xIcon);
                     _diaryBuilder pushBack format ["<img image='%1' width='16' height='16'/><font size='14'>%2</font>", _image, (name _x)];
                 } forEach (units _x);
             };

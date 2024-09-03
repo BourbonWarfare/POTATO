@@ -75,7 +75,7 @@ private _maxEffectiveness = -9999;
         _treatmentInfo pushBack _treatment;
         TRACE_2("",_treatment,_woundList);
     };
-} forEach ("true" configClasses (configfile >> "ACE_Medical_Advanced" >> "Treatment" >> "Bandaging"));
+} forEach ("true" configClasses (configFile >> "ACE_Medical_Advanced" >> "Treatment" >> "Bandaging"));
 
 TRACE_2("",_woundEffectiveness,_treatmentInfo);
 
@@ -147,7 +147,7 @@ if (_isMedic) then {
         };
 
         _treatmentsDiaryBuilder pushBack format ["      Time in system (seconds): %1", getNumber (_x >> "timeInSystem")];
-    } forEach ("true" configClasses (configfile >> "ACE_Medical_Advanced" >> "Treatment" >> "Medication"));
+    } forEach ("true" configClasses (configFile >> "ACE_Medical_Advanced" >> "Treatment" >> "Medication"));
 
     _treatmentsDiaryBuilder pushBack "";
     _treatmentsDiaryBuilder pushBack "Fluids:";
