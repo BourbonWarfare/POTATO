@@ -19,24 +19,35 @@ TRACE_1("updateInfo",_this);
 
 if (GVAR(uiVisible) && GVAR(showInfo)) then {
     if (isNull GVAR(camTarget)) then {
-        [player getVariable [QGVAR(oldUnit), player], acex_killTracker_outputText]
+        private _player = player getVariable [QGVAR(oldUnit), player];
+        [_player, acex_killTracker_outputText, [_player] call FUNC(getName)]
     } else {
-        [GVAR(camTarget), GVAR(camTarget) getVariable [QACEGVAR(killtracker,output), "None"]]
-    } params ["_unit", "_killFeed"];
-    TRACE_1("Kill Feed",_killFeed);
+        if (GVAR(camTarget) isKindOf "CaManBase") then {
+            [GVAR(camTarget), GVAR(camTarget) getVariable [QACEGVAR(killtracker,output), "None"], GVAR(camTarget) call FUNC(getName)]
+        } else {
+            private _vicName = getText ((configOf GVAR(camTarget)) >> "displayName");
+            private _commander = effectiveCommander GVAR(camTarget);
+            if (!isNull _commander && {isPlayer _commander}) then { 
+                private _commanderName = [_commander] call FUNC(getName);
+                _vicName = _vicName + format [" [%1]", _commanderName];
+            };
+            [GVAR(camTarget), _commander getVariable [QACEGVAR(killtracker,output), "None"], _vicName]
+        }
+    } params ["_unit", "_killFeed", "_name"];
+    TRACE_3("Kill Feed",typeOf _unit,count _killFeed,_name);
 
     if !(ctrlShown FOCUS_GROUP) then {
         FOCUS_GROUP ctrlShow true;
     };
 
-    FOCUS_NAME ctrlSetText ([_unit] call FUNC(getName));
-    FOCUS_KILL ctrlSetStructuredText parseText format ["%1%2%3", "<t size='0.75'>", _killFeed, "</t>"];
+    FOCUS_NAME ctrlSetText _name;
+    FOCUS_KILL ctrlSetStructuredText parseText format ["%1%2%3", "<t size='0.7'>", _killFeed, "</t>"];
     private _killPos = ctrlPosition FOCUS_KILL;
     _killPos set [3, ctrlTextHeight FOCUS_KILL];
     FOCUS_KILL ctrlSetPosition _killPos;
     FOCUS_KILL ctrlCommit 0;
 
-    if (vehicle _unit == _unit) then {
+    if (_unit isKindOf "CaManBase") then {
         FOCUS_UNIT ctrlSetText ([_unit] call ACEFUNC(common,getVehicleIcon));
         FOCUS_UNIT ctrlShow true;
 
@@ -55,33 +66,19 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
         ];
 
         private _wounds = _unit getVariable [QACEGVAR(medical,openWounds), []];
-
-        if (_wounds isEqualType []) then {
+        {
+            private _selectionIndex = ["head", "body", "leftarm", "rightarm", "leftleg", "rightleg"] find _x;
+            private _woundsOnPart = _y;
             {
-                _x params ["", "_selectionIndex", "_amountOf", "_x4"];
+                _x params ["", "_amountOf", "_x4"];
                 // Find how much this bodypart is bleeding
                 if (_amountOf > 0) then {
                     private _bodySelection = _bodyInfo select _selectionIndex;
                     _bodySelection set [0, true];
                     _bodySelection set [1, (_bodySelection select 1) + (20 * _x4 * _amountOf)];
                 };
-            } forEach _wounds;
-        } else {
-            // hashmaps for ace 3.16.0
-            {
-                private _selectionIndex = ["head", "body", "leftarm", "rightarm", "leftleg", "rightleg"] find _x;
-                private _woundsOnPart = _y;
-                {
-                    _x params ["", "_amountOf", "_x4"];
-                    // Find how much this bodypart is bleeding
-                    if (_amountOf > 0) then {
-                        private _bodySelection = _bodyInfo select _selectionIndex;
-                        _bodySelection set [0, true];
-                        _bodySelection set [1, (_bodySelection select 1) + (20 * _x4 * _amountOf)];
-                    };
-                } forEach _woundsOnPart;
-            } forEach _wounds;
-        };
+            } forEach _woundsOnPart;
+        } forEach _wounds;
 
         {
             _x params ["_damaged", "_bloodLoss", "_idc"];
@@ -97,8 +94,7 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
             } else {
                 (OVERLAY displayCtrl _idc) ctrlSetTextColor [1, 1, 1, 1];
             };
-            nil
-        } count _bodyInfo; // count used here for speed, ensure nil above this line
+        } forEach _bodyInfo;
 
         private _bloodVol = _unit getVariable [QACEGVAR(medical,bloodVolume), 6];
         private _pain = _unit getVariable [QACEGVAR(medical,pain), 0];
