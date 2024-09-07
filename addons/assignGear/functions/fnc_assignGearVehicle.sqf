@@ -94,6 +94,14 @@ private _transportMagazines = getArray(_path >> "TransportMagazines");
 private _transportItems = getArray(_path >> "TransportItems");
 private _transportWeapons = getArray(_path >> "TransportWeapons");
 private _transportBackpacks = getArray(_path >> "TransportBackpacks");
+private _transportBoxClassname = getText(_path >> "AmmoBox");
+if (_transportBoxClassname == "") then {
+    _transportBoxClassname = "Box_NATO_Ammo_F";
+};
+private _transportBoxWeight = getNumber(_path >> "AmmoBoxCapacity");
+if (_transportBoxWeight == 0) then {
+    _transportBoxWeight = 75;
+};
 
 switch (GVAR(setVehicleLoadouts)) do {
     case 1: { // ammo in vehicle inventory
@@ -131,9 +139,6 @@ switch (GVAR(setVehicleLoadouts)) do {
         } count _transportBackpacks; // count used here for speed, make sure nil is above this line
     };
     case 2: { // ammo in boxes in vehicle
-        private _boxClassname = "Box_NATO_Ammo_F";
-        private _weightPerBox = 75; // lbs
-
         private _getMassLbs = {
             params ["_config"];
             private _mass = getNumber (_config >> "mass");
@@ -216,7 +221,7 @@ switch (GVAR(setVehicleLoadouts)) do {
         } do {
             scopeName "item_select_loop";
             private _currentWeight = 0;
-            private _box = createVehicle [_boxClassname, [0, 0, 0], [], 0, "NONE"];
+            private _box = createVehicle [_transportBoxClassname, [0, 0, 0], [], 0, "NONE"];
             clearWeaponCargoGlobal _box;
             clearMagazineCargoGlobal _box;
             clearItemCargoGlobal _box;
@@ -225,7 +230,7 @@ switch (GVAR(setVehicleLoadouts)) do {
             [_box, _theVehicle, true] call ace_cargo_fnc_loadItem;
 
             private _name = [];
-            if (_currentWeight < _weightPerBox && _availableBackpacks isNotEqualTo []) then {
+            if (_currentWeight < _transportBoxWeight && _availableBackpacks isNotEqualTo []) then {
                 scopeName "add_Backpack";
                 private _chosen = "";
                 private _amounts = [0];
@@ -246,7 +251,7 @@ switch (GVAR(setVehicleLoadouts)) do {
                     _amounts set [0, _count - 1];
                     _box addBackpackCargoGlobal [_chosen, 1];
 
-                    if (_currentWeight >= _weightPerBox) exitWith {
+                    if (_currentWeight >= _transportBoxWeight) exitWith {
                         breakTo "add_Backpack";
                     };
                 };
@@ -254,7 +259,7 @@ switch (GVAR(setVehicleLoadouts)) do {
                 _loadoutInfo set [_chosen, _amounts];
                 _availableBackpacks pushBack _chosen;
             };
-            if (_currentWeight < _weightPerBox && _availableWeapons isNotEqualTo []) then {
+            if (_currentWeight < _transportBoxWeight && _availableWeapons isNotEqualTo []) then {
                 scopeName "add_weapon";
                 private _chosen = "";
                 private _amounts = [0];
@@ -275,7 +280,7 @@ switch (GVAR(setVehicleLoadouts)) do {
                     _amounts set [0, _count - 1];
                     _box addWeaponCargoGlobal [_chosen, 1];
 
-                    if (_currentWeight >= _weightPerBox) exitWith {
+                    if (_currentWeight >= _transportBoxWeight) exitWith {
                         breakTo "add_weapon";
                     };
                 };
@@ -283,7 +288,7 @@ switch (GVAR(setVehicleLoadouts)) do {
                 _loadoutInfo set [_chosen, _amounts];
                 _availableWeapons pushBack _chosen;
             };
-            if (_currentWeight < _weightPerBox && _availableMagazines isNotEqualTo []) then {
+            if (_currentWeight < _transportBoxWeight && _availableMagazines isNotEqualTo []) then {
                 scopeName "add_magazine";
                 private _chosen = "";
                 private _amounts = [0];
@@ -303,7 +308,7 @@ switch (GVAR(setVehicleLoadouts)) do {
                     if (_weight == 0) then {
                         _toAdd = _count;
                     } else {
-                        _toAdd = floor ((_weightPerBox - _currentWeight) / _weight);
+                        _toAdd = floor ((_transportBoxWeight - _currentWeight) / _weight);
                     };
                     // always add at least one item
                     _toAdd = 1 max (_toAdd min _count);
@@ -312,7 +317,7 @@ switch (GVAR(setVehicleLoadouts)) do {
                     _amounts set [0, _count - _toAdd];
                     _box addMagazineCargoGlobal [_chosen, _toAdd];
 
-                    if (_currentWeight >= _weightPerBox) exitWith {
+                    if (_currentWeight >= _transportBoxWeight) exitWith {
                         breakTo "add_magazine";
                     };
                 };
@@ -320,7 +325,7 @@ switch (GVAR(setVehicleLoadouts)) do {
                 _loadoutInfo set [_chosen, _amounts];
                 _availableMagazines pushBack _chosen;
             };
-            if (_currentWeight < _weightPerBox && _availableItems isNotEqualTo []) then {
+            if (_currentWeight < _transportBoxWeight && _availableItems isNotEqualTo []) then {
                 scopeName "add_item";
                 private _chosen = "";
                 private _amounts = [0];
@@ -340,7 +345,7 @@ switch (GVAR(setVehicleLoadouts)) do {
                     if (_weight == 0) then {
                         _toAdd = _count;
                     } else {
-                        _toAdd = floor ((_weightPerBox - _currentWeight) / _weight);
+                        _toAdd = floor ((_transportBoxWeight - _currentWeight) / _weight);
                     };
                     // always add at least one item
                     _toAdd = 1 max (_toAdd min _count);
@@ -349,7 +354,7 @@ switch (GVAR(setVehicleLoadouts)) do {
                     _amounts set [0, _count - _toAdd];
                     _box addItemCargoGlobal [_chosen, _toAdd];
 
-                    if (_currentWeight >= _weightPerBox) exitWith {
+                    if (_currentWeight >= _transportBoxWeight) exitWith {
                         breakTo "add_item";
                     };
                 };
