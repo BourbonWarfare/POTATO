@@ -66,3 +66,8 @@ private _boxName = getText (_path >> "boxCustomName");
 if (_boxName isNotEqualTo "") then {
     _theBox setVariable ["ace_cargo_customName", format [_nameFormatString, _boxName], true];
 };
+
+private _overrideCarryWeight = 1 == (getNumber (_path >> "forceAllowCarry"));
+private _overrideDragWeight = 1 == (getNumber (_path >> "forceAllowDrag"));
+_theBox setVariable ["ace_cargo_ignoreWeightCarry", _overrideCarryWeight, true];
+_theBox setVariable ["ace_cargo_ignoreWeightDrag", _overrideCarryWeight || _overrideDragWeight, true];
