@@ -15,4 +15,5 @@ PREP(getLoadoutFromConfig);
 PREP(getWeaponArray);
 PREP(isOpticMagnified);
 PREP(requestPlayerGear);
+PREP(setBoxContentsFromConfig);
 PREP(setWeaponAttachment);
