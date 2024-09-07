@@ -208,7 +208,6 @@ switch (GVAR(setVehicleLoadouts)) do {
             nil
         } count _transportBackpacks; // count used here for speed, make sure nil is above this line
 
-        _availableItems = [];
         while {
             _availableBackpacks isNotEqualTo [] ||
             { _availableItems isNotEqualTo [] } ||
