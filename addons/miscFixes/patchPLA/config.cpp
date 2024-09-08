@@ -8,7 +8,7 @@ class CfgPatches {
         units[] = {"O_ZBL09", "O_ZTL11", "O_ZBD04A", "O_ZBD05","O_ZTD05", "O_ZTQ15","O_ZTQ15B","O_ZTZ96A","O_ZTZ96B","O_ZTZ99","O_ZTZ99A"};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"ZBL09_LK", "ZTL11_LK", "ZBD04_LK", "ZBD05_LK", "ZTD05_LK", "ZTQ15_LK", "ZTZ96_c_LK", "ZTZ96A_LK", "ZTZ96B_LK", "ZTZ99_LK", "ZTZ99A_LK"};
-        skipWhenMissingDependencie  = 1;
+        skipWhenMissingDependencies  = 1;
         author = "Potato";
         authors[] = {"Chesheire","watermelon"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
