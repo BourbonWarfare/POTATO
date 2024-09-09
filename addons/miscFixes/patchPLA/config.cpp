@@ -69,94 +69,94 @@ class CfgVehicles {
         };
     };
     class ZBL09_base: Wheeled_APC_F {
-        damageResistance  =  0.02;
-        crewVulnerable  =  1; //formerly 0
-        armor  =  480; //formerly 500 -> 270?
-        armorStructural  =  5;
+        damageResistance = 0.02;
+        crewVulnerable = 1; //formerly 0
+        armor = 480; //formerly 500 -> 270?
+        armorStructural = 5;
         class HitPoints: HitPoints {
             class HitHull: HitHull {
-                armor  =  2;
-                passThrough  =  1;
-                minimalHit  =  0.14;
-                explosionShielding  =  0.2;
-                radius  =  0.25;
+                armor = 2;
+                passThrough = 1;
+                minimalHit = 0.14;
+                explosionShielding = 0.2;
+                radius = 0.25;
             };
             class HitEngine: HitEngine {
-                armor  =  1.25;
-                passThrough  =  0.1;
-                minimalHit  =  0.1;
-                explosionShielding  =  0.5;
-                radius  =  0.25;
+                armor = 1.25;
+                passThrough = 0.1;
+                minimalHit = 0.1;
+                explosionShielding = 0.5;
+                radius = 0.25;
             };
             class HitLFWheel: HitLFWheel {
-                radius  =  0.33;
-                armor  =  -250; //formerly -250
-                minimalHit  =  -0.016; //formerly -0.016
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250; //formerly -250
+                minimalHit = -0.016; //formerly -0.016
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitLF2Wheel: HitLF2Wheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitLMWheel: HitLMWheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitLBWheel: HitLBWheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitRFWheel: HitRFWheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitRF2Wheel: HitRF2Wheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitRMWheel: HitRMWheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitRBWheel: HitRBWheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitFuel: HitFuel {
-                armor  =  0.75;
-                passThrough  =  0.5;
-                minimalHit  =  0.1;
-                explosionShielding  =  0.6;
-                radius  =  0.16;
+                armor = 0.75;
+                passThrough = 0.5;
+                minimalHit = 0.1;
+                explosionShielding = 0.6;
+                radius = 0.16;
             };
             class HitArmor {
-                armor  =  0.5; //formerly 10
-                passThrough  =  0.5; //formerly 0 (0.5 causes tires to transfer dmg to hull/turret?)
-                minimalHit  =  0.1;
-                explosionShielding  =  2;
-                radius  =  0.1;
+                armor = 0.5; //formerly 10
+                passThrough = 0.5; //formerly 0 (0.5 causes tires to transfer dmg to hull/turret?)
+                minimalHit = 0.1;
+                explosionShielding = 2;
+                radius = 0.1;
             };
         };
         class Turrets: Turrets {
@@ -165,31 +165,31 @@ class CfgVehicles {
                     class CommanderOptics: CommanderOptics {
                         class HitPoints {
                             class HitTurret {
-                                armor  =  0.3;
-                                passThrough  =  0;
-                                minimalHit  =  0.03;
-                                explosionShielding  =  0.6;
-                                radius  =  0.25;
+                                armor = 0.3;
+                                passThrough = 0;
+                                minimalHit = 0.03;
+                                explosionShielding = 0.6;
+                                radius = 0.25;
                             };
                         };
                     };
                 };
                 class HitPoints {
                     class HitTurret {
-                        armor  =  1.5; //formerly 0.8
-                        passThrough  =  0; //formerly 0
-                        minimalHit  =  0.1;
-                        explosionShielding  =  0.2;
-                        radius  =  0.3;
-                        isTurret  =  1;
+                        armor = 1.5; //formerly 0.8
+                        passThrough = 0; //formerly 0
+                        minimalHit = 0.1;
+                        explosionShielding = 0.2;
+                        radius = 0.3;
+                        isTurret = 1;
                     };
                     class HitGun {
-                        armor  =  1.5;
-                        passThrough  =  0; //formerly 0
-                        minimalHit  =  0.1;
-                        explosionShielding  =  0.4;
-                        radius  =  0.25;
-                        isGun  =  1;
+                        armor = 1.5;
+                        passThrough = 0; //formerly 0
+                        minimalHit = 0.1;
+                        explosionShielding = 0.4;
+                        radius = 0.25;
+                        isGun = 1;
                     };
                 };
             };
@@ -198,93 +198,93 @@ class CfgVehicles {
     class O_ZBL09_base: ZBL09_base {};
     class O_ZBL09: O_ZBL09_base {};
     class ZTL11_base: Wheeled_APC_F {
-        crewVulnerable  =  1; //formerly 0
-        armor  =  480; //formerly 500 -> 270?
-        armorStructural  =  5;
+        crewVulnerable = 1; //formerly 0
+        armor = 480; //formerly 500 -> 270?
+        armorStructural = 5;
         class HitPoints: HitPoints {
             class HitHull: HitHull {
-                armor  =  2;
-                passThrough  =  1;
-                minimalHit  =  0.14;
-                explosionShielding  =  0.2;
-                radius  =  0.25;
+                armor = 2;
+                passThrough = 1;
+                minimalHit = 0.14;
+                explosionShielding = 0.2;
+                radius = 0.25;
             };
             class HitEngine: HitEngine {
-                armor  =  1.25;
-                passThrough  =  0.1;
-                minimalHit  =  0.1;
-                explosionShielding  =  0.5;
-                radius  =  0.25;
+                armor = 1.25;
+                passThrough = 0.1;
+                minimalHit = 0.1;
+                explosionShielding = 0.5;
+                radius = 0.25;
             };
             class HitLFWheel: HitLFWheel {
-                radius  =  0.33;
-                armor  =  -250; //formerly -250
-                minimalHit  =  -0.016; //formerly -0.016
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250; //formerly -250
+                minimalHit = -0.016; //formerly -0.016
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitLF2Wheel: HitLF2Wheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitLMWheel: HitLMWheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitLBWheel: HitLBWheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitRFWheel: HitRFWheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitRF2Wheel: HitRF2Wheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitRMWheel: HitRMWheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitRBWheel: HitRBWheel {
-                radius  =  0.33;
-                armor  =  -250;
-                minimalHit  =  -0.016;
-                explosionShielding  =  4;
-                passThrough  =  0;
+                radius = 0.33;
+                armor = -250;
+                minimalHit = -0.016;
+                explosionShielding = 4;
+                passThrough = 0;
             };
             class HitFuel: HitFuel {
-                armor  =  0.75;
-                passThrough  =  0.5;
-                minimalHit  =  0.1;
-                explosionShielding  =  0.6;
-                radius  =  0.16;
+                armor = 0.75;
+                passThrough = 0.5;
+                minimalHit = 0.1;
+                explosionShielding = 0.6;
+                radius = 0.16;
             };
             class HitArmor {
-                armor  =  0.5; //formerly 10
-                passThrough  =  0.5; //formerly 0 (0.5 causes tires to transfer dmg to hull/turret?)
-                minimalHit  =  0.1;
-                explosionShielding  =  2;
-                radius  =  0.1;
+                armor = 0.5; //formerly 10
+                passThrough = 0.5; //formerly 0 (0.5 causes tires to transfer dmg to hull/turret?)
+                minimalHit = 0.1;
+                explosionShielding = 2;
+                radius = 0.1;
             };
         };
         class Turrets: Turrets {
@@ -293,31 +293,31 @@ class CfgVehicles {
                     class CommanderOptics: CommanderOptics {
                         class HitPoints {
                             class HitTurret {
-                                armor  =  0.3;
-                                passThrough  =  0;
-                                minimalHit  =  0.03;
-                                explosionShielding  =  0.6;
-                                radius  =  0.25;
+                                armor = 0.3;
+                                passThrough = 0;
+                                minimalHit = 0.03;
+                                explosionShielding = 0.6;
+                                radius = 0.25;
                             };
                         };
                     };
                 };
                 class HitPoints {
                     class HitTurret {
-                        armor  =  1.5; //formerly 0.8
-                        passThrough  =  0; //formerly 0
-                        minimalHit  =  0.1;
-                        explosionShielding  =  0.2;
-                        radius  =  0.3;
-                        isTurret  =  1;
+                        armor = 1.5; //formerly 0.8
+                        passThrough = 0; //formerly 0
+                        minimalHit = 0.1;
+                        explosionShielding = 0.2;
+                        radius = 0.3;
+                        isTurret = 1;
                     };
                     class HitGun {
-                        armor  =  1.5;
-                        passThrough  =  0; //formerly 0
-                        minimalHit  =  0.1;
-                        explosionShielding  =  0.4;
-                        radius  =  0.25;
-                        isGun  =  1;
+                        armor = 1.5;
+                        passThrough = 0; //formerly 0
+                        minimalHit = 0.1;
+                        explosionShielding = 0.4;
+                        radius = 0.25;
+                        isGun = 1;
                     };
                 };
             };
@@ -325,48 +325,48 @@ class CfgVehicles {
     };
     class O_ZTL11: ZTL11_base {};
     class ZBD04A_base: Tank_F {
-        damageResistance  =  0.02;
-        crewVulnerable  =  1;
-        armor  =  500;
-        armorStructural  =  6;
+        damageResistance = 0.02;
+        crewVulnerable = 1;
+        armor = 500;
+        armorStructural = 6;
         class HitPoints: HitPoints {
             class HitHull: HitHull {
-                armor  =  1;
-                passThrough  =  1;
-                minimalHit  =  0.2;
-                explosionShielding  =  0.2;
+                armor = 1;
+                passThrough = 1;
+                minimalHit = 0.2;
+                explosionShielding = 0.2;
             };
             class HitEngine: HitEngine {
-                armor  =  0.8;
-                passThrough  =  0.2;
-                minimalHit  =  0.2;
-                explosionShielding  =  0.2;
+                armor = 0.8;
+                passThrough = 0.2;
+                minimalHit = 0.2;
+                explosionShielding = 0.2;
             };
             class HitLTrack: HitLTrack {
-                armor  =  -400;
-                passThrough  =  0;
-                minimalHit  =  0.09;
-                explosionShielding  =  0.8;
+                armor = -400;
+                passThrough = 0;
+                minimalHit = 0.09;
+                explosionShielding = 0.8;
             };
             class HitRTrack: HitRTrack {
-                armor  =  -400;
-                passThrough  =  0;
-                minimalHit  =  0.09;
-                explosionShielding  =  0.8;
+                armor = -400;
+                passThrough = 0;
+                minimalHit = 0.09;
+                explosionShielding = 0.8;
             };
             class HitFuel: HitFuel {
-                armor  =  0.5;
-                passThrough  =  0.1;
-                minimalHit  =  0.1;
-                explosionShielding  =  0.6;
+                armor = 0.5;
+                passThrough = 0.1;
+                minimalHit = 0.1;
+                explosionShielding = 0.6;
             };
             class HitArmor
             {
-                armor  =  0.5;
-                passThrough  =  0.5;
-                minimalHit  =  0.1;
-                explosionShielding  =  2;
-                isTurret  =  0;
+                armor = 0.5;
+                passThrough = 0.5;
+                minimalHit = 0.1;
+                explosionShielding = 2;
+                isTurret = 0;
             };
         };
         class Turrets: Turrets {
@@ -375,36 +375,36 @@ class CfgVehicles {
                     class CommanderOptics: CommanderOptics {
                         class HitPoints {
                             class HitComTurret {
-                                armor  =  0.08;
-                                passThrough  =  0.4;
-                                minimalHit  =  0.1;
-                                explosionShielding  =  1;
-                                isTurret  =  1;
+                                armor = 0.08;
+                                passThrough = 0.4;
+                                minimalHit = 0.1;
+                                explosionShielding = 1;
+                                isTurret = 1;
                             };
                             class HitComGun {
-                                armor  =  0.04;
-                                passThrough  =  0;
-                                minimalHit  =  0.1;
-                                explosionShielding  =  1;
-                                isGun  =  1;
+                                armor = 0.04;
+                                passThrough = 0;
+                                minimalHit = 0.1;
+                                explosionShielding = 1;
+                                isGun = 1;
                             };
                         };
                     };
                 };
                 class HitPoints {
                     class HitTurret {
-                        armor  =  0.8;
-                        passThrough  =  0;
-                        minimalHit  =  0.1;
-                        explosionShielding  =  0.2;
-                        isTurret  =  1;
+                        armor = 0.8;
+                        passThrough = 0;
+                        minimalHit = 0.1;
+                        explosionShielding = 0.2;
+                        isTurret = 1;
                     };
                     class HitGun {
-                        armor  =  0.6;
-                        passThrough  =  0;
-                        minimalHit  =  0.1;
-                        explosionShielding  =  0.4;
-                        isGun  =  1;
+                        armor = 0.6;
+                        passThrough = 0;
+                        minimalHit = 0.1;
+                        explosionShielding = 0.4;
+                        isGun = 1;
                     };
                 };
             };
@@ -413,48 +413,48 @@ class CfgVehicles {
     class O_ZBD04A_base: ZBD04A_base {};
     class O_ZBD04A: O_ZBD04A_base {};
     class ZBD05_base: Tank_F {
-        damageResistance  =  0.02;
-        crewVulnerable  =  1;
-        armor  =  500;
-        armorStructural  =  6;
+        damageResistance = 0.02;
+        crewVulnerable = 1;
+        armor = 500;
+        armorStructural = 6;
         class HitPoints: HitPoints {
             class HitHull: HitHull {
-                armor  =  1;
-                passThrough  =  1;
-                minimalHit  =  0.2;
-                explosionShielding  =  0.2;
+                armor = 1;
+                passThrough = 1;
+                minimalHit = 0.2;
+                explosionShielding = 0.2;
             };
             class HitEngine: HitEngine {
-                armor  =  0.8;
-                passThrough  =  0.2;
-                minimalHit  =  0.2;
-                explosionShielding  =  0.2;
+                armor = 0.8;
+                passThrough = 0.2;
+                minimalHit = 0.2;
+                explosionShielding = 0.2;
             };
             class HitLTrack: HitLTrack {
-                armor  =  -400;
-                passThrough  =  0;
-                minimalHit  =  0.09;
-                explosionShielding  =  0.8;
+                armor = -400;
+                passThrough = 0;
+                minimalHit = 0.09;
+                explosionShielding = 0.8;
             };
             class HitRTrack: HitRTrack {
-                armor  =  -400;
-                passThrough  =  0;
-                minimalHit  =  0.09;
-                explosionShielding  =  0.8;
+                armor = -400;
+                passThrough = 0;
+                minimalHit = 0.09;
+                explosionShielding = 0.8;
             };
             class HitFuel: HitFuel {
-                armor  =  0.5;
-                passThrough  =  0.1;
-                minimalHit  =  0.1;
-                explosionShielding  =  0.6;
+                armor = 0.5;
+                passThrough = 0.1;
+                minimalHit = 0.1;
+                explosionShielding = 0.6;
             };
             class HitArmor
             {
-                armor  =  0.5;
-                passThrough  =  0.5;
-                minimalHit  =  0.1;
-                explosionShielding  =  2;
-                isTurret  =  0;
+                armor = 0.5;
+                passThrough = 0.5;
+                minimalHit = 0.1;
+                explosionShielding = 2;
+                isTurret = 0;
             };
         };
         class Turrets: Turrets {
@@ -463,36 +463,36 @@ class CfgVehicles {
                     class CommanderOptics: CommanderOptics {
                         class HitPoints {
                             class HitComTurret {
-                                armor  =  0.08;
-                                passThrough  =  0.4;
-                                minimalHit  =  0.1;
-                                explosionShielding  =  1;
-                                isTurret  =  1;
+                                armor = 0.08;
+                                passThrough = 0.4;
+                                minimalHit = 0.1;
+                                explosionShielding = 1;
+                                isTurret = 1;
                             };
                             class HitComGun {
-                                armor  =  0.04;
-                                passThrough  =  0;
-                                minimalHit  =  0.1;
-                                explosionShielding  =  1;
-                                isGun  =  1;
+                                armor = 0.04;
+                                passThrough = 0;
+                                minimalHit = 0.1;
+                                explosionShielding = 1;
+                                isGun = 1;
                             };
                         };
                     };
                 };
                 class HitPoints {
                     class HitTurret {
-                        armor  =  0.8;
-                        passThrough  =  0;
-                        minimalHit  =  0.1;
-                        explosionShielding  =  0.2;
-                        isTurret  =  1;
+                        armor = 0.8;
+                        passThrough = 0;
+                        minimalHit = 0.1;
+                        explosionShielding = 0.2;
+                        isTurret = 1;
                     };
                     class HitGun {
-                        armor  =  0.6;
-                        passThrough  =  0;
-                        minimalHit  =  0.1;
-                        explosionShielding  =  0.4;
-                        isGun  =  1;
+                        armor = 0.6;
+                        passThrough = 0;
+                        minimalHit = 0.1;
+                        explosionShielding = 0.4;
+                        isGun = 1;
                     };
                 };
             };
@@ -500,48 +500,48 @@ class CfgVehicles {
     };
     class O_ZBD05: ZBD05_base {};
     class ZTD05_base: Tank_F {
-        damageResistance  =  0.02;
-        crewVulnerable  =  1;
-        armor  =  500;
-        armorStructural  =  6;
+        damageResistance = 0.02;
+        crewVulnerable = 1;
+        armor = 500;
+        armorStructural = 6;
         class HitPoints: HitPoints {
             class HitHull: HitHull {
-                armor  =  1;
-                passThrough  =  1;
-                minimalHit  =  0.2;
-                explosionShielding  =  0.2;
+                armor = 1;
+                passThrough = 1;
+                minimalHit = 0.2;
+                explosionShielding = 0.2;
             };
             class HitEngine: HitEngine {
-                armor  =  0.8;
-                passThrough  =  0.2;
-                minimalHit  =  0.2;
-                explosionShielding  =  0.2;
+                armor = 0.8;
+                passThrough = 0.2;
+                minimalHit = 0.2;
+                explosionShielding = 0.2;
             };
             class HitLTrack: HitLTrack {
-                armor  =  -400;
-                passThrough  =  0;
-                minimalHit  =  0.09;
-                explosionShielding  =  0.8;
+                armor = -400;
+                passThrough = 0;
+                minimalHit = 0.09;
+                explosionShielding = 0.8;
             };
             class HitRTrack: HitRTrack {
-                armor  =  -400;
-                passThrough  =  0;
-                minimalHit  =  0.09;
-                explosionShielding  =  0.8;
+                armor = -400;
+                passThrough = 0;
+                minimalHit = 0.09;
+                explosionShielding = 0.8;
             };
             class HitFuel: HitFuel {
-                armor  =  0.5;
-                passThrough  =  0.1;
-                minimalHit  =  0.1;
-                explosionShielding  =  0.6;
+                armor = 0.5;
+                passThrough = 0.1;
+                minimalHit = 0.1;
+                explosionShielding = 0.6;
             };
             class HitArmor
             {
-                armor  =  0.5;
-                passThrough  =  0.5;
-                minimalHit  =  0.1;
-                explosionShielding  =  2;
-                isTurret  =  0;
+                armor = 0.5;
+                passThrough = 0.5;
+                minimalHit = 0.1;
+                explosionShielding = 2;
+                isTurret = 0;
             };
         };
         class Turrets: Turrets {
@@ -550,36 +550,36 @@ class CfgVehicles {
                     class CommanderOptics: CommanderOptics {
                         class HitPoints {
                             class HitComTurret {
-                                armor  =  0.08;
-                                passThrough  =  0.4;
-                                minimalHit  =  0.1;
-                                explosionShielding  =  1;
-                                isTurret  =  1;
+                                armor = 0.08;
+                                passThrough = 0.4;
+                                minimalHit = 0.1;
+                                explosionShielding = 1;
+                                isTurret = 1;
                             };
                             class HitComGun {
-                                armor  =  0.04;
-                                passThrough  =  0;
-                                minimalHit  =  0.1;
-                                explosionShielding  =  1;
-                                isGun  =  1;
+                                armor = 0.04;
+                                passThrough = 0;
+                                minimalHit = 0.1;
+                                explosionShielding = 1;
+                                isGun = 1;
                             };
                         };
                     };
                 };
                 class HitPoints {
                     class HitTurret {
-                        armor  =  0.8;
-                        passThrough  =  0;
-                        minimalHit  =  0.1;
-                        explosionShielding  =  0.2;
-                        isTurret  =  1;
+                        armor = 0.8;
+                        passThrough = 0;
+                        minimalHit = 0.1;
+                        explosionShielding = 0.2;
+                        isTurret = 1;
                     };
                     class HitGun {
-                        armor  =  0.6;
-                        passThrough  =  0;
-                        minimalHit  =  0.1;
-                        explosionShielding  =  0.4;
-                        isGun  =  1;
+                        armor = 0.6;
+                        passThrough = 0;
+                        minimalHit = 0.1;
+                        explosionShielding = 0.4;
+                        isGun = 1;
                     };
                 };
             };
