@@ -60,7 +60,7 @@ if (_subBoxes isNotEqualTo []) then {
             private _subBox = createVehicle [_subBoxType, [0, 0, 0], [], 0, "CAN_COLLIDE"];
             [_subBox, _x, ["%1", "%1 " + str _i] select (_boxCount > 1)] call FUNC(setBoxContentsFromConfig);
             [_subBox, 1] call ACEFUNC(cargo,setSize);
-            if !([_subBox, _theBox, true] call ace_cargo_fnc_loadItem) exitWith {
+            if !([_subBox, _theBox, true] call ACEFUNC(cargo,loadItem)) exitWith {
                 diag_log formatText [
                     "[POTATO-assignGear] - Failed to create %1 %2 supply box(es) for %3 - out of space ",
                     _subBoxType,
