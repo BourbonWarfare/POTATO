@@ -16,15 +16,12 @@
  * Public: No
  */
 
-params ["_theContainer", "_path", ["_clearContents", true, [true]]];
-diag_log text "container contents";
+params ["_theContainer", "_path"];
 
-if (_clearContents) then {
-    clearWeaponCargoGlobal _theContainer;
-    clearMagazineCargoGlobal _theContainer;
-    clearItemCargoGlobal _theContainer;
-    clearBackpackCargoGlobal _theContainer;
-};
+clearWeaponCargoGlobal _theContainer;
+clearMagazineCargoGlobal _theContainer;
+clearItemCargoGlobal _theContainer;
+clearBackpackCargoGlobal _theContainer;
 
 private _transportMagazines = getArray(_path >> "TransportMagazines");
 private _transportItems = getArray(_path >> "TransportItems");

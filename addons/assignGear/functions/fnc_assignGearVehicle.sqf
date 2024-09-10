@@ -80,19 +80,10 @@ if (!isClass _path) exitWith {
 };
 
 //Clean out starting inventory (even if there is no class)
-clearWeaponCargoGlobal _theVehicle;
-clearMagazineCargoGlobal _theVehicle;
-clearItemCargoGlobal _theVehicle;
-clearBackpackCargoGlobal _theVehicle;
-//Add a Toolkit
-if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
-if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then {
-    _theVehicle addItemCargoGlobal ["ACE_rope15", 1];
-};
 
 switch (GVAR(setVehicleLoadouts)) do {
     case 1: { // ammo in vehicle inventory
-        [_theVehicle, _path, false] call FUNC(setContentsFromConfig);
+        [_theVehicle, _path] call FUNC(setContainerContentsFromConfig);
     };
     case 2: { // ammo in boxes in vehicle from inventory
         private _getMassLbs = {
@@ -118,6 +109,11 @@ switch (GVAR(setVehicleLoadouts)) do {
             };
             _shortName
         };
+
+        clearWeaponCargoGlobal _theVehicle;
+        clearMagazineCargoGlobal _theVehicle;
+        clearItemCargoGlobal _theVehicle;
+        clearBackpackCargoGlobal _theVehicle;
 
         private _transportMagazines = getArray(_path >> "TransportMagazines");
         private _transportItems = getArray(_path >> "TransportItems");
@@ -352,4 +348,11 @@ switch (GVAR(setVehicleLoadouts)) do {
             };
         } forEach _boxes;
     };
+};
+
+
+//Add a Toolkit
+if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
+if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then {
+    _theVehicle addItemCargoGlobal ["ACE_rope15", 1];
 };
