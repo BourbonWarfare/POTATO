@@ -339,8 +339,8 @@ switch (GVAR(setVehicleLoadouts)) do {
             for "_i" from 1 to _boxCount do {
                 private _box = createVehicle [_boxType, [2,5,105], [], 0, "CAN_COLLIDE"];
                 [_box, _x, ["%1", "%1 " + str _i] select (_boxCount > 1)] call FUNC(setBoxContentsFromConfig);
-                [_box, 1] call ace_cargo_fnc_setSize;
-                if !([_box, _theVehicle, true] call ace_cargo_fnc_loadItem) exitWith {
+                [_box, 1] call ACEFUNC(cargo,setSize);
+                if !([_box, _theVehicle, true] call ACEFUNC(cargo,loadItem)) exitWith {
                     diag_log text format ["[POTATO-assignGear] - Failed to create %1 supply box(es) for %2 - out of space ", _boxType, typeOf _theVehicle];
                     deleteVehicle _box;
                 };
