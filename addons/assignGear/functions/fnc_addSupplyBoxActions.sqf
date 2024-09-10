@@ -52,8 +52,8 @@ _action = [
     "markBoxGlowstick",
     "Glow Stick",
     "\a3\Modules_F_Curator\Data\portraitChemlight_ca.paa", {
-    private _smoke = createVehicle ["ACE_G_Chemlight_HiYellow", ASLToAGL getPosASL _target, [], 0, "CAN_COLLIDE"];
-    _smoke attachTo [_target, [0, 0, 0]];
+    private _glowstick = createVehicle ["ACE_G_Chemlight_HiYellow", ASLToAGL getPosASL _target, [], 0, "CAN_COLLIDE"];
+    _glowstick attachTo [_target, [0, 0, 0]];
     _target setVariable [QGVAR(glowStickAvailable), false];
     },
     {_target getVariable [QGVAR(glowStickAvailable), true]}
@@ -83,7 +83,7 @@ _action = [
             _marker setMarkerColorLocal "ColorYellow";
             private _boxName = _target getVariable [QACEGVAR(cargo,customName), "Resupply Box"];
             _marker setMarkerTextLocal _boxName;
-            _marker setMarkerTypeLocal "loc_rearm";
+            _marker setMarkerType "loc_rearm";
             _target setVariable [QGVAR(boxMarker), _marker, true];
         } else {
             _marker setMarkerPos (getPosATL _target);
