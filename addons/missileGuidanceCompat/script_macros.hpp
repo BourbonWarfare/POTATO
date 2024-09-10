@@ -1,0 +1,1 @@
+#define ACE_MISSILE(missile) class ace_missileguidance: ACEGVAR(missileguidance,type_missile) { enabled = 1; }
