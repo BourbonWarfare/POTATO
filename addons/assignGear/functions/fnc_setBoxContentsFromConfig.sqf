@@ -13,7 +13,7 @@
  * None
  *
  * Example:
- * [cursorObject, missionConfigFile >> "CfgLoadouts" >> "SupplyBox" >> (typeOf cursorObject)] call potato_assignGear_fnc_assignGearSupplyBox
+ * [cursorObject, missionConfigFile >> "CfgLoadouts" >> "SupplyBoxes" >> (typeOf cursorObject), missionConfigFile >> "CfgLoadouts" >> "SupplyBox" >> (typeOf cursorObject)] call potato_assignGear_fnc_setBoxContentsFromConfig
  *
  * Public: No
  */
@@ -24,6 +24,7 @@ params ["_theBox", "_path", ["_nameFormatString", "%1", [""]]];
 
 private _boxName = getText (_path >> "boxCustomName");
 if (_boxName isNotEqualTo "") then {
+    _theBox setVariable [QACEGVAR(cargo,customName), format [_nameFormatString, _boxName], true];
     _theBox setVariable [QACEGVAR(cargo,customName), format [_nameFormatString, _boxName], true];
 };
 

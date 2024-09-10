@@ -22,6 +22,7 @@ if (GVAR(usePotato)) then {
     GVAR(alwaysAddToolkits) = [missionConfigFile >> "CfgLoadouts" >> "alwaysAddToolkits", true] call CFUNC(getBool);
     GVAR(alwaysAddLandRopes) = [missionConfigFile >> "CfgLoadouts" >> "alwaysAddLandRopes", true] call CFUNC(getBool);
     GVAR(prefixes) = [missionConfigFile >> "CfgLoadouts" >> "prefixes"] call CFUNC(getArray);
+    GVAR(resupplyBoxMarkerIndex) = 0;
 
     if (isServer) then {
         if (is3DEN) then {
