@@ -45,7 +45,7 @@ private _transportBackpacks = getArray(_path >> "TransportBackpacks");
 // transportWeapons
 {
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    private _disposableName = [cba_disposable_LoadedLaunchers, _classname, "get", ""] call potato_assignGear_fnc_getDisposableInfo;
+    private _disposableName = [cba_disposable_LoadedLaunchers, _classname, "get", ""] call FUNC(getDisposableInfo);
     if (_disposableName != "") then {
         _classname = _disposableName;
     };
