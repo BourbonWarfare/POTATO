@@ -56,7 +56,6 @@ class CfgAmmo {
     class gm_missile_fagot_base: gm_missile_saclos_base {
         maneuvrability = 0;
         ACE_MISSILE(Fagot);
-        #include "../CfgMissileFagot.hpp"
     };
     class gm_missile_fagot_heat_9m111: gm_missile_fagot_base {
         class ace_missileguidance: ace_missileguidance {
