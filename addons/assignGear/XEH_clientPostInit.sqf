@@ -36,4 +36,6 @@ if (GVAR(usePotato) && hasInterface) then {
             _baseAction, true
         ] call ACEFUNC(interact_menu,addActionToClass);
     };
+
+    [QGVAR(resupplyBoxAddActions), LINKFUNC(addSupplyBoxActions)] call CBA_fnc_addEventHandler;
 };

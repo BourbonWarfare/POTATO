@@ -1,6 +1,7 @@
 TRACE_1("",QUOTE(ADDON));
 
 PREP(addItemsToContainer);
+PREP(addSupplyBoxActions);
 PREP(assignGearMan);
 PREP(assignGearSupplyBox);
 PREP(assignGearPotatoBox);

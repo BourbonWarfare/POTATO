@@ -13,7 +13,7 @@
  * None
  *
  * Example:
- * [cursorObject] call potato_assignGear_fnc_assignGearSupplyBox
+ * [cursorObject, missionConfigFile >> "CfgLoadouts" >> "SupplyBoxes" >> (typeOf cursorObject)] call potato_assignGear_fnc_setBoxContentsFromConfig
  *
  * Public: No
  */
@@ -47,7 +47,7 @@ private _transportBackpacks = getArray(_path >> "TransportBackpacks");
 // transportWeapons
 {
     (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    private _disposableName = [cba_disposable_LoadedLaunchers, _classname, "get", ""] call potato_assignGear_fnc_getDisposableInfo;
+    private _disposableName = [cba_disposable_LoadedLaunchers, _classname, "get", ""] call FUNC(getDisposableInfo);
     if (_disposableName != "") then {
         _classname = _disposableName;
     };
@@ -64,10 +64,10 @@ private _transportBackpacks = getArray(_path >> "TransportBackpacks");
 
 private _boxName = getText (_path >> "boxCustomName");
 if (_boxName isNotEqualTo "") then {
-    _theBox setVariable ["ace_cargo_customName", format [_nameFormatString, _boxName], true];
+    _theBox setVariable [QACEGVAR(cargo,customName), format [_nameFormatString, _boxName], true];
 };
 
 private _overrideCarryWeight = 1 == (getNumber (_path >> "forceAllowCarry"));
 private _overrideDragWeight = 1 == (getNumber (_path >> "forceAllowDrag"));
-_theBox setVariable ["ace_cargo_ignoreWeightCarry", _overrideCarryWeight, true];
-_theBox setVariable ["ace_cargo_ignoreWeightDrag", _overrideCarryWeight || _overrideDragWeight, true];
+_theBox setVariable [QACEGVAR(cargo,ignoreWeightCarry), _overrideCarryWeight, true];
+_theBox setVariable [QACEGVAR(cargo,ignoreWeightDrag), _overrideCarryWeight || _overrideDragWeight, true];
