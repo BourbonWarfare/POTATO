@@ -15,9 +15,9 @@ class CfgPatches {
     };
 };
 
+class ACEGVAR(missileguidance,type_Hellfire);
 
 class CfgAmmo {
-    class ACEGVAR(missileguidance,type_Hellfire);
     class Missile_AGM_02_F;
     class MELB_AGM_114K: Missile_AGM_02_F {
         irLock = 0;
