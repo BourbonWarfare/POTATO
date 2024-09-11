@@ -333,6 +333,9 @@ switch (GVAR(setVehicleLoadouts)) do {
     };
     case 3: { // ammo in boxes in vehicle from config
         private _boxes = "true" configClasses _path;
+        private _vehicleSpace = getNumber (_path >> "minVehicleBoxSpace");
+        private _currentVehicleSpace = _theVehicle getVariable [QACEGVAR(cargo,space), 4];
+        [_theBox, _vehicleSpace max _currentVehicleSpace] call ACEFUNC(cargo,setSpace);
         {
             private _boxType = configName _x;
             private _boxCount = (getNumber (_x >> "boxCount")) max 1;
