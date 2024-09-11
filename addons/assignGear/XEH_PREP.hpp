@@ -5,6 +5,7 @@ PREP(assignGearMan);
 PREP(assignGearSupplyBox);
 PREP(assignGearPotatoBox);
 PREP(assignGearVehicle);
+PREP(assignGearVehicle_asBoxes);
 PREP(cleanPrefix);
 PREP(changeableOptics_getChildren);
 PREP(changeableOptics_setOptic);
