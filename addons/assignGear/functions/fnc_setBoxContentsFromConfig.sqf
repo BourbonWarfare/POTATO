@@ -1,8 +1,7 @@
 #include "script_component.hpp"
 /*
- * Author: Bailey
+ * Author: Lambda.Tiger
  * Fills box with gear from a config
- * Edited by Lambda.Tiger to add box names
  *
  * Arguments:
  * 0: Box <OBJECT>
