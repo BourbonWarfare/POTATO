@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * Author: Bailey
+ * Author: Pabst
  * Fills box with gear from a config
  *
  * Arguments:
