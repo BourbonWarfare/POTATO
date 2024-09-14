@@ -6,7 +6,7 @@ class CfgWeapons {
         class WeaponSlotsInfo;
     };
 
-    // Milan
+    /// Milan
     class GVAR(gm_milan_backpack): Launcher_Base_F {
         class ACE_CSW {
             type = "mount";
@@ -29,7 +29,7 @@ class CfgWeapons {
         picture = "\gm\gm_weapons\gm_launchers\gm_milan\data\ui\picture_gm_milan_launcher_weaponBag_ca";
     };
 
-    // Fagot
+    /// Fagot
     class GVAR(gm_fagot_backpack): Launcher_Base_F {
         class ACE_CSW {
             type = "mount";
@@ -52,7 +52,8 @@ class CfgWeapons {
         picture = "\gm\gm_weapons\gm_launchers\gm_fagot\data\ui\picture_gm_fagot_launcher_weaponBag_ca";
     };
 
-    // MG3
+    /// MG3
+    // Weapon
     class gm_mg3_base;
     class gm_mg3_blk: gm_mg3_base {
         class ACE_CSW {
@@ -60,9 +61,28 @@ class CfgWeapons {
             deployTime = 4;
             pickupTime = 4;
             class assembleTo {
-                ace_csw_m3Tripod = "gm_ge_army_mg3_aatripod";
+                GVAR(gm_MG3Tripod) = "gm_ge_army_mg3_aatripod_csw";
             };
         };
+    };
+
+    // Tripod
+    class ace_csw_m3CarryTripod: Launcher_Base_F {
+        class WeaponSlotsInfo: WeaponSlotsInfo;
+    };
+    class GVAR(gm_MG3TripodCarry): ace_csw_m3CarryTripod {
+        class ACE_CSW {
+            type = "mount";
+            deployTime = 4;
+            pickupTime = 4;
+            deploy = QGVAR(gm_MG3Tripod);
+        };
+        class WeaponSlotsInfo: WeaponSlotsInfo {
+            mass = 256; // fun number
+        };
+        displayName = "[CSW] MG3 AA Tripod";
+        icon = "\gm\gm_weapons\gm_machineguns\gm_mg3\data\ui\map_gm_mg3_aatripod_ca";
+        picture = "\gm\gm_weapons\gm_machineguns\gm_mg3\data\ui\picture_gm_mg3_aatripod_weaponBag_ca";
     };
 
     //// Proxy Weapons

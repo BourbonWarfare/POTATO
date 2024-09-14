@@ -7,10 +7,17 @@
 class CfgPatches {
     class ADDON {
         units[] = {
-          "gm_ge_army_milan_launcher_tripod_csw"
+          "gm_ge_army_milan_launcher_tripod_csw",
+          "gm_gc_army_fagot_launcher_tripod_csw",
+          "gm_ge_army_mg3_aatripod_csw",
+          QGVAR(gm_MG3Tripod)
         };
         weapons[] = {
-          QGVAR(gm_milan)
+          QGVAR(gm_milan_backpack),
+          QGVAR(gm_fagot_backpack),
+          QGVAR(gm_MG3TripodCarry),
+          QGVAR(gm_milan_launcher_proxy),
+          QGVAR(gm_fagot_launcher_proxy)
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
@@ -18,10 +25,8 @@ class CfgPatches {
             "gm_weapons_ammo",
             "gm_weapons_launchers_milan",
             "gm_weapons_launchers_fagot",
-            "gm_weapons_machineguns_dshkm_gm_gc_army_dshkm",
             "gm_weapons_machineguns_mg3_gm_ge_army_mg3",
-            "gm_weapons_launchers_fagot_gm_gc_army_fagot",
-            "gm_weapons_launchers_spg9_gm_gc_army_spg9"
+            "gm_weapons_launchers_fagot_gm_gc_army_fagot"
         };
         skipWhenMissingDependencies = 0;
         author = "Bourbon Warfare";
