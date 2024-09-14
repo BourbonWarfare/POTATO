@@ -2,7 +2,7 @@ class CfgMagazines {
     //// MILAN
     class gm_1Rnd_milan_heat_dm82;
     class gm_1Rnd_milan_heat_dm82_csw: gm_1Rnd_milan_heat_dm82 {
-        displayName = "[CSW] HEAT DM82 (MILAN-1)";
+        displayName = "[CSW] HEAT DM82 (MILAN 1)";
         scope = 2;
         scopeArsenal = 2;
         type = 256;
@@ -14,7 +14,7 @@ class CfgMagazines {
 
     class gm_1Rnd_milan_heat_dm92;
     class gm_1Rnd_milan_heat_dm92_csw: gm_1Rnd_milan_heat_dm92 {
-        displayName = "[CSW] HEAT DM92 (MILAN-2)";
+        displayName = "[CSW] HEAT DM92 (MILAN 2)";
         scope = 2;
         scopeArsenal = 2;
         type = 256;
