@@ -35,4 +35,16 @@ class CfgMagazines {
         ACE_isBelt = 0;
         mass = 276;
     };
+
+    //// MG3
+    class gm_120rnd_762x51mm_mg3_grn;
+    class gm_120Rnd_762x51mm_b_t_DM21_mg3_grn: gm_120rnd_762x51mm_mg3_grn {
+        ACE_isBelt = 0;
+    };
+    class gm_120Rnd_762x51mm_b_t_DM21A1_mg3_grn: gm_120rnd_762x51mm_mg3_grn {
+        ACE_isBelt = 0;
+    };
+    class gm_120Rnd_762x51mm_b_t_DM21A2_mg3_grn: gm_120rnd_762x51mm_mg3_grn {
+        ACE_isBelt = 0;
+    };
 };
