@@ -41,19 +41,19 @@
     QGVAR(DOUBLES(TYPE,HITPOINT)),\
     "EDITBOX",\
     [TEXT, "Allows the tuning the effectiveness of groups of armor hitpoints.\n[hitpoint multiplier, minimum armor, maximum armor]\nIf minimum or maximum armor value is below 1, they don't take effect."],\
-    [COMPONENT_NAME, FORMAT_1("Side settings - %1",QUOTE(TYPE))],\
+    [COMPONENT_NAME, FORMAT_1("Armor modifiers - %1",QUOTE(TYPE))],\
     QUOTE(DEFAULT_ARRAY),\
     true,\
     HITPOINT_SETTINGS_FUNCTION(HITPOINT,TYPE)\
 ] call CBA_fnc_addSetting
 
-#define HITPOINT_CHECK_SETTING_SIDE(OBJECT) HITPOINT_SETTINGS_SIDE(OBJECT,head,FORMAT_1("%1 hitpoint damage reduction - head",QUOTE(OBJECT)),ARR_3(1,7,7));\
-HITPOINT_SETTINGS_SIDE(OBJECT,face,FORMAT_1("%1 hitpoint damage reduction - face",QUOTE(OBJECT)),ARR_3(1,0,1));\
-HITPOINT_SETTINGS_SIDE(OBJECT,neck,FORMAT_1("%1 hitpoint damage reduction - neck",QUOTE(OBJECT)),ARR_3(1,0,1));\
-HITPOINT_SETTINGS_SIDE(OBJECT,torso,FORMAT_1("%1 hitpoint damage reduction - torso",QUOTE(OBJECT)),ARR_3(1,14,14));\
-HITPOINT_SETTINGS_SIDE(OBJECT,pelvis,FORMAT_1("%1 hitpoint damage reduction - pelvis",QUOTE(OBJECT)),ARR_3(1,14,14));\
-HITPOINT_SETTINGS_SIDE(OBJECT,arms,FORMAT_1("%1 hitpoint damage reduction - arms",QUOTE(OBJECT)),ARR_3(1,0,1));\
-HITPOINT_SETTINGS_SIDE(OBJECT,legs,FORMAT_1("%1 hitpoint damage reduction - legs",QUOTE(OBJECT)),ARR_3(1,0,1))
+#define HITPOINT_CHECK_SETTING_SIDE(OBJECT) HITPOINT_SETTINGS_SIDE(OBJECT,head,FORMAT_1("%1 hitpoint damage reduction - head",QUOTE(OBJECT)),ARR_3([1,7,7]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,face,FORMAT_1("%1 hitpoint damage reduction - face",QUOTE(OBJECT)),ARR_3([1,0,1]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,neck,FORMAT_1("%1 hitpoint damage reduction - neck",QUOTE(OBJECT)),ARR_3([1,0,1]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,torso,FORMAT_1("%1 hitpoint damage reduction - torso",QUOTE(OBJECT)),ARR_3([1,14,14]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,pelvis,FORMAT_1("%1 hitpoint damage reduction - pelvis",QUOTE(OBJECT)),ARR_3([1,14,14]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,arms,FORMAT_1("%1 hitpoint damage reduction - arms",QUOTE(OBJECT)),ARR_3([1,0,1]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,legs,FORMAT_1("%1 hitpoint damage reduction - legs",QUOTE(OBJECT)),ARR_3([1,0,1]))
 
 HITPOINT_CHECK_SETTING_SIDE(BluFor);
 HITPOINT_CHECK_SETTING_SIDE(OpFor);

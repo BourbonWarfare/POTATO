@@ -1,4 +1,4 @@
-#define COMPONENT armorAdjuster
+#define COMPONENT armor_modifier_ace
 #include "\z\potato\addons\core\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
@@ -35,4 +35,4 @@
 
 #define GET_NUMBER(config,default) (if (isNumber (config)) then {getNumber (config)} else {default})
 
-#define COMPONENT_NAME QUOTE(POTATO - Armor Modifier)
+#define COMPONENT_NAME QUOTE(POTATO - Armor Modifier ACE)
