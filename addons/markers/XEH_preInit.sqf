@@ -8,7 +8,7 @@ PREP_RECOMPILE_END;
 
 #include "initSettings.inc.sqf"
 
-GVAR(drawHash) = [[],[]];
+GVAR(drawHash) = createHashMap;
 GVAR(nextUpdate) = -9999;
 GVAR(settingsInitialized) = false;
 GVAR(settingsDelayedFunctions) = [];

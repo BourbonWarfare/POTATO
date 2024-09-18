@@ -19,10 +19,10 @@
 TRACE_1("Params",_this);
 
 params ["_drawObject"];
-
+private _hashValue = hashValue _drawObject;
 if (isNull _drawObject
         || {!(_drawObject getVariable [QGVAR(addMarker), false])}
-        || {_drawObject in (GVAR(drawHash) select 0)}) exitWith {
+        || {_hashValue in GVAR(drawHash)}) exitWith {
     TRACE_1("Not adding marker info (exiting early)",_drawObject);
     false
 };
@@ -38,7 +38,6 @@ private _position = if (_drawObject isEqualType grpNull) then {
     position _drawObject
 };
 
-(GVAR(drawHash) select 0) pushBack _drawObject;
-(GVAR(drawHash) select 1) pushBack [_text, _texture, _colorArray, _size, _position];
+GVAR(drawHash) set [_hashValue, [_drawObject, _text, _texture, _colorArray, _size, _position]];
 
 true
