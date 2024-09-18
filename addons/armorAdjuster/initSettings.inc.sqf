@@ -1,3 +1,4 @@
+//#pragma hemtt suppress command_case file
 #define HITPOINT_SETTINGS_FUNCTION(HITPOINT,HASHVALUE) {\
     private _newSettings = parseSimpleArray _this;\
     private _parsedSettings = [];\
