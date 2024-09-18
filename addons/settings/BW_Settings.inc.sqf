@@ -48,7 +48,6 @@ _settings = [
 [QACEGVAR(finger,maxrange), 7],
 [QACEGVAR(fortify,timeCostCoefficient), 0],
 [QACEGVAR(fortify,timeMin), 0],
-[QACEGVAR(frag,maxTrack), 5],
 [QACEGVAR(gforces,enabledFor), 0],
 [QACEGVAR(goggles,effects), 1], // note: user-setting, we don't force
 [QACEGVAR(hearing,autoAddEarplugsToUnits), 0],
@@ -122,12 +121,6 @@ if (["diwako_dui_main"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 ["diwako_dui_nametags_renderdistance", 40, true], // User-Setting
 ["diwako_dui_nametags_deadrenderdistance", 3.5, true] // User-Setting
 ];} else { _skip pushBack "diwako_dui_main" };
-
-
-// ACE Armor Adjuster
-if (["AAA"] call ACEFUNC(common,isModLoaded)) then { _settings append [
-["AAA_VAR_MOD_ENABLED", false]
-];} else { _skip pushBack "AAA" };
 
 // Reeveli Uncon Moaning
 if (["Rev_ACE_moaning"] call ACEFUNC(common,isModLoaded)) then { _settings append [
