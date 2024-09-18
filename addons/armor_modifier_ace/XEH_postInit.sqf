@@ -4,7 +4,7 @@
 ["CAManBase", "initPost", {
     params ["_unit"];
 
-    private _ehID = _unit getVariable ["ace_medical_HandleDamageEHID", -1];
+    private _ehID = _unit getVariable [QACEGVAR(medical,HandleDamageEHID), -1];
 
     // If no EH exists, don't add one
     if (_ehID == -1) exitWith {};
@@ -14,12 +14,12 @@
 
     _ehID = _unit addEventHandler ["HandleDamage", {[_this] call FUNC(handleDamage)}];
 
-    _unit setVariable ["ace_medical_HandleDamageEHID", _ehID];
+    _unit setVariable [QACEGVAR(medical,HandleDamageEHID), _ehID];
 }, true, [], true] call CBA_fnc_addClassEventHandler;
 
 [QGVAR(updateUnitArmor), {
     params ["_unit", "_hitPoint", "_armorArray"];
-    if (isNull _unit || !alive _unit) exitWith {};
+    if (!alive _unit) exitWith {};
     private _newHash = +(_unit getVariable [QGVAR(armorHash), GVAR(defaultArmorHash)]);
     {_newHash set [_x, _armorArray]} forEach (_hitPoint call FUNC(resolveHitPoints));
     _unit setVariable [QGVAR(armorHash), _newHash];

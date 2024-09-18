@@ -112,7 +112,6 @@ if (
 };
 
 // Get setting for particular unit
-// I don't think we truely need 3 methods avaiable, I would rather choose two 2
 private _multiplierArray = _unit getVariable [QGVAR(armorHash),
     GVAR(armorValueHash) getOrDefault [
         side _unit,

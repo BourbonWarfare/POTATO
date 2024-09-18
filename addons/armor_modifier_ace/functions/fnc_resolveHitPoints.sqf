@@ -15,7 +15,7 @@ params [["_hitPoint", "", [""]],];
 
 _hitPoint = toLowerANSI _hitPoint;
 
-switch (toLowerANSI _hitPoint) do {
+switch (_hitPoint) do {
     case "ama_hitbody": {
         ["hitabdomen", "hitdiaphragm", "hitchest", "hitpelvis"]
     };
