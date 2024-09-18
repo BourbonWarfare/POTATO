@@ -1,0 +1,7 @@
+[sqf.command_case]
+options.ignore = [
+    "opfor",
+    "blufor",
+    "independent",
+    "civilian",
+]

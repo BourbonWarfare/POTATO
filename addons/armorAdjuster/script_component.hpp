@@ -34,3 +34,5 @@
 #define PRIORITY_STRUCTURAL 1
 
 #define GET_NUMBER(config,default) (if (isNumber (config)) then {getNumber (config)} else {default})
+
+#define COMPONENT_NAME QUOTE(POTATO - Armor Modifier)
