@@ -63,7 +63,6 @@ class CfgAmmo {
             showTrail = 0;
             pitchRate = 25;
             yawRate = 25;
-            initialPitch = 0;
             lineGainP = 7;
             lineGainD = 4;
         };
@@ -110,11 +109,13 @@ class CfgAmmo {
     class gm_missile_milan_heat_dm82: gm_missile_milan_base {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
+            initialPitch = 0.4;
         };
     };
     class gm_missile_milan_heat_dm92: gm_missile_milan_base {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
+            initialPitch = 0.4;
         };
     };
     // AA Missiles
