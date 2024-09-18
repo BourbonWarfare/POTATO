@@ -12,8 +12,8 @@
  * None
  *
  * Example:
- * [typeOf player, "hitFace", [1, 2, 2]] call potato_armorAdjuster_setClassArmor;
- * [typeOf player, "ama_hitTorso", [1, 2, 2]] call potato_armorAdjuster_setClassArmor;
+ * [typeOf player, "hitFace", [1, 2, 2]] call potato_armor_modifier_ace_setClassArmor;
+ * [typeOf player, "ama_hitTorso", [1, 2, 2]] call potato_armor_modifier_ace_setClassArmor;
  *
  * Public: Yes
  */

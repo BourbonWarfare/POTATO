@@ -12,8 +12,8 @@
  * None
  *
  * Example:
- * [cursorObject, "hitFace", [1, 2, 2]] call potato_armorAdjuster_setClassArmor;
- * [player, "ama_hitTorso", [1, 2, 2]] call potato_armorAdjuster_setClassArmor;
+ * [cursorObject, "hitFace", [1, 2, 2]] call potato_armor_modifier_ace_setClassArmor;
+ * [player, "ama_hitTorso", [1, 2, 2]] call potato_armor_modifier_ace_setClassArmor;
  *
  * Public: Yes
  */
