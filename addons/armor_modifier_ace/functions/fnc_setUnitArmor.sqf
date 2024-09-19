@@ -12,8 +12,8 @@
  * None
  *
  * Example:
- * [cursorObject, "hitFace", [1, 2, 2]] call potato_armor_modifier_ace_setClassArmor;
- * [player, "ama_hitTorso", [1, 2, 2]] call potato_armor_modifier_ace_setClassArmor;
+ * [cursorObject, "hitFace", [1, 2, 2]] call potato_armor_modifier_ace_fnc_setUnitArmor;
+ * [player, "ama_hitTorso", [1, 2, 2]] call potato_armor_modifier_ace_fnc_setUnitArmor;
  *
  * Public: Yes
  */
@@ -36,4 +36,5 @@ if (false in (_armorArray apply {_x isEqualType 0})) exitWith {
 };
 
 _this set [1, _hitPoint];
-[QGVAR(updateUnitArmor), _this, _unit] call CBA_fnc_globalEventJIP;
+private _jipID = [QGVAR(updateUnitArmor), _this] call CBA_fnc_globalEventJIP;
+[_jipID, _unit] call CBA_fnc_removeGlobalEventJIP;

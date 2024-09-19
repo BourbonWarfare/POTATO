@@ -11,7 +11,7 @@
  *
  * Public: Yes
  */
-params [["_hitPoint", "", [""]],];
+params [["_hitPoint", "", [""]]];
 
 _hitPoint = toLowerANSI _hitPoint;
 
