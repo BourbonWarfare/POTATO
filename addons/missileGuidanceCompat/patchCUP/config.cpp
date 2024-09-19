@@ -134,6 +134,11 @@ class CfgAmmo {
         ACE_MISSILE(Stinger);
     };
 
+    class EGVAR(missileGuidanceCompat,redeye): CUP_M_Stinger_AA { // BWC naming, used in CWR
+        maneuvrability = 0;
+        ACE_MISSILE(Redeye);
+    };
+
     class CUP_M_RBS70_AA: MissileBase {
         maneuvrability = 0;
         ACE_MISSILE(RBS70);
