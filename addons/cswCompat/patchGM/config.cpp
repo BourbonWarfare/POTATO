@@ -28,7 +28,7 @@ class CfgPatches {
             "gm_weapons_machineguns_mg3_gm_ge_army_mg3",
             "gm_weapons_launchers_fagot_gm_gc_army_fagot"
         };
-        skipWhenMissingDependencies = 0;
+        skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
