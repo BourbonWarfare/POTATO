@@ -3,13 +3,12 @@ TRACE_1("",QUOTE(ADDON));
 PREP(addItemsToContainer);
 PREP(addSupplyBoxActions);
 PREP(assignGearMan);
-PREP(assignGearPotatoBox);
 PREP(assignGearSupplyBox);
-PREP(assignGearVehicle_asBoxes);
+PREP(assignGearPotatoBox);
 PREP(assignGearVehicle);
+PREP(cleanPrefix);
 PREP(changeableOptics_getChildren);
 PREP(changeableOptics_setOptic);
-PREP(cleanPrefix);
 PREP(getContainerInfo);
 PREP(getDisposableInfo); // temp?? for cba change to disposable hash maps
 PREP(getLinkedIndex);

@@ -6,5 +6,4 @@
 // #define ENABLE_PERFORMANCE_COUNTERS
 
 #include "\z\potato\addons\core\script_macros.hpp"
-#include "script_macros.hpp"
 

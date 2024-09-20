@@ -15,7 +15,6 @@ class CfgPatches {
     };
 };
 
-#include "../CfgMissileTypesWarsaw.hpp"
 
 class CfgAmmo {
     class Missile_AGM_01_F;
@@ -33,15 +32,15 @@ class CfgAmmo {
     };
     class rhs_ammo_9k32: M_Titan_AA {
         maneuvrability = 0;
-        ACE_MISSILE(Strela);
+        #include "../CfgMissileStrela.hpp"
     };
     class rhs_ammo_9k38: rhs_ammo_9k32 {
         maneuvrability = 0;
-        ACE_MISSILE(Igla);
+        #include "../CfgMissileIgla.hpp"
     };
     class rhs_ammo_9m114: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
-        ACE_MISSILE(Shturm);
+        #include "../CfgMissileShturm.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -70,7 +69,7 @@ class CfgAmmo {
     };
     class rhs_ammo_9m120: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
-        ACE_MISSILE(Ataka);
+        #include "../CfgMissileAtaka.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -93,7 +92,7 @@ class CfgAmmo {
     };
     class rhs_ammo_9m127: rhs_ammo_9m120 {
         maneuvrability = 0;
-        ACE_MISSILE(Vikhr);
+        #include "../CfgMissileVikhr.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -105,7 +104,7 @@ class CfgAmmo {
     };
     class rhs_ammo_r27t: rhs_ammo_r27_base {
         maneuvrability = 0;
-        ACE_MISSILE(Vympel);
+        #include "../CfgMissileVympel.hpp"
     };
     class rhs_ammo_r27et: rhs_ammo_r27t {
         class ace_missileguidance: ace_missileguidance {
@@ -114,7 +113,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_r60_base: Missile_AA_04_F {
         maneuvrability = 0;
-        ACE_MISSILE(Molniya);
+        #include "../CfgMissileMolniya.hpp"
     };
 	class rhs_ammo_r60: rhs_ammo_r60_base {
         class ace_missileguidance: ace_missileguidance {
@@ -129,7 +128,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_r73: Missile_AA_04_F {
         maneuvrability = 0;
-        ACE_MISSILE(R73);
+        #include "../CfgMissileR73.hpp"
     };
 	class rhs_ammo_r73m: rhs_ammo_r73 {
         class ace_missileguidance: ace_missileguidance {
@@ -148,7 +147,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_r77: rhs_ammo_r73 {
         maneuvrability = 0;
-        ACE_MISSILE(R77);
+        #include "../CfgMissileR77.hpp"
     };
 	class rhs_ammo_r77m: rhs_ammo_r77 {
         class ace_missileguidance: ace_missileguidance {
@@ -157,7 +156,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_kh25_base: Missile_AGM_01_F {
         maneuvrability = 0;
-        ACE_MISSILE(KH25);
+        #include "../CfgMissileKH25.hpp"
     };
 	class rhs_ammo_kh25: rhs_ammo_kh25_base {
         class ace_missileguidance: ace_missileguidance {
@@ -188,7 +187,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_kh29_base: Missile_AGM_02_F {
         maneuvrability = 0;
-        ACE_MISSILE(KH29);
+        #include "../CfgMissileKH29.hpp"
     };
 	class rhs_ammo_kh29l: rhs_ammo_kh29_base {
         class ace_missileguidance: ace_missileguidance {
@@ -217,7 +216,7 @@ class CfgAmmo {
     };
     class rhs_ammo_9m14: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
-        ACE_MISSILE(Malyutka);
+        #include "../CfgMissileMalyutka.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -234,7 +233,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_9m17: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
-        ACE_MISSILE(Fleyta);
+        #include "../CfgMissileFleyta.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -248,7 +247,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_9m112: rhs_ammo_atgmCore_base {
         maneuvrability = 0;
-        ACE_MISSILE(Refleks);
+        #include "../CfgMissileRefleks.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -270,11 +269,11 @@ class CfgAmmo {
     };
 	class rhs_ammo_9m128: rhs_ammo_atgmCore_base {
         maneuvrability = 0;
-        ACE_MISSILE(Kobra);
+        #include "../CfgMissileKobra.hpp"
     };
 	class rhs_ammo_9m111: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
-        ACE_MISSILE(Fagot);
+        #include "../CfgMissileFagot.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -287,7 +286,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_9m113: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
-        ACE_MISSILE(Konkurs);
+        #include "../CfgMissileKonkurs.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -299,7 +298,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_9m117: rhs_ammo_atgmCore_base {
         maneuvrability = 0;
-        ACE_MISSILE(Bastion);
+        #include "../CfgMissileBastion.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -323,7 +322,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_9m119: rhs_ammo_atgmCore_base {
         maneuvrability = 0;
-        ACE_MISSILE(Refleks);
+        #include "../CfgMissileRefleks.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -340,7 +339,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_9m115: rhs_ammo_9m119 {
         maneuvrability = 0;
-        ACE_MISSILE(Metis);
+        #include "../CfgMissileMetis.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -364,14 +363,14 @@ class CfgAmmo {
     };
 	class rhs_ammo_9m133f: rhs_ammo_9m131f {
         maneuvrability = 0;
-        ACE_MISSILE(Konkurs);
+        #include "../CfgMissileKonkurs.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
     };
 	class rhs_ammo_9m133: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
-        ACE_MISSILE(Konkurs);
+        #include "../CfgMissileKonkurs.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };
@@ -388,7 +387,7 @@ class CfgAmmo {
     };
 	class rhs_ammo_3m7: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
-        ACE_MISSILE(Drakon);
+        #include "../CfgMissileDrakon.hpp"
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};
         };

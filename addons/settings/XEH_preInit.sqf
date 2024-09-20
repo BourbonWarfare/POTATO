@@ -37,7 +37,7 @@ if (isServer) then {
         } forEach _settings;
 
         // report specific medical settings
-        private _log = format ["[AMA=%1] [aDmgPass=%2]", potato_armor_modifier_ace, ace_medical_engine_damagePassThroughEffect toFixed 2];
+        private _log = format ["[AAA=%1] [aDmgPass=%2]", AAA_VAR_MOD_ENABLED, ace_medical_engine_damagePassThroughEffect toFixed 2];
         ["potato_adminMsg", [_log, "Mission"]] call CBA_fnc_globalEvent;
     }, [_settings], 4] call CBA_fnc_waitAndExecute;
 

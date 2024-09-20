@@ -22,15 +22,12 @@ class CfgPatches {
     };
 };
 
-#include "../CfgMissileTypesNato.hpp"
-#include "../CfgMissileTypesWarsaw.hpp"
-
 class CfgAmmo {
     class gm_missile_saclos_base;
     // Bastion
     class gm_missile_bastion_base: gm_missile_saclos_base {
         maneuvrability = 0;
-        ACE_MISSILE(Bastion);
+        #include "../CfgMissileBastion.hpp"
     };
     class gm_missile_bastion_heat_9M117: gm_missile_bastion_base {
         class ace_missileguidance: ace_missileguidance {
@@ -55,7 +52,7 @@ class CfgAmmo {
     // Fagot missile
     class gm_missile_fagot_base: gm_missile_saclos_base {
         maneuvrability = 0;
-        ACE_MISSILE(Fagot);
+        #include "../CfgMissileFagot.hpp"
     };
     class gm_missile_fagot_heat_9m111: gm_missile_fagot_base {
         class ace_missileguidance: ace_missileguidance {
@@ -63,6 +60,7 @@ class CfgAmmo {
             showTrail = 0;
             pitchRate = 25;
             yawRate = 25;
+            initialPitch = 0;
             lineGainP = 7;
             lineGainD = 4;
         };
@@ -70,7 +68,7 @@ class CfgAmmo {
     // HOT missile
     class gm_missile_hot_base: gm_missile_saclos_base {
         maneuvrability = 0;
-        ACE_MISSILE(Hot);
+        #include "../CfgMissileHOT.hpp"
     };
     class gm_missile_hot_heat_dm72: gm_missile_hot_base {
         class ace_missileguidance: ace_missileguidance {
@@ -87,7 +85,7 @@ class CfgAmmo {
     // Malyutka
     class gm_missile_maljutka_base: gm_missile_saclos_base {
         maneuvrability = 0;
-        ACE_MISSILE(Malyutka);
+        #include "../CfgMissileMalyutka.hpp"
     };
     class gm_missile_maljutka_heat_9m14: gm_missile_maljutka_base {
         class ace_missileguidance: ace_missileguidance {
@@ -104,28 +102,57 @@ class CfgAmmo {
     // Milan
     class gm_missile_milan_base: gm_missile_saclos_base {
         maneuvrability = 0;
-        ACE_MISSILE(Milan);
+        #include "../CfgMissileMilan.hpp"
     };
     class gm_missile_milan_heat_dm82: gm_missile_milan_base {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
-            initialPitch = 0.4;
         };
     };
     class gm_missile_milan_heat_dm92: gm_missile_milan_base {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
-            initialPitch = 0.4;
         };
     };
     // AA Missiles
     class gm_rocket_72mm_HE_9m32m_base;
     class gm_rocket_72mm_HE_9m32m: gm_rocket_72mm_HE_9m32m_base {
         maneuvrability = 0;
-        ACE_MISSILE(Strela);
+        #include "../CfgMissileStrela.hpp"
     };
     class gm_rocket_70mm_HE_m585_base;
     class gm_rocket_70mm_HE_m585: gm_rocket_70mm_HE_m585_base {
-        ACE_MISSILE(Redeye);
+        class ace_missileguidance { // from main CfgAmmo.hpp
+            enabled = 1;
+
+            pitchRate = 27;          // Minium flap deflection for guidance
+            yawRate = 27;            // Maximum flap deflection for guidance
+
+            canVanillaLock = 1;          // Can this default vanilla lock? Only applicable to non-cadet mode
+
+            // Guidance type for munitions
+            defaultSeekerType = "IR";
+            seekerTypes[] = { "IR" };
+
+            flareDistanceFilter = 100;
+            flareAngleFilter = 2.0; // can filter out flares that are >= flareAngleFilter to known target velocity
+
+            defaultSeekerLockMode = "LOBL";
+            seekerLockModes[] = { "LOBL" };
+
+            defaultNavigationType = "ProportionalNavigation";
+            navigationTypes[] = { "ProportionalNavigation" };
+
+            seekLastTargetPos = 0;      // seek last target position [if seeker loses LOS of target, continue to last known pos]
+            seekerAngle = 45;           // Angle from the shooter's view that can track the missile
+            seekerAccuracy = 0.4;         // seeker accuracy multiplier
+
+            seekerMinRange = 75;
+            seekerMaxRange = 4500;      // Range from the missile which the seeker can visually search
+
+            // Attack profile type selection
+            defaultAttackProfile = "DIR";
+            attackProfiles[] = {"DIR"};
+        };
     };
 };

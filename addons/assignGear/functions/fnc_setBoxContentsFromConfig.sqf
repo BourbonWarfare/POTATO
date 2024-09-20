@@ -24,6 +24,7 @@ params ["_theBox", "_path", ["_nameFormatString", "%1", [""]]];
 private _boxName = getText (_path >> "boxCustomName");
 if (_boxName isNotEqualTo "") then {
     _theBox setVariable [QACEGVAR(cargo,customName), format [_nameFormatString, _boxName], true];
+    _theBox setVariable [QACEGVAR(cargo,customName), format [_nameFormatString, _boxName], true];
 };
 
 private _overrideCarryWeight = 1 == (getNumber (_path >> "forceAllowCarry"));
