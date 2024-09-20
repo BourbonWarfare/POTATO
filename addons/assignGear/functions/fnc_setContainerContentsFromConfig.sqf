@@ -11,7 +11,7 @@
  * None
  *
  * Example:
- * [cursorObject, missionConfigFile >> "CfgLoadouts" >> "SupplyBox" >> (typeOf cursorObject)] call potato_assignGear_fnc_assignGearSupplyBox
+ * [cursorObject, missionConfigFile >> "CfgLoadouts" >> "SupplyBox" >> (typeOf cursorObject)] call potato_assignGear_fnc_setContainerContentsFromConfig
  *
  * Public: No
  */
