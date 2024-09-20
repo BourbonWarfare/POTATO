@@ -15,7 +15,6 @@
  *
  * Public: Yes
  */
-
 params ["_theVehicle", "_defaultLoadout"];
 TRACE_2("assignGearVehicle",_theVehicle,_defaultLoadout);
 
@@ -91,35 +90,42 @@ private _transportItems = getArray(_path >> "TransportItems");
 private _transportWeapons = getArray(_path >> "TransportWeapons");
 private _transportBackpacks = getArray(_path >> "TransportBackpacks");
 
-// transportMagazines
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    _theVehicle addMagazineCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportMagazines; // count used here for speed, make sure nil is above this line
+switch (GVAR(setVehicleLoadouts)) do {
+    case 1: { // ammo in vehicle inventory
+        // transportMagazines
+        {
+            (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
+            _theVehicle addMagazineCargoGlobal [_classname, parseNumber _amount];
+            nil
+        } count _transportMagazines; // count used here for speed, make sure nil is above this line
 
-// transportItems
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    _theVehicle addItemCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportItems; // count used here for speed, make sure nil is above this line
+        // transportItems
+        {
+            (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
+            _theVehicle addItemCargoGlobal [_classname, parseNumber _amount];
+            nil
+        } count _transportItems; // count used here for speed, make sure nil is above this line
 
-// transportWeapons
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    private _disposableName = [cba_disposable_LoadedLaunchers, _classname, "get", ""] call FUNC(getDisposableInfo);
-    if (_disposableName != "") then {
-        TRACE_2("cba_disposable_LoadedLaunchers replace",_classname,_disposableName);
-        _classname = _disposableName;
+        // transportWeapons
+        {
+            (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
+            private _disposableName = [cba_disposable_LoadedLaunchers, _classname, "get", ""] call FUNC(getDisposableInfo);
+            if (_disposableName != "") then {
+                TRACE_2("cba_disposable_LoadedLaunchers replace",_classname,_disposableName);
+                _classname = _disposableName;
+            };
+            _theVehicle addWeaponCargoGlobal [_classname, parseNumber _amount];
+            nil
+        } count _transportWeapons; // count used here for speed, make sure nil is above this line
+
+        // transportBackpacks
+        {
+            (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
+            _theVehicle addBackpackCargoGlobal [_classname, parseNumber _amount];
+            nil
+        } count _transportBackpacks; // count used here for speed, make sure nil is above this line
     };
-    _theVehicle addWeaponCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportWeapons; // count used here for speed, make sure nil is above this line
-
-// transportBackpacks
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    _theVehicle addBackpackCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportBackpacks; // count used here for speed, make sure nil is above this line
+    case 2: { // ammo in boxes in vehicle
+        [_theVehicle, _path, _transportMagazines, _transportItems, _transportWeapons, _transportBackpacks] call FUNC(assignGearVehicle_asBoxes);
+    };
+};
