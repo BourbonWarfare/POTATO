@@ -1,6 +1,7 @@
 TRACE_1("",QUOTE(ADDON));
 
 PREP(addItemsToContainer);
+PREP(addSupplyBoxActions);
 PREP(assignGearMan);
 PREP(assignGearSupplyBox);
 PREP(assignGearPotatoBox);
@@ -16,4 +17,5 @@ PREP(getLoadoutFromConfig);
 PREP(getWeaponArray);
 PREP(isOpticMagnified);
 PREP(requestPlayerGear);
+PREP(setBoxContentsFromConfig);
 PREP(setWeaponAttachment);
