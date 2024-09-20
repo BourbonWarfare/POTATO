@@ -142,8 +142,8 @@ if (["tuncon_unconinfo"] call ACEFUNC(common,isModLoaded)) then { _settings appe
 ["tuncon_unconinfo_enableshowheartrate", false],
 ["tuncon_unconinfo_enableshowstablevitals", false],
 ["tuncon_unconinfo_allownearestunit", false],
-["tuncon_unconinfo_nofriendliesnearbytext", "You are near death."]
-["tuncon_unconinfo_enableshowdetailedtreatment", false]
+["tuncon_unconinfo_nofriendliesnearbytext", "You are near death."],
+["tuncon_unconinfo_enableshowdetailedtreatment", false],
 ["tuncon_unconinfo_unconinfonearestunitdistance", 10]
 ];} else { _skip pushBack "tuncon_unconinfo" };
 
