@@ -36,6 +36,14 @@ if (isServer) then {
             };
         } forEach _settings;
 
+        // Warn if old mission had set AAA
+        private _missionSettingsHash = getMissionConfigValue "cba_settings_hash";
+        private _aaa = [_missionSettingsHash, "aaa_var_mod_enabled"] call CBA_fnc_hashGet;
+        if (!isNil "_aaa") then {
+            private _log = format ["Warning AAA was set to %1", _aaa];
+            ["potato_adminMsg", [_log, "Mission"]] call CBA_fnc_globalEvent;
+        };
+
         // report specific medical settings
         private _log = format ["[AMA=%1] [aDmgPass=%2]", potato_armor_modifier_ace, ace_medical_engine_damagePassThroughEffect toFixed 2];
         ["potato_adminMsg", [_log, "Mission"]] call CBA_fnc_globalEvent;
