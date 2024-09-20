@@ -76,17 +76,15 @@ if (!isClass _path) exitWith {
     diag_log text format ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2) (kindOf %3) (defaultLoadout: %4)", _theVehicle, typeOf _theVehicle, _loadout, _defaultLoadout];
 };
 
-//Clean out starting inventory (even if there is no class)
-clearWeaponCargoGlobal _theVehicle;
-clearMagazineCargoGlobal _theVehicle;
-clearItemCargoGlobal _theVehicle;
-clearBackpackCargoGlobal _theVehicle;
-
 switch (GVAR(setVehicleLoadouts)) do {
     case 1: { // ammo in vehicle inventory
         [_theVehicle, _path] call FUNC(setContainerContentsFromConfig);
     };
     case 2: { // ammo in boxes in vehicle
+        clearWeaponCargoGlobal _theVehicle;
+        clearMagazineCargoGlobal _theVehicle;
+        clearItemCargoGlobal _theVehicle;
+        clearBackpackCargoGlobal _theVehicle;
         [_theVehicle, _path,
             getArray(_path >> "TransportMagazines"),
             getArray(_path >> "TransportItems"),
@@ -94,6 +92,10 @@ switch (GVAR(setVehicleLoadouts)) do {
             getArray(_path >> "TransportBackpacks")] call FUNC(assignGearVehicle_asBoxes);
     };
     case 3: { // ammo in boxes in vehicle from config
+        clearWeaponCargoGlobal _theVehicle;
+        clearMagazineCargoGlobal _theVehicle;
+        clearItemCargoGlobal _theVehicle;
+        clearBackpackCargoGlobal _theVehicle;
         private _boxes = "true" configClasses _path;
         private _vehicleSpace = getNumber (_path >> "minVehicleBoxSpace");
         if (_vehicleSpace > 0) then {
