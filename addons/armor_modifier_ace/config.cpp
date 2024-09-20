@@ -3,16 +3,20 @@
 class CfgPatches {
     class ADDON {
         units[] = {};
+        weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "ace_missileguidance"};
+        requiredAddons[] = {
+            "ace_medical_engine"
+        };
+        author = "johnb43";
+        authors[] = {
+            "johnb43",
+            "Lambda.Tiger"
+        };
         skipWhenMissingDependencies = 1;
-        author = "Potato";
-        authors[] = {"Dani (TCVM)"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
 };
 
-#include "CfgMissileTypesWarsaw.hpp"
-#include "CfgMissileTypesNato.hpp"
-#include "CfgAmmo.hpp"
+#include "CfgEventHandlers.hpp"

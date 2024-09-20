@@ -4,6 +4,8 @@
  * Fills supply box with gear for a faction
  * Edit by Lambda.tiger
  * Supports boxes containing other boxes
+ * Edit by Lambda.tiger
+ * Supports boxes containing other boxes
  *
  * Arguments:
  * 0: Box <OBJECT>
