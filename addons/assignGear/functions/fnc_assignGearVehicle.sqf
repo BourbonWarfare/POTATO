@@ -97,6 +97,9 @@ switch (GVAR(setVehicleLoadouts)) do {
         clearItemCargoGlobal _theVehicle;
         clearBackpackCargoGlobal _theVehicle;
         private _boxes = "true" configClasses _path;
+        if (_boxes isEqualTo []) exitWith {
+            [_theVehicle, _path] call FUNC(setContainerContentsFromConfig);
+        };
         private _vehicleSpace = getNumber (_path >> "minVehicleBoxSpace");
         if (_vehicleSpace > 0) then {
             private _currentVehicleSpace = _theVehicle getVariable [
