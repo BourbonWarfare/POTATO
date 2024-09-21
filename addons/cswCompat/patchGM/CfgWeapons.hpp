@@ -68,7 +68,7 @@ class CfgWeapons {
 
     // Tripod
     class ace_csw_m3CarryTripod: Launcher_Base_F {
-        class WeaponSlotsInfo: WeaponSlotsInfo;
+        class WeaponSlotsInfo: WeaponSlotsInfo {};
     };
     class GVAR(gm_MG3TripodCarry): ace_csw_m3CarryTripod {
         class ACE_CSW {

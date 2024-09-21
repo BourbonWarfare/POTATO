@@ -78,18 +78,18 @@ class CfgVehicles {
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components: Components;
-                class GunClouds: GunClouds;
-                class GunFire: GunFire;
-                class HitPoints: HitPoints;
-                class MGunClouds: MGunClouds;
-                class Reflectors: Reflectors;
-                class TurnIn: TurnIn;
-                class TurnOut: TurnOut;
-                class Turrets: Turrets;
-                class TurretSpec: TurretSpec;
-                class ViewGunner: ViewGunner;
-                class ViewOptics: ViewOptics;
+                class Components: Components {};
+                class GunClouds: GunClouds {};
+                class GunFire: GunFire {};
+                class HitPoints: HitPoints {};
+                class MGunClouds: MGunClouds {};
+                class Reflectors: Reflectors {};
+                class TurnIn: TurnIn {};
+                class TurnOut: TurnOut {};
+                class Turrets: Turrets {};
+                class TurretSpec: TurretSpec {};
+                class ViewGunner: ViewGunner {};
+                class ViewOptics: ViewOptics {};
                 weapons[] = {QGVAR(gm_milan_launcher_proxy)};
                 magazines[] = {};
             };
@@ -176,18 +176,18 @@ class CfgVehicles {
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components: Components;
-                class GunClouds: GunClouds;
-                class GunFire: GunFire;
-                class HitPoints: HitPoints;
-                class MGunClouds: MGunClouds;
-                class Reflectors: Reflectors;
-                class TurnIn: TurnIn;
-                class TurnOut: TurnOut;
-                class Turrets: Turrets;
-                class TurretSpec: TurretSpec;
-                class ViewGunner: ViewGunner;
-                class ViewOptics: ViewOptics;
+                class Components: Components {};
+                class GunClouds: GunClouds {};
+                class GunFire: GunFire {};
+                class HitPoints: HitPoints {};
+                class MGunClouds: MGunClouds {};
+                class Reflectors: Reflectors {};
+                class TurnIn: TurnIn {};
+                class TurnOut: TurnOut {};
+                class Turrets: Turrets {};
+                class TurretSpec: TurretSpec {};
+                class ViewGunner: ViewGunner {};
+                class ViewOptics: ViewOptics {};
                 weapons[] = {QGVAR(gm_fagot_launcher_proxy)};
                 magazines[] = {};
             };
@@ -215,13 +215,13 @@ class CfgVehicles {
         };
     };
     class gm_ge_army_mg3_aatripod_base: gm_mg3_aatripod_base {
-        class ACE_Actions: ACE_Actions;
+        class ACE_Actions: ACE_Actions {};
     };
     class gm_ge_army_mg3_aatripod: gm_ge_army_mg3_aatripod_base {
-        class ACE_Actions: ACE_Actions;
+        class ACE_Actions: ACE_Actions {};
     };
     class gm_ge_army_mg3_aatripod_csw: gm_ge_army_mg3_aatripod {
-        class ACE_Actions: ACE_Actions;
+        class ACE_Actions: ACE_Actions {};
         class ACE_CSW {
             enabled = 1; // Enables ACE CSW for this weaponmmo handling interaction point location (custom pos)
             ammoLoadTime = 0.1 ;   // How long it takes in
