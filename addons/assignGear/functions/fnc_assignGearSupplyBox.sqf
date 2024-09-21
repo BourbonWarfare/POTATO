@@ -42,7 +42,7 @@ if (!isClass _path) exitWith {
 };
 
 private _subBoxes = "true" configClasses _path;
-if (_subBoxes isNotEqualTo []) then {
+if (_subBoxes isNotEqualTo [] && GVAR(setSupplyBoxLoadouts) == 2) then {
     private _boxName = getText (_path >> "boxCustomName");
     if (_boxName isNotEqualTo "") then {
         _theBox setVariable [QACEGVAR(cargo,customName), _boxName, true];
