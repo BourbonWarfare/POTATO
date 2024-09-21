@@ -50,7 +50,6 @@ _settings = [
 [QACEGVAR(finger,maxrange), 7],
 [QACEGVAR(fortify,timeCostCoefficient), 0],
 [QACEGVAR(fortify,timeMin), 0],
-[QACEGVAR(frag,maxTrack), 5],
 [QACEGVAR(gforces,enabledFor), 0],
 [QACEGVAR(goggles,effects), 1], // note: user-setting, we don't force
 [QACEGVAR(hearing,autoAddEarplugsToUnits), 0],
@@ -66,7 +65,7 @@ _settings = [
 [QACEGVAR(nightvision,aimDownSightsBlur), 0.25, false, true],
 [QACEGVAR(overheating,enabled), false],
 [QACEGVAR(refuel,rate), 10],
-[QACEGVAR(refuel,progressduration), 0.1],
+[QACEGVAR(refuel,progressduration), 1],
 [QACEGVAR(respawn,removeDeadBodiesDisconnected), false],
 [QACEGVAR(towing,addRopeToVehicleInventory), false], // added via potato_assignGear - alwaysAddLandRopes
 [QACEGVAR(ui,ammoCount), false, true], // Forced because it's User settable
