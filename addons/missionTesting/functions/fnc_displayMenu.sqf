@@ -56,16 +56,16 @@ private _createChecklistSection  = {
 
             if(_itemApplicable == (getMissionConfigValue QGVAR(missionType)) || _itemApplicable == 0) then {
                 //Create Structure Text and Insert Text. Get hight of text and resize control appropriately.
-                _ctrlCreateText = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructuredText),-1,CONTROL_GROUP_L];
+                private _ctrlCreateText = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructuredText),-1,CONTROL_GROUP_L];
                 _ctrlCreateText ctrlSetStructuredText parseText _text;
                 _ctrlCreateText ctrlSetBackgroundColor [1, 1, 1, 0.25];
                 _ctrlCreateText ctrlSetPosition [0.01,GVAR(yStartCoord),0.77,CONTROL_SIZE_H];
                 _ctrlCreateText ctrlCommit 0;
-                _ctrlHeight = ctrlTextHeight _ctrlCreateText;
+                private _ctrlHeight = ctrlTextHeight _ctrlCreateText;
                 _ctrlCreateText ctrlSetPosition [0.01,GVAR(yStartCoord),0.77,_ctrlHeight + 0.01];
                 _ctrlCreateText ctrlCommit 0;
                 //Create check box and add eventhandler that updates the Master Array when changed.
-                _ctrlCreateCB = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscCheckBox),_idc,CONTROL_GROUP_L];
+                private _ctrlCreateCB = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscCheckBox),_idc,CONTROL_GROUP_L];
                 _ctrlCreateCB ctrlSetPosition [0.78,GVAR(yStartCoord),0.05,CONTROL_SIZE_H];
                 _ctrlCreateCB ctrlCommit 0;
                 _ctrlCreateCB cbSetChecked _checked;
@@ -262,7 +262,7 @@ TRACE_1("Create Control Structure Text Info",_ctrlCreateInfoBlock);
 _ctrlCreateInfoBlock ctrlSetBackgroundColor [0, 0, 0, 0.5];
 _ctrlCreateInfoBlock ctrlSetPosition [0,0,0.5,1];
 _ctrlCreateInfoBlock ctrlCommit 0;
-_ctrlCreateInfoBlockText = composeText [
+private _ctrlCreateInfoBlockText = composeText [
     parseText "<t color='#FF8000'>MISSION INFORMATION</t>"
     ,_separator
     ,parseText "<t color='#0080FF'>Mission Maker:</t> ",_missionMaker, lineBreak
@@ -308,7 +308,7 @@ _ctrlCreateInfoBlockMissionMakerNotes ctrlSetBackgroundColor [0, 0, 0, 0.5];
 _ctrlCreateInfoBlockMissionMakerNotes ctrlSetPosition [0,_ctrlCreateInfoBlockHeight + 0.1,0.5,1];
 _ctrlCreateInfoBlockMissionMakerNotes ctrlCommit 0;
 _ctrlCreateInfoBlockMissionMakerNotes ctrlSetText _missionNotesForTester;
-_ctrlCreateInfoBlockMissionMakerNotesHeight = ctrlTextHeight _ctrlCreateInfoBlockMissionMakerNotes;
+private _ctrlCreateInfoBlockMissionMakerNotesHeight = ctrlTextHeight _ctrlCreateInfoBlockMissionMakerNotes;
 _ctrlCreateInfoBlockMissionMakerNotes ctrlSetPosition [0,_ctrlCreateInfoBlockHeight + 0.01,0.5,_ctrlCreateInfoBlockMissionMakerNotesHeight + 0.01];
 _ctrlCreateInfoBlockMissionMakerNotes ctrlCommit 0;
 

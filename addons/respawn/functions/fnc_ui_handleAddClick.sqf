@@ -25,7 +25,7 @@ private _configIndex = lbCurSel ADMIN_CONFIG_COMBO_IDC;
     "_colorString"
 ];
 
-_colorArray = [];
+private _colorArray = [];
 {
     _colorArray pushBack (parseNumber _x);
 } forEach (_colorString splitString ",");
