@@ -130,19 +130,19 @@ if (_multiplierArray isNotEqualTo DEFAULT_SETTINGS) then {
             // This will decrease damage
             _modifiedNewDamage = _realDamage / _armorMin;
 
-            TRACE_6("Under min armor",_armor,_armorMin,_newDamage,_modifiedNewDamage,_realDamage);
+            TRACE_5("Under min armor",_armor,_armorMin,_newDamage,_modifiedNewDamage,_realDamage);
         };
         case (_armorMax >= 1 && {_armor > _armorMax}): {
             // This will increase damage
             _modifiedNewDamage = _realDamage / _armorMax;
 
-            TRACE_6("Over max armor",_armor,_armorMax,_newDamage,_modifiedNewDamage,_realDamage);
+            TRACE_5("Over max armor",_armor,_armorMax,_newDamage,_modifiedNewDamage,_realDamage);
         };
     };
 
     _modifiedNewDamage = _modifiedNewDamage / _hitPointTimeser;
 
-    TRACE_5("Hitpoint damage multiplied",_armor,_newDamage,_modifiedNewDamage,_realDamage);
+    TRACE_4("Hitpoint damage multiplied",_armor,_newDamage,_modifiedNewDamage,_realDamage);
 };
 
 // Damages are stored for last iteration of the HandleDamage event (_context == 2)
