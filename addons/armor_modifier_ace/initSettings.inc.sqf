@@ -47,13 +47,13 @@
     HITPOINT_SETTINGS_FUNCTION(HITPOINT,SIDE_CMD)\
 ] call CBA_fnc_addSetting
 
-#define HITPOINT_CHECK_SETTING_SIDE(OBJECT,SIDE_CMD) HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,head,FORMAT_1("%1 hitpoint damage reduction - head",QUOTE(OBJECT)),ARR_3([1,7,7]));\
-HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,face,FORMAT_1("%1 hitpoint damage reduction - face",QUOTE(OBJECT)),ARR_3([1,0,1]));\
-HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,neck,FORMAT_1("%1 hitpoint damage reduction - neck",QUOTE(OBJECT)),ARR_3([1,0,1]));\
-HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,torso,FORMAT_1("%1 hitpoint damage reduction - torso",QUOTE(OBJECT)),ARR_3([1,14,14]));\
-HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,pelvis,FORMAT_1("%1 hitpoint damage reduction - pelvis",QUOTE(OBJECT)),ARR_3([1,14,14]));\
-HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,arms,FORMAT_1("%1 hitpoint damage reduction - arms",QUOTE(OBJECT)),ARR_3([1,0,1]));\
-HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,legs,FORMAT_1("%1 hitpoint damage reduction - legs",QUOTE(OBJECT)),ARR_3([1,0,1]))
+#define HITPOINT_CHECK_SETTING_SIDE(OBJECT,SIDE_CMD) HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,head,FORMAT_1("%1 hitpoint damage reduction - head",QUOTE(OBJECT)),ARR_3([1,0,0]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,face,FORMAT_1("%1 hitpoint damage reduction - face",QUOTE(OBJECT)),ARR_3([1,0,0]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,neck,FORMAT_1("%1 hitpoint damage reduction - neck",QUOTE(OBJECT)),ARR_3([1,0,0]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,torso,FORMAT_1("%1 hitpoint damage reduction - torso",QUOTE(OBJECT)),ARR_3([1,0,0]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,pelvis,FORMAT_1("%1 hitpoint damage reduction - pelvis",QUOTE(OBJECT)),ARR_3([1,0,0]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,arms,FORMAT_1("%1 hitpoint damage reduction - arms",QUOTE(OBJECT)),ARR_3([1,0,0]));\
+HITPOINT_SETTINGS_SIDE(OBJECT,SIDE_CMD,legs,FORMAT_1("%1 hitpoint damage reduction - legs",QUOTE(OBJECT)),ARR_3([1,0,0]))
 
 HITPOINT_CHECK_SETTING_SIDE(BluFor,blufor);
 HITPOINT_CHECK_SETTING_SIDE(OpFor,opfor);
