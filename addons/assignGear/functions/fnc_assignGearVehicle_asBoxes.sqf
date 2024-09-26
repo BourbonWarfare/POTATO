@@ -208,7 +208,7 @@ while {
             _box addItemCargoGlobal _x;
         } forEach _toAdd;
     };
-
+    _box setVariable [QGVAR(initialized), true, true];
     _box setVariable [QACEGVAR(cargo,customName), _name joinString ",", true];
 };
 
