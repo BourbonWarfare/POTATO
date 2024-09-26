@@ -31,9 +31,8 @@ if (isNull _spectator) then {
     [[_spectator] call EFUNC(spectate,getName), [_spectator] call BIS_fnc_objectVar]
 } params ["_unitName", "_unitVar"];
 
-tvSetText [GROUP_TREE_IDC, _slotPath, format ["%1 - %2", _displayName, _unitName]]
+tvSetText [GROUP_TREE_IDC, _slotPath, format ["%1 - %2", _displayName, _unitName]];
 tvSetTooltip [GROUP_TREE_IDC, _slotPath, _unitName];
-tvSetTooltip [GROUP_TREE_IDC, _slotPath, _unitName]; // hack, one invocation literary doesn't work for some stupid fucking reason
 tvSetData [GROUP_TREE_IDC, _slotPath, _unitVar];
 
 if !(isNull ADMIN_RESPAWN) then {

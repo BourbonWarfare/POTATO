@@ -24,7 +24,7 @@ private _fncGetWeaponInfo = {
     private _config = configFile >> "CfgWeapons" >> _weaponClassname;
     private _muzzles = getArray (_config >> "muzzles");
     {
-        _muzzleConfig = if (_x == "this") then {
+        private _muzzleConfig = if (_x == "this") then {
             _config;
         } else {
             _config >> _x

@@ -34,7 +34,7 @@ if (isServer) then {
     if (GVAR(dataIndex) < 0) exitWith {diag_log text format ["[POTATO] Waiting on index"];};
     params ["_args"];
     _args params ["_lastTime", "_lastFrame", "_lastFSM"];
-    _delta = diag_tickTime - _lastTime;
+    private _delta = diag_tickTime - _lastTime;
     private _fps = (diag_frameNo - _lastFrame) / _delta;
     private _cps = (GVAR(fsmNo) - _lastFSM) / _delta;
     _args set [0, diag_tickTime];

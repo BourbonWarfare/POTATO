@@ -153,8 +153,8 @@ private _addWeaponSystem = {
     if (_weapons isEqualTo []) exitWith {};
 
     {
-        _magToAdd = _x;
-        _found = false;
+        private _magToAdd = _x;
+        private _found = false;
         {
             _x params ["_xPath", "_xMag", "_xCount"];
             if ((_xPath isEqualTo _path) && {_xMag == _magToAdd}) exitWith {
@@ -189,7 +189,7 @@ private _addWeaponSystem = {
         private _tvIndexWeapon = (_control controlsGroupCtrl 101) tvAdd [[_tvIndexTurret], _x];
         (_control controlsGroupCtrl 101) tvExpand [_tvIndexTurret, _tvIndexWeapon];
         {
-            _magToAdd = _x;
+            private _magToAdd = _x;
             private _magCount = 0;
             {
                 _x params ["_xPath", "_xMag", "_xCount"];
@@ -214,7 +214,7 @@ private _addWeaponSystem = {
 [_config, [-1], "Pilot"] call _addWeaponSystem;
 
 {
-    _turretConfig = [_config, _x] call ace_common_fnc_getTurretConfigPath;
+    private _turretConfig = [_config, _x] call ace_common_fnc_getTurretConfigPath;
     TRACE_2("",_x,_turretConfig);
     [_turretConfig, _x, (format ["Turret %1", _x])] call _addWeaponSystem;
 } forEach _turrets;

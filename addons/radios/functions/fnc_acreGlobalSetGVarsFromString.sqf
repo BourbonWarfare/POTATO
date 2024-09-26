@@ -31,6 +31,7 @@ private _paramsOutputs = if (count _paramsArray == 8) then {
     ]
 };
 
+//IGNORE_PRIVATE_WARNING ["_enabled", "_addCommonChannelName", "_addCommonChannelNumber", "_addCommonChannelAllMR", "_addCommonChannelAllLR"];
 _paramsArray params _paramsOutputs;
 
 missionNamespace setVariable [QGVAR(enabled), [_enabled] call CFUNC(parseBool), true];

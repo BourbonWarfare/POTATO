@@ -25,6 +25,7 @@ GVAR(tags) = [
 
 private _fnc_statement = {};
 private _fnc_condition = {
+    //IGNORE_PRIVATE_WARNING ["_player", "_target"];
     (missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] != -1)  // safe start active
     && {(rankId _player) >= 1}
     && {
