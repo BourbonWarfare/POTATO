@@ -47,7 +47,6 @@ class CfgVehicles {
             };
         };
     };
-    class LandVehicle;
     class Tank: LandVehicle {
         class NewTurret;
         class HitPoints;
