@@ -120,7 +120,6 @@ private _multiplierArray = _unit getVariable [QGVAR(armorHash),
 ] getOrDefault [_hitPoint, DEFAULT_SETTINGS, true];
 
 private _modifiedNewDamage = _newDamage;
-private _modifiedRealDamage = _realDamage;
 
 // If default settings, we don't need to change anything, so skip calculcations and let ace handle damage
 if (_multiplierArray isNotEqualTo DEFAULT_SETTINGS) then {
@@ -129,28 +128,25 @@ if (_multiplierArray isNotEqualTo DEFAULT_SETTINGS) then {
     switch (true) do {
         case (_armorMin >= 1 && {_armor < _armorMin}): {
             // This will decrease damage
-            _modifiedNewDamage = _newDamage * _armor / _armorMin;
-            _modifiedRealDamage = _realDamage * _armor / _armorMin;
+            _modifiedNewDamage = _realDamage / _armorMin;
 
-            TRACE_6("Under min armor",_armor,_armorMin,_newDamage,_modifiedNewDamage,_realDamage,_modifiedRealDamage);
+            TRACE_5("Under min armor",_armor,_armorMin,_newDamage,_modifiedNewDamage,_realDamage);
         };
         case (_armorMax >= 1 && {_armor > _armorMax}): {
             // This will increase damage
-            _modifiedNewDamage = _newDamage * _armor / _armorMax;
-            _modifiedRealDamage = _realDamage * _armor / _armorMax;
+            _modifiedNewDamage = _realDamage / _armorMax;
 
-            TRACE_6("Over max armor",_armor,_armorMax,_newDamage,_modifiedNewDamage,_realDamage,_modifiedRealDamage);
+            TRACE_5("Over max armor",_armor,_armorMax,_newDamage,_modifiedNewDamage,_realDamage);
         };
     };
 
     _modifiedNewDamage = _modifiedNewDamage / _hitPointTimeser;
-    _modifiedRealDamage = _modifiedRealDamage / _hitPointTimeser;
 
-    TRACE_5("Hitpoint damage multiplied",_armor,_newDamage,_modifiedNewDamage,_realDamage,_modifiedRealDamage);
+    TRACE_4("Hitpoint damage multiplied",_armor,_newDamage,_modifiedNewDamage,_realDamage);
 };
 
 // Damages are stored for last iteration of the HandleDamage event (_context == 2)
-_unit setVariable [format ["ace_medical_engine_$%1", _hitPoint], [_realDamage, _newDamage, _modifiedRealDamage, _modifiedNewDamage]];
+_unit setVariable [format ["ace_medical_engine_$%1", _hitPoint], [_realDamage, _newDamage, _modifiedNewDamage]];
 
 // Ref https://community.bistudio.com/wiki/Arma_3:_Event_Handlers#HandleDamage
 // Context 2 means this is the last iteration of HandleDamage, so figure out which hitpoint took the most real damage and send wound event
@@ -159,51 +155,51 @@ if (_context == 2) then {
     _unit setVariable ["ace_medical_lastDamageSource", _shooter];
     _unit setVariable ["ace_medical_lastInstigator", _instigator];
 
-    private _damageStructural = _unit getVariable ["ace_medical_engine_$#structural", [0,0,0,0]];
+    private _damageStructural = _unit getVariable ["ace_medical_engine_$#structural", [0,0,0]];
 
     // --- Head
     private _damageHead = [
-        _unit getVariable ["ace_medical_engine_$HitFace", [0,0,0,0]],
-        _unit getVariable ["ace_medical_engine_$HitNeck", [0,0,0,0]],
-        _unit getVariable ["ace_medical_engine_$HitHead", [0,0,0,0]]
+        _unit getVariable ["ace_medical_engine_$HitFace", [0,0,0]],
+        _unit getVariable ["ace_medical_engine_$HitNeck", [0,0,0]],
+        _unit getVariable ["ace_medical_engine_$HitHead", [0,0,0]]
     ];
     _damageHead sort false;
     _damageHead = _damageHead select 0;
 
     // --- Body
     private _damageBody = [
-        _unit getVariable ["ace_medical_engine_$HitPelvis", [0,0,0,0]],
-        _unit getVariable ["ace_medical_engine_$HitAbdomen", [0,0,0,0]],
-        _unit getVariable ["ace_medical_engine_$HitDiaphragm", [0,0,0,0]],
-        _unit getVariable ["ace_medical_engine_$HitChest", [0,0,0,0]]
+        _unit getVariable ["ace_medical_engine_$HitPelvis", [0,0,0]],
+        _unit getVariable ["ace_medical_engine_$HitAbdomen", [0,0,0]],
+        _unit getVariable ["ace_medical_engine_$HitDiaphragm", [0,0,0]],
+        _unit getVariable ["ace_medical_engine_$HitChest", [0,0,0]]
         // HitBody removed as it's a placeholder hitpoint and the high armor value (1000) throws the calculations off
     ];
     _damageBody sort false;
     _damageBody = _damageBody select 0;
 
     // --- Arms and Legs
-    private _damageLeftArm = _unit getVariable ["ace_medical_engine_$HitLeftArm", [0,0,0,0]];
-    private _damageRightArm = _unit getVariable ["ace_medical_engine_$HitRightArm", [0,0,0,0]];
-    private _damageLeftLeg = _unit getVariable ["ace_medical_engine_$HitLeftLeg", [0,0,0,0]];
-    private _damageRightLeg = _unit getVariable ["ace_medical_engine_$HitRightLeg", [0,0,0,0]];
+    private _damageLeftArm = _unit getVariable ["ace_medical_engine_$HitLeftArm", [0,0,0]];
+    private _damageRightArm = _unit getVariable ["ace_medical_engine_$HitRightArm", [0,0,0]];
+    private _damageLeftLeg = _unit getVariable ["ace_medical_engine_$HitLeftLeg", [0,0,0]];
+    private _damageRightLeg = _unit getVariable ["ace_medical_engine_$HitRightLeg", [0,0,0]];
 
     // Find hit point that received the maxium damage
     // Priority used for sorting if incoming damage is equal
     private _allDamages = [
-        // Real damage (ignoring armor),                  Actual damage (with armor),                Real damage modified (ignoring armor),                     Modified damage (with armor)
-        [_damageHead select 0,       PRIORITY_HEAD,       _damageHead select 1,       "Head",        _damageHead param [2, _damageHead select 0],               _damageHead param [3, _damageHead select 1]],
-        [_damageBody select 0,       PRIORITY_BODY,       _damageBody select 1,       "Body",        _damageBody param [2, _damageBody select 0],               _damageBody param [3, _damageBody select 1]],
-        [_damageLeftArm select 0,    PRIORITY_LEFT_ARM,   _damageLeftArm select 1,    "LeftArm",     _damageLeftArm param [2, _damageLeftArm select 0],         _damageLeftArm param [3, _damageLeftArm select 1]],
-        [_damageRightArm select 0,   PRIORITY_RIGHT_ARM,  _damageRightArm select 1,   "RightArm",    _damageRightArm param [2, _damageRightArm select 0],       _damageRightArm param [3, _damageRightArm select 1]],
-        [_damageLeftLeg select 0,    PRIORITY_LEFT_LEG,   _damageLeftLeg select 1,    "LeftLeg",     _damageLeftLeg param [2, _damageLeftLeg select 0],         _damageLeftLeg param [3, _damageLeftLeg select 1]],
-        [_damageRightLeg select 0,   PRIORITY_RIGHT_LEG,  _damageRightLeg select 1,   "RightLeg",    _damageRightLeg param [2, _damageRightLeg select 0],       _damageRightLeg param [3, _damageRightLeg select 1]],
-        [_damageStructural select 0, PRIORITY_STRUCTURAL, _damageStructural select 1, "#structural", _damageStructural param [2, _damageStructural select 0],   _damageStructural param [3, _damageStructural select 1]]
+        // Real damage,                                   Damage (with armor),                       Modified damage (with armor)
+        [_damageHead select 0,       PRIORITY_HEAD,       _damageHead select 1,       "Head",        _damageHead param [2, _damageHead select 1]],
+        [_damageBody select 0,       PRIORITY_BODY,       _damageBody select 1,       "Body",        _damageBody param [2, _damageBody select 1]],
+        [_damageLeftArm select 0,    PRIORITY_LEFT_ARM,   _damageLeftArm select 1,    "LeftArm",     _damageLeftArm param [2, _damageLeftArm select 1]],
+        [_damageRightArm select 0,   PRIORITY_RIGHT_ARM,  _damageRightArm select 1,   "RightArm",    _damageRightArm param [2, _damageRightArm select 1]],
+        [_damageLeftLeg select 0,    PRIORITY_LEFT_LEG,   _damageLeftLeg select 1,    "LeftLeg",     _damageLeftLeg param [2, _damageLeftLeg select 1]],
+        [_damageRightLeg select 0,   PRIORITY_RIGHT_LEG,  _damageRightLeg select 1,   "RightLeg",    _damageRightLeg param [2, _damageRightLeg select 1]],
+        [_damageStructural select 0, PRIORITY_STRUCTURAL, _damageStructural select 1, "#structural", _damageStructural param [2, _damageStructural select 1]]
     ];
     TRACE_2("incoming",_allDamages,_damageStructural);
 
     _allDamages sort false;
     // Use modified damages instead of initial ones
-    _allDamages = _allDamages apply {[_x select 5, _x select 3, _x select 4]};
+    _allDamages = _allDamages apply {[_x select 4, _x select 3, _x select 0]};
 
     // Environmental damage sources all have empty ammo string
     // No explicit source given, we infer from differences between them
