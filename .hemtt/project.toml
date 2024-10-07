@@ -76,3 +76,17 @@ parameters = [
     "-filePatching",
     "-mod=x\\cba;z\\ace;idi\\acre;"
 ]
+
+[lints.sqf.undefined]
+enabled = true
+options.check_oprhan_code = true
+
+[lints.sqf.unused]
+enabled = false
+options.check_params = false
+
+[lints.sqf.shadowed]
+enabled = false
+
+[lints.sqf.not_private]
+enabled = true
