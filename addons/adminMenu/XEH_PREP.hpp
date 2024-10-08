@@ -16,6 +16,7 @@ PREP(uihook_tabChange);
 PREP(uihook_supplySpawn);
 PREP(uihook_resetGearButton);
 PREP(uihook_resetMarkersButton);
+PREP(uihook_allPlayersResetMarkersButton);
 PREP(uihook_resetMedicalButton);
 PREP(uihook_resetSpectateButton);
 PREP(uihook_teleportButton);
