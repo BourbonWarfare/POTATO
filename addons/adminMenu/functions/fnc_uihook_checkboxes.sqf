@@ -1,16 +1,21 @@
 #include "script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * Handles checkbox changes on the admin menu
+ * Handles all check box changes on the admin menu. It takes either a control
+ * or a control IDC and create both, then completes a set of code based on
+ * the control's IDC. If the setting should be propagated to other clients.
  *
  * Arguments:
- * None
+ * 0: The control or the control ID of the check box checked (NUMBER/CONTROL)
+ * 1: Whether the box was checked, 1 for checked and 0 for not (NUMBER)
+ * 2: Should this change propagate to the rest of the users (BOOL)
  *
  * Return Value:
  * None
  *
  * Examples:
- * [checkbox_IDC, true] call potato_safeStart_fnc_forceEndSafeStart;
+ * [checkbox_IDC, 0] call potato_safeStart_fnc_forceEndSafeStart;
+ * [checkbox_control, 1, false] call potato_safeStart_fnc_forceEndSafeStart;
  *
  * Public: No
  */
@@ -29,8 +34,8 @@ private _controlIDC = if (_control isEqualType 0) then {
     ctrlIDC _control
 };
 
+// Handlers for each IDC
 private _checkedBool = _checked == 1;
-
 switch (_controlIDC) do {
     case IDC_CHECKBOX_SAFESTARTSAFETY: {
         EGVAR(safeStart,safeStartSafetyOn) = _checkedBool;
@@ -41,6 +46,7 @@ switch (_controlIDC) do {
     };
 };
 
+// Propagate to other clients, this will cause this function to be called twice
 if (_propagate) then {
     [QGVAR(sync_checkbox), [IDC_CHECKBOX_SAFESTARTSAFETY, _checked, false]] call CBA_fnc_globalEventJIP;
 };
