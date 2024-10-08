@@ -1,3 +1,4 @@
+class ctrlCheckbox;
 class RscPicture;
 class RscFrame;
 class RscText;
@@ -347,6 +348,50 @@ class GVAR(adminMenuDialog) {
                     w = QUOTE(0.52 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([false] call FUNC(uihook_safeStart));
+                    tooltip = "Overrides Safe Start safety below"; //--- ToDo: Localize;
+                };
+                class ctrlCheckbox_2410720: ctrlCheckbox {
+                    idc = -1;
+                    checked = 0;
+                    fade = 0.4;
+                    onCheckedChanged = QUOTE((_this#0) cbSetChecked EGVAR(safeStart,safeStartForceEnd));
+                    onLoad = QUOTE((_this#0) cbSetChecked EGVAR(safeStart,safeStartForceEnd));
+                    tooltip = "Will the mission forcibly end the initial safe start after time expires"; //--- ToDo: Localize
+                    soundClick[] = {};
+                    soundEnter[] = {};
+                    soundEscape[] = {};
+                    soundPush[] = {};
+                    x = QUOTE(0.08 * safezoneW);
+                    y = QUOTE(0.16 * safezoneH);
+                    w = QUOTE(0.016 * safezoneW);
+                    h = QUOTE(0.028 * safezoneH);
+                };
+                class RscText_2410720: RscText {
+                    idc = -1;
+                    text = "Force end Safe Start once time elapses"; //--- ToDo: Localize
+                    x = QUOTE(0.10 * safezoneW);
+                    y = QUOTE(0.148 * safezoneH);
+                    w = QUOTE(0.19 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                };
+                class DOUBLES(ctrlCheckbox,IDC_CHECKBOX_SAFESTARTSAFETY): ctrlCheckbox {
+                    idc = IDC_CHECKBOX_SAFESTARTSAFETY;
+                    checked = 0;
+                    onCheckedChanged = QUOTE(_this call FUNC(uihook_checkboxes));
+                    onLoad = QUOTE((_this#0) cbSetChecked EGVAR(safeStart,safeStartSafetyOn));
+                    tooltip = "Should the mission be held in Safe Start even if time expires"; //--- ToDo: Localize
+                    x = QUOTE(0.31 * safezoneW);
+                    y = QUOTE(0.16 * safezoneH);
+                    w = QUOTE(0.016 * safezoneW);
+                    h = QUOTE(0.028 * safezoneH);
+                };
+                class RscText_2410071120: RscText {
+                    idc = -1;
+                    text = "Delay force end Safe Start"; //--- ToDo: Localize
+                    x = QUOTE(0.33 * safezoneW);
+                    y = QUOTE(0.148 * safezoneH);
+                    w = QUOTE(0.14 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
                 };
             };
         };

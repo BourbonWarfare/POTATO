@@ -40,20 +40,20 @@ class Cfg3DEN {
                 class Title;
             };
         };
-	};
+    };
 
-	class Mission {
-		class GVAR(missionTestingInfo) {
-			displayName = "Mission Testing Information";
-			display = "Display3DENEditAttributes";
-			class AttributeCategories {
-				class MissionGeneraInfo {
+    class Mission {
+        class GVAR(missionTestingInfo) {
+            displayName = "Mission Testing Information";
+            display = "Display3DENEditAttributes";
+            class AttributeCategories {
+                class MissionGeneraInfo {
                     displayName = "General Information";
                     collapsed = 0;
-					class Attributes {
-						class GVAR(missionType) {
+                    class Attributes {
+                        class GVAR(missionType) {
                             displayName = "Mission Type:";
-							property = QGVAR(missionType);
+                            property = QGVAR(missionType);
                             control = QUOTE(combo);
                             defaultValue = 0;
                             typeName = "NUMBER";
@@ -71,71 +71,77 @@ class Cfg3DEN {
                                     value = 2;
                                 };
                             };
-						};
-						class GVAR(missionVersion) {
+                        };
+                        class GVAR(missionVersion) {
                             displayName = "Mission Version:";
                             control = QUOTE(EditShort);
-							property = QGVAR(missionVersion);
+                            property = QGVAR(missionVersion);
                             defaultValue = 1;
                             typeName = "STRING";
-						};
-					};
-				};
-				class MissionPlayerCount {
+                        };
+                    };
+                };
+                class MissionPlayerCount {
                     displayName = "Player Count";
                     collapsed = 0;
-					class Attributes{
-						class GVAR(playerCountMinimum) {
+                    class Attributes{
+                        class GVAR(playerCountMinimum) {
                             displayName = "Player Count Minimum:";
-							property = QGVAR(playerCountMinimum);
+                            property = QGVAR(playerCountMinimum);
                             control = QUOTE(EditShort);
                             defaultValue = "20";
                             typeName = "STRING";
-						};
-						class GVAR(playerCountRecommended) {
+                        };
+                        class GVAR(playerCountRecommended) {
                             displayName = "Player Count Recommended:";
-							property = QGVAR(playerCountRecommended);
+                            property = QGVAR(playerCountRecommended);
                             control = QUOTE(EditShort);
                             defaultValue = "40";
                             typeName = "STRING";
-						};
-						class GVAR(playerCountMaximum) {
+                        };
+                        class GVAR(playerCountMaximum) {
                             displayName = "Player Count Maximum:";
-							property = QGVAR(playerCountMaximum);
+                            property = QGVAR(playerCountMaximum);
                             control = QUOTE(EditShort);
                             defaultValue = "60";
                             typeName = "STRING";
-						};
-					};
-				};
-				class MissionTimers {
+                        };
+                    };
+                };
+                class MissionTimers {
                     displayName = "Mission Timers";
                     collapsed = 0;
-					class Attributes{
-						class GVAR(SSTimeGiven) {
+                    class Attributes{
+                        class GVAR(SSTimeGiven) {
                             displayName = "Safe Start Time Length (mins):";
-							property = QGVAR(SSTimeGiven);
+                            property = QGVAR(SSTimeGiven);
                             control = QUOTE(EditShort);
                             defaultValue = 0;
                             typeName = "NUMBER";
-						};
-						class GVAR(missionTimeLength) {
+                        };
+                        class GVAR(SSForceEnd) {
+                            displayName = "Force End Safe Start:";
+                            property = QGVAR(SSForceEnd);
+                            control = QUOTE(Checkbox);
+                            defaultValue = QUOTE(false);
+                        };
+                        class GVAR(missionTimeLength) {
                             displayName = "Mission Length (mins):";
-							property = QGVAR(missionTimeLength);
+                            property = QGVAR(missionTimeLength);
                             control = QUOTE(EditShort);
                             defaultValue = 0;
                             typeName = "NUMBER";
-						};
-					};
-				};
-				class MissionTags {
+                        };
+                    };
+                };
+                class MissionTags {
                     displayName = "Mission Tags";
                     collapsed = 0;
-					class Attributes {
-						class GVAR(missionTag1) {
+                    class Attributes {
+                        class GVAR(missionTag1) {
                             displayName = "Mission Tag 1:";
                             control = QUOTE(combo);
-							property = QGVAR(missionTag1);
+                            property = QGVAR(missionTag1);
                             expression = "_this setVariable ['%s', _value];";
                             typeName = "NUMBER";
                             defaultValue = 99;
@@ -181,7 +187,7 @@ class Cfg3DEN {
                                     value = 8;
                                 };
                             };
-						};
+                        };
                         class GVAR(missionTag2) : GVAR(missionTag1) {
                             displayName = "Mission Tag 2:";
                             property = QGVAR(missionTag2);
@@ -190,57 +196,57 @@ class Cfg3DEN {
                             displayName = "Mission Tag 3:";
                             property = QGVAR(missionTag3);
                         };
-					};
-				};
-				class MissionFlags {
+                    };
+                };
+                class MissionFlags {
                     displayName = "Mission Flags";
                     collapsed = 0;
-					class Attributes{
-						class GVAR(missionFlagCustomScripting) {
+                    class Attributes{
+                        class GVAR(missionFlagCustomScripting) {
                             displayName = "Custom Scripting:";
                             control = QUOTE(Checkbox);
-							property = QGVAR(missionFlagCustomScripting);
+                            property = QGVAR(missionFlagCustomScripting);
                             defaultValue = QUOTE(false);
                             expression = "_this setVariable ['%s',_value];";
-						};
-						class GVAR(missionFlagCustomLoadout) {
+                        };
+                        class GVAR(missionFlagCustomLoadout) {
                             displayName = "Custom Loadout:";
                             control = QUOTE(Checkbox);
-							property = QGVAR(missionFlagCustomLoadout);
+                            property = QGVAR(missionFlagCustomLoadout);
                             defaultValue = QUOTE(false);
                             expression = "_this setVariable ['%s',_value];";
-						};
-						class GVAR(missionFlagCustomVicLoadout) {
+                        };
+                        class GVAR(missionFlagCustomVicLoadout) {
                             displayName = "Custom Vehicle Loadout:";
                             control = QUOTE(Checkbox);
-							property = QGVAR(missionFlagCustomVicLoadout);
+                            property = QGVAR(missionFlagCustomVicLoadout);
                             defaultValue = QUOTE(false);
                             expression = "_this setVariable ['%s',_value];";
-						};
-						class GVAR(missionFlagUnitSpecificBriefing) {
+                        };
+                        class GVAR(missionFlagUnitSpecificBriefing) {
                             displayName = "Unit Specific Briefings:";
                             control = QUOTE(Checkbox);
-							property = QGVAR(missionFlagUnitSpecificBriefing);
+                            property = QGVAR(missionFlagUnitSpecificBriefing);
                             defaultValue = QUOTE(false);
                             expression = "_this setVariable ['%s',_value];";
-						};
-					};
-				};
-				class MissionMakerNotes {
+                        };
+                    };
+                };
+                class MissionMakerNotes {
                     displayName = "Mission Maker Notes";
                     collapsed = 0;
-					class Attributes{
-						class GVAR(missionMakerNotesForTesters) {
+                    class Attributes{
+                        class GVAR(missionMakerNotesForTesters) {
                             attributeSave = QUOTE(_value call EFUNC(briefing,convertNewLineToHTML));
                             attributeLoad = QUOTE([ARR_2(_this,_value)] call EFUNC(briefing,convertHTMLToNewLine));
                             displayName = "Any other notes for Mission Testers:";
                             control = QUOTE(EditMulti5);
-							property = QGVAR(missionMakerNotesForTesters);
+                            property = QGVAR(missionMakerNotesForTesters);
                             defaultValue = "''";
-						};
-					};
-				};
-			};
-		};
-	};
+                        };
+                    };
+                };
+            };
+        };
+    };
 };

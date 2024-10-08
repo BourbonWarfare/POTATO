@@ -184,6 +184,7 @@ private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum)
 private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
 
 private _missionSSTime = str getMissionConfigValue QGVAR(SSTimeGiven);
+private _missionSSForceEnd = ["Admin start", "Forced once SS time elapses"] select getMissionConfigValue [QEGVAR(missionTesting,SSForceEnd), false];
 private _missionTimeLength = str getMissionConfigValue QGVAR(missionTimeLength);
 
 private _missionTag1Var = getMissionConfigValue QGVAR(missionTag1);
@@ -281,6 +282,7 @@ private _ctrlCreateInfoBlockText = composeText [
     ,parseText "<t color='#FF8000'>MISSION TIMERS</t>"
     ,_separator
     ,parseText "<t color='#0080FF'>Mission SS Time (mins):</t> ",_missionSSTime, lineBreak
+    ,parseText "<t color='#0080FF'>SS End:</t> ",_missionSSForceEnd, lineBreak
     ,parseText "<t color='#0080FF'>Mission Run Time (mins):</t> ",_missionTimeLength, lineBreak
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION TAGS</t>"

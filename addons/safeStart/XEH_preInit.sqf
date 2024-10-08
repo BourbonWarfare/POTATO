@@ -10,6 +10,8 @@ PREP_RECOMPILE_END;
 
 // We Start game safe at preInit
 GVAR(safeStartEnabled) = true;
+GVAR(safeStartForceEnd) = getMissionConfigValue [QEGVAR(missionTesting,SSForceEnd), false];
+GVAR(safeStartSafetyOn) = false;
 
 // Register events
 ["potato_safeStartOn", {
