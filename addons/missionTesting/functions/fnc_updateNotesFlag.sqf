@@ -19,7 +19,7 @@ private _idc = ctrlIDC _control;
 private _str = str _idc;
 private _array = _str splitString "";
 private _subsection = parseNumber (_array select 3);
-TRACE_1("_subSectionArray Before",_subSectionArray);
+TRACE_2("_subSectionArray Before",_array,_subsection);
 private _masterChecklist = nil;
 private _text = ctrlText _control;
 private _missionMaker = getMissionConfigValue ["author","????"];

@@ -131,8 +131,6 @@ if !(GVAR(mapOpen) || GVAR(fullMapOpen)) then {
             TRACE_1("grenade",_x);
             _x params ["_projectile", "_icon", "_color"];
             if !(isNull _projectile) then {
-                private _grenadeVelocityMagnitude = vectorMagnitude velocity _projectile;
-
                 // Draw grenade
                 drawIcon3D [_icon, _color, (getPosVisual _projectile) vectorAdd [0,0,0.25], 0.4, 0.4, 0, "", 0, 0.05, "TahomaB"];
 

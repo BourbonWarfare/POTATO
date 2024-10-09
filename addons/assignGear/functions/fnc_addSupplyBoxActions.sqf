@@ -37,7 +37,6 @@ private _action = [
 ] call ACEFUNC(interact_menu,createAction);
 [_theBox, 0, ["ACE_MainActions"], _action] call ACEFUNC(interact_menu,addActionToObject);
 
-//IGNORE_PRIVATE_WARNING ["_player", "_target"];
 _action = [
     "markBoxSmoke",
     "Smoke",
