@@ -37,7 +37,7 @@ _occupyRadius = [_occupyRadius, 0, 2000] call EFUNC(core,ensureRange);
 ([_occupyMinNumber, _occupyMaxNumber, 1, 20] call EFUNC(core,ensureBoundedMinMax)) params ["_occupyMin","_occupyMax"];
 
 
-private _side = switch (getNumber (configfile >> "CfgFactionClasses" >> _faction >> "side")) do { case 0: {east}; case 1: {west}; case 2: {resistance}; default {civilian}; };
+private _side = switch (getNumber (configFile >> "CfgFactionClasses" >> _faction >> "side")) do { case 0: {east}; case 1: {west}; case 2: {resistance}; default {civilian}; };
 
 // handle EDEN placed module
 if (isNil QGVAR(garrisonCache)) then {

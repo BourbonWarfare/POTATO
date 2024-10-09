@@ -4,7 +4,7 @@ class CfgPatches {
     class ADDON {
         units[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "ace_missileguidance", "CUP_Weapons_LoadOrder"};
+        requiredAddons[] = {"potato_core", "ace_missileguidance"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"Dani (TCVM)"};
@@ -13,4 +13,6 @@ class CfgPatches {
     };
 };
 
+#include "CfgMissileTypesWarsaw.hpp"
+#include "CfgMissileTypesNato.hpp"
 #include "CfgAmmo.hpp"

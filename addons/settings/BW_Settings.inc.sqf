@@ -42,14 +42,14 @@ _settings = [
 
 [QACEGVAR(advanced_fatigue,performanceFactor), 1.4],
 [QACEGVAR(advanced_fatigue,recoveryFactor), 1.6],
-[QACEGVAR(cookoff,enable), 1],
+[QACEGVAR(advanced_fatigue,terraingradientfactor), 0.4],
+[QACEGVAR(advanced_fatigue,loadfactor), 0.5],
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
 [QACEGVAR(dragging,weightCoefficient), 0.25], // allows carry/drag 4x the normal weight
 [QACEGVAR(finger,enabled), true],
 [QACEGVAR(finger,maxrange), 7],
 [QACEGVAR(fortify,timeCostCoefficient), 0],
 [QACEGVAR(fortify,timeMin), 0],
-[QACEGVAR(frag,maxTrack), 5],
 [QACEGVAR(gforces,enabledFor), 0],
 [QACEGVAR(goggles,effects), 1], // note: user-setting, we don't force
 [QACEGVAR(hearing,autoAddEarplugsToUnits), 0],
@@ -65,6 +65,7 @@ _settings = [
 [QACEGVAR(nightvision,aimDownSightsBlur), 0.25, false, true],
 [QACEGVAR(overheating,enabled), false],
 [QACEGVAR(refuel,rate), 10],
+[QACEGVAR(refuel,progressduration), 1],
 [QACEGVAR(respawn,removeDeadBodiesDisconnected), false],
 [QACEGVAR(towing,addRopeToVehicleInventory), false], // added via potato_assignGear - alwaysAddLandRopes
 [QACEGVAR(ui,ammoCount), false, true], // Forced because it's User settable
@@ -124,19 +125,6 @@ if (["diwako_dui_main"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 ["diwako_dui_nametags_deadrenderdistance", 3.5, true] // User-Setting
 ];} else { _skip pushBack "diwako_dui_main" };
 
-
-// ACE Armor Adjuster
-if (["AAA"] call ACEFUNC(common,isModLoaded)) then { _settings append [
-["AAA_VAR_MOD_ENABLED", false]
-];} else { _skip pushBack "AAA" };
-
-// Reeveli Uncon Moaning
-if (["Rev_ACE_moaning"] call ACEFUNC(common,isModLoaded)) then { _settings append [
-["Rev_moaning_time", 90],
-["rev_moaning_speech", false],
-["Rev_moaning_probability", 95]
-];} else { _skip pushBack "Rev_ACE_moaning" };
-
 // LAMBS
 if (["lambs_danger"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 ["lambs_danger_disableAIHideFromTanksAndAircraft", true]
@@ -153,7 +141,9 @@ if (["tuncon_unconinfo"] call ACEFUNC(common,isModLoaded)) then { _settings appe
 ["tuncon_unconinfo_enableshowheartrate", false],
 ["tuncon_unconinfo_enableshowstablevitals", false],
 ["tuncon_unconinfo_allownearestunit", false],
-["tuncon_unconinfo_nofriendliesnearbytext", "You are near death."]
+["tuncon_unconinfo_nofriendliesnearbytext", "You are near death."],
+["tuncon_unconinfo_enableshowdetailedtreatment", false],
+["tuncon_unconinfo_unconinfonearestunitdistance", 10]
 ];} else { _skip pushBack "tuncon_unconinfo" };
 
 if (["OCAP_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [

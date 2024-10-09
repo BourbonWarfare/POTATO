@@ -13,7 +13,7 @@ if (isServer) then {
 
     /*// Determine if TVT or COOP
     [{
-        private _missionTestingType = GetMissionConfigValue [QEGVAR(missionTesting, missionType),0];
+        private _missionTestingType = getMissionConfigValue [QEGVAR(missionTesting, missionType),0];
         TRACE_1("_missionTestingType =",missionTestingType);
         private _isTVT = true;
         // check mission testing type from missionTesting module before checking with math 
@@ -291,12 +291,12 @@ GVAR(baseMaterialTable) = createHashMapFromArray [
 FUNC(calculateHemisphericalBlastWeight) = {
     params ["_originalWeight", "_positionASL"];
 
-    private _positionAboveGround = ASLtoAGL _positionASL;
+    private _positionAboveGround = ASLToAGL _positionASL;
 
     private _objectsBelow = lineIntersectsSurfaces [_positionASL, _positionASL vectorAdd [0, 0, -1]];
     if (_objectsBelow isNotEqualTo []) then {
         (_objectsBelow select 0) params ["_surfacePosition"];
-        _positionAboveGround = ASLtoAGL _surfacePosition;
+        _positionAboveGround = ASLToAGL _surfacePosition;
     };
     
     // if we are in the air, continue with normal calculations
@@ -397,6 +397,9 @@ if (isServer) then {
     // add explosion event handler
     [QACEGVAR(frag,frag_eh), {
         params ["_lastPos", "", "_explosive"];
+        if (_explosive isEqualType []) then {
+            _explosive = _this # 1; // frag rewrite uses [_posASL, _ammo, [objNull, _instigator]]
+        };
         private _explosiveConfig = configFile >> "CfgAmmo" >> _explosive;
 
         // ACE_frag defines mass as grams, we do as kilograms
@@ -413,7 +416,7 @@ if (isServer) then {
 
         _mass = [_mass, _lastPos] call FUNC(calculateHemisphericalBlastWeight);
 
-        private _objects = (ASLtoAGL _lastPos) nearEntities [["CAManBase"], 50];
+        private _objects = (ASLToAGL _lastPos) nearEntities [["CAManBase"], 50];
         {
             [QGVAR(explosion), [_lastPos, _mass, _filler, _x], _x] call CBA_fnc_targetEvent;
         } forEach _objects;

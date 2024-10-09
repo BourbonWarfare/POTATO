@@ -71,7 +71,7 @@ addMissionEventHandler ["Ended", {
 
 addMissionEventHandler ["ExtensionCallback", {
     params ["_name", "_component", "_data"];
-    if ((tolower _name) != "potato_extension_log") exitWith {};
+    if ((toLower _name) != "potato_extension_log") exitWith {};
     (parseSimpleArray _data) params ["_level", "_message"];
     TRACE_3("ExtensionCallback",_component,_level,_message);
 }];

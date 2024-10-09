@@ -26,7 +26,7 @@ BEGIN_COUNTER(drawMap);
 params ["_map"];
 
 // piggy back to update timer
-TIMER ctrlSetText format ["%1 (+%2)", [daytime * 3600] call CFUNC(getTimeText), [] call CFUNC(getTimeText)];
+TIMER ctrlSetText format ["%1 (+%2)", [dayTime * 3600] call CFUNC(getTimeText), [] call CFUNC(getTimeText)];
 
 // Track nearest unit
 private _loc = _map ctrlMapScreenToWorld getMousePosition;

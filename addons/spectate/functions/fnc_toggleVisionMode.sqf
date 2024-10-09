@@ -23,27 +23,27 @@ if (GVAR(currentCamIndex) != FIRST_PERSON) then {
 
     if (GVAR(visionModeIndex) == 0) exitWith { // normal vision
          camUseNVG false;
-         false setCamUseTi 0;
+         false setCamUseTI 0;
          playSound "RscDisplayCurator_visionMode";
     };
     if (GVAR(visionModeIndex) == 1) exitWith { // night vision
          camUseNVG true;
-         false setCamUseTi 0;
+         false setCamUseTI 0;
          playSound "RscDisplayCurator_visionMode";
     };
     if (GVAR(visionModeIndex) == 2) exitWith { // white hot
          camUseNVG false;
-         true setCamUseTi 0;
+         true setCamUseTI 0;
          playSound "RscDisplayCurator_visionMode";
     };
     if (GVAR(visionModeIndex) == 3) exitWith { // black hot
          camUseNVG false;
-         true setCamUseTi 1;
+         true setCamUseTI 1;
          playSound "RscDisplayCurator_visionMode";
     };
     if (GVAR(visionModeIndex) == 4) exitWith { // super thermals
          camUseNVG false;
-         true setCamUseTi 7;
+         true setCamUseTI 7;
          playSound "RscDisplayCurator_visionMode";
     };
 };

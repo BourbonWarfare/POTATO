@@ -2,6 +2,8 @@
 /*
  * Author: PabstMirror
  * Applies a loadout to a vehicle
+ * Edited by Bailed to add option 2
+ * Edited by Lambda.Tier to add option 3 and move some common code to functions
  *
  * Arguments:
  * 0: Vehicle <OBJECT>
@@ -15,7 +17,6 @@
  *
  * Public: Yes
  */
-
 params ["_theVehicle", "_defaultLoadout"];
 TRACE_2("assignGearVehicle",_theVehicle,_defaultLoadout);
 
@@ -28,7 +29,7 @@ TRACE_2("",GVAR(setVehicleLoadouts),_loadout);
 //Leave default gear when "F_Gear" is "Default" or GVAR(setVehicleLoadouts) is 0
 if ((GVAR(setVehicleLoadouts) == 0) || {_loadout == "Default"}) exitWith {
     if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
-    if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then { 
+    if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then {
         _theVehicle addItemCargoGlobal ["ACE_rope15", 1]; // note: this rope is probably too short to fastrope with, so don't add to air
     };
 };
@@ -41,7 +42,7 @@ if ((GVAR(setVehicleLoadouts) == -1) || {_loadout == "Empty"}) exitWith {
     clearBackpackCargoGlobal _theVehicle;
     //Add a Toolkit
     if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
-    if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then { 
+    if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then {
         _theVehicle addItemCargoGlobal ["ACE_rope15", 1];
     };
 };
@@ -72,54 +73,60 @@ if (!isClass _path) then {
 };
 
 if (!isClass _path) exitWith {
-    diag_log text format ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2) (kindOf %3) (defaultLoadout: %4)", _theVehicle, typeof _theVehicle, _loadout, _defaultLoadout];
+    diag_log text format ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2) (kindOf %3) (defaultLoadout: %4)", _theVehicle, typeOf _theVehicle, _loadout, _defaultLoadout];
 };
 
-//Clean out starting inventory (even if there is no class)
-clearWeaponCargoGlobal _theVehicle;
-clearMagazineCargoGlobal _theVehicle;
-clearItemCargoGlobal _theVehicle;
-clearBackpackCargoGlobal _theVehicle;
+switch (GVAR(setVehicleLoadouts)) do {
+    case 1: { // ammo in vehicle inventory
+        [_theVehicle, _path] call FUNC(setContainerContentsFromConfig);
+    };
+    case 2: { // ammo in boxes in vehicle
+        clearWeaponCargoGlobal _theVehicle;
+        clearMagazineCargoGlobal _theVehicle;
+        clearItemCargoGlobal _theVehicle;
+        clearBackpackCargoGlobal _theVehicle;
+        [_theVehicle, _path,
+            getArray(_path >> "TransportMagazines"),
+            getArray(_path >> "TransportItems"),
+            getArray(_path >> "TransportWeapons"),
+            getArray(_path >> "TransportBackpacks")] call FUNC(assignGearVehicle_asBoxes);
+    };
+    case 3: { // ammo in boxes in vehicle from config
+        clearWeaponCargoGlobal _theVehicle;
+        clearMagazineCargoGlobal _theVehicle;
+        clearItemCargoGlobal _theVehicle;
+        clearBackpackCargoGlobal _theVehicle;
+        private _boxes = "true" configClasses _path;
+        if (_boxes isEqualTo []) exitWith {
+            [_theVehicle, _path] call FUNC(setContainerContentsFromConfig);
+        };
+        private _vehicleSpace = getNumber (_path >> "minVehicleBoxSpace");
+        if (_vehicleSpace > 0) then {
+            private _currentVehicleSpace = _theVehicle getVariable [
+                QACEGVAR(cargo,hasCargo),
+                getNumber (configOf _theVehicle >> QACEGVAR(cargo,space))
+            ];
+            [_theVehicle, _vehicleSpace max _currentVehicleSpace] call ACEFUNC(cargo,setSpace);
+        };
+        {
+            private _boxType = configName _x;
+            private _boxCount = (getNumber (_x >> "boxCount")) max 1;
+            for "_i" from 1 to _boxCount do {
+                private _box = createVehicle [_boxType, [0, 0, 0], [], 0, "CAN_COLLIDE"];
+                [_box, _x, ["%1", "%1 " + str _i] select (_boxCount > 1)] call FUNC(setBoxContentsFromConfig);
+                [_box, 1] call ACEFUNC(cargo,setSize);
+                if !([_box, _theVehicle, true] call ACEFUNC(cargo,loadItem)) exitWith {
+                    diag_log text format ["[POTATO-assignGear] - Failed to create %1 supply box(es) for %2 - out of space ", _boxType, typeOf _theVehicle];
+                    deleteVehicle _box;
+                };
+                _box setVariable [QGVAR(initialized), true];
+            };
+        } forEach _boxes;
+    };
+};
+
 //Add a Toolkit
 if (GVAR(alwaysAddToolkits)) then { _theVehicle addItemCargoGlobal ["Toolkit", 1]; };
-if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then { 
+if (GVAR(alwaysAddLandRopes) && {(_theVehicle isKindOf "Car") || {_theVehicle isKindOf "Tank"}}) then {
     _theVehicle addItemCargoGlobal ["ACE_rope15", 1];
 };
-
-private _transportMagazines = getArray(_path >> "TransportMagazines");
-private _transportItems = getArray(_path >> "TransportItems");
-private _transportWeapons = getArray(_path >> "TransportWeapons");
-private _transportBackpacks = getArray(_path >> "TransportBackpacks");
-
-// transportMagazines
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    _theVehicle addMagazineCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportMagazines; // count used here for speed, make sure nil is above this line
-
-// transportItems
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    _theVehicle addItemCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportItems; // count used here for speed, make sure nil is above this line
-
-// transportWeapons
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    private _disposableName = cba_disposable_LoadedLaunchers getVariable [_classname, ""];
-    if (_disposableName != "") then {
-        TRACE_2("cba_disposable_LoadedLaunchers replace",_classname,_disposableName);
-        _classname = _disposableName;
-    };
-    _theVehicle addWeaponCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportWeapons; // count used here for speed, make sure nil is above this line
-
-// transportBackpacks
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    _theVehicle addBackpackCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportBackpacks; // count used here for speed, make sure nil is above this line

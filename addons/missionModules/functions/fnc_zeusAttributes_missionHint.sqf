@@ -13,9 +13,9 @@ disableSerialization;
 params ["_control"];
 TRACE_1("params",_control);
 
-private _display = ctrlparent _control;
-private _ctrlButtonOK = _display displayctrl 1; //IDC_OK
-private _logicObject = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objnull];
+private _display = ctrlParent _control;
+private _ctrlButtonOK = _display displayCtrl 1; //IDC_OK
+private _logicObject = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
 TRACE_1("logicObject",_logicObject);
 
 _control ctrlRemoveAllEventHandlers "SetFocus";
@@ -51,7 +51,7 @@ private _fnc_onUnload = {
     params [["_display", displayNull, [displayNull]]];
     TRACE_1("_fnc_onUnload params",_display);
 
-    private _logicObject = missionnamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objnull];
+    private _logicObject = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
     if (isNull _logicObject) exitWith {};
 
     deleteVehicle _logicObject;
@@ -60,10 +60,10 @@ private _fnc_onUnload = {
 private _fnc_onConfirm = {
     params [["_ctrlButtonOK", controlNull, [controlNull]]];
     TRACE_1("_fnc_onConfirm params",_this);
-    private _display = ctrlparent _ctrlButtonOK;
+    private _display = ctrlParent _ctrlButtonOK;
     if (isNull _display) exitWith {};
 
-    private _logicObject = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target", objnull];
+    private _logicObject = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
     if (isNull _logicObject) exitWith {diag_log text format ["[POTATO] - ERROR Logic [%1] is null on confirm", _logicObject];};
 
     private _selectedIndexSide = lbCurSel (_display displayCtrl 23071);
@@ -87,5 +87,5 @@ private _fnc_onConfirm = {
 
 };
 
-_display displayaddeventhandler ["unload", _fnc_onUnload];
-_ctrlButtonOK ctrladdeventhandler ["buttonclick", _fnc_onConfirm];
+_display displayAddEventHandler ["Unload", _fnc_onUnload];
+_ctrlButtonOK ctrlAddEventHandler ["ButtonClick", _fnc_onConfirm];

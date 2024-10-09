@@ -21,10 +21,10 @@ private _fncGetWeaponInfo = {
     if (_weaponClassname == "throw") then {
         _unitText = _unitText + "[Thrown: ";
     };
-    private _config = configfile >> "CfgWeapons" >> _weaponClassname;
+    private _config = configFile >> "CfgWeapons" >> _weaponClassname;
     private _muzzles = getArray (_config >> "muzzles");
     {
-        _muzzleConfig = if (_x == "this") then {
+        private _muzzleConfig = if (_x == "this") then {
             _config;
         } else {
             _config >> _x
@@ -88,9 +88,9 @@ private _fncGetWeaponInfo = {
     if (!(_classname in _handledClasses)) then {
         _handledClasses pushBack _classname;
 
-        private _displayName = getText (configfile >> "CfgVehicles" >> _classname >> "displayName");
-        private _xIcon = gettext (configfile >> "CfgVehicles" >> _classname >> "icon");
-        private _image = gettext (configfile >> "CfgVehicleIcons" >> _xIcon);
+        private _displayName = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
+        private _xIcon = getText (configFile >> "CfgVehicles" >> _classname >> "icon");
+        private _image = getText (configFile >> "CfgVehicleIcons" >> _xIcon);
         private _color = "";
         private _sideArray = [];
 

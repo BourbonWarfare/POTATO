@@ -10,7 +10,7 @@
 params ["_logic"];
 
 if (!local _logic) exitWith {};
-private _unit = _logic getVariable ["bis_fnc_curatorAttachObject_object",objnull];
+private _unit = _logic getVariable ["bis_fnc_curatorAttachObject_object",objNull];
 TRACE_2("",_logic,_unit);
 
 if ([nil, _unit] call ACEFUNC(medical_treatment,canPlaceInBodyBag)) then {

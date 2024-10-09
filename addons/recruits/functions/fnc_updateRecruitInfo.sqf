@@ -48,18 +48,18 @@ if !(isNull MESSAGE_DISPLAY) then {
                 ["thread", "threads"] select (_recruitCount > 1)
             ];
             MESSAGE_CONTROL ctrlSetPosition [
-                0.88 * safezoneW + safezoneX,
-                0.15 * safezoneH + safezoneY,
-                0.105 * safezoneW,
-                (2 + _recruitCount) * 0.017 * safezoneH
+                0.88 * safeZoneW + safeZoneX,
+                0.15 * safeZoneH + safeZoneY,
+                0.105 * safeZoneW,
+                (2 + _recruitCount) * 0.017 * safeZoneH
             ];
             MESSAGE_CONTROL ctrlCommit 0.25;
         } else {
             MESSAGE_CONTROL ctrlSetStructuredText parseText "";
             MESSAGE_CONTROL ctrlSetPosition [
-                0.88 * safezoneW + safezoneX,
-                0.15 * safezoneH + safezoneY,
-                0.105 * safezoneW,
+                0.88 * safeZoneW + safeZoneX,
+                0.15 * safeZoneH + safeZoneY,
+                0.105 * safeZoneW,
                 0
             ];
             MESSAGE_CONTROL ctrlCommit 0.25;

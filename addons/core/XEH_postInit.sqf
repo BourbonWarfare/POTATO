@@ -28,6 +28,40 @@ if (hasInterface) then {
             };
         };
     }, true] call CBA_fnc_addPlayerEventHandler;
+
+
+    // Cleanup chat
+    addMissionEventHandler ["HandleChatMessage", {
+        if (missionNamespace getVariable [QGVAR(skipChatHandler), false]) exitWith {}; // way to disable system if it causes problem with a mission
+        params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType", "_chatComposition"];
+        INFO_1("ChatMessage: %1",_this);
+        private _returnValue = nil;
+        // Block player messages, not on breifing, who are not spectators
+        if ((isPlayer _person) && {CBA_missionTime > 0} && {getNumber (configOf _person >> "isPlayableLogic") != 1}) then {
+            if ((_text select [0,5]) == "force") then {
+                // _returnValue = _text select [5]; // optionally clean up text
+            } else {
+                INFO_2("hiding player chat [%1: %2]",_name,_text);
+                _returnValue = true; // block
+                if (_person == player) then {
+                    // Chats from inside the EH don't seem to trigger the EH but they say not to
+                    [{
+                        systemChat "POTATO [Your message was blocked, to send in channel start with 'force']";
+                        systemChat "POTATO [Use admin message (hit escape) for help with Problems/JIP]";
+                    }] call CBA_fnc_execNextFrame;
+                };
+            };
+          } else {
+                if ((_channel == 16) && {GVAR(hideSystemPlayerConnecting)} && {_chatComposition isNotEqualTo []} && {
+                    _chatComposition params ["_stringID"];
+                    (toLower _stringID) in ["$str_mp_connecting", "$str_mp_connect", "$str_mp_connection_loosing", "$str_mp_disconnect"]
+                }) then {
+                    INFO_1("hiding connection info [%1]",_chatComposition);
+                    _returnValue = true;
+                };
+          };
+          _returnValue // don't use exitWith in eh
+    }];
 };
 
 ["potato_adminMsg", {

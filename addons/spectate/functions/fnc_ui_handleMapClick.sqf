@@ -25,7 +25,7 @@ params ["_map", "", "_x", "_y"];
 
 if (isNull GVAR(mapHighlighted)) then {
     if !(isNull GVAR(camTarget)) then {
-        playsound "ReadoutHideClick1";
+        playSound "ReadoutHideClick1";
     };
 
     private _pos = _map ctrlMapScreenToWorld [_x, _y];
@@ -33,7 +33,7 @@ if (isNull GVAR(mapHighlighted)) then {
 
     GVAR(cam) setPosASL _pos;
 } else {
-    playsound "ReadoutClick";
+    playSound "ReadoutClick";
 };
 
 [GVAR(mapHighlighted)] call FUNC(setFocus);

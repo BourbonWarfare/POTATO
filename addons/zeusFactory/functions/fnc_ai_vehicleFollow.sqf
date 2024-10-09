@@ -17,14 +17,14 @@ private _dummy = "Sign_Arrow_Large_Cyan_F" createVehicle (getPos _vehicle);
 
 while {(alive _vehicle) && {alive _commander} && {(vehicle _commander) == _vehicle} && {!isNull _followGroup}} do {
     private _leaderPos = getPos leader _followGroup;
-    if ((_leaderPos distance2d _vehicle) > 50) then {
-        TRACE_2("moving",_vehicle,_leaderPos distance2d _vehicle);
+    if ((_leaderPos distance2D _vehicle) > 50) then {
+        TRACE_2("moving",_vehicle,_leaderPos distance2D _vehicle);
         private _angle = (leader _followGroup) getDir _vehicle;
         _commander doMove ((leader _followGroup) getPos [50, _angle]);
         #ifdef DEBUG_MODE_FULL
         _dummy setPos ((leader _followGroup) getPos [50, _angle]);
     } else {
-        TRACE_2("Holding",_vehicle,_leaderPos distance2d _vehicle);
+        TRACE_2("Holding",_vehicle,_leaderPos distance2D _vehicle);
         #endif
     };
     sleep 10;

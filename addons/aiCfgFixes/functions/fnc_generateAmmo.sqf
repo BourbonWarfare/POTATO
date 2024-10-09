@@ -68,7 +68,7 @@ private _ammoToGenerateCorrect = [];
         };
     };
     _ammoToGenerateCorrect pushBackUnique (_x select 0);
-} foreach _ammoToGenerate;
+} forEach _ammoToGenerate;
 
 //reverse _ammoToGenerateCorrect;
 _ammoToGenerate = _ammoToGenerateCorrect;

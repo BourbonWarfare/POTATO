@@ -190,7 +190,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.01 * safezoneH);
                     w = QUOTE(0.27 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(_this call FUNC(uihook_zeusConnectPlayer));
+                    action = QUOTE([] call FUNC(uihook_zeusConnectPlayer));
                 };
             };
         };
@@ -208,7 +208,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.01 * safezoneH);
                     w = QUOTE(0.52 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(_this call FUNC(uiHook_openEndMission));
+                    action = QUOTE([] call FUNC(uiHook_openEndMission));
                 };
                 class RscStructuredText_1100: RscStructuredText {
                     idc = 1100;
@@ -285,7 +285,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.52 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(_this call FUNC(uihook_supplySpawn));
+                    action = QUOTE([] call FUNC(uihook_supplySpawn));
                 };
             };
         };
@@ -319,7 +319,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.52 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(_this call FUNC(uihook_teleportButton));
+                    action = QUOTE([] call FUNC(uihook_teleportButton));
                 };
             };
         };
@@ -373,7 +373,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.08 * safezoneH);
                     w = QUOTE(0.52 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(_this call FUNC(uihook_weaponTest));
+                    action = QUOTE([] call FUNC(uihook_weaponTest));
                 };
                 class RscButton_MissionTesting: RscButton {
                     idc = -1;
@@ -450,7 +450,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.52 * safezoneH);
                     w = QUOTE(0.125 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(_this call FUNC(uihook_resetGearButton));
+                    action = QUOTE([] call FUNC(uihook_resetGearButton));
                 };
                 class ResetGearList: RscCombo {
                     idc = 2181;
@@ -466,7 +466,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.42 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(_this call FUNC(uihook_resetSpectateButton));
+                    action = QUOTE([] call FUNC(uihook_resetSpectateButton));
                 };
                 class ResetMedicalButton: RscButton {
                     idc = -1;
@@ -475,7 +475,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.22 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(_this call FUNC(uihook_resetMedicalButton));
+                    action = QUOTE([] call FUNC(uihook_resetMedicalButton));
                 };
                 class ResetMarkersButton: RscButton {
                     idc = -1;
@@ -484,7 +484,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.32 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(_this call FUNC(uihook_resetMarkersButton));
+                    action = QUOTE([] call FUNC(uihook_resetMarkersButton));
                 };
             };
         };
@@ -502,7 +502,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.01 * safezoneH);
                     w = QUOTE(0.52 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(_this call FUNC(uihook_giveAdminGun));
+                    action = QUOTE([] call FUNC(uihook_giveAdminGun));
                 };
             };
         };

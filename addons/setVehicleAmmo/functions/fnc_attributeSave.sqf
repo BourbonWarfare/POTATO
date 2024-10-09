@@ -3,9 +3,8 @@
 params ["_control"];
 TRACE_1("params",_control);
 
-_return = "";
-
 if ((lbCurSel(_control controlsGroupCtrl 100)) == 0) exitWith {
+    private _return = "";
     TRACE_1("lb set to default",_return);
     _return
 };

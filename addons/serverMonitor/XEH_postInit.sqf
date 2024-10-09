@@ -34,16 +34,16 @@ if (isServer) then {
     if (GVAR(dataIndex) < 0) exitWith {diag_log text format ["[POTATO] Waiting on index"];};
     params ["_args"];
     _args params ["_lastTime", "_lastFrame", "_lastFSM"];
-    _delta = diag_tickTime - _lastTime;
-    private _fps = (diag_frameno - _lastFrame) / _delta;
+    private _delta = diag_tickTime - _lastTime;
+    private _fps = (diag_frameNo - _lastFrame) / _delta;
     private _cps = (GVAR(fsmNo) - _lastFSM) / _delta;
     _args set [0, diag_tickTime];
-    _args set [1, diag_frameno];
+    _args set [1, diag_frameNo];
     _args set [2, GVAR(fsmNo)];
 
     private _localUnits = {local _x} count allUnits;
     TRACE_3("tick",_localUnits,_fps,_cps);
 
-    missionNameSpace setVariable [(format [QGVAR(%1), GVAR(dataIndex)]), [_localUnits, _fps, _cps], true];
+    missionNamespace setVariable [(format [QGVAR(%1), GVAR(dataIndex)]), [_localUnits, _fps, _cps], true];
 
 }, 10, [0, 0, 0]] call CBA_fnc_addPerFrameHandler;

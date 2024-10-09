@@ -13,8 +13,8 @@
 
 #include "script_component.hpp"
 
-TRACE_1("params",_unit);
 params ["_unit"];
+TRACE_1("params",_unit);
 
 private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName", "???"]];
 private _authorName = getMissionConfigValue ["author", "???"];

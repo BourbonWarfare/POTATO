@@ -19,7 +19,7 @@ PREP_RECOMPILE_END;
 
 
 [
-    missionnamespace,
+    missionNamespace,
     "arsenalOpened",
     {
         INFO("BIS arsenalOpened EH");

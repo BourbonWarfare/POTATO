@@ -173,9 +173,7 @@ _lines pushBack format ["#define LINKED BASE_LINKED"];
 _lines pushBack format ["#define LEADER_LINKED BASE_LEADER_LINKED"];
 
 {
-    "ace_clipboard" callExtension _x;
-    "ace_clipboard" callExtension "
-";
+    "ace" callExtension ["clipboard:append", [_x + endl]];
 } forEach _lines;
-"ace_clipboard" callExtension "--COMPLETE--";
+"ace" callExtension ["clipboard:complete", []];
 systemChat format ["Copied @ %1", CBA_missionTime];

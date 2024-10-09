@@ -70,7 +70,7 @@ private _delay = 0;
         } forEach _configsArray;
 
         if (_configArray isEqualTo []) then {
-            ERROR_1("Could not find a matching configuration for the given classname",_configData);
+            ERROR_1("Could not find a matching configuration for the given classname %1",_configData);
         } else {
             _configArray params [
                 "", // config name

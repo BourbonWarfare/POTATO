@@ -17,8 +17,8 @@ class CfgPatches {
 
 
 class CfgMagazines {
-	class CA_LauncherMagazine;
-	class cwr3_redeye_m: CA_LauncherMagazine {
-		ammo = QEGVAR(missileGuidanceCompat,redeye);
-	};
+    class CA_LauncherMagazine;
+    class cwr3_redeye_m: CA_LauncherMagazine {
+        ammo = QEGVAR(missileGuidanceCompat,redeye);
+    };
 };

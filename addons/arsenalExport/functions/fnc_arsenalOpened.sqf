@@ -13,15 +13,24 @@ if ((count (call BIS_fnc_listPlayers)) > 1) exitWith {INFO_1("hiding export in m
 private _y = 0;
 private _ctrlsToUpdate = [];
 
-private _height = (((safezoneW / safezoneH) min 1.2) / 1.2) / 25;
-private _xPos = safezoneX + safezoneW - 15 * _height;
+private _height = (((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25;
+private _xPos = safeZoneX + safeZoneW - 15 * _height;
 if (_shiftLeft) then {
     _xPos = _xPos - 93 * GRID_W;
 };
-private _yPos = (safezoneY + 1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)) + 16 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25);
+private _yPos = (safeZoneY + 1.5 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25)) + 16 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25);
 
 private _ctrlGroup = _display ctrlCreate ["RscControlsGroup", IDC_CTRLGROUP];
 
+private _fnc_updateInfo = {
+    params ["_display"];
+    private _aceCtrlMenu = _display displayCtrl 10;
+    private _ctrlGroup = _display displayCtrl IDC_CTRLGROUP;
+    if (isNull _aceCtrlMenu) exitWith {};
+    _ctrlGroup ctrlShow (ctrlShown _aceCtrlMenu); 
+};
+_display displayAddEventHandler ["MouseMoving", _fnc_updateInfo];
+_display displayAddEventHandler ["MouseHolding", _fnc_updateInfo];
 
 private _fnc_createButton = {
     params ["_text", "_fncString", "_varsArray"];

@@ -4,11 +4,11 @@ disableSerialization;
 
 params ["_control"];
 
-private _logicObject = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objnull];
+private _logicObject = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
 TRACE_2("zeusAttributes_place",_control,_logicObject);
 
-private _display = ctrlparent _control;
-private _ctrlButtonOK = _display displayctrl 1; //IDC_OK
+private _display = ctrlParent _control;
+private _ctrlButtonOK = _display displayCtrl 1; //IDC_OK
 _control ctrlRemoveAllEventHandlers "SetFocus";
 
 if (isNil QGVAR(lastTransport)) then {GVAR(lastTransport) = 0};
@@ -52,18 +52,18 @@ private _ordersType = _logicObject getVariable [QGVAR(orders), GVAR(lastOrders)]
 (_display displayCtrl 23072) lbSetCurSel _ordersType;
 
 private _radius = _logicObject getVariable [QGVAR(radius), GVAR(lastRadius)];
-(_control controlsgroupctrl 23074) sliderSetRange [10, 2000];
-[_control controlsgroupctrl 23074, _control controlsgroupctrl 23075, "m", _radius] call bis_fnc_initSliderValue;
-[_control controlsgroupctrl 23074, _control controlsgroupctrl 23075, "m"] call bis_fnc_initSliderValue;
+(_control controlsGroupCtrl 23074) sliderSetRange [10, 2000];
+[_control controlsGroupCtrl 23074, _control controlsGroupCtrl 23075, "m", _radius] call bis_fnc_initSliderValue;
+[_control controlsGroupCtrl 23074, _control controlsGroupCtrl 23075, "m"] call bis_fnc_initSliderValue;
 
-(_control controlsgroupctrl 23076) cbSetChecked GVAR(attackTarget);
-(_control controlsgroupctrl 23077) cbSetChecked GVAR(useLAMBS);
+(_control controlsGroupCtrl 23076) cbSetChecked GVAR(attackTarget);
+(_control controlsGroupCtrl 23077) cbSetChecked GVAR(useLAMBS);
 
 private _fnc_onUnload = {
     params [["_display", displayNull, [displayNull]], ["_exitCode", -1]];
     TRACE_1("_fnc_onUnload params",_display);
 
-    private _logicObject = missionnamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objnull];
+    private _logicObject = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
     if (isNull _logicObject) exitWith {TRACE_1("null",_logicObject);};
 
     private _set = _logicObject getVariable [QGVAR(set), false];
@@ -77,10 +77,10 @@ private _fnc_onUnload = {
 private _fnc_onConfirm = {
     params [["_ctrlButtonOK", controlNull, [controlNull]]];
     TRACE_1("_fnc_onConfirm params",_this);
-    private _display = ctrlparent _ctrlButtonOK;
+    private _display = ctrlParent _ctrlButtonOK;
     if (isNull _display) exitWith {};
 
-    private _logicObject = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target", objnull];
+    private _logicObject = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
     if (isNull _logicObject) exitWith {ERROR_1("Logic [%1] is null on confirm",_logicObject);};
 
 
@@ -92,7 +92,7 @@ private _fnc_onConfirm = {
     GVAR(lastOrders) = _ordersType;
     _logicObject setVariable [QGVAR(ordersType), _ordersType, true];
 
-    private _radius = sliderposition (_display displayCtrl 23074);
+    private _radius = sliderPosition (_display displayCtrl 23074);
     GVAR(lastRadius) = _radius;
     _logicObject setVariable [QGVAR(radius), _radius, true];
 
@@ -108,5 +108,5 @@ private _fnc_onConfirm = {
     TRACE_3("set",_transportType,_ordersType,_radius);
 };
 
-_display displayaddeventhandler ["unload", _fnc_onUnload];
-_ctrlButtonOK ctrladdeventhandler ["buttonclick", _fnc_onConfirm];
+_display displayAddEventHandler ["Unload", _fnc_onUnload];
+_ctrlButtonOK ctrlAddEventHandler ["ButtonClick", _fnc_onConfirm];

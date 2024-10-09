@@ -45,6 +45,6 @@ private _selectedLanguages = switch (_side) do {
 [_ctrlBabel, _selectedLanguages] call FUNC(setBabelList);
 
 // register event handlers
-_ctrlSet ctrlAddeventHandler ["toolboxselchanged", {_this call FUNC(babelControlSetChange);}];
+_ctrlSet ctrlAddEventHandler ["ToolBoxSelChanged", {_this call FUNC(babelControlSetChange);}];
 _ctrlSet lbSetCurSel 0;
 [_ctrlSet, 0] call FUNC(babelControlSetChange);

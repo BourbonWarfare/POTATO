@@ -29,7 +29,7 @@ if (_factionIndex > -1) then {
     {
         _x params ["_classname", "_displayName", "_icon"];
         private _unitIndex = lbAdd [BUILD_GROUP_UNITS_IDC, _displayName];
-        lbSetPicture [BUILD_GROUP_UNITS_IDC, _unitIndex, getText(configfile >> "CfgVehicleIcons" >> _icon)];
+        lbSetPicture [BUILD_GROUP_UNITS_IDC, _unitIndex, getText(configFile >> "CfgVehicleIcons" >> _icon)];
         lbSetData [BUILD_GROUP_UNITS_IDC, _unitIndex, _classname];
         lbSetTooltip [BUILD_GROUP_UNITS_IDC, _unitIndex, _classname];
         nil

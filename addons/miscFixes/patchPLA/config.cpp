@@ -194,8 +194,7 @@ class CfgVehicles {
             };
         };
     };
-    class O_ZBL09_base: ZBL09_base {};
-    class O_ZBL09: O_ZBL09_base {};
+
     class ZTL11_base: Wheeled_APC_F {
         crewVulnerable = 1; //formerly 0
         armor = 480; //formerly 500 -> 270?
@@ -291,7 +290,7 @@ class CfgVehicles {
                 class Turrets: Turrets {
                     class CommanderOptics: CommanderOptics {
                         class HitPoints {
-                            class HitTurret {
+                            class HitComTurret {
                                 armor = 0.3;
                                 passThrough = 0;
                                 minimalHit = 0.03;
@@ -322,7 +321,7 @@ class CfgVehicles {
             };
         };
     };
-    class O_ZTL11: ZTL11_base {};
+
     class ZBD04A_base: Tank_F {
         damageResistance = 0.02;
         crewVulnerable = 1;
@@ -409,8 +408,7 @@ class CfgVehicles {
             };
         };
     };
-    class O_ZBD04A_base: ZBD04A_base {};
-    class O_ZBD04A: O_ZBD04A_base {};
+
     class ZBD05_base: Tank_F {
         damageResistance = 0.02;
         crewVulnerable = 1;
@@ -497,7 +495,7 @@ class CfgVehicles {
             };
         };
     };
-    class O_ZBD05: ZBD05_base {};
+
     class ZTD05_base: Tank_F {
         damageResistance = 0.02;
         crewVulnerable = 1;
@@ -554,13 +552,6 @@ class CfgVehicles {
                                 minimalHit = 0.1;
                                 explosionShielding = 1;
                                 isTurret = 1;
-                            };
-                            class HitComGun {
-                                armor = 0.04;
-                                passThrough = 0;
-                                minimalHit = 0.1;
-                                explosionShielding = 1;
-                                isGun = 1;
                             };
                         };
                     };

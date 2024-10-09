@@ -90,7 +90,7 @@ private _getArrayAndCheck = {
         private _configLaunchers =          ["launchers", [_cfgWeap]] call _getArrayAndCheck;
         private _configHandguns =           ["handguns", [_cfgWeap]] call _getArrayAndCheck;
         private _configMagazines =          ["magazines", [_cfgWeap, _cfgMag]] call _getArrayAndCheck;
-        private _configItems =              ["items", [_cfgWeap]] call _getArrayAndCheck;
+        private _configItems =              ["items", [_cfgWeap, _cfgMag]] call _getArrayAndCheck;
         private _configLinkedItems =        ["linkedItems", [_cfgWeap]] call _getArrayAndCheck;
         private _configAttachments =        ["attachments", [_cfgWeap]] call _getArrayAndCheck;
         private _configSecondaryAttachments = ["secondaryAttachments", [_cfgWeap]] call _getArrayAndCheck;
@@ -113,7 +113,7 @@ private _getArrayAndCheck = {
 
                 // Check we haves some ammo (besides launchers)
                 if (_checkHaveSomeAmmo && {_weaponIndex != 1} && {_weaponMags isNotEqualTo []} && {(_configMagazines arrayIntersect _weaponMags) isEqualTo []}) then {
-                    [format ["%1 has no magazines %2 from %3", _weapon, _configMagazines]] call _fnc_error;
+                    [format ["%1 has no magazines %2", _weapon, _configMagazines]] call _fnc_error;
                 };
 
                 // Check we use potato mags if they exist for the weapon
@@ -152,7 +152,7 @@ private _getArrayAndCheck = {
                 // Check core slots have rifle resupply ammo
                 if (_checkResupply && {_weaponIndex == 0} && {(toLower _unitName) in ["rifleman", "ftl", "ar", "lat"]}) then {
                     if ((_weaponMags arrayIntersect _transportMags) isEqualTo []) then {
-                        [format ["%1 has no resupply %2", _x], _transportMags] call _fnc_error;
+                        [format ["%1 has no resupply", _x], _transportMags] call _fnc_error;
                     };
                 };
 
