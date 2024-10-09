@@ -15,6 +15,9 @@
 #endif
 
 #include "\z\potato\addons\core\script_macros.hpp"
+
+#undef GETMVAR
+#undef SETMVAR
 #define GETMVAR(var1,var2) (missionNamespace getVariable [ARR_2(var1,var2)])
 #define SETMVAR(var1,var2,var3) (missionNamespace setVariable [ARR_3(var1,var2,var3)])
 
@@ -22,6 +25,7 @@
 #define MINIMUM_SETTINGS [ARR_3(0.001,0,0)]
 #define DEFAULT_HASH_SETTINGS createHashMapFromArray [["hithead",[1,0,0]],["hitdiaphragm",[1,0,0]],["hitleftarm",[1,0,0]],["hitleftleg",[1,0,0]],["hitneck",[1,0,0]],["hitpelvis",[1,0,0]],["hitrightleg",[1,0,0]],["hitchest",[1,0,0]],["hitabdomen",[1,0,0]],["hitrightarm",[1,0,0]],["hitface",[1,0,0]]]
 
+#undef DFUNC
 #define DFUNC(var1) TRIPLES(ADDON,fnc,var1)
 
 // #include "\z\ace\addons\medical_engine\script_component.hpp"
