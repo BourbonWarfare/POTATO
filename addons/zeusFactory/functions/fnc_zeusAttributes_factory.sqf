@@ -15,9 +15,9 @@ if (isNil QGVAR(carArray)) then { // init vehicle arrays if they don't exist
 };
 
 if (isNil QGVAR(lastSide)) then {GVAR(lastSide) = east};
-if (isNil QGVAR(lastCar)) then {GVAR(lastCar) = (CARS_ARRAY select 0)};
-if (isNil QGVAR(lastAPC)) then {GVAR(lastAPC) = (APC_ARRAY select 0)};
-if (isNil QGVAR(lastHeli)) then {GVAR(lastHeli) = (HELI_ARRAY select 0)};
+if (isNil QGVAR(lastCar)) then {GVAR(lastCar) = GVAR(carArray) select 0};
+if (isNil QGVAR(lastAPC)) then {GVAR(lastAPC) = GVAR(apcArray) select 0};
+if (isNil QGVAR(lastHeli)) then {GVAR(lastHeli) = GVAR(helicopterArray) select 0};
 
 disableSerialization;
 
