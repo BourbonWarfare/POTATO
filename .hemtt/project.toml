@@ -76,3 +76,9 @@ parameters = [
     "-filePatching",
     "-mod=x\\cba;z\\ace;idi\\acre;"
 ]
+
+[lints.sqf.var_all_caps]
+enabled = true
+options.ignore = [
+    "ACRE_CORE_INIT", "ACRE_DATA_SYNCED", "ACRE_MAP_LOADED", "ACRE_IS_SPECTATOR"
+]
