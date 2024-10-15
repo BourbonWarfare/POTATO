@@ -46,7 +46,12 @@ switch (_controlIDC) do {
     };
 };
 
-// Propagate to other clients, this will cause this function to be called twice
+// Propagate to other clients.
+// This will result in calling this function twice, spaced by server ping time
 if (_propagate) then {
-    [QGVAR(sync_checkbox), [IDC_CHECKBOX_SAFESTARTSAFETY, _checked, false]] call CBA_fnc_globalEventJIP;
+    if (isServer) then {
+        [_controlIDC, _checked, false] remoteExecCall [QFUNC(uihook_checkboxes), -2];
+    } else {
+        [_controlIDC, _checked, true] remoteExecCall [QFUNC(uihook_checkboxes), 2];
+    };
 };

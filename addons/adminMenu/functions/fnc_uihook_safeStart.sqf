@@ -6,7 +6,7 @@ TRACE_1("params",_this);
 [_newSetting] remoteExecCall [QEFUNC(safeStart,toggleSafeStart), 2];
 
 if (!_newSetting) then {
-    [QGVAR(sync_checkbox), [IDC_CHECKBOX_SAFESTARTSAFETY, 0, false]] call CBA_fnc_globalEventJIP;
+    [IDC_CHECKBOX_SAFESTARTSAFETY, 0, true] remoteExecCall [QFUNC(uihook_checkboxes), 2];
 };
 
 [

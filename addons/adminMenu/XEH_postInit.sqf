@@ -56,8 +56,6 @@
 
 GVAR(openEndMission) = false;
 
-[QGVAR(sync_checkbox), LINKFUNC(uihook_checkboxes)] call CBA_fnc_addEventHandler;
-
 if (isServer) then {
     GVAR(zeusCenter) = createCenter sideLogic;
 };
