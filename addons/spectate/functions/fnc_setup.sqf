@@ -117,7 +117,7 @@ GVAR(thirdPersonCamZoomTemp) = 0.0;
 GVAR(hasTarget) = true;
 GVAR(surfaceSpeed) = false;
 GVAR(camTarget) = _oldUnit;
-GVAR(targetInVehicle) = (vehicle GVAR(camTarget) != GVAR(camTarget));
+GVAR(targetInVehicle) = !isNull objectParent GVAR(camTarget);
 GVAR(dummy) = "Logic" createVehicleLocal getPosASLVisual GVAR(camTarget);
 
 GVAR(cam) = "camcurator" camCreate eyePos GVAR(camTarget);
