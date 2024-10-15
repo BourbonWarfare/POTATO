@@ -1,4 +1,3 @@
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 LOG("Post init start");
 
@@ -16,7 +15,7 @@ if (isServer) then {
         private _missionTestingType = getMissionConfigValue [QEGVAR(missionTesting, missionType),0];
         TRACE_1("_missionTestingType =",missionTestingType);
         private _isTVT = true;
-        // check mission testing type from missionTesting module before checking with math 
+        // check mission testing type from missionTesting module before checking with math
         if ((isNil "_missionTestingType") || (_missionTestingType == 0)) then {
             private _sideCounts = [west, east, resistance] apply {
                 private _side = _x;
@@ -87,7 +86,7 @@ if (hasInterface) then {
 FUNC(calculateTNTEquivalent) = {
     params ["_explosiveMass", "_type"];
     // _explosiveMass = kg
-    
+
     // Q = kJ/kg
     // Qk / Qtnt
     private _tntEquivalents = [
@@ -109,7 +108,7 @@ FUNC(calculateTNTEquivalent) = {
         "minol2", 1.20,
         "anfo", 0.83
     ];
-    
+
     private _equivalent = _tntEquivalents select ((_tntEquivalents find _type) + 1);
     _explosiveMass * _equivalent
 };
@@ -263,7 +262,7 @@ GVAR(baseMaterialTable) = createHashMapFromArray [
     ["GdtGrassLong",                GROUND_MATERIAL_COMPACT_SOIL],
     ["GdtVolcanoBeach",             GROUND_MATERIAL_SAND],
     ["GdtSeabedExp",                GROUND_MATERIAL_WATER],
-    ["GdtRedDirt",                  GROUND_MATERIAL_COMPACT_SOIL], 
+    ["GdtRedDirt",                  GROUND_MATERIAL_COMPACT_SOIL],
     ["GdtAsphalt",                  GROUND_MATERIAL_REINFORCED_CONCRETE],
     ["GdtField",                    GROUND_MATERIAL_COMPACT_SOIL],
     ["GdtForest",                   GROUND_MATERIAL_CLAY],
@@ -298,7 +297,7 @@ FUNC(calculateHemisphericalBlastWeight) = {
         (_objectsBelow select 0) params ["_surfacePosition"];
         _positionAboveGround = ASLToAGL _surfacePosition;
     };
-    
+
     // if we are in the air, continue with normal calculations
     if ((_positionAboveGround#2) > 1) exitWith {
         _originalWeight
@@ -326,7 +325,7 @@ FUNC(calculatePressure) = {
     private _beta = sqrt (1 + (_scaledDistance / 0.048)^2);
     private _gamma = sqrt (1 + (_scaledDistance / 0.32)^2);
     private _delta = sqrt (1 + (_scaledDistance / 1.35)^2);
-    
+
     private _finalPressure = _ambientPressure * _alpha / (_beta * _gamma * _delta);
     _finalPressure
 };
@@ -340,7 +339,7 @@ FUNC(getChanceOfDeath) = {
 
 DFUNC(generateVisuals) = {
     params ["_position", "_explosiveMass", "_filler"];
-    
+
     private _distances = [0.05, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 3, 5, 10];
 
     private _tntEquivalent = [_explosiveMass, _filler] call FUNC(calculateTNTEquivalent);
@@ -349,7 +348,7 @@ DFUNC(generateVisuals) = {
     {
         private _scaledDistance = [_x, _tntEquivalent] call FUNC(calculateScaledDistance);
         private _pressure = [_scaledDistance] call FUNC(calculatePressure);
-        
+
         private _chanceOfFatality = [_pressure] call FUNC(getChanceOfDeath);
 
         _blastData pushBack [_x, _pressure, _chanceOfFatality];
@@ -358,11 +357,11 @@ DFUNC(generateVisuals) = {
     [{
         _this params ["_args", "_handle"];
         _args params ["_position", "_blastData", "_stopTime"];
-        
+
         if (_stopTime >= 0 && { CBA_missionTime > _stopTime }) exitWith {
             [_handle] call CBA_fnc_removePerFrameHandler;
         };
-        
+
         private _maxIconsPerRing = 6;
         {
             _x params ["_distance", "_pressureAtPosition", "_chanceOfFatality"];
@@ -370,17 +369,17 @@ DFUNC(generateVisuals) = {
             if (_distance == 0) then {
                 _iconCount = 1;
             };
-            
+
             _chanceOfFatality = 0 max (_chanceOfFatality min 1);
-            
+
             private _colour = vectorLinearConversion [0, 1, _chanceOfFatality, [1, 1, 1], [1, 0, 0]];
             _colour pushBack 1;
-            
+
             for "_i" from 0 to (_maxIconsPerRing - 1) do {
                 private _angle = _i * 2 * pi / _maxIconsPerRing;
-                
+
                 private _iconPosition = _position getPos [_distance, deg _angle];
-                
+
                 drawIcon3D [
                     "\a3\ui_f\data\IGUI\Cfg\Cursors\explosive_ca.paa",
                     _colour,
@@ -458,7 +457,7 @@ if (hasInterface) then {
     }] call CBA_fnc_addEventHandler;
 
 
-// rem instakill code. This feels so lame for how many hours I put into this shit. 
+// rem instakill code. This feels so lame for how many hours I put into this shit.
 
     /*/ Increase lethality when taking sustained critical damage to body/head
 
