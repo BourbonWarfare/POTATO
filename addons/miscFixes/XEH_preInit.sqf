@@ -27,8 +27,8 @@ if (["WBK_ZombieCreatures"] call ACEFUNC(common,isModLoaded)) then {
 addUserActionEventHandler ["toggleRaiseWeapon","Activate",{
 	private _lAnim = animationState ace_player;
 	if ("stp" in _lAnim || "non" in _lAnim || !alive ace_player) exitWith {};
-	_lAnim = _lAnim splitString "";
-	private _state = [_lAnim #13,_lAnim #14,_lAnim #15] joinString "";
+	private _state = _lAnim select [13, 2];
+    _lAnim = _lAnim splitString "";
 	switch(_state)do{
 		case "ras": {
 			_lAnim set [13,"l"];
