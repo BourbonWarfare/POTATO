@@ -37,9 +37,9 @@ if (_structuralDamage) then {
 if !(isDamageAllowed _unit && {_unit getVariable ["ace_medical_allowDamage", true] || _ignoreAllowDamageACE}) exitWith {_oldDamage};
 
 // Killing units via End key is an edge case (#10375)
-if (_structuralDamage && {_damage == 1 && _ammo == "" && isNull _shooter && isNull _instigator}) exitWith {_damage};
-
 private _newDamage = _damage - _oldDamage;
+if (_structuralDamage && {(abs (_newDamage - 1)) < 0.001 && _ammo == "" && isNull _shooter && isNull _instigator}) exitWith {_damage};
+
 
 // _newDamage == 0 happens occasionally for vehiclehit events (see line 80 onwards), just exit early to save some frametime
 // context 4 is engine "bleeding". For us, it's just a duplicate event for #structural which we can ignore without any issues
