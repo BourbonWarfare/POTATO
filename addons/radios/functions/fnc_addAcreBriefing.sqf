@@ -55,7 +55,7 @@ private _group = group ace_player;
 (switch ((getNumber (configFile >> "CfgVehicles" >> (typeOf ace_player) >> "side"))) do {
     case (1): {
         [
-            missionNamespace getVariable [QGVAR(westDefaultLanguages), [DEFAULT_WEST_LANG]],
+            missionNamespace getVariable [QGVAR(westDefaultLanguages), [DEFAULT_WEST_LANGS]],
             missionNamespace getVariable [QGVAR(westSRChannelNames), [DEFAULT_SR_NAMES]],
             missionNamespace getVariable [QGVAR(westMRChannelNames), [DEFAULT_MR_NAMES]],
             missionNamespace getVariable [QGVAR(westLRChannelNames), [DEFAULT_LR_NAMES]],

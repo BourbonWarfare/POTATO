@@ -103,7 +103,7 @@ private _createChecklistSection  = {
         _createCtrlLine3 ctrlCommit 0;
         INCREMENT_YCOORD;
 
-        if(_missionMaker != name ACE_PLAYER) then {
+        if(_missionMaker != name ACE_player) then {
             private _ctrlCreateSectionMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
             _ctrlCreateSectionMMNotes ctrlSetText "NOTES FOR MISSION MAKER:";
             _ctrlCreateSectionMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
@@ -204,7 +204,7 @@ private _unitSpecificBrief =  if(isNil QUOTE(_unitSpecificBriefVar)) then {"No"}
 
 private _missionNotesForTester = getMissionConfigValue QGVAR(missionMakerNotesForTesters);
 private _missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText";
-// if (isServer && name ACE_PLAYER == _missionMaker) then {_missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText"};
+// if (isServer && name ACE_player == _missionMaker) then {_missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText"};
 // Above code deprecated, retained if needed for future use.
 private _masterChecklistArray = nil;
 
@@ -228,7 +228,7 @@ _createCtrlLine4 ctrlCommit 0;
 INCREMENT_YCOORD;
 
 private _ctrlGeneralMMNotesTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
-if(_missionMaker == name ACE_PLAYER || is3DEN) then {
+if(_missionMaker == name ACE_player || is3DEN) then {
     _ctrlGeneralMMNotesTitle ctrlSetText "Any other Notes for Mission Testers/Version";
 } else {
     _ctrlGeneralMMNotesTitle ctrlSetText "General Notes for Mission Maker:";
