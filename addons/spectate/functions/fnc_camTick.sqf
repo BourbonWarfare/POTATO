@@ -52,12 +52,12 @@ if (isNull GVAR(camTarget)) then {
     GVAR(targetInVehicle) = false;
 } else {
     if (GVAR(hasTarget)) then {
-        if (!GVAR(targetInVehicle) && { vehicle GVAR(camTarget) != GVAR(camTarget) }) then {
+        if (!GVAR(targetInVehicle) && { !isNull objectParent GVAR(camTarget) }) then {
             [GVAR(camTarget)] call FUNC(setTarget);
             GVAR(targetInVehicle) = true;
         };
 
-        if (GVAR(targetInVehicle) && { vehicle GVAR(camTarget) == GVAR(camTarget) }) then {
+        if (GVAR(targetInVehicle) && { isNull objectParent GVAR(camTarget) }) then {
             [GVAR(camTarget)] call FUNC(setTarget);
             GVAR(targetInVehicle) = false;
         };
