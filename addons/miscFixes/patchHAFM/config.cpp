@@ -15,7 +15,6 @@ class CfgPatches {
     };
 };
 
-class UserActions;
 class CfgVehicles {
     class I_C_Soldier_base_F;
     class Greek_Infantry_Army2: I_C_Soldier_base_F { XEH_ENABLED; }; // "" @HAFM
@@ -51,7 +50,10 @@ class CfgVehicles {
     class HAFM_Naval_CB90: Ship_F { XEH_ENABLED; }; // "CB90 Attack boat" @HAFM
     class HAFM_Naval_Russen: Ship_F { XEH_ENABLED; }; // "Roussen-Class Missile Boat" @HAFM
     
-    class Helicopter_Base_H;
+    class Helicopter_Base_F;
+    class Helicopter_Base_H: Helicopter_Base_F {
+        class UserActions;
+    };
     class NH90: Helicopter_Base_H {
         ace_fastroping_enabled = 2;
         ace_fastroping_friesType = "ACE_friesAnchorBar";
