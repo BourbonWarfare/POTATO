@@ -575,8 +575,7 @@ class CfgVehicles {
             };
         };
     };
-    class O_ZTD05_base: ZTD05_base {};
-    class O_ZTD05: O_ZTD05_base {};
+    class O_ZTD05: ZTD05_base {};
 
     // watermelon's addition from here on out
     // list of changes:
