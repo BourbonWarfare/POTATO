@@ -210,7 +210,7 @@ class CfgVehicles {
             };
             class FIN { // adds Finnish NH90 skin authored by troska and Centurion_101 via SFP: Finnish Forces Pack (https://steamcommunity.com/sharedfiles/filedetails/?id=917042703)
                 displayName = "Finnish Defense Forces (Camo)";
-                textures[] = {"patch_HAFMHelis\data\outerHaul_co.paa","patch_HAFMHelis\data\upperTail_co.paa","patch_HAFMHelis\data\misc_co.paa","patch_HAFMHelis\data\doors_co.paa"};
+                textures[] = {QPATHTOEF(miscFixes,patchHAFMHelis\data\outerHaul_co.paa),QPATHTOEF(miscFixes,patchHAFMHelis\data\upperTail_co.paa),QPATHTOEF(miscFixes,patchHAFMHelis\data\misc_co.paa),QPATHTOEF(miscFixes,patchHAFMHelis\data\doors_co.paa)};
             };
         };
         #include "mfd_nh90a.hpp"
