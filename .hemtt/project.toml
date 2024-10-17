@@ -14,17 +14,6 @@ include = [
 [version]
 path = "addons/core/script_version.hpp"
 
-[lint.sqf]
-enabled = true
-
-[asc]
-enabled = true
-exclude = [
-    ".inc.sqf",
-    "/serverOnlyFix.sqf",
-    "/BW_Settings.sqf",
-]
-
 
 # Launched with `hemtt launch`
 # min modset w/ static ws builds of cba/ace/acre
@@ -75,10 +64,4 @@ parameters = [
     "-debug",
     "-filePatching",
     "-mod=x\\cba;z\\ace;idi\\acre;"
-]
-
-[lints.sqf.var_all_caps]
-enabled = true
-options.ignore = [
-    "ACRE_CORE_INIT", "ACRE_DATA_SYNCED", "ACRE_MAP_LOADED", "ACRE_IS_SPECTATOR"
 ]
