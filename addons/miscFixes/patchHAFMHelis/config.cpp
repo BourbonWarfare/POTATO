@@ -7,7 +7,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "HAFM_NH90_Config", "HAFM_NH90", "Kimi_UI" };
+        requiredAddons[] = { "potato_core", "HAFM_NH90_Config", "HAFM_NH90", "Kimi_UI", "HAFM_EC635_Config" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -18,7 +18,8 @@ class CfgPatches {
 class CfgVehicles {
     class HelicopterWreck;
     class HAFM_NH90Wreck: HelicopterWreck { XEH_ENABLED; }; // "Wreck" @HAFM
-    
+    class HAFM_EC635Wreck: HelicopterWreck { XEH_ENABLED; }; // "Wreck" 909320014
+
     class Helicopter_Base_F;
     class Helicopter_Base_H: Helicopter_Base_F {
         class UserActions;
@@ -45,7 +46,7 @@ class CfgVehicles {
             };
             class FIN { // adds Finnish NH90 skin authored by troska and Centurion_101 via SFP: Finnish Forces Pack (https://steamcommunity.com/sharedfiles/filedetails/?id=917042703)
                 displayName = "Finnish Defense Forces";
-                textures[] = {"patch_HAFMHelis\data\outerHaul_co.paa","patch_HAFMHelis\data\upperTail_co.paa","patch_HAFMHelis\data\misc_co.paa","patch_HAFMHelis\data\doors_co.paa"};
+                textures[] = {QPATHTOEF(miscFixes,patchHAFMHelis\data\outerHaul_co.paa),QPATHTOEF(miscFixes,patchHAFMHelis\data\upperTail_co.paa),QPATHTOEF(miscFixes,patchHAFMHelis\data\misc_co.paa),QPATHTOEF(miscFixes,patchHAFMHelis\data\doors_co.paa)};
             };
         };
         class MFD {
