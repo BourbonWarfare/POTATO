@@ -15,6 +15,7 @@ if (isServer) then {
         {time > 0},
         { [GVAR(enabled)] call FUNC(toggleSafeStart); }
     ] call CBA_fnc_waitUntilAndExecute;
+    call FUNC(initForceEndSafeStart);
 };
 
 if (didJIP) then {
