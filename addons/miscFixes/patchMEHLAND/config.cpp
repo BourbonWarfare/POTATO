@@ -18,7 +18,7 @@ class CfgPatches {
 // fix broken XEH
 class CfgVehicles {
     class thing;
-    class Rnc_Particle_BigFire_F: thing { XEH_ENABLED }; // "" 2954960408
+    class Rnc_Particle_BigFire_F: thing { XEH_ENABLED; }; // "" 2954960408
 };
 
 // try to fix main menu being violated
