@@ -74,73 +74,6 @@ class CfgRecoils {
     };
 };
 
-class CfgAmmo {
-    class G_40mm_HE;
-    class GVAR(40x53mm_HE_M384): G_40mm_HE {
-        airFriction = -0.0005;
-        displayNameshort = "M384 HE";
-        displayName = "M384 40x53mm HE";
-        ACEGVAR(frag,charge) = 54.5;
-        ACEGVAR(frag,metal) = 205;
-        ACEGVAR(frag,gurney_c) = 2769; // comp A-5
-        ACEGVAR(frag,fragCount) = 1050; // based on Rheinmetal comparison of new AB round
-        ACEGVAR(frag,classes)[] = {"ACE_frag_tiny_HD","ACE_frag_small_HD","ACE_frag_small_HD"};
-        maxSpeed = 250;
-        typicalSpeed = 240;
-    };
-
-    class G_40mm_HEDP;
-    class GVAR(40x53mm_HEDP_M430A1): G_40mm_HEDP { // based on  NDC M430A1 HEDP
-        airFriction = -0.0005;
-        aiAmmoUsageFlags = "64 + 128 + 512";
-        cost = 12;
-        displayNameshort = "M430A1 HEDP";
-        displayName = "M430A1 40x53mm HEDP";
-        ACEGVAR(frag,gurney_c) = 2769; // comp A-5
-        ACEGVAR(frag,fragCount) = 750; // based on Rheinmetal comparison of new AB round
-        ACEGVAR(frag,classes)[] = {"ACE_frag_tiny_HD","ACE_frag_tiny_HD","ACE_frag_small_HD"};
-        // Damage
-        hit = 80; // reduce to match HEDP
-        maxSpeed = 250;
-        typicalSpeed = 241;
-        // Penetrator
-        deleteParentWhenTriggered = 0;
-        submunitionAmmo = QGVAR(40mm_HEDP_penetrator);
-        submunitionDirectionType = "SubmunitionModelDirection";
-        submunitionInitialOffset[] = {0, 0, -0.2};
-        submunitionInitSpeed = 1000;
-        submunitionParentSpeedCoef = 0;
-        triggerOnImpact = 1;
-    };
-    class ammo_Penetrator_Base;
-    class GVAR(40mm_HEDP_penetrator): ammo_Penetrator_Base {
-        hit = 80; // a guess
-        caliber = 5.067; // 76mm steel
-        submunitionAmmo = ""; // override RHS spalling
-        submunitionConeType[] = {};
-        timeToLive = 0.1;
-    };
-};
-
-class CfgMagazines {
-    class CUP_48Rnd_40mm_MK19_M_base;
-    class CUP_48Rnd_40mm_MK19_M: CUP_48Rnd_40mm_MK19_M_base {
-        ammo = "CUP_G_40mm_HE_HV";
-    };
-    class GVAR(48Rnd_40mm_MK19_M430A1_HEDP): CUP_48Rnd_40mm_MK19_M {
-        ammo = QGVAR(40x53mm_HEDP_M430A1);
-        displayNameshort = "40x53mm HEDP";
-        displayName = "M430A1 40x53mm HEDP";
-        initSpeed = 241;
-    };
-    class GVAR(48Rnd_40mm_MK19_M384_HE): CUP_48Rnd_40mm_MK19_M {
-        ammo = QGVAR(40x53mm_HE_M384);
-        displayNameshort = "40x53mm HE";
-        displayName = "M384 40x53mm HE";
-        initSpeed = 241;
-    };
-};
-
 
 class CfgWeapons {
     class CUP_arifle_RPK74;
@@ -210,7 +143,7 @@ class CfgWeapons {
     // 40mm HEDP
     class CUP_Vhmg_AGS30_veh;
     class CUP_Vgmg_MK19_veh: CUP_Vhmg_AGS30_veh {
-        magazines[] += {QGVAR(48Rnd_40mm_MK19_M430A1_HEDP), QGVAR(48Rnd_40mm_MK19_M384_HE)};
+        magazineWell[] += {"potato_HV_40x53mm"};
     };
 };
 
