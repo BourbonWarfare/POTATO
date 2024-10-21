@@ -1,18 +1,15 @@
 class CfgVehicles {
     class Item_Base_F;
     class potato_naloxoneItem: Item_Base_F {
-      scope = 2;
-      scopeCurator = 2;
-      displayName = "Naloxone Autoinjector";
-      author = "Alablm";
-      vehicleClass = "Items";
-      class TransportItems {
-          MACRO_ADDITEM(potato_naloxone,1);
-      };
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "Naloxone Autoinjector";
+        author = "Alablm";
+        vehicleClass = "Items";
+        class TransportItems {
+            MACRO_ADDITEM(potato_naloxone,1);
+        };
     };
-};
-class CfgVehicles {
-    class Item_Base_F;
     class ACE_painkillersItem: Item_Base_F {};
     class potato_pkblisterItem: ACE_painkillersItem {
         author = "AChesheireCat";
