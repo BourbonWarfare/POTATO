@@ -7,6 +7,8 @@ class ace_medical_treatment_actions {
         items[] = {"potato_naloxone"};
         litter[] = {{"ACE_MedicalLitter_atropine"}};
     };
+    class Painkillers: Morphine {};
+    class Pkblister: Painkillers {};
     class BasicBandage;
     class ApplyTourniquet: BasicBandage {
         sounds[] = {{"z\POTATO\addons\miscMedical\data\tourniquet.ogg",5,1,50}};
