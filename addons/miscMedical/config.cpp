@@ -14,4 +14,5 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "Naloxone_Patch.hpp"
+#include "Painkiller_Patch.hpp"
 #include "ACE_Medical_Treatment_Actions.hpp"
