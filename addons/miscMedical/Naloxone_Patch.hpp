@@ -1,26 +1,3 @@
-class CfgVehicles {
-    class Item_Base_F;
-    class potato_naloxoneItem: Item_Base_F {
-      scope = 2;
-      scopeCurator = 2;
-      displayName = "Naloxone Autoinjector";
-      author = "Alablm";
-      vehicleClass = "Items";
-      class TransportItems {
-          MACRO_ADDITEM(potato_naloxone,1);
-      };
-    };
-};
-class CfgWeapons {
-    class ACE_atropine;
-    class potato_naloxone: ACE_atropine {
-        scope = 2;
-        author = "Alablm";
-        displayName = "Naloxone Autoinjector";
-        descriptionShort = "Used to treat opioid overdose";
-        descriptionUse = "A drug widely used to treat opioid overdoses by blocking opioid receptors";
-    };
-};
 class ace_medical_treatment {
     class Medication {
         class Naloxone {
