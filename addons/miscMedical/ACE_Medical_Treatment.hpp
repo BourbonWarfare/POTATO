@@ -13,6 +13,8 @@ class ace_medical_treatment {
             viscosityChange = 0;
         };
         class Painkillers;
-        class Pkblister: Painkillers {};
+        class Pkblister: Painkillers {
+            items[] = {"potato_pkblister"};
+        };
     };
 };
