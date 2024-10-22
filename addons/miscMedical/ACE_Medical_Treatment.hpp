@@ -12,9 +12,5 @@ class ace_medical_treatment {
             incompatibleMedication[] = {};
             viscosityChange = 0;
         };
-        class Painkillers;
-        class Pkblister: Painkillers {
-            items[] = {"potato_pkblister"};
-        };
     };
 };

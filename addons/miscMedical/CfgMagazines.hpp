@@ -1,8 +1,7 @@
 // License Attribution req: UI image authored by user grmarcstock via Vecteezy.com
 
 class CfgMagazines {
-    class CA_Magazine;
-    class ACE_painkillers: CA_Magazine {};
+    class ACE_painkillers;
     class potato_pkblister: ACE_painkillers {
         author = "AChesheireCat";
         displayName = "Painkiller Blister Pack";
