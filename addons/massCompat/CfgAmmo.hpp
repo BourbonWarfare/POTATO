@@ -40,7 +40,8 @@ class CfgAmmo {
     // Updating 40x53mm HV grenades (Mk19)
     class G_40mm_HE;
     class AMMO(40x53mm_HE_M384): G_40mm_HE {
-        airFriction = -0.0005;
+        airFriction = -0.00045;
+        aiAmmoUsageFlags = "64 + 128";
         displayNameshort = "M384 HE";
         displayName = "M384 40x53mm HE";
         ACEGVAR(frag,charge) = 54.5;
@@ -50,11 +51,12 @@ class CfgAmmo {
         ACEGVAR(frag,classes)[] = {QACEGVAR(frag,tiny_HD), QACEGVAR(frag,small_HD), QACEGVAR(frag,small_HD)};
         maxSpeed = 250;
         typicalSpeed = 240;
+        timeToLive = 25;
     };
 
     class G_40mm_HEDP;
     class AMMO(40x53mm_HEDP_M430A1): G_40mm_HEDP { // based on  NDC M430A1 HEDP
-        airFriction = -0.0005;
+        airFriction = -0.00045;
         aiAmmoUsageFlags = "64 + 128 + 512";
         cost = 12;
         displayNameshort = "M430A1 HEDP";
@@ -66,9 +68,10 @@ class CfgAmmo {
         hit = 80; // reduce to match HEDP
         maxSpeed = 250;
         typicalSpeed = 241;
+        timeToLive = 25;
         // Penetrator
         deleteParentWhenTriggered = 0;
-        submunitionAmmo = QAMMO(40mm_HEDP_M430A1_penetrator);
+        submunitionAmmo = QAMMO(40x53mm_HEDP_M430A1_penetrator);
         submunitionDirectionType = "SubmunitionModelDirection";
         submunitionInitialOffset[] = {0, 0, -0.2};
         submunitionInitSpeed = 1000;
@@ -76,7 +79,7 @@ class CfgAmmo {
         triggerOnImpact = 1;
     };
     class ammo_Penetrator_Base;
-    class AMMO(40mm_HEDP_M430A1_penetrator): ammo_Penetrator_Base {
+    class AMMO(40x53mm_HEDP_M430A1_penetrator): ammo_Penetrator_Base {
         hit = 80; // a guess
         caliber = 5.067; // 76mm steel
         submunitionAmmo = ""; // override RHS spalling
