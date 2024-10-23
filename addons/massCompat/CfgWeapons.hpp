@@ -420,7 +420,7 @@ class CfgWeapons {
     };
 
     class GMG_F;
-    class GMG_40mm:GMG_F {
+    class GMG_40mm: GMG_F {
         magazineWell[] += {QMAGWELL(HV_40x53mm)};
     };
 };
