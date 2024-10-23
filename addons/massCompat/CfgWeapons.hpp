@@ -268,7 +268,7 @@ class CfgWeapons {
     };
 
     // Magazine Wells
-    
+
     class arifle_MSBS65_base_F: Rifle_Base_F {
         magazineWell[] += { "CBA_65x39_MX" };
     };
@@ -419,4 +419,8 @@ class CfgWeapons {
         initSpeed = -1.0;
     };
 
+    class GMG_F;
+    class GMG_40mm: GMG_F {
+        magazineWell[] += {QMAGWELL(HV_40x53mm)};
+    };
 };

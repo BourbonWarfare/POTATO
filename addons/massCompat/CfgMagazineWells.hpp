@@ -182,4 +182,12 @@ class CfgMagazineWells {
             MAGAZINE_WELL_MAG(65x39,20)
         };
     };
+    class MAGWELL(HV_40x53mm) {
+        MAGWELL(magzineWell)[] = {
+            QMAGAZINE_CLASS(96Rnd_40mm_MK19_M430A1_HEDP),
+            QMAGAZINE_CLASS(48Rnd_40mm_MK19_M430A1_HEDP),
+            QMAGAZINE_CLASS(96Rnd_40mm_MK19_M384_HE),
+            QMAGAZINE_CLASS(48Rnd_40mm_MK19_M384_HE)
+        };
+    };
 };
