@@ -7,7 +7,7 @@ class CfgWeapons {
         baseWeapon = QGVAR(LAMG);
         recoil = "CUP_SAW_recoil";
         magazineWell[] = {"CBA_556x45_MINIMI"};
-        magazines[] = {};
+        magazines[] = {"CUP_100Rnd_TE4_Red_Tracer_556x45_M249"};
     };
     class GVAR(LAMG_black): GVAR(LAMG) {
         author = "Potato";
