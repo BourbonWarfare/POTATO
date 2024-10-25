@@ -7,26 +7,17 @@ class CfgWeapons {
         baseWeapon = QGVAR(LAMG);
         recoil = "CUP_SAW_recoil";
         magazineWell[] = {"CBA_556x45_MINIMI"};
-        magazines[] = {
-            "200Rnd_556x45_Box_F",
-			"200Rnd_556x45_Box_Red_F",
-			"200Rnd_556x45_Box_Tracer_F",
-			"200Rnd_556x45_Box_Tracer_Red_F",
-
-			"CUP_200Rnd_TE4_Red_Tracer_556x45_M249",
-			"CUP_200Rnd_TE4_Yellow_Tracer_556x45_M249",
-			"CUP_200Rnd_TE4_Green_Tracer_556x45_M249",
-			"CUP_200Rnd_TE1_Red_Tracer_556x45_M249",
-			"CUP_200Rnd_TE4_Green_Tracer_556x45_M249_Pouch",
-			"CUP_200Rnd_TE4_Red_Tracer_556x45_M249_Pouch",
-			"CUP_200Rnd_TE4_Yellow_Tracer_556x45_M249_Pouch",
-			"CUP_200Rnd_TE1_Red_Tracer_556x45_M249_Pouch",
-			"CUP_100Rnd_TE4_Green_Tracer_556x45_M249",
-			"CUP_100Rnd_TE4_Red_Tracer_556x45_M249",
-			"CUP_100Rnd_TE4_Yellow_Tracer_556x45_M249",
-			"CUP_200Rnd_TE4_Green_Tracer_556x45_L110A1",
-			"CUP_200Rnd_TE4_Red_Tracer_556x45_L110A1",
-			"CUP_200Rnd_TE4_Yellow_Tracer_556x45_L110A1"
+        magazines[] = {};
+    };
+    class GVAR(LAMG_black): GVAR(LAMG) {
+        author = "Potato";
+        displayName = "KAC Light Assault Machine Gun (Black)";
+        baseWeapon = QGVAR(LAMG_black);
+        picture = "\a3\Weapons_F_Enoch\Machineguns\M200\Data\UI\icon_LMG_Mk200_black_F_ca.paa";
+        hiddenSelectionsTextures[] = {
+            "a3\Weapons_F_Enoch\Machineguns\M200\Data\1st_person_black_co.paa",
+            "a3\Weapons_F_Enoch\Machineguns\M200\Data\Body_black_co.paa",
+            "a3\Weapons_F_Enoch\Machineguns\M200\Data\grip_black_co.paa"
         };
     };
 };
