@@ -16,6 +16,7 @@
  *
  * Public: No
  */
+//IGNORE_PRIVATE_WARNING["_target", "_player"];
 TRACE_3("",_this,_target,_player);
 // _player and _target are provided on call by the ace interact menu
 params ["_isPrimaryWeapon"];
