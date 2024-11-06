@@ -1,33 +1,8 @@
-#include "\z\potato\addons\customGear\script_component.hpp"
-#undef COMPONENT
-#define COMPONENT customGear_fauxWeapons
-
-class CfgPatches {
-    class ADDON {
-        weapons[] = {
-            QGVAR(c7),
-            QGVAR(c7GL),
-            QGVAR(c7a2),
-            QGVAR(c7a2GL),
-            QGVAR(MG5)
-        };
-        units[] = {};
-        requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "CUP_Weapons_LoadOrder", "jsrs_soundmod_cup_weapons"};
-        skipWhenMissingDependencies = 1;
-        author = "Potato";
-        authors[] = {"Chesheire"};
-        authorUrl = "https://github.com/BourbonWarfare/POTATO";
-        VERSION_CONFIG;
-    };
-};
-
 class Mode_FullAuto;
 class CfgWeapons {
-    
     // Adds C7, C7GL, and C7A2, C7A2
     class CUP_arifle_M16A1E1;
-    class GVAR(c7): CUP_arifle_M16A1E1 {
+    class potato_fauxC7_c7: CUP_arifle_M16A1E1 {
         author = "Potato";
         displayName = "C7";
         modes[] = {"Single","FullAuto","Burst_medium","single_medium_optics1","single_medium_optics2"};
@@ -52,12 +27,12 @@ class CfgWeapons {
         };
     };
     class CUP_arifle_M16A1GL;
-    class GVAR(c7GL): CUP_arifle_M16A1GL {
+    class potato_fauxC7_c7GL: CUP_arifle_M16A1GL {
         author = "Potato";
         displayName = "C7 M203";
     };
     class CUP_arifle_M16A4_Base;
-    class GVAR(c7a2): CUP_arifle_M16A4_Base {
+    class potato_fauxC7_c7a2: CUP_arifle_M16A4_Base {
         author = "Potato";
         displayName = "C7A2";
         modes[] = {"Single","FullAuto","Burst_medium","single_medium_optics1","single_medium_optics2"};
@@ -82,7 +57,7 @@ class CfgWeapons {
         };
     };
     class CUP_arifle_M16A4_GL;
-    class GVAR(c7a2GL): CUP_arifle_M16A4_GL {
+    class potato_fauxC7_c7a2GL: CUP_arifle_M16A4_GL {
         author = "Potato";
         displayName = "C7A2 M203";
         modes[] = {"Single","FullAuto","Burst_medium","single_medium_optics1","single_medium_optics2"};
@@ -109,7 +84,7 @@ class CfgWeapons {
     
     // Adds MG5 in 7.62x51mm
     class MMG_01_tan_F;
-    class GVAR(MG5): MMG_01_tan_F {
+    class potato_fauxMG5_MG5: MMG_01_tan_F {
         author = "Potato";
         displayName = "H&K MG5";
         descriptionShort = "General Purpose Machine Gun<br />Caliber: 7.62x51 mm";
