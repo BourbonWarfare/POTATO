@@ -52,12 +52,16 @@ _this spawn {
 
     private _diaryEntries = _unit allDiaryRecords "diary";
 
+    private _newDiaryEntryText = _diaryBuilder joinString "<br/>";
+    private _noOrbatFound = true;
     {
-        _x params ["_idx", "_title"];
+        _x params ["_idx", "_title", "", "", "", "", "", "", "_record"];
         if (_title == "ORBAT") then {
-            _unit removeDiaryRecord ["diary", _x];
+            _unit setDiaryRecordText [["diary", _record], ["ORBAT", _newDiaryEntryText]];
+            _noOrbatFound = false;
         };
     } forEach _diaryEntries;
-
-    _unit createDiaryRecord ["diary", ["ORBAT", _diaryBuilder joinString "<br/>"]];
+    if (_noOrbatFound) then {
+        _unit createDiaryRecord ["diary", ["ORBAT", _newDiaryEntryText]];
+    };
 };
