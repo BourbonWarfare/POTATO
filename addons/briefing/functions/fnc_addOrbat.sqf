@@ -46,11 +46,6 @@ _this spawn {
         };
     } forEach allGroups;
 
-    private _orbatDiary = _unit getVariable [QGVAR(orbatDiary), []];
-    if (_orbatDiary isEqualType diaryRecordNull) then {
-        _unit removeDiaryRecord _orbatDiary;
-    };
-
     private _diaryEntries = _unit allDiaryRecords "diary";
     // find and replace existing orbat pages
     private _newDiaryEntryText = _diaryBuilder joinString "<br/>";
