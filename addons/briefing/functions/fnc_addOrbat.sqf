@@ -16,9 +16,9 @@
 TRACE_1("params",_this);
 
 _this spawn {
-    uiSleep 10;
+    params ["_unit", ["_delay", 10, [123]]];
+    uiSleep _delay;
 
-    params ["_unit"];
     TRACE_1("",_unit);
 
     private _diaryBuilder = [];
@@ -44,6 +44,20 @@ _this spawn {
             };
         };
     } forEach allGroups;
+
+    private _orbatDiary = _unit getVariable [QGVAR(orbatDiary), []];
+    if (_orbatDiary isEqualType diaryRecordNull) then {
+        _unit removeDiaryRecord _orbatDiary;
+    };
+
+    private _diaryEntries = _unit allDiaryRecords "diary";
+
+    {
+        _x params ["_idx", "_title"];
+        if (_title == "ORBAT") then {
+            _unit removeDiaryRecord ["diary", _x];
+        };
+    } forEach _diaryEntries;
 
     _unit createDiaryRecord ["diary", ["ORBAT", _diaryBuilder joinString "<br/>"]];
 };
