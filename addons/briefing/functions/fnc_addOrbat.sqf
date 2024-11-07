@@ -1,6 +1,7 @@
 /*
  * Author: PabstMirror
- * Function used to add the order of battle to player's diary
+ * Function used to add the order of battle to player's diary, or update a
+ * previously added orbat.
  *
  * Arguments:
  * 0: Unit to add to the OrBat to <OBJECT>
@@ -51,7 +52,7 @@ _this spawn {
     };
 
     private _diaryEntries = _unit allDiaryRecords "diary";
-
+    // find and replace existing orbat pages
     private _newDiaryEntryText = _diaryBuilder joinString "<br/>";
     private _noOrbatFound = true;
     {
@@ -61,6 +62,8 @@ _this spawn {
             _noOrbatFound = false;
         };
     } forEach _diaryEntries;
+
+    // if we didn't find and replace, add one
     if (_noOrbatFound) then {
         _unit createDiaryRecord ["diary", ["ORBAT", _newDiaryEntryText]];
     };
