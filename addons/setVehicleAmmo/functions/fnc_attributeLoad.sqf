@@ -23,19 +23,6 @@ if (_loadoutValue != "") then {
 private _entity = (get3DENSelected "object") select 0;
 TRACE_2("",_entity,typeOf _entity);
 
-private _fnc_gatherMagazineWells = {
-	params ["_weapon"];
-	private _magazineWells = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazineWell");
-	private _arrayOfMagazines = [];
-	{
-		private _configPath = configFile >> "CfgMagazineWells" >> _x;
-		{
-			_arrayOfMagazines append (getArray _x);
-		} forEach configProperties [_configPath, "isArray _x", true];
-	} forEach _magazineWells;
-	_arrayOfMagazines
-};
-
 private _enableLBChangedEH = {
     params ["_control", "_selection"];
     TRACE_2("lbChanged eh",_control,_selection);
@@ -188,8 +175,7 @@ private _addWeaponSystem = {
     {
         private _weapon = _x;
         private _muzzles = getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");
-        private _weaponMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines");
-        _weaponMagazines append ([_weapon] call _fnc_gatherMagazineWells);
+        private _weaponMagazines = compatibleMagazines _weapon;
 
         ((GVAR(turretMagsArray) select _index) select 1) pushBack _weaponMagazines;
 
