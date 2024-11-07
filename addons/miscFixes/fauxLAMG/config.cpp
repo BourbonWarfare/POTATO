@@ -3,7 +3,8 @@
 class CfgPatches {
     class ADDON {
         weapons[] = {
-            QGVAR(LAMG), QGVAR(LAMG_black)
+            "potato_lmg_LAMG", 
+            "potato_lmg_LAMG_black"
         };
         units[] = {};
         requiredVersion = REQUIRED_VERSION;

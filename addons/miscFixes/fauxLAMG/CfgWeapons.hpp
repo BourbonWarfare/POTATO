@@ -58,7 +58,7 @@ class CfgWeapons {
         class short;
         class Single;
     };
-    class GVAR(LAMG): LMG_Mk200_F {
+    class potato_lmg_LAMG: LMG_Mk200_F {
         class ACE_Burst_far: ACE_Burst_far {
             OVERRIDE_SOUND;
         };
@@ -91,7 +91,7 @@ class CfgWeapons {
         magazineWell[] = {"CBA_556x45_MINIMI"};
         magazines[] = {"CUP_100Rnd_TE4_Red_Tracer_556x45_M249"};
     };
-    class GVAR(LAMG_black): GVAR(LAMG) {
+    class potato_lmg_LAMG_black: potato_lmg_LAMG {
         author = "Potato";
         displayName = "KAC Light Assault Machine Gun (Black)";
         baseWeapon = QGVAR(LAMG_black);
