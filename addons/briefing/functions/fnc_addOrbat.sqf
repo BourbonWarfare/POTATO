@@ -38,7 +38,7 @@ _this spawn {
                 _diaryBuilder pushBack format ["<font color='%1' size='16'>%2</font>", _color, (groupId _x)];
                 {
                     private _color = _colorSelectArray select (_unit == _x);
-                    private _xIcon = getText (configFile >> "CfgVehicles" >> typeOf (vehicle _x) >> "icon");
+                    private _xIcon = getText (configFile >> "CfgVehicles" >> typeOf _x >> "icon");
                     private _image = getText (configFile >> "CfgVehicleIcons" >> _xIcon);
                     _diaryBuilder pushBack format ["<img image='%1' width='16' height='16'/><font color='%2' size='14'>%3</font>", _image, _color, (name _x)];
                 } forEach (units _x);
