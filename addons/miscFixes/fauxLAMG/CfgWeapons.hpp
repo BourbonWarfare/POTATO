@@ -1,6 +1,6 @@
 #define VOLUME_CLOSURE 0.501187
 #define VOLUME_SHOT 1
-#define VOLUME_TAIL 0.631
+#define VOLUME_TAIL 0.531
 #define VOLUME_TAIL_Interior 1
 
 #define OVERRIDE_SOUND class BaseSoundModeType {\
