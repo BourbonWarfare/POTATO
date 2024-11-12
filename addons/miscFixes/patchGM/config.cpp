@@ -9,7 +9,22 @@ class CfgPatches {
         requiredAddons[] = {
             "potato_miscFixes",
             "gm_structures_euro_80",
-            "gm_structures_euro_80_winter"
+            "gm_structures_euro_80_winter",
+            "gm_core_weapons",
+            "gm_weapons_ammo",
+            "gm_weapons_put",
+            "gm_weapons_throw",
+            "gm_weapons_launchers_fim43",
+            "gm_weapons_launchers_luna",
+            "gm_weapons_launchers_m72",
+            "gm_weapons_launchers_mlrs_110mm",
+            "gm_weapons_launchers_mlrs_122mm",
+            "gm_weapons_launchers_pzf3",
+            "gm_weapons_launchers_pzf44_2",
+            "gm_weapons_launchers_rpg7",
+            "gm_weapons_launchers_rpg18",
+            "gm_weapons_launchers_strela",
+
         };
         units[] = {
             "land_gm_euro_bridge_02_20_mainroad",
@@ -37,4 +52,6 @@ class CfgPatches {
         VERSION_CONFIG;
     };
 };
+#include "CfgAmmo.hpp"
+#include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
