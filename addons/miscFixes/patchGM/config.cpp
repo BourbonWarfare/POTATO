@@ -23,8 +23,7 @@ class CfgPatches {
             "gm_weapons_launchers_pzf44_2",
             "gm_weapons_launchers_rpg7",
             "gm_weapons_launchers_rpg18",
-            "gm_weapons_launchers_strela",
-
+            "gm_weapons_launchers_strela"
         };
         units[] = {
             "land_gm_euro_bridge_02_20_mainroad",
