@@ -1,5 +1,6 @@
 #include "..\script_component.hpp"
 
+if !(hasInterface) exitWith {};
 // Modified from ace_grenades_fnc_addChangeFuseItemContextMenuOptions by Cyruz
 {
 	_x params ["_concusion", "_frag"];
