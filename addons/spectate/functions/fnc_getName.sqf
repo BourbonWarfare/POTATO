@@ -23,7 +23,7 @@ private _returnName = "";
 
 if !(isNull _unit) then {
     _returnName = _unit getVariable [QGVAR(cachedName), ""];
-    if (_returnName == "" || _returnName == "AI: ") then {
+    if (_returnName == "") then {
         if (_unit getVariable [QGVAR(deadName), ""] != "") then {
             _returnName = _unit getVariable QGVAR(deadName);
         } else {
@@ -35,7 +35,9 @@ if !(isNull _unit) then {
         };
 
         _returnName = _returnName select [0, NAME_MAX_CHARACTERS];
-        _unit setVariable [QGVAR(cachedName), _returnName];
+        if (_returnName != "AI: ") then {
+            _unit setVariable [QGVAR(cachedName), _returnName];
+        };
     };
 };
 
