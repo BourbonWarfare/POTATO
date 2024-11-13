@@ -88,7 +88,7 @@ class CfgWeapons {
         author = "Potato";
         displayName = "H&K MG5";
         descriptionShort = "General Purpose Machine Gun<br />Caliber: 7.62x51 mm";
-        baseWeapon = QGVAR(MG5);
+        baseWeapon = "potato_fauxMG5_MG5";
         recoil = "CUP_MG3_recoil";
         magazineWell[] = {"CBA_762x51_LINKS"};
         magazines[] = {
