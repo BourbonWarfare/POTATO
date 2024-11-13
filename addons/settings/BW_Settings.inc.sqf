@@ -42,7 +42,7 @@ _settings = [
 
 [QACEGVAR(advanced_fatigue,performanceFactor), 1.4],
 [QACEGVAR(advanced_fatigue,recoveryFactor), 1.6],
-[QACEGVAR(advanced_fatigue,terraingradientfactor), 0.4],
+[QACEGVAR(advanced_fatigue,terraingradientfactor), 1.0],
 [QACEGVAR(advanced_fatigue,loadfactor), 0.5],
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
 [QACEGVAR(dragging,weightCoefficient), 0.25], // allows carry/drag 4x the normal weight
