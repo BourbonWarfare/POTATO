@@ -1,8 +1,8 @@
 class Mode_FullAuto;
-
 class CfgWeapons {
+    // Adds C7, C7GL, and C7A2, C7A2
     class CUP_arifle_M16A1E1;
-    class GVAR(c7): CUP_arifle_M16A1E1 {
+    class potato_fauxC7_c7: CUP_arifle_M16A1E1 {
         author = "Potato";
         displayName = "C7";
         modes[] = {"Single","FullAuto","Burst_medium","single_medium_optics1","single_medium_optics2"};
@@ -27,12 +27,12 @@ class CfgWeapons {
         };
     };
     class CUP_arifle_M16A1GL;
-    class GVAR(c7GL): CUP_arifle_M16A1GL {
+    class potato_fauxC7_c7GL: CUP_arifle_M16A1GL {
         author = "Potato";
         displayName = "C7 M203";
     };
     class CUP_arifle_M16A4_Base;
-    class GVAR(c7a2): CUP_arifle_M16A4_Base {
+    class potato_fauxC7_c7a2: CUP_arifle_M16A4_Base {
         author = "Potato";
         displayName = "C7A2";
         modes[] = {"Single","FullAuto","Burst_medium","single_medium_optics1","single_medium_optics2"};
@@ -57,7 +57,7 @@ class CfgWeapons {
         };
     };
     class CUP_arifle_M16A4_GL;
-    class GVAR(c7a2GL): CUP_arifle_M16A4_GL {
+    class potato_fauxC7_c7a2GL: CUP_arifle_M16A4_GL {
         author = "Potato";
         displayName = "C7A2 M203";
         modes[] = {"Single","FullAuto","Burst_medium","single_medium_optics1","single_medium_optics2"};
@@ -79,6 +79,23 @@ class CfgWeapons {
             midRangeProbab = 0.7;
             maxRange = 300;
             maxRangeProbab = 0.05;
+        };
+    };
+    
+    // Adds MG5 in 7.62x51mm
+    class MMG_01_tan_F;
+    class potato_fauxMG5_MG5: MMG_01_tan_F {
+        author = "Potato";
+        displayName = "H&K MG5";
+        descriptionShort = "General Purpose Machine Gun<br />Caliber: 7.62x51 mm";
+        baseWeapon = "potato_fauxMG5_MG5";
+        recoil = "CUP_MG3_recoil";
+        magazineWell[] = {"CBA_762x51_LINKS"};
+        magazines[] = {
+            "CUP_120Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
+            "CUP_120Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M",
+            "CUP_120Rnd_TE4_LRT4_Green_Tracer_762x51_Belt_M",
+            "CUP_120Rnd_TE4_LRT4_Yellow_Tracer_762x51_Belt_M"
         };
     };
 };
