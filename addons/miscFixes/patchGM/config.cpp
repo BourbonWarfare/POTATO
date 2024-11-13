@@ -4,7 +4,9 @@
 
 class CfgPatches {
     class ADDON {
-        weapons[] = {};
+        weapons[] = {
+            "gm_mp2a1_gld"
+        };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "potato_miscFixes",
@@ -23,7 +25,8 @@ class CfgPatches {
             "gm_weapons_launchers_pzf44_2",
             "gm_weapons_launchers_rpg7",
             "gm_weapons_launchers_rpg18",
-            "gm_weapons_launchers_strela"
+            "gm_weapons_launchers_strela",
+            "gm_weapons_machinepistols_gm_mp2"
         };
         units[] = {
             "land_gm_euro_bridge_02_20_mainroad",
@@ -54,3 +57,4 @@ class CfgPatches {
 #include "CfgAmmo.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
+#include "CfgWeapons.hpp"
