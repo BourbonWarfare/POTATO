@@ -1,4 +1,6 @@
-#include "script_component.hpp"
+#include "\z\potato\addons\customGear\script_component.hpp"
+#undef COMPONENT
+#define COMPONENT customGear_fauxLAMG
 
 class CfgPatches {
     class ADDON {
