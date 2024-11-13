@@ -1,6 +1,7 @@
 /*
  * Author: PabstMirror
- * Function used to add the order of battle to player's diary
+ * Function used to add the order of battle to player's diary, or update a
+ * previously added orbat.
  *
  * Arguments:
  * 0: Unit to add to the OrBat to <OBJECT>
@@ -16,9 +17,9 @@
 TRACE_1("params",_this);
 
 _this spawn {
-    uiSleep 10;
+    params ["_unit", ["_delay", 10, [123]]];
+    uiSleep _delay;
 
-    params ["_unit"];
     TRACE_1("",_unit);
 
     private _diaryBuilder = [];
@@ -37,7 +38,7 @@ _this spawn {
                 _diaryBuilder pushBack format ["<font color='%1' size='16'>%2</font>", _color, (groupId _x)];
                 {
                     private _color = _colorSelectArray select (_unit == _x);
-                    private _xIcon = getText (configFile >> "CfgVehicles" >> typeOf (vehicle _x) >> "icon");
+                    private _xIcon = getText (configFile >> "CfgVehicles" >> typeOf _x >> "icon");
                     private _image = getText (configFile >> "CfgVehicleIcons" >> _xIcon);
                     _diaryBuilder pushBack format ["<img image='%1' width='16' height='16'/><font color='%2' size='14'>%3</font>", _image, _color, (name _x)];
                 } forEach (units _x);
@@ -45,5 +46,20 @@ _this spawn {
         };
     } forEach allGroups;
 
-    _unit createDiaryRecord ["diary", ["ORBAT", _diaryBuilder joinString "<br/>"]];
+    private _diaryEntries = _unit allDiaryRecords "diary";
+    // find and replace existing orbat pages
+    private _newDiaryEntryText = _diaryBuilder joinString "<br/>";
+    private _noOrbatFound = true;
+    {
+        _x params ["_idx", "_title", "", "", "", "", "", "", "_record"];
+        if (_title == "ORBAT") then {
+            _unit setDiaryRecordText [["diary", _record], ["ORBAT", _newDiaryEntryText]];
+            _noOrbatFound = false;
+        };
+    } forEach _diaryEntries;
+
+    // if we didn't find and replace, add one
+    if (_noOrbatFound) then {
+        _unit createDiaryRecord ["diary", ["ORBAT", _newDiaryEntryText]];
+    };
 };
