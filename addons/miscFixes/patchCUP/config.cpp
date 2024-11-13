@@ -44,6 +44,24 @@ class CfgVehicles {
         };
         class UserActions {}; // clear all user actions (not a big deal)
     };
+    // Fix the M1038 back seat
+    class Car;
+    class Car_F: Car {
+        class Turrets;
+    };
+    class CUP_nHMMWV_Base: Car_F {
+        class CargoTurret;
+        class Turrets: Turrets {
+            class CargoTurret_01: CargoTurret {};
+        };
+    };
+    class CUP_nM1038_Base: CUP_nHMMWV_Base {
+        class Turrets: Turrets {
+            class CargoTurret_01: CargoTurret_01 {
+                gunnerAction = "CUP_HMMWV_bench_gunner_1";
+            };
+        };
+    };
 };
 
 class CfgRecoils {
@@ -73,6 +91,7 @@ class CfgRecoils {
         temporary = 0.005;
     };
 };
+
 
 class CfgWeapons {
     class CUP_arifle_RPK74;
@@ -137,6 +156,12 @@ class CfgWeapons {
     };
     class CUP_lmg_UK59: Rifle_Long_Base_F { // Tones down the horrific standing recoil to a more manageable state. Still stucks, but less now
         recoil = QGVAR(recoil_uk59);
+    };
+
+    // 40mm HEDP
+    class CUP_Vhmg_AGS30_veh;
+    class CUP_Vgmg_MK19_veh: CUP_Vhmg_AGS30_veh {
+        magazineWell[] += {"potato_HV_40x53mm"};
     };
 };
 

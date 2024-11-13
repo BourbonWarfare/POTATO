@@ -37,4 +37,4 @@ if (false in (_armorArray apply {_x isEqualType 0})) exitWith {
 
 _this set [1, _hitPoint];
 private _jipID = [QGVAR(updateUnitArmor), _this] call CBA_fnc_globalEventJIP;
-[_jipID, _unit] call CBA_fnc_removeGlobalEventJIP;
+[_jipID, _unit, "AMA_JIPID_" + (getObjectID _unit) + _hitPoint] call CBA_fnc_removeGlobalEventJIP;

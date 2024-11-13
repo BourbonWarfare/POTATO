@@ -10,6 +10,9 @@ if (hasInterface) then {
         if (isNull _unit || {!local _unit}) exitWith {};
         [_unit] call FUNC(addIntentToZeus);
     }] call CBA_fnc_addEventHandler;
+    ["potato_safeStartOff", {
+        [player, 0] call FUNC(addOrbat);
+    }] call CBA_fnc_addEventHandler;
 };
 ["CBA_settingsInitialized", {
     INFO_2("Briefing Settings: Credits: [%1] Orbat: [%2]",GVAR(brief_addCredits),GVAR(brief_addOrbat)); // Remove Me if no problems found
@@ -27,7 +30,7 @@ if (hasInterface) then {
             } forEach allGroups;
         }, []] call CBA_fnc_execNextFrame;
     };
-    
+
     ["unit", {
         TRACE_1("playerChanged eh",ace_player);
         [

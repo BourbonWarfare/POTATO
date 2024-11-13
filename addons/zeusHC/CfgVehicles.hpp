@@ -56,6 +56,11 @@ class CfgVehicles {
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_e_matg","potato_e_matag"};
     };
+    class GVAR(east_mmgTeam): GVAR(east_rifleman) {
+        displayName = "#MMG Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
+        GVAR(createUnits)[] = {"potato_e_mmgg","potato_e_mmgag"};
+    };
     class GVAR(east_patrol): GVAR(east_rifleman) {
         displayName = "#Patrol (2)";
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
@@ -318,6 +323,11 @@ class CfgVehicles {
         displayName = "#MAT Team (2)";
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_w_matg","potato_w_matag"};
+    };
+    class GVAR(west_mmgTeam): GVAR(west_rifleman) {
+        displayName = "#MMG Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
+        GVAR(createUnits)[] = {"potato_w_mmgg","potato_w_mmgag"};
     };
     class GVAR(west_patrol): GVAR(west_rifleman) {
         displayName = "#Patrol (2)";
@@ -621,6 +631,11 @@ class CfgVehicles {
         displayName = "#MAT Team (2)";
         icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
         GVAR(createUnits)[] = {"potato_i_matg","potato_i_matag"};
+    };
+    class GVAR(ind_mmgTeam): GVAR(ind_rifleman) {
+        displayName = "#MMG Team (2)";
+        icon = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa";
+        GVAR(createUnits)[] = {"potato_i_mmgg","potato_i_mmgag"};
     };
     class GVAR(ind_patrol): GVAR(ind_rifleman) {
         displayName = "#Patrol (2)";

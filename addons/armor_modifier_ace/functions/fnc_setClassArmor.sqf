@@ -36,4 +36,4 @@ if (false in (_armorArray apply {_x isEqualType 0})) exitWith {
 };
 
 _this set [1, _hitPoint];
-[QGVAR(updateClassArmor), _this] call CBA_fnc_globalEventJIP;
+[QGVAR(updateClassArmor), _this, "AMA_JIPID_" + _classname + _hitPoint] call CBA_fnc_globalEventJIP;

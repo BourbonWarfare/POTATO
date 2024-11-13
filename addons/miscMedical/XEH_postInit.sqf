@@ -395,10 +395,7 @@ DFUNC(generateVisuals) = {
 if (isServer) then {
     // add explosion event handler
     [QACEGVAR(frag,frag_eh), {
-        params ["_lastPos", "", "_explosive"];
-        if (_explosive isEqualType []) then {
-            _explosive = _this # 1; // frag rewrite uses [_posASL, _ammo, [objNull, _instigator]]
-        };
+        params ["_lastPos", "_explosive"];
         private _explosiveConfig = configFile >> "CfgAmmo" >> _explosive;
 
         // ACE_frag defines mass as grams, we do as kilograms

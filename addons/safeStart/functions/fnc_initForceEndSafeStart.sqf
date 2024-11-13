@@ -21,7 +21,8 @@
 params [["_minTime", 0.001, [0]]];
 
 // We don't need to run this function if we're not on the server,
-// or it's not enabled, or
+// or safe star is not enabled for the mission, or safe start is not on,
+// or if the mission hasn't been configured to force safe start to end
 if (!(isServer && GVAR(enabled) && GVAR(safeStartEnabled)) ||
    {!(getMissionConfigValue [QEGVAR(missionTesting,SSForceEnd), false])}) exitWith {
     TRACE_2("Did not initialize force end safe start",isServer,GVAR(enabled));
