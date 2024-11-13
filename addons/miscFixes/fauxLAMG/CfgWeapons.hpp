@@ -99,7 +99,7 @@ class CfgWeapons {
         author = "Potato";
         displayName = "KAC Light Assault Machine Gun";
         descriptionShort = "Light Machine Gun<br />Caliber: 5.56x45 mm";
-        baseWeapon = QGVAR(LAMG);
+        baseWeapon = "potato_lmg_LAMG";
         recoil = "CUP_SAW_recoil";
         magazineWell[] = {"CBA_556x45_MINIMI"};
         magazines[] = {"CUP_100Rnd_TE4_Red_Tracer_556x45_M249"};
@@ -107,7 +107,7 @@ class CfgWeapons {
     class potato_lmg_LAMG_black: potato_lmg_LAMG {
         author = "Potato";
         displayName = "KAC Light Assault Machine Gun (Black)";
-        baseWeapon = QGVAR(LAMG_black);
+        baseWeapon = "potato_lmg_LAMG_black";
         picture = "\a3\Weapons_F_Enoch\Machineguns\M200\Data\UI\icon_LMG_Mk200_black_F_ca.paa";
         hiddenSelectionsTextures[] = {
             "a3\Weapons_F_Enoch\Machineguns\M200\Data\1st_person_black_co.paa",
