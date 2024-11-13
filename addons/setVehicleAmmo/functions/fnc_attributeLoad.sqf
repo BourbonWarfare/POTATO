@@ -175,7 +175,7 @@ private _addWeaponSystem = {
     {
         private _weapon = _x;
         private _muzzles = getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");
-        private _weaponMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines");
+        private _weaponMagazines = compatibleMagazines _weapon;
 
         ((GVAR(turretMagsArray) select _index) select 1) pushBack _weaponMagazines;
 

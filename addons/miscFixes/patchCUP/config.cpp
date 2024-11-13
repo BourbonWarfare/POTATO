@@ -74,6 +74,7 @@ class CfgRecoils {
     };
 };
 
+
 class CfgWeapons {
     class CUP_arifle_RPK74;
     class potato_arifle_RPK: CUP_arifle_RPK74 {
@@ -137,6 +138,12 @@ class CfgWeapons {
     };
     class CUP_lmg_UK59: Rifle_Long_Base_F { // Tones down the horrific standing recoil to a more manageable state. Still stucks, but less now
         recoil = QGVAR(recoil_uk59);
+    };
+
+    // 40mm HEDP
+    class CUP_Vhmg_AGS30_veh;
+    class CUP_Vgmg_MK19_veh: CUP_Vhmg_AGS30_veh {
+        magazineWell[] += {"potato_HV_40x53mm"};
     };
 };
 
