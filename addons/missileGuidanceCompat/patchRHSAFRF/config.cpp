@@ -216,7 +216,7 @@ class CfgAmmo {
         };
     };
     class rhs_ammo_9m14: rhs_ammo_atgmBase_base {
-        maneuvrability = 0;
+        //maneuvrability = 0;
         //ACE_MISSILE(Malyutka);
         class EventHandlers: EventHandlers {
             class RHS_Guidance {};

@@ -48,7 +48,7 @@ class CfgAmmo {
     };
 
     class CUP_M_9M17P_AT3_Sagger_AT: MissileBase {
-        maneuvrability = 0;
+        //maneuvrability = 0;
         //ACE_MISSILE(Fleyta);
     };
 
