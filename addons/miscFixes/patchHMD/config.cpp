@@ -15,7 +15,7 @@ class CfgPatches {
     };
 };
 
-class cfgWeapons {
+class CfgWeapons {
     class Default;
     class CannonCore: Default {};
     class gatling_20mm: CannonCore {
