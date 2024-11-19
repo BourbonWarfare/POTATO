@@ -272,7 +272,7 @@ class CfgAmmo {
         maneuvrability = 0;
         ACE_MISSILE(Kobra);
     };
-	class rhs_ammo_9m111: rhs_ammo_atgmBase_base {
+	/*class rhs_ammo_9m111: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
         ACE_MISSILE(Fagot);
         class EventHandlers: EventHandlers {
@@ -296,7 +296,7 @@ class CfgAmmo {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
         };
-    };
+    };*/
 	class rhs_ammo_9m117: rhs_ammo_atgmCore_base {
         maneuvrability = 0;
         ACE_MISSILE(Bastion);
