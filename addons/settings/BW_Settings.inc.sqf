@@ -47,7 +47,7 @@ _settings = [
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
 [QACEGVAR(dragging,weightCoefficient), 0.25], // allows carry/drag 4x the normal weight
 [QACEGVAR(finger,enabled), true],
-[QACEGVAR(finger,maxrange), 7],
+[QACEGVAR(finger,maxrange), 7, true],
 [QACEGVAR(fortify,timeCostCoefficient), 0],
 [QACEGVAR(fortify,timeMin), 0],
 [QACEGVAR(gforces,enabledFor), 0],
@@ -88,9 +88,7 @@ if (["WBK_DyingAnimationsMod"] call ACEFUNC(common,isModLoaded)) then { _setting
 ["WBK_DeathAnimMod_Hit_PLR", false],
 ["WBK_DeathAnimMod_Flinch_PLR", false],
 ["wbk_deathanimmod_death_chance", "50"], // why are these strings??
-["wbk_deathanimmod_hit_chance", "70"],
-["wbk_zombiesisusestatdeathcontrol", true],
-["wbk_zombiesisusebitinganimation", false]
+["wbk_deathanimmod_hit_chance", "70"]
 ];} else { _skip pushBack "WBK_DyingAnimationsMod" };
 
 
