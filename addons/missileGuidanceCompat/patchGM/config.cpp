@@ -85,7 +85,7 @@ class CfgAmmo {
         };
     };
     // Malyutka
-    class gm_missile_maljutka_base: gm_missile_saclos_base {
+    /*class gm_missile_maljutka_base: gm_missile_saclos_base {
         maneuvrability = 0;
         ACE_MISSILE(Malyutka);
     };
@@ -100,24 +100,24 @@ class CfgAmmo {
             enabled = 1;
             showTrail = 1;
         };
-    };
+    };*/
     // Milan
-    class gm_missile_milan_base: gm_missile_saclos_base {
+   /* class gm_missile_milan_base: gm_missile_saclos_base {
         maneuvrability = 0;
         ACE_MISSILE(Milan);
     };
     class gm_missile_milan_heat_dm82: gm_missile_milan_base {
         class ace_missileguidance: ace_missileguidance {
-            enabled = 1;
+            enabled = 0;
             initialPitch = 0.4;
         };
     };
     class gm_missile_milan_heat_dm92: gm_missile_milan_base {
         class ace_missileguidance: ace_missileguidance {
-            enabled = 1;
+            enabled = 0;
             initialPitch = 0.4;
         };
-    };
+    };*/
     // AA Missiles
     class gm_rocket_72mm_HE_9m32m_base;
     class gm_rocket_72mm_HE_9m32m: gm_rocket_72mm_HE_9m32m_base {
