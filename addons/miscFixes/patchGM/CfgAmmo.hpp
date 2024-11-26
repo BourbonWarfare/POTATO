@@ -16,7 +16,7 @@ class CfgAmmo {
     class gm_HandGrenade_frag_base: gm_HandGrenade_base {
         ACEGVAR(frag,skip) = 0;
     };
-    class gm_HandGrenade_frag_dm51: gm_HandGrenade_base {
+    class gm_HandGrenade_frag_dm51: gm_HandGrenade_frag_base {
         ACEGVAR(frag,charge) = 0.06;
         ACEGVAR(frag,metal) = 0.276;
         ACEGVAR(frag,gurney_k) = 0.6;

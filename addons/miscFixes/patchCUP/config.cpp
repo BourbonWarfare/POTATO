@@ -45,19 +45,13 @@ class CfgVehicles {
         class UserActions {}; // clear all user actions (not a big deal)
     };
     // Fix the M1038 back seat
-    class Car;
-    class Car_F: Car {
-        class Turrets;
-    };
+    class Car_F;
     class CUP_nHMMWV_Base: Car_F {
         class CargoTurret;
-        class Turrets: Turrets {
-            class CargoTurret_01: CargoTurret {};
-        };
     };
     class CUP_nM1038_Base: CUP_nHMMWV_Base {
-        class Turrets: Turrets {
-            class CargoTurret_01: CargoTurret_01 {
+        class Turrets {
+            class CargoTurret_01: CargoTurret {
                 gunnerAction = "CUP_HMMWV_bench_gunner_1";
             };
         };

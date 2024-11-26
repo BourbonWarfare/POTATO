@@ -35,8 +35,8 @@ class GVAR(textInput): RscEdit {
     font = "EtelkaMonospacePro";
 };
 class GVAR(sendMessageToAdmin): RscButtonMenu {
-    text = "MSG Admins";
-    tooltip = "Send message to all admins (for teleport, something broke, or mission conditions changed)";
+    text = "Message Admins";
+    tooltip = "Send message to all staff and Zeus (for teleport, healing, or something else broke)";
     x = "8.5 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX";
     y = "4.9 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
     w = "7.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
@@ -47,7 +47,7 @@ class GVAR(chatList): RscListBox {
     idc = 840431;
     x = "1 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX";
     y = "6 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
-    w = "15 * (((safezoneW / safezoneH) min 1.2) / 40)";
+    w = "20 * (((safezoneW / safezoneH) min 1.2) / 40)";
     h = "5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
     sizeEx = "0.0175 * safeZoneH";
     font = "EtelkaMonospacePro";
@@ -56,7 +56,7 @@ class GVAR(chatList): RscListBox {
 class GVAR(sendMessageToUser): RscButtonMenu {
     idc = 840432;
     text = "Reply: ";
-    tooltip = "Select a message in the log to replay to that user";
+    tooltip = "Select a message in the log to reply to that user";
     x = "1 * (((safezoneW / safezoneH) min 1.2) / 40) + safezoneX";
     y = "4.9 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
     w = "7.4 * (((safezoneW / safezoneH) min 1.2) / 40)";
