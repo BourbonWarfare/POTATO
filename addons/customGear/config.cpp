@@ -11,6 +11,7 @@ class CfgPatches {
         };
         skipWhenMissingDependencies = 1;
         author = "Potato";
+        authors[] = {"AChesheireCat"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
