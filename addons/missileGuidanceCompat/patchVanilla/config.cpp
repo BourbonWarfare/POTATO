@@ -97,6 +97,8 @@ class CfgAmmo {
         class EventHandlers {
             init = QUOTE([ARR_7(ARG_1(getShotParents ARG_1(_this,0),0),'','','',typeOf ARG_1(_this,0),nil,ARG_1(_this,0))] call ace_missileguidance_fnc_onFired);
         };
+        ACEGVAR(frag,force) = 1;
+        ACEGVAR(frag,skip) = 0;
         ACEGVAR(frag,charge) = 6.69;
         ACEGVAR(frag,metal) = 13.93; // mass/4 based on drawings
         ACEGVAR(frag,gurney_c) = 2700;
