@@ -97,6 +97,12 @@ class CfgAmmo {
         class EventHandlers {
             init = QUOTE([ARR_7(ARG_1(getShotParents ARG_1(_this,0),0),'','','',typeOf ARG_1(_this,0),nil,ARG_1(_this,0))] call ace_missileguidance_fnc_onFired);
         };
+        ACEGVAR(frag,charge) = 6.69;
+        ACEGVAR(frag,metal) = 13.93; // mass/4 based on drawings
+        ACEGVAR(frag,gurney_c) = 2700;
+        ACEGVAR(frag,gurney_k) = 0.5;
+        ACEGVAR(frag,fragCount) = 3000; // Guess-aroo
+        ACEGVAR(frag,classes)[] = {QACEGVAR(frag,small), QACEGVAR(frag,small_HD), QACEGVAR(frag,medium), QACEGVAR(frag,medium_HD), QACEGVAR(frag,large_HD)};
     };
 
     class GVAR(230mm_laser_active): R_230mm_HE {
@@ -135,6 +141,12 @@ class CfgAmmo {
         class EventHandlers {
             init = QUOTE([ARR_7(ARG_1(getShotParents ARG_1(_this,0),0),'','','',typeOf ARG_1(_this,0),nil,ARG_1(_this,0))] call ace_missileguidance_fnc_onFired);
         };
+        ACEGVAR(frag,charge) = 6.69;
+        ACEGVAR(frag,metal) = 13.93; // mass/4 based on drawings
+        ACEGVAR(frag,gurney_c) = 2700;
+        ACEGVAR(frag,gurney_k) = 0.5;
+        ACEGVAR(frag,fragCount) = 3000; // Guess-aroo
+        ACEGVAR(frag,classes)[] = {QACEGVAR(frag,small), QACEGVAR(frag,small_HD), QACEGVAR(frag,medium), QACEGVAR(frag,medium_HD), QACEGVAR(frag,large_HD)};
     };
 
     class Sh_82mm_AMOS_LG: Sh_82mm_AMOS_guided {
