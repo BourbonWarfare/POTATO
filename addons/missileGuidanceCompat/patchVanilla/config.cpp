@@ -57,7 +57,7 @@ class CfgAmmo {
             enabled = 1;
         };
         class EventHandlers {
-            init = QUOTE([ARR_7(ARG_1(getShotParents ARG_1(_this,0),0), '', '', '', typeOf ARG_1(_this,0), nil, ARG_1(_this,0))] call ace_missileguidance_fnc_onFired);
+            init = QUOTE([ARR_7(ARG_1(getShotParents ARG_1(_this,0),0),'','','',typeOf ARG_1(_this,0),nil,ARG_1(_this,0))] call ace_missileguidance_fnc_onFired);
         };
     };
 
@@ -95,7 +95,7 @@ class CfgAmmo {
             enabled = 1;
         };
         class EventHandlers {
-            init = QUOTE([ARR_7(ARG_1(getShotParents ARG_1(_this,0),0), '', '', '', typeOf ARG_1(_this,0), nil, ARG_1(_this,0))] call ace_missileguidance_fnc_onFired);
+            init = QUOTE([ARR_7(ARG_1(getShotParents ARG_1(_this,0),0),'','','',typeOf ARG_1(_this,0),nil,ARG_1(_this,0))] call ace_missileguidance_fnc_onFired);
         };
     };
 
@@ -133,7 +133,7 @@ class CfgAmmo {
             enabled = 1;
         };
         class EventHandlers {
-            init = QUOTE([ARR_7(ARG_1(getShotParents ARG_1(_this,0),0), '', '', '', typeOf ARG_1(_this,0), nil, ARG_1(_this,0))] call ace_missileguidance_fnc_onFired);
+            init = QUOTE([ARR_7(ARG_1(getShotParents ARG_1(_this,0),0),'','','',typeOf ARG_1(_this,0),nil,ARG_1(_this,0))] call ace_missileguidance_fnc_onFired);
         };
     };
 
@@ -141,39 +141,21 @@ class CfgAmmo {
         submunitionAmmo = QGVAR(82mm_laser_active);
         submunitionDirectionType = "SubmunitionModelDirection";
         class EventHandlers {
-            init = QUOTE(
-                [ARR_3(
-                    { ARG_1(velocity ARG_1(_this,0),2) < 0 },
-                    { triggerAmmo ARG_1(_this,0); },
-                    _this
-                )] call CBA_fnc_waitUntilAndExecute;
-            );
+            init = QUOTE([ARR_3({ ARG_1(velocity ARG_1(_this,0),2) < 0 },{ triggerAmmo ARG_1(_this,0); },_this)] call CBA_fnc_waitUntilAndExecute;);
         };
     };
     class Sh_155mm_AMOS_LG: Sh_82mm_AMOS_LG {
         submunitionAmmo = QGVAR(155mm_laser_active);
         submunitionDirectionType = "SubmunitionModelDirection";
         class EventHandlers {
-            init = QUOTE(
-                [ARR_3(
-                    { ARG_1(velocity ARG_1(_this,0),2) < 0 },
-                    { triggerAmmo ARG_1(_this,0); },
-                    _this
-                )] call CBA_fnc_waitUntilAndExecute;
-            );
+            init = QUOTE([ARR_3({ ARG_1(velocity ARG_1(_this,0),2) < 0 },{ triggerAmmo ARG_1(_this,0); },_this)] call CBA_fnc_waitUntilAndExecute;);
         };
     };
     class R_230mm_LG: R_230mm_HE {
         submunitionAmmo = QGVAR(230mm_laser_active);
         submunitionDirectionType = "SubmunitionModelDirection";
         class EventHandlers {
-            init = QUOTE(
-                [ARR_3(
-                    { ARG_1(velocity ARG_1(_this,0),2) < 0 },
-                    { triggerAmmo ARG_1(_this,0); },
-                    _this
-                )] call CBA_fnc_waitUntilAndExecute;
-            );
+            init = QUOTE([ARR_3({ ARG_1(velocity ARG_1(_this,0),2) < 0 },{ triggerAmmo ARG_1(_this,0); },_this)] call CBA_fnc_waitUntilAndExecute;);
         };
     };
 };
