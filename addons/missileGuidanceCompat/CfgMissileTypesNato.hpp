@@ -18,3 +18,28 @@ class ACEGVAR(missileguidance,type_Redeye);
 class ACEGVAR(missileguidance,type_Sidewinder);
 class ACEGVAR(missileguidance,type_Stinger);
 class ACEGVAR(missileguidance,type_TOW);
+class GVAR(laser_artillery) {
+    enabled = 0;
+    canVanillaLock = 0;
+    pitchRate = 15;
+    yawRate = 15;
+    stabilityCoefficient = 0.2;
+    bangBangGuidance = 1;
+    defaultAttackProfile = "DIR";
+    defaultSeekerType = "SALH";
+    seekerTypes[] = { "SALH" };
+
+    defaultSeekerLockMode = "LOAL";
+    seekerLockModes[] = { "LOAL" };
+
+    defaultNavigationType = "Direct";
+    navigationTypes[] = { "Direct" };
+
+    seekLastTargetPos = 1;
+    seekerAngle = 30;
+    seekerAccuracy = 1;
+
+    seekerMinRange = 1;
+    seekerMaxRange = 3000;
+    attackProfiles[] = {"DIR"};
+};
