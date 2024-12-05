@@ -21,20 +21,20 @@ class CfgAmmo {
     };
 
     class G_40mm_HEDP;
-    class AMMO(40x46mm_HE_M433): G_40mm_HEDP { // Amtec corp datasheet
+    class AMMO(40x46mm_HEDP_M433): G_40mm_HEDP { // Amtec corp datasheet
         aiAmmoUsageFlags = "64 + 128 + 512";
         cost = 12;
         fuseDistance = 15;
         displayNameshort = "M433 HEDP";
         displayName = "M433 40x46mm HEDP";
-        ACEGVAR(frag,charge) = 45;
-        ACEGVAR(frag,metal) = 200;
+        ACEGVAR(frag,charge) = 0.045;
+        ACEGVAR(frag,metal) = 0.2;
         ACEGVAR(frag,gurney_k) = 1/2;
         ACEGVAR(frag,gurney_c) = 2769; // comp A-5
         ACEGVAR(frag,fragCount) = 270;
         ACEGVAR(frag,classes)[] = {QACEGVAR(frag,tiny_HD), QACEGVAR(frag,tiny_HD), QACEGVAR(frag,small_HD)};
         // Damage
-        hit = 80; // reduce to match HEDP
+        hit = 65; // reduce to match HEDP
         maxSpeed = 250;
         typicalSpeed = 241;
         timeToLive = 25;
