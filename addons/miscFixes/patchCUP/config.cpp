@@ -7,7 +7,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "CUP_Weapons_LoadOrder", "CUP_Vehicles_LoadOrder", "CUP_Creatures_People_LoadOrder" };
+        requiredAddons[] = { "potato_core", "potato_customGear", "CUP_Weapons_LoadOrder", "CUP_Vehicles_LoadOrder", "CUP_Creatures_People_LoadOrder" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -86,6 +86,21 @@ class CfgRecoils {
     };
 };
 
+class CfgMagazines {
+    class CUP_6Rnd_HE_M203;
+    class potato_6Rnd_40mm_M433_HEDP: CUP_6Rnd_HE_M203 {
+        ammo = "potato_40x46mm_HEDP_M433";
+        descriptionShort = "Type: High Explosive Dual Purpose<br/>Rounds: 6<br/>Used in: M32 grenade launcher";
+        displayName = "40x46mm 6Rnd M433 (HEDP) Grenade";
+        displayNameshort = "M433 HEDP";
+    };
+};
+
+class CfgMagazineWells {
+    class CBA_40mm_M203_6rnds {
+        potato_magazineWell[] = { "potato_6Rnd_40mm_M433_HEDP" };
+    };
+};
 
 class CfgWeapons {
     class CUP_arifle_RPK74;
