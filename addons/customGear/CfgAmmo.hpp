@@ -75,7 +75,6 @@ class CfgAmmo {
     class AMMO(40x46mm_HEDP_M433_penetrator): ammo_Penetrator_Base {
         hit = 70; // a guess
         caliber = 4.2; // 63mm steel
-        submunitionConeType[] = {};
         timeToLive = 0.1;
         // fix double explosion
         soundsetexplosion[] = {};
@@ -83,8 +82,6 @@ class CfgAmmo {
     class AMMO(40x53mm_HEDP_M430A1_penetrator): ammo_Penetrator_Base {
         hit = 80; // a guess
         caliber = 5.067; // 76mm steel
-        submunitionAmmo = ""; // override RHS spalling
-        submunitionConeType[] = {};
         timeToLive = 0.1;
         // fix double explosion
         soundsetexplosion[] = {};
