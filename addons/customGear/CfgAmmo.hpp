@@ -33,8 +33,10 @@ class CfgAmmo {
         ACEGVAR(frag,gurney_c) = 2769; // comp A-5
         ACEGVAR(frag,fragCount) = 270;
         ACEGVAR(frag,classes)[] = {QACEGVAR(frag,tiny_HD), QACEGVAR(frag,tiny_HD), QACEGVAR(frag,small_HD)};
-        // Damage
-        hit = 65; // reduce to match HEDP
+        // Damage - reduced for smaller one
+        hit = 65;
+        indirectHit = 4;
+        indirectHitRange = 3;
         maxSpeed = 250;
         typicalSpeed = 241;
         timeToLive = 25;
@@ -72,7 +74,7 @@ class CfgAmmo {
     };
 
     class AMMO(40x46mm_HEDP_M433_penetrator): ammo_Penetrator_Base {
-        hit = 80; // a guess
+        hit = 70; // a guess
         caliber = 4.2; // 63mm steel
         submunitionConeType[] = {};
         timeToLive = 0.1;
