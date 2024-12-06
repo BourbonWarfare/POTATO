@@ -35,7 +35,6 @@ class CfgAmmo {
         ACEGVAR(frag,classes)[] = {QACEGVAR(frag,tiny_HD), QACEGVAR(frag,tiny_HD), QACEGVAR(frag,small_HD)};
         // Damage - reduced for smaller one
         hit = 65;
-        indirectHit = 4;
         indirectHitRange = 3;
         maxSpeed = 250;
         typicalSpeed = 241;
