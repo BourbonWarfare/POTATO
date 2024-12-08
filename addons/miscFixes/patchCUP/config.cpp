@@ -56,6 +56,52 @@ class CfgVehicles {
             };
         };
     };
+    // Tweaks to the GTK Boxer's handling (accel/braking) + HMG swap to M3M + countermeasures move to gunner
+    class Wheeled_APC_F: Car_F {
+        class NewTurret;
+        class Turrets {
+            class MainTurret: NewTurret {
+                class Turrets {};
+            };
+        };
+    };
+    class CUP_Boxer_Base: Wheeled_APC_F {};
+    class CUP_Boxer_Base_HMG: CUP_Boxer_Base {
+        class CargoTurret;
+        class Turrets {
+            class MainTurret: NewTurret {
+                weapons[] = {"CUP_Vhmg_M3P_veh","SmokeLauncher"}; // was CUP_Vhmg_M2_veh
+                magazines[] = {"CUP_250Rnd_TE1_Red_Tracer_127x99_M","CUP_250Rnd_TE1_Red_Tracer_127x99_M","CUP_250Rnd_TE1_Red_Tracer_127x99_M","CUP_250Rnd_TE1_Red_Tracer_127x99_M","CUP_250Rnd_TE1_Red_Tracer_127x99_M","SmokeLauncherMag"}; // was CUP_200Rnd_TE1_Red_Tracer_127x99_M
+            };
+            class CommanderTurret: NewTurret {
+                weapons[] = {}; // was "SmokeLauncher"
+                magazines[] = {}; // was "SmokeLauncherMag"
+            };
+        };
+        accelAidForceCoef = 2.3; // was 1.4
+        accelAidForceSpd = 25; // was 5
+        brakeIdleSpeed = 1.78; // was 0
+        maxFordingDepth = 1.0; // was 1.5
+        class Wheels {
+			class wheel_1_1 {
+				maxBrakeTorque = 20000; // was 12500
+				maxHandBrakeTorque = 30000; // was 25000
+			};
+		};
+    };
+    class CUP_Boxer_Base_GMG: CUP_Boxer_Base_HMG {
+        class CargoTurret;
+        class Turrets {
+            class MainTurret: NewTurret {
+                weapons[] = {"CUP_Vgmg_HKGMG_veh","SmokeLauncher"}; // added smoke launcher
+                magazines[] = {"CUP_32Rnd_40mm_MK19_M","CUP_32Rnd_40mm_MK19_M","CUP_32Rnd_40mm_MK19_M","CUP_32Rnd_40mm_MK19_M","CUP_32Rnd_40mm_MK19_M","CUP_32Rnd_40mm_MK19_M","SmokeLauncherMag"}; // added smoke mag
+            };
+            class CommanderTurret: NewTurret {
+                weapons[] = {}; // was "SmokeLauncher"
+                magazines[] = {}; // was "SmokeLauncherMag"
+            };
+        };
+    };
 };
 
 class CfgRecoils {
