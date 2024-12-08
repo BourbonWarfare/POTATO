@@ -42,12 +42,14 @@ private _opticClassnames = [];
 } forEach ((getArray (_path >> "opticChoices")) + (getArray (_path >> "attachments")));
 private _showAllOptics = GVAR(showAllOptics);
 {
-    if (_showAllOptics || _x != (primaryWeaponItems _player)#2) then {
+    private _equiped = (primaryWeaponItems _player)#2 == _x;
+    if (_showAllOptics || !_equiped) then {
         private _xConfig = configFile >> "CfgWeapons" >> _x;
         private _picture = QPATHTOF(data\scope.paa);
         if (isText (_xConfig >> "picture")) then { _picture = getText (_xConfig >> "picture"); };
         private _name = _x;
         if (isText (_xConfig >> "displayName")) then { _name = getText (_xConfig >> "displayName"); };
+        if (_equiped) then { _name = format ["[%1]", _name] };
         private _action = [
             _x,
             _name,
@@ -62,11 +64,12 @@ private _showAllOptics = GVAR(showAllOptics);
     };
 } forEach _opticClassnames;
 
-if (_opticClassnames isNotEqualTo [] &&
-    {_showAllOptics || "" != (primaryWeaponItems _player)#2}) then {
+private _noneEquiped = (primaryWeaponItems _player)#2 == "";
+if (_opticClassnames isNotEqualTo [] && {_showAllOptics || !_noneEquiped}) then {
+    private _name = ["None", "[None]"] select _noneEquiped;
     private _action = [
         "NoOptic",
-        "None",
+        _name,
         "\a3\ui_f\data\gui\rsc\rscdisplayarcademap\icon_exit_cross_ca.paa",
         {_player removePrimaryWeaponItem ((primaryWeaponItems _player)#2)},
         {true},
