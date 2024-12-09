@@ -25,7 +25,6 @@ if (isNull findDisplay 312 ||
     GVAR(fpsDisplayEH) = -2;
 };
 
-private _players = allUnits;//call CBA_fnc_players;
 private _localCuratorModule = curatorCamera;
 // It takes twice as long to access all these global variables as it does
 // to make a private copy and use that
@@ -35,23 +34,23 @@ private _fpsThreshold = GVAR(fpsThreshold);
 private _maxDisplayDistance = GVAR(playerFPSDisplayDistance);
 {
     private _fps = _x getVariable [QGVAR(playerFPS), -1];
+    private _distance = _x distance _localCuratorModule;
     if (_fps < -1 ||
         (_skipAbove && _fps > _fpsThreshold ) ||
-        {_x distance _localCuratorModule > _maxDisplayDistance}) then {
+        {_distance > _maxDisplayDistance}) then {
         continue;
     };
     private _color = _colorSelectArray select (_fps <= _fpsThreshold);
     _fps = (_fps toFixed 1) + " FPS";
-    //  drawIcon3D ["\A3\ui_f\data\map\markers\handdrawn\dot_CA.paa", [0,0,0.8,0.8], ASLToAGL getPosASLVisual _x, 1, 1, 0];
     drawIcon3D [
         "",
         _color,
-        [0, 0, 3] vectorAdd ASLToAGL getPosASLVisual _x,
-        0,
-        0,
+        ASLToAGL getPosASLVisual _x,
+        1,
+        2,
         0,
         _fps,
-        false,
-        0.04
+        2,
+        0.03
     ];
-} forEach _players;
+} forEach allUnits; //(call CBA_fnc_players);

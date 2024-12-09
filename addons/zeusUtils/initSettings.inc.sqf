@@ -8,6 +8,20 @@
     ["POTATO - User", "Zeus Player FPS Display"],
     true, // default value
     2, // local only
+    {
+        if (GVAR(clientEnable)) then {
+            [] call FUNC(initLocalFPSEH);
+        };
+    },
+    false // No mission restart needed
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(clientUpdateRate), "TIME",
+    ["Client FPS Report Period", "How long should elapse between your client reporting your FPS to Zeus."],
+    ["POTATO - User", "Zeus Player FPS Display"],
+    [1, 90, 5], // default value
+    2, // local only
     {},
     false // No mission restart needed
 ] call CBA_fnc_addSetting;

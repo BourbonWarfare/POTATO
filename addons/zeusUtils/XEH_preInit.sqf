@@ -7,7 +7,12 @@ PREP_RECOMPILE_START;
 PREP_RECOMPILE_END;
 
 GVAR(fpsDisplayEH) = -1;
-diag_log formatText ["InitFPS DISPLAY EH %1", GVAR(fpsDisplayEH)];
+GVAR(fpsAvgCalcEH) = -1;
+GVAR(fpsAvgCalc) = [0, [0, 0, 0, 0, 0]];
+GVAR(serverPlayerFPSCache) = createHashMap;
+GVAR(clientsTrackingFPS) = [];
+GVAR(serverUpdateEH) = -1;
+
 #include "initSettings.inc.sqf"
 
 ADDON = true;

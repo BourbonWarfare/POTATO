@@ -14,7 +14,7 @@
  * None
  *
  * Examples:
- * [0] call potato_zeusUtils_fnc_changeFPSDisplayState;
+ * [_control, 0] call potato_zeusUtils_fnc_changeFPSDisplayState;
  *
  * Public: No
  */
