@@ -7,7 +7,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "CUP_Weapons_LoadOrder", "CUP_Creatures_People_LoadOrder" };
+        requiredAddons[] = { "potato_core", "CUP_Weapons_LoadOrder", "CUP_Creatures_People_LoadOrder", "rhs_main_loadorder", "cwr3_soldiers_us" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
