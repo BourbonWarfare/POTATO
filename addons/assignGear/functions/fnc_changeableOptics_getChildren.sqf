@@ -40,36 +40,31 @@ private _opticClassnames = [];
         _opticClassnames pushBackUnique _xConfigName;
     };
 } forEach ((getArray (_path >> "opticChoices")) + (getArray (_path >> "attachments")));
-private _showAllOptics = GVAR(showAllOptics);
-{
-    private _equiped = (primaryWeaponItems _player)#2 == _x;
-    if (_showAllOptics || !_equiped) then {
-        private _xConfig = configFile >> "CfgWeapons" >> _x;
-        private _picture = QPATHTOF(data\scope.paa);
-        if (isText (_xConfig >> "picture")) then { _picture = getText (_xConfig >> "picture"); };
-        private _name = _x;
-        if (isText (_xConfig >> "displayName")) then { _name = getText (_xConfig >> "displayName"); };
-        if (_equiped) then { _name = format ["[%1]", _name] };
-        private _action = [
-            _x,
-            _name,
-            _picture,
-            FUNC(changeableOptics_setOptic),
-            {true},
-            {},
-            [_x, _opticClassnames]
-        ] call ACEFUNC(interact_menu,createAction);
 
-        _actions pushBack [_action, [], _player];
-    };
+{
+    private _xConfig = configFile >> "CfgWeapons" >> _x;
+    private _picture = QPATHTOF(data\scope.paa);
+    if (isText (_xConfig >> "picture")) then { _picture = getText (_xConfig >> "picture"); };
+    private _name = _x;
+    if (isText (_xConfig >> "displayName")) then { _name = getText (_xConfig >> "displayName"); };
+    if ((primaryWeaponItems _player)#2 == _x) then { _name = format ["[%1]", _name] };
+    private _action = [
+        _x,
+        _name,
+        _picture,
+        FUNC(changeableOptics_setOptic),
+        {true},
+        {},
+        [_x, _opticClassnames]
+    ] call ACEFUNC(interact_menu,createAction);
+
+    _actions pushBack [_action, [], _player];
 } forEach _opticClassnames;
 
-private _noneEquiped = (primaryWeaponItems _player)#2 == "";
-if (_opticClassnames isNotEqualTo [] && {_showAllOptics || !_noneEquiped}) then {
-    private _name = ["None", "[None]"] select _noneEquiped;
+if (_actions isNotEqualTo []) then {
     private _action = [
         "NoOptic",
-        _name,
+        ["None", "[None]"] select ((primaryWeaponItems _player)#2 == ""),
         "\a3\ui_f\data\gui\rsc\rscdisplayarcademap\icon_exit_cross_ca.paa",
         {_player removePrimaryWeaponItem ((primaryWeaponItems _player)#2)},
         {true},
