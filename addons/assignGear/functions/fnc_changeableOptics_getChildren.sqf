@@ -33,7 +33,7 @@ private _opticClassnames = [];
 {
     private _xConfig = configFile >> "CfgWeapons" >> _x;
     private _xConfigName = configName _xConfig;
-    if ((isNumber (_xConfig >> "ItemInfo" >> "optics")) 
+    if ((isNumber (_xConfig >> "ItemInfo" >> "optics"))
         && {GVAR(allowMagnifiedOptics) || {!([_xConfigName] call FUNC(isOpticMagnified))}}
         && {_xConfigName in _possibleAttachments}
     ) then {
@@ -42,25 +42,35 @@ private _opticClassnames = [];
 } forEach ((getArray (_path >> "opticChoices")) + (getArray (_path >> "attachments")));
 
 {
-    if (_x != ((primaryWeaponItems _player) param [2, ""])) then {
-        private _xConfig = configFile >> "CfgWeapons" >> _x;
-        private _picture = QPATHTOF(data\scope.paa);
-        if (isText (_xConfig >> "picture")) then { _picture = getText (_xConfig >> "picture"); };
-        private _name = _x;
-        if (isText (_xConfig >> "displayName")) then { _name = getText (_xConfig >> "displayName"); };
+    private _xConfig = configFile >> "CfgWeapons" >> _x;
+    private _picture = QPATHTOF(data\scope.paa);
+    if (isText (_xConfig >> "picture")) then { _picture = getText (_xConfig >> "picture"); };
+    private _name = _x;
+    if (isText (_xConfig >> "displayName")) then { _name = getText (_xConfig >> "displayName"); };
+    if ((primaryWeaponItems _player)#2 == _x) then { _name = format ["[%1]", _name] };
+    private _action = [
+        _x,
+        _name,
+        _picture,
+        FUNC(changeableOptics_setOptic),
+        {true},
+        {},
+        [_x, _opticClassnames]
+    ] call ACEFUNC(interact_menu,createAction);
 
-        private _action = [
-            _x,
-            _name,
-            _picture,
-            FUNC(changeableOptics_setOptic),
-            {true},
-            {},
-            [_x, _opticClassnames]
-        ] call ACEFUNC(interact_menu,createAction);
-
-        _actions pushBack [_action, [], _player];
-    };
+    _actions pushBack [_action, [], _player];
 } forEach _opticClassnames;
+
+if (_actions isNotEqualTo []) then {
+    private _action = [
+        "NoOptic",
+        ["None", "[None]"] select ((primaryWeaponItems _player)#2 == ""),
+        "\a3\ui_f\data\gui\rsc\rscdisplayarcademap\icon_exit_cross_ca.paa",
+        {_player removePrimaryWeaponItem ((primaryWeaponItems _player)#2)},
+        {true},
+        {}
+    ] call ACEFUNC(interact_menu,createAction);
+    _actions pushBack [_action, [], _player];
+};
 
 _actions
