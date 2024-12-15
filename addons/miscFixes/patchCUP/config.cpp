@@ -65,7 +65,9 @@ class CfgVehicles {
             };
         };
     };
-    class CUP_Boxer_Base: Wheeled_APC_F {};
+    class CUP_Boxer_Base: Wheeled_APC_F {
+        class AnimationSources;
+    };
     class CUP_Boxer_Base_HMG: CUP_Boxer_Base {
         class CargoTurret;
         class Turrets {
@@ -88,6 +90,20 @@ class CfgVehicles {
 				maxHandBrakeTorque = 30000; // was 25000
 			};
 		};
+        class AnimationSources: AnimationSources {
+            class main_gun_muzzle_rot {
+                weapon = "CUP_Vhmg_M3P_veh";
+            };
+            class main_gun_reload {
+                weapon="CUP_Vhmg_M3P_veh";
+            };
+            class main_gun_reload_mag {
+                weapon="CUP_Vhmg_M3P_veh";
+            };
+            class main_gun_revolving {
+                weapon="CUP_Vhmg_M3P_veh";
+            };
+        };
     };
     class CUP_Boxer_Base_GMG: CUP_Boxer_Base_HMG {
         class CargoTurret;
