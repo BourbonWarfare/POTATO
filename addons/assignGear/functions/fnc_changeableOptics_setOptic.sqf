@@ -37,4 +37,6 @@ TRACE_3("setOptic",_player,_opticClassname,_opticClassnames);
     };
 } forEach (backpackItems _player);
 
-_player addPrimaryWeaponItem _opticClassname;
+if (_opticClassname != (primaryWeaponItems _player)#2) then {
+    _player addPrimaryWeaponItem _opticClassname;
+};
