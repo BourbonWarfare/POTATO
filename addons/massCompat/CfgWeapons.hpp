@@ -418,9 +418,4 @@ class CfgWeapons {
     class CUP_arifle_OTS14_GROZA_762_base: CUP_arifle_OTS14_GROZA_Base {
         initSpeed = -1.0;
     };
-
-    class GMG_F;
-    class GMG_40mm: GMG_F {
-        magazineWell[] += {QMAGWELL(HV_40x53mm)};
-    };
 };

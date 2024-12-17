@@ -366,27 +366,4 @@ class CfgMagazines {
 
     class 100Rnd_762x54_Box_Tracer_Red: potato_box_762x54_100rnd_tracer_Red { scope = 1; };
     class 100Rnd_762x54_Box_Tracer_Yellow: potato_box_762x54_100rnd_tracer_Yellow { scope = 1; };
-
-    // HV 40x53mm grenade launcher
-    class 200Rnd_40mm_G_belt;
-    class MAGAZINE_CLASS(96Rnd_40mm_MK19_M430A1_HEDP): 200Rnd_40mm_G_belt {
-        ammo = QAMMO(40x53mm_HEDP_M430A1);
-        count = 96;
-        displayNameshort = "40x53mm HEDP";
-        displayName = "M430A1 40x53mm HEDP";
-        initSpeed = 241;
-    };
-    class MAGAZINE_CLASS(48Rnd_40mm_MK19_M430A1_HEDP): MAGAZINE_CLASS(96Rnd_40mm_MK19_M430A1_HEDP) {
-        count = 48;
-    };
-    class MAGAZINE_CLASS(96Rnd_40mm_MK19_M384_HE): 200Rnd_40mm_G_belt {
-        ammo = QAMMO(40x53mm_HE_M384);
-        count = 96;
-        displayNameshort = "40x53mm HE";
-        displayName = "M384 40x53mm HE";
-        initSpeed = 241;
-    };
-    class MAGAZINE_CLASS(48Rnd_40mm_MK19_M384_HE): MAGAZINE_CLASS(96Rnd_40mm_MK19_M384_HE) {
-        count = 48;
-    };
 };
