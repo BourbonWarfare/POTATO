@@ -16,6 +16,7 @@ PREP(getLinkedIndex);
 PREP(getLoadoutFromConfig);
 PREP(getWeaponArray);
 PREP(isOpticMagnified);
+PREP(paramSelectCustomLoadout);
 PREP(requestPlayerGear);
 PREP(setBoxContentsFromConfig);
 PREP(setContainerContentsFromConfig);

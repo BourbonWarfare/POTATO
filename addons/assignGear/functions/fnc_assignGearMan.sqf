@@ -24,10 +24,11 @@ private _faction = faction _unit;
 private _typeOf = typeOf _unit;
 private _unitClassname = [_typeOf] call FUNC(cleanPrefix);
 private _loadout = _unit getVariable ["F_Gear", _unitClassname]; //Check variable f_gear, otherwise default to typeof
-private _path = missionConfigFile >> "CfgLoadouts" >> _faction >> _loadout;
+private _basePath = GVAR(customLoadoutPaths) getOrDefault [_faction, missionConfigFile >> "CfgLoadouts" >> _faction, true];
+private _path = _basePath >> _loadout;
 
-if ((!isClass(_path)) && GVAR(useFallback)) then {
-    _path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
+if (!isClass _path && GVAR(useFallback)) then {
+    _path = _basePath >> "fallback";
 };
 
 // Temp? BWC for older missions

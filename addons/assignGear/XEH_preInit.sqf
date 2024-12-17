@@ -23,6 +23,7 @@ if (GVAR(usePotato)) then {
     GVAR(alwaysAddLandRopes) = [missionConfigFile >> "CfgLoadouts" >> "alwaysAddLandRopes", true] call CFUNC(getBool);
     GVAR(prefixes) = [missionConfigFile >> "CfgLoadouts" >> "prefixes"] call CFUNC(getArray);
     GVAR(resupplyBoxMarkerIndex) = 0;
+    GVAR(customLoadoutPaths) = createHashMap;
 
     if (isServer) then {
         if (is3DEN) then {
