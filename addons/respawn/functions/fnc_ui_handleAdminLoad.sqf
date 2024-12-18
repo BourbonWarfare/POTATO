@@ -68,16 +68,16 @@ ctrlShow [ADMIN_MAP_IDC, false];
 [] call FUNC(updateOpenButton);
 
 // get count of players on each faction so we don't respawn on the wrong side
-private _allFactions = createHashMap; 
-{ 
-    if (isPlayer _x) then { 
-        private _faction = faction _x; 
-        _allFactions set [_faction, 1 + (_allFactions getOrDefault [_faction, 0])]; 
-    }; 
+private _allFactions = createHashMap;
+{
+    if (isPlayer _x) then {
+        private _faction = faction _x;
+        _allFactions set [_faction, 1 + (_allFactions getOrDefault [_faction, 0])];
+    };
 } forEach allUnits;
 
 {
-    (GVAR(factionsToInfo) getVariable _x) params ["_displayName", "", "_factionClassname"];
+    (GVAR(factionsToInfo) get _x) params ["_displayName", "", "_factionClassname"];
     private _count = _allFactions getOrDefault [_factionClassname, 0];
     if (_count > 0) then { _displayName = _displayName + format [" [%1]", _count]; };
 
@@ -86,7 +86,7 @@ private _allFactions = createHashMap;
         lbSetPicture [ADMIN_FACTION_COMBO_IDC, _index, getText (configFile >> "CfgFactionClasses" >> _factionClassname >> "icon")];
     };
     lbSetData [ADMIN_FACTION_COMBO_IDC, _index, _x];
-} forEach (allVariables GVAR(factionsToInfo));
+} forEach (keys GVAR(factionsToInfo));
 
 private _factionIndex = if (isNil QGVAR(lastFactionIndex)) then {
     0

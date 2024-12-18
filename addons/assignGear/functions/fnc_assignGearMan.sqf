@@ -131,16 +131,14 @@ if (!isClass(_path)) exitWith {
 private _randomIndex = floor (random GVAR(maxRandomization));
 private _loadoutKey = format ["%1:%2", _path, _randomIndex];
 
-private _loadoutArray = GVAR(loadoutCache) getVariable _loadoutKey;
-
-if (isNil "_loadoutArray") then {
+private _loadoutArray = GVAR(loadoutCache) getOrDefaultCall [_loadoutKey, {
     TRACE_1("compiling new",_loadoutKey);
     BEGIN_COUNTER(getLoadoutFromConfig);
     _loadoutArray = [_path, _unit] call FUNC(getLoadoutFromConfig);
     END_COUNTER(getLoadoutFromConfig);
     TRACE_1("",_loadoutArray);
-    GVAR(loadoutCache) setVariable [_loadoutKey, _loadoutArray];
-};
+    _loadoutArray
+}, true];
 
 // set unit loadout overrides our sick shades :(
 _loadoutArray set [LA_FACEWARE_INDEX, goggles _unit];

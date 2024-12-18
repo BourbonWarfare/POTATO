@@ -21,8 +21,7 @@ TRACE_1("cleanPrefix",_unitClassname);
 
 if (_unitClassname == "") exitWith {ERROR("_unitClassname is empty string"); _unitClassname };
 
-private _cleanedClassname = GVAR(classnameCache) getVariable _unitClassname;
-if (isNil "_cleanedClassname") then { // cache classname lookups
+private _cleanedClassname = GVAR(classnameCache) getOrDefaultCall [_unitClassname, {
     _cleanedClassname = _unitClassname;
     {
         private _prefixLength = count _x;
@@ -32,7 +31,7 @@ if (isNil "_cleanedClassname") then { // cache classname lookups
         nil
     } count GVAR(prefixes);  // count used here for speed, make sure nil is above this line
 
-    GVAR(classnameCache) setVariable [_unitClassname, _cleanedClassname];
-};
+    _cleanedClassname;
+}, true];
 
 _cleanedClassname

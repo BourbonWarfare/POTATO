@@ -19,7 +19,7 @@
 TRACE_1("params",_this);
 
 // parse faction info
-GVAR(factionsToInfo) = [] call CBA_fnc_createNamespace;
+GVAR(factionsToInfo) = createHashMap;
 {
     private _infoArray = [];
 
@@ -30,14 +30,14 @@ GVAR(factionsToInfo) = [] call CBA_fnc_createNamespace;
     _infoArray pushBack ([_x >> "groups"] call CFUNC(getArray));
 
     TRACE_2("Faction info",configName _x,_infoArray);
-    GVAR(factionsToInfo) setVariable [configName _x, _infoArray]; // possible to override mission side
+    GVAR(factionsToInfo) set [configName _x, _infoArray]; // possible to override mission side
 } forEach (
     ("true" configClasses (configFile >> "CfgRespawnFactions")) +
     ("true" configClasses (missionConfigFile >> "CfgRespawnFactions"))
 );
 
 // parse group info
-GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
+GVAR(groupsToInfo) = createHashMap;
 {
     private _infoArray = [];
 
@@ -104,7 +104,7 @@ GVAR(groupsToInfo) = [] call CBA_fnc_createNamespace;
 
 
     TRACE_2("Group info",configName _x,_infoArray);
-    GVAR(groupsToInfo) setVariable [configName _x, _infoArray]; // possible to override mission side
+    GVAR(groupsToInfo) set [configName _x, _infoArray]; // possible to override mission side
 } forEach (
     ("isClass (_x >> 'Units') && isClass (_x >> 'Configurations')" configClasses (configFile >> "CfgRespawnGroups")) +
     ("isClass (_x >> 'Units') && isClass (_x >> 'Configurations')" configClasses (missionConfigFile >> "CfgRespawnGroups"))

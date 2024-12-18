@@ -36,10 +36,7 @@ if (isNil "_cachedValue") then {
         }
     };
 
-    _cachedValue = GVAR(groupIconCache) getVariable _lookup;
-    if (isNil "_cachedValue") then {
-        _cachedValue = DEFAULT_TEXTURE;
-    };
+    _cachedValue = GVAR(groupIconCache) getOrDefault [_lookup, DEFAULT_TEXTURE, true];
 
     _group setVariable [QGVAR(markerTexture), _cachedValue];
 };
