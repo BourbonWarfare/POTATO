@@ -21,7 +21,7 @@ TRACE_1("params",_this);
 params ["", "_index"];
 
 private _lookUp = lbData [ADMIN_GROUP_COMBO_IDC, _index];
-(GVAR(groupsToInfo) getVariable _lookUp) params ["", "_units", "_configurations"];
+(GVAR(groupsToInfo) get _lookUp) params ["", "_units", "_configurations"];
 
 // agressively look ahead into the units for a leader marker/color
 private _unitMarkerColor = [0,0,0,0];
