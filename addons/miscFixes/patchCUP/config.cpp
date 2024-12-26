@@ -15,7 +15,6 @@ class CfgPatches {
     };
 };
 
-class DefaultEventHandlers;
 class CfgVehicles {
     // Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
     class CUP_B_FV432_Bulldog_GB_D;
@@ -73,7 +72,7 @@ class CfgVehicles {
         class Turrets {
             class MainTurret: NewTurret {
                 weapons[] = {"CUP_Vhmg_M3P_veh","SmokeLauncher"}; // was CUP_Vhmg_M2_veh
-                magazines[] = {"CUP_250Rnd_TE1_Red_Tracer_127x99_M","CUP_250Rnd_TE1_Red_Tracer_127x99_M","CUP_250Rnd_TE1_Red_Tracer_127x99_M","CUP_250Rnd_TE1_Red_Tracer_127x99_M","CUP_250Rnd_TE1_Red_Tracer_127x99_M","SmokeLauncherMag"}; // was CUP_200Rnd_TE1_Red_Tracer_127x99_M
+                magazines[] = {"CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "SmokeLauncherMag"}; // was CUP_200Rnd_TE1_Red_Tracer_127x99_M
             };
             class CommanderTurret: NewTurret {
                 weapons[] = {}; // was "SmokeLauncher"
@@ -218,6 +217,24 @@ class CfgWeapons {
     class CUP_Vhmg_AGS30_veh;
     class CUP_Vgmg_MK19_veh: CUP_Vhmg_AGS30_veh {
         magazineWell[] += {"potato_HV_40x53mm"};
+    };
+
+    // Boxer HMG weapon
+    class CUP_Vhmg_M2_veh;
+    class CUP_Vhmg_M3P_veh: CUP_Vhmg_M2_veh {
+         magazines[] = {
+            "CUP_250Rnd_TE1_Red_Tracer_127x99_M", // CUP_Vhmg_M3P_veh default
+            "CUP_100Rnd_127x99_M", // rest from CUP_Vhmg_M2_veh
+            "CUP_100Rnd_TE4_Red_Tracer_127x99_M",
+            "CUP_100Rnd_TE4_Green_Tracer_127x99_M",
+            "CUP_100Rnd_TE4_Yellow_Tracer_127x99_M",
+            "CUP_100Rnd_TE4_White_Tracer_127x99_M",
+            "CUP_100Rnd_TE1_Red_Tracer_127x99_M",
+            "CUP_100Rnd_TE1_Green_Tracer_127x99_M",
+            "CUP_100Rnd_TE1_Yellow_Tracer_127x99_M",
+            "CUP_100Rnd_TE1_White_Tracer_127x99_M",
+            "CUP_200Rnd_TE1_Red_Tracer_127x99_M"
+        };
     };
 };
 
