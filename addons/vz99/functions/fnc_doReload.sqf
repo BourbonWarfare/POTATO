@@ -21,11 +21,11 @@ TRACE_2("params",_mortarVeh,_player);
 
 //If we have a round loaded, exit
 private _loadedFull = magazinesAmmoFull _mortarVeh;
-if (!(_loadedFull isEqualTo [])) exitWith {TRACE_1("loaded",_loadedFull);};
+if (_loadedFull isNotEqualTo []) exitWith {TRACE_1("loaded",_loadedFull);};
 
 //Make sure empty mag is removed so it "autoloads"
 private _loadedEmpty = _mortarVeh magazinesTurret [0];
-if (!(_loadedEmpty isEqualTo [])) then {
+if (_loadedEmpty isNotEqualTo []) then {
     TRACE_1("removing empty mag",_loadedEmpty);
     _mortarVeh removeMagazinesTurret [(_loadedEmpty select 0), [0]];
 };

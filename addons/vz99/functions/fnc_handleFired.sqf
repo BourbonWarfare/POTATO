@@ -28,7 +28,7 @@ if (!local _mortarVeh) exitWith {};
 
 //Remove the empty magazine, so a new one will load correctly
 private _loadedEmpty = _mortarVeh magazinesTurret [0];
-if (!(_loadedEmpty isEqualTo [])) then {
+if (_loadedEmpty isNotEqualTo []) then {
     TRACE_1("removing empty mag",_loadedEmpty);
     _mortarVeh removeMagazinesTurret [(_loadedEmpty select 0), [0]];
 };

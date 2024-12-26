@@ -136,7 +136,7 @@ private _floatingUnits = [];
         _floatingUnits pushBack _x;
     };
 } forEach _allUnits;
-if (!(_floatingUnits isEqualTo [])) then {
+if (_floatingUnits isEqualTo []) then {
     _problems pushBack ["Possible Fall Damage (Soldier placed above ground level)", _floatingUnits];
 };
 
@@ -163,10 +163,10 @@ private _classesNone= [];
     };
     if (!isClass(_path)) exitWith {};
 } forEach _allUnits;
-if (!(_classesFallback isEqualTo [])) then {
+if (_classesFallback isNotEqualTo []) then {
     _problems pushBack ["Minor: Unit placed that are using fallback", _classesFallback];
 };
-if (!(_classesNone isEqualTo [])) then {
+if (_classesNone isNotEqualTo []) then {
     _problems pushBack ["Unit placed that have no loadout", _classesNone];
 };
 
@@ -198,7 +198,7 @@ private _checkDeprecatedGear = [];
             if (_x != "") then {
                 private _ammoCount = 0;
                 private _weaponMags = [_weapon] call CBA_fnc_compatibleMagazines;
-                if (!(_weaponMags isEqualTo [])) then { // Prevents alerts for weapons that have no magazines (e.g. CSW)
+                if (_weaponMags isNotEqualTo []) then { // Prevents alerts for weapons that have no magazines (e.g. CSW)
                     {
                         _x params ["_xMagName", "_xAmmo"];
                         if (_xMagName in _weaponMags) then {
@@ -255,16 +255,16 @@ private _checkDeprecatedGear = [];
 
 } forEach _allUnits;
 
-if (!(_checkWeapons isEqualTo [])) then {
+if (_checkWeapons isNotEqualTo []) then {
     _problems pushBack ["Units missing weapons", _checkWeapons];
 };
-if (!(_checkMagazines isEqualTo [])) then {
+if (_checkMagazines isNotEqualTo []) then {
     _problems pushBack ["Units missing magazines", _checkMagazines];
 };
-if (!(_checkMedical isEqualTo [])) then {
+if (_checkMedical isNotEqualTo []) then {
     _problems pushBack ["Units missing medical", _checkMedical];
 };
-if (!(_checkDeprecatedGear isEqualTo [])) then {
+if (_checkDeprecatedGear isNotEqualTo []) then {
     _problems pushBack ["Units using gear from mod we will drop", _checkDeprecatedGear];
 };
 
