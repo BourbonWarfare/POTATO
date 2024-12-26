@@ -1,6 +1,6 @@
 #include "\z\potato\addons\missileGuidanceCompat\script_component.hpp"
 #undef COMPONENT
-#define COMPONENT missileGuidanceCompat_patchCUP
+#define COMPONENT missileGuidanceCompat_patchVANILLA
 
 class CfgPatches {
     class ADDON {
