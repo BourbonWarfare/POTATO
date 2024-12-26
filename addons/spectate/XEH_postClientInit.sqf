@@ -5,14 +5,8 @@ if (GVAR(enabled) && hasInterface) then {
     GVAR(availableLanguages) = (missionNamespace getVariable [QEGVAR(radios,availableLanguages), []]) apply {_x select 0};
     GVAR(classEHInstalled) = false;
 
-    GVAR(boundingBoxCache) = call CBA_fnc_createNamespace;
-    GVAR(groupIconCache) = call CBA_fnc_createNamespace;
-
-    // populate group icon cache
-    {
-        _x params ["_key", "_value"];
-        GVAR(groupIconCache) setVariable [_key, _value];
-    } forEach [
+    GVAR(boundingBoxCache) = createHashMap;
+    GVAR(groupIconCache) = createHashMapFromArray [
         [QPATHTOEF(markers,data\armor.paa), QPATHTOF(data\armor.paa)],
         [QPATHTOEF(markers,data\artillery.paa), QPATHTOF(data\artillery.paa)],
         [QPATHTOEF(markers,data\attack_fixed_wing.paa), QPATHTOF(data\attack_fixed_wing.paa)],

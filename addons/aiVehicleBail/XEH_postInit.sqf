@@ -1,10 +1,10 @@
 #include "script_component.hpp"
 
-GVAR(hitpointTypes) = [false] call CBA_fnc_createNamespace;
+GVAR(hitpointTypes) = createHashMap;
 {
     _x params ["_hitpoints", "_type"];
     {
-        GVAR(hitpointTypes) setVariable [_x, _type];
+        GVAR(hitpointTypes) set [_x, _type];
     } forEach _hitpoints;
 } forEach [ENGINE_HITPOINTS, HULL_HITPOINTS, TURRET_HITPOINTS, TRACK_HITPOINTS, WHEEL_HITPOINTS];
 

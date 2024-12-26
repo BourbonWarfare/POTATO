@@ -41,14 +41,14 @@ if (!isNil QGVAR(currentFaction) && {GVAR(currentFaction) != _factionData}) then
 };
 GVAR(currentFaction) = _factionData;
 
-(GVAR(factionsToInfo) getVariable _factionData) params [
+(GVAR(factionsToInfo) get _factionData) params [
     "_factionDisplayName",
     "",
     "",
     "_factionPrefix"
 ];
 
-(GVAR(groupsToInfo) getVariable _groupData) params [
+(GVAR(groupsToInfo) get _groupData) params [
     "_groupDisplayName",
     "_unitsArray"
 ];
