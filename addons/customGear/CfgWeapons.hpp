@@ -15,4 +15,10 @@ class CfgWeapons {
             "CUP_120Rnd_TE4_LRT4_Yellow_Tracer_762x51_Belt_M"
         };
     };
+
+    // Adds 40x53mm potato grenades
+    class GMG_F;
+    class GMG_40mm: GMG_F {
+        magazineWell[] += {QMAGWELL(HV_40x53mm)};
+    };
 };

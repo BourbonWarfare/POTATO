@@ -23,10 +23,6 @@
 #define QAMMO_CLASS(type) QUOTE(AMMO_CLASS(type))
 #define MAGAZINE_CLASS(type) SCORE_2(potato,type)
 #define QMAGAZINE_CLASS(type) QUOTE(MAGAZINE_CLASS(type))
-#define AMMO(var1) DOUBLES(PREFIX,var1)
-#define QAMMO(var1) QUOTE(AMMO(var1))
-#define MAGWELL(var1) DOUBLES(PREFIX,var1)
-#define QMAGWELL(var1) QUOTE(MAGWELL(var1))
 
 #define RELOAD_TRACER_REMAINING 4
 #define MG_TRACER_EVERY 4
