@@ -136,7 +136,7 @@ private _floatingUnits = [];
         _floatingUnits pushBack _x;
     };
 } forEach _allUnits;
-if (_floatingUnits isEqualTo []) then {
+if (_floatingUnits isNotEqualTo []) then {
     _problems pushBack ["Possible Fall Damage (Soldier placed above ground level)", _floatingUnits];
 };
 
