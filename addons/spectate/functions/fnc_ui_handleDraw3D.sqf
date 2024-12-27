@@ -112,7 +112,7 @@ if !(GVAR(mapOpen) || GVAR(fullMapOpen)) then {
                 private _oldLoc = [];
                 {
                     _x params ["_locNew", "_colorNew"];
-                    if !(_oldLoc isEqualTo []) then {
+                    if (_oldLoc isNotEqualTo []) then {
                         drawLine3D [_oldLoc, _locNew, _colorNew];
                     };
                     _oldLoc = _locNew;

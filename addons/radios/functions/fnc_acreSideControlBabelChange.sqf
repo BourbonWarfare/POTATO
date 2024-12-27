@@ -24,7 +24,7 @@ private _languages = [];
 
 TRACE_1("selected languages",_languages);
 
-if !(_languages isEqualTo []) then {
+if (_languages isNotEqualTo []) then {
     switch (lbCurSel _ctrlSide) do {
         case (0): { GVAR(westDefaultLanguages) = _languages; };
         case (1): { GVAR(eastDefaultLanguages) = _languages; };

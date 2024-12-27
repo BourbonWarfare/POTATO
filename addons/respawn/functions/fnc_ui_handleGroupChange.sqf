@@ -68,7 +68,7 @@ lbClear ADMIN_CONFIG_COMBO_IDC;
             _markerTexture = _unitMarkerTexture;
         };
 
-        if !(_unitMarkerColor isEqualTo [0,0,0,0]) then {
+        if (_unitMarkerColor isNotEqualTo [0,0,0,0]) then {
             _markerColor = _unitMarkerColor;
         };
     };

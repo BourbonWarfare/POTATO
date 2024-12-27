@@ -47,7 +47,7 @@ _modelOffset = _modelOffset vectorAdd ((vectorNormalized _modelOffset) vectorMul
     };
 
     //Wait for area to be clear of other units/parachutes
-    if ((_attachedVehicle isKindOf "Air") && {!((_attachedVehicle nearEntities 15) isEqualTo [_attachedVehicle])}) exitWith {};
+    if ((_attachedVehicle isKindOf "Air") && {(_attachedVehicle nearEntities 15) isNotEqualTo [_attachedVehicle]}) exitWith {};
 
     private _unitType = _createUnits deleteAt 0;
     private _posAGL = _attachedVehicle modelToWorld _modelOffset;
