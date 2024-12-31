@@ -15,7 +15,6 @@ class CfgPatches {
     };
 };
 
-class DefaultEventHandlers;
 class CfgVehicles {
     // Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
     class CUP_B_FV432_Bulldog_GB_D;
@@ -53,6 +52,68 @@ class CfgVehicles {
         class Turrets {
             class CargoTurret_01: CargoTurret {
                 gunnerAction = "CUP_HMMWV_bench_gunner_1";
+            };
+        };
+    };
+    // Tweaks to the GTK Boxer's handling (accel/braking) + HMG swap to M3M + countermeasures move to gunner
+    class Wheeled_APC_F: Car_F {
+        class NewTurret;
+        class Turrets {
+            class MainTurret: NewTurret {
+                class Turrets {};
+            };
+        };
+    };
+    class CUP_Boxer_Base: Wheeled_APC_F {
+        class AnimationSources;
+    };
+    class CUP_Boxer_Base_HMG: CUP_Boxer_Base {
+        class CargoTurret;
+        class Turrets {
+            class MainTurret: NewTurret {
+                weapons[] = {"CUP_Vhmg_M3P_veh","SmokeLauncher"}; // was CUP_Vhmg_M2_veh
+                magazines[] = {"CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "SmokeLauncherMag"}; // was CUP_200Rnd_TE1_Red_Tracer_127x99_M
+            };
+            class CommanderTurret: NewTurret {
+                weapons[] = {}; // was "SmokeLauncher"
+                magazines[] = {}; // was "SmokeLauncherMag"
+            };
+        };
+        accelAidForceCoef = 2.3; // was 1.4
+        accelAidForceSpd = 25; // was 5
+        brakeIdleSpeed = 1.78; // was 0
+        maxFordingDepth = 1.0; // was 1.5
+        class Wheels {
+			class wheel_1_1 {
+				maxBrakeTorque = 20000; // was 12500
+				maxHandBrakeTorque = 30000; // was 25000
+			};
+		};
+        class AnimationSources: AnimationSources {
+            class main_gun_muzzle_rot {
+                weapon = "CUP_Vhmg_M3P_veh";
+            };
+            class main_gun_reload {
+                weapon="CUP_Vhmg_M3P_veh";
+            };
+            class main_gun_reload_mag {
+                weapon="CUP_Vhmg_M3P_veh";
+            };
+            class main_gun_revolving {
+                weapon="CUP_Vhmg_M3P_veh";
+            };
+        };
+    };
+    class CUP_Boxer_Base_GMG: CUP_Boxer_Base_HMG {
+        class CargoTurret;
+        class Turrets {
+            class MainTurret: NewTurret {
+                weapons[] = {"CUP_Vgmg_HKGMG_veh","SmokeLauncher"}; // added smoke launcher
+                magazines[] = {"CUP_32Rnd_40mm_MK19_M","CUP_32Rnd_40mm_MK19_M","CUP_32Rnd_40mm_MK19_M","CUP_32Rnd_40mm_MK19_M","CUP_32Rnd_40mm_MK19_M","CUP_32Rnd_40mm_MK19_M","SmokeLauncherMag"}; // added smoke mag
+            };
+            class CommanderTurret: NewTurret {
+                weapons[] = {}; // was "SmokeLauncher"
+                magazines[] = {}; // was "SmokeLauncherMag"
             };
         };
     };
@@ -171,6 +232,24 @@ class CfgWeapons {
     class CUP_Vhmg_AGS30_veh;
     class CUP_Vgmg_MK19_veh: CUP_Vhmg_AGS30_veh {
         magazineWell[] += {"potato_HV_40x53mm"};
+    };
+
+    // Boxer HMG weapon
+    class CUP_Vhmg_M2_veh;
+    class CUP_Vhmg_M3P_veh: CUP_Vhmg_M2_veh {
+         magazines[] = {
+            "CUP_250Rnd_TE1_Red_Tracer_127x99_M", // CUP_Vhmg_M3P_veh default
+            "CUP_100Rnd_127x99_M", // rest from CUP_Vhmg_M2_veh
+            "CUP_100Rnd_TE4_Red_Tracer_127x99_M",
+            "CUP_100Rnd_TE4_Green_Tracer_127x99_M",
+            "CUP_100Rnd_TE4_Yellow_Tracer_127x99_M",
+            "CUP_100Rnd_TE4_White_Tracer_127x99_M",
+            "CUP_100Rnd_TE1_Red_Tracer_127x99_M",
+            "CUP_100Rnd_TE1_Green_Tracer_127x99_M",
+            "CUP_100Rnd_TE1_Yellow_Tracer_127x99_M",
+            "CUP_100Rnd_TE1_White_Tracer_127x99_M",
+            "CUP_200Rnd_TE1_Red_Tracer_127x99_M"
+        };
     };
 };
 
