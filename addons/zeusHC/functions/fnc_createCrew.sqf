@@ -27,21 +27,26 @@ params [
 ];
 TRACE_4("createCrew",_side,_vehicle,_crewType,_delayed);
 
-private _crew = [];
-private _crewCount = {
-    _x params ["", "_role", "_cargoIndex"];
-    if (_cargoIndex == -1 && _role in ["driver","commander","gunner"]) then {
-        if (_role == "gunner" && {!("gunner" in _crew)}) then {
-            _crew = ["gunner"] + _crew;
-        } else {
-            _crew pushBackUnique _role;
+private _configRoot = configOf _vehicle;
+private _crew = if (getNumber (_configRoot >> "hasDriver") == 1) then {
+    [[-1]]
+} else {
+    []
+};
+private _fnc_getCrewedTurrets = { // based on part of BIS_fnc_getTurrets by Karel Moricky & Killzone_Kid
+    params ["_config", ["_path", []]];
+    {
+        if (1 > getNumber (_x >> "dontCreateAI")) then {
+            _crew pushBack (_path + [_forEachIndex]);
         };
+        if (isClass (_x >> "Turrets")) then {
+            [_x, _path + [_forEachIndex]] call _fnc_getCrewedTurrets
+        };
+    } forEach ("true" configClasses (_config >> "Turrets"));
+};
 
-        true
-    } else {
-        false
-    };
-} count (fullCrew [_vehicle, "", true]);
+_configRoot call _fnc_getCrewedTurrets;
+private _crewCount = count _crew;
 
 TRACE_1("",_crew);
 
@@ -52,20 +57,14 @@ if ([_side, _crewCount] call FUNC(canCreateGroup)) then {
         private _unit = _group createUnit [_crewType, [0,0,0], [], 0, "NONE"];
         [_unit] call EFUNC(core,addToCurator);
 
-        switch (_x) do {
-            case ("driver"): {
-                _unit assignAsDriver _vehicle;
-                _unit moveInDriver _vehicle;
-            };
-            case ("commander"): {
-                _unit assignAsCommander _vehicle;
-                _unit moveInCommander _vehicle;
-            };
-            case ("gunner"): {
-                _unit assignAsGunner _vehicle;
-                _unit moveInGunner _vehicle;
-            };
+        if (_x isEqualTo [-1]) then {
+            _unit assignAsDriver _vehicle;
+            _unit moveInDriver _vehicle;
+        } else {
+            _unit assignAsTurret [_vehicle, _x];
+            _unit moveInTurret [_vehicle, _x];
         };
+
         if (_delayed && canSuspend && {_forEachIndex < (_crewCount - 1)}) then {
             sleep GVAR(delayBetweenUnitCreation);
         };
