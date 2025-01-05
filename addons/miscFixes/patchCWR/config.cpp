@@ -51,3 +51,10 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
     };
 };
+
+class CfgWorlds {
+    class CAWorld;
+    class Malden: CAWorld {
+        cutscenes[] = {"Malden_intro"};
+    };
+};
