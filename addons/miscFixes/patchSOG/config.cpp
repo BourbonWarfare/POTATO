@@ -15,6 +15,29 @@ class CfgPatches {
     };
 };
 
+class CfgMissions {
+  class Cutscenes { // restore the load menus
+        class Stratis_intro1 {
+            directory = "a3\map_stratis_scenes_f\scenes\introExp.Stratis";
+        };
+        class Altis_intro1 {
+            directory = "a3\missions_f_orange\scenes\introOrange.Altis";
+        };
+        class Credits {
+            directory = "A3\missions_f\data\scenes\credits1.Altis";
+        };
+        class Malden_intro {
+            directory = "a3\Map_Malden_Scenes_F\scenes\Malden_intro.Malden";
+        };
+        class Tanoa_intro1 {
+            directory = "a3\map_tanoa_scenes_f\scenes\tanoa_intro1.tanoa";
+        };
+        class Enoch_intro1 {
+            directory = "a3\Map_Enoch_Scenes_F\Scenes\Enoch_intro1.Enoch";
+        };
+    };
+};
+
 class CfgMagazines {
     class vn_22mm_lume_mag;
     class vn_22mm_m22_smoke_mag: vn_22mm_lume_mag {
