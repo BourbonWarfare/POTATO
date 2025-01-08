@@ -7,7 +7,6 @@ if (isServer && isMultiplayer) then {
             _x publicVariableClient QGVAR(playerFPSCache);
         } forEach GVAR(clientsTrackingFPS);
     }, 3] call CBA_fnc_addPerFrameHandler;
-
 };
 
 if !(hasInterface) exitWith {};
