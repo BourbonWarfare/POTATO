@@ -24,7 +24,7 @@ TRACE_1("params",_this);
 GVAR(adminUpdateEH) = nil;
 
 // reset spectate state
-if !(GVAR(currentSpecChat) isEqualTo GVAR(oldSpecChat)) then {
+if (GVAR(currentSpecChat) isNotEqualTo GVAR(oldSpecChat)) then {
     [GVAR(oldSpecChat)] call acre_api_fnc_setSpectator;
 };
 

@@ -147,12 +147,12 @@ _lines pushBack format ['#define SAM_MAG %1', [GVAR(loadout_sam), GVAR(loadout_s
 _lines pushBack format ["// Sniper"];
 _lines pushBack format ['#define SNIPER "%1"', GVAR(loadout_sniper)];
 _lines pushBack format ['#define SNIPER_MAG %1', [GVAR(loadout_sniper), GVAR(loadout_sniperMags), SNIPER_ROUNDS] call _fnc_getMags];
-_lines pushBack format ['#define SNIPER_OPTIC %1', [GVAR(loadout_sniperAttachments)] call _fnc_formatList];
+_lines pushBack format ['#define SNIPER_ATTACHMENTS %1', [GVAR(loadout_sniperAttachments)] call _fnc_formatList];
 
 _lines pushBack format ["// Spotter"];
 _lines pushBack format ['#define SPOTTER "%1"', GVAR(loadout_spotter)];
 _lines pushBack format ['#define SPOTTER_MAG %1', [GVAR(loadout_spotter), GVAR(loadout_spotterMags), RIFLE_ROUNDS] call _fnc_getMags];
-_lines pushBack format ['#define SPOTTER_OPTIC %1', [GVAR(loadout_spotterAttachments)] call _fnc_formatList];
+_lines pushBack format ['#define SPOTTER_ATTACHMENTS %1', [GVAR(loadout_spotterAttachments)] call _fnc_formatList];
 
 _lines pushBack format ["// SMG"];
 _lines pushBack format ['#define SMG "%1"', GVAR(loadout_smg)];
@@ -161,7 +161,7 @@ _lines pushBack format ['#define SMG_MAG %1', [GVAR(loadout_smg), GVAR(loadout_s
 _lines pushBack format ["// Pistol"];
 _lines pushBack format ['#define PISTOL "%1"', GVAR(loadout_pistol)];
 _lines pushBack format ['#define PISTOL_MAG %1', [GVAR(loadout_pistol), GVAR(loadout_pistolMags), PISTOL_ROUNDS] call _fnc_getMags];
-_lines pushBack format ['#define PISTOL_OPTIC %1', [GVAR(loadout_pistolAttachments)] call _fnc_formatList];
+_lines pushBack format ['#define PISTOL_ATTACHMENTS %1', [GVAR(loadout_pistolAttachments)] call _fnc_formatList];
 
 _lines pushBack format ["// Grenades"];
 _lines pushBack format ["#define LEADER_GRENADES BASE_FRAG,LEADER_SMOKES,SIDE_CHEM_LIGHT"];

@@ -76,7 +76,7 @@ _ammoToGenerate = _ammoToGenerateCorrect;
 private _retAmmo = [];
 {
     // _x = ammo_config
-    if (!(configName(_x) isEqualTo "")) then {
+    if (configName(_x) isNotEqualTo "") then {
         if (configName(inheritsFrom(_x)) isEqualTo "") then {
             // nothing
         } else {

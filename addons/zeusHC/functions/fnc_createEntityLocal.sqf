@@ -52,7 +52,7 @@ if (_createVic != "") then {
         if (isNull _attachedVehicle) then {
             private _nearestVehicles = nearestObjects [_posATL, ["Car", "Tank", "Air"], 50];
             TRACE_1("not attached",_nearestVehicles);
-            if !(_nearestVehicles isEqualTo []) then {
+            if (_nearestVehicles isNotEqualTo []) then {
                 _attachedVehicle = _nearestVehicles select 0;
             };
         };

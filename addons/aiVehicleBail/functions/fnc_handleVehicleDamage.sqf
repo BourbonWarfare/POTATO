@@ -30,7 +30,7 @@ if !(alive _vehicle) exitWith {
 };
 
 _hitPoint = toLower _hitPoint;
-private _type = GVAR(hitpointTypes) getVariable [_hitPoint, "exit"];
+private _type = GVAR(hitpointTypes) getOrDefault [_hitPoint, "exit"];
 if (_type == "exit") exitWith {};
 
 private _canMove = _vehicle getVariable[QGVAR(can_move), true];

@@ -14,7 +14,7 @@ _activeGroups = _activeGroups select {
 _args set [3, _activeGroups];
 
 // Fill out current group in progress
-if (!(_newGroupParams isEqualTo [])) exitWith {
+if (_newGroupParams isNotEqualTo []) exitWith {
     _newGroupParams params ["_placeLogic", "_group", "_soldierList"];
     TRACE_3("_newGroupParams",_placeLogic,_group,_soldierList);
 

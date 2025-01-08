@@ -9,9 +9,9 @@ PREP_RECOMPILE_END;
 GVAR(usePotato) = [missionConfigFile >> "CfgLoadouts" >> "usePotato"] call CFUNC(getBool);
 
 if (GVAR(usePotato)) then {
-    GVAR(loadoutCache) = call CBA_fnc_createNamespace;
-    GVAR(classnameCache) = call CBA_fnc_createNamespace;
-    GVAR(magnifiedOpticCache) = call CBA_fnc_createNamespace;
+    GVAR(loadoutCache) = createHashMap;
+    GVAR(classnameCache) = createHashMap;
+    GVAR(magnifiedOpticCache) = createHashMap;
 
     GVAR(allowMagnifiedOptics) = [missionConfigFile >> "CfgLoadouts" >> "allowMagnifiedOptics"] call CFUNC(getBool);
     GVAR(allowChangeableOptics) = [missionConfigFile >> "CfgLoadouts" >> "allowChangeableOptics"] call CFUNC(getBool);

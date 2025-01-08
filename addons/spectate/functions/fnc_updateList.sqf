@@ -49,7 +49,7 @@ private _newList = [
         nil
     } count (units _x); // count used for speed, ensure nil above this line
 
-    if !(_unitsInfo isEqualTo []) then {
+    if (_unitsInfo isNotEqualTo []) then {
         _newGroups pushBack (str _group);
         {
             if (_groupSide == (_newList select _forEachIndex) select 0) exitWith {
@@ -62,7 +62,7 @@ private _newList = [
 
 TRACE_1("New List:",_newList);
 
-if !(GVAR(curList) isEqualTo _newList) then {
+if (GVAR(curList) isNotEqualTo _newList) then {
     // Remove groups/units that are no longer there
     for "_sideIndex" from (LIST_CTR tvCount []) to 1 step -1 do {
         for "_groupIndex" from (LIST_CTR tvCount [_sideIndex - 1]) to 1  step -1 do {
