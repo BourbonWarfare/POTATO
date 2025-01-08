@@ -12,3 +12,5 @@
 #include "\z\potato\addons\core\script_macros.hpp"
 
 #define ZEUSUTILS_IDC_DISPLAYFPSBUTTON 241119
+
+#define INFORM_USER(var1) systemChat "[POTATO][zeusUtils] var1"
