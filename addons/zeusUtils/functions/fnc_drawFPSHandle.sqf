@@ -18,9 +18,9 @@
  * Public: No
  */
 //IGNORE_PRIVATE_WARNING["_thisEvent", "_thisEventHandler"];
-diag_log formatText ["diag FPS Handle: %1", diag_frameNo];
+TRACE_1("diag FPS Handle:",diag_frameNo);
 if (isNull findDisplay 312 ||
-    !GVAR(missionEnable)) exitWith {
+    !GVAR(missionFPSEnable)) exitWith {
     removeMissionEventHandler [_thisEvent, _thisEventHandler];
     GVAR(fpsDisplayEH) = -2;
 };
@@ -33,8 +33,8 @@ private _skipAbove = GVAR(skipFPSAboveThreshold);
 private _fpsThreshold = GVAR(fpsThreshold);
 private _maxDisplayDistance = GVAR(playerFPSDisplayDistance);
 {
-    private _fps = _x getVariable [QGVAR(playerFPS), -1];
-    private _distance = _x distance _localCuratorModule;
+    _y params ["_unit", "_fps"];
+    private _distance = _unit distance _localCuratorModule;
     if (_fps < -1 ||
         (_skipAbove && _fps > _fpsThreshold ) ||
         {_distance > _maxDisplayDistance}) then {
@@ -45,7 +45,7 @@ private _maxDisplayDistance = GVAR(playerFPSDisplayDistance);
     drawIcon3D [
         "",
         _color,
-        ASLToAGL getPosASLVisual _x,
+        ASLToAGL getPosASLVisual _unit,
         1,
         2,
         0,
@@ -53,4 +53,4 @@ private _maxDisplayDistance = GVAR(playerFPSDisplayDistance);
         2,
         0.03
     ];
-} forEach allUnits; //(call CBA_fnc_players);
+} forEach GVAR(playerFPSCache);

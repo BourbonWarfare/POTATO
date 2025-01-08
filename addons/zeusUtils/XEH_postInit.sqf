@@ -1,6 +1,13 @@
 #include "script_component.hpp"
 
 if (isServer && isMultiplayer) then {
+    [QGVAR(ZeusFPSMonitorUpdate), LINKFUNC(handleZeusFPSRequest)] call CBA_fnc_addEventHandler;
+    GVAR(serverUpdateFPSEH) = [{
+        {
+            _x publicVariableClient QGVAR(playerFPSCache);
+        } forEach GVAR(clientsTrackingFPS);
+    }, 3] call CBA_fnc_addPerFrameHandler;
+
 };
 
 if !(hasInterface) exitWith {};

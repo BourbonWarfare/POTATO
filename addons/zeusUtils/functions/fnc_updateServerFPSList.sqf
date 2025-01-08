@@ -21,4 +21,8 @@ params [
 ];
 
 if (isNull _unit) exitWith {};
-GVAR(serverPlayerFPSCache) set [getPlayerID _unit, [_unit, _fps]];
+if (_fps < 0) then {
+    GVAR(playerFPSCache) deleteAt owner _unit;
+} else {
+    GVAR(playerFPSCache) set [owner _unit, [_unit, _fps]];
+};

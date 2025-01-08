@@ -9,9 +9,9 @@ PREP_RECOMPILE_END;
 GVAR(fpsDisplayEH) = -1;
 GVAR(fpsAvgCalcEH) = -1;
 GVAR(fpsAvgCalc) = [0, [0, 0, 0, 0, 0]];
-GVAR(serverPlayerFPSCache) = createHashMap;
+GVAR(playerFPSCache) = createHashMap;
 GVAR(clientsTrackingFPS) = [];
-GVAR(serverUpdateEH) = -1;
+GVAR(serverUpdateFPSEH) = -1;
 
 #include "initSettings.inc.sqf"
 
