@@ -49,7 +49,7 @@ private _delay = 0;
     private _unitCount = { !isNull (_x select 3) } count _newUnits;
 
     if (_unitCount > 0) then {
-        (GVAR(factionsToInfo) getVariable _factionData) params [
+        (GVAR(factionsToInfo) get _factionData) params [
             "",
             "_callsignPrefix",
             "_factionClassname",
@@ -58,7 +58,7 @@ private _delay = 0;
 
         private _factionSide = [getNumber (configFile >> "CfgFactionClasses" >> _factionClassname >> "side")] call EFUNC(core,toSide);
 
-        (GVAR(groupsToInfo) getVariable _groupData) params [
+        (GVAR(groupsToInfo) get _groupData) params [
             "_groupDisplayName",
             "_unitsArray",
             "_configsArray"

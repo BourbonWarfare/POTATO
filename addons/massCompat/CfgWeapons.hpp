@@ -268,7 +268,7 @@ class CfgWeapons {
     };
 
     // Magazine Wells
-    
+
     class arifle_MSBS65_base_F: Rifle_Base_F {
         magazineWell[] += { "CBA_65x39_MX" };
     };
@@ -418,5 +418,4 @@ class CfgWeapons {
     class CUP_arifle_OTS14_GROZA_762_base: CUP_arifle_OTS14_GROZA_Base {
         initSpeed = -1.0;
     };
-
 };

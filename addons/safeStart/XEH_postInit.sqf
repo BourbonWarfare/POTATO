@@ -15,6 +15,7 @@ if (isServer) then {
         {time > 0},
         { [GVAR(enabled)] call FUNC(toggleSafeStart); }
     ] call CBA_fnc_waitUntilAndExecute;
+    call FUNC(initForceEndSafeStart);
 };
 
 if (didJIP) then {
@@ -38,7 +39,7 @@ if(hasInterface) then {
         private _markerName = "_USER_DEFINED missionEndMarker_0";
         private _markerExists = allMapMarkers find _markerName;
 
-        if !(_markerExists isEqualTo -1) then {deleteMarkerLocal _markerName;};
+        if (_markerExists isNotEqualTo -1) then {deleteMarkerLocal _markerName;};
 
         _markerStr call BIS_fnc_stringToMarkerLocal;
     }] call CBA_fnc_addEventHandler;

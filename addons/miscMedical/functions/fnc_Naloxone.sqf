@@ -18,9 +18,9 @@
 params ["_unit","_medicationClassName"];
 TRACE_2("Naloxone",_unit,_medicationClassName);
 
-_startMeds = _unit getVariable "ace_medical_medications";
+private _startMeds = _unit getVariable "ace_medical_medications";
 {
-    _medication = _x select 0;
+    private _medication = _x select 0;
     if (_medicationClassName == "Naloxone") then {
         if (_medication == "Morphine" or {_medication == _medicationClassName}) then {
             _startMeds set [_forEachIndex, ["FakeDrug", 5, 1, 0, 0, 0]];

@@ -2,6 +2,8 @@
 /*
  * Author: Bailey
  * Fills supply box with gear for a faction
+ * Edit by Lambda.tiger
+ * Supports boxes containing other boxes
  *
  * Arguments:
  * 0: Box <OBJECT>
@@ -17,11 +19,10 @@
 
 params ["_theBox"];
 
-private _config = configOf _theBox;
-private _faction = getText (_config >> QGVAR(faction));
-private _type = getText (_config >> QGVAR(type)); // 1=squad, 2=platoon
-
 TRACE_1("",GVAR(setSupplyBoxLoadouts));
+
+if (_theBox getVariable [QGVAR(initialized), false]) exitWith {};
+_theBox setVariable [QGVAR(initialized), true, true];
 
 //Leave default gear when GVAR(setSupplyBoxLoadouts) is 0
 if (GVAR(setSupplyBoxLoadouts) == 0) exitWith {};
@@ -37,49 +38,48 @@ if (GVAR(setSupplyBoxLoadouts) == -1) exitWith {
 private _path = missionConfigFile >> "CfgLoadouts" >> "SupplyBoxes" >> typeOf _theBox;
 
 if (!isClass _path) exitWith {
-    diag_log text format ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2)", _theBox, typeOf _theBox];
+    diag_log formatText ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2)", _theBox, typeOf _theBox];
 };
 
-//Clean out starting inventory (even if there is no class)
-clearWeaponCargoGlobal _theBox;
-clearMagazineCargoGlobal _theBox;
-clearItemCargoGlobal _theBox;
-clearBackpackCargoGlobal _theBox;
-
-private _transportMagazines = getArray(_path >> "TransportMagazines");
-private _transportItems = getArray(_path >> "TransportItems");
-private _transportWeapons = getArray(_path >> "TransportWeapons");
-private _transportBackpacks = getArray(_path >> "TransportBackpacks");
-
-// transportMagazines
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    _theBox addMagazineCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportMagazines; // count used here for speed, make sure nil is above this line
-
-// transportItems
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    _theBox addItemCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportItems; // count used here for speed, make sure nil is above this line
-
-// transportWeapons
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    private _disposableName = [cba_disposable_LoadedLaunchers, _classname, "get", ""] call FUNC(getDisposableInfo);
-    if (_disposableName != "") then {
-        TRACE_2("cba_disposable_LoadedLaunchers replace",_classname,_disposableName);
-        _classname = _disposableName;
+private _subBoxes = "true" configClasses _path;
+if (_subBoxes isNotEqualTo [] && GVAR(setSupplyBoxLoadouts) == 2) then {
+    private _boxName = getText (_path >> "boxCustomName");
+    if (_boxName isNotEqualTo "") then {
+        _theBox setVariable [QACEGVAR(cargo,customName), _boxName, true];
     };
-    _theBox addWeaponCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportWeapons; // count used here for speed, make sure nil is above this line
+    clearWeaponCargoGlobal _theBox;
+    clearMagazineCargoGlobal _theBox;
+    clearItemCargoGlobal _theBox;
+    clearBackpackCargoGlobal _theBox;
+    private _boxSpace = getNumber (_path >> "boxSpace");
+    [_theBox, [_boxSpace, 4] select (_boxSpace == 0)] call ACEFUNC(cargo,setSpace);
+    {
+        private _subBoxType = configName _x;
+        private _boxCount = (getNumber (_x >> "boxCount")) max 1;
+        for "_i" from 1 to _boxCount do {
+            private _subBox = createVehicle [_subBoxType, [0, 0, 0], [], 0, "CAN_COLLIDE"];
+            [_subBox, _x, ["%1", "%1 " + str _i] select (_boxCount > 1)] call FUNC(setBoxContentsFromConfig);
+            [_subBox, 1] call ACEFUNC(cargo,setSize);
+            if !([_subBox, _theBox, true] call ACEFUNC(cargo,loadItem)) exitWith {
+                diag_log formatText [
+                    "[POTATO-assignGear] - Failed to create %1 %2 supply box(es) for %3 - out of space ",
+                    _subBoxType,
+                    "x" + str (_boxCount - _i + 1),
+                    typeOf _theBox
+                ];
+                deleteVehicle _subBox;
+            };
+            _subBox setVariable [QGVAR(initialized), true];
+        };
+    } forEach _subBoxes;
+    [_theBox, 2] call ACEFUNC(cargo,setSize);
+    [_theBox, true, [0, 1, 1], 0, true, true] call ACEFUNC(dragging,setCarryable);
+    [_theBox, true, [0, 1.5, 0], 0, true, true] call ACEFUNC(dragging,setDraggable);
+} else {
+    [_theBox, _path] call FUNC(setBoxContentsFromConfig);
+};
 
-// transportBackpacks
-{
-    (_x splitString ":") params ["_classname", ["_amount", "1", [""]]];
-    _theBox addBackpackCargoGlobal [_classname, parseNumber _amount];
-    nil
-} count _transportBackpacks; // count used here for speed, make sure nil is above this line
+private _addMarkingActions = getNumber (_path >> "addMarkingActions");
+if (_addMarkingActions >= 1) then {
+    [QGVAR(resupplyBoxAddActions), [_theBox, _addMarkingActions]] call CBA_fnc_globalEventJIP;
+};

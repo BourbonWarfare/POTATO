@@ -14,17 +14,6 @@ include = [
 [version]
 path = "addons/core/script_version.hpp"
 
-[lint.sqf]
-enabled = true
-
-[asc]
-enabled = true
-exclude = [
-    ".inc.sqf",
-    "/serverOnlyFix.sqf",
-    "/BW_Settings.sqf",
-]
-
 
 # Launched with `hemtt launch`
 # min modset w/ static ws builds of cba/ace/acre

@@ -56,16 +56,16 @@ private _createChecklistSection  = {
 
             if(_itemApplicable == (getMissionConfigValue QGVAR(missionType)) || _itemApplicable == 0) then {
                 //Create Structure Text and Insert Text. Get hight of text and resize control appropriately.
-                _ctrlCreateText = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructuredText),-1,CONTROL_GROUP_L];
+                private _ctrlCreateText = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructuredText),-1,CONTROL_GROUP_L];
                 _ctrlCreateText ctrlSetStructuredText parseText _text;
                 _ctrlCreateText ctrlSetBackgroundColor [1, 1, 1, 0.25];
                 _ctrlCreateText ctrlSetPosition [0.01,GVAR(yStartCoord),0.77,CONTROL_SIZE_H];
                 _ctrlCreateText ctrlCommit 0;
-                _ctrlHeight = ctrlTextHeight _ctrlCreateText;
+                private _ctrlHeight = ctrlTextHeight _ctrlCreateText;
                 _ctrlCreateText ctrlSetPosition [0.01,GVAR(yStartCoord),0.77,_ctrlHeight + 0.01];
                 _ctrlCreateText ctrlCommit 0;
                 //Create check box and add eventhandler that updates the Master Array when changed.
-                _ctrlCreateCB = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscCheckBox),_idc,CONTROL_GROUP_L];
+                private _ctrlCreateCB = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscCheckBox),_idc,CONTROL_GROUP_L];
                 _ctrlCreateCB ctrlSetPosition [0.78,GVAR(yStartCoord),0.05,CONTROL_SIZE_H];
                 _ctrlCreateCB ctrlCommit 0;
                 _ctrlCreateCB cbSetChecked _checked;
@@ -103,7 +103,7 @@ private _createChecklistSection  = {
         _createCtrlLine3 ctrlCommit 0;
         INCREMENT_YCOORD;
 
-        if(_missionMaker != name ACE_PLAYER) then {
+        if(_missionMaker != name ACE_player) then {
             private _ctrlCreateSectionMMNotes = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
             _ctrlCreateSectionMMNotes ctrlSetText "NOTES FOR MISSION MAKER:";
             _ctrlCreateSectionMMNotes ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,CONTROL_SIZE_H];
@@ -184,6 +184,7 @@ private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum)
 private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
 
 private _missionSSTime = str getMissionConfigValue QGVAR(SSTimeGiven);
+private _missionSSForceEnd = ["Admin start", "Forced once SS time elapses"] select getMissionConfigValue [QEGVAR(missionTesting,SSForceEnd), false];
 private _missionTimeLength = str getMissionConfigValue QGVAR(missionTimeLength);
 
 private _missionTag1Var = getMissionConfigValue QGVAR(missionTag1);
@@ -204,7 +205,7 @@ private _unitSpecificBrief =  if(isNil QUOTE(_unitSpecificBriefVar)) then {"No"}
 
 private _missionNotesForTester = getMissionConfigValue QGVAR(missionMakerNotesForTesters);
 private _missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText";
-// if (isServer && name ACE_PLAYER == _missionMaker) then {_missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText"};
+// if (isServer && name ACE_player == _missionMaker) then {_missionSummary = "Intel" get3DENMissionAttribute "IntelOverviewText"};
 // Above code deprecated, retained if needed for future use.
 private _masterChecklistArray = nil;
 
@@ -228,7 +229,7 @@ _createCtrlLine4 ctrlCommit 0;
 INCREMENT_YCOORD;
 
 private _ctrlGeneralMMNotesTitle = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscText),-1,CONTROL_GROUP_L];
-if(_missionMaker == name ACE_PLAYER || is3DEN) then {
+if(_missionMaker == name ACE_player || is3DEN) then {
     _ctrlGeneralMMNotesTitle ctrlSetText "Any other Notes for Mission Testers/Version";
 } else {
     _ctrlGeneralMMNotesTitle ctrlSetText "General Notes for Mission Maker:";
@@ -262,7 +263,7 @@ TRACE_1("Create Control Structure Text Info",_ctrlCreateInfoBlock);
 _ctrlCreateInfoBlock ctrlSetBackgroundColor [0, 0, 0, 0.5];
 _ctrlCreateInfoBlock ctrlSetPosition [0,0,0.5,1];
 _ctrlCreateInfoBlock ctrlCommit 0;
-_ctrlCreateInfoBlockText = composeText [
+private _ctrlCreateInfoBlockText = composeText [
     parseText "<t color='#FF8000'>MISSION INFORMATION</t>"
     ,_separator
     ,parseText "<t color='#0080FF'>Mission Maker:</t> ",_missionMaker, lineBreak
@@ -281,6 +282,7 @@ _ctrlCreateInfoBlockText = composeText [
     ,parseText "<t color='#FF8000'>MISSION TIMERS</t>"
     ,_separator
     ,parseText "<t color='#0080FF'>Mission SS Time (mins):</t> ",_missionSSTime, lineBreak
+    ,parseText "<t color='#0080FF'>SS End:</t> ",_missionSSForceEnd, lineBreak
     ,parseText "<t color='#0080FF'>Mission Run Time (mins):</t> ",_missionTimeLength, lineBreak
     ,lineBreak
     ,parseText "<t color='#FF8000'>MISSION TAGS</t>"
@@ -308,7 +310,7 @@ _ctrlCreateInfoBlockMissionMakerNotes ctrlSetBackgroundColor [0, 0, 0, 0.5];
 _ctrlCreateInfoBlockMissionMakerNotes ctrlSetPosition [0,_ctrlCreateInfoBlockHeight + 0.1,0.5,1];
 _ctrlCreateInfoBlockMissionMakerNotes ctrlCommit 0;
 _ctrlCreateInfoBlockMissionMakerNotes ctrlSetText _missionNotesForTester;
-_ctrlCreateInfoBlockMissionMakerNotesHeight = ctrlTextHeight _ctrlCreateInfoBlockMissionMakerNotes;
+private _ctrlCreateInfoBlockMissionMakerNotesHeight = ctrlTextHeight _ctrlCreateInfoBlockMissionMakerNotes;
 _ctrlCreateInfoBlockMissionMakerNotes ctrlSetPosition [0,_ctrlCreateInfoBlockHeight + 0.01,0.5,_ctrlCreateInfoBlockMissionMakerNotesHeight + 0.01];
 _ctrlCreateInfoBlockMissionMakerNotes ctrlCommit 0;
 

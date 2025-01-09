@@ -1,11 +1,11 @@
-#define COMPONENT fauxMG5
+#define COMPONENT aceEdits
 #include "\z\potato\addons\core\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
 // #define DISABLE_COMPILE_CACHE
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_FAUXMG5
+#ifdef DEBUG_ENABLED_ADMINCOMS
     #define DEBUG_MODE_FULL
 #endif
 

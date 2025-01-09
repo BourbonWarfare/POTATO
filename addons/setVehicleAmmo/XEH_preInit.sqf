@@ -25,7 +25,7 @@ if (isServer) then {
             if ((!alive _vehicle) || {!local _vehicle}) exitWith {};
             private _customization = GVAR(vehicleCustomization) getOrDefault [typeOf _vehicle, []];
             private _ret = [_vehicle, _customization select 0, _customization select 1] call bis_fnc_initVehicle;
-            TRACE_3("applied",_x,_ret,_customization);
+            TRACE_3("applied",typeOf _vehicle,_ret,_customization);
         }, false, nil, true] call CBA_fnc_addClassEventHandler; // no inheritance, apply retro
     } forEach GVAR(vehicleCustomization);
 }, [], 5] call CBA_fnc_waitAndExecute;

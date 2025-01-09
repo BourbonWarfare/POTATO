@@ -1,19 +1,17 @@
-#include "script_component.hpp"
+#include "\z\potato\addons\customGear\script_component.hpp"
+#undef COMPONENT
+#define COMPONENT customGear_fauxC7
+
 
 class CfgPatches {
     class ADDON {
-        weapons[] = {
-            QGVAR(c7),
-            QGVAR(c7GL),
-            QGVAR(c7a2),
-            QGVAR(c7a2GL)
-        };
+        weapons[] = { "potato_fauxC7_c7", "potato_fauxC7_c7GL", "potato_fauxC7_c7a2", "potato_fauxC7_c7a2GL" };
         units[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core", "CUP_Weapons_LoadOrder", "jsrs_soundmod_cup_weapons"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
-        authors[] = {"Chesheire"};
+        authors[] = {"AChesheireCat"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };

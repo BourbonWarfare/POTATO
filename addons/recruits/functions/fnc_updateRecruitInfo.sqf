@@ -26,7 +26,7 @@ if !(isNull MESSAGE_DISPLAY) then {
     } count units (group player); // count used for speed, ensure `nil` is above this line
 
     TRACE_2("Groups",GVAR(oldSquad),_units);
-    if !(GVAR(oldSquad) isEqualTo _units) then {
+    if (GVAR(oldSquad) isNotEqualTo _units) then {
         GVAR(oldSquad) = _units;
         private _recruits = [];
         private _recruitCount = {

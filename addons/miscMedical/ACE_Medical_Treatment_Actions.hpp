@@ -17,4 +17,7 @@ class ace_medical_treatment_actions {
     class Diagnose: BasicBandage {
         sounds[] = {{"z\POTATO\addons\miscMedical\data\diag.ogg",5,1,50}};
     };
+    class Painkillers: Morphine {
+        items[] = {"ACE_painkillers", "potato_pkblister"};
+    };
 };

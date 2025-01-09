@@ -43,7 +43,7 @@ params [
 ];
 
 private _groupIndex = tvAdd [GROUP_TREE_IDC, [], format ["%1 (%2)", _configText, _groupDisplayName]];
-if !(_configTexture isEqualTo "") then {
+if (_configTexture isNotEqualTo "") then {
     tvSetPicture [GROUP_TREE_IDC, [_groupIndex], _configTexture];
     tvSetPictureColor [GROUP_TREE_IDC, [_groupIndex], _configColor];
 };

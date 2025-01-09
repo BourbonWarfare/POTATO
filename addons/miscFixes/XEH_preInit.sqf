@@ -24,11 +24,11 @@ if (["WBK_ZombieCreatures"] call ACEFUNC(common,isModLoaded)) then {
 };
 
 //add EH to fix weapon lowering while walking fix
-addUserActionEventHandler ["toggleRaiseWeapon","Activate",{ 
+addUserActionEventHandler ["toggleRaiseWeapon","Activate",{
 	private _lAnim = animationState ace_player;
-	if ("stp" in _lAnim || "non" in _lAnim) exitWith {};
-	_lAnim = _lAnim splitString "";
-	private _state = [_lAnim #13,_lAnim #14,_lAnim #15] joinString "";
+	if ("stp" in _lAnim || "non" in _lAnim || !alive ace_player) exitWith {};
+	private _state = _lAnim select [13, 3];
+    _lAnim = _lAnim splitString "";
 	switch(_state)do{
 		case "ras": {
 			_lAnim set [13,"l"];

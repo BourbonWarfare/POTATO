@@ -47,7 +47,7 @@ if (_transportInfo isEqualTo []) then {
     [{
         params ["_group"];
         {
-            if (vehicle _x == _x) then {WARNING_1("deleting straggler [%1]",_x); deleteVehicle _x};
+            if (isNull objectParent _x) then {WARNING_1("deleting straggler [%1]",_x); deleteVehicle _x};
         } forEach (units _group);
     }, [_group], 3] call CBA_fnc_waitAndExecute;
 

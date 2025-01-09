@@ -82,7 +82,7 @@ case (1): {
                 } else {
                     getText (configFile >> "CfgVehicles" >> _className >> "displayName"); // use veh name
                 };
-                _index = UI_TAB_SUPPLIES_TYPE lbAdd format ["%1", _description];
+                private _index = UI_TAB_SUPPLIES_TYPE lbAdd format ["%1", _description];
                 UI_TAB_SUPPLIES_TYPE lbSetTooltip [_index, _className];
             } else {
                 TRACE_2("veh missing from modset",_x,_className);
@@ -97,7 +97,7 @@ case (1): {
                 GVAR(groupsArray) pushBack _x;
                 private _grpMembers = "";
                 {_grpMembers = _grpMembers + format ["%1, ", (name _x)];} forEach (units _x);
-                _txt = format ["%1 [%2]", _x, _grpMembers];
+                private _txt = format ["%1 [%2]", _x, _grpMembers];
                 private _index = UI_TAB_SUPPLIES_GROUP lbAdd _txt;
                 UI_TAB_SUPPLIES_GROUP lbSetTooltip [_index, _grpMembers];
             };
@@ -109,7 +109,7 @@ case (2): {
         if (GVAR(openEndMission)) then {
             UI_TAB_END_TEXT ctrlShow true;
             UI_TAB_END_UNLOCK ctrlShow false;
-            _txt = format ["Players Alive: %1<br/>", ({(alive _x)&&{isPlayer _x}} count allUnits)];
+            private _txt = format ["Players Alive: %1<br/>", ({(alive _x)&&{isPlayer _x}} count allUnits)];
             _txt = _txt + format ["<br/><t color='#9999FF'>West Alive: %1 [Players: %2]</t>", ({(alive _x)&&{side _x == west}} count allUnits), ({(alive _x)&&(side _x == west)&&(isPlayer _x)} count allUnits)];
             _txt = _txt + format ["<br/><t color='#FF9999'>East Alive: %1 [Players: %2]</t>", ({(alive _x)&&{side _x == east}} count allUnits), ({(alive _x)&&(side _x == east)&&(isPlayer _x)} count allUnits)];
             _txt = _txt + format ["<br/><t color='#99FF99'>Indp Alive: %1 [Players: %2]</t>", ({(alive _x)&&{side _x == resistance}} count allUnits), ({(alive _x)&&(side _x == resistance)&&(isPlayer _x)} count allUnits)];
@@ -135,7 +135,7 @@ case (3): {
                 GVAR(groupsArray) pushBack _x;
                 private _grpMembers = "";
                 {_grpMembers = _grpMembers + format ["%1, ", (name _x)];} forEach (units _x);
-                _txt = format ["%1 [%2]", _x, _grpMembers];
+                private _txt = format ["%1 [%2]", _x, _grpMembers];
                 private _index = UI_TAB_TELEPORT_GROUP lbAdd _txt;
                 UI_TAB_TELEPORT_GROUP lbSetTooltip [_index, _grpMembers];
             };
@@ -215,6 +215,7 @@ case (7): {
         } forEach _loadouts;
         _listGear lbSetCurSel 0;
 
+        //IGNORE_PRIVATE_WARNING ["_x"];
         [
             UI_TAB_FIX_UNIT_LIST,
             {

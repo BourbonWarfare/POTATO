@@ -14,7 +14,7 @@ GVAR(paradropObjects) = createHashMap;
     params ["_unit", "_vehicle", "_parachute", "_planeVelocity", ["_delay", 2]];
     
     _unit allowDamage false;
-    _unit disableCollisionWith _v;
+    _unit disableCollisionWith _vehicle;
     moveOut _unit;
     unassignVehicle _unit;
     [_unit] allowGetIn false;

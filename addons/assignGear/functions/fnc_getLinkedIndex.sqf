@@ -28,6 +28,7 @@
 
 TRACE_1("params",_this);
 params ["_linkedItem", "_binocularArray", "_configMagazines"];
+//IGNORE_PRIVATE_WARNING ["_x"];
 
 // Maps
 if (_x isKindOf ["ItemMap", configFile >> "CfgWeapons"]) exitWith {

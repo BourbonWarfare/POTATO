@@ -14,8 +14,8 @@
 
 #include "script_component.hpp"
 
-TRACE_1("params",_newPlayer);
 params ["_newPlayer"];
+TRACE_1("params",_newPlayer);
 
 if (isNull _newPlayer) exitWith {};
 if (!alive _newPlayer) exitWith {};

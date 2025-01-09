@@ -42,7 +42,7 @@ TRACE_1("Time between transfers",_timeBetweenTransfers);
 
 //loop all groups
 {
-    if (!(isPlayer (leader _x)) && !((units _x) isEqualTo []) && !((groupOwner _x) in _hcIDs) && (_force || _x getVariable [QGVAR(addGroupToHC), false])) then {
+    if (!(isPlayer (leader _x)) && ((units _x) isNotEqualTo []) && !((groupOwner _x) in _hcIDs) && (_force || _x getVariable [QGVAR(addGroupToHC), false])) then {
         private _newOwner = [] call FUNC(getSpawnMachineId);
         private _status = _x setGroupOwner _newOwner;
         INFO_3("Group [%1] moved to [%2] with status [%3]",_x,_newOwner,_status);
