@@ -118,44 +118,54 @@ class CfgRespawnGroups {
         class Configurations {
             class ASL: Alpha {
                 displayName = "Alpha";
-                markerTexture = "";
+                markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class BSL: Bravo {
                 displayName = "Bravo";
-                markerTexture = "";
+                markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class CSL: Charlie {
                 displayName = "Charlie";
-                markerTexture = "";
+                markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class DSL: Delta {
                 displayName = "Delta";
-                markerTexture = "";
+                markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class ESL: Echo {
                 displayName = "Echo";
-                markerTexture = "";
+                markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class FSL: Foxtrot {
                 displayName = "Foxtrot";
-                markerTexture = "";
+                markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class GSL: Golf {
                 displayName = "Golf";
-                markerTexture = "";
+                markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class HSL: Hotel {
                 displayName = "Hotel";
-                markerTexture = "";
+                markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class ISL: India {
                 displayName = "India";
-                markerTexture = "";
+                markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class WSL: Weapons {
                 markerPrefix = "W";
                 displayName = "Weapons";
-                markerTexture = "";
+                markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
         };
     };
@@ -1203,7 +1213,7 @@ class CfgRespawnGroups {
             };
         };
     };
-    
+
 // MSV
 
     class MSVCommand { // if you need to respawn COY, you've fucked up
@@ -2032,7 +2042,7 @@ class CfgRespawnGroups {
             };
         };
     };
-    
+
 //Commonwealth
 
     class CWLCommand { // if you need to respawn COY, you've fucked up

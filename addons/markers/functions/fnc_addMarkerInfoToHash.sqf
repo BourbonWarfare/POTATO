@@ -19,7 +19,7 @@
 TRACE_1("Params",_this);
 
 params ["_drawObject"];
-private _hashValue = hashValue _drawObject;
+private _hashValue = POTATO_MARKERS_HASHVALUE(_drawObject);
 if (isNull _drawObject
         || {!(_drawObject getVariable [QGVAR(addMarker), false])}
         || {_hashValue in GVAR(drawHash)}) exitWith {
@@ -33,7 +33,12 @@ private _colorArray = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKE
 private _size = _drawObject getVariable [QGVAR(markerSize), DEFAULT_MARKER_SIZE];
 private _position = if (_drawObject isEqualType grpNull) then {
     if ((units _drawObject) isEqualTo []) exitWith {[-10000, -10000, 0]};
-    position (leader _drawObject)
+    if (GVAR(autoclaimGroupMarker)) then {
+        position leader _drawObject
+    } else {
+        _drawObject = leader _drawObject;
+        position _drawObject
+    };
 } else {
     position _drawObject
 };

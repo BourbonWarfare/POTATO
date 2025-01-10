@@ -13,7 +13,7 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("Params",_this);
+//TRACE_1("Params",_this);
 
 BEGIN_COUNTER(drawMarkers);
 
@@ -21,22 +21,33 @@ params ["_mapControl"];
 
 if ((player != player) || {!alive player} || {side player == sideLogic}) exitWith {};
 
+/*if (GVAR(autoclaimGroupMarker) &&
+    player == leader player &&
+    {groupID group player in GVAR(drawHash)}) then {
+    private _hashKey = groupID group player;
+    private _markerArray = GVAR(drawHash) get _hashKey;
+    if (_markerArray#0 != player) then {
+        [QGVAR(claimMarker), [_hashKey, player]] call CBA_fnc_globalEvent;
+    };
+};*/
+
 //Map's height / Screen height:
 private _mapSize = ((ctrlPosition _mapControl) select 3) / (getResolution select 4);
 private _sizeFactor = (_mapSize + 1) / 2;
 
 if (GVAR(groupAndUnitEnabled)) then {
-
+    private _notAutoClaimMarker = !GVAR(autoclaimGroupMarker);
     private _recalc = diag_tickTime > GVAR(nextUpdate);
 
     {
-        TRACE_1("icon data",_y);
+        //TRACE_2("icon data",_X,_y);
         _y params ["_drawObject", "_text", "_texture", "_color", "_size", "_position"];
 
         if (_recalc) then {
             if !(isNull _drawObject) then {
                 if (_drawObject isEqualType grpNull) then {
                     if (isNull (leader _drawObject)) exitWith {};
+                    if (_notAutoClaimMarker) then {_y set [0, leader _drawObject];};
                     _position = position (leader _drawObject);
                 } else {
                     _position = position _drawObject;

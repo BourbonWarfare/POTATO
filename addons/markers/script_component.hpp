@@ -1,8 +1,8 @@
 #define COMPONENT markers
 #include "\z\potato\addons\core\script_mod.hpp"
 
-// #define DEBUG_MODE_FULL
-// #define DISABLE_COMPILE_CACHE
+#define DEBUG_MODE_FULL
+#define DISABLE_COMPILE_CACHE
 // #define ENABLE_PERFORMANCE_COUNTERS
 
 #ifdef DEBUG_ENABLED_MARKERS
@@ -127,5 +127,11 @@ QUOTE('PATHTOF(data\attack_fixed_wing.paa)')
 
 #define UNIT_MARKER_COLORS "white","red","blue","green","orange","yellow","pink","black"
 #define UNIT_MARKER_COLORS_STRINGS "White","Red","Blue","Green","Orange","Yellow","Pink","Black"
+
+#define POTATO_MARKERS_HASHVALUE(var1) if (var1 isEqualType grpNull) then {\
+    groupID var1\
+} else {\
+    str var1\
+};
 
 #include "\z\potato\addons\core\script_macros.hpp"

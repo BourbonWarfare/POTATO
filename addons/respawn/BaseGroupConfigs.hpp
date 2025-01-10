@@ -110,10 +110,6 @@ class BaseSquadLead: BaseUnit {
     type = "sl";
     rank = "sergeant";
     leader = 1;
-
-    markerText = "SL";
-    markerTexture = QPATHTOEF(markers,data\hq.paa);
-    markerSize = 24;
 };
 class BaseMedic: BaseUnit {
     displayName = "Medic";
