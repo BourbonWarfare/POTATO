@@ -13,7 +13,7 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("Params",_this);
+TRACE_1("Handle Check Player",_this);
 
 params ["_newPlayer"];
 private _newPlayerGroup = group _newPlayer;

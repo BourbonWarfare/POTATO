@@ -4,7 +4,6 @@
  * This function will take a group or object and check whether it has a
  * marker attached to it.
  *
- *
  * Arguments:
  * 0: Object/Group to check if it has a marker attached <OBJECT/GROUP>
  *
