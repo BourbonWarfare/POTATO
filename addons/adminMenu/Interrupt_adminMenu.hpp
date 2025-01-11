@@ -524,7 +524,7 @@ class GVAR(adminMenuDialog) {
                 };
                 class ResetMarkersButton: RscButton {
                     idc = -1;
-                    text = "Reset Markers";
+                    text = "Backup - Reset Markers";
                     x = QUOTE(0.255 * safezoneW);
                     y = QUOTE(0.32 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
@@ -543,6 +543,24 @@ class GVAR(adminMenuDialog) {
                 class GiveAdminGun: RscButton {
                     idc = -1;
                     text = "Give Admin Gun"; //--- ToDo: Localize;
+                    x = QUOTE(0.01 * safezoneW);
+                    y = QUOTE(0.01 * safezoneH);
+                    w = QUOTE(0.52 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_giveAdminGun));
+                };
+            };
+        };
+        class CONTROL_MARKERS: RscControlsGroup {
+            idc = 2310;
+            x = QUOTE(0.35 * safezoneW + safezoneX);
+            y = QUOTE(0.205 * safezoneH + safezoneY);
+            w = QUOTE(0.54 * safezoneW);
+            h = QUOTE(0.58 * safezoneH);
+            class controls {
+                class GiveAdminGun: RscButton {
+                    idc = -1;
+                    text = "Give Admin Gun";
                     x = QUOTE(0.01 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);
                     w = QUOTE(0.52 * safezoneW);

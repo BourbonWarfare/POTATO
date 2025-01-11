@@ -9,6 +9,7 @@ PREP(becomeGroupLeader_statement);
 PREP(drawMarkers);
 PREP(getSideArray);
 PREP(initMarkerHash);
+PREP(hasMarkerAttached);
 PREP(leaveGroup_statement);
 PREP(setMapMarkerColor);
 PREP(handleCheckPlayerForMarkers);

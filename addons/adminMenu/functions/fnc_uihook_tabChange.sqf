@@ -207,7 +207,7 @@ case (7): {
         ];
         private _listGear = UI_TAB_FIX_UNIT_GEAR;
         lbClear _listGear;
-        { 
+        {
             _x params ["_loadout", "_description"];
             _description = if (_description == "") then { _loadout } else { format ["%1 (%2)", _loadout, _description] };
             private _index = _listGear lbAdd _description;
@@ -234,5 +234,9 @@ case (7): {
                 }
             }
         ] call _fnc_setListOfPlayers;
+    };
+    case 8: {
+        TRACE_1("showing markers tab",_sel);
+
     };
 };
