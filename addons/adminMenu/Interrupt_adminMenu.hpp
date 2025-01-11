@@ -558,13 +558,49 @@ class GVAR(adminMenuDialog) {
             w = QUOTE(0.54 * safezoneW);
             h = QUOTE(0.58 * safezoneH);
             class controls {
-                class GiveAdminGun: RscButton {
-                    idc = -1;
-                    text = "Give Admin Gun";
+                class PlayerList: RscListBox {
+                    idc = IDC_LISTBOX_MARKERS_PLAYERS;
                     x = QUOTE(0.01 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);
-                    w = QUOTE(0.52 * safezoneW);
+                    w = QUOTE(0.2 * safezoneW);
+                    h = QUOTE(0.56 * safezoneH);
+                    sizeEx = QUOTE(0.025 * safezoneH);
+                };
+                class MarkerList: PlayerList {
+                    idc = IDC_LISTBOX_MARKERS_MARKERS;
+                    x = QUOTE(0.22 * safezoneW);
+                    sizeEx = QUOTE(0.025 * safezoneH);
+                };
+                class attachMarkerToClient: RscButton {
+                    idc = -1;
+                    text = "Attach Marker to Client";
+                    x = QUOTE(0.43 * safezoneW);
+                    y = QUOTE(0.02 * safezoneH);
+                    w = QUOTE(0.1 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_giveAdminGun));
+                };
+                class attachMarkerToGroup: attachMarkerToClient {
+                    text = "Attach Marker to Client Group";
+                    y = QUOTE(0.12 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_giveAdminGun));
+                };
+                class detatchMarker: attachMarkerToClient {
+                    idc = -1;
+                    text = "Detatch Marker";
+                    y = QUOTE(0.22 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_giveAdminGun));
+                };
+                class deleteMarker: attachMarkerToClient {
+                    idc = -1;
+                    text = "Delete Marker";
+                    y = QUOTE(0.32 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_giveAdminGun));
+                };
+                class resetAllMarkers: attachMarkerToClient {
+                    idc = -1;
+                    text = "Reset All Markers";
+                    y = QUOTE(0.42 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_giveAdminGun));
                 };
             };

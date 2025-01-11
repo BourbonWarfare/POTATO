@@ -11,6 +11,10 @@
 
 #include "\z\potato\addons\core\script_macros.hpp"
 
+#define IDC_CHECKBOX_SAFESTARTSAFETY   2410723
+#define IDC_LISTBOX_MARKERS_PLAYERS    21800
+#define IDC_LISTBOX_MARKERS_MARKERS    21801
+
 #define UI_TAB_LISTBOX                 ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 1500)
 #define UI_TAB_ZEUS                    ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2300)
 #define UI_TAB_ZEUS_PLAYERS_ID 2100
@@ -36,8 +40,9 @@
 #define UI_TAB_FIX_UNIT_GEAR           ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2181)
 #define UI_TAB_GIVE_ITEMS              ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2309)
 #define UI_TAB_MARKERS                 ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2310)
+#define UI_TAB_MARKERS_PLAYERS         ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl IDC_LISTBOX_MARKERS_PLAYERS)
+#define UI_TAB_MARKERS_MARKERS         ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl IDC_LISTBOX_MARKERS_MARKERS)
 
-#define IDC_CHECKBOX_SAFESTARTSAFETY   2410723
 
 #define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint",        "Player Fixes",       "Give Items",      "Markers"]
 #define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT, UI_TAB_FIX_UNIT, UI_TAB_GIVE_ITEMS, UI_TAB_MARKERS]
