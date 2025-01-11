@@ -23,11 +23,12 @@ if ((player != player) || {!alive player} || {side player == sideLogic}) exitWit
 
 /*if (GVAR(autoclaimGroupMarker) &&
     player == leader player &&
+    _hashKey != "" &&
     {groupID group player in GVAR(drawHash)}) then {
     private _hashKey = groupID group player;
     private _markerArray = GVAR(drawHash) get _hashKey;
     if (_markerArray#0 != player) then {
-        [QGVAR(claimMarker), [_hashKey, player]] call CBA_fnc_globalEvent;
+        [QGVAR(claimMarker), [_hashKey, player], _hashKey] call CBA_fnc_globalEventJIP;
     };
 };*/
 

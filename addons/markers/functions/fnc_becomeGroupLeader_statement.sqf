@@ -16,11 +16,12 @@ if (_this call ACEFUNC(interaction,canBecomeLeader)) then {
     _this call ACEFUNC(interaction,doBecomeLeader);
 };
 
-if (GVAR(autoclaimGroupMarker)) exitWith {};
+if (GVAR(autoclaimGroupMarker) || !GVAR(groupAndUnitEnabled)) exitWith {};
 
 private _hashKey = groupID group _player;
 private _markerArray = GVAR(drawHash) getOrDefault [_hashKey, []];
 if (_markerArray isNotEqualTo [] &&
+    _hashKey != "" &&
     (_markerArray#0 isEqualType grpNull || {_markerArray#0 != _player})) then {
-    [QGVAR(claimMarker), [_hashKey, _player]] call CBA_fnc_globalEvent;
+    [QGVAR(claimMarker), [_hashKey, _player], _hashKey] call CBA_fnc_globalEventJIP;
 };

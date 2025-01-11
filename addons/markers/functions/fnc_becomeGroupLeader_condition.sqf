@@ -12,7 +12,9 @@
  *
  * Public: No
  */
-_this call ACEFUNC(interaction,canBecomeLeader) || (!GVAR(autoclaimGroupMarker) && {
+_this call ACEFUNC(interaction,canBecomeLeader) ||
+    (GVAR(groupAndUnitEnabled) &&
+    !GVAR(autoclaimGroupMarker) && {
    private _markerArray = GVAR(drawHash) getOrDefault [groupID group _player, [_player]];
    _markerArray#0 isEqualType objNull && {_markerArray#0 != _player}
 })

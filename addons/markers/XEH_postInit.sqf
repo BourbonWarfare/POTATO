@@ -49,8 +49,8 @@ LOG("Post init start");
 
                 [] call FUNC(initMarkerHash);
                 [] call FUNC(checkForMapMarkerColor);
-                if (didJIP && [player] call FUNC(isMarkerAttached)) then {
-                    TRACE_1("JIPed ",player);
+                TRACE_2("JIP Check",didJIP,[player] call FUNC(hasMarkerAttached));
+                if (didJIP && [player] call FUNC(hasMarkerAttached)) then {
                     [QGVAR(checkPlayerForMarkers), [player]] call CBA_fnc_globalEvent;
                 };
             };
