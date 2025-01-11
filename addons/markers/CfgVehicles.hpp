@@ -12,5 +12,12 @@ class CfgVehicles {
                 };
             };
         };
+        class ACE_Actions {
+            class ACE_MainActions {
+                class ACE_JoinGroup {
+                    statement = QUOTE(_this call FUNC(joinGroup_statement));
+                };
+            };
+        };
     };
 };
