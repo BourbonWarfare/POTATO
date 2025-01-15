@@ -86,6 +86,8 @@ class CfgWeapons {
         };
     };
     class ptv_rs556s: ptv_rs556 {
+    // Updating base class Mode_SemiAuto->Single, by z\potato\addons\miscFixes\patchptv\config.cpp/CfgWeapons/ptv_rs556s/Single/ (original (ptv_weapons_cfg\config.bin - no unload))
+    // due to ptv_sounds, as it has different inheritance from ptv_weapons_cfg
         class Single : Single {
             sounds[] = {"StandardSound","SilencedSound"};
             class BaseSoundModeType;
@@ -179,7 +181,7 @@ class CfgWeapons {
             };
         };
     };
-    class ptv_hk433s: ptv_hk433 {
+    class ptv_hk433s: ptv_rs556 {
         class Single: Single {
             sounds[] = {"StandardSound","SilencedSound"};
             class BaseSoundModeType;
