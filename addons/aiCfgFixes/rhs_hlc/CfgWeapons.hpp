@@ -5024,7 +5024,7 @@ class CfgWeapons {
 
         };
     };
-    class vn_m1carbine_shorty: vn_m1carbine {
+    class vn_m1carbine_shorty: vn_rifle762 {
         modes[] = {"Single","AICQB","AIClose","AIMedium","AIFar","AIOpticmode1","AIOpticmode2"};
         class Single: Single {
             showToPlayer = 1;
