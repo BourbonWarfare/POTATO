@@ -1,3 +1,5 @@
+[config.file_type]
+options.allow_no_extension = true
 
 [sqf]
 enabled = true

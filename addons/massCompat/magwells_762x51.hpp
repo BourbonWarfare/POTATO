@@ -144,7 +144,7 @@
         };
     };     // M14 drum mag (X-Products 50 round)
 
-    class CBA_762x51_MG3 {
+    class CBA_762x51_MG3 { // Causes known UBC
         GVAR(mags)[] = {
             MAGAZINE_WELL_BOX(762x51,50),
             MAGAZINE_WELL_BOX(762x51,100),
