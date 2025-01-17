@@ -68,6 +68,16 @@ class Cfg3DEN {
                         condition = "objectVehicle";
                         defaultValue = "(false)";
                     };
+                    class GVAR(rearmCustom) {
+                        displayName = "Set as Rearm-Scripted Loadouts";
+                        tooltip = "ACE-Rearm will try to rearm the custom loadout instead of the config default";
+                        property = QGVAR(rearmCustom);
+                        control = "Checkbox";
+                        expression = QUOTE(if (_value) then { _this setVariable [ARR_3('ace_rearm_scriptedLoadout',true,true)] });
+                        typeName = "BOOL";
+                        condition = "objectVehicle";
+                        defaultValue = "(false)";
+                    };
                     class ADDON {
                         displayName = "Set Vehicle Ammo";
                         tooltip = "";
