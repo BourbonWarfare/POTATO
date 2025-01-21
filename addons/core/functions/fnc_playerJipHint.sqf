@@ -12,7 +12,7 @@ if (isServer) then {
         private _msg = if (_profileName in GVAR(playerMap)) then {
             (GVAR(playerMap) get _profileName) params ["_lastSide", "_lastGroup"];
             private _sideText = ["?", "B", "O", "I"] select ([blufor, opfor, independent] find _lastSide);
-            format ["has JIPed; last in [%2-%3]", _sideText, _lastGroup]
+            format ["has JIPed; last in [%1-%2]", _sideText, _lastGroup]
         } else {
             private _lastSide = side group _player;
             private _lastGroup = groupId group _player;
