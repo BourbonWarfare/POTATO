@@ -18,7 +18,7 @@ if (_this call ACEFUNC(interaction,canBecomeLeader)) then {
 
 if (!GVAR(groupAndUnitEnabled)) exitWith {};
 
-private _hashKey = groupID group _player;
+private _hashKey = groupId group _player;
 private _markerArray = GVAR(drawHash) getOrDefault [_hashKey, []];
 if (_markerArray isNotEqualTo [] &&
     _hashKey != "" &&

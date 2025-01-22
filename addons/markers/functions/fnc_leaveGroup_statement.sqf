@@ -12,7 +12,7 @@
  *
  * Public: No
  */
-private _hashKey = groupID group _player;
+private _hashKey = groupId group _player;
 _oldGroup = units group _player;
 _newGroup = createGroup side group _player;
 [_player] joinSilent _newGroup;

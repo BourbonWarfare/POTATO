@@ -20,9 +20,9 @@ TRACE_1("Params",_this);
 
 params ["_drawObject"];
 private _groupMarker = _drawObject getVariable [QGVAR(groupMarker), false];
-//private _hashKey = POTATO_MARKERS_HASHKEY(_drawObject,_groupMarker);
+
 private _hashKey = if (_drawObject isEqualType grpNull) then {
-    groupID _drawObject
+    groupId _drawObject
 } else {
     if (_groupMarker) then {
         groupId group _drawObject

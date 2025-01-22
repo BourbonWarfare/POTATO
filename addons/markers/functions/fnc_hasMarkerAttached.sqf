@@ -17,13 +17,13 @@ params [
 ];
 
 if (_object isEqualType grpNull) then {
-    private _hashValue = groupID _object;
+    private _hashValue = groupId _object;
     private _array = GVAR(drawHash) getOrDefault [_hashValue, [grpNull]];
     _array#0 isEqualTo _object
 } else {
     private _hashValue = str _object;
     private _array = GVAR(drawHash) getOrDefaultCall [_hashValue, {
-        _hashValue = groupID group _object;
+        _hashValue = groupId group _object;
         GVAR(drawHash) getOrDefault [_hashValue, [grpNull]]
     }];
     _array#0 isEqualTo _object

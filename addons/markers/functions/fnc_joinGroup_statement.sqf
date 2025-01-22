@@ -11,7 +11,7 @@
  *
  * Public: No
  */
-private _hashKey = groupID group _player;
+private _hashKey = groupId group _player;
 [_player] joinSilent group _target;
 
 if (!GVAR(groupAndUnitEnabled)) exitWith {};
