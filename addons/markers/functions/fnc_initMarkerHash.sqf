@@ -16,7 +16,7 @@ private _sideArray = [] call FUNC(getSideArray);
 
 TRACE_2("sides",_sideArray,side (group player));
 
-GVAR(drawHash) = [[],[]];
+GVAR(drawHash) = createHashMap;
 
 {
     if (!(isNull _x) && {side _x in _sideArray}) then {

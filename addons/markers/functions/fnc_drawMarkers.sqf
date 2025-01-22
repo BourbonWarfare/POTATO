@@ -13,7 +13,7 @@
  */
 
 #include "script_component.hpp"
-TRACE_1("Params",_this);
+//TRACE_1("Params",_this);
 
 BEGIN_COUNTER(drawMarkers);
 
@@ -21,20 +21,28 @@ params ["_mapControl"];
 
 if ((player != player) || {!alive player} || {side player == sideLogic}) exitWith {};
 
+/*if (player == leader player &&
+    _hashKey != "" &&
+    {groupID group player in GVAR(drawHash)}) then {
+    private _hashKey = groupID group player;
+    private _markerArray = GVAR(drawHash) get _hashKey;
+    if (_markerArray#0 != player) then {
+        [QGVAR(claimMarker), [_hashKey, player], _hashKey] call CBA_fnc_globalEventJIP;
+    };
+};*/
+
 //Map's height / Screen height:
 private _mapSize = ((ctrlPosition _mapControl) select 3) / (getResolution select 4);
 private _sizeFactor = (_mapSize + 1) / 2;
 
 if (GVAR(groupAndUnitEnabled)) then {
-
     private _recalc = diag_tickTime > GVAR(nextUpdate);
 
     {
-        TRACE_1("icon data",_x);
-        _x params ["_text", "_texture", "_color", "_size", "_position"];
+        //TRACE_2("icon data",_X,_y);
+        _y params ["_drawObject", "_text", "_texture", "_color", "_size", "_position"];
 
         if (_recalc) then {
-            private _drawObject = (GVAR(drawHash) select 0) select _forEachIndex;
             if !(isNull _drawObject) then {
                 if (_drawObject isEqualType grpNull) then {
                     if (isNull (leader _drawObject)) exitWith {};
@@ -42,7 +50,7 @@ if (GVAR(groupAndUnitEnabled)) then {
                 } else {
                     _position = position _drawObject;
                 };
-                _x set [4, _position];
+                _y set [5, _position];
             };
         };
 
@@ -58,7 +66,7 @@ if (GVAR(groupAndUnitEnabled)) then {
                              'TahomaB',
                              "right"];
 
-    } forEach (GVAR(drawHash) select 1);
+    } forEach GVAR(drawHash);
 
     if (_recalc) then { GVAR(nextUpdate) = diag_tickTime + GVAR(groupAndUnitUpdateDelay) };
 };

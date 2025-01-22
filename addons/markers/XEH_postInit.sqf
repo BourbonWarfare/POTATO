@@ -49,6 +49,10 @@ LOG("Post init start");
 
                 [] call FUNC(initMarkerHash);
                 [] call FUNC(checkForMapMarkerColor);
+                TRACE_2("JIP Check",didJIP,[player] call FUNC(hasMarkerAttached));
+                if (didJIP && [player] call FUNC(hasMarkerAttached)) then {
+                    [QGVAR(checkPlayerForMarkers), [player]] call CBA_fnc_globalEvent;
+                };
             };
         } else {
             GVAR(skipInstallingEH) = true; // skip installing marker EHs
