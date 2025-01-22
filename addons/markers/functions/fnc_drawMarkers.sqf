@@ -12,7 +12,7 @@
  * Public: No
  */
 
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 //TRACE_1("Params",_this);
 
 BEGIN_COUNTER(drawMarkers);
@@ -20,16 +20,6 @@ BEGIN_COUNTER(drawMarkers);
 params ["_mapControl"];
 
 if ((player != player) || {!alive player} || {side player == sideLogic}) exitWith {};
-
-/*if (player == leader player &&
-    _hashKey != "" &&
-    {groupID group player in GVAR(drawHash)}) then {
-    private _hashKey = groupID group player;
-    private _markerArray = GVAR(drawHash) get _hashKey;
-    if (_markerArray#0 != player) then {
-        [QGVAR(claimMarker), [_hashKey, player], _hashKey] call CBA_fnc_globalEventJIP;
-    };
-};*/
 
 //Map's height / Screen height:
 private _mapSize = ((ctrlPosition _mapControl) select 3) / (getResolution select 4);
@@ -39,7 +29,7 @@ if (GVAR(groupAndUnitEnabled)) then {
     private _recalc = diag_tickTime > GVAR(nextUpdate);
 
     {
-        //TRACE_2("icon data",_X,_y);
+        TRACE_2("icon data",_x,_y);
         _y params ["_drawObject", "_text", "_texture", "_color", "_size", "_position"];
 
         if (_recalc) then {
@@ -52,23 +42,24 @@ if (GVAR(groupAndUnitEnabled)) then {
                 };
                 _y set [5, _position];
             };
+            GVAR(nextUpdate) = diag_tickTime + GVAR(groupAndUnitUpdateDelay)
         };
 
-        _mapControl drawIcon [_texture,
-                             _color,
-                             _position,
-                             _size * _sizeFactor,
-                             _size * _sizeFactor,
-                             0,
-                             _text,
-                             1,
-                             (([0.05,0] select (((ctrlMapScale _mapControl) * _mapSize) > 0.1)) * _sizeFactor),
-                             'TahomaB',
-                             "right"];
+        _mapControl drawIcon [
+            _texture,
+            _color,
+            _position,
+            _size * _sizeFactor,
+            _size * _sizeFactor,
+            0,
+            _text,
+            1,
+            (([0.05,0] select (((ctrlMapScale _mapControl) * _mapSize) > 0.1)) * _sizeFactor),
+            'TahomaB',
+            "right"
+        ];
 
     } forEach GVAR(drawHash);
-
-    if (_recalc) then { GVAR(nextUpdate) = diag_tickTime + GVAR(groupAndUnitUpdateDelay) };
 };
 
 if (GVAR(intraFireteamEnabled) && {(ctrlMapScale _mapControl) < 0.5}) then {

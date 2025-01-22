@@ -12,7 +12,7 @@
  * Public: No
  */
 
-#include "script_component.hpp"
+#include "..\script_component.hpp"
 TRACE_1("Handle Check Player",_this);
 
 params ["_newPlayer"];
