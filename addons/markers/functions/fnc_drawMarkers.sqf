@@ -30,7 +30,7 @@ if (GVAR(groupAndUnitEnabled)) then {
 
     {
         TRACE_2("icon data",_x,_y);
-        _y params ["_drawObject", "_text", "_texture", "_color", "_size", "_position"];
+        _y params ["_drawObject", "_text", "_icon", "_color", "_size", "_position"];
 
         if (_recalc) then {
             if !(isNull _drawObject) then {
@@ -46,7 +46,7 @@ if (GVAR(groupAndUnitEnabled)) then {
         };
 
         _mapControl drawIcon [
-            _texture,
+            _icon,
             _color,
             _position,
             _size * _sizeFactor,

@@ -31,8 +31,6 @@ LOG("Post init start");
 
             // only setup event handlers when they'd be used
             if (GVAR(groupAndUnitEnabled)) then {
-                // check JIPed/changed players for markers
-                [QGVAR(checkPlayerForMarkers), FUNC(handleCheckPlayerForMarkers)] call CBA_fnc_addEventHandler;
 
                 // catch local player changed event, transmit global event
                 ["unit", {
@@ -41,18 +39,13 @@ LOG("Post init start");
                     [] call FUNC(checkForMapMarkerColor);
 
                     if (side (group _newPlayer) != side (group _oldPlayer)) then {
-                        [] call FUNC(initMarkerHash);
+                        GVAR(drawHash) = createHashMap;
                     };
-
-                    [QGVAR(checkPlayerForMarkers), [_newPlayer]] call CBA_fnc_globalEvent;
+                    [_newPlayer] call FUNC(initPlayerMarkers);
                 }] call CBA_fnc_addPlayerEventHandler;
 
-                [] call FUNC(initMarkerHash);
+                [] call FUNC(initPlayerMarkers);
                 [] call FUNC(checkForMapMarkerColor);
-                TRACE_2("JIP Check",didJIP,[player] call FUNC(hasMarkerAttached));
-                if (didJIP && [player] call FUNC(hasMarkerAttached)) then {
-                    [QGVAR(checkPlayerForMarkers), [player]] call CBA_fnc_globalEvent;
-                };
             };
         } else {
             GVAR(skipInstallingEH) = true; // skip installing marker EHs

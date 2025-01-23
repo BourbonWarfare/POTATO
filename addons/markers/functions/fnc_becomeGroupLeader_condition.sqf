@@ -14,6 +14,6 @@
  */
 _this call ACEFUNC(interaction,canBecomeLeader) ||
     (GVAR(groupAndUnitEnabled) && {
-   private _markerArray = GVAR(drawHash) getOrDefault [groupId group _player, [_player]];
+   private _markerArray = GVAR(markerHash) getOrDefault [groupId group _player, [_player]];
    _markerArray#0 isEqualType objNull && {_markerArray#0 != _player}
 })

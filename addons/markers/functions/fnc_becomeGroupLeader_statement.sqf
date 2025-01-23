@@ -19,7 +19,7 @@ if (_this call ACEFUNC(interaction,canBecomeLeader)) then {
 if (!GVAR(groupAndUnitEnabled)) exitWith {};
 
 private _hashKey = groupId group _player;
-private _markerArray = GVAR(drawHash) getOrDefault [_hashKey, []];
+private _markerArray = GVAR(markerHash) getOrDefault [_hashKey, []];
 if (_markerArray isNotEqualTo [] &&
     _hashKey != "" &&
     (_markerArray#0 isEqualType grpNull || {_markerArray#0 != _player})) then {

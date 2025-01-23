@@ -8,10 +8,11 @@ PREP(becomeGroupLeader_condition);
 PREP(becomeGroupLeader_statement);
 PREP(drawMarkers);
 PREP(getSideArray);
-PREP(initMarkerHash);
+PREP(initPlayerMarkers);
 PREP(hasMarkerAttached);
 PREP(joinGroup_statement);
 PREP(leaveGroup_statement);
+PREP(reinitMarkerHash);
 PREP(setMapMarkerColor);
 PREP(handleCheckPlayerForMarkers);
 

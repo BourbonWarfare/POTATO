@@ -15,7 +15,7 @@ private _hashKey = groupId group _player;
 [_player] joinSilent group _target;
 
 if (!GVAR(groupAndUnitEnabled)) exitWith {};
-private _markerArray = GVAR(drawHash) getOrDefault [_hashKey, [objNull]];
+private _markerArray = GVAR(markerHash) getOrDefault [_hashKey, [objNull]];
 if (_markerArray#0 == _player && _hashKey != "") then {
     [QGVAR(claimMarker), [_hashKey], _hashKey] call CBA_fnc_globalEventJIP;
 };
