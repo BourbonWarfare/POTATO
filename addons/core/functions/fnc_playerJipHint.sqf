@@ -11,7 +11,13 @@ if (isServer) then {
         params ["_player", "_profileName"];
         private _msg = if (_profileName in GVAR(playerMap)) then {
             (GVAR(playerMap) get _profileName) params ["_lastSide", "_lastGroup"];
-            private _sideText = ["?", "B", "O", "I"] select ([blufor, opfor, independent] find _lastSide);
+            private _sideText = switch (_lastSide) do {
+                case blufor: { "B" };
+                case opfor: { "O" };
+                case independent: { "I" };
+                case civilian: { "C" };
+                default { "?" };
+            };
             format ["has JIPed; last in [%1-%2]", _sideText, _lastGroup]
         } else {
             private _lastSide = side group _player;

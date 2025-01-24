@@ -41,11 +41,11 @@ private _return = if (_vehicle == _leader) then {
     }
 } else {
     [{ // hint if TP-to-Vic fails
-        params ["_selectedUnit"];
-        if (isNull objectParent _selectedUnit) then {
+        params ["_selectedUnit", "_vehicle"];
+        if (_vehicle != vehicle _selectedUnit) then {
             systemChat format ["%1 - failed to move into vic", name _selectedUnit];
         };
-    }, [_selectedUnit], 2] call CBA_fnc_waitAndExecute;
+    }, [_selectedUnit, _vehicle], 2] call CBA_fnc_waitAndExecute;
 
     private _fullCrewCount = 0;
     private _aliveCrewCount = {
