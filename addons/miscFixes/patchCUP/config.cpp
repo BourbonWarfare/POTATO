@@ -84,11 +84,11 @@ class CfgVehicles {
         brakeIdleSpeed = 1.78; // was 0
         maxFordingDepth = 1.0; // was 1.5
         class Wheels {
-			class wheel_1_1 {
-				maxBrakeTorque = 20000; // was 12500
-				maxHandBrakeTorque = 30000; // was 25000
-			};
-		};
+            class wheel_1_1 {
+                maxBrakeTorque = 20000; // was 12500
+                maxHandBrakeTorque = 30000; // was 25000
+            };
+        };
         class AnimationSources: AnimationSources {
             class main_gun_muzzle_rot {
                 weapon = "CUP_Vhmg_M3P_veh";
