@@ -62,7 +62,7 @@ class CfgVehicles {
         };
     };
     class CUP_nM1038_Base: CUP_nHMMWV_Base {
-        class Turrets: Turrets {
+        class Turrets {
             class CargoTurret_01: CargoTurret {
                 gunnerAction = "CUP_HMMWV_bench_gunner_1";
             };
