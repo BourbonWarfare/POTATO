@@ -42,15 +42,16 @@ private _icon = _drawObject getVariable [QGVAR(markerTexture), DEFAULT_MARKER_IC
 private _colorArray = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR];
 private _size = _drawObject getVariable [QGVAR(markerSize), DEFAULT_MARKER_SIZE];
 
+if (_drawObject isEqualType grpNull) then {
+    _drawObject = leader _drawObject;
+};
+
 private _markerEventArray = [_hashKey, _drawObject, _text, _icon, _colorArray, _size];
 private _endIndex = 5;
 if (_size == DEFAULT_MARKER_SIZE) then {_endIndex = 4};
 if (_colorArray == DEFAULT_MARKER_COLOR && _endIndex == 4) then {_endIndex = 3};
 if ((_icon == DEFAULT_MARKER_ICON || _icon == "") && _endIndex == 3) then {_endIndex = 2};
 if (_text == DEFAULT_MARKER_TEXT && _endIndex == 2) then {_endIndex = 1};
-if (_drawObject isEqualType grpNull) then {
-    _drawObject = leader _drawObject;
-};
 
 [
     QGVAR(markerHash),

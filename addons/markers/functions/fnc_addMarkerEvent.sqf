@@ -31,5 +31,9 @@ if (_hashKey == "") exitWith {
     WARNING_1("No hashkey passed",_this);
 };
 
-private _posATL = getPosATL _object;
+private _posATL = if (isNull _object) then {
+    [-100, -100, 0]
+} else {
+    getPosATL _object;
+};
 GVAR(markerHash) set [_hashKey, [_object, _text, _icon, _color, _size, _posATL]];

@@ -8,7 +8,7 @@ PREP(becomeGroupLeader_condition);
 PREP(becomeGroupLeader_statement);
 PREP(drawMarkers);
 PREP(getSideArray);
-PREP(initPlayerMarkers);
+PREP(initLocalMarkers);
 PREP(hasMarkerAttached);
 PREP(joinGroup_statement);
 PREP(leaveGroup_statement);
