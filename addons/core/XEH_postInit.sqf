@@ -92,3 +92,5 @@ if (hasInterface) then {
         diag_log text format ["[POTATO] potato_missionHint EH: %1", _this];
     };
 }] call CBA_fnc_addEventHandler;
+
+call FUNC(playerJipHint);
