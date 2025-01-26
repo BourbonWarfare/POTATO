@@ -13,4 +13,4 @@
 
 #define ZEUSUTILS_IDC_DISPLAYFPSBUTTON 241119
 
-#define INFORM_USER(var1) systemChat "[POTATO][zeusUtils] var1"
+#define INFORM_USER(var1) systemChat QUOTE([POTATO][zeusUtils] var1)
