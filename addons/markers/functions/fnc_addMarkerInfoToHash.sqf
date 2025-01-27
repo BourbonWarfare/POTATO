@@ -39,24 +39,34 @@ if (isNull _drawObject || !_localObject || _hashKey == ""
 TRACE_2("Adding marker",_drawObject getVariable [QGVAR(groupMarker), false],_hashKey);
 private _text = _drawObject getVariable [QGVAR(markerText), DEFAULT_MARKER_TEXT];
 private _icon = _drawObject getVariable [QGVAR(markerTexture), DEFAULT_MARKER_ICON];
-private _colorArray = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR];
+private _color = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR];
 private _size = _drawObject getVariable [QGVAR(markerSize), DEFAULT_MARKER_SIZE];
+
+// we convert here to make variables more readable for other marker debugging
+if (_color == "") then {
+    _color = DEFAULT_MARKER_COLOR;
+};
+private _findIndex = COLOR_INDEX_ARRAY find _color;
+if (_findIndex >= 0) then {_color = _findIndex};
+
+_findIndex = [UNIT_MARKERS_STRINGS] find _icon;
+if (_findIndex >= 0) then {_icon = _findIndex};
 
 if (_drawObject isEqualType grpNull) then {
     _drawObject = leader _drawObject;
 };
 
-private _markerEventArray = [_hashKey, _drawObject, _text, _icon, _colorArray, _size];
-private _endIndex = 5;
-if (_size == DEFAULT_MARKER_SIZE) then {_endIndex = 4};
-if (_colorArray == DEFAULT_MARKER_COLOR && _endIndex == 4) then {_endIndex = 3};
-if ((_icon == DEFAULT_MARKER_ICON || _icon == "") && _endIndex == 3) then {_endIndex = 2};
-if (_text == DEFAULT_MARKER_TEXT && _endIndex == 2) then {_endIndex = 1};
+private _markerEventArray = [_hashKey, getPosATL _drawObject, _drawObject, side _drawObject, _text, _color, _icon, _size];
+private _endIndex = 7;
+if (_size == DEFAULT_MARKER_SIZE) then {_endIndex = 6};
+if (_icon == DEFAULT_MARKER_ICON_INDEX && _endIndex == 6) then {_endIndex = 5};
+if (_color == DEFAULT_MARKER_COLOR_INDEX && _endIndex == 5) then {_endIndex = 4};
+if (_text == DEFAULT_MARKER_TEXT && _endIndex == 4) then {_endIndex = 3};
 
 [
     QGVAR(markerHash),
     _markerEventArray select [0, _endIndex],
-    "potato_marker_" + _hashKey
+    POTAOT_MARKER_JIP_PREFIX + _hashKey
 ] call CBA_fnc_globalEventJIP;
 
 true

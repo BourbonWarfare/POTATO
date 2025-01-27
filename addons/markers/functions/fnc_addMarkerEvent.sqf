@@ -1,17 +1,19 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function handles the QGVAR(addMarkerEvent) event, which adds both
+ * This function handles the QGVAR(addMarker) event, which adds both
  * local and non-local markers to a players marker hash.
  *
  * Arguments:
  * 0: Hashkey of marker, we send the event because the object
  *     may change over time <STRING>
- * 1: Object marker is attached to <OBJECT>
- * 2: Marker text <STRING>
- * 3: Icon of the marker to show <STRING>
- * 4: Color array of the marker <ARRAY>
- * 5: Marker icon size DEFAULT_MARKER_SIZE <SCALAR>
+ * 1: Position ATL of the marker <ARRAY>
+ * 2: Object marker is attached to <OBJECT>
+ * 3: Side of the marker <SIDE>
+ * 4: Marker text <STRING>
+ * 6: Color array of the marker <ARRAY>
+ * 5: Icon of the marker to show <STRING>
+ * 7: Marker icon size DEFAULT_MARKER_SIZE <SCALAR>
  *
  * Example:
  * [cursorObject] call potato_markers_fnc_hasMarkerAttached;
@@ -20,10 +22,12 @@
  */
 params [
     ["_hashKey", "", [""]],
+    ["_pos", [-10000, -10000, 0], [[]], [2,3]],
     ["_object", objNull, [objNull]],
+    ["_side", sideLogic, [sideLogic]],
     ["_text", DEFAULT_MARKER_TEXT, [DEFAULT_MARKER_TEXT]],
-    ["_icon", DEFAULT_MARKER_ICON, [DEFAULT_MARKER_ICON]],
-    ["_color", DEFAULT_MARKER_COLOR, [DEFAULT_MARKER_COLOR]],
+    ["_color", DEFAULT_MARKER_COLOR, [DEFAULT_MARKER_COLOR, DEFAULT_MARKER_COLOR_INDEX]],
+    ["_icon", DEFAULT_MARKER_ICON, [DEFAULT_MARKER_ICON, DEFAULT_MARKER_ICON_INDEX]],
     ["_size", DEFAULT_MARKER_SIZE, [DEFAULT_MARKER_SIZE]]
 ];
 
@@ -31,9 +35,21 @@ if (_hashKey == "") exitWith {
     WARNING_1("No hashkey passed",_this);
 };
 
-private _posATL = if (isNull _object) then {
-    [-100, -100, 0]
+_pos = if (isNull _object) then {
+    _pos
 } else {
     getPosATL _object;
 };
-GVAR(markerHash) set [_hashKey, [_object, _text, _icon, _color, _size, _posATL]];
+
+if (_icon isEqualType 0) then {
+    _icon = [UNIT_MARKERS_STRINGS]#_icon;
+};
+if (_color isEqualType 0) then {
+    _color = COLOR_INDEX_ARRAY#_color;
+};
+
+GVAR(markerHash) set [_hashKey, [_object, _text, _icon, _color, _size, _pos, _side]];
+
+if (_side in ([] call FUNC(getSideArray))) then {
+    GVAR(drawHash) set [_hashKey, [_object, _text, _icon, _color, _size, _pos, _side]];
+};

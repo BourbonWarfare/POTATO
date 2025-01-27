@@ -49,10 +49,23 @@
     ]\
 ]
 
+#define COLOR_INDEX_ARRAY [\
+    RED_ARRAY,\
+    YELLOW_ARRAY,\
+    GREEN_ARRAY,\
+    BLUE_ARRAY,\
+    WHITE_ARRAY,\
+    ORANGE_ARRAY,\
+    BLACK_ARRAY,\
+    PINK_ARRAY\
+]
+
 #define DEFAULT_MARKER_TEXT ""
-#define DEFAULT_MARKER_ICON QPATHTOF(data\unknown.paa)
+#define DEFAULT_MARKER_ICON QPATHTOF(data\infantry.paa)
+#define DEFAULT_MARKER_ICON_INDEX 1
 #define DEFAULT_MARKER_COLOR_TEXT "white"
 #define DEFAULT_MARKER_COLOR WHITE_ARRAY
+#define DEFAULT_MARKER_COLOR_INDEX 4
 #define DEFAULT_MARKER_SIZE 24
 
 #define UNIT_MARKER_ICON "\A3\ui_f\data\map\markers\military\start_CA.paa"
@@ -141,5 +154,6 @@ QUOTE('PATHTOF(data\attack_fixed_wing.paa)')
 #define CBA_JIP_QUEUE_OBJECT cba_events_eventNamespaceJIP
 #define POTAOT_MARKER_JIP_PREFIX "potato_marks:"
 #define POTAOT_MARKER_JIP_PREFIX_LENGTH 13
+#define MARKER_DRAW_HASH_REFRESH_TIME 10
 
 #include "\z\potato\addons\core\script_macros.hpp"
