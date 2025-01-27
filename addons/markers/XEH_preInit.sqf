@@ -11,10 +11,12 @@ PREP_RECOMPILE_END;
 GVAR(markerHash) = createHashMap;
 GVAR(drawHash) = createHashMap;
 GVAR(nextUpdate) = -9999;
+GVAR(nextUpdateDrawHash) = -9999;
 GVAR(settingsInitialized) = false;
 GVAR(settingsDelayedFunctions) = [];
 GVAR(autoclaimGroupMarker) = false;
 [QGVAR(addMarker), LINKFUNC(addMarkerEvent)] call CBA_fnc_addEventHandler;
+[QGVAR(deleteMarker), LINKFUNC(deleteMarkerEvent)] call CBA_fnc_addEventHandler;
 [QGVAR(claimMarker), LINKFUNC(claimMarkerEvent)] call CBA_fnc_addEventHandler;
 
 [QGVAR(deleteMarker), {
