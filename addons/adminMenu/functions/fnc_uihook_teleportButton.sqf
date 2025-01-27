@@ -40,6 +40,13 @@ private _return = if (_vehicle == _leader) then {
         ["Teleporting to position", "No empty position for teleport"] select _success
     }
 } else {
+    [{ // hint if TP-to-Vic fails
+        params ["_selectedUnit", "_vehicle"];
+        if (_vehicle != vehicle _selectedUnit) then {
+            systemChat format ["%1 - failed to move into vic", name _selectedUnit];
+        };
+    }, [_selectedUnit, _vehicle], 2] call CBA_fnc_waitAndExecute;
+
     private _fullCrewCount = 0;
     private _aliveCrewCount = {
         _fullCrewCount = _fullCrewCount + 1;
