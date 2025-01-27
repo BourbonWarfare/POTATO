@@ -27,6 +27,22 @@ private _sizeFactor = (_mapSize + 1) / 2;
 
 if (GVAR(groupAndUnitEnabled)) then {
     private _recalc = diag_tickTime > GVAR(nextUpdate);
+    if (_recalc) then {
+        GVAR(nextUpdate) = diag_tickTime + GVAR(groupAndUnitUpdateDelay)
+    };
+
+    if (diag_tickTime > GVAR(nextUpdateDrawHash)) then {
+        TRACE_2("Updating side draw hash",_x,_y);
+        GVAR(nextUpdateDrawHash) = diag_tickTime + MARKER_DRAW_HASH_REFRESH_TIME;
+        private _newDrawHash = createHashMap;
+        private _sideArray = [] call FUNC(getSideArray);
+        {
+            if (_y#6 in _sideArray) then {
+                _newDrawHash set [_x, _y];
+            };
+        } forEach GVAR(markerHash);
+        GVAR(drawHash) = _newDrawHash;
+    };
 
     {
         TRACE_2("icon data",_x,_y);
@@ -42,7 +58,6 @@ if (GVAR(groupAndUnitEnabled)) then {
                 };
                 _y set [5, _position];
             };
-            GVAR(nextUpdate) = diag_tickTime + GVAR(groupAndUnitUpdateDelay)
         };
 
         _mapControl drawIcon [
