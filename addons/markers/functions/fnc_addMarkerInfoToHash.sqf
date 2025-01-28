@@ -36,7 +36,7 @@ if (isNull _drawObject || !_localObject || _hashKey == ""
     TRACE_3("Not adding marker info (exiting early)",_drawObject,_localObject,_hashKey);
     false
 };
-TRACE_2("Adding marker",_drawObject getVariable [QGVAR(groupMarker), false],_hashKey);
+TRACE_2("Adding marker",_drawObject getVariable [ARR_2(QGVAR(groupMarker),false)],_hashKey);
 private _text = _drawObject getVariable [QGVAR(markerText), DEFAULT_MARKER_TEXT];
 private _icon = _drawObject getVariable [QGVAR(markerTexture), DEFAULT_MARKER_ICON];
 private _color = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR];
@@ -66,7 +66,7 @@ if (_text == DEFAULT_MARKER_TEXT && _endIndex == 4) then {_endIndex = 3};
 [
     QGVAR(markerHash),
     _markerEventArray select [0, _endIndex],
-    POTAOT_MARKER_JIP_PREFIX + _hashKey
+    POTATO_MARKER_JIP_PREFIX + _hashKey
 ] call CBA_fnc_globalEventJIP;
 
 true

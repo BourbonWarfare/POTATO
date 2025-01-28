@@ -16,11 +16,11 @@
 params [["_hashKey", "", [""]]];
 
 if (_hashKey == "") exitWith {
-    TRACE_1("Delete event| no hashkey:"_hashKey);
+    TRACE_1("Delete event| no hashkey:",_hashKey);
 };
 
 if (isServer) then {
-    [POTAOT_MARKER_JIP_PREFIX + _hashKey] call CBA_fnc_removeGlobalEventJIP;
+    [POTATO_MARKER_JIP_PREFIX + _hashKey] call CBA_fnc_removeGlobalEventJIP;
 };
 
 GVAR(markerHash) deleteAt _hashKey;

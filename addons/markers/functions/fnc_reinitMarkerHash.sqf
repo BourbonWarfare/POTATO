@@ -16,7 +16,7 @@ GVAR(drawHash) = createHashMap;
 
 // We keep the JIP queue accurate, this takes a moment to do for large JIP queues
 private _markerJIPs = (allVariables CBA_JIP_QUEUE_OBJECT) select {
-    _x select [0, POTAOT_MARKER_JIP_PREFIX_LENGTH] == POTAOT_MARKER_JIP_PREFIX
+    _x select [0, POTATO_MARKER_JIP_PREFIX_LENGTH] == POTATO_MARKER_JIP_PREFIX
 };
 
 {

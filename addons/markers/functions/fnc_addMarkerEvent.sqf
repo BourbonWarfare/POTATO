@@ -32,7 +32,7 @@ params [
 ];
 
 if (_hashKey == "") exitWith {
-    WARNING_1("No hashkey passed",_this);
+    WARNING_1("No hashkey passed| _this:%1",_this);
 };
 
 _pos = if (isNull _object) then {
