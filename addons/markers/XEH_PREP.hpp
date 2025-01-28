@@ -12,6 +12,7 @@ PREP(drawMarkers);
 PREP(getSideArray);
 PREP(handleCheckPlayerForMarkers);
 PREP(initLocalMarkers);
+PREP(initUnitMarkers);
 PREP(hasMarkerAttached);
 PREP(joinGroup_statement);
 PREP(leaveGroup_statement);

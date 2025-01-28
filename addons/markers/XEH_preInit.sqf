@@ -11,7 +11,7 @@ PREP_RECOMPILE_END;
 GVAR(markerHash) = createHashMap;
 GVAR(drawHash) = createHashMap;
 GVAR(nextUpdate) = -9999;
-GVAR(nextUpdateDrawHash) = -9999;
+GVAR(nextUpdateDrawHash) = -MARKER_DRAW_HASH_REFRESH_TIME;
 GVAR(settingsInitialized) = false;
 GVAR(settingsDelayedFunctions) = [];
 GVAR(autoclaimGroupMarker) = false;

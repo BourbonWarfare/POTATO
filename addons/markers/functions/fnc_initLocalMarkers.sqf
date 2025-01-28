@@ -1,9 +1,8 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function will initialize both markers for a unit, and for their
- * group if they are the leader of said group. This should be called
- * upon initialization, and only called once.
+ * This function will initialize all local markers, should be used on mission
+ * start but can be run again later.
  *
  * Example:
  * [] call potato_markers_fnc_initLocalMarkers;

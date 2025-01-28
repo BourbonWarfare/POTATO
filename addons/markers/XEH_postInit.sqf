@@ -40,7 +40,7 @@ LOG("Post init start");
                     if (side (group _newPlayer) != side (group _oldPlayer)) then {
                         GVAR(drawHash) = createHashMap;
                     };
-                    [_newPlayer] call FUNC(initPlayerMarkers);
+                    [_newPlayer] call FUNC(initUnitMarkers);
                 }] call CBA_fnc_addPlayerEventHandler;
 
                 [] call FUNC(checkForMapMarkerColor);

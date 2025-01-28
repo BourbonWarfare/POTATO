@@ -31,7 +31,7 @@ if (GVAR(groupAndUnitEnabled)) then {
         GVAR(nextUpdate) = diag_tickTime + GVAR(groupAndUnitUpdateDelay)
     };
 
-    if (diag_tickTime > GVAR(nextUpdateDrawHash)) then {
+    if (diag_tickTime > GVAR(nextUpdateDrawHash) && _recalc) then {
         TRACE_1("Updating side draw hash",diag_tickTime);
         GVAR(nextUpdateDrawHash) = diag_tickTime + MARKER_DRAW_HASH_REFRESH_TIME;
         private _newDrawHash = createHashMap;
