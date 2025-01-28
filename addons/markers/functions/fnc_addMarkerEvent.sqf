@@ -20,6 +20,7 @@
  *
  * Public: No
  */
+TRACE_1("Add marker event",_this);
 params [
     ["_hashKey", "", [""]],
     ["_pos", [-10000, -10000, 0], [[]], [2,3]],

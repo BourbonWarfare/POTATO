@@ -32,7 +32,7 @@ if (GVAR(groupAndUnitEnabled)) then {
     };
 
     if (diag_tickTime > GVAR(nextUpdateDrawHash)) then {
-        TRACE_2("Updating side draw hash",_x,_y);
+        TRACE_1("Updating side draw hash",diag_tickTime);
         GVAR(nextUpdateDrawHash) = diag_tickTime + MARKER_DRAW_HASH_REFRESH_TIME;
         private _newDrawHash = createHashMap;
         private _sideArray = [] call FUNC(getSideArray);

@@ -15,7 +15,7 @@ LOG("Post init start");
     {
         TRACE_2("ACE Settings initialized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
         if (isNil QEGVAR(miscFixes,groupCleanupRan)) then {ERROR_1("Server never set %1",QEGVAR(miscFixes,groupCleanupRan));};
-        if (hasInterface && {GVAR(groupAndUnitEnabled) || {GVAR(intraFireteamEnabled)}}) then {
+        if (hasInterface && GVAR(groupAndUnitEnabled) || GVAR(intraFireteamEnabled)) then {
             GVAR(skipInstallingEH) = false;
 
             // To custom define these for your mission just define them in init.sqf:
@@ -31,7 +31,6 @@ LOG("Post init start");
 
             // only setup event handlers when they'd be used
             if (GVAR(groupAndUnitEnabled)) then {
-
                 // catch local player changed event, transmit global event
                 ["unit", {
                     params ["_newPlayer", "_oldPlayer"];
@@ -46,12 +45,14 @@ LOG("Post init start");
 
                 [] call FUNC(checkForMapMarkerColor);
             };
+            if (GVAR(intraFireteamEnabled)) then {
+                [] call FUNC(initLocalMarkers);
+            };
         } else {
             GVAR(skipInstallingEH) = true; // skip installing marker EHs
         };
 
         GVAR(settingsInitialized) = true;
-
         // run any functions waiting for marker settings to finish
         {
             (_x select 1) call (_x select 0);

@@ -10,11 +10,7 @@
  *
  * Public: No
  */
-params [["_unit", objNull, [objNull]]];
-
-if (!local _unit || {!(_unit isKindOf "CAManBase")}) exitWith {
-    TRACE_2("Unit is not of valid type",_unit,typeOf _unit);
-};
+TRACE_1("initializing local markers",_this);
 
 {
     {

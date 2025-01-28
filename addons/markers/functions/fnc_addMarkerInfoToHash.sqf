@@ -36,16 +36,14 @@ if (isNull _drawObject || !_localObject || _hashKey == ""
     TRACE_3("Not adding marker info (exiting early)",_drawObject,_localObject,_hashKey);
     false
 };
-TRACE_2("Adding marker",_drawObject getVariable [ARR_2(QGVAR(groupMarker),false)],_hashKey);
+TRACE_2("Adding marker",_drawObject,_hashKey);
 private _text = _drawObject getVariable [QGVAR(markerText), DEFAULT_MARKER_TEXT];
 private _icon = _drawObject getVariable [QGVAR(markerTexture), DEFAULT_MARKER_ICON];
 private _color = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR];
 private _size = _drawObject getVariable [QGVAR(markerSize), DEFAULT_MARKER_SIZE];
+TRACE_4("Marker params",_text,_icon,_color,_size);
 
 // we convert here to make variables more readable for other marker debugging
-if (_color == "") then {
-    _color = DEFAULT_MARKER_COLOR;
-};
 private _findIndex = COLOR_INDEX_ARRAY find _color;
 if (_findIndex >= 0) then {_color = _findIndex};
 
@@ -57,14 +55,12 @@ if (_drawObject isEqualType grpNull) then {
 };
 
 private _markerEventArray = [_hashKey, getPosATL _drawObject, _drawObject, side _drawObject, _text, _color, _icon, _size];
-private _endIndex = 7;
-if (_size == DEFAULT_MARKER_SIZE) then {_endIndex = 6};
-if (_icon == DEFAULT_MARKER_ICON_INDEX && _endIndex == 6) then {_endIndex = 5};
-if (_color == DEFAULT_MARKER_COLOR_INDEX && _endIndex == 5) then {_endIndex = 4};
-if (_text == DEFAULT_MARKER_TEXT && _endIndex == 4) then {_endIndex = 3};
+private _endIndex = 8;
+if (_size == DEFAULT_MARKER_SIZE) then {_endIndex = 7};
+if (_icon == DEFAULT_MARKER_ICON_INDEX && _endIndex == 7) then {_endIndex = 6};
 
 [
-    QGVAR(markerHash),
+    QGVAR(addMarker),
     _markerEventArray select [0, _endIndex],
     POTATO_MARKER_JIP_PREFIX + _hashKey
 ] call CBA_fnc_globalEventJIP;
