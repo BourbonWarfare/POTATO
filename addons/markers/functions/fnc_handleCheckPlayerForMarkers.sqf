@@ -18,9 +18,9 @@ TRACE_1("Handle Check Player",_this);
 params ["_newPlayer"];
 private _newPlayerGroup = group _newPlayer;
 
-private _sideArray = [] call FUNC(getSideArray);
-
-if (!(isNull _newPlayerGroup) && {side _newPlayerGroup in _sideArray}) then {
-    [_newPlayerGroup] call FUNC(addMarkerInfoToHash);
+if !(isNull _newPlayerGroup) then {
+    if (leader _newPlayerGroup == _newPlayer) then {
+        [_newPlayerGroup] call FUNC(addMarkerInfoToHash);
+    };
     [_newPlayer] call FUNC(addMarkerInfoToHash);
 };

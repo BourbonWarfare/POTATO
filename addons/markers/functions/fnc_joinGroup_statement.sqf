@@ -17,6 +17,6 @@ private _hashKey = groupId group _player;
 if (!GVAR(groupAndUnitEnabled)) exitWith {};
 private _markerArray = GVAR(markerHash) getOrDefault [_hashKey, [objNull]];
 if (_markerArray#0 == _player && _hashKey != "") then {
-    [QGVAR(claimMarker), [_hashKey], _hashKey] call CBA_fnc_globalEventJIP;
+    [QGVAR(transferMarker), [_hashKey]] call CBA_fnc_globalEvent;
 };
 

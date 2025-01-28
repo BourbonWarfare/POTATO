@@ -141,15 +141,21 @@ QUOTE('PATHTOF(data\attack_fixed_wing.paa)')
 #define UNIT_MARKER_COLORS "white","red","blue","green","orange","yellow","pink","black"
 #define UNIT_MARKER_COLORS_STRINGS "White","Red","Blue","Green","Orange","Yellow","Pink","Black"
 
-#define POTATO_MARKERS_HASHKEY(var1,var2) if (var1 isEqualType grpNull) then {\
-    groupID var1\
+#define CBA_UPDATE_JIPQUEUE(hashKey,markerArray) private _jipQueueVariable = POTAOT_MARKER_JIP_PREFIX + hashKey;\
+private _CBAjipArray = CBA_JIP_QUEUE_OBJECT getVariable [_jipQueueVariable, []];\
+if (_CBAjipArray isEqualType []) then {\
+    _CBAjipArray params ["", ["_eventArray", []]];\
+    _eventArray params ["", ["_eventArgs", []]];\
+    _eventArgs params ["", ["_jipQueueMarkArr", []]];\
+    if (_jipQueueMarkArr isEqualTo []) exitWith {\
+        WARNING_1("Invalid marker entry",_jipQueueVariable);\
+    };\
+    _eventArgs set [1, markerArray];\
+    CBA_JIP_QUEUE_OBJECT setVariable [_jipQueueVariable, _eventArgs, true];\
 } else {\
-    if (var2) then {\
-        groupId group var1\
-    } else {\
-        str var1\
-    }\
+    WARNING_1("Marker not in JIP queue",_jipQueueVariable);\
 }
+
 
 #define CBA_JIP_QUEUE_OBJECT cba_events_eventNamespaceJIP
 #define POTAOT_MARKER_JIP_PREFIX "potato_marks:"

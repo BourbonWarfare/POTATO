@@ -23,5 +23,5 @@ private _markerArray = GVAR(markerHash) getOrDefault [_hashKey, []];
 if (_markerArray isNotEqualTo [] &&
     _hashKey != "" &&
     (_markerArray#0 isEqualType grpNull || {_markerArray#0 != _player})) then {
-    [QGVAR(claimMarker), [_hashKey, _player], _hashKey] call CBA_fnc_globalEventJIP;
+    [QGVAR(transferMarker), [_hashKey, _player]] call CBA_fnc_globalEvent;
 };

@@ -37,6 +37,7 @@ if (GVAR(groupAndUnitEnabled)) then {
         private _newDrawHash = createHashMap;
         private _sideArray = [] call FUNC(getSideArray);
         {
+            private _side = _y#6;
             if (_y#6 in _sideArray) then {
                 _newDrawHash set [_x, _y];
             };

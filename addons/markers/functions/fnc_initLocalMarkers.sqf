@@ -17,6 +17,8 @@ if (!local _unit || {!(_unit isKindOf "CAManBase")}) exitWith {
 };
 
 {
-    {[_x] call FUNC(addMarkerInfoToHash);} forEach units _x;
-    [_x] call FUNC(addMarkerInfoToHash);
+    {
+        if (local _x) then {[_x] call FUNC(addMarkerInfoToHash);};
+    } forEach units _x;
+    if (local leader _x) then {[_x] call FUNC(addMarkerInfoToHash)};
 } forEach allGroups;

@@ -16,6 +16,8 @@ params [
     ["_object", objNull, [objNull]]
 ];
 
-private _hashKey = groupId _object;
-private _array = GVAR(markerHash) getOrDefault [_hashKey, [grpNull]];
+private _array = GVAR(markerHash) getOrDefault [groupId _object, []];
+if (_array isEqualTo []) then {
+    GVAR(markerHash) getOrDefault [str _object, [objNull]];
+};
 _array#0 isEqualTo _object
