@@ -15,36 +15,48 @@
  * Public: No
  */
 
-private _listGear = UI_TAB_FIX_UNIT_GEAR;
-private _selectedLoadout = _listGear lbData (0 max lbCurSel _listGear);
+private _markerList = UI_TAB_MARKERS_MARKERS;
+private _selectedMarkerIndex = lbCurSel _markerList;
+if (_selectedMarkerIndex < 0) exitWith {
+    TRACE_1("Marker not selected",_selectedMarkerIndex);
+};
+private _hashKey = _markerList lbData _selectedMarkerIndex;
 
 private _selectedUnit = missionNamespace getVariable [
-    UI_TAB_FIX_UNIT_LIST lbData (lbCurSel UI_TAB_FIX_UNIT_LIST),
+    UI_TAB_MARKERS_PLAYERS lbData (lbCurSel UI_TAB_MARKERS_PLAYERS),
     objNull
 ];
 
-TRACE_2("",_selectedUnit,_selectedLoadout);
+TRACE_2("Found unit & marker",_selectedUnit,_hashKey);
 
-if (isNull _selectedUnit) exitWith { WARNING_1("Bad unit [%1] - disconnect?",_selectedUnit); };
-
-if (_selectedLoadout == "") then {
-    _selectedUnit setVariable ["F_Gear", nil, true];
-} else {
-    _selectedUnit setVariable ["F_Gear", _selectedLoadout, true];
+if (isNull _selectedUnit) exitWith {
+    WARNING_1("Bad unit [%1] - disconnect?",_selectedUnit);
 };
 
-if (_selectedLoadout == "sm") then {
-    _selectedUnit setVariable [QACEGVAR(medical,medicClass), 1, true];
+private _markerArray = EGVAR(markers,markerHash) getOrDefault [_hashKey, []];
+if (_markerArray isEqualTo []) exitWith {
+    TRACE_1("Bad marker selected",_hashKey);
+};
+if (group _markerArray#0 != group _selectedUnit) then {
+    private _newHashKey = groupId group _selectedUnit;
+    [QEGVAR(markers,addMarker), [
+        _newHashKey,
+        getPosATL _selectedUnit, _selectedUnit, side _selectedUnit,
+        _markerArray#1, _markerArray#3, _markerArray#2, _markerArray#1
+    ], POTATO_MARKER_JIP_PREFIX + _newHashKey] call CBA_fnc_globalEventJIP;
+    [QEGVAR(markers,deleteMarker), [_hashKey]] call CBA_fnc_globalEvent;
 } else {
-    _selectedUnit setVariable [QACEGVAR(medical,medicClass), 0, true];
+    [QEGVAR(markers,transferMarker), [
+        _hashKey, _selectedUnit
+    ]] call CBA_fnc_globalEvent;
 };
 
-if (_selectedLoadout in ["eng","vicc","vicl","vicd","pilot"]) then {
-    _selectedUnit setVariable ["ACE_isEngineer", true, true];
-} else {
-    _selectedUnit setVariable ["ACE_isEngineer", false, true];
-};
-
-[QGVAR(resetGear), [_selectedUnit], [_selectedUnit]] call CBA_fnc_targetEvent;
-
-["potato_adminMsg", [format ["Resetting gear on %1", (name _selectedUnit)], profileName]] call CBA_fnc_globalEvent;
+["potato_adminMsg", [
+    format ["Transfering marker %1 to %2's group (%3)",
+        _hashKey,
+        _selectedUnit,
+        groupId group _selectedUnit
+    ],
+    profileName
+]] call CBA_fnc_globalEvent;
+[0, UI_TABS_INDEX_MARKERS] call FUNC(uihook_tabChange);

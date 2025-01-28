@@ -234,96 +234,50 @@ case (7): {
                         }
                     }
                 } else {
-                    [[_this] call ACEFUNC(common,getName), 2, (DEAD)]
+                    [[_this] call ACEFUNC(common,getName), 2, "(DEAD)"]
                 }
             }
         ] call _fnc_setListOfPlayers;
     };
-    case 9: {
+    case UI_TABS_INDEX_MARKERS: {
         TRACE_1("showing markers tab",_sel);
         private _display = uiNamespace getVariable QGVAR(adminMenuDialog);
-
-        // Setup marker list
-        GVAR(markerHash) = +EGVAR(markers,drawHash);
-        private _fnc_addMarkerInfoCache = {
-            params ["_drawObject"];
-            private _groupMarker = _drawObject getVariable [QEGVAR(markers,groupMarker), false];
-            private _hashValue = if (_drawObject isEqualType grpNull) then {
-                groupID _drawObject
-            } else {
-                if (_groupMarker) then {
-                    groupID group _drawObject
-                } else {
-                    str _drawObject
-                }
-            };
-            TRACE_2("addMarkerSpecial",_drawObject,_hashValue);
-            if (isNull _drawObject
-                    || !(_drawObject getVariable [QEGVAR(markers,addMarker), false])
-                    || {_hashValue in GVAR(markerHash)}) exitWith {};
-
-            private _text = _drawObject getVariable [QEGVAR(markers,markerText), ""];
-            private _texture = _drawObject getVariable [QEGVAR(markers,markerTexture), "\z\potato\addons\markers\data\unknown.paa"];
-            private _colorArray = _drawObject getVariable [QEGVAR(markers,markerColor), [1,1,1,1]];
-            if (_drawObject isEqualType grpNull && (units _drawObject) isNotEqualTo []) then {
-                _drawObject = leader _drawObject;
-            };
-            GVAR(markerHash) set [_hashValue, [_drawObject, _text, _texture, _colorArray]];
-        };
-        {
-            if (!(isNull _x)) then {
-                [_x] call _fnc_addMarkerInfoCache;
-
-                {
-                    [_x] call _fnc_addMarkerInfoCache;
-                } forEach (units _x);
-            };
-        } forEach allGroups;
 
         private _markerList = _display displayCtrl IDC_LISTBOX_MARKERS_MARKERS;
         lbClear _markerList;
         {
-            _y params ["_attachedObject", "_text", "_texture", "_color"];
-            private _side = switch (side _attachedObject) do {
+            _y params ["_object", "_text", "_icon", "_color"];
+            private _side = switch (side _object) do {
                 case west: {"BluFor"};
                 case east: {"OpFor"};
                 case resistance: {"IndFor"};
                 case civilian: {"Civ"};
-                default {"ERR"};
+                default {"None "};
             };
             private _entry = _markerList lbAdd format ["%1 %2", _side, _text];
-            _markerList lbSetPictureRight [_entry, _texture];
+            _markerList lbSetPictureRight [_entry, _icon];
             _markerList lbSetPictureRightColor [_entry, _color];
             _markerList lbSetPictureRightColorSelected [_entry, _color];
             _markerList lbSetData [_entry, _x];
-        } forEach GVAR(markerHash);
+        } forEach EGVAR(markers,markerHash);
         lbSort _markerList;
         _markerList lbSetCurSel 0;
 
         // Setup player list
-        private _fnc_hasMarkerAttached = {
-            params [
-                ["_object", objNull, [grpNull, objNull]]
-            ];
-
-            if (_object isEqualType grpNull) then {
-                private _hashValue = groupID _object;
-                private _array = GVAR(markerHash) getOrDefault [_hashValue, [grpNull]];
-                _array#0 isEqualTo _object
-            } else {
-                private _hashValue = str _object;
-                private _array = GVAR(markerHash) getOrDefaultCall [_hashValue, {
-                    _hashValue = groupID group _object;
-                    GVAR(markerHash) getOrDefault [_hashValue, [grpNull]]
-                }];
-                _array#0 isEqualTo _object
-            }
-        };
         [
             _display displayCtrl IDC_LISTBOX_MARKERS_PLAYERS,
             {
-                private _markerText = _this getVariable [QEGVAR(markers,markerText), ""];
-                private _side = switch (side _this) do {
+                private _markerArr = EGVAR(markers,markerHash) getOrDefault [str _this, []];
+                if (_markerArr isEqualTo []) then {
+                    _markerArr = EGVAR(markers,markerHash) getOrDefault [groupId group _this, [objNull, ""]];
+                };
+                private _markerText = ["", _markerArr#1] select (_markerArr#0 == _this);
+                private _side = if (count _markerArr >= 7) then {
+                    [side _this, _markerArr#6] select (_markerArr#6 isEqualType grpNull)
+                } else {
+                    side _this
+                };
+                _side = switch (_side) do {
                     case west: {"BluFor "};
                     case east: {"OpFor "};
                     case resistance: {"IndFor "};
@@ -334,17 +288,17 @@ case (7): {
                     if (_this isKindOf QEGVAR(spectate,spectator)) then {
                         [format ["%1 (SPECTATOR)", name _this], 10]
                     } else {
-                        if ([_this] call _fnc_hasMarkerAttached) then {
+                        if ([_this] call EFUNC(markers,hasMarkerAttached)) then {
                             [format ["%1", name _this], 0, _side + _markerText]
                         } else {
                             [format ["%1", name _this], 5]
                         }
                     }
                 } else {
-                    if ([_this] call _fnc_hasMarkerAttached) then {
-                        [format ["%1 (DEAD)", name _this], 1, _side + _markerText]
+                    if ([_this] call EFUNC(markers,hasMarkerAttached)) then {
+                        [format ["%1 (DEAD)", [_this] call ACEFUNC(common,getName)], 1, _side + _markerText]
                     } else {
-                        [format ["%1 (DEAD)", name _this], 5]
+                        [format ["%1 (DEAD)", [_this] call ACEFUNC(common,getName)], 5]
                     }
                 }
             }

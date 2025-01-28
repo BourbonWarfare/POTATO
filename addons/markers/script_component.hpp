@@ -2,7 +2,7 @@
 #include "\z\potato\addons\core\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
-// #define DISABLE_COMPILE_CACHE
+#define DISABLE_COMPILE_CACHE
 // #define ENABLE_PERFORMANCE_COUNTERS
 
 #ifdef DEBUG_ENABLED_MARKERS
@@ -157,6 +157,7 @@ if (_CBAjipArray isEqualType []) then {\
 }
 
 #define CBA_JIP_QUEUE_OBJECT cba_events_eventNamespaceJIP
+// Also used in adminMenu script component
 #define POTATO_MARKER_JIP_PREFIX "potato_marks:"
 #define POTATO_MARKER_JIP_PREFIX_LENGTH 13
 #define MARKER_DRAW_HASH_REFRESH_TIME 10
