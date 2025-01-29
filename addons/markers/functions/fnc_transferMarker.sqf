@@ -15,7 +15,7 @@
  * Example:
  * [cursorObject] call potato_markers_fnc_updateMarkerEvent;
  *
- * Public: No
+ * Public: Yes
  */
 params [
     ["_hashKey", "", [""]],
@@ -34,8 +34,8 @@ if !(isNull _newSide) then {
     _markerArray set [6, _newSide];
 };
 
-if (isServer) then {
-    CBA_UPDATE_JIPQUEUE(_hashKey,_markerArray);
+if (isServer) then {// server updates cache for JIPs
+    GVAR(markerCache) setVariable [POTATO_MARKER_JIP_PREFIX + _hashKey, _markerArray, true];
 };
 
 if (_markerArray#6 in ([] call FUNC(getSideArray))) then {

@@ -1,8 +1,8 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function handles the QGVAR(addMarker) event, which adds both
- * local and non-local markers to a players marker hash.
+ * This function adds both local and non-local markers to
+ * a players marker hash.
  *
  * Arguments:
  * 0: Hashkey of marker, we send the event because the object
@@ -18,7 +18,7 @@
  * Example:
  * [groupID player, getPosATL player, player, side player, "Yar"] call potato_markers_fnc_addMarkerEvent;
  *
- * Public: No
+ * Public: Yes
  */
 TRACE_1("Add marker event",_this);
 params [
@@ -32,8 +32,8 @@ params [
     ["_size", DEFAULT_MARKER_SIZE, [DEFAULT_MARKER_SIZE]]
 ];
 
-if (_hashKey == "") exitWith {
-    WARNING_1("No hashkey passed| _this:%1",_this);
+if (_hashKey == "" || !(_side in [west, resistance, east, civilian])) exitWith {
+    WARNING_1("No hashkey passed or side logic| _this:%1",_this);
 };
 
 _pos = if (isNull _object) then {

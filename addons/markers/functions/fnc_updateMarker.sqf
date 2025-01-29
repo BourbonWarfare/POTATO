@@ -15,7 +15,7 @@
  * Example:
  * [groupID player, "Yar", 3,] call potato_markers_fnc_addMarkerEvent;
  *
- * Public: No
+ * Public: Yes
  */
 params [
     ["_hashKey", "", [""]],
@@ -49,8 +49,8 @@ if (_newColor isEqualType []) then {
 _markerArray set [4, _newSize];
 _markerArray set [5, getPosATL _markerArray#0];
 
-if (isServer) then {
-    CBA_UPDATE_JIPQUEUE(_hashKey,_markerArray);
+if (isServer) then {// server updates cache for JIPs
+    GVAR(markerCache) setVariable [POTATO_MARKER_JIP_PREFIX + _hashKey, _markerArray, true];
 };
 
 if (_markerArray#6 in ([] call FUNC(getSideArray))) then {

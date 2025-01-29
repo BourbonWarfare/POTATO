@@ -47,6 +47,9 @@ LOG("Post init start");
             };
             if (GVAR(intraFireteamEnabled)) then {
                 [] call FUNC(initLocalMarkers);
+                if (didJIP) then {
+                    [] call FUNC(reinitMarkerHash);
+                };
             };
         } else {
             GVAR(skipInstallingEH) = true; // skip installing marker EHs
