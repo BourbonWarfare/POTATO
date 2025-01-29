@@ -10,14 +10,17 @@ PREP_RECOMPILE_END;
 
 GVAR(markerHash) = createHashMap;
 GVAR(drawHash) = createHashMap;
+GVAR(markerPosSync) = createHashMap;
 GVAR(nextUpdate) = -9999;
 GVAR(nextUpdateDrawHash) = -MARKER_DRAW_HASH_REFRESH_TIME;
 GVAR(settingsInitialized) = false;
 GVAR(settingsDelayedFunctions) = [];
 GVAR(autoclaimGroupMarker) = false;
-[QGVAR(addMarker), LINKFUNC(addMarkerEvent)] call CBA_fnc_addEventHandler;
-[QGVAR(deleteMarker), LINKFUNC(deleteMarkerEvent)] call CBA_fnc_addEventHandler;
-[QGVAR(transferMarker), LINKFUNC(transferMarkerEvent)] call CBA_fnc_addEventHandler;
-[QGVAR(updateMarker), LINKFUNC(updateMarkerEvent)] call CBA_fnc_addEventHandler;
+
+
+
+if (isServer) then {
+    missionNamespace setVariable [QGVAR(markerCache), true call CBA_fnc_createNamespace, true];
+};
 
 ADDON = true;

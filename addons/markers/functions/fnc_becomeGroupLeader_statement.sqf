@@ -23,5 +23,5 @@ private _markerArray = GVAR(markerHash) getOrDefault [_hashKey, []];
 if (_markerArray isNotEqualTo [] &&
     _hashKey != "" &&
     (_markerArray#0 isEqualType grpNull || {_markerArray#0 != _player})) then {
-    [QGVAR(transferMarker), [_hashKey, _player]] call CBA_fnc_globalEvent;
+    [_hashKey, _player] remoteExecCall [QFUNC(transferMarker)];
 };

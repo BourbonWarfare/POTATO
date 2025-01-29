@@ -32,7 +32,7 @@ private _hashKey = if (_drawObject isEqualType grpNull) then {
 
 if (isNull _drawObject || !_localObject || _hashKey == ""
     || {!(_drawObject getVariable [QGVAR(addMarker), false])}
-    || {_hashKey in GVAR(drawHash)}) exitWith {
+    || {_hashKey in GVAR(markerHash)}) exitWith {
     TRACE_3("Not adding marker info (exiting early)",_drawObject,_localObject,_hashKey);
     false
 };
@@ -54,15 +54,14 @@ if (_drawObject isEqualType grpNull) then {
     _drawObject = leader _drawObject;
 };
 
-private _markerEventArray = [_hashKey, getPosATL _drawObject, _drawObject, side _drawObject, _text, _color, _icon, _size];
+private _markerArray = [_hashKey, getPosATL _drawObject, _drawObject, side _drawObject, _text, _color, _icon, _size];
 private _endIndex = 8;
 if (_size == DEFAULT_MARKER_SIZE) then {_endIndex = 7};
 if (_icon == DEFAULT_MARKER_ICON_INDEX && _endIndex == 7) then {_endIndex = 6};
 
-[
-    QGVAR(addMarker),
-    _markerEventArray select [0, _endIndex],
-    POTATO_MARKER_JIP_PREFIX + _hashKey
-] call CBA_fnc_globalEventJIP;
+_markerArray = _markerArray select [0, _endIndex];
+TRACE_1("Final marker array",_markerArray);
+GVAR(markerCache) setVariable [POTATO_MARKER_JIP_PREFIX + _hashKey, _markerArray, true];
+_markerArray remoteExecCall [QFUNC(addMarker)];
 
 true

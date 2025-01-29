@@ -28,7 +28,7 @@ private _sizeFactor = (_mapSize + 1) / 2;
 if (GVAR(groupAndUnitEnabled)) then {
     private _recalc = diag_tickTime > GVAR(nextUpdate);
     if (_recalc) then {
-        GVAR(nextUpdate) = diag_tickTime + GVAR(groupAndUnitUpdateDelay)
+        GVAR(nextUpdate) = diag_tickTime + GVAR(groupAndUnitUpdateDelay);
     };
 
     if (diag_tickTime > GVAR(nextUpdateDrawHash) && _recalc) then {
@@ -46,25 +46,27 @@ if (GVAR(groupAndUnitEnabled)) then {
     };
 
     {
+#ifdef DEBUG_MODE_DRAW
         TRACE_2("icon data",_x,_y);
-        _y params ["_drawObject", "_text", "_icon", "_color", "_size", "_position"];
+#endif
+        _y params ["_drawObject", "_text", "_icon", "_color", "_size", "_posATL"];
 
         if (_recalc) then {
             if !(isNull _drawObject) then {
                 if (_drawObject isEqualType grpNull) then {
                     if (isNull (leader _drawObject)) exitWith {};
-                    _position = position (leader _drawObject);
+                    _posATL = getPosATL (leader _drawObject);
                 } else {
-                    _position = position _drawObject;
+                    _posATL = getPosATL _drawObject;
                 };
-                _y set [5, _position];
+                _y set [5, _posATL];
             };
         };
 
         _mapControl drawIcon [
             _icon,
             _color,
-            _position,
+            _posATL,
             _size * _sizeFactor,
             _size * _sizeFactor,
             0,
