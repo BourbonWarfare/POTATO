@@ -9,3 +9,8 @@ enabled = true
 options.ignore = [
     "ACRE_CORE_INIT", "ACRE_DATA_SYNCED", "ACRE_MAP_LOADED", "ACRE_IS_SPECTATOR"
 ]
+
+[sqf.banned_commands]
+options.ignore = [
+    "addPublicVariableEventHandler", # Alternate syntax doesn't work, used in markers post init
+]
