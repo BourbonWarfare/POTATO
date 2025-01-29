@@ -45,7 +45,7 @@
     if (isNull _unit || {!local _unit}) exitWith {};
 
     diag_log text format ["[POTATO] Calling %1", QEFUNC(markers,initMarkerHash)];
-    [] call EFUNC(markers,initMarkerHash);
+    [] call EFUNC(markers,reinitMarkerHash);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(missionTestingAddAction), {
