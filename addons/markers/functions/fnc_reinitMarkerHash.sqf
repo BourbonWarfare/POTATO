@@ -3,13 +3,15 @@
  * Author: Lambda.Tigers
  * Function used to reinitialize the marker hash
  *
+ * Arguments:
+ * 0: Whether to sync marker positions with server, default false <BOOL>
  *
  * Examples:
  * [] call potato_markers_fnc_reinitMarkerHash;
  *
  * Public: Yes
  */
-
+params [["_forceSyncPos", false, [false]]];
 // reset markers and
 GVAR(markerHash) = createHashMap;
 GVAR(drawHash) = createHashMap;
@@ -25,3 +27,7 @@ TRACE_1("Found markers in JIP",count _markerJIPs);
         _markerArray call FUNC(addMarker);
     };
 } forEach _markerJIPs;
+
+if (_forceSyncPos) then {
+    [] call FUNC(requestMarkerPosSync);
+};
