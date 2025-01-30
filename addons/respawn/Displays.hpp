@@ -30,7 +30,7 @@ class GVAR(adminRespawn) {
         };
         class BackGroundFrame: RscFrame {
             idc = ADMIN_BGF_IDC;
-            text = "Wave Respawn Tool";
+            text = "Wave Reinforcement Tool";
             x = QUOTE(0.275 * safezoneW + safezoneX);
             y = QUOTE(0.24 * safezoneH + safezoneY);
             w = QUOTE(0.45 * safezoneW);
@@ -216,7 +216,7 @@ class GVAR(adminRespawn) {
         class OpenRespawnButton: RscButton {
             idc = ADMIN_OPEN_RESPAWN_BUTTON_IDC;
             onButtonClick = QUOTE(_this call FUNC(ui_handleRespawnStateClick));
-            text = "Open Respawn";
+            text = "Open Reinforcements";
             x = QUOTE(0.6 * safezoneW + safezoneX);
             y = QUOTE(0.52 * safezoneH + safezoneY);
             w = QUOTE(0.1 * safezoneW);
@@ -225,21 +225,21 @@ class GVAR(adminRespawn) {
             colorBackground[] = {COLOR_GREEN_INACTIVE};
             colorBackgroundActive[] = {COLOR_GREEN_ACTIVE};
             colorBackgroundDisabled[] = {COLOR_BLACK};
-            tooltip = "Open respawn to current spectators";
-            sizeEx = QUOTE(0.75 * TEXT_SIZE_FACTOR);
+            tooltip = "Open reinforcement wave to current spectators";
+            sizeEx = QUOTE(0.6 * TEXT_SIZE_FACTOR);
         };
         class CloseRespawnButton: OpenRespawnButton {
             idc = ADMIN_CLOSE_RESPAWN_BUTTON_IDC;
-            text = "Close Respawn";
+            text = "Close Reinforcements";
             colorFocused[] = {COLOR_RED_INACTIVE};
             colorBackground[] = {COLOR_RED_INACTIVE};
             colorBackgroundActive[] = {COLOR_RED_ACTIVE};
-            tooltip = "Close respawn to current spectators";
+            tooltip = "Close reinforcement slotting to current spectators";
         };
         class TriggerButton: RscButton {
             idc = ADMIN_TRIGGER_BUTTON_IDC;
             onButtonClick = QUOTE(_this call FUNC(ui_handleTriggerClick));
-            text = "Trigger Respawn";
+            text = "Trigger Reinforcements";
             x = QUOTE(0.6 * safezoneW + safezoneX);
             y = QUOTE(0.58 * safezoneH + safezoneY);
             w = QUOTE(0.1 * safezoneW);
@@ -248,13 +248,13 @@ class GVAR(adminRespawn) {
             colorBackground[] = {COLOR_BLUE_INACTIVE};
             colorBackgroundActive[] = {COLOR_BLUE_ACTIVE};
             colorBackgroundDisabled[] = {COLOR_BLACK};
-            tooltip = "Trigger respawn with the players in the active groups";
-            sizeEx = QUOTE(0.75 * TEXT_SIZE_FACTOR);
+            tooltip = "Trigger reinforcement wave with the players in the active groups";
+            sizeEx = QUOTE(0.6 * TEXT_SIZE_FACTOR);
         };
         class CancelButton: RscButton {
             idc = ADMIN_CANCEL_BUTTON_IDC;
             onButtonClick = QUOTE(_this call FUNC(ui_handleCancelClick));
-            text = "Cancel Respawn";
+            text = "Cancel Reinforcements";
             x = QUOTE(0.6 * safezoneW + safezoneX);
             y = QUOTE(0.64 * safezoneH + safezoneY);
             w = QUOTE(0.1 * safezoneW);
@@ -263,8 +263,8 @@ class GVAR(adminRespawn) {
             colorBackground[] = {COLOR_RED_INACTIVE};
             colorBackgroundActive[] = {COLOR_RED_ACTIVE};
             colorBackgroundDisabled[] = {COLOR_BLACK};
-            tooltip = "Cancels the currently configured respawn";
-            sizeEx = QUOTE(0.75 * TEXT_SIZE_FACTOR);
+            tooltip = "Cancels the currently configured reinforcements";
+            sizeEx = QUOTE(0.6 * TEXT_SIZE_FACTOR);
         };
         class ChatButtonOn: RscButton {
             idc = ADMIN_CHAT_BUTTON_ON_IDC;
@@ -332,7 +332,7 @@ class GVAR(respawnEula) {
         };
         class BackGroundFrame: RscFrame {
             idc = EULA_BGF_IDC;
-            text = "Wave Respawn Tool End User License Agreement";
+            text = "Wave Reinforcement Tool End User License Agreement";
             x = QUOTE(0.425 * safezoneW + safezoneX);
             y = QUOTE(0.36 * safezoneH + safezoneY);
             w = QUOTE(0.125 * safezoneW);
@@ -363,7 +363,7 @@ class GVAR(respawnEula) {
             colorBackground[] = {COLOR_GREEN_INACTIVE};
             colorBackgroundActive[] = {COLOR_GREEN_ACTIVE};
             colorBackgroundDisabled[] = {COLOR_BLACK};
-            tooltip = "Agree to the EULA as described above, and open the respawn tool";
+            tooltip = "Agree to the EULA as described above, and open the Reinforcement tool";
             sizeEx = QUOTE(0.7 * TEXT_SIZE_FACTOR);
         };
         class DeclineButton: RscButton {
@@ -402,7 +402,7 @@ class GVAR(clientRespawn) {
         };
         class BackGroundFrame: RscFrame {
             idc = CLIENT_BGF_IDC;
-            text = "Client Respawn Tool";
+            text = "Client Reinforcement Tool";
             x = QUOTE(0.375 * safezoneW + safezoneX);
             y = QUOTE(0.36 * safezoneH + safezoneY);
             w = QUOTE(0.225 * safezoneW);
