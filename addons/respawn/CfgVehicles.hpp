@@ -6,7 +6,7 @@ class CfgVehicles {
     // placeable respawn point to aide respawning
     class GVAR(placeRespawnPoint): Module_F {
         author = QUOTE(PREFIX);
-        displayName = "Respawn Point";
+        displayName = "Reinforcement Point";
         category = QGVAR(respawnFaction);
         icon = QPATHTOF(data\respawn_point);
         portrait = QPATHTOF(data\respawn_point);
@@ -31,7 +31,7 @@ class CfgVehicles {
 
     // zeus module to open respawn
     class GVAR(openRespawnMenu): GVAR(placeRespawnPoint) {
-        displayName = "Open Respawn";
+        displayName = "Open Reinforcement Slotting";
         icon = QPATHTOF(data\respawn_tool);
         portrait = QPATHTOF(data\respawn_tool);
         scope = 1;

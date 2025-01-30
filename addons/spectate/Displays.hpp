@@ -495,12 +495,12 @@ class GVAR(overlay) {
 
             onButtonClick = QUOTE([] spawn EFUNC(respawn,openClientRespawn));
 
-            x = QUOTE(safezoneX + safezoneW - 0.2);
+            x = QUOTE(safezoneX + safezoneW - 0.25);
             y = QUOTE(safezoneY + safezoneH - 0.08);
-            w = 0.2;
+            w = 0.25;
             h = 0.08;
 
-            text = "Open Respawn";
+            text = "Reinforcement Slots";
             colorBackground[] = {0,0,0,0.5};
             sizeEx = QUOTE(1.0 * YFACTOR);
         };
