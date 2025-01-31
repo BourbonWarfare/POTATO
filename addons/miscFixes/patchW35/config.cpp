@@ -1,6 +1,6 @@
 #include "\z\potato\addons\miscFixes\script_component.hpp"
 #undef COMPONENT
-#define COMPONENT miscFixes_patchWW35
+#define COMPONENT miscFixes_patchW35
 
 class CfgPatches {
     class ADDON {
