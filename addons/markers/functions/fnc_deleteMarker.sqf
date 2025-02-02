@@ -3,7 +3,7 @@
  * Author: Lambda.Tiger
  * This function deletes a marker locally, the marker can still be initialized
  * unless this function is run on the server. To remove a marker on all clients
- * remoteExecCall this function
+ * and for any JIP clients, remoteExecCall this function globally.
  *
  * Arguments:
  * 0: Hashkey of marker to delete <STRING>

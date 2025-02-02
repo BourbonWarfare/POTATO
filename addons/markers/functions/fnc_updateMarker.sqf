@@ -4,7 +4,8 @@
  * This function handles visual updates to a marker already in the marker cache
  * It updates a marker locally. The global marker cache will be updated when
  * this function is run on the server, but will not delete marker on current
- * units
+ * units.
+ * Function should be called by remoteExecCall or by global event.
  *
  * Arguments:
  * 0: Hashkey of marker <STRING>

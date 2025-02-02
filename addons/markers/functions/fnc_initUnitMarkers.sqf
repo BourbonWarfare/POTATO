@@ -1,10 +1,11 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function will initialize markers for a local unit
+ * This function will initialize markers for a local unit.
+ * This function is mainly used for when a unit is switch (i.e., respawns)
  *
  * Argument:
- * 0: The unit to init
+ * 0: The unit to init <OBJECT>
  *
  * Example:
  * [cursorObject] call potato_markers_fnc_initUnitMarkers;

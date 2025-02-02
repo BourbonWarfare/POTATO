@@ -1,7 +1,8 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function will join a player silently to another
+ * This function will join a player silently to another and
+ * drop any marker they had before leaving
  *
  * Arguments:
  * ACE action args
