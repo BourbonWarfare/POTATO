@@ -268,13 +268,11 @@ class CfgWeapons {
                 ACE_Flashlight_Colour = "White";
                 ACE_Flashlight_Size = 2.75;
                 ACE_Flashlight_Sound = 1;
-                direction = "flash";
                 innerAngle = 3;
                 outerAngle = 5;
                 coneFadeCoef = 6;
-                dayLight = 0;
                 useFlare = 1;
-                irLight = 0;
+                dayLight = 0;
                 flareMaxDistance = 250;
                 flareSize = 2;
                 intensity = 120;
@@ -303,9 +301,8 @@ class CfgWeapons {
                 ACE_Flashlight_Sound = 1;
                 innerAngle = 5;
                 outerAngle = 40;
-                dayLight = 0;
                 useFlare = 1;
-                irLight = 0;
+                dayLight = 0;
                 flareMaxDistance = 80;
                 flareSize = 1.4;
                 intensity = 80;
@@ -333,9 +330,8 @@ class CfgWeapons {
                 ACE_Flashlight_Colour = "White";
                 ACE_Flashlight_Size = 2.75;
                 ACE_Flashlight_Sound = 1;
-                dayLight = 0;
                 useFlare = 1;
-                irLight = 0;
+                dayLight = 0;
                 flareMaxDistance = 60;
                 flareSize = 1;
                 intensity = 50;
@@ -360,14 +356,11 @@ class CfgWeapons {
             class FlashLight: FlashLight {
                 ACE_Flashlight_Beam = "\z\ace\addons\flashlights\UI\Flashlight_Beam_yellow_ca.paa";
                 ACE_Flashlight_Colour = "Yellow";
-                ACE_Flashlight_Size = 2.75;
-                ACE_Flashlight_Sound = 1;
+                ACE_Flashlight_Size = 1;
                 innerAngle = 3;
                 outerAngle = 5;
                 coneFadeCoef = 6;
-                dayLight = 0;
                 useFlare = 1;
-                irLight = 0;
                 flareMaxDistance = 200;
                 flareSize = 2;
                 intensity = 80;
@@ -389,13 +382,10 @@ class CfgWeapons {
             class FlashLight: FlashLight {
                 ACE_Flashlight_Beam = "\z\ace\addons\flashlights\UI\Flashlight_Beam_yellow_ca.paa";
                 ACE_Flashlight_Colour = "Yellow";
-                ACE_Flashlight_Size = 2.75;
-                ACE_Flashlight_Sound = 1;
+                ACE_Flashlight_Size = 1;
                 innerAngle = 5;
                 outerAngle = 40;
-                dayLight = 0;
                 useFlare = 1;
-                irLight = 0;
                 flareMaxDistance = 40;
                 flareSize = 0.7;
                 intensity = 40;
@@ -419,11 +409,8 @@ class CfgWeapons {
             class FlashLight: FlashLight {
                 ACE_Flashlight_Beam = "\z\ace\addons\flashlights\UI\Flashlight_Beam_yellow_ca.paa";
                 ACE_Flashlight_Colour = "Yellow";
-                ACE_Flashlight_Size = 2.75;
-                ACE_Flashlight_Sound = 1;
-                dayLight = 0;
+                ACE_Flashlight_Size = 1;
                 useFlare = 1;
-                irLight = 0;
                 flareMaxDistance = 40;
                 flareSize = 0.25;
                 intensity = 20;
@@ -447,14 +434,11 @@ class CfgWeapons {
             class FlashLight: FlashLight {
                 ACE_Flashlight_Beam = "\z\ace\addons\flashlights\UI\Flashlight_Beam_red_ca.paa";
                 ACE_Flashlight_Colour = "Red";
-                ACE_Flashlight_Size = 2.75;
-                ACE_Flashlight_Sound = 1;
+                ACE_Flashlight_Size = 1;
                 innerAngle = 3;
                 outerAngle = 5;
                 coneFadeCoef = 6;
-                dayLight = 0;
                 useFlare = 1;
-                irLight = 0;
                 flareMaxDistance = 200;
                 flareSize = 2;
                 intensity = 80;
@@ -476,13 +460,10 @@ class CfgWeapons {
             class FlashLight: FlashLight {
                 ACE_Flashlight_Beam = "\z\ace\addons\flashlights\UI\Flashlight_Beam_red_ca.paa";
                 ACE_Flashlight_Colour = "Red";
-                ACE_Flashlight_Size = 2.75;
-                ACE_Flashlight_Sound = 1;
+                ACE_Flashlight_Size = 1;
                 innerAngle = 5;
                 outerAngle = 40;
-                dayLight = 0;
                 useFlare = 0;
-                irLight = 0;
                 flareMaxDistance = 80;
                 flareSize = 1.4;
                 intensity = 40;
@@ -508,9 +489,7 @@ class CfgWeapons {
                 ACE_Flashlight_Colour = "Red";
                 ACE_Flashlight_Size = 2.75;
                 ACE_Flashlight_Sound = 1;
-                dayLight = 0;
                 useFlare = 0;
-                irLight = 0;
                 flareMaxDistance = 60;
                 flareSize = 1;
                 intensity = 20;
@@ -532,12 +511,11 @@ class CfgWeapons {
         baseWeapon = QGVAR(acc_cup_Flashlight_05);
         class ItemInfo: ItemInfo {
             class FlashLight: FlashLight {
+                ACE_Flashlight_Size = 1;
                 innerAngle = 3;
                 outerAngle = 5;
                 coneFadeCoef = 6;
-                dayLight = 0;
                 useFlare = 1;
-                irLight = 0;
                 flareMaxDistance = 160;
                 flareSize = 2;
                 intensity = 80;
@@ -555,11 +533,10 @@ class CfgWeapons {
         MRT_switchItemHintText = "Flashlight (White)";
         class ItemInfo: ItemInfo {
             class FlashLight: FlashLight {
+                ACE_Flashlight_Size = 1;
                 innerAngle = 5;
                 outerAngle = 40;
-                dayLight = 0;
                 useFlare = 1;
-                irLight = 0;
                 flareMaxDistance = 80;
                 flareSize = 1.4;
                 intensity = 40;
@@ -578,9 +555,8 @@ class CfgWeapons {
         baseWeapon = QGVAR(acc_cup_Flashlight_05);
         class ItemInfo: ItemInfo {
             class FlashLight: FlashLight {
-                dayLight = 0;
+                ACE_Flashlight_Size = 1;
                 useFlare = 1;
-                irLight = 0;
                 flareMaxDistance = 60;
                 flareSize = 1;
                 intensity = 20;
