@@ -39,11 +39,11 @@ if (_markerArray isEqualTo []) exitWith {
 };
 if (group _markerArray#0 != group _selectedUnit) then {
     private _newHashKey = groupId group _selectedUnit;
-    [[
+    [
         _newHashKey,
         getPosATL _selectedUnit, _selectedUnit, side _selectedUnit,
         _markerArray#1, _markerArray#3, _markerArray#2, _markerArray#4
-    ]] remoteExecCall [QEFUNC(markers,addMarker)];
+    ] remoteExecCall [QEFUNC(markers,addMarker)];
     [_hashKey] remoteExecCall [QEFUNC(markers,deleteMarker)];
 } else {
     [_hashKey, _selectedUnit] remoteExecCall [QEFUNC(markers,transferMarker)];
