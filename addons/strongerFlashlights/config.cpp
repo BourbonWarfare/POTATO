@@ -21,7 +21,7 @@ class CfgPatches {
         requiredAddons[] = {"cup_weapons_east_attachments", "cup_weapons_west_attachments", "ace_laserpointer"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
-        authors[] = {"Carl", "Chesheire"};
+        authors[] = {"Carl", "Chesheire", "Lambda.Tiger"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };
