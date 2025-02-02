@@ -2,6 +2,9 @@
 /*
  * Author: Lambda.Tiger
  * This function handles visual updates to a marker already in the marker cache
+ * It updates a marker locally. The global marker cache will be updated when
+ * this function is run on the server, but will not delete marker on current
+ * units
  *
  * Arguments:
  * 0: Hashkey of marker <STRING>
@@ -13,7 +16,7 @@
  *      (OPTIONAL, default -1 or no change)
  *
  * Example:
- * [groupId group player, "Yar", 3,] call potato_markers_fnc_addMarkerEvent;
+ * [groupId group player, "Yar", 3] call potato_markers_fnc_updateMarker;
  *
  * Public: Yes
  */
@@ -48,7 +51,10 @@ if (_newColor isEqualType []) then {
     };
 };
 _markerArray set [4, _newSize];
-_markerArray set [5, getPosATL (_markerArray#0)];
+private _newPosATL = getPosATL (_markerArray#0);
+if (_newPosATL isNotEqualTo [0, 0, 0]) then {
+    _markerArray set [5, _newPosATL];
+};
 
 if (isServer) then {// server updates cache for JIPs, a bit of work since we "optimized" size
     private _markerCacheEntry = GVAR(markerCache) getVariable [POTATO_MARKER_JIP_PREFIX + _hashKey, []];

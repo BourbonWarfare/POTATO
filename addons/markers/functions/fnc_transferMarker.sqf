@@ -31,7 +31,10 @@ if (_markerArray isEqualTo []) exitWith {
 TRACE_2("Transfering marker",_this,_markerArray);
 
 _markerArray set [0, _newObject];
-_markerArray set [5, getPosATL _newObject];
+private _newPosATL = getPosATL _newObject;
+if (_newPosATL isNotEqualTo [0, 0, 0]) then {
+    _markerArray set [5, _newPosATL];
+};
 if !(isNull _newSide) then {
     _markerArray set [6, _newSide];
 };
