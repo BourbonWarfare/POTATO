@@ -19,7 +19,6 @@ PREP(uihook_giveAdminGun);
 PREP(uihook_safeStart);
 PREP(uihook_tabChange);
 PREP(uihook_supplySpawn);
-PREP(uihook_resetAllMarkers);
 PREP(uihook_resetGearButton);
 PREP(uihook_resetMarkersButton);
 PREP(uihook_resetMedicalButton);

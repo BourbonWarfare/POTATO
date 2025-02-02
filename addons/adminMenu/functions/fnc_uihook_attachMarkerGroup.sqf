@@ -39,16 +39,14 @@ if (_markerArray isEqualTo []) exitWith {
 };
 if (group _markerArray#0 != group _selectedUnit) then {
     private _newHashKey = groupId group _selectedUnit;
-    [QEGVAR(markers,addMarker), [
+    [[
         _newHashKey,
         getPosATL _selectedUnit, _selectedUnit, side _selectedUnit,
-        _markerArray#1, _markerArray#3, _markerArray#2, _markerArray#1
-    ], POTATO_MARKER_JIP_PREFIX + _newHashKey] call CBA_fnc_globalEventJIP;
-    [QEGVAR(markers,deleteMarker), [_hashKey]] call CBA_fnc_globalEvent;
+        _markerArray#1, _markerArray#3, _markerArray#2, _markerArray#4
+    ]] remoteExecCall [QEFUNC(markers,addMarker)];
+    [_hashKey] remoteExecCall [QEFUNC(markers,deleteMarker)];
 } else {
-    [QEGVAR(markers,transferMarker), [
-        _hashKey, _selectedUnit
-    ]] call CBA_fnc_globalEvent;
+    [_hashKey, _selectedUnit] remoteExecCall [QEFUNC(markers,transferMarker)];
 };
 
 ["potato_adminMsg", [
@@ -59,4 +57,6 @@ if (group _markerArray#0 != group _selectedUnit) then {
     ],
     profileName
 ]] call CBA_fnc_globalEvent;
-[0, UI_TABS_INDEX_MARKERS] call FUNC(uihook_tabChange);
+[{
+    [0, UI_TABS_INDEX_MARKERS] call FUNC(uihook_tabChange);
+}, 0, 0.25] call CBA_fnc_waitAndExecute;

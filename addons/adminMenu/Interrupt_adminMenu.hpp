@@ -524,7 +524,7 @@ class GVAR(adminMenuDialog) {
                 };
                 class ResetMarkersButton: RscButton {
                     idc = -1;
-                    text = "Backup - Reset Markers";
+                    text = "Reset Markers";
                     x = QUOTE(0.255 * safezoneW);
                     y = QUOTE(0.32 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
@@ -562,14 +562,14 @@ class GVAR(adminMenuDialog) {
                     idc = IDC_LISTBOX_MARKERS_PLAYERS;
                     x = QUOTE(0.01 * safezoneW);
                     y = QUOTE(0.01 * safezoneH);
-                    w = QUOTE(0.2 * safezoneW);
+                    w = QUOTE(0.18 * safezoneW);
                     h = QUOTE(0.56 * safezoneH);
                     sizeEx = QUOTE(0.025 * safezoneH);
                 };
                 class MarkerList: PlayerList {
                     idc = IDC_LISTBOX_MARKERS_MARKERS;
-                    x = QUOTE(0.22 * safezoneW);
-                    w = QUOTE(0.1 * safezoneW);
+                    x = QUOTE(0.2 * safezoneW);
+                    w = QUOTE(0.12 * safezoneW);
                     sizeEx = QUOTE(0.025 * safezoneH);
                 };
                 class attachMarkerToClient: RscButton {
@@ -583,26 +583,32 @@ class GVAR(adminMenuDialog) {
                 };
                 class attachMarkerToGroup: attachMarkerToClient {
                     text = "Attach Marker to Unit Group";
-                    y = QUOTE(0.12 * safezoneH);
+                    y = QUOTE(0.1 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_attachMarkerGroup));
                 };
                 class detatchMarker: attachMarkerToClient {
                     idc = -1;
                     text = "Detatch Marker";
-                    y = QUOTE(0.22 * safezoneH);
+                    y = QUOTE(0.18 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_detachMarker));
                 };
                 class deleteMarker: attachMarkerToClient {
                     idc = -1;
                     text = "Delete Marker";
-                    y = QUOTE(0.32 * safezoneH);
+                    y = QUOTE(0.26 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_deleteMarker));
+                };
+                class fixMarkerKey: attachMarkerToClient {
+                    idc = -1;
+                    text = "Fix Marker Key";
+                    y = QUOTE(0.34 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_resetMarkerKey));
                 };
                 class resetAllMarkers: attachMarkerToClient {
                     idc = -1;
-                    text = "Reset All Markers";
+                    text = "Reinit All Markers";
                     y = QUOTE(0.42 * safezoneH);
-                    action = QUOTE([] call FUNC(uihook_resetAllMarkers));
+                    action = QUOTE(remoteExecCall [QQEFUNC(markers,reinitMarkerHash)]);
                 };
             };
         };

@@ -14,7 +14,7 @@ private _fnc_setListOfPlayers = {
 
     lbClear _listCtrl;
 
-    private _playerList = ((entities [["CAManBase"], ["HeadlessClient_F"], true, true]) select { true || isPlayer _x });
+    private _playerList = ((entities [["CAManBase"], ["HeadlessClient_F"], true, true]) select { isPlayer _x });
 
     {
         if (_x call _condition) then {
@@ -239,25 +239,35 @@ case (7): {
             }
         ] call _fnc_setListOfPlayers;
     };
-    case UI_TABS_INDEX_MARKERS: {
+case UI_TABS_INDEX_MARKERS: {
         TRACE_1("showing markers tab",_sel);
         private _display = uiNamespace getVariable QGVAR(adminMenuDialog);
 
+        // Setup marker list
         private _markerList = _display displayCtrl IDC_LISTBOX_MARKERS_MARKERS;
         lbClear _markerList;
         {
-            _y params ["_object", "_text", "_icon", "_color"];
-            private _side = switch (side _object) do {
+            _y params ["_object", "_text", "_icon", "_color", "", "", "_side"];
+            private _sideText = switch (_side) do {
                 case west: {"BluFor"};
                 case east: {"OpFor"};
                 case resistance: {"IndFor"};
                 case civilian: {"Civ"};
                 default {"None "};
             };
-            private _entry = _markerList lbAdd format ["%1 %2", _side, _text];
+            private _entry = _markerList lbAdd format ["%1 %2", _sideText, _text];
             _markerList lbSetPictureRight [_entry, _icon];
             _markerList lbSetPictureRightColor [_entry, _color];
             _markerList lbSetPictureRightColorSelected [_entry, _color];
+            if !(isPlayer _object) then {
+                if (isNull _object) then {
+                    _markerList lbSetTextRight [_entry, "NA"];
+                    _markerList lbSetTooltip [_entry, "Marker not attached"];
+                } else {
+                    _markerList lbSetTextRight [_entry, "AI"];
+                    _markerList lbSetTooltip [_entry, "Marker attached to AI"];
+                };
+            };
             _markerList lbSetData [_entry, _x];
         } forEach EGVAR(markers,markerHash);
         lbSort _markerList;

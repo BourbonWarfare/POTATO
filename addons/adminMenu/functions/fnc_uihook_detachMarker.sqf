@@ -24,10 +24,13 @@ private _hashKey = _markerList lbData _selectedMarkerIndex;
 
 TRACE_1("Found marker hash",_hashKey);
 
-[QEGVAR(markers,transferMarker), [_hashKey]] call CBA_fnc_globalEvent;
 
+[_hashKey] remoteExecCall [QEFUNC(markers,transferMarker)];
 ["potato_adminMsg", [
     format ["Detached marker: %1", _hashKey],
     profileName
 ]] call CBA_fnc_globalEvent;
-[0, UI_TABS_INDEX_MARKERS] call FUNC(uihook_tabChange);
+[{
+    [0, UI_TABS_INDEX_MARKERS] call FUNC(uihook_tabChange);
+}, 0, 0.25] call CBA_fnc_waitAndExecute;
+

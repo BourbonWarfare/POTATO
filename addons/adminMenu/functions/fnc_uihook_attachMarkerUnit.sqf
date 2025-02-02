@@ -39,12 +39,12 @@ if (_markerArray isEqualTo []) exitWith {
 };
 
 private _newHashKey = str _selectedUnit;
-[QEGVAR(markers,addMarker), [
+[[
     _newHashKey,
     getPosATL _selectedUnit, _selectedUnit, side _selectedUnit,
-    _markerArray#1, _markerArray#3, _markerArray#2, _markerArray#1
-], POTATO_MARKER_JIP_PREFIX + _newHashKey] call CBA_fnc_globalEventJIP;
-[QEGVAR(markers,deleteMarker), [_hashKey]] call CBA_fnc_globalEvent;
+    _markerArray#1, _markerArray#3, _markerArray#2, _markerArray#4
+]] remoteExecCall [QEFUNC(markers,addMarker)];
+[_hashKey] remoteExecCall [QEFUNC(markers,deleteMarker)];
 
 ["potato_adminMsg", [
     format ["Transfering marker %1 to %2",
@@ -53,4 +53,6 @@ private _newHashKey = str _selectedUnit;
     ],
     profileName
 ]] call CBA_fnc_globalEvent;
-[0, UI_TABS_INDEX_MARKERS] call FUNC(uihook_tabChange);
+[{
+    [0, UI_TABS_INDEX_MARKERS] call FUNC(uihook_tabChange);
+}, 0, 0.25] call CBA_fnc_waitAndExecute;
