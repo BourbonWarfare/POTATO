@@ -37,7 +37,7 @@ private _markerArray = EGVAR(markers,markerHash) getOrDefault [_hashKey, []];
 if (_markerArray isEqualTo []) exitWith {
     TRACE_1("Bad marker selected",_hashKey);
 };
-if (group _markerArray#0 != group _selectedUnit) then {
+if (group (_markerArray#0) != group _selectedUnit) then {
     private _newHashKey = groupId group _selectedUnit;
     [
         _newHashKey,
@@ -59,4 +59,4 @@ if (group _markerArray#0 != group _selectedUnit) then {
 ]] call CBA_fnc_globalEvent;
 [{
     [0, UI_TABS_INDEX_MARKERS] call FUNC(uihook_tabChange);
-}, 0, 0.25] call CBA_fnc_waitAndExecute;
+}, 0, 0.1] call CBA_fnc_waitAndExecute;

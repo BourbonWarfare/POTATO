@@ -55,4 +55,4 @@ private _newHashKey = str _selectedUnit;
 ]] call CBA_fnc_globalEvent;
 [{
     [0, UI_TABS_INDEX_MARKERS] call FUNC(uihook_tabChange);
-}, 0, 0.25] call CBA_fnc_waitAndExecute;
+}, 0, 0.1] call CBA_fnc_waitAndExecute;
