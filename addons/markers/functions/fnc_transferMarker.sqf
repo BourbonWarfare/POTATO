@@ -3,7 +3,8 @@
  * Author: Lambda.Tiger
  * This function handles transfer of a marker that does not require
  * change in marker name. This means group markers may become single
- * unit markers until that group attempts to reclaim the marker
+ * unit markers until that group attempts to reclaim the marker.
+ * It operates locally and should be called by remoteExecCall or by global event.
  *
  * Arguments:
  * 0: Hashkey of marker <STRING>
@@ -13,7 +14,7 @@
  *    (OPTIONAL, default no change)
  *
  * Example:
- * [cursorObject] call potato_markers_fnc_updateMarkerEvent;
+ * [cursorObject] call potato_markers_fnc_transferMarker;
  *
  * Public: Yes
  */
@@ -31,7 +32,10 @@ if (_markerArray isEqualTo []) exitWith {
 TRACE_2("Transfering marker",_this,_markerArray);
 
 _markerArray set [0, _newObject];
-_markerArray set [5, getPosATL _newObject];
+private _newPosATL = getPosATL _newObject;
+if (_newPosATL isNotEqualTo [0, 0, 0]) then {
+    _markerArray set [5, _newPosATL];
+};
 if !(isNull _newSide) then {
     _markerArray set [6, _newSide];
 };

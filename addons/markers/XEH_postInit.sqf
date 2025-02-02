@@ -1,4 +1,4 @@
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 call compileScript [QPATHTOF(vehicleTags\init.sqf)];
@@ -8,14 +8,12 @@ LOG("Post init start");
 [
     {
         ACEGVAR(common,settingsInitFinished)
-            && {!isNull player}
-            && {!isNull (group player)}
             && {(missionNamespace getVariable [QEGVAR(miscFixes,groupCleanupRan), false]) || {diag_tickTime > (_this select 0)}}
     },
     {
         TRACE_2("ACE Settings initialized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
-        if (isNil QEGVAR(miscFixes,groupCleanupRan)) then {ERROR_1("Server never set %1",QEGVAR(miscFixes,groupCleanupRan));};
         if (GVAR(groupAndUnitEnabled)) then {[] call FUNC(initLocalMarkers);}; // we always want everyone to submit markers
+        if (isNil QEGVAR(miscFixes,groupCleanupRan)) then {ERROR_1("Server never set %1",QEGVAR(miscFixes,groupCleanupRan));};
         if (hasInterface && GVAR(groupAndUnitEnabled) || GVAR(intraFireteamEnabled)) then {
             GVAR(skipInstallingEH) = false;
 
@@ -42,7 +40,15 @@ LOG("Post init start");
                         GVAR(drawHash) = createHashMap;
                         GVAR(nextUpdateDrawHash) = -1;
                     };
-                    [_newPlayer] call FUNC(initUnitMarkers);
+                    // not a fan of waiting here, is there a better way?
+                    // the respawn setVariable seems to happen/propagate after this event
+                    [{
+                        _this getVariable [QGVAR(addMarker), false] ||
+                        (group _this) getVariable [QGVAR(addMarker), false]
+                    }, {
+                        [_this] call FUNC(initUnitMarkers);
+                    }, _newplayer, 5
+                    ] call CBA_fnc_waitUntilAndExecute;
                 }] call CBA_fnc_addPlayerEventHandler;
                 if (didJIP) then {
                     [true] call FUNC(reinitMarkerHash);

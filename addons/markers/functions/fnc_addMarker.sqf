@@ -2,7 +2,7 @@
 /*
  * Author: Lambda.Tiger
  * This function adds both local and non-local markers to
- * a players marker hash.
+ * the local machine's marker hash.
  *
  * Arguments:
  * 0: Hashkey of marker, we send the event because the object

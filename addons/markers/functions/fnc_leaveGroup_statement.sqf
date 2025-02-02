@@ -1,14 +1,14 @@
 #include "..\script_component.hpp"
 /*
- * Author: AACO
- * Function used to draw markers
+ * Author: Lambda.Tiger
+ * This function handles a unit leaving a group and is used
+ * for the ACE "leave group" action statemnt override
  *
  * Arguments:
- * 0: Map control <CONTROL>
+ * 0: The unit attempting to leave a group <OBJECT>
  *
  * Examples:
- * [(findDisplay 12) displayCtrl 52] call potato_markers_fnc_drawMarkers; // draw markers on map
- * [(findDisplay 133) displayCtrl 101] call potato_markers_fnc_drawMarkers; // draw markers on GPS
+ * [cursorObject] call potato_markers_fnc_leaveGroup_statement;
  *
  * Public: No
  */

@@ -1,15 +1,18 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function deletes a marker event, removing markers from all players
- * and from the JIP sync'd variable
+ * This function deletes a marker locally, the marker can still be initialized
+ * unless this function is run on the server. To remove a marker on all clients
+ * and for any JIP clients, remoteExecCall this function globally.
  *
  * Arguments:
  * 0: Hashkey of marker to delete <STRING>
  *
  * Example:
- * ["fuckYeah"] call potato_markers_fnc_deleteMarkerEvent;
- * ["Blufor A1"] call potato_markers_fnc_deleteMarkerEvent;
+ * ["fuckYeah"] call potato_markers_fnc_deleteMarker;
+ * ["Blufor A1"] call potato_markers_fnc_deleteMarker;
+ * // Deletes marker everywhere
+ * ["Blufor A1"] remoteExecCall ["potato_markers_fnc_deleteMarker"];
  *
  * Public: Yes
  */

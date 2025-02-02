@@ -1,7 +1,8 @@
 #include "..\script_component.hpp"
 /*
- * Author: AACO
- * Function used to add unit/group marker information into the marker hash
+ * Author: AACO, Lambda.Tiger
+ * Function used to add unit/group marker information into the marker hash.
+ * Will broadcast new markers to other machines using remoteExec
  *
  * Arguments:
  * 0: Unit or Group to add to the marker system <OBJECT/GROUP>

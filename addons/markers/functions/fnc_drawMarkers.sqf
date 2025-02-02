@@ -46,7 +46,7 @@ if (GVAR(groupAndUnitEnabled)) then {
     };
 
     {
-#ifdef DEBUG_MODE_DRAW
+#ifdef DEBUG_MODE_DRAW_EH
         TRACE_2("icon data",_x,_y);
 #endif
         _y params ["_drawObject", "_text", "_icon", "_color", "_size", "_posATL"];
@@ -60,6 +60,9 @@ if (GVAR(groupAndUnitEnabled)) then {
                     _posATL = getPosATL _drawObject;
                 };
                 _y set [5, _posATL];
+                TRACE_2("Updating position",_drawObject,_posATL);
+            } else {
+                TRACE_1("Updating position, skip",_drawObject);
             };
         };
 

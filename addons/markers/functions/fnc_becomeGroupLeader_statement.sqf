@@ -1,14 +1,14 @@
 #include "..\script_component.hpp"
 /*
- * Author: AACO
- * Function used to draw markers
+ * Author: Lambda.Tiger
+ * This function handles the transfer for the ACE "become group leader"
+ * action statement override.
  *
  * Arguments:
- * 0: Map control <CONTROL>
+ * 0: The unit attempting to become leader of a group <OBJECT>
  *
  * Examples:
- * [(findDisplay 12) displayCtrl 52] call potato_markers_fnc_drawMarkers; // draw markers on map
- * [(findDisplay 133) displayCtrl 101] call potato_markers_fnc_drawMarkers; // draw markers on GPS
+ * [cursorObject] call potato_markers_fnc_becomeGroupLeader_statement;
  *
  * Public: No
  */

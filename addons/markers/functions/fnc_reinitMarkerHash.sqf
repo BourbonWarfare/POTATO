@@ -1,7 +1,8 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tigers
- * Function used to reinitialize the marker hash
+ * Function used to reinitialize the marker hash from the shared marker
+ * cache object
  *
  * Arguments:
  * 0: Whether to sync marker positions with server, default false <BOOL>
