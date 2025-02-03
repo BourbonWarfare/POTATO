@@ -80,7 +80,7 @@ class POTATO_EscapeButton_Base2: RscShortcutButton {
     shadow = 0;
     style = "0x02 + 0xC0";
     text = "R";
-    tooltip = "Respawn";
+    tooltip = "Reinforcements";
     x = "14.5 * (((safezoneW / safezoneH) min 1.2) / 40) + (safezoneX)";
     y = "2.3 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
     w = "1.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
