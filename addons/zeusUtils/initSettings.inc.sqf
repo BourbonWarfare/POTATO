@@ -28,7 +28,7 @@
 [
     QGVAR(missionFPSEnable), "CHECKBOX",
     ["Enable Zeus FPS counter", "Enable Zeus display of players FPS counters. Takes some network overhead."],
-    ["POTATO - Zeus", "Zeus Player FPS Display"],
+    ["POTATO - Mission Maker", "Zeus Utilities"],
     false,
     1,
     {},
