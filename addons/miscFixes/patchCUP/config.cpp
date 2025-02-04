@@ -25,6 +25,7 @@ class CfgVehicles {
     // Base classes
     class Car;
     class Car_F: Car {
+        class HitPoints;
         class Turrets;
     };
     // Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
@@ -85,6 +86,7 @@ class CfgVehicles {
     };
     // Tweaks to the GTK Boxer's handling (accel/braking) + HMG swap to M3M + countermeasures move to gunner
     class Wheeled_APC_F: Car_F {
+        class HitPoints: HitPoints {};
         class NewTurret;
         class Turrets {
             class MainTurret: NewTurret {
@@ -93,6 +95,14 @@ class CfgVehicles {
         };
     };
     class CUP_Boxer_Base: Wheeled_APC_F {
+        class HitPoints: HitPoints {
+            class HitEngine: HitEngine {
+                radius = 0.1;
+            };
+            class HitFuel: HitFuel {
+                radius = 0.1;
+            };
+        };
         class AnimationSources;
     };
     class CUP_Boxer_Base_HMG: CUP_Boxer_Base {
