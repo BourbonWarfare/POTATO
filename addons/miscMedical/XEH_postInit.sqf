@@ -338,7 +338,7 @@ FUNC(getChanceOfDeath) = {
 };
 
 DFUNC(generateVisuals) = {
-    params ["_position", "_explosiveMass", "_filler"];
+    params ["_positionASL", "_explosiveMass", "_filler"];
 
     private _distances = [0.05, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 3, 5, 10];
 
@@ -356,7 +356,7 @@ DFUNC(generateVisuals) = {
 
     [{
         _this params ["_args", "_handle"];
-        _args params ["_position", "_blastData", "_stopTime"];
+        _args params ["_positionASL", "_blastData", "_stopTime"];
 
         if (_stopTime >= 0 && { CBA_missionTime > _stopTime }) exitWith {
             [_handle] call CBA_fnc_removePerFrameHandler;
@@ -378,24 +378,24 @@ DFUNC(generateVisuals) = {
             for "_i" from 0 to (_maxIconsPerRing - 1) do {
                 private _angle = _i * 2 * pi / _maxIconsPerRing;
 
-                private _iconPosition = _position getPos [_distance, deg _angle];
+                private _iconPosition = _positionASL getPos [_distance, deg _angle];
 
                 drawIcon3D [
                     "\a3\ui_f\data\IGUI\Cfg\Cursors\explosive_ca.paa",
                     _colour,
-                    _iconPosition,
+                    ASLToAGL _iconPosition,
                     0.2, 0.2, 1,
                     format ["Distance: %1m Pressure: %2Pa Fatality Chance: %3 PsI: %4", _distance, _pressureAtPosition, _chanceOfFatality, _pressureAtPosition / 6895]
                 ];
             };
         } forEach _blastData;
-    }, 0, [_position, _blastData, CBA_missionTime + 10]] call CBA_fnc_addPerFrameHandler
+    }, 0, [_positionASL, _blastData, CBA_missionTime + 10]] call CBA_fnc_addPerFrameHandler
 };
 
 if (isServer) then {
     // add explosion event handler
     [QACEGVAR(frag,frag_eh), {
-        params ["_lastPos", "_explosive"];
+        params ["_posASL", "_explosive"];
         private _explosiveConfig = configFile >> "CfgAmmo" >> _explosive;
 
         // ACE_frag defines mass as grams, we do as kilograms
@@ -410,11 +410,11 @@ if (isServer) then {
             _mass = 1;
         };
 
-        _mass = [_mass, _lastPos] call FUNC(calculateHemisphericalBlastWeight);
+        _mass = [_mass, _posASL] call FUNC(calculateHemisphericalBlastWeight);
 
-        private _objects = (ASLToAGL _lastPos) nearEntities [["CAManBase"], 50];
+        private _objects = (ASLToAGL _posASL) nearEntities [["CAManBase"], 50];
         {
-            [QGVAR(explosion), [_lastPos, _mass, _filler, _x], _x] call CBA_fnc_targetEvent;
+            [QGVAR(explosion), [_posASL, _mass, _filler, _x], _x] call CBA_fnc_targetEvent;
         } forEach _objects;
 
         TRACE_4("explosion server",_explosive,_mass,_filler,count _objects);
@@ -425,18 +425,16 @@ if (isServer) then {
 
 if (hasInterface) then {
     [QGVAR(explosion), {
-        params ["_origin", "_mass", "_filler", "_unit"];
+        params ["_originASL", "_mass", "_filler", "_unit"];
         // move up with 5 centimeters for gameplay reasons: makes explosions feel better
-        _origin = _origin vectorAdd [0, 0, 0.05];
+        _originASL = _originASL vectorAdd [0, 0, 0.05];
         // if we can see the unit, that means that there is always going to be a pressure wave
         // if there is a pressure wave, use the closest distance regardless of whether or not it can be seen
         private _canSee = false;
         private _distance = 1e10;
         {
-            if !(_canSee) then {
-                _canSee = ([] isEqualTo lineIntersectsObjs [_origin, _x, objNull, _unit, false, 16 + 32]) && { !terrainIntersectASL [_origin, _x] };
-            };
-            _distance = (_x vectorDistance _origin) min _distance;
+            _canSee = _canSee || ([] isEqualTo lineIntersectsObjs [_originASL, _x, objNull, _unit, false, 16 + 32]) && { !terrainIntersectASL [_originASL, _x] };
+            _distance = (_x vectorDistance _originASL) min _distance;
         } forEach [eyePos _unit, getPosASLVisual _unit, aimPos _unit];
 
         private _tntEquivalent = [_mass, _filler] call FUNC(calculateTNTEquivalent);
@@ -450,7 +448,7 @@ if (hasInterface) then {
             [_unit, "Overpressure From Explosive"] call ace_medical_status_fnc_setDead; // this should show correct killer instead of "#scripted"
         };
 
-        //[_origin, _mass, _filler] call DFUNC(generateVisuals);
+        //[_originASL, _mass, _filler] call DFUNC(generateVisuals);
     }] call CBA_fnc_addEventHandler;
 
 
