@@ -12,6 +12,8 @@
  *
  * Public: No
  */
+//IGNORE_PRIVATE_WARNING["_target", "_player"];
+
 private _hashKey = groupId group _player;
 _oldGroup = units group _player;
 _newGroup = createGroup side group _player;

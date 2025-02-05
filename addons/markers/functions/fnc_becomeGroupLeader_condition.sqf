@@ -12,6 +12,8 @@
  *
  * Public: No
  */
+//IGNORE_PRIVATE_WARNING["_target", "_player"];
+
 _this call ACEFUNC(interaction,canBecomeLeader) ||
     (GVAR(groupAndUnitEnabled) && {
    private _markerArray = GVAR(markerHash) getOrDefault [groupId group _player, [_player]];
