@@ -20,7 +20,7 @@
 * [_vic] call lmd_coast_fnc_driverDeathInit;
 *//***************************************************************************/
 params ["_arguments", "_handle"];
-_arguments params ["_vic", "_center", "_mass"];
+_arguments params ["_vic"];
 private _spd = abs speed _vic;
 if (isNull _vic ||
 	_spd < 1 ||
@@ -42,7 +42,7 @@ if (_vic getVariable [QGVAR(ddLImp), -1] > CBA_missionTime) exitWith {
 	diag_log text ("skipped " + str _vic + ": " + str (_vic getVariable [QGVAR(ddLImp), -1]));
 #endif
 };
-if (_spd < 15 + random 10 && count (crew _vic select {!isPlayer _x && alive _x}) > 0) then {
+/*if (_spd < 15 + random 10 && count (crew _vic select {!isPlayer _x && alive _x}) > 0) then {
     private _randValue = linearConversion [15, 30, _spd, 0.8, 0, true];
     {
         if (_randValue < random 1) then {
@@ -51,13 +51,6 @@ if (_spd < 15 + random 10 && count (crew _vic select {!isPlayer _x && alive _x})
             _x action ["eject", _vic];
         };
     } forEach crew _vic;
-};
+};*/
 //private _force = _vic vectorModelToWorld [0, 1, 0];
-private _force = vectorNormalized velocity _vic;
-if (_spd < 10) then {
-	_force = _force vectorMultiply -12.5 * _mass;
-} else {
-	_force = _force vectorMultiply -1 * _mass;
-};
-_vic addForce [_force, _center];
 _vic setVariable [QGVAR(ddLImp), CBA_missionTime + 0.2];

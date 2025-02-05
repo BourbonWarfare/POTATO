@@ -27,7 +27,10 @@ diag_log text (str _vehicle + " lt: " + str (_vehicle getHitPointDamage "hitltra
         + str (_vehicle getHitPointDamage "hitengine"));
 private _driver = driver _vehicle;
 // Make it happen more often
-if !(isPlayer _driver && random 1 > 0.9) then {_driver setDamage [1, false];};
+if !(isPlayer _driver && random 1 > 0.95) then {
+    TRACE_1("Murdering",_driver);
+    _driver setDamage [1, false];
+};
 if (speed _vehicle < 4 || alive _driver ||
     _vehicle getVariable [QGVAR(ddETime), 0] >  CBA_missionTime ||
     !(_vehicle isKindOf "LandVehicle")) exitWith {
@@ -70,6 +73,6 @@ _vehicle setVariable [QGVAR(ddETime), CBA_missionTime + _freeRunLen];
         ] call CBA_fnc_addPerFrameHandler;
         _vic setVariable [QGVAR(ddPFEH), _eh];
     },
-    [_vehicle, getCenterOfMass _vehicle, [200, -200]  select (_vehicle isKindOf "Tank")],
+    [_vehicle],
     _startTime
 ] call CBA_fnc_waitAndExecute;

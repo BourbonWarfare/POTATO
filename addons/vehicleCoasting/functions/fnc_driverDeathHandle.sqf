@@ -85,6 +85,6 @@ _vehicle setVariable [QGVAR(ddETime), CBA_missionTime + _freeRunLen];
         ] call CBA_fnc_addPerFrameHandler;
         _vic setVariable [QGVAR(ddPFEH), _eh];
     },
-    [_vehicle, getCenterOfMass _vehicle, [200, -200]  select (_vehicle isKindOf "Tank")],
+    [_vehicle],
     _startTime
 ] call CBA_fnc_waitAndExecute;
