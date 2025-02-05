@@ -33,7 +33,6 @@ _settings = [
 
 
 // Vehicle Damage
-// [QEGVAR(aiVehicleBail,enableCrewBailing), false],
 [QACEGVAR(vehicle_damage,enabled), true],
 [QACEGVAR(fire,enabled), true],
 [QACEGVAR(fire,enableFlare), false],
