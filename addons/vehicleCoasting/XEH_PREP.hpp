@@ -1,3 +1,7 @@
+PREP(addVehicleHandle);
+PREP(dev_cleanDraw);
+PREP(dev_debugDraw);
+PREP(dev_trackVehicle);
 PREP(driverDeathHandle);
-PREP(driverDeathInit);
 PREP(driverDeathPFEH);
+PREP(vehicleCookOffHandle);

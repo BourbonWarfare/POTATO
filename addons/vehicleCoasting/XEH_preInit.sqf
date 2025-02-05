@@ -6,8 +6,9 @@ PREP_RECOMPILE_START;
 #include "XEH_PREP.hpp"
 PREP_RECOMPILE_END;
 
-GVAR(EK_EH) = -2;
-GVAR(EK_EH_ACE) = -1;
+#ifdef DEBUG_MODE_DRAW_EH
+GVAR(dev_traceHash) = createHashMap;
+#endif
 
 [
 	QGVAR(enabled), "CHECKBOX",
