@@ -10,3 +10,7 @@
 #endif
 
 #include "\z\potato\addons\core\script_macros.hpp"
+
+#define GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(ENUM) QUOTE(DOUBLES(GVAR(acc_cup_Flashlight),ENUM)),\
+QUOTE(TRIPLES(GVAR(acc_cup_Flashlight),ENUM,Spot)),\
+QUOTE(TRIPLES(GVAR(acc_cup_Flashlight),ENUM,Wide))
