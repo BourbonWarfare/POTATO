@@ -12,6 +12,8 @@
  *
  * Public: No
  */
+//IGNORE_PRIVATE_WARNING["_target", "_player"];
+
 private _hashKey = groupId group _player;
 [_player] joinSilent group _target;
 

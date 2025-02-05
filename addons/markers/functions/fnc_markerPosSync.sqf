@@ -12,7 +12,7 @@
  *
  * Public: No
  */
-params ["_clientID", -1, [-1]];
+params [["_clientID", -1, [-1]]];
 // It may be useful in the future to broadcast to every client
 // so allowing  _cleintID == 0 may be worth while (if that even works)
 if (!isServer || _clientID < 3) exitWith {};

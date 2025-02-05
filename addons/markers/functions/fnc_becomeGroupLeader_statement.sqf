@@ -12,6 +12,8 @@
  *
  * Public: No
  */
+//IGNORE_PRIVATE_WARNING["_target", "_player"];
+
 if (_this call ACEFUNC(interaction,canBecomeLeader)) then {
     _this call ACEFUNC(interaction,doBecomeLeader);
 };
