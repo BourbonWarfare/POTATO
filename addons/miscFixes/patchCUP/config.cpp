@@ -22,6 +22,7 @@ class MainTurret: MainTurret {\
 }
 
 class CfgVehicles {
+    #include "CfgVehiclesA10A.hpp"
     // Base classes
     class Car;
     class Car_F: Car {
@@ -222,6 +223,13 @@ class CfgMagazineWells {
 };
 
 class CfgWeapons {
+    // Make A-10A compatible with CCIP
+    class CannonCore;
+    class CUP_Vacannon_GAU8_veh: CannonCore {
+        ballisticsComputer = 8;
+        cursorAim = "mg";
+    };
+
     class CUP_arifle_RPK74;
     class potato_arifle_RPK: CUP_arifle_RPK74 {
         // CUP_arifle_RPK74 is actually a chambered in 7.62 and just called RPK in-game
