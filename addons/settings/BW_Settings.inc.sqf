@@ -7,7 +7,7 @@
 */
 _skip = [];
 _settings = [
-// ACE 
+// ACE
 // Medical:
 [QACEGVAR(medical,bleedingcoefficient), 1, true], // default: 1.0 (also set in mission.sqm) [forced to override old bwmf]
 // [QACEGVAR(medical,fatalDamageSource), 1], // default: 0 // wait till L/K values finalized
@@ -33,10 +33,6 @@ _settings = [
 
 
 // Vehicle Damage
-// [QEGVAR(aiVehicleBail,enableCrewBailing), false],
-// [QEGVAR(aiVehicleBail,enableCookoffDetonations), false],
-// [QEGVAR(aiVehicleBail,enableCookoff), false],
-// [QEGVAR(aiVehicleBail,enableCookoffMultihit), false],
 [QACEGVAR(vehicle_damage,enabled), true],
 [QACEGVAR(fire,enabled), true],
 [QACEGVAR(fire,enableFlare), false],

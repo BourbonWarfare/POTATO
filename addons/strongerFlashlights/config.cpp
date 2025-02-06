@@ -10,14 +10,18 @@ class CfgPatches {
 //CUP flashlight
             QGVAR(CUP_LED_flashlight_Flood),
             QGVAR(CUP_LED_flashlight_Beam),
-            QGVAR(CUP_LED_flashlight)
+            QGVAR(CUP_LED_flashlight),
+            GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(02),
+            GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(03),
+            GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(04),
+            GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(05)
         };
         units[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"cup_weapons_east_attachments", "cup_weapons_west_attachments", "ace_laserpointer"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
-        authors[] = {"Carl", "Chesheire"};
+        authors[] = {"Carl", "Chesheire", "Lambda.Tiger"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };

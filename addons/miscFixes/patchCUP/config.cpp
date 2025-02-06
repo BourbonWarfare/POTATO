@@ -15,7 +15,20 @@ class CfgPatches {
     };
 };
 
+#define CUP_MAINTURRET_DISABLE_ATTENUATE class Turrets: Turrets {\
+class MainTurret: MainTurret {\
+    disableSoundAttenuation = 1;\
+    };\
+}
+
 class CfgVehicles {
+    #include "CfgVehiclesA10A.hpp"
+    // Base classes
+    class Car;
+    class Car_F: Car {
+        class HitPoints;
+        class Turrets;
+    };
     // Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
     class CUP_B_FV432_Bulldog_GB_D;
     class CUP_B_FV432_Base: CUP_B_FV432_Bulldog_GB_D {
@@ -43,10 +56,12 @@ class CfgVehicles {
         };
         class UserActions {}; // clear all user actions (not a big deal)
     };
-    // Fix the M1038 back seat
-    class Car_F;
+    // Fix the M1038 back seat and attenuation
     class CUP_nHMMWV_Base: Car_F {
         class CargoTurret;
+        class Turrets: Turrets {
+            class MainTurret;
+        };
     };
     class CUP_nM1038_Base: CUP_nHMMWV_Base {
         class Turrets {
@@ -55,8 +70,27 @@ class CfgVehicles {
             };
         };
     };
+    class CUP_nM1025_M2_Base: CUP_nHMMWV_Base {
+        CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    class CUP_nM1025_Mk19_Base: CUP_nHMMWV_Base {
+        CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    class CUP_nM1025_M240_Base: CUP_nHMMWV_Base {
+        CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    class CUP_nM1036_TOW_Base: CUP_nHMMWV_Base {
+        CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    class CUP_nM1025_SOV_Base: CUP_nHMMWV_Base {
+        attenuationEffectType = "OpenCarAttenuation";
+    };
     // Tweaks to the GTK Boxer's handling (accel/braking) + HMG swap to M3M + countermeasures move to gunner
     class Wheeled_APC_F: Car_F {
+        class HitPoints: HitPoints {
+            class HitEngine;
+            class HitFuel;
+        };
         class NewTurret;
         class Turrets {
             class MainTurret: NewTurret {
@@ -65,6 +99,14 @@ class CfgVehicles {
         };
     };
     class CUP_Boxer_Base: Wheeled_APC_F {
+        class HitPoints: HitPoints {
+            class HitEngine: HitEngine {
+                radius = 0.1;
+            };
+            class HitFuel: HitFuel {
+                radius = 0.1;
+            };
+        };
         class AnimationSources;
     };
     class CUP_Boxer_Base_HMG: CUP_Boxer_Base {
@@ -84,11 +126,11 @@ class CfgVehicles {
         brakeIdleSpeed = 1.78; // was 0
         maxFordingDepth = 1.0; // was 1.5
         class Wheels {
-			class wheel_1_1 {
-				maxBrakeTorque = 20000; // was 12500
-				maxHandBrakeTorque = 30000; // was 25000
-			};
-		};
+            class wheel_1_1 {
+                maxBrakeTorque = 20000; // was 12500
+                maxHandBrakeTorque = 30000; // was 25000
+            };
+        };
         class AnimationSources: AnimationSources {
             class main_gun_muzzle_rot {
                 weapon = "CUP_Vhmg_M3P_veh";
@@ -116,6 +158,36 @@ class CfgVehicles {
                 magazines[] = {}; // was "SmokeLauncherMag"
             };
         };
+    };
+    // CUP Frag7 Humvees
+    class CUP_ECVHMMWV_Base: Car_F {
+        class Turrets: Turrets {
+            class MainTurret;
+        };
+    };
+    class CUP_ECVHMMWV_m2_Base: CUP_ECVHMMWV_Base {
+        CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    class CUP_ECVHMMWV_m240_Base: CUP_ECVHMMWV_Base {
+        CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    class CUP_ECVHMMWV_mk19_Base: CUP_ECVHMMWV_Base {
+        CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    // CUP Tigrs
+    class CUP_Tigr_Base: Car_F {
+        class Turrets: Turrets {
+            class MainTurret;
+        };
+    };
+    class CUP_Tigr_M_PK_Base: CUP_Tigr_Base {
+        CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    class CUP_Tigr_STS_PK_Base: CUP_Tigr_Base {
+        CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    class CUP_Tigr_M_KORD_Base: CUP_Tigr_Base {
+        CUP_MAINTURRET_DISABLE_ATTENUATE;
     };
 };
 
@@ -164,6 +236,13 @@ class CfgMagazineWells {
 };
 
 class CfgWeapons {
+    // Make A-10A compatible with CCIP
+    class CannonCore;
+    class CUP_Vacannon_GAU8_veh: CannonCore {
+        ballisticsComputer = 8;
+        cursorAim = "mg";
+    };
+
     class CUP_arifle_RPK74;
     class potato_arifle_RPK: CUP_arifle_RPK74 {
         // CUP_arifle_RPK74 is actually a chambered in 7.62 and just called RPK in-game

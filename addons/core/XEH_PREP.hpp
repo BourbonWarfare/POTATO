@@ -15,6 +15,7 @@ PREP(getTimeText);
 PREP(isAuthorized);
 PREP(isTech);
 PREP(parseBool);
+PREP(playerJipHint);
 PREP(setControlFade);
 PREP(stringArrayToSideArray);
 PREP(zeroPadNumber);

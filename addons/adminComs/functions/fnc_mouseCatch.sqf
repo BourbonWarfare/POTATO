@@ -27,18 +27,20 @@ private _index = -1;
 {
     _x params ["_time", "_msg", "_from", "_to"];
     TRACE_1("log:",_x);
-
     private _log = format [
-        "%1:%2 [%3>%4] %5",
-        [floor (_time / 60)] call CFUNC(zeroPadNumber),
-        [floor (_time % 60)] call CFUNC(zeroPadNumber),
+        "[%1>%2] %3",
         _from,
         _to,
         _msg
     ];
+    private _tooltip = format ["%1: %2\n%3",
+        [floor (_time / 60)] call CFUNC(zeroPadNumber),
+        [floor (_time % 60)] call CFUNC(zeroPadNumber),
+        _msg
+    ];
 
     _index = _chatList lbAdd _log;
-    _chatList lbSetTooltip [_index, _msg];
+    _chatList lbSetTooltip [_index, _tooltip];
 } forEach GVAR(logs);
 
 if (_index != -1) then {
