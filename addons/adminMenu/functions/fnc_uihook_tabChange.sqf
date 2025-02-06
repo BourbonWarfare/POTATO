@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 params ["", "_sel"];
-TRACE_1("params",_sel);
+TRACE_1("tabchange",_sel);
 
 disableSerialization;
 
@@ -21,7 +21,8 @@ private _fnc_setListOfPlayers = {
             private _unit = _x;
             (_unit call _nameCode) params [
                 ["_name", "", [""]],
-                ["_weight", 0, [0]]
+                ["_weight", 0, [0]],
+                ["_rightName", "", [""]]
             ];
 
             private _recentMessages = [];
@@ -37,6 +38,9 @@ private _fnc_setListOfPlayers = {
              _listCtrl lbSetData [_index, [_unit] call BIS_fnc_objectVar];
              _listCtrl lbSetColor [_index, [[1,0,0,1], [1,1,1,1]] select (_recentMessages isEqualTo [])];
              _listCtrl lbSetTooltip [_index, _recentMessages joinString "\n"];
+             if (_rightName != "") then {
+                _listCtrl lbSetTextRight [_index, _rightName];
+             };
 
              TRACE_6("Item added to list",_listCtrl,_unit,_name,_weight,[_unit] call BIS_fnc_objectVar,_recentMessages);
         };
@@ -207,7 +211,7 @@ case (7): {
         ];
         private _listGear = UI_TAB_FIX_UNIT_GEAR;
         lbClear _listGear;
-        { 
+        {
             _x params ["_loadout", "_description"];
             _description = if (_description == "") then { _loadout } else { format ["%1 (%2)", _loadout, _description] };
             private _index = _listGear lbAdd _description;
@@ -221,16 +225,91 @@ case (7): {
             {
                 if (alive _this) then {
                     if (_this isKindOf QEGVAR(spectate,spectator)) then {
-                        [format ["%1 (SPECTATOR)", name _this], 3]
+                        [name _this, 3, "(SPECTATOR)"]
                     } else {
                         if (uniform _x == "") then {
-                            [format ["%1 (NAKED)", name _this], 0]
+                            [name _this, 0, "(NAKED)"]
                         } else {
                             [name _this, 1]
                         }
                     }
                 } else {
-                    [format ["%1 (DEAD)", [_this] call ACEFUNC(common,getName)], 2]
+                    [[_this] call ACEFUNC(common,getName), 2, "(DEAD)"]
+                }
+            }
+        ] call _fnc_setListOfPlayers;
+    };
+case UI_TABS_INDEX_MARKERS: {
+        TRACE_1("showing markers tab",_sel);
+        private _display = uiNamespace getVariable QGVAR(adminMenuDialog);
+
+        // Setup marker list
+        private _markerList = _display displayCtrl IDC_LISTBOX_MARKERS_MARKERS;
+        lbClear _markerList;
+        {
+            _y params ["_object", "_text", "_icon", "_color", "", "", "_side"];
+            private _sideText = switch (_side) do {
+                case west: {"BluFor"};
+                case east: {"OpFor"};
+                case resistance: {"IndFor"};
+                case civilian: {"Civ"};
+                default {"None "};
+            };
+            private _entry = _markerList lbAdd format ["%1 %2", _sideText, _text];
+            _markerList lbSetPictureRight [_entry, _icon];
+            _markerList lbSetPictureRightColor [_entry, _color];
+            _markerList lbSetPictureRightColorSelected [_entry, _color];
+            if !(isPlayer _object) then {
+                if (isNull _object) then {
+                    _markerList lbSetTextRight [_entry, "NA"];
+                    _markerList lbSetTooltip [_entry, "Marker not attached"];
+                } else {
+                    _markerList lbSetTextRight [_entry, "AI"];
+                    _markerList lbSetTooltip [_entry, "Marker attached to AI"];
+                };
+            };
+            _markerList lbSetData [_entry, _x];
+        } forEach EGVAR(markers,markerHash);
+        lbSort _markerList;
+        _markerList lbSetCurSel 0;
+
+        // Setup player list
+        [
+            _display displayCtrl IDC_LISTBOX_MARKERS_PLAYERS,
+            {
+                private _markerArr = EGVAR(markers,markerHash) getOrDefault [str _this, []];
+                if (_markerArr isEqualTo []) then {
+                    _markerArr = EGVAR(markers,markerHash) getOrDefault [groupId group _this, [objNull, ""]];
+                };
+                private _markerText = ["", _markerArr#1] select (_markerArr#0 == _this);
+                private _side = if (count _markerArr >= 7) then {
+                    [side _this, _markerArr#6] select (_markerArr#6 isEqualType grpNull)
+                } else {
+                    side _this
+                };
+                _side = switch (_side) do {
+                    case west: {"BluFor "};
+                    case east: {"OpFor "};
+                    case resistance: {"IndFor "};
+                    case civilian: {"Civ "};
+                    default {"ERR "};
+                };
+                if (alive _this) then {
+                    if (_this isKindOf QEGVAR(spectate,spectator)) then {
+                        [format ["%1 (SPECTATOR)", name _this], 10]
+                    } else {
+                        if ([_this] call EFUNC(markers,hasMarkerAttached)) then {
+                            [format ["%1", name _this], 0, _side + _markerText]
+                        } else {
+                            [format ["%1", name _this], 5]
+                        }
+                    }
+                } else {
+                    if ([_this] call EFUNC(markers,hasMarkerAttached)) then {
+                        [format ["%1 (DEAD)", [_this] call ACEFUNC(common,getName)], 1, _side + _markerText]
+                    } else {
+                        [format ["%1 (DEAD)", [_this] call ACEFUNC(common,getName)], 5]
+                    }
                 }
             }
         ] call _fnc_setListOfPlayers;

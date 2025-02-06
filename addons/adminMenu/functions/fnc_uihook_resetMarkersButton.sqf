@@ -11,6 +11,6 @@ TRACE_1("Selected unit: ",_selectedUnit);
 
 if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit [%1] disconnect?",_selectedUnit);};
 
-[QGVAR(resetMarkers), [_selectedUnit], [_selectedUnit]] call CBA_fnc_targetEvent;
+[false] remoteExecCall [QEFUNC(markers,reinitMarkerHash), _selectedUnit];
 
 ["potato_adminMsg", [format ["Resetting markers on %1", [_selectedUnit] call ACEFUNC(common,getName)], profileName]] call CBA_fnc_globalEvent;
