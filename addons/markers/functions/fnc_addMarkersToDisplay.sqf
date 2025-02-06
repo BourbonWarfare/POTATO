@@ -25,4 +25,4 @@ private _installedVarName = format ["%1_%2_%3",QGVAR(displays),_idc,"EHInstalled
 if (GVAR(skipInstallingEH) || {_display getVariable [_installedVarName, false]}) exitWith {};
 _display setVariable [_installedVarName, true];
 
-(_display displayCtrl _idc) ctrlAddEventHandler ["Draw", {_this call FUNC(drawMarkers)}];
+(_display displayCtrl _idc) ctrlAddEventHandler ["Draw", {call FUNC(drawMarkers)}];

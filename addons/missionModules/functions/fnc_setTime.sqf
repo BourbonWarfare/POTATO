@@ -34,7 +34,7 @@ private _fnc_getTimeVars = {
     [0, 0]
 };
 
-(_this call _fnc_getTimeVars) params ["_hour", "_minute"];
+(call _fnc_getTimeVars) params ["_hour", "_minute"];
 
 private _now = date;
 [[_now select 0, _now select 1, _now select 2, _hour, _minute]] call BIS_fnc_setDate;

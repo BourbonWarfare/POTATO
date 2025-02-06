@@ -22,7 +22,7 @@ TRACE_1("cleanPrefix",_unitClassname);
 if (_unitClassname == "") exitWith {ERROR("_unitClassname is empty string"); _unitClassname };
 
 private _cleanedClassname = GVAR(classnameCache) getOrDefaultCall [_unitClassname, {
-    _cleanedClassname = _unitClassname;
+    private _cleanedClassname = _unitClassname;
     {
         private _prefixLength = count _x;
         if ((_unitClassname select [0, _prefixLength]) == _x) exitWith {

@@ -9,7 +9,7 @@ GVAR(ehAdded) = false;
     if (!GVAR(ehAdded)) exitWith {
         TRACE_1("Adding Man Init EH",GVAR(ehAdded));
         GVAR(ehAdded) = true;
-        ["CaManBase", "init", {_this call FUNC(manInitEH)}, true, [], true] call CBA_fnc_addClassEventHandler;
+        ["CaManBase", "init", {call FUNC(manInitEH)}, true, [], true] call CBA_fnc_addClassEventHandler;
     };
 
     //Update all local unit's skills

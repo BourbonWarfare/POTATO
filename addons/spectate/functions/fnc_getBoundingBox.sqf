@@ -24,13 +24,11 @@ if (isNull _object) exitWith { [1,1,1] };
 private _objectType = typeOf _object;
 private _cachedValue = GVAR(boundingBoxCache) getOrDefaultCall [_objectType, {
     (boundingBoxReal _object) params ["_p1", "_p2"];
-    _cachedValue = [
+    [
         abs ((_p2 select 0) - (_p1 select 0)), // max width
         abs ((_p2 select 1) - (_p1 select 1)), // max length
         abs ((_p2 select 2) - (_p1 select 2)) // max height
-    ];
-
-    _cachedValue;
+    ]
 }, true];
 
 _cachedValue

@@ -18,7 +18,7 @@ if (missionNamespace getVariable [QGVAR(enabled), false]) then {
         INFO_2("%1 - [InitState %2] DONE (Non Interface)",diag_frameNo,GVAR(initState));
     };
 
-    ["unit", {_this call FUNC(setupPlayer)}, true] call CBA_fnc_addPlayerEventHandler;
+    ["unit", {call FUNC(setupPlayer)}, true] call CBA_fnc_addPlayerEventHandler;
 } else {
     INFO("Disabled");
     if (isServer) then { // Warn if not enabled

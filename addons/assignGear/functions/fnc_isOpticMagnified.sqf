@@ -31,8 +31,7 @@ private _isMagnified = GVAR(magnifiedOpticCache) getOrDefaultCall [_opticClassna
         nil
     } count configProperties [configFile >> "CfgWeapons" >> _opticClassname >> "ItemInfo" >> "OpticsModes"]; // count used here for speed, make sure nil is above this line
 
-    _isMagnified = _minZoom < MAG_OPTIC_ZOOM_THRESHOLD;
-    _isMagnified;
+    _minZoom < MAG_OPTIC_ZOOM_THRESHOLD
 }, true];
 
 _isMagnified
