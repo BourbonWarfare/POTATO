@@ -10,6 +10,7 @@ PREP(uihook_attachMarkerGroup);
 PREP(uihook_attachMarkerUnit);
 PREP(uihook_checkboxes);
 PREP(uihook_checkMods);
+PREP(uihook_checkSettings);
 PREP(uihook_detachMarker);
 PREP(uihook_deleteMarker);
 PREP(uihook_endMission);

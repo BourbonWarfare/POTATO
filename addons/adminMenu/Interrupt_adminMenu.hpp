@@ -429,6 +429,15 @@ class GVAR(adminMenuDialog) {
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_enableMissionTesting));
                 };
+                class RscButton_DumbSettings: RscButton {
+                    idc = -1;
+                    text = "Check Server's Profile Settings";
+                    x = QUOTE(0.01 * safezoneW);
+                    y = QUOTE(0.22 * safezoneH);
+                    w = QUOTE(0.52 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_checkSettings));
+                };
             };
         };
         class CONTROL_MISSIONHINT: RscControlsGroup {
