@@ -1,4 +1,4 @@
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 call compileScript [QPATHTOF(vehicleTags\init.sqf)];
@@ -8,14 +8,13 @@ LOG("Post init start");
 [
     {
         ACEGVAR(common,settingsInitFinished)
-            && {!isNull player}
-            && {!isNull (group player)}
             && {(missionNamespace getVariable [QEGVAR(miscFixes,groupCleanupRan), false]) || {diag_tickTime > (_this select 0)}}
     },
     {
-        TRACE_2("ACE Settings initilized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
+        TRACE_2("ACE Settings initialized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
+        if (GVAR(groupAndUnitEnabled)) then {[] call FUNC(initLocalMarkers);}; // we always want everyone to submit markers
         if (isNil QEGVAR(miscFixes,groupCleanupRan)) then {ERROR_1("Server never set %1",QEGVAR(miscFixes,groupCleanupRan));};
-        if (hasInterface && {GVAR(groupAndUnitEnabled) || {GVAR(intraFireteamEnabled)}}) then {
+        if (hasInterface && GVAR(groupAndUnitEnabled) || GVAR(intraFireteamEnabled)) then {
             GVAR(skipInstallingEH) = false;
 
             // To custom define these for your mission just define them in init.sqf:
@@ -31,9 +30,6 @@ LOG("Post init start");
 
             // only setup event handlers when they'd be used
             if (GVAR(groupAndUnitEnabled)) then {
-                // check JIPed/changed players for markers
-                [QGVAR(checkPlayerForMarkers), FUNC(handleCheckPlayerForMarkers)] call CBA_fnc_addEventHandler;
-
                 // catch local player changed event, transmit global event
                 ["unit", {
                     params ["_newPlayer", "_oldPlayer"];
@@ -41,21 +37,47 @@ LOG("Post init start");
                     [] call FUNC(checkForMapMarkerColor);
 
                     if (side (group _newPlayer) != side (group _oldPlayer)) then {
-                        [] call FUNC(initMarkerHash);
+                        GVAR(drawHash) = createHashMap;
+                        GVAR(nextUpdateDrawHash) = -1;
                     };
-
-                    [QGVAR(checkPlayerForMarkers), [_newPlayer]] call CBA_fnc_globalEvent;
+                    // not a fan of waiting here, is there a better way?
+                    // the respawn setVariable seems to happen/propagate after this event
+                    [{
+                        _this getVariable [QGVAR(addMarker), false] ||
+                        (group _this) getVariable [QGVAR(addMarker), false]
+                    }, {
+                        [_this] call FUNC(initUnitMarkers);
+                    }, _newplayer, 5
+                    ] call CBA_fnc_waitUntilAndExecute;
                 }] call CBA_fnc_addPlayerEventHandler;
-
-                [] call FUNC(initMarkerHash);
-                [] call FUNC(checkForMapMarkerColor);
+                if (didJIP) then {
+                    [true] call FUNC(reinitMarkerHash);
+                };
             };
+            [] call FUNC(checkForMapMarkerColor);
         } else {
             GVAR(skipInstallingEH) = true; // skip installing marker EHs
         };
 
-        GVAR(settingsInitialized) = true;
+        if (isServer && GVAR(groupAndUnitEnabled)) then {
+            [{
+                TRACE_1("Updating server marker positions",CBA_missionTime);
+                {
+                    _y params ["_drawObject", "", "", "", "", "_posATL"];
+                    if !(isNull _drawObject) then {
+                        if (_drawObject isEqualType grpNull) then {
+                            if (isNull (leader _drawObject)) exitWith {};
+                            _posATL = getPosATL (leader _drawObject);
+                        } else {
+                            _posATL = getPosATL _drawObject;
+                        };
+                        _y set [5, _posATL];
+                    };
+                } forEach GVAR(markerHash);
+            }, GVAR(groupAndUnitUpdateDelay)] call CBA_fnc_addPerFrameHandler;
+        };
 
+        GVAR(settingsInitialized) = true;
         // run any functions waiting for marker settings to finish
         {
             (_x select 1) call (_x select 0);
@@ -63,3 +85,15 @@ LOG("Post init start");
     },
     [diag_tickTime + 5]
 ] call CBA_fnc_waitUntilAndExecute;
+
+if !(isServer) then {
+    QGVAR(markerPosSync) addPublicVariableEventHandler {
+        params ["", ["_markerPosHash", createHashMap]];
+        private _markerHash = GVAR(markerHash);
+        {
+            private _markerArray = _markerHash getOrDefault [_x, []];
+            if (_markerArray isEqualTo []) then {continue};
+            _markerArray set [5, _y];
+        } forEach _markerPosHash;
+    };
+};

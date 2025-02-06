@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "ace_markers"};
+        requiredAddons[] = {"potato_core", "ace_markers", "ace_interaction"};
         author = "Potato";
         authors[] = {"AACO"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -15,3 +15,4 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgEden.hpp"
+#include "CfgVehicles.hpp"
