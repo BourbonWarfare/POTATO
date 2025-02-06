@@ -58,4 +58,15 @@ GVAR(openEndMission) = false;
 
 if (isServer) then {
     GVAR(zeusCenter) = createCenter sideLogic;
+    // check server settings
+    [QGVAR(checkSettings), {
+        params ["_owner"];
+        private _hash = profileNamespace getVariable ["CBA_settings_hash", [] call CBA_fnc_hashCreate]; 
+        private _output = []; 
+        [_hash, { _output pushBack format ["%1: %2", _key, _value]; }] call CBA_fnc_hashEachPair;
+        ["potato_adminMsg", [format ["%1 modified settings", count _output], "Setting"], _owner] call CBA_fnc_ownerEvent; 
+        { 
+            ["potato_adminMsg", [_x, "Setting"], _owner] call CBA_fnc_ownerEvent; 
+        } forEach _output; 
+    }] call CBA_fnc_addEventHandler;
 };
