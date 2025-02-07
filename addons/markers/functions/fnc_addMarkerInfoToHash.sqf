@@ -1,6 +1,8 @@
+#include "..\script_component.hpp"
 /*
- * Author: AACO
- * Function used to add unit/group marker information into the marker hash
+ * Author: AACO, Lambda.Tiger
+ * Function used to add unit/group marker information into the marker hash.
+ * Will broadcast new markers to other machines using remoteExec
  *
  * Arguments:
  * 0: Unit or Group to add to the marker system <OBJECT/GROUP>
@@ -14,31 +16,53 @@
  *
  * Public: Yes
  */
-
-#include "script_component.hpp"
 TRACE_1("Params",_this);
-
 params ["_drawObject"];
 
-if (isNull _drawObject
-        || {!(_drawObject getVariable [QGVAR(addMarker), false])}
-        || {_drawObject in (GVAR(drawHash) select 0)}) exitWith {
-    TRACE_1("Not adding marker info (exiting early)",_drawObject);
+private _localObject = local _drawObject;
+private _hashKey = if (_drawObject isEqualType grpNull) then {
+    _localObject = local leader _drawObject;
+    groupId _drawObject
+} else {
+    if (_drawObject getVariable [QGVAR(groupMarker), false]) then {
+        groupId group _drawObject
+    } else {
+        str _drawObject
+    }
+};
+
+if (isNull _drawObject || !_localObject || _hashKey == ""
+    || {!(_drawObject getVariable [QGVAR(addMarker), false])}
+    || {_hashKey in GVAR(markerHash)}) exitWith {
+    TRACE_3("Not adding marker info (exiting early)",_drawObject,_localObject,_hashKey);
     false
 };
-
+TRACE_2("Adding marker",_drawObject,_hashKey);
 private _text = _drawObject getVariable [QGVAR(markerText), DEFAULT_MARKER_TEXT];
-private _texture = _drawObject getVariable [QGVAR(markerTexture), DEFAULT_MARKER_ICON];
-private _colorArray = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR];
+private _icon = _drawObject getVariable [QGVAR(markerTexture), DEFAULT_MARKER_ICON];
+private _color = _drawObject getVariable [QGVAR(markerColor), DEFAULT_MARKER_COLOR];
 private _size = _drawObject getVariable [QGVAR(markerSize), DEFAULT_MARKER_SIZE];
-private _position = if (_drawObject isEqualType grpNull) then {
-    if ((units _drawObject) isEqualTo []) exitWith {[-10000, -10000, 0]};
-    position (leader _drawObject)
-} else {
-    position _drawObject
+TRACE_4("Marker params",_text,_icon,_color,_size);
+
+// we convert here to make variables more readable for other marker debugging
+private _findIndex = COLOR_INDEX_ARRAY find _color;
+if (_findIndex >= 0) then {_color = _findIndex};
+
+_findIndex = [UNIT_MARKERS_STRINGS] find _icon;
+if (_findIndex >= 0) then {_icon = _findIndex};
+
+if (_drawObject isEqualType grpNull) then {
+    _drawObject = leader _drawObject;
 };
 
-(GVAR(drawHash) select 0) pushBack _drawObject;
-(GVAR(drawHash) select 1) pushBack [_text, _texture, _colorArray, _size, _position];
+private _markerArray = [_hashKey, getPosATL _drawObject, _drawObject, side _drawObject, _text, _color, _icon, _size];
+private _endIndex = 8;
+if (_size == DEFAULT_MARKER_SIZE) then {_endIndex = 7};
+if (_icon == DEFAULT_MARKER_ICON_INDEX && _endIndex == 7) then {_endIndex = 6};
+
+_markerArray = _markerArray select [0, _endIndex];
+TRACE_1("Final marker array",_markerArray);
+GVAR(markerCache) setVariable [POTATO_MARKER_JIP_PREFIX + _hashKey, _markerArray, true];
+_markerArray remoteExecCall [QFUNC(addMarker)];
 
 true

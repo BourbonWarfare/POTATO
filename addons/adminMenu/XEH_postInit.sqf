@@ -44,8 +44,8 @@
     diag_log text format ["[POTATO] Resetting markers on %1 [%2]", (name _unit), _unit];
     if (isNull _unit || {!local _unit}) exitWith {};
 
-    diag_log text format ["[POTATO] Calling %1", QEFUNC(markers,initMarkerHash)];
-    [] call EFUNC(markers,initMarkerHash);
+    diag_log text format ["[POTATO] Calling %1", QEFUNC(markers,reinitMarkerHash)];
+    [] call EFUNC(markers,reinitMarkerHash);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(missionTestingAddAction), {
@@ -58,4 +58,15 @@ GVAR(openEndMission) = false;
 
 if (isServer) then {
     GVAR(zeusCenter) = createCenter sideLogic;
+    // check server settings
+    [QGVAR(checkSettings), {
+        params ["_owner"];
+        private _hash = profileNamespace getVariable ["CBA_settings_hash", [] call CBA_fnc_hashCreate]; 
+        private _output = []; 
+        [_hash, { _output pushBack format ["%1: %2", _key, _value]; }] call CBA_fnc_hashEachPair;
+        ["potato_adminMsg", [format ["%1 modified settings", count _output], "Setting"], _owner] call CBA_fnc_ownerEvent; 
+        { 
+            ["potato_adminMsg", [_x, "Setting"], _owner] call CBA_fnc_ownerEvent; 
+        } forEach _output; 
+    }] call CBA_fnc_addEventHandler;
 };

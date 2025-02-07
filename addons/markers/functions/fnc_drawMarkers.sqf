@@ -12,8 +12,8 @@
  * Public: No
  */
 
-#include "script_component.hpp"
-TRACE_1("Params",_this);
+#include "..\script_component.hpp"
+//TRACE_1("Params",_this);
 
 BEGIN_COUNTER(drawMarkers);
 
@@ -26,41 +26,61 @@ private _mapSize = ((ctrlPosition _mapControl) select 3) / (getResolution select
 private _sizeFactor = (_mapSize + 1) / 2;
 
 if (GVAR(groupAndUnitEnabled)) then {
-
     private _recalc = diag_tickTime > GVAR(nextUpdate);
+    if (_recalc) then {
+        GVAR(nextUpdate) = diag_tickTime + GVAR(groupAndUnitUpdateDelay);
+    };
+
+    if (diag_tickTime > GVAR(nextUpdateDrawHash) && _recalc) then {
+        TRACE_1("Updating side draw hash",diag_tickTime);
+        GVAR(nextUpdateDrawHash) = diag_tickTime + MARKER_DRAW_HASH_REFRESH_TIME;
+        private _newDrawHash = createHashMap;
+        private _sideArray = [] call FUNC(getSideArray);
+        {
+            private _side = _y#6;
+            if (_side in _sideArray) then {
+                _newDrawHash set [_x, _y];
+            };
+        } forEach GVAR(markerHash);
+        GVAR(drawHash) = _newDrawHash;
+    };
 
     {
-        TRACE_1("icon data",_x);
-        _x params ["_text", "_texture", "_color", "_size", "_position"];
+#ifdef DEBUG_MODE_DRAW_EH
+        TRACE_2("icon data",_x,_y);
+#endif
+        _y params ["_drawObject", "_text", "_icon", "_color", "_size", "_posATL"];
 
         if (_recalc) then {
-            private _drawObject = (GVAR(drawHash) select 0) select _forEachIndex;
             if !(isNull _drawObject) then {
                 if (_drawObject isEqualType grpNull) then {
                     if (isNull (leader _drawObject)) exitWith {};
-                    _position = position (leader _drawObject);
+                    _posATL = getPosATL (leader _drawObject);
                 } else {
-                    _position = position _drawObject;
+                    _posATL = getPosATL _drawObject;
                 };
-                _x set [4, _position];
+                _y set [5, _posATL];
+                TRACE_2("Updating position",_drawObject,_posATL);
+            } else {
+                TRACE_1("Updating position, skip",_drawObject);
             };
         };
 
-        _mapControl drawIcon [_texture,
-                             _color,
-                             _position,
-                             _size * _sizeFactor,
-                             _size * _sizeFactor,
-                             0,
-                             _text,
-                             1,
-                             (([0.05,0] select (((ctrlMapScale _mapControl) * _mapSize) > 0.1)) * _sizeFactor),
-                             'TahomaB',
-                             "right"];
+        _mapControl drawIcon [
+            _icon,
+            _color,
+            _posATL,
+            _size * _sizeFactor,
+            _size * _sizeFactor,
+            0,
+            _text,
+            1,
+            (([0.05,0] select (((ctrlMapScale _mapControl) * _mapSize) > 0.1)) * _sizeFactor),
+            'TahomaB',
+            "right"
+        ];
 
-    } forEach (GVAR(drawHash) select 1);
-
-    if (_recalc) then { GVAR(nextUpdate) = diag_tickTime + GVAR(groupAndUnitUpdateDelay) };
+    } forEach GVAR(drawHash);
 };
 
 if (GVAR(intraFireteamEnabled) && {(ctrlMapScale _mapControl) < 0.5}) then {

@@ -80,7 +80,7 @@ class POTATO_EscapeButton_Base2: RscShortcutButton {
     shadow = 0;
     style = "0x02 + 0xC0";
     text = "R";
-    tooltip = "Respawn";
+    tooltip = "Reinforcements";
     x = "14.5 * (((safezoneW / safezoneH) min 1.2) / 40) + (safezoneX)";
     y = "2.3 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
     w = "1.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
@@ -429,6 +429,15 @@ class GVAR(adminMenuDialog) {
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_enableMissionTesting));
                 };
+                class RscButton_DumbSettings: RscButton {
+                    idc = -1;
+                    text = "Check Server's Profile Settings";
+                    x = QUOTE(0.01 * safezoneW);
+                    y = QUOTE(0.22 * safezoneH);
+                    w = QUOTE(0.52 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_checkSettings));
+                };
             };
         };
         class CONTROL_MISSIONHINT: RscControlsGroup {
@@ -548,6 +557,67 @@ class GVAR(adminMenuDialog) {
                     w = QUOTE(0.52 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_giveAdminGun));
+                };
+            };
+        };
+        class CONTROL_MARKERS: RscControlsGroup {
+            idc = 2310;
+            x = QUOTE(0.35 * safezoneW + safezoneX);
+            y = QUOTE(0.205 * safezoneH + safezoneY);
+            w = QUOTE(0.54 * safezoneW);
+            h = QUOTE(0.58 * safezoneH);
+            class controls {
+                class PlayerList: RscListBox {
+                    idc = IDC_LISTBOX_MARKERS_PLAYERS;
+                    x = QUOTE(0.01 * safezoneW);
+                    y = QUOTE(0.01 * safezoneH);
+                    w = QUOTE(0.18 * safezoneW);
+                    h = QUOTE(0.56 * safezoneH);
+                    sizeEx = QUOTE(0.025 * safezoneH);
+                };
+                class MarkerList: PlayerList {
+                    idc = IDC_LISTBOX_MARKERS_MARKERS;
+                    x = QUOTE(0.2 * safezoneW);
+                    w = QUOTE(0.12 * safezoneW);
+                    sizeEx = QUOTE(0.025 * safezoneH);
+                };
+                class attachMarkerToClient: RscButton {
+                    idc = -1;
+                    text = "Attach Marker to Unit";
+                    x = QUOTE(0.33 * safezoneW);
+                    y = QUOTE(0.02 * safezoneH);
+                    w = QUOTE(0.2 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_attachMarkerUnit));
+                };
+                class attachMarkerToGroup: attachMarkerToClient {
+                    text = "Attach Marker to Unit Group";
+                    y = QUOTE(0.1 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_attachMarkerGroup));
+                };
+                class detatchMarker: attachMarkerToClient {
+                    idc = -1;
+                    text = "Detatch Marker";
+                    y = QUOTE(0.18 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_detachMarker));
+                };
+                class deleteMarker: attachMarkerToClient {
+                    idc = -1;
+                    text = "Delete Marker";
+                    y = QUOTE(0.26 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_deleteMarker));
+                };
+                class fixMarkerKey: attachMarkerToClient {
+                    idc = -1;
+                    text = "Fix Marker Key";
+                    y = QUOTE(0.34 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_resetMarkerKey));
+                };
+                class resetAllMarkers: attachMarkerToClient {
+                    idc = -1;
+                    text = "Reinit All Markers";
+                    y = QUOTE(0.42 * safezoneH);
+                    action = QUOTE(remoteExecCall [QQEFUNC(markers,reinitMarkerHash)]);
                 };
             };
         };

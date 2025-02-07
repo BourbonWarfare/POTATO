@@ -16,6 +16,7 @@
  *
  * Public: No
  */
+#define INSTAKILL_ALLOWED(unit) (unit isNotEqualTo (unit getVariable [QACEGVAR(medical_engine,blockInstaKill), objNull]))
 params ["_args", ["_ignoreAllowDamageACE", false]];
 _args params ["_unit", "_selection", "_damage", "_shooter", "_ammo", "_hitPointIndex", "_instigator", "_hitpoint", "_directHit", "_context"];
 
@@ -34,28 +35,41 @@ if (_structuralDamage) then {
 };
 
 // Damage can be disabled with old variable or via sqf command allowDamage
-if !(isDamageAllowed _unit && {_unit getVariable ["ace_medical_allowDamage", true] || _ignoreAllowDamageACE}) exitWith {_oldDamage};
+if !(isDamageAllowed _unit && {_unit getVariable [QACEGVAR(medical_engine,allowDamage), true] || _ignoreAllowDamageACE}) exitWith {_oldDamage};
 
 // Killing units via End key is an edge case (#10375)
+// This didn't matter pre-Arma 3 2.18 but now this goes through the event handler
+// TODO: Structural fire damage >= 1 in a single damage event could still be caught here and we don't want that, but we haven't found a better way to catch this, fire damage should be small most of the time anyway
+// Also triggers for catastrophic vehicle explosions which would kill crew outright, check for blocking
 private _newDamage = _damage - _oldDamage;
-if (_structuralDamage && {(abs (_newDamage - 1)) < 0.001 && _ammo == "" && isNull _shooter && isNull _instigator}) exitWith {_damage};
+if (_structuralDamage && {(abs (_newDamage - 1)) < 0.001 && _ammo == "" && isNull _shooter && isNull _instigator} && {INSTAKILL_ALLOWED(_unit)}) exitWith {
+    TRACE_1("unit killed by curator or engine",_unit);
 
+    _damage
+};
 
 // _newDamage == 0 happens occasionally for vehiclehit events (see line 80 onwards), just exit early to save some frametime
 // context 4 is engine "bleeding". For us, it's just a duplicate event for #structural which we can ignore without any issues
+// Leverage this to block insta-kills on the same frame (see above)
 if (_context != 2 && {_context == 4 || _newDamage == 0}) exitWith {
-    TRACE_4("Skipping engine bleeding or zero damage",_ammo,_newDamage,_directHit,_context);
+    TRACE_4("Skipping engine bleeding or zero damage, blocking insta kills until next frame",_ammo,_newDamage,_directHit,_context);
+
+    if (INSTAKILL_ALLOWED(_unit)) then {
+        _unit setVariable [QACEGVAR(medical_engine,blockInstaKill), _unit];
+        [{_this setVariable [QACEGVAR(medical_engine,blockInstaKill), nil]}, _unit] call CBA_fnc_execNextFrame;
+    };
+
     _oldDamage
 };
 
 // Get scaled armor value of hitpoint and calculate damage before armor
 // We scale using passThrough to handle explosive-resistant armor properly (#9063)
 // We need realDamage to determine which limb was hit correctly
-[_unit, _hitpoint] call ace_medical_engine_fnc_getHitpointArmor params ["_armor", "_armorScaled"];
+[_unit, _hitpoint] call ACEFUNC(medical_engine,getHitpointArmor) params ["_armor", "_armorScaled"];
 private _realDamage = _newDamage * _armor;
 if (!_structuralDamage) then {
     private _armorCoef = _armor/_armorScaled;
-    private _damageCoef = linearConversion [0, 1, ace_medical_engine_damagePassThroughEffect, 1, _armorCoef];
+    private _damageCoef = linearConversion [0, 1, ACEGVAR(medical_engine,damagePassThroughEffect), 1, _armorCoef];
     _newDamage = _newDamage * _damageCoef;
 };
 TRACE_6("Received hit",_hitpoint,_ammo,_newDamage,_realDamage,_directHit,_context);
@@ -68,7 +82,7 @@ if (
     {_damage isEqualTo (_oldDamage + 0.005)}
 ) exitWith {
     TRACE_5("Drowning",_unit,_shooter,_instigator,_damage,_newDamage);
-    ["ace_medical_woundReceived", [_unit, [[_newDamage, "Body", _newDamage]], _unit, "drowning"]] call CBA_fnc_localEvent;
+    [QACEGVAR(medical,woundReceived), [_unit, [[_newDamage, "Body", _newDamage]], _unit, "drowning"]] call CBA_fnc_localEvent;
 
     0
 };
@@ -78,16 +92,16 @@ private _vehicle = objectParent _unit;
 private _inVehicle = !isNull _vehicle;
 private _environmentDamage = _ammo == "";
 
-// Crashing a vehicle doesn't fire the EH for each hitpoint so the "ace_hdbracket" code never runs
+// Crashing a vehicle doesn't fire the EH for each hitpoint and never triggers _context=2 (LastHitPoint)
 // It does fire the EH multiple times, but this seems to scale with the intensity of the crash
 if (
-    ace_medical_enableVehicleCrashes &&
+    ACEGVAR(medical,enableVehicleCrashes) &&
     {_environmentDamage && _inVehicle && _structuralDamage} &&
     {vectorMagnitude (velocity _vehicle) > 5}
     // todo: no way to detect if stationary and another vehicle hits you
 ) exitWith {
     TRACE_5("Crash",_unit,_shooter,_instigator,_damage,_newDamage);
-    ["ace_medical_woundReceived", [_unit, [[_newDamage, _hitPoint, _newDamage]], _unit, "vehiclecrash"]] call CBA_fnc_localEvent;
+    [QACEGVAR(medical,woundReceived), [_unit, [[_newDamage, _hitPoint, _newDamage]], _unit, "vehiclecrash"]] call CBA_fnc_localEvent;
 
     0
 };
@@ -104,10 +118,10 @@ if (
 ) exitWith {
     TRACE_5("Vehicle hit",_unit,_shooter,_instigator,_damage,_newDamage);
 
-    _unit setVariable ["ace_medical_lastDamageSource", _shooter];
-    _unit setVariable ["ace_medical_lastInstigator", _instigator];
+    _unit setVariable [QACEGVAR(medical,lastDamageSource), _shooter];
+    _unit setVariable [QACEGVAR(medical,lastInstigator), _instigator];
 
-    ["ace_medical_woundReceived", [_unit, [[_newDamage, _hitPoint, _newDamage]], _shooter, "vehiclehit"]] call CBA_fnc_localEvent;
+    [QACEGVAR(medical,woundReceived), [_unit, [[_newDamage, _hitPoint, _newDamage]], _shooter, "vehiclehit"]] call CBA_fnc_localEvent;
 
     0
 };
