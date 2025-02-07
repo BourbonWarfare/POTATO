@@ -31,11 +31,11 @@ if (hasInterface) exitWith {}; // ignore for mission makers
         };
     }, UPDATE_FREQUENCY, [CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
 
-    addMissionEventHandler ["EntityKilled", { _this call FUNC(onKill); }];
+    addMissionEventHandler ["EntityKilled", { call FUNC(onKill); }];
 
     #ifdef DEBUG_MODE_FULL
     findDisplay 12 displayCtrl 51 ctrlAddEventHandler ["Draw", {
-        _this call FUNC(debugPFH);
+        call FUNC(debugPFH);
     }];
     #endif
 

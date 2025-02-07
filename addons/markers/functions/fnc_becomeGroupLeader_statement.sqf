@@ -14,8 +14,8 @@
  */
 //IGNORE_PRIVATE_WARNING["_target", "_player"];
 
-if (_this call ACEFUNC(interaction,canBecomeLeader)) then {
-    _this call ACEFUNC(interaction,doBecomeLeader);
+if (call ACEFUNC(interaction,canBecomeLeader)) then {
+    call ACEFUNC(interaction,doBecomeLeader);
 };
 
 if (!GVAR(groupAndUnitEnabled)) exitWith {};

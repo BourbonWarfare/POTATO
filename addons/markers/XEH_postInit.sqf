@@ -26,7 +26,7 @@ LOG("Post init start");
             if (isNil QGVAR(viewCivMarkers)) then {GVAR(viewCivMarkers) = [civilian]};
 
             // add draw marker eh to the microdagr, the GPS/Map are handled by adding XEHs to their displays
-            ACEGVAR(microDAGR,miniMapDrawHandlers) pushBack {_this call FUNC(drawMarkers)};
+            ACEGVAR(microDAGR,miniMapDrawHandlers) pushBack {call FUNC(drawMarkers)};
 
             // only setup event handlers when they'd be used
             if (GVAR(groupAndUnitEnabled)) then {

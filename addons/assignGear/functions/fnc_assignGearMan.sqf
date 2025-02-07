@@ -134,7 +134,7 @@ private _loadoutKey = format ["%1:%2", _path, _randomIndex];
 private _loadoutArray = GVAR(loadoutCache) getOrDefaultCall [_loadoutKey, {
     TRACE_1("compiling new",_loadoutKey);
     BEGIN_COUNTER(getLoadoutFromConfig);
-    _loadoutArray = [_path, _unit] call FUNC(getLoadoutFromConfig);
+    private _loadoutArray = [_path, _unit] call FUNC(getLoadoutFromConfig);
     END_COUNTER(getLoadoutFromConfig);
     TRACE_1("",_loadoutArray);
     _loadoutArray

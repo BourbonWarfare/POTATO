@@ -1,8 +1,16 @@
 [config.file_type]
 options.allow_no_extension = true
 
+[stringtables.usage]
+options.ignore_unused = true
+
 [sqf]
 enabled = true
+
+[sqf.banned_macros]
+options.release = [
+    "DEBUG_MODE_FULL", "DISABLE_COMPILE_CACHE", "ENABLE_PERFORMANCE_COUNTERS"
+]
 
 [sqf.var_all_caps]
 enabled = true
@@ -14,3 +22,17 @@ options.ignore = [
 options.ignore = [
     "addPublicVariableEventHandler", # Alternate syntax doesn't work, used in markers post init
 ]
+
+[sqf.undefined]
+enabled = true
+options.check_orphan_code = true
+
+[sqf.unused]
+#enabled = true #many false positives without DEBUG_MODE_FULL
+options.check_params = false
+
+[sqf.shadowed]
+enabled = false
+
+[sqf.not_private]
+enabled = true
