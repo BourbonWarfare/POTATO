@@ -117,7 +117,7 @@
         };
     };   // H&K417 drum mag (50 rounds)
 
-    class CBA_762x51_LINKS {        // M13 Links for M60, M240, MG3 (DM6/DM60)
+    class CBA_762x51_LINKS {        // M13 Links for M60, M240, MG3 (DM6/DM60) - Causes known UBC
         GVAR(mags)[] = {
             MAGAZINE_WELL_BOX(762x51,50),
             MAGAZINE_WELL_BOX(762x51,100),

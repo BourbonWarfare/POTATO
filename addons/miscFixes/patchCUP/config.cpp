@@ -26,7 +26,10 @@ class CfgVehicles {
     // Base classes
     class Car;
     class Car_F: Car {
-        class HitPoints;
+        class HitPoints {
+            class HitEngine;
+            class HitFuel;
+        };
         class Turrets;
     };
     // Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
@@ -54,7 +57,7 @@ class CfgVehicles {
                 gunnerOutOpticsModel = "\A3\weapons_f\reticle\Optics_Commander_02_F";
             };
         };
-        class UserActions {}; // clear all user actions (not a big deal)
+        class UserActions {}; // clear all user actions (not a big deal) - Causes known UBC
     };
     // Fix the M1038 back seat and attenuation
     class CUP_nHMMWV_Base: Car_F {
@@ -87,10 +90,6 @@ class CfgVehicles {
     };
     // Tweaks to the GTK Boxer's handling (accel/braking) + HMG swap to M3M + countermeasures move to gunner
     class Wheeled_APC_F: Car_F {
-        class HitPoints: HitPoints {
-            class HitEngine;
-            class HitFuel;
-        };
         class NewTurret;
         class Turrets {
             class MainTurret: NewTurret {
