@@ -7,5 +7,7 @@ PREP_RECOMPILE_START;
 PREP_RECOMPILE_END;
 
 #include "initSettings.inc.sqf"
+GVAR(tpActionCleanup) = [];
+GVAR(mapTPActionInit) = false;
 
 ADDON = true;
