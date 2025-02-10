@@ -1,8 +1,8 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function handles the transfer for the ACE "become group leader"
- * action statement override.
+ * This function handles initialization of teleport between a module and a
+ * sync'd object.
  *
  * Arguments:
  * 0: The module being initialized
