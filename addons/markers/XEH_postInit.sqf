@@ -47,8 +47,7 @@ LOG("Post init start");
                         (group _this) getVariable [QGVAR(addMarker), false]
                     }, {
                         [_this] call FUNC(initUnitMarkers);
-                    }, _newplayer, 5
-                    ] call CBA_fnc_waitUntilAndExecute;
+                    }, _newplayer, 10] call CBA_fnc_waitUntilAndExecute;
                 }] call CBA_fnc_addPlayerEventHandler;
                 if (didJIP) then {
                     [true] call FUNC(reinitMarkerHash);
