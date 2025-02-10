@@ -45,15 +45,21 @@ LOG("Post init start");
                     [{
                         _this getVariable [QGVAR(addMarker), false] ||
                         (group _this) getVariable [QGVAR(addMarker), false]
-                    }, {
+                    }, {[_this] call FUNC(initUnitMarkers);},_newplayer, 10, {
                         [_this] call FUNC(initUnitMarkers);
-                    }, _newplayer, 10] call CBA_fnc_waitUntilAndExecute;
+                    }] call CBA_fnc_waitUntilAndExecute;
                 }] call CBA_fnc_addPlayerEventHandler;
                 if (didJIP) then {
                     [true] call FUNC(reinitMarkerHash);
                 };
-            };
+                [{
+                    if (GVAR(drawHash) isEqualTo createHashMap) then {
+                        call FUNC(reinitMarkerHash);
+                    };
+                }, 0, 0.1] call CBA_fnc_waitAndExecute;
+                };
             [] call FUNC(checkForMapMarkerColor);
+
         } else {
             GVAR(skipInstallingEH) = true; // skip installing marker EHs
         };
