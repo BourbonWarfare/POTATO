@@ -15,7 +15,7 @@
 * none
 *
 * Example:
-* [[], [0, 1, 0]] call lmd_fnc_teleportGroupHandle;
+* [[], [0, 1, 0]] call potato_missionModules_teleportGroupHandle;
 ******************************************************************************/
 params ["", "_pos"];
 private _group = group ace_player;

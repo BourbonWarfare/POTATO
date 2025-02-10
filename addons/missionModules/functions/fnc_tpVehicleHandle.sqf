@@ -15,7 +15,7 @@
 * none
 *
 * Example:
-* [[], [0, 1, 0]] call lmd_fnc_teleportVehicleHandle;
+* [[], [0, 1, 0]] call potato_missionModules_teleportVehicleHandle;
 ******************************************************************************/
 params ["", "_pos"];
 private _vehicle = vehicle ace_player;
