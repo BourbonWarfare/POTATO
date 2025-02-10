@@ -20,9 +20,8 @@
 params ["", "_pos"];
 private _vehicle = vehicle ace_player;
 TRACE_2("TP group",_vehicle,_pos);
-if (!EGVAR(safeStart,safeStartEnabled) ||
-    _vehicle getVariable [QGVAR(mapClickWindow), -1] < CBA_missionTime ||
-    !isNil QGVAR(safeStartTPClickEH) && {GVAR(safeStartTPClickEH) < 0 }) exitWith {
+if (_vehicle getVariable [QGVAR(mapClickWindow), -1] < CBA_missionTime ||
+    GVAR(safeStartTPClickEH) < 0) exitWith {
     TRACE_4("exit early",EGVAR(safeStart,safeStartEnabled),_vehicle getVariable [ARR_2(QGVAR(mapClickWindow),-1)],CBA_missionTime,GVAR(safeStartTPClickEH));
     removeMissionEventHandler ["MapSingleClick", GVAR(safeStartTPClickEH)];
     GVAR(safeStartTPClickEH) = -1;

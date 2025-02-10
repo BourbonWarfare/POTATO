@@ -20,10 +20,9 @@
 params ["", "_pos"];
 private _unit = ace_player;
 TRACE_2("TP unit",_unit,_pos);
-if (!EGVAR(safeStart,safeStartEnabled) ||
-    !isNull objectParent _unit ||
+if (!isNull objectParent _unit ||
     _unit getVariable [QGVAR(mapClickWindow), -1] < CBA_missionTime ||
-    !isNil QGVAR(safeStartTPClickEH) && {GVAR(safeStartTPClickEH) < 0 }) exitWith {
+    GVAR(safeStartTPClickEH) < 0) exitWith {
     TRACE_5("exit early",EGVAR(safeStart,safeStartEnabled),objectParent _unit,_unit getVariable [ARR_2(QGVAR(mapClickWindow),-1)],CBA_missionTime,GVAR(safeStartTPClickEH));
     removeMissionEventHandler ["MapSingleClick", GVAR(safeStartTPClickEH)];
     GVAR(safeStartTPClickEH) = -1;
