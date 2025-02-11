@@ -15,5 +15,7 @@ class CfgPatches {
 
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
+#include "CfgNotifications.hpp"
+#include "CfgSounds.hpp"
 #include "CfgVehicles.hpp"
 #include "Displays.hpp"
