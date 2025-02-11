@@ -58,7 +58,7 @@ LOG("Post init start");
                 // without the network sync
                 [{
                     if (GVAR(drawHash) isEqualTo createHashMap) then {
-                        call FUNC(reinitMarkerHash);
+                        [] call FUNC(reinitMarkerHash);
                     };
                 }, 0, 0.1] call CBA_fnc_waitAndExecute;
                 };
