@@ -131,7 +131,7 @@ class CfgVehicles {
         isTriggerActivated = 0;
         isGlobal = 1;
         displayName = "Body Bag";
-        function = QFUNC(initSafeStartTeleport);
+        function = QFUNC(zeus_bodyBag);
         curatorCanAttach = 1;
     };
     class GVAR(identity_module): Module_F {
