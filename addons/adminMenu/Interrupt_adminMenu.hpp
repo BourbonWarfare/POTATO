@@ -609,15 +609,22 @@ class GVAR(adminMenuDialog) {
                 };
                 class fixMarkerKey: attachMarkerToClient {
                     idc = -1;
-                    text = "Fix Marker Key";
+                    text = "Fix Unit Markers";
                     y = QUOTE(0.34 * safezoneH);
-                    action = QUOTE([] call FUNC(uihook_resetMarkerKey));
+                    action = QUOTE([] call FUNC(uihook_resetMarkersButton));
                 };
                 class resetAllMarkers: attachMarkerToClient {
                     idc = -1;
-                    text = "Reinit All Markers";
+                    text = "Reload All Client Markers";
                     y = QUOTE(0.42 * safezoneH);
                     action = QUOTE(remoteExecCall [QQEFUNC(markers,reinitMarkerHash)]);
+                };
+                class initServerMarks: attachMarkerToClient {
+                    idc = -1;
+                    text = "Reinit Server AI Markers";
+                    tooltip = "Sometimes AI are spawned with markers on the server after the init runs. Run again to fix missing markers";
+                    y = QUOTE(0.5 * safezoneH);
+                    action = QUOTE(remoteExecCall [ARR_2(QQEFUNC(markers,initLocalMarkers),0)]);
                 };
             };
         };
