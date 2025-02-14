@@ -68,7 +68,7 @@ LOG("Post init start");
             GVAR(skipInstallingEH) = true; // skip installing marker EHs
         };
 
-        if (isServer && GVAR(groupAndUnitEnabled)) then {
+        if (isServer && !hasInterface && GVAR(groupAndUnitEnabled)) then {
             [{
                 TRACE_1("Updating server marker positions",CBA_missionTime);
                 {
