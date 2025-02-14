@@ -14,9 +14,11 @@
  */
 //IGNORE_PRIVATE_WARNING["_target", "_player"];
 
-private _hashKey = groupId group _player;
-private _oldGroup = units group _player;
-private _newGroup = createGroup side group _player;
+private _group = group _player;
+private _groupSide = side _group;
+private _hashKey = str _groupSide + groupId _group;
+private _oldGroup = units _group;
+private _newGroup = createGroup _groupSide;
 [_player] joinSilent _newGroup;
 {_player reveal _x} forEach _oldGroup;
 if !(GVAR(groupAndUnitEnabled)) exitWith {};
