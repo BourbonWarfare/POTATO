@@ -48,4 +48,20 @@ class CfgAmmo {
         ACEGVAR(frag,classes)[] = {QACEGVAR(frag,tiny_HD), QACEGVAR(frag,small_HD), QACEGVAR(frag,small_HD)};
         ACEGVAR(frag,fragCount) = 350;
     };
+
+    // Make the missiles aimable by returning old smoke effects
+    class gm_missile_saclos_base;
+    class gm_missile_fagot_base: gm_missile_saclos_base {
+        effectsMissile = "missile2_vanilla";
+    };
+    class gm_missile_milan_base: gm_missile_saclos_base {
+        effectsMissile = "missile2_vanilla";
+    };
+    class gm_missile_bastion_base: gm_missile_saclos_base {
+        effectsMissile = "missile2_vanilla";
+    };
+    class gm_missile_maljutka_base: gm_missile_saclos_base {
+        effectsMissile = "missile2_vanilla";
+    };
+
 };
