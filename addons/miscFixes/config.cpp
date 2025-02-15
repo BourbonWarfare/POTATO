@@ -25,6 +25,7 @@ class RscChatListDefault {
 };
 
 #include "CfgAmmo.hpp"
+#include "CfgCloudlets.hpp"
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"

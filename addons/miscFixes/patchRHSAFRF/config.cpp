@@ -7,11 +7,33 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "rhs_main_loadorder" };
+        requiredAddons[] = {
+            "potato_core",
+            "potato_miscFixes",
+            "rhs_main_loadorder"
+        };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
+    };
+};
+
+class RHS_Missile2 {
+    class Missile2 {
+        type = "Missile2_vanilla";
+    };
+    class Missile2Med {
+        type = "Missile2Med_vanilla";
+    };
+};
+
+class RHS_Missile3 {
+    class Missile3 {
+        type = "Missile3_vanilla";
+    };
+    class Missile3Med {
+        type = "Missile3Med_vanilla";
     };
 };
 

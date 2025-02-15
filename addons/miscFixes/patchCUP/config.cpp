@@ -7,7 +7,14 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "potato_customGear", "CUP_Weapons_LoadOrder", "CUP_Vehicles_LoadOrder", "CUP_Creatures_People_LoadOrder" };
+        requiredAddons[] = {
+            "potato_core",
+            "potato_miscFixes",
+            "potato_customGear",
+            "CUP_Weapons_LoadOrder",
+            "CUP_Vehicles_LoadOrder",
+            "CUP_Creatures_People_LoadOrder"
+        };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -21,6 +28,7 @@ class MainTurret: MainTurret {\
     };\
 }
 
+#include "CfgAmmo.hpp"
 class CfgVehicles {
     #include "CfgVehiclesA10A.hpp"
     // Base classes
