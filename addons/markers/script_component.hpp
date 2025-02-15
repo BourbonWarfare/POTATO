@@ -145,6 +145,6 @@ QUOTE('PATHTOF(data\attack_fixed_wing.paa)')
 
 #define POTATO_MARKER_JIP_PREFIX "marker:"
 #define POTATO_MARKER_JIP_PREFIX_LENGTH 7
-#define MARKER_DRAW_HASH_REFRESH_TIME 10
+#define MARKER_DRAW_HASH_REFRESH_TIME 30
 
 #include "\z\potato\addons\core\script_macros.hpp"

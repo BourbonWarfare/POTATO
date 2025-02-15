@@ -19,8 +19,8 @@ if (call ACEFUNC(interaction,canBecomeLeader)) then {
 };
 
 if (!GVAR(groupAndUnitEnabled)) exitWith {};
-
-private _hashKey = groupId group _player;
+private _grp = group player;
+private _hashKey = str side _grp +  groupId _grp;
 private _markerArray = GVAR(markerHash) getOrDefault [_hashKey, []];
 if (_markerArray isNotEqualTo [] &&
     _hashKey != "" &&

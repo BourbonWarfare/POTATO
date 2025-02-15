@@ -118,33 +118,43 @@ class CfgRespawnGroups {
         class Configurations {
             class ASL: Alpha {
                 displayName = "Alpha";
+                markerText = "SL";
             };
             class BSL: Bravo {
                 displayName = "Bravo";
+                markerText = "SL";
             };
             class CSL: Charlie {
                 displayName = "Charlie";
+                markerText = "SL";
             };
             class DSL: Delta {
                 displayName = "Delta";
+                markerText = "SL";
             };
             class ESL: Echo {
                 displayName = "Echo";
+                markerText = "SL";
             };
             class FSL: Foxtrot {
                 displayName = "Foxtrot";
+                markerText = "SL";
             };
             class GSL: Golf {
                 displayName = "Golf";
+                markerText = "SL";
             };
             class HSL: Hotel {
                 displayName = "Hotel";
+                markerText = "SL";
             };
             class ISL: India {
                 displayName = "India";
+                markerText = "SL";
             };
             class WSL: Weapons {
                 markerPrefix = "W";
+                markerText = "SL";
                 displayName = "Weapons";
             };
         };
