@@ -1,11 +1,9 @@
 #include "script_component.hpp"
 
 if (isServer) then {
-    addMissionEventHandler ["EntityKilled", {
-        [_this#0] call FUNC(driverDeathHandle);
-    }];
-    ["ace_cookoff_cookOff",{_this call FUNC(vehicleCookOffHandle)}] call CBA_fnc_addEventHandler;
-    ["ace_cookoff_engineFire",{_this call FUNC(vehicleCookOffHandle)}] call CBA_fnc_addEventHandler;
+    addMissionEventHandler ["EntityKilled", {call FUNC(driverDeathHandle);}];
+    ["ace_cookoff_cookOff",{call FUNC(vehicleCookOffHandle)}] call CBA_fnc_addEventHandler;
+    ["ace_cookoff_engineFire",{call FUNC(vehicleEngineFireHandle)}] call CBA_fnc_addEventHandler;
 };
 
 [QGVAR(driveDeathEvent), {LINKFUNC(driverDeathHandle)}] call CBA_fnc_addEventHandler;

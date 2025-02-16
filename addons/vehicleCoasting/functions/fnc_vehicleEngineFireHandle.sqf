@@ -20,24 +20,24 @@ params [["_vehicle", objNull, [objNull]]];
 TRACE_2("params",_vehicle,typeOf _vehicle);
 
 if !(alive _vehicle && local _vehicle) exitWith {
-    TRACE_3("invalid vehicle",alive _vehicle,local _vehicle,alive _driver);
+    TRACE_2("invalid vehicle",alive _vehicle,local _vehicle);
 };
-#define DEBUG_MODE_FULL
+#ifdef DEBUG_MODE_FULL
 diag_log text (str _vehicle + " lt: " + str (_vehicle getHitPointDamage "hitltrack") + " rt: "
         + str (_vehicle getHitPointDamage "hitrtrack") + " e: "
         + str (_vehicle getHitPointDamage "hitengine"));
 #endif
 private _driver = driver _vehicle;
 // Make it happen more often
-if !(isPlayer _driver && random 1 > 0.95) then {
+/*if !(isPlayer _driver && random 1 > 0.95) then {
     TRACE_1("Murdering",_driver);
     _driver setDamage [1, false];
-};
+};*/
 if (speed _vehicle < 4 || alive _driver ||
+    _vehicle getVariable [QGVAR(vehicleCoastEndTime), 0] >  CBA_missionTime ||
     !(_vehicle isKindOf "LandVehicle")) exitWith {
-    TRACE_3("invalid vehicle",speed _vehicle,alive _driver,typeOf _vehicle);
+    TRACE_2("invalid vehicle",speed _vehicle,alive _driver);
 };
-if (random 1 < POTATO_VEHICLEC_COASTING_COOKOFF_CHANCE) then {
+if (random 1 < POTATO_VEHICLEC_COASTING_ENGINE_CHANCE) then {
     [_vehicle, _driver] call FUNC(addCoastingVehicle);
-    [_vehicle] call FUNC(forceBail);
 };

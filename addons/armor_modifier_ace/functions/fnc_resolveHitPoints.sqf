@@ -1,4 +1,4 @@
-#include "../script_component.hpp"
+#include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
  * Sets the armor value for a specific class.
