@@ -84,7 +84,7 @@ if (_player) then {
             {_x setMarkerAlphaLocal 1} forEach GVAR(ssTPZones);
             _player setVariable [QGVAR(mapClickWindow), CBA_missionTime + SAFESTART_TELEPORT_TIMER];
             GVAR(safeStartTPClickEH) = addMissionEventHandler ["MapSingleClick", {
-                _this call FUNC(tpUnitHandle);
+                call FUNC(tpUnitHandle);
             }];
         },
         {isNull objectParent _player
@@ -114,7 +114,7 @@ if (_group) then {
             {_x setMarkerAlphaLocal 1} forEach GVAR(ssTPZones);
             (group _player) setVariable [QGVAR(mapClickWindow), CBA_missionTime + SAFESTART_TELEPORT_TIMER];
             GVAR(safeStartTPClickEH) = addMissionEventHandler ["MapSingleClick", {
-                _this call FUNC(tpGroupHandle);
+                call FUNC(tpGroupHandle);
             }];
         },
         {leader _player == _player
@@ -156,7 +156,7 @@ if (_vehicle) then {
             {_x setMarkerAlphaLocal 1} forEach GVAR(ssTPZones);
             (vehicle _player) setVariable [QGVAR(mapClickWindow), CBA_missionTime + SAFESTART_TELEPORT_TIMER];
             GVAR(safeStartTPClickEH) = addMissionEventHandler ["MapSingleClick", {
-                _this call FUNC(tpVehicleHandle);
+                call FUNC(tpVehicleHandle);
             }];
         },
         {leader _player == _player
