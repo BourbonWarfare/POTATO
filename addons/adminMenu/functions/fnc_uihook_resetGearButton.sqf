@@ -18,21 +18,20 @@ if (_selectedLoadout == "") then {
     _selectedUnit setVariable ["F_Gear", nil, true];
 } else {
     _selectedUnit setVariable ["F_Gear", _selectedLoadout, true];
-
-    // If changing loadout, also add/remove medic/eng abilities
-    if (_selectedLoadout == "sm") then {
-        _selectedUnit setVariable [QACEGVAR(medical,medicClass), 1, true];
-    } else {
-        _selectedUnit setVariable [QACEGVAR(medical,medicClass), 0, true];
-    };
-
-    if (_selectedLoadout in ["eng","vicc","vicl","vicd","pilot"]) then {
-        _selectedUnit setVariable ["ACE_isEngineer", true, true];
-    } else {
-        _selectedUnit setVariable ["ACE_isEngineer", false, true];
-    };
 };
 
+// If changing loadout, also add/remove medic/eng abilities
+if (_selectedLoadout == "sm") then {
+    _selectedUnit setVariable [QACEGVAR(medical,medicClass), 1, true];
+} else {
+    _selectedUnit setVariable [QACEGVAR(medical,medicClass), nil, true];
+};
+
+if (_selectedLoadout in ["eng","vicc","vicl","vicd","pilot"]) then {
+    _selectedUnit setVariable ["ACE_isEngineer", true, true];
+} else {
+    _selectedUnit setVariable ["ACE_isEngineer", nil, true];
+};
 
 [QGVAR(resetGear), [_selectedUnit], [_selectedUnit]] call CBA_fnc_targetEvent;
 
