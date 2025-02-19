@@ -57,6 +57,5 @@ if (group (_markerArray#0) != group _selectedUnit) then {
     ],
     profileName
 ]] call CBA_fnc_globalEvent;
-[{
-    [0, UI_TABS_INDEX_MARKERS] call FUNC(uihook_tabChange);
-}, 0, 0.1] call CBA_fnc_waitAndExecute;
+
+[] call FUNC(reloadMarkersTab);
