@@ -46,8 +46,8 @@ LOG("Post init start");
                     [{
                         (_this#0) getVariable [QGVAR(addMarker), false] ||
                         (group (_this#0)) getVariable [QGVAR(addMarker), false]
-                    }, {_this call FUNC(initUnitMarkers);},[_newplayer], 10, {
-                        _this call FUNC(initUnitMarkers);
+                    }, {call FUNC(initUnitMarkers);},[_newplayer], 10, {
+                        call FUNC(initUnitMarkers);
                     }] call CBA_fnc_waitUntilAndExecute;
                 }] call CBA_fnc_addPlayerEventHandler; // no-retro flag set, this will only run for units that respawn
                 if (didJIP) then {
