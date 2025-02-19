@@ -39,6 +39,11 @@ if (_markerArray isEqualTo []) exitWith {
 };
 
 private _newHashKey = str _selectedUnit;
+private _itr = 0;
+while {(_newHashKey == _hashKey || (_newHashKey in EGVAR(markers,markerHash))) && _itr < 25 } do {
+    _newHashKey = (str _selectedUnit) + str _itr;
+    _itr = _itr + 1;
+};
 [
     _newHashKey,
     getPosATL _selectedUnit, _selectedUnit, side _selectedUnit,
