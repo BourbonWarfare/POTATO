@@ -46,3 +46,24 @@ GVAR(ehAdded) = false;
         _x setUnitPosWeak "UP";
     } forEach (units _group);
 }] call CBA_fnc_addEventHandler;
+
+// cleanup safe start TP actions
+["potato_safeStartOff", {
+    {
+        private _actionIDs = _x getVariable [QGVAR(tpActions), []];
+        private _object = _x;
+        {
+            [_object, _x] call BIS_fnc_holdActionRemove;
+        } forEach _actionIDs;
+    } forEach GVAR(tpActionCleanup);
+
+    {
+        _x setMarkerAlphaLocal 0;
+    } forEach GVAR(ssTPZones);
+}] call CBA_fnc_addEventHandler;
+
+["potato_safeStartOn", {
+    {
+        _x setMarkerAlphaLocal SAFESTART_MARKER_ALPHA_NOTSELECT;
+    } forEach GVAR(ssTPZones);
+}] call CBA_fnc_addEventHandler;
