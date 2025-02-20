@@ -108,13 +108,13 @@ class CfgAmmo {
     };
     class gm_missile_milan_heat_dm82: gm_missile_milan_base {
         class ace_missileguidance: ace_missileguidance {
-            enabled = 0;
+            enabled = 1;
             initialPitch = 0.4;
         };
     };
     class gm_missile_milan_heat_dm92: gm_missile_milan_base {
         class ace_missileguidance: ace_missileguidance {
-            enabled = 0;
+            enabled = 1;
             initialPitch = 0.4;
         };
     };
