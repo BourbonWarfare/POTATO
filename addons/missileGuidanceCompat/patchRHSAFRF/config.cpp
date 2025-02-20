@@ -215,7 +215,7 @@ class CfgAmmo {
             seekerTypes[] = { "Optic" };
         };
     };
-    /*class rhs_ammo_9m14: rhs_ammo_atgmBase_base {
+    class rhs_ammo_9m14: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
         ACE_MISSILE(Malyutka);
         class EventHandlers: EventHandlers {
@@ -231,7 +231,7 @@ class CfgAmmo {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
         };
-    };*/
+    };
 	class rhs_ammo_9m17: rhs_ammo_atgmBase_base {
         maneuvrability = 0;
         ACE_MISSILE(Fleyta);
