@@ -25,6 +25,13 @@ class CfgPatches {
 #include "../CfgMissileTypesNato.hpp"
 #include "../CfgMissileTypesWarsaw.hpp"
 
+class CfgWeapons {
+    class gm_missileLauncher_base;
+    class gm_maljutka_launcher_base: gm_missileLauncher_base {
+        ACEGVAR(missileGuidance,hasMCLOSControl) = 1;
+    };
+};
+
 class CfgAmmo {
     class gm_missile_saclos_base;
     // Bastion

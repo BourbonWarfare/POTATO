@@ -18,6 +18,16 @@ class CfgPatches {
 #include "../CfgMissileTypesWarsaw.hpp"
 #include "../CfgMissileTypesNato.hpp"
 
+class CfgWeapons {
+    class missiles_SCALPEL;
+    class CUP_Vmlauncher_AT2_veh: missiles_SCALPEL {
+        ACEGVAR(missileGuidance,hasMCLOSControl) = 1;
+    };
+    class CUP_Vmlauncher_AT3_veh: missiles_SCALPEL {
+        ACEGVAR(missileGuidance,hasMCLOSControl) = 1;
+    };
+};
+
 class CfgMagazines {
     class CA_LauncherMagazine;
     class CUP_Dragon_EP1_M: CA_LauncherMagazine {

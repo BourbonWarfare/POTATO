@@ -17,6 +17,17 @@ class CfgPatches {
 
 #include "../CfgMissileTypesWarsaw.hpp"
 
+class CfgWeapons {
+    class MissileLauncher;
+    class rhs_weap_9k11: MissileLauncher {
+        ACEGVAR(missileGuidance,hasMCLOSControl) = 1;
+    };
+    class rhs_weap_9K114_launcher;
+    class rhs_weap_2K8_launcher: rhs_weap_9K114_launcher {
+        ACEGVAR(missileGuidance,hasMCLOSControl) = 1;
+    };
+};
+
 class CfgAmmo {
     class Missile_AGM_01_F;
     class Missile_AGM_02_F;
