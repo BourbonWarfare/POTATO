@@ -2,8 +2,10 @@
 /*
  * Author: Lambda.Tiger
  * Description:
- * This function will either toggle showing markes or if the control load in
- * calls the function, it will reinit the draw3d.
+ * This function will either toggle showing markers, or if the control load in
+ * calls the function it will reinit the draw3d. Enabling this function will
+ * result in the player entering zeus seeing ALL markers on the map including
+ * markers used by other sides not configured to show to the player.
  *
  * Arguments:
  * 0: The control that an event happens to

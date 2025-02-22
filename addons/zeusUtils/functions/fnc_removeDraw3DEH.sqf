@@ -2,7 +2,7 @@
 /*
  * Author: Lambda.Tiger
  * Description:
- * This function removes a specific draw event from the zeus utils draw
+ * This function removes a specific draw function from the zeus utils draw
  * queue. If there are no actively drawn events, the event handler is removed.
  *
  *

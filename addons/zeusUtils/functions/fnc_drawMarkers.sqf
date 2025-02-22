@@ -2,8 +2,8 @@
 /*
  * Author: Lambda.Tiger
  * This function is called each frame from a Draw3D EH.
- * It adds an FPS count to each unit that reports it and will only show when
- * the Zeus interface is open. This function MUST be called through the Draw3D
+ * It draws all markers in the relevant marker arrays.
+ * This function MUST be called through the Draw3D
  * event handler.
  *
  * Arguments:
