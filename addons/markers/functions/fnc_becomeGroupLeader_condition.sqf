@@ -14,7 +14,7 @@
  */
 //IGNORE_PRIVATE_WARNING["_target", "_player"];
 
-_this call ACEFUNC(interaction,canBecomeLeader) ||
+call ACEFUNC(interaction,canBecomeLeader) ||
     (GVAR(groupAndUnitEnabled) && {
    private _markerArray = GVAR(markerHash) getOrDefault [groupId group _player, [_player]];
    _markerArray#0 isEqualType objNull && {_markerArray#0 != _player}

@@ -19,7 +19,7 @@
     private _runAfterSafeStart = _ingressModule getVariable [QGVAR(runAfterSafeStart), 0];
     private _return = false;
     if (_runAfterSafeStart) then {
-        _return = !potato_safeStart_safeStartEnabled;
+        _return = !EGVAR(safeStart,safeStartEnabled);
     } else {
         _return = true;
     };

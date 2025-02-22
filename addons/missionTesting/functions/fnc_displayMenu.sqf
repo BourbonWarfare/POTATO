@@ -69,7 +69,7 @@ private _createChecklistSection  = {
                 _ctrlCreateCB ctrlSetPosition [0.78,GVAR(yStartCoord),0.05,CONTROL_SIZE_H];
                 _ctrlCreateCB ctrlCommit 0;
                 _ctrlCreateCB cbSetChecked _checked;
-                _ctrlCreateCB ctrlAddEventHandler [QUOTE(CheckedChanged),{_this call FUNC(updateCheckedCB);}];
+                _ctrlCreateCB ctrlAddEventHandler [QUOTE(CheckedChanged),{call FUNC(updateCheckedCB);}];
                 //Set new value of yStartCoord so that the next line is created at the right point below the previous line.
                 GVAR(yStartCoord) = GVAR(yStartCoord) + _ctrlHeight + 0.02;
             };
@@ -94,7 +94,7 @@ private _createChecklistSection  = {
         } forEach A_PASSFAIL;
         _ctrlCreateSectionInstruction lbSetCurSel _sectionPassFail;
         _ctrlCreateSectionInstruction ctrlSetPosition [0.70,GVAR(yStartCoord),0.12,CONTROL_SIZE_H];
-        _ctrlCreateSectionInstruction ctrlAddEventHandler [QUOTE(LBSelChanged),{_this call FUNC(updateSelectionLB);}];
+        _ctrlCreateSectionInstruction ctrlAddEventHandler [QUOTE(LBSelChanged),{call FUNC(updateSelectionLB);}];
         _ctrlCreateSectionInstruction ctrlCommit 0;
 
         INCREMENT_YCOORD_TEXT;
@@ -115,7 +115,7 @@ private _createChecklistSection  = {
             private _ctrlCreateSectionMMNotesEdit = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscEditMulti),_idcMMNotes,CONTROL_GROUP_L];
             _ctrlCreateSectionMMNotesEdit ctrlSetText _sectionNotes;
             _ctrlCreateSectionMMNotesEdit ctrlSetPosition [0.01,GVAR(yStartCoord),LINE_W,0.15];
-            _ctrlCreateSectionMMNotesEdit ctrlAddEventHandler [QUOTE(KillFocus),{_this call FUNC(updateNotesFlag);}];
+            _ctrlCreateSectionMMNotesEdit ctrlAddEventHandler [QUOTE(KillFocus),{call FUNC(updateNotesFlag);}];
             _ctrlCreateSectionMMNotesEdit ctrlCommit 0;
 
             INCREMENT_YCOORD + 0.14;

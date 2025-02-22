@@ -14,13 +14,13 @@
  */
 //IGNORE_PRIVATE_WARNING["_target", "_player"];
 
-if (_this call ACEFUNC(interaction,canBecomeLeader)) then {
-    _this call ACEFUNC(interaction,doBecomeLeader);
+if (call ACEFUNC(interaction,canBecomeLeader)) then {
+    call ACEFUNC(interaction,doBecomeLeader);
 };
 
 if (!GVAR(groupAndUnitEnabled)) exitWith {};
-
-private _hashKey = groupId group _player;
+private _grp = group player;
+private _hashKey = str side _grp +  groupId _grp;
 private _markerArray = GVAR(markerHash) getOrDefault [_hashKey, []];
 if (_markerArray isNotEqualTo [] &&
     _hashKey != "" &&

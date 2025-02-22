@@ -13,8 +13,8 @@
  * Public: No
  */
 //IGNORE_PRIVATE_WARNING["_target", "_player"];
-
-private _hashKey = groupId group _player;
+private _group = group player;
+private _hashKey = str side _group + groupId _group;
 [_player] joinSilent group _target;
 
 if (!GVAR(groupAndUnitEnabled)) exitWith {};

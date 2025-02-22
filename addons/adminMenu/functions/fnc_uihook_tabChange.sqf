@@ -267,6 +267,11 @@ case UI_TABS_INDEX_MARKERS: {
                     _markerList lbSetTextRight [_entry, "AI"];
                     _markerList lbSetTooltip [_entry, "Marker attached to AI"];
                 };
+            } else {
+                _markerList lbSetTooltip [_entry,
+                    format ["Marker attached to %1",
+                     [_object, false, true] call ace_common_fnc_getName]
+                ];
             };
             _markerList lbSetData [_entry, _x];
         } forEach EGVAR(markers,markerHash);

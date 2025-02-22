@@ -249,4 +249,101 @@ class CfgVehicles {
             };
         };
     };
+
+    class GVAR(safeStartTeleport): Module_F {
+        author = QUOTE(PREFIX);
+        category = QEGVAR(core,util);
+        scope = 2;
+        scopeCurator = 1;
+        isTriggerActivated = 0;
+        isGlobal = 2;
+        displayName = "Teleport - Map Click";
+        icon = "iconModule";
+        function = QFUNC(initMapClickTeleport);
+
+        class Attributes {
+            class player {
+                displayName = "Player Teleport";
+                tooltip = "Allow players to teleport themselves within the designated area.";
+                control = "Checkbox";
+                property = QGVAR(player);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "false";
+            };
+            class group: player {
+                displayName = "Group Teleport";
+                tooltip = "Allow group leaders (FTLs, SLs) to teleport their group within the designated area.";
+                property = QGVAR(group);
+                expression = "_this setVariable ['%s',_value, true];";
+            };
+            class vehicle: player {
+                displayName = "Vehicle Teleport";
+                tooltip = "Allow players to teleport their vehicle within the designated area.";
+                property = QGVAR(vehicle);
+                expression = "_this setVariable ['%s',_value, true];";
+            };
+            class safeStart: player {
+                displayName = "Require Safe Start";
+                tooltip = "Require safe-start to be on for teleports to work or appear in ACE self-interact.";
+                property = QGVAR(safeStart);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "true";
+            };
+            class useZones: player {
+                displayName = "Restrict Teleports to Marker Zones";
+                tooltip = "Should player only be able to teleport within the listed zones.";
+                property = QGVAR(useZones);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "true";
+            };
+            class tpZones {
+                displayName = "Array of Area Markers";
+                control = "Edit";
+                tooltip = "Array of area markers teleports are restricted to/from. Markers will be deleted at the end of safe start.";
+                property = QGVAR(tpZones);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "'[''zone_0'']'";
+            };
+        };
+    };
+
+    class GVAR(objectTeleport): Module_F {
+        author = QUOTE(PREFIX);
+        category = QEGVAR(core,util);
+        scope = 2;
+        scopeCurator = 1;
+        isTriggerActivated = 0;
+        isGlobal = 2;
+        displayName = "Teleport - Object to Position";
+        icon = "iconModule";
+        function = QFUNC(initObjectTeleport);
+
+        class Attributes {
+            class safeStart {
+                displayName = "Require Safe Start";
+                tooltip = "Require safe-start to be on for teleports to work or appear in ACE self-interact.";
+                control = "Checkbox";
+                property = QGVAR(safeStart);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "true";
+            };
+            class holdLength {
+                displayName = "Time to  Hold";
+                tooltip = "How long a player must hold down their mouse button before teleporting.";
+                control = "Edit";
+                property = QGVAR(holdLength);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = 2;
+                validate = "number";
+            };
+            class posName {
+                displayName = "Position Name";
+                control = "Edit";
+                tooltip = "What name should the action show.";
+                property = QGVAR(posName);
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = "'Forward Position'";
+            };
+        };
+    };
 };

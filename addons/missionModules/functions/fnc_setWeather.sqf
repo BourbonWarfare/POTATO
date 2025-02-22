@@ -36,7 +36,7 @@ private _fnc_getWeatherVars = {
     [1, 1, 1, 1, 1, 1]
 };
 
-(_this call _fnc_getWeatherVars) params [
+(call _fnc_getWeatherVars) params [
     "_overcast",
     "_rain",
     "_lightnings",

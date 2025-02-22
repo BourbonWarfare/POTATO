@@ -26,7 +26,7 @@ LOG("Post init start");
             if (isNil QGVAR(viewCivMarkers)) then {GVAR(viewCivMarkers) = [civilian]};
 
             // add draw marker eh to the microdagr, the GPS/Map are handled by adding XEHs to their displays
-            ACEGVAR(microDAGR,miniMapDrawHandlers) pushBack {_this call FUNC(drawMarkers)};
+            ACEGVAR(microDAGR,miniMapDrawHandlers) pushBack {call FUNC(drawMarkers)};
 
             // only setup event handlers when they'd be used
             if (GVAR(groupAndUnitEnabled)) then {
@@ -36,6 +36,7 @@ LOG("Post init start");
 
                     [] call FUNC(checkForMapMarkerColor);
 
+                    // force reconstructino of drawHash
                     if (side (group _newPlayer) != side (group _oldPlayer)) then {
                         GVAR(drawHash) = createHashMap;
                         GVAR(nextUpdateDrawHash) = -1;
@@ -43,23 +44,31 @@ LOG("Post init start");
                     // not a fan of waiting here, is there a better way?
                     // the respawn setVariable seems to happen/propagate after this event
                     [{
-                        _this getVariable [QGVAR(addMarker), false] ||
-                        (group _this) getVariable [QGVAR(addMarker), false]
-                    }, {
-                        [_this] call FUNC(initUnitMarkers);
-                    }, _newplayer, 5
-                    ] call CBA_fnc_waitUntilAndExecute;
-                }] call CBA_fnc_addPlayerEventHandler;
+                        (_this#0) getVariable [QGVAR(addMarker), false] ||
+                        (group (_this#0)) getVariable [QGVAR(addMarker), false]
+                    }, {call FUNC(initUnitMarkers);},[_newplayer], 10, {
+                        call FUNC(initUnitMarkers);
+                    }] call CBA_fnc_waitUntilAndExecute;
+                }] call CBA_fnc_addPlayerEventHandler; // no-retro flag set, this will only run for units that respawn
                 if (didJIP) then {
                     [true] call FUNC(reinitMarkerHash);
                 };
-            };
+                // In an attempt to catch those who join in map screen and
+                // miss the reinitMarkerHash call we call it after mission start
+                // without the network sync
+                [{
+                    if (GVAR(drawHash) isEqualTo createHashMap) then {
+                        [] call FUNC(reinitMarkerHash);
+                    };
+                }, 0, 0.1] call CBA_fnc_waitAndExecute;
+                };
             [] call FUNC(checkForMapMarkerColor);
+
         } else {
             GVAR(skipInstallingEH) = true; // skip installing marker EHs
         };
 
-        if (isServer && GVAR(groupAndUnitEnabled)) then {
+        if (isServer && !hasInterface && GVAR(groupAndUnitEnabled)) then {
             [{
                 TRACE_1("Updating server marker positions",CBA_missionTime);
                 {

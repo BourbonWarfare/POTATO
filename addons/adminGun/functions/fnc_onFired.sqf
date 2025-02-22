@@ -23,7 +23,7 @@ params ["_unit", "", "", "", "_ammoType"];
 if (local _unit && { isPlayer _unit }) then {
     switch (_ammoType) do {
         case QGVAR(physics): {
-            _this call FUNC(physicsPFH);
+            call FUNC(physicsPFH);
         };
         default {};
     };

@@ -18,4 +18,4 @@ GVAR(nextReload) = QGVAR(HE);
 {false},
 [19, [false, false, false]], false] call CBA_fnc_addKeybind; //R Key
 
-["vehicle", {_this call FUNC(handlePlayerVehicleChanged);}, true] call CBA_fnc_addPlayerEventHandler;
+["vehicle", {call FUNC(handlePlayerVehicleChanged);}, true] call CBA_fnc_addPlayerEventHandler;

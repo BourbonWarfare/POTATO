@@ -1,5 +1,5 @@
-class CUP_A10_Base;
-class CUP_B_A10_DYN_USA: CUP_A10_Base {
+class CUP_B_A10_CAS_USA;
+class CUP_B_A10_DYN_USA: CUP_B_A10_CAS_USA {
     class MFD {
         class AirplaneHUD {
             enableParallax = 1;

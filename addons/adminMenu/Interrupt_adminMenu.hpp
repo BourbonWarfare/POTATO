@@ -584,6 +584,7 @@ class GVAR(adminMenuDialog) {
                 class attachMarkerToClient: RscButton {
                     idc = -1;
                     text = "Attach Marker to Unit";
+                    tooltip = "Attaches selected marker to the selected unit.";
                     x = QUOTE(0.33 * safezoneW);
                     y = QUOTE(0.02 * safezoneH);
                     w = QUOTE(0.2 * safezoneW);
@@ -592,12 +593,14 @@ class GVAR(adminMenuDialog) {
                 };
                 class attachMarkerToGroup: attachMarkerToClient {
                     text = "Attach Marker to Unit Group";
+                    tooltip = "Attaches selected marker to the selected unit's group.";
                     y = QUOTE(0.1 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_attachMarkerGroup));
                 };
                 class detatchMarker: attachMarkerToClient {
                     idc = -1;
                     text = "Detatch Marker";
+                    tooltip = "Removes the selected marker attached object.\nGroup markers may be reattached by group.";
                     y = QUOTE(0.18 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_detachMarker));
                 };
@@ -609,15 +612,24 @@ class GVAR(adminMenuDialog) {
                 };
                 class fixMarkerKey: attachMarkerToClient {
                     idc = -1;
-                    text = "Fix Marker Key";
+                    text = "Reload Unit Local Markers";
+                    tooltip = "Reloads the selected clients\nmarkers from their local marker caches";
                     y = QUOTE(0.34 * safezoneH);
-                    action = QUOTE([] call FUNC(uihook_resetMarkerKey));
+                    action = QUOTE([] call FUNC(uihook_resetMarkersButton));
                 };
                 class resetAllMarkers: attachMarkerToClient {
                     idc = -1;
-                    text = "Reinit All Markers";
+                    text = "Reload All Client Markers";
+                    tooltip = "Reloads every clients markers from\ntheir local marker caches";
                     y = QUOTE(0.42 * safezoneH);
-                    action = QUOTE(remoteExecCall [QQEFUNC(markers,reinitMarkerHash)]);
+                    action = QUOTE(remoteExecCall [QQEFUNC(markers,reinitMarkerHash)]; [] call FUNC(reloadMarkersTab););
+                };
+                class initServerMarks: attachMarkerToClient {
+                    idc = -1;
+                    text = "Reinit Server AI Markers";
+                    tooltip = "Sometimes AI are spawned with markers on the server after\nthe init runs. Run again to fix missing AI markers.";
+                    y = QUOTE(0.5 * safezoneH);
+                    action = QUOTE(remoteExecCall [ARR_2(QQEFUNC(markers,initLocalMarkers),0)]; [] call FUNC(reloadMarkersTab););
                 };
             };
         };
