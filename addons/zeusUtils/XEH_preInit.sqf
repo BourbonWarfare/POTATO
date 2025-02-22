@@ -11,7 +11,6 @@ GVAR(fpsAvgCalcEH) = -1;
 GVAR(fpsAvgCalc) = [0, [0, 0, 0, 0, 0]];
 GVAR(playerFPSCache) = createHashMap;
 GVAR(clientsTrackingFPS) = [];
-GVAR(serverUpdateFPSEH) = -1;
 
 #include "initSettings.inc.sqf"
 

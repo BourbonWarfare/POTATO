@@ -2,7 +2,7 @@
 
 if (isServer && isMultiplayer) then {
     [QGVAR(ZeusFPSMonitorUpdate), LINKFUNC(handleZeusFPSRequest)] call CBA_fnc_addEventHandler;
-    GVAR(serverUpdateFPSEH) = [{
+    [{
         {
             _x publicVariableClient QGVAR(playerFPSCache);
         } forEach GVAR(clientsTrackingFPS);
