@@ -6,7 +6,8 @@ PREP_RECOMPILE_START;
 #include "XEH_PREP.hpp"
 PREP_RECOMPILE_END;
 
-GVAR(fpsDisplayEH) = -1;
+GVAR(draw3DFunctions) = createHashMap;
+GVAR(draw3DEH) = -1;
 GVAR(fpsAvgCalcEH) = -1;
 GVAR(fpsAvgCalc) = [0, [0, 0, 0, 0, 0]];
 GVAR(playerFPSCache) = createHashMap;

@@ -17,15 +17,12 @@
  *
  * Public: No
  */
-//IGNORE_PRIVATE_WARNING["_thisEvent", "_thisEventHandler"];
+//IGNORE_PRIVATE_WARNING["_thisEvent", "_thisEventHandler","_localCuratorModule"];
 TRACE_1("diag FPS Handle:",diag_frameNo);
-if (isNull findDisplay 312 ||
-    !GVAR(missionFPSEnable)) exitWith {
-    removeMissionEventHandler [_thisEvent, _thisEventHandler];
-    GVAR(fpsDisplayEH) = -2;
+if !(GVAR(missionFPSEnable)) exitWith {
+    [ZEUSUTILS_DEH_FPS] call FUNC(removeDraw3DEH);
 };
 
-private _localCuratorModule = curatorCamera;
 // It takes twice as long to access all these global variables as it does
 // to make a private copy and use that
 private _colorSelectArray = [[1, 1, 1, GVAR(fpsWarningColor)#3], GVAR(fpsWarningColor)];

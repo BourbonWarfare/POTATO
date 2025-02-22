@@ -74,3 +74,33 @@
     {},
     false
 ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(markerDisplayDistance), "SLIDER",
+    ["Maximum Marker display distance", "The maximum distance a marker will be displayed"],
+    ["POTATO - Zeus", "Zeus Markers Display"],
+    [100, 2000, 800, 0, false],
+    2,
+    {},
+    false
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(markerDisplayScale), "SLIDER",
+    ["Marker Display Scale", "The scaling for the unit markers above a unit's head"],
+    ["POTATO - Zeus", "Zeus Markers Display"],
+    [0.1, 2, 1, 2, false],
+    2,
+    {},
+    false
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(showMarkerText), "CHECKBOX",
+    ["Show Marker Text", "Show the text for the displayed markers."],
+    ["POTATO - Zeus", "Zeus Markers Display"],
+    true,
+    2,
+    {},
+    false
+] call CBA_fnc_addSetting;
