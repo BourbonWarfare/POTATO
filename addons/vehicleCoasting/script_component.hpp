@@ -8,8 +8,10 @@
 // #define ENABLE_PERFORMANCE_COUNTERS
 
 #define COAST_LOOP_INTERVAL 0.2
-#define POTATO_VEHICLEC_COASTING_ENGINE_CHANCE 0.4
-#define POTATO_VEHICLEC_COASTING_COOKOFF_CHANCE 0.9
-#define POTATO_VEHICLEC_COASTING_DRIVER_CHANCE 0.6
+// 50% chance for cook-off
+#define POTATO_VEHICLEC_COASTING_COOKOFF_CHANCE 0.5
+// 50% chance with just driver dying
+#define POTATO_VEHICLEC_COASTING_DRIVER_CHANCE 0.5
+// Combined chance of 75% if both happen
 
 #include "\z\potato\addons\core\script_macros.hpp"

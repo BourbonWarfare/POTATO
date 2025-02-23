@@ -8,4 +8,3 @@ PREP(driverDeathHandle);
 PREP(driverDeathPFEH);
 PREP(forceBail);
 PREP(vehicleCookOffHandle);
-PREP(vehicleEngineFireHandle);
