@@ -15,7 +15,7 @@ options.release = [
 [sqf.var_all_caps]
 enabled = true
 options.ignore = [
-    "ACRE_CORE_INIT", "ACRE_DATA_SYNCED", "ACRE_MAP_LOADED", "ACRE_IS_SPECTATOR"
+    "ACRE_CORE_INIT", "ACRE_DATA_SYNCED", "ACRE_MAP_LOADED", "ACRE_IS_SPECTATOR", "ACE_RECOMPILE", "ACE_RECOMPILES", "ACE_PFH_COUNTER"
 ]
 
 [sqf.banned_commands]
