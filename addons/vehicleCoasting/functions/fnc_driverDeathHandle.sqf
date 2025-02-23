@@ -27,7 +27,6 @@ private _vehicle = vehicle _unit;
 
 if (!local _vehicle) exitWith {
     TRACE_1("Not local",_vehicle);
-    [QGVAR(driverDeathHandle), [_vehicle], _vehicle] call CBA_fnc_targetEvent;
 };
 #define DEBUG_MODE_FULL
 diag_log text (str _vehicle + " lt: " + str (_vehicle getHitPointDamage "hitltrack") + " rt: "
@@ -39,12 +38,11 @@ private _driver = driver _vehicle;
 if (!(_vehicle isKindOf "LandVehicle") ||
     speed _vehicle < 4 ||
     !alive _vehicle ||
-    _unit != _driver) exitWith {
+    _unit != _driver ||
+    (getObjectID _vehicle) in GVAR(activeVehicles)) exitWith {
     TRACE_4("ExitHandle",typeOf _vehicle,speed _vehicle,_unit,_driver);
 };
-if (_vehicle getVariable [QGVAR(vehicleCoastEndTime), 0] >  CBA_missionTime) exitWith {
-    TRACE_2("Exit timing",CBA_missionTime,_vehicle getVariable [ARR_2(QGVAR(vehicleCoastEndTime),0)]);
-};
+
 TRACE_3("Continuing",_unit,_vehicle,speed _vehicle);
 if (random 1 < POTATO_VEHICLEC_COASTING_DRIVER_CHANCE) then {
     [_vehicle, _driver] call FUNC(addCoastingVehicle);

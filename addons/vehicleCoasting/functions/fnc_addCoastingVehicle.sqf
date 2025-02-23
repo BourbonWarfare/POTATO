@@ -36,7 +36,7 @@ if (_vehicle getHitPointDamage "hitrtrack" >  0.8 ||
 };
 
 if (_vehicle isKindOf "Car_F") then {
-    _freeRunLen = _freeRunLen / 3;
+    _freeRunLen = _freeRunLen / 4;
 };
 
 private _startTime = 1 + random 1;
@@ -44,7 +44,6 @@ private _startTime = 1 + random 1;
 GVAR(dev_traceHash) set [str _vehicle, [_vehicle, _startTime, CBA_missionTime + _freeRunLen]];
 #endif
 
-//_vehicle setVariable [QGVAR(vehicleCoastEndTime), CBA_missionTime + _freeRunLen];
 private _endTime = CBA_missionTime + _freeRunLen;
 private _minTime = CBA_missionTime + _freeRunLen * 0.2;
 [{

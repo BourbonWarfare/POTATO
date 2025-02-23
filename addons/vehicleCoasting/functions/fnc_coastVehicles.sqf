@@ -39,17 +39,6 @@ TRACE_1("Coast handler",CBA_missionTime);
         _vic sendSimpleCommand "KEY DOWN";
         GVAR(activeVehicles) deleteAt _x;
     };
-    /*if (_spd < 15 + random 10 && count (crew _vic select {!isPlayer _x && alive _x}) > 0) then {
-        private _randValue = linearConversion [15, 30, _spd, 0.8, 0, true];
-        {
-            if (_randValue < random 1) then {
-                unassignVehicle _x;
-                _x leaveVehicle _vic;
-                _x action ["eject", _vic];
-            };
-        } forEach crew _vic;
-    };*/
-    //private _force = _vic vectorModelToWorld [0, 1, 0];
 } forEach GVAR(activeVehicles);
 
 if (GVAR(activeVehicles) isEqualTo createHashMap) then {

@@ -19,7 +19,8 @@
 params [["_vehicle", objNull, [objNull]]];
 TRACE_2("params",_vehicle,typeOf _vehicle);
 
-if !(alive _vehicle && local _vehicle) exitWith {
+if !(alive _vehicle && local _vehicle &&
+    !((getObjectID _vehicle) in GVAR(activeVehicles))) exitWith {
     TRACE_3("invalid vehicle",alive _vehicle,local _vehicle,alive _driver);
 };
 #define DEBUG_MODE_FULL

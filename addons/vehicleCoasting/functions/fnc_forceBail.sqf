@@ -21,5 +21,7 @@ params [["_vehicle", objNull, [objNull]]];
 if (isNull _vehicle) exitWith {};
 
 {
-    [QACEGVAR(vehicle_damage,bailOut), [_vehicle, _x], _x] call CBA_fnc_targetEvent;
+    if (alive _x) then {
+        [QACEGVAR(vehicle_damage,bailOut), [_vehicle, _x], _x] call CBA_fnc_targetEvent;
+    };
 } forEach crew _vehicle;
