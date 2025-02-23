@@ -41,7 +41,6 @@ if (_onLoad) then {
         _control ctrlSetTextColor [1, 1, 1, 1];
         INFORM_USER(Disabled markers display);
     } else {
-        EGVAR(markers,viewBluForMarkers) = [east, west, civilian, resistance];
         [ZEUSUTILS_DEH_MARKERS] call FUNC(addDraw3DEH);
         _control ctrlSetTextColor [0, 1, 0, 1];
         INFORM_USER(Enabled markers display);
