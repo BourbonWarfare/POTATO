@@ -30,8 +30,8 @@ private _freeRunLen = 20 + random 40; // Max runtime
 // Simulate broken tracks running out
 if (_vehicle getHitPointDamage "hitrtrack" >  0.8 ||
         {_vehicle getHitPointDamage "hitltrack" >  0.8}) then {
-    _vehicle setHitPointDamage ["hitrtrack", 0.4, false];
-    _vehicle setHitPointDamage ["hitltrack", 0.4, false];
+    _vehicle setHitPointDamage ["hitrtrack", 0.4 min (_vehicle getHitPointDamage "hitrtrack"), false];
+    _vehicle setHitPointDamage ["hitltrack", 0.4 min (_vehicle getHitPointDamage "hitltrack"), false];
     _freeRunLen = 1 + random 2;
 };
 
