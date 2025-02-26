@@ -12,5 +12,10 @@
 #include "\z\potato\addons\core\script_macros.hpp"
 
 #define ZEUSUTILS_IDC_DISPLAYFPSBUTTON 241119
+#define ZEUSUTILS_IDC_DISPLAYMARKERBUTTON 241120
+
+#define ZEUSUTILS_DEH_INVALID -1
+#define ZEUSUTILS_DEH_FPS      0
+#define ZEUSUTILS_DEH_MARKERS  1
 
 #define INFORM_USER(var1) systemChat QUOTE([POTATO][zeusUtils] var1)
