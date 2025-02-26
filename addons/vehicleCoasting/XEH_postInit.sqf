@@ -10,7 +10,7 @@ if (GVAR(enabled)) then {
     ["ace_unconscious", {
         params ["_unit", "_unconscious"];
         TRACE_2("uncon",_unit,_unconscious);
-        if !(local _unit && _unconscious &&
+        if !(local _unit && _unconscious && isPlayer _unit &&
             !isNull objectParent _unit) exitWith {};
         private _vehicle = vehicle _unit;
         TRACE_4("uncon vehicle",_vehicle,driver _vehicle,_unit == driver _vehicle,speed _vehicle);
