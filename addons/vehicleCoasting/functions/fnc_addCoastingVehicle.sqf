@@ -20,8 +20,10 @@ params [
     ["_vehicle", objNull],
     ["_driver", objNull]
 ];
-
-if (isNull _vehicle || (getObjectID _vehicle) in GVAR(activeVehicles)) exitWith {};
+TRACE_1("Adding",_this);
+if (isNull _vehicle || (getObjectID _vehicle) in GVAR(activeVehicles)) exitWith {
+    TRACE_2("Bad or active vehicle",isNull _vehicle,(getObjectID _vehicle) in GVAR(activeVehicles));
+};
 
 _vehicle setEffectiveCommander _driver;
 _vehicle disableBrakes true;
@@ -49,6 +51,7 @@ private _minTime = CBA_missionTime + _freeRunLen * 0.2;
 [{
     params ["_vic", "_minTime", "_endTime"];
     if (speed _vic < 4) exitWith {
+        TRACE_2("vehicle slowed",_this,speed _vic);
         #ifdef DEBUG_MODE_DRAW_EH
         GVAR(dev_traceHash) deleteAt str _vic;
         #endif

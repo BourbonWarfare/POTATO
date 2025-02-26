@@ -28,7 +28,7 @@ TRACE_1("Coast handler",CBA_missionTime);
         _spd < 1 ||
         !(brakesDisabled _vic) ||
         _endTime < CBA_missionTime) exitWith {
-        TRACE_2("exitPFEH",_spd,_vic);
+        TRACE_2("removing track",_spd,_vic);
         #ifdef DEBUG_MODE_FULL
         diag_log text ("null:" + str (isNull _vic) + " spd:" + str _spd);
         #endif
