@@ -1,10 +1,7 @@
 PREP(addCoastingVehicle);
-PREP(addVehicleHandle);
 PREP(coastVehicles);
 PREP(dev_cleanDraw);
 PREP(dev_debugDraw);
-PREP(dev_trackVehicle);
 PREP(driverDeathHandle);
-PREP(driverDeathPFEH);
 PREP(forceBail);
 PREP(vehicleCookOffHandle);
