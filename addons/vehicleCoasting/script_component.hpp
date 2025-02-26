@@ -9,11 +9,11 @@
 
 #define COAST_LOOP_INTERVAL 0.5
 // 50% chance for cook-off
-#define POTATO_VEHICLEC_COASTING_COOKOFF_CHANCE 0.5
+#define POTATO_VEHICLEC_COASTING_COOKOFF_CHANCE GVAR(chance)
 // 50% chance with just driver dying
-#define POTATO_VEHICLEC_COASTING_DRIVER_CHANCE 0.5
+#define POTATO_VEHICLEC_COASTING_DRIVER_CHANCE GVAR(chance)
 // Combined chance of 75% if both happen to both
 // 50% chance with just driver dying
-#define POTATO_VEHICLEC_COASTING_UNCON_CHANCE 0.5
+#define POTATO_VEHICLEC_COASTING_UNCON_CHANCE GVAR(chance)
 
 #include "\z\potato\addons\core\script_macros.hpp"

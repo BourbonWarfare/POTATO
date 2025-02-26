@@ -1,6 +1,9 @@
 #include "script_component.hpp"
 
-if (GVAR(enabled)) then {
+
+["CBA_settingsInitialized", {
+    TRACE_1("CBA_settingsInitialized",GVAR(chance));
+if (GVAR(chance) > 0) then {
     addMissionEventHandler ["EntityKilled", {call FUNC(driverDeathHandle);}];
     ["ace_cookoff_cookOff",{call FUNC(vehicleCookOffHandle)}] call CBA_fnc_addEventHandler;
 
@@ -20,3 +23,4 @@ if (GVAR(enabled)) then {
         };
     }] call CBA_fnc_addEventHandler;
 };
+}] call CBA_fnc_addEventHandler;
