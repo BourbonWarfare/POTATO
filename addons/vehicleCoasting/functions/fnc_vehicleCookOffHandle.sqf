@@ -21,9 +21,9 @@ TRACE_2("params",_vehicle,typeOf _vehicle);
 
 if !(alive _vehicle && local _vehicle &&
     !((getObjectID _vehicle) in GVAR(activeVehicles))) exitWith {
-    TRACE_3("invalid vehicle",alive _vehicle,local _vehicle,alive _driver);
+    TRACE_3("invalid vehicle",alive _vehicle,local _vehicle,alive driver _vehicle);
 };
-#define DEBUG_MODE_FULL
+#ifdef DEBUG_MODE_FULL
 diag_log text (str _vehicle + " lt: " + str (_vehicle getHitPointDamage "hitltrack") + " rt: "
         + str (_vehicle getHitPointDamage "hitrtrack") + " e: "
         + str (_vehicle getHitPointDamage "hitengine"));

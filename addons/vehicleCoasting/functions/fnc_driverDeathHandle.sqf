@@ -28,7 +28,7 @@ private _vehicle = vehicle _unit;
 if (!local _vehicle) exitWith {
     TRACE_1("Not local",_vehicle);
 };
-#define DEBUG_MODE_FULL
+#ifdef DEBUG_MODE_FULL
 diag_log text (str _vehicle + " lt: " + str (_vehicle getHitPointDamage "hitltrack") + " rt: "
         + str (_vehicle getHitPointDamage "hitrtrack") + " e: "
         + str (_vehicle getHitPointDamage "hitengine"));
