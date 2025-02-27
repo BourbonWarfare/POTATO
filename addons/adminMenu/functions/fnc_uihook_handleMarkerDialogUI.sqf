@@ -44,7 +44,8 @@ switch (_exitCode) do {
         private _selectedMarkerIndex = lbCurSel _markerControl;
         TRACE_2("Editing marker:",GVAR(editMarker),_selectedMarkerIndex);
         if (GVAR(editMarker)) then { // we need an active marker
-            if (selectedMarkerIndex < 0) exitWith {_display closeDisplay POTATO_MARKER_ERROR_MARKSLCT};
+            if (_selectedMarkerIndex < 0) exitWith {_display closeDisplay POTATO_MARKER_ERROR_MARKSLCT};
+            // Find hashkey and make sure it exists
             private _hashKey = _markerControl lbData _selectedMarkerIndex;
             private _markerArray = EGVAR(markers,markerHash) getOrDefault [_hashKey, []];
             if (_markerArray isEqualTo []) exitWith {_display closeDisplay POTATO_MARKER_ERROR_CACHE};
