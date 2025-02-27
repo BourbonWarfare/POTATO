@@ -478,7 +478,7 @@ class CfgWeapons {
         };
     };
     class GVAR(acc_cup_Flashlight_04_Wide): GVAR(acc_cup_Flashlight_02_Wide) {
-        displayName="Flashlight (Flood, Red)";
+        displayName="Flashlight (Flood, White)";
         MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_04);
         MRT_SwitchItemPrevClass = QGVAR(acc_cup_Flashlight_04_Spot);
         MRT_switchItemHintText = "Flashlight (Flood, Red)";
@@ -505,7 +505,7 @@ class CfgWeapons {
     };
     class GVAR(acc_cup_Flashlight_05_Spot): GVAR(acc_cup_Flashlight_02_Spot) {
         displayName="Flashlight (White, Red)";
-        MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_045_Wide);
+        MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_05_Wide);
         MRT_SwitchItemPrevClass = QGVAR(acc_cup_Flashlight_05);
         MRT_switchItemHintText = "Flashlight (White, Red)";
         baseWeapon = QGVAR(acc_cup_Flashlight_05);
