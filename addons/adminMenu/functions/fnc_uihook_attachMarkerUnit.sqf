@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+#include "\z\potato\addons\markers\defaultMarkerDefines.hpp"
 /*
  * Author: Lambda.Tiger
  * Attach marker to a unit based on currrent selections in the admin menu;
@@ -38,17 +39,19 @@ if (_markerArray isEqualTo []) exitWith {
     TRACE_1("Bad marker selected",_hashKey);
 };
 
-private _newHashKey = str _selectedUnit;
+private _newHashKey = str side _selectedUnit + str _selectedUnit;
 private _itr = 0;
 while {(_newHashKey == _hashKey || (_newHashKey in EGVAR(markers,markerHash))) && _itr < 25 } do {
-    _newHashKey = (str _selectedUnit) + str _itr;
+    _newHashKey = str side _selectedUnit + str _selectedUnit + str _itr;
     _itr = _itr + 1;
 };
-[
-    _newHashKey,
-    getPosATL _selectedUnit, _selectedUnit, side _selectedUnit,
-    _markerArray#1, _markerArray#3, _markerArray#2, _markerArray#4
-] remoteExecCall [QEFUNC(markers,addMarker)];
+private _newMarkerArray = [_newHashKey, getPosATL _selectedUnit, _selectedUnit, side _selectedUnit, _markerArray#1, _markerArray#3, _markerArray#2, _markerArray#4];
+private _endIndex = 8;
+if (_size == DEFAULT_MARKER_SIZE) then {_endIndex = 7};
+if (_icon == DEFAULT_MARKER_ICON_INDEX && _endIndex == 7) then {_endIndex = 6};
+_newMarkerArray = _newMarkerArray select [0, _endIndex];
+EGVAR(markers,markerCache) setVariable [POTATO_MARKER_JIP_PREFIX + _newHashKey, _newMarkerArray, true];
+_newMarkerArray remoteExecCall [QEFUNC(markers,addMarker)];
 [_hashKey] remoteExecCall [QEFUNC(markers,deleteMarker)];
 
 ["potato_adminMsg", [
