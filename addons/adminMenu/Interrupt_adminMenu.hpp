@@ -594,44 +594,84 @@ class GVAR(adminMenuDialog) {
                 class attachMarkerToGroup: attachMarkerToClient {
                     text = "Attach Marker to Unit Group";
                     tooltip = "Attaches selected marker to the selected unit's group.";
-                    y = QUOTE(0.1 * safezoneH);
+                    y = QUOTE(0.08 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_attachMarkerGroup));
                 };
                 class detatchMarker: attachMarkerToClient {
-                    idc = -1;
                     text = "Detatch Marker";
                     tooltip = "Removes the selected marker attached object.\nGroup markers may be reattached by group.";
-                    y = QUOTE(0.18 * safezoneH);
+                    y = QUOTE(0.14 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_detachMarker));
                 };
                 class deleteMarker: attachMarkerToClient {
-                    idc = -1;
                     text = "Delete Marker";
-                    y = QUOTE(0.26 * safezoneH);
+                    y = QUOTE(0.2 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_deleteMarker));
                 };
+                class createMarkerOnSelected: attachMarkerToClient {
+                    text = "Create Marker";
+                    tooltip = "Create a group or unit marker on the\nselected unit's group or unit";
+                    y = QUOTE(0.26 * safezoneH);
+                    action = QUOTE(createDialog QQGVAR(markerDialog));
+                };
+                class editSelectedMarker: attachMarkerToClient {
+                    text = "Edit Marker";
+                    tooltip = "Edit the selected marker.";
+                    y = QUOTE(0.32 * safezoneH);
+                    action = QUOTE(createDialog QQGVAR(markerDialog));
+                };
                 class fixMarkerKey: attachMarkerToClient {
-                    idc = -1;
                     text = "Reload Unit Local Markers";
                     tooltip = "Reloads the selected clients\nmarkers from their local marker caches";
-                    y = QUOTE(0.34 * safezoneH);
+                    y = QUOTE(0.38 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_resetMarkersButton));
                 };
                 class resetAllMarkers: attachMarkerToClient {
-                    idc = -1;
                     text = "Reload All Client Markers";
                     tooltip = "Reloads every clients markers from\ntheir local marker caches";
-                    y = QUOTE(0.42 * safezoneH);
+                    y = QUOTE(0.44 * safezoneH);
                     action = QUOTE(remoteExecCall [QQEFUNC(markers,reinitMarkerHash)]; [] call FUNC(reloadMarkersTab););
                 };
                 class initServerMarks: attachMarkerToClient {
-                    idc = -1;
                     text = "Reinit Server AI Markers";
                     tooltip = "Sometimes AI are spawned with markers on the server after\nthe init runs. Run again to fix missing AI markers.";
                     y = QUOTE(0.5 * safezoneH);
                     action = QUOTE(remoteExecCall [ARR_2(QQEFUNC(markers,initLocalMarkers),0)]; [] call FUNC(reloadMarkersTab););
                 };
             };
+        };
+    };
+};
+
+class GVAR(markerDialog)  {
+    idd = POTATO_MARKER_MENU_IDD;
+    movingEnable = 1;
+    enableSimulation = 1;
+    enableDisplay = 1;
+    onLoad = QUOTE(call FUNC(uihook_openMarkerEditUI));
+    onUnload = QUOTE(call FUNC(uihook_openMarkerEditUI));
+    fadein = 0;
+    fadeout = 0;
+    class controlsBackground {
+        class RscPicturexxxxx: RscPicture {
+            idc = -1;
+            text = "#(argb,8,8,3)color(0,0,0,0.5)";
+            x = QUOTE(0.3 * safezoneW + safezoneX);
+            y = QUOTE(0.3 * safezoneH + safezoneY);
+            w = QUOTE(0.5 * safezoneW);
+            h = QUOTE(0.5 * safezoneH);
+        };
+        class RscFramexxxx: RscFrame {
+            idc = -1;
+            text = "";
+            x = QUOTE(0.3 * safezoneW + safezoneX);
+            y = QUOTE(0.3 * safezoneH + safezoneY);
+            w = QUOTE(0.5 * safezoneW);
+            h = QUOTE(0.5 * safezoneH);
+        };
+    };
+    class controls {
+        class RscListbox_1500: RscListBox {
         };
     };
 };
