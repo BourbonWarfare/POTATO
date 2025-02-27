@@ -15,8 +15,8 @@ class CfgPatches {
     };
 };
 
-#include "../CfgMissileTypesWarsaw.hpp"
-#include "../CfgMissileTypesNato.hpp"
+#include "..\CfgMissileTypesWarsaw.hpp"
+#include "..\CfgMissileTypesNato.hpp"
 
 class CfgMagazines {
     class CA_LauncherMagazine;

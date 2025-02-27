@@ -15,7 +15,7 @@ class CfgPatches {
     };
 };
 
-#include "../CfgMissileTypesWarsaw.hpp"
+#include "..\CfgMissileTypesWarsaw.hpp"
 
 class CfgAmmo {
     class Missile_AGM_01_F;

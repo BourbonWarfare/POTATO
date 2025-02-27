@@ -15,7 +15,7 @@ class CfgPatches {
     };
 };
 
-#include "../CfgMissileTypesNato.hpp"
+#include "..\CfgMissileTypesNato.hpp"
 
 class CfgAmmo {
     class Sh_82mm_AMOS;
