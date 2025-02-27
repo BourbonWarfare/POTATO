@@ -30,4 +30,4 @@ if (_type == "embed" && isNil "_title") then {
 
 private _return = "potato_extension" callExtension ["message:bot_message", [_type, _channel, _message, _title]];
 
-TRACE_1("Return",_return);
+INFO_1("sent: %1",_return);
