@@ -10,6 +10,9 @@ class RscStructuredText;
 class RscButtonMenu;
 class RscEdit;
 class RscShortcutButton;
+class RscButtonMenuCancel;
+class RscButtonMenuOK;
+class RscCheckbox;
 
 
 // Add Button to escape menu (borowed from AGM)
@@ -612,13 +615,13 @@ class GVAR(adminMenuDialog) {
                     text = "Create Marker";
                     tooltip = "Create a group or unit marker on the\nselected unit's group or unit";
                     y = QUOTE(0.26 * safezoneH);
-                    action = QUOTE(createDialog QQGVAR(markerDialog));
+                    action = QUOTE(GVAR(editMarker) = false; findDisplay 6969 createDisplay QQGVAR(markerDialog));
                 };
                 class editSelectedMarker: attachMarkerToClient {
                     text = "Edit Marker";
                     tooltip = "Edit the selected marker.";
                     y = QUOTE(0.32 * safezoneH);
-                    action = QUOTE(createDialog QQGVAR(markerDialog));
+                    action = QUOTE(GVAR(editMarker) = true; findDisplay 6969 createDisplay QQGVAR(markerDialog));
                 };
                 class fixMarkerKey: attachMarkerToClient {
                     text = "Reload Unit Local Markers";
@@ -643,35 +646,282 @@ class GVAR(adminMenuDialog) {
     };
 };
 
-class GVAR(markerDialog)  {
+#include "\z\potato\addons\markers\defaultMarkerDefines.hpp"
+#ifdef GLUE
+  #undef GLUE
+#endif
+#define GLUE(var1,var2) var1##var2
+#define PATHTOFMARK(var) GLUE(\z\potato\addons\markers\,var)
+#define QPATHTOFMARK(var) QUOTE(PATHTOFMARK(var))
+
+class GVAR(markerDialog) {
     idd = POTATO_MARKER_MENU_IDD;
     movingEnable = 1;
     enableSimulation = 1;
     enableDisplay = 1;
-    onLoad = QUOTE(call FUNC(uihook_openMarkerEditUI));
-    onUnload = QUOTE(call FUNC(uihook_openMarkerEditUI));
+    onLoad = QUOTE(call FUNC(uihook_handleMarkerDialogUI));
+    onUnload = QUOTE(call FUNC(uihook_handleMarkerDialogUI));
     fadein = 0;
     fadeout = 0;
     class controlsBackground {
-        class RscPicturexxxxx: RscPicture {
+        class RscPictureBackground: RscPicture {
             idc = -1;
             text = "#(argb,8,8,3)color(0,0,0,0.5)";
-            x = QUOTE(0.3 * safezoneW + safezoneX);
+            x = QUOTE(0.45 * safezoneW + safezoneX);
             y = QUOTE(0.3 * safezoneH + safezoneY);
-            w = QUOTE(0.5 * safezoneW);
-            h = QUOTE(0.5 * safezoneH);
+            w = QUOTE(0.2 * safezoneW);
+            h = QUOTE(0.35 * safezoneH);
         };
-        class RscFramexxxx: RscFrame {
+        class RscFrameBackground: RscFrame {
             idc = -1;
             text = "";
-            x = QUOTE(0.3 * safezoneW + safezoneX);
+            x = QUOTE(0.45 * safezoneW + safezoneX);
             y = QUOTE(0.3 * safezoneH + safezoneY);
-            w = QUOTE(0.5 * safezoneW);
-            h = QUOTE(0.5 * safezoneH);
+            w = QUOTE(0.2 * safezoneW);
+            h = QUOTE(0.35 * safezoneH);
+        };
+        class RscTitleText: RscText {
+            idc = -1;
+            style = 2; // centered
+            text = "Marker Dialog";
+            x = QUOTE(0.45 * safezoneW + safezoneX);
+            y = QUOTE(0.3 * safezoneH + safezoneY);
+            w = QUOTE(0.2 * safezoneW);
+            h = QUOTE(0.04 * safezoneH);
+            sizeEx = QUOTE(0.05 * safezoneH);
         };
     };
     class controls {
-        class RscListbox_1500: RscListBox {
+        class markerText_RscText: RscText {
+            style = 1; // Right aligned
+            tooltip = "Marker text usually 2-4 characters";
+            text = "Marker Text";
+            x = QUOTE(0.47 * safezoneW + safezoneX);
+            y = QUOTE(0.35 * safezoneH + safezoneY);
+            w = QUOTE(0.05 * safezoneW);
+            h = QUOTE(0.04 * safezoneH);
+        };
+        class markerText_Rsc: RscEdit {
+            idc = POTATO_MARKER_TEXT_IDC;
+            tooltip = "Marker text usually 2-4 characters";
+            x = QUOTE(0.525 * safezoneW + safezoneX);
+            y = QUOTE(0.354 * safezoneH + safezoneY);
+            w = QUOTE(0.1 * safezoneW);
+            h = QUOTE(0.03 * safezoneH);
+            canModify = 1;
+            text = "";
+            maxChars = 10;
+        };
+        class markerSize_RscText: markerText_RscText {
+            text = "Marker Size";
+            y = QUOTE(0.39 * safezoneH + safezoneY);
+            tooltip = "Marker size, normally medium for groups and small for units";
+        };
+        class markerSize_RscCombo: RscCombo {
+            idc = POTATO_MARKER_SIZE_IDC;
+            x = QUOTE(0.525 * safezoneW + safezoneX);
+            y = QUOTE(0.395 * safezoneH + safezoneY);
+            w = QUOTE(0.1 * safezoneW);
+            h = QUOTE(0.03 * safezoneH);
+            tooltip = "Marker size, normally medium for groups and small for units";
+            class Items {
+                class Small {
+                    text = "Small";
+                    value = 16;
+                };
+                class Medium {
+                    text = "Medium";
+                    value = 24;
+                    default = 1;
+                };
+                class Large {
+                    text = "Large";
+                    value = 32;
+                };
+            };
+        };
+        class markerColor_RscText: markerText_RscText {
+            text = "Marker Color";
+            y = QUOTE(0.43 * safezoneH + safezoneY);
+        };
+        class markerColor_RscCombo: markerSize_RscCombo {
+            idc = POTATO_MARKER_COLOR_IDC;
+            y = QUOTE(0.435 * safezoneH + safezoneY);
+            tooltip = "Marker color";
+            class Items {
+                class Red {
+                    text = "Red";
+                    default = 1;
+                };
+                class Yellow {
+                    text = "Yellow";
+                };
+                class Green {
+                    text = "Green";
+                };
+                class Blue {
+                    text = "Blue";
+                };
+                class White {
+                    text = "White";
+                };
+                class Orange {
+                    text = "Orange";
+                };
+                class Black {
+                    text = "Black";
+                };
+                class Pink {
+                    text = "Pink";
+                };
+            };
+        };
+        class markerIcon_RscText: markerText_RscText {
+            text = "Marker Icon";
+            y = QUOTE(0.47 * safezoneH + safezoneY);
+            tooltip = "Marker icon type";
+        };
+        class markerIcon_RscCombo: markerSize_RscCombo {
+            idc = POTATO_MARKER_ICON_IDC;
+            y = QUOTE(0.475 * safezoneH + safezoneY);
+            tooltip = "Marker icon type";
+            class Items {
+                class Unknown {
+                    text = "Unknown";
+                    pictureRight = QPATHTOFMARK(data\unknown.paa);
+                };
+                class Infantry {
+                    text = "Infantry";
+                    pictureRight = QPATHTOFMARK(data\infantry.paa);
+                    default = 1;
+                };
+                class motorized_infantry {
+                    text = "Motorized Infantry";
+                    pictureRight = QPATHTOFMARK(data\motorized_infantry.paa);
+                };
+                class mechanized_infantry {
+                    text = "Mechanized Infantry";
+                    pictureRight = QPATHTOFMARK(data\mechanized_infantry.paa);
+                };
+                class hq {
+                    text = "HQ";
+                    pictureRight = QPATHTOFMARK(data\hq.paa);
+                };
+                class mmg {
+                    text = "MMG";
+                    pictureRight = QPATHTOFMARK(data\mmg.paa);
+                };
+                class mat {
+                    text = "MAT";
+                    pictureRight = QPATHTOFMARK(data\mat.paa);
+                };
+                class msam {
+                    text = "MSAM";
+                    pictureRight = QPATHTOFMARK(data\msam.paa);
+                };
+                class mortar {
+                    text = "Mortar";
+                    pictureRight = QPATHTOFMARK(data\mortar.paa);
+                };
+                class engineer {
+                    text = "Engineer";
+                    pictureRight = QPATHTOFMARK(data\engineer.paa);
+                };
+                class maintenance {
+                    text = "Maintenance";
+                    pictureRight = QPATHTOFMARK(data\maintenance.paa);
+                };
+                class recon {
+                    text = "Recon";
+                    pictureRight = QPATHTOFMARK(data\recon.paa);
+                };
+                class support {
+                    text = "Support";
+                    pictureRight = QPATHTOFMARK(data\support.paa);
+                };
+                class medical {
+                    text = "Medical";
+                    pictureRight = QPATHTOFMARK(data\medical.paa);
+                };
+                class artillery {
+                    text = "Atillery";
+                    pictureRight = QPATHTOFMARK(data\artillery.paa);
+                };
+                class armor {
+                    text = "Armor";
+                    pictureRight = QPATHTOFMARK(data\armor.paa);
+                };
+                class helicopter {
+                    text = "Helicopter";
+                    pictureRight = QPATHTOFMARK(data\helicopter.paa);
+                };
+                class attack_helicopter {
+                    text = "Attack Helicopter";
+                    pictureRight = QPATHTOFMARK(data\attack_helicopter.paa);
+                };
+                class fixed_wing {
+                    text = "Fixed Wing";
+                    pictureRight = QPATHTOFMARK(data\fixed_wing.paa);
+                };
+                class attack_fixed_wing {
+                    text = "Attack Fixed Wing";
+                    pictureRight = QPATHTOFMARK(data\attack_fixed_wing.paa);
+                };
+            };
+        };
+        class markerUnit_RscText: markerText_RscText {
+            text = "Attach to Unit";
+            tooltip = "Should the marker be attached to the unit or unit's group";
+            y = QUOTE(0.51 * safezoneH + safezoneY);
+        };
+        class markerUnit_RscCheckBox: RscCheckbox {
+            idc = POTATO_MARKER_UNIT_IDC;
+            tooltip = "Should the marker be attached to the unit or unit's group";
+            x = QUOTE(0.525 * safezoneW + safezoneX);
+            y = QUOTE(0.515 * safezoneH + safezoneY);
+            w = QUOTE(0.02 * safezoneW);
+            h = QUOTE(0.03 * safezoneH);
+        };
+        class RscButtonMenuOK_exit: RscButtonMenuOK {
+            idc = POTATO_MARKER_OK_IDC;
+            x = QUOTE(0.585 * safezoneW + safezoneX);
+            y = QUOTE(0.56 * safezoneH + safezoneY);
+            w = QUOTE(0.06 * safezoneW);
+            h = QUOTE(0.08 * safezoneH);
+            text = "Create";
+            class Attributes {
+                font = "PuristaLight";
+                color = "#E5E5E5";
+                align = "center";
+                shadow = "false";
+            };
+            class TextPos {
+                bottom = 0;
+                left = "0.25 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                right = 0.005;
+                top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
+                forceMiddle = 1;
+            };
+        };
+        class RscButtonMenuCancel_exit: RscButtonMenuCancel {
+            x = QUOTE(0.455 * safezoneW + safezoneX);
+            y = QUOTE(0.56 * safezoneH + safezoneY);
+            w = QUOTE(0.06 * safezoneW);
+            h = QUOTE(0.08 * safezoneH);
+            text = "Cancel";
+            class Attributes {
+                font = "PuristaLight";
+                color = "#E5E5E5";
+                align = "center";
+                shadow = "false";
+            };
+            class TextPos {
+                bottom = 0;
+                left = "0.25 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                right = 0.005;
+                top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
+                forceMiddle = 1;
+            };
         };
     };
 };
