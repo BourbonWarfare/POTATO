@@ -1,7 +1,7 @@
 #define COMPONENT adminMenu
 #include "\z\potato\addons\core\script_mod.hpp"
 
-// #define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #define DISABLE_COMPILE_CACHE
 // #define ENABLE_PERFORMANCE_COUNTERS
 
@@ -43,8 +43,6 @@
 #define UI_TAB_MARKERS_PLAYERS         ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl IDC_LISTBOX_MARKERS_PLAYERS)
 #define UI_TAB_MARKERS_MARKERS         ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl IDC_LISTBOX_MARKERS_MARKERS)
 
-#define POTATO_MARKER_JIP_PREFIX "potato_marks:"
-
 #define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint",        "Player Fixes",       "Give Items",      "Markers"]
 #define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT, UI_TAB_FIX_UNIT, UI_TAB_GIVE_ITEMS, UI_TAB_MARKERS]
 
@@ -57,4 +55,4 @@
 #define POTATO_MARKER_COLOR_IDC 2302
 #define POTATO_MARKER_ICON_IDC  2303
 #define POTATO_MARKER_UNIT_IDC  2304
-#define POTATO_MARKER_OK_IDC    2305
+#define POTATO_MARKER_OK_IDC    1
