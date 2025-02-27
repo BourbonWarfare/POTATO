@@ -13,9 +13,12 @@
 #endif
 #define QPATHTOF(var) QUOTE(PATHTOF(var))
 #include "\z\potato\addons\markers\defaultMarkerDefines.hpp"
+#define POTATO_MARKER_ERROR_MARKSLCT 10
+#define POTATO_MARKER_ERROR_CACHE    20
+#define POTATO_MARKER_ERROR_UNITSLCT 30
 /*
  * Author: Lambda.Tiger
- * Attach marker to a unit based on currrent selections in the admin menu;
+ * Handle opening and closing of the marker dialog
  *
  * Arguments:
  * None
@@ -24,7 +27,7 @@
  * None
  *
  * Examples:
- * [false] call potato_adminMenu_uihook_openMarkersEditUI;
+ * [false] call potato_adminMenu_uihook_handleMarkersDialogUI;
  *
  * Public: No
  */
@@ -32,16 +35,19 @@ params [
     ["_display", displayNull, [displayNull]],
     ["_exitCode", -1, [0, configNull]]
 ];
-systemChat format ["func params: %1 %2", _display, _exitCode];
+ TRACE_2("params",_display,_exitCode);
+
 if (_exitCode isEqualType configNull) then {_exitCode = -1};
 switch (_exitCode) do {
     case -1: { // opening
         private _markerControl = UI_TAB_MARKERS_MARKERS;
         private _selectedMarkerIndex = lbCurSel _markerControl;
-        if (GVAR(editMarker) && _selectedMarkerIndex >= 0) then { // we need an active marker
+        TRACE_2("Editing marker:",GVAR(editMarker),_selectedMarkerIndex);
+        if (GVAR(editMarker)) then { // we need an active marker
+            if (selectedMarkerIndex < 0) exitWith {_display closeDisplay POTATO_MARKER_ERROR_MARKSLCT};
             private _hashKey = _markerControl lbData _selectedMarkerIndex;
             private _markerArray = EGVAR(markers,markerHash) getOrDefault [_hashKey, []];
-            if (_markerArray isEqualTo []) exitWith {10 closeDisplay _display};
+            if (_markerArray isEqualTo []) exitWith {_display closeDisplay POTATO_MARKER_ERROR_CACHE};
             _markerArray params ["", "_text", "_icon", "_color", "_size"];
 
             // Setup the display for the current marker
@@ -60,28 +66,39 @@ switch (_exitCode) do {
                 (_display displayCtrl POTATO_MARKER_ICON_IDC) lbSetCurSel _iconIdx;
             };
             (_display displayCtrl POTATO_MARKER_UNIT_IDC) ctrlShow false;
-            (_display displayCtrl POTATO_MARKER_OK_IDC) ctrlSetStructuredText text "Update<br/?Marker";
+            (_display displayCtrl POTATO_MARKER_OK_IDC) ctrlSetText "Update";
         } else {
+            // find the unit and make sure it's valid
+            private _selectedUnit = missionNamespace getVariable [
+                UI_TAB_MARKERS_PLAYERS lbData (lbCurSel UI_TAB_MARKERS_PLAYERS),
+                objNull
+            ];
+            if (isNull _selectedUnit) then {_display closeDisplay POTATO_MARKER_ERROR_UNITSLCT};
             (_display displayCtrl POTATO_MARKER_UNIT_IDC) ctrlShow true;
-            (_display displayCtrl POTATO_MARKER_OK_IDC) ctrlSetStructuredText text "Create/nMarker";
+            (_display displayCtrl POTATO_MARKER_OK_IDC) ctrlSetText "Create";
         };
     };
     case 1: { // ok
+        // Gather dialog parameters
         private _text = ctrlText (_display displayCtrl POTATO_MARKER_TEXT_IDC);
         private _size = switch(lbCurSel (_display displayCtrl POTATO_MARKER_SIZE_IDC)) do {
             case 0: {16};
             case 2: {32};
             default {24};
         };
-
-        private _iconIdx = lbCurSel (_display displayCtrl POTATO_MARKER_TEXT_IDC);
+        private _iconIdx = lbCurSel (_display displayCtrl POTATO_MARKER_ICON_IDC);
         private _colorIdx = lbCurSel (_display displayCtrl POTATO_MARKER_COLOR_IDC);
-        if (GVAR(editMarker)) then {
+
+        TRACE_5("Closing Dialog:",GVAR(editMarker),_text,_size,_colorIdx,_iconIdx);
+        if (GVAR(editMarker)) then { // Editing existing marker
             private _markerControl = UI_TAB_MARKERS_MARKERS;
             private _selectedMarkerIndex = lbCurSel _markerControl;
             private _hashKey = _markerControl lbData _selectedMarkerIndex;
-            [_hashKey, _text, _size, _color, _icon] remoteExecCall EFUNC(markers,updateMarker);
-        } else {
+            [_hashKey, _text, _size, _colorIdx, _iconIdx] remoteExecCall [QEFUNC(markers,updateMarker)];
+            ["potato_adminMsg",
+                [format ["Edited marker %1 (%2)", _text, _hashKey], profileName]
+            ] call CBA_fnc_GlobalEvent;
+        } else { //  Creating new marker
             private _selectedUnit = missionNamespace getVariable [
                 UI_TAB_MARKERS_PLAYERS lbData (lbCurSel UI_TAB_MARKERS_PLAYERS),
                 objNull
@@ -91,18 +108,36 @@ switch (_exitCode) do {
             } else {
                 str side _selectedUnit + str _selectedUnit
             };
-            EGVAR(markers,markerCache) setVariable [POTATO_MARKER_JIP_PREFIX + _hashKey, _markerArray, true];
-            [
+            private _markerArray = [
                 _hashKey,
                 getPosATL _selectedUnit, _selectedUnit, side _selectedUnit,
                 _text, _colorIdx, _iconIdx, _size
-            ] remoteExecCall [QEFUNC(markers,addMarker)];
+            ];
+            EGVAR(markers,markerCache) setVariable [POTATO_MARKER_JIP_PREFIX + _hashKey, _markerArray, true];
+            _markerArray remoteExecCall [QEFUNC(markers,addMarker)];
+            ["potato_adminMsg",
+                [format ["Created new marker %1 (%2)", _text, _hashKey], profileName]
+            ] call CBA_fnc_GlobalEvent;
         };
+        call FUNC(reloadMarkersTab);
     };
-    case 10: { // Invalid marker
-        private _markerControl = UI_TAB_MARKERS_MARKERS;
-        private _selectedMarkerIndex = lbCurSel _markerControl;
-        WARNING_2("Failed to edit marker index %1 (%2)",_selectedMarkerIndex,_markerControl lbData _selectedMarkerIndex);
+    case POTATO_MARKER_ERROR_MARKSLCT: { // Invalid marker - not marker selected
+        ["potato_adminMsg",
+            ["Could not find a selected marker", "Marker Dialog", profileName]
+        ] call CBA_fnc_localEvent;
+
+    };
+    case POTATO_MARKER_ERROR_CACHE: { // Invalid marker - no hash
+        ["potato_adminMsg",
+            ["Could not find selected marker in cache", "Marker Dialog", profileName]
+        ] call CBA_fnc_localEvent;
+
+    };
+    case POTATO_MARKER_ERROR_UNITSLCT: { // Invalid Unit
+        ["potato_adminMsg",
+            ["No valid unit selected to add marker to", "Marker Dialog", profileName]
+        ] call CBA_fnc_localEvent;
+
     };
     default {};
 };

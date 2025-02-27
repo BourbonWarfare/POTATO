@@ -656,7 +656,6 @@ class GVAR(adminMenuDialog) {
 
 class GVAR(markerDialog) {
     idd = POTATO_MARKER_MENU_IDD;
-    movingEnable = 1;
     enableSimulation = 1;
     enableDisplay = 1;
     onLoad = QUOTE(call FUNC(uihook_handleMarkerDialogUI));
