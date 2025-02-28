@@ -85,7 +85,7 @@ class CfgAmmo {
         };
     };
     // Malyutka
-    /*class gm_missile_maljutka_base: gm_missile_saclos_base {
+    class gm_missile_maljutka_base: gm_missile_saclos_base {
         maneuvrability = 0;
         ACE_MISSILE(Malyutka);
     };
@@ -100,9 +100,9 @@ class CfgAmmo {
             enabled = 1;
             showTrail = 1;
         };
-    };*/
+    };
     // Milan
-   /* class gm_missile_milan_base: gm_missile_saclos_base {
+   /*class gm_missile_milan_base: gm_missile_saclos_base {
         maneuvrability = 0;
         ACE_MISSILE(Milan);
     };
