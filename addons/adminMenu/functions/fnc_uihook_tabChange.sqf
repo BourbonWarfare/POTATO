@@ -282,9 +282,9 @@ case UI_TABS_INDEX_MARKERS: {
         [
             _display displayCtrl IDC_LISTBOX_MARKERS_PLAYERS,
             {
-                private _markerArr = EGVAR(markers,markerHash) getOrDefault [str _this, []];
+                private _markerArr = EGVAR(markers,markerHash) getOrDefault [str side _this + str _this, []];
                 if (_markerArr isEqualTo []) then {
-                    _markerArr = EGVAR(markers,markerHash) getOrDefault [groupId group _this, [objNull, ""]];
+                    _markerArr = EGVAR(markers,markerHash) getOrDefault [str side _this + groupId group _this, [objNull, ""]];
                 };
                 private _markerText = ["", _markerArr#1] select (_markerArr#0 == _this);
                 private _side = if (count _markerArr >= 7) then {

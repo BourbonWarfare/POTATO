@@ -43,9 +43,16 @@
 #define UI_TAB_MARKERS_PLAYERS         ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl IDC_LISTBOX_MARKERS_PLAYERS)
 #define UI_TAB_MARKERS_MARKERS         ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl IDC_LISTBOX_MARKERS_MARKERS)
 
-#define POTATO_MARKER_JIP_PREFIX "potato_marks:"
-
 #define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint",        "Player Fixes",       "Give Items",      "Markers"]
 #define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT, UI_TAB_FIX_UNIT, UI_TAB_GIVE_ITEMS, UI_TAB_MARKERS]
 
 #define UI_TABS_INDEX_MARKERS 9
+
+// Markers sub menu
+#define POTATO_MARKER_MENU_IDD 250224
+#define POTATO_MARKER_TEXT_IDC  2300
+#define POTATO_MARKER_SIZE_IDC  2301
+#define POTATO_MARKER_COLOR_IDC 2302
+#define POTATO_MARKER_ICON_IDC  2303
+#define POTATO_MARKER_UNIT_IDC  2304
+#define POTATO_MARKER_OK_IDC    1
