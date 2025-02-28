@@ -43,10 +43,6 @@ if (group (_markerArray#0) != group _selectedUnit) then {
     private _newMarkerArray = [_newHashKey, getPosATL _selectedUnit,
      _selectedUnit, side _selectedUnit, _markerArray#1, _markerArray#3,
      _markerArray#2, _markerArray#4];
-    private _endIndex = 8;
-    if (_size == DEFAULT_MARKER_SIZE) then {_endIndex = 7};
-    if (_icon == DEFAULT_MARKER_ICON_INDEX && _endIndex == 7) then {_endIndex = 6};
-    _newMarkerArray = _newMarkerArray select [0, _endIndex];
     EGVAR(markers,markerCache) setVariable [POTATO_MARKER_JIP_PREFIX + _newHashKey, _newMarkerArray, true];
     _newMarkerArray remoteExecCall [QEFUNC(markers,addMarker)];
     [_hashKey] remoteExecCall [QEFUNC(markers,deleteMarker)];
