@@ -22,8 +22,8 @@ class CfgPatches {
     };
 };
 
-#include "../CfgMissileTypesNato.hpp"
-#include "../CfgMissileTypesWarsaw.hpp"
+#include "..\CfgMissileTypesNato.hpp"
+#include "..\CfgMissileTypesWarsaw.hpp"
 
 class CfgAmmo {
     class gm_missile_saclos_base;
