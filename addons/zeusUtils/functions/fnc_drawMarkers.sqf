@@ -40,7 +40,7 @@ private _showMarkerText = GVAR(showMarkerText);
         drawIcon3D [
             _icon,
             _colorAlpha,
-            ASLtoAGL _baseDrawPos,
+            ASLToAGL _baseDrawPos,
             _sizeModifier,
             _sizeModifier,
             0,
@@ -57,7 +57,7 @@ private _showMarkerText = GVAR(showMarkerText);
         drawIcon3D [
             _icon,
             _colorAlpha,
-            ASLtoAGL  _baseDrawPos,
+            ASLToAGL  _baseDrawPos,
             _sizeModifier,
             _sizeModifier,
             0,
