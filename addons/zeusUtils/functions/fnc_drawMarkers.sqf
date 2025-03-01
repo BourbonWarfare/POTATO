@@ -29,7 +29,7 @@ private _showMarkerText = GVAR(showMarkerText);
     _y params ["_drawObject", "_text", "_icon", "_color", "_size", "_posATL"];
     if (isNull _drawObject) then {continue};
 
-    private _baseDrawPos = (getPosASLVisual _drawObject) vectorAdd [0, 0, 7.5];
+    private _baseDrawPos = (getPosASLVisual _drawObject) vectorAdd [0, 0, 15];
     private _distance = _baseDrawPos distance _localCuratorModule;
     if (_maxDisplayDistance < _distance) then {continue};
 
