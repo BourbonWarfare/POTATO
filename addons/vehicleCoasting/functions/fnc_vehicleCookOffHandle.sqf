@@ -30,7 +30,7 @@ diag_log text (str _vehicle + " lt: " + str (_vehicle getHitPointDamage "hitltra
 #endif
 private _driver = driver _vehicle;
 // Make it happen more often
-if !(isPlayer _driver && random 1 > 0.95) then {
+if (!isPlayer _driver && random 1 > 0.8) then {
     TRACE_1("Murdering",_driver);
     _driver setDamage [1, false];
 };
