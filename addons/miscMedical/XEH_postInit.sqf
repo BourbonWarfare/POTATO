@@ -422,7 +422,7 @@ if (isServer) then {
         private _mass = (getNumber (_explosiveConfig >> QACEGVAR(frag,charge))) / 1000;
         private _filler = getText (_explosiveConfig >> QGVAR(explosiveFiller));
         if (_filler isEqualTo "") then {
-            private _gurneyC = getNumber (_explosiveConfig >> QACEGVAR(frag, gurney_c));
+            private _gurneyC = getNumber (_explosiveConfig >> QACEGVAR(frag,gurney_c));
             _filler = (GVAR(gurneyVelocityTable) select 0) select 0;
             if (_gurneyC > 0) then  {
                 private _bestGurney = (GVAR(gurneyVelocityTable) select 0) select 1;
