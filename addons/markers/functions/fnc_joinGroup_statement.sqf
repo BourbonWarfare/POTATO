@@ -14,7 +14,7 @@
  */
 //IGNORE_PRIVATE_WARNING["_target", "_player"];
 private _group = group player;
-private _hashKey = str side _group + groupId _group;
+private _hashKey = GROUP_MARKER_ID_GROUPSTRING_GROUP(_group);
 [_player] joinSilent group _target;
 
 if (!GVAR(groupAndUnitEnabled)) exitWith {};
