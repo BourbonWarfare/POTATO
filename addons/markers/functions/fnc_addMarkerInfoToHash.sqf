@@ -20,16 +20,16 @@ TRACE_1("Params",_this);
 params ["_drawObject"];
 
 private _localObject = local _drawObject;
-private _hashKey = str side _drawObject + (if (_drawObject isEqualType grpNull) then {
+private _hashKey = if (_drawObject isEqualType grpNull) then {
     _localObject = local leader _drawObject;
-    groupId _drawObject
+    GROUP_MARKER_ID_GROUPSTRING_GROUP(_drawObject)
 } else {
     if (_drawObject getVariable [QGVAR(groupMarker), false]) then {
-        groupId group _drawObject
+        GROUP_MARKER_ID_GROUPSTRING_UNIT(_drawObject)
     } else {
-        str _drawObject
+        GROUP_MARKER_ID_UNITSTRING_UNIT(_drawObject)
     }
-});
+};
 
 if (isNull _drawObject || !_localObject || _hashKey == ""
     || {!(_drawObject getVariable [QGVAR(addMarker), false])}

@@ -16,7 +16,7 @@
  * 7: Marker icon size DEFAULT_MARKER_SIZE <SCALAR>
  *
  * Example:
- * [groupID player, getPosATL player, player, side player, "Yar"] call potato_markers_fnc_addMarker;
+ * [GROUP_MARKER_ID_GROUPSTRING_UNIT(player), getPosATL player, player, side player, "Yar"] call potato_markers_fnc_addMarker;
  *
  * Public: Yes
  */

@@ -20,7 +20,7 @@ if (call ACEFUNC(interaction,canBecomeLeader)) then {
 
 if (!GVAR(groupAndUnitEnabled)) exitWith {};
 private _grp = group player;
-private _hashKey = str side _grp +  groupId _grp;
+private _hashKey = GROUP_MARKER_ID_GROUPSTRING_GROUP(_grp);
 private _markerArray = GVAR(markerHash) getOrDefault [_hashKey, []];
 if (_markerArray isNotEqualTo [] &&
     _hashKey != "" &&

@@ -39,10 +39,10 @@ if (_markerArray isEqualTo []) exitWith {
     TRACE_1("Bad marker selected",_hashKey);
 };
 
-private _newHashKey = str side _selectedUnit + str _selectedUnit;
+private _newHashKey = GROUP_MARKER_ID_UNITSTRING_UNIT(_selectedUnit);
 private _itr = 0;
 while {(_newHashKey == _hashKey || (_newHashKey in EGVAR(markers,markerHash))) && _itr < 25 } do {
-    _newHashKey = str side _selectedUnit + str _selectedUnit + str _itr;
+    _newHashKey = GROUP_MARKER_ID_UNITSTRING_UNIT(_selectedUnit) + str _itr;
     _itr = _itr + 1;
 };
 private _newMarkerArray = [_newHashKey, getPosATL _selectedUnit, _selectedUnit, side _selectedUnit, _markerArray#1, _markerArray#3, _markerArray#2, _markerArray#4];

@@ -7,6 +7,10 @@
 #define BLACK_ARRAY [0,0,0,1]
 #define PINK_ARRAY [1,0.753,0.796,1]
 
+#define GROUP_MARKER_ID_GROUPSTRING_GROUP(group) str side group + groupId group
+#define GROUP_MARKER_ID_GROUPSTRING_UNIT(unit) str side group unit + groupId group unit
+#define GROUP_MARKER_ID_UNITSTRING_UNIT(unit) str side unit + str unit
+
 #define COLOR_TO_MARKER_HASH [\
     [\
         QUOTE(RED_ARRAY),\

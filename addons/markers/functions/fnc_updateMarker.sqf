@@ -17,7 +17,7 @@
  *      (OPTIONAL, default -1 or no change)
  *
  * Example:
- * [groupId group player, "Yar", 3] call potato_markers_fnc_updateMarker;
+ * [GROUP_MARKER_ID_GROUPSTRING_UNIT(player), "Yar", 3] call potato_markers_fnc_updateMarker;
  *
  * Public: Yes
  */
