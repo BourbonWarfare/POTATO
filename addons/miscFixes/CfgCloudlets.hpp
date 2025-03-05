@@ -187,6 +187,45 @@ class CfgCloudlets {
         sizeCoef = 1;
         animationSpeedCoef = 1;
     };
+    class ArtilleryShell1_vanilla: Default {
+        interval = 0.0035;
+        circleRadius = 0;
+        circleVelocity[] = {0,0,0};
+        particleShape = "\A3\data_f\ParticleEffects\Universal\Universal_02";
+        particleFSNtieth = 8;
+        particleFSIndex = 0;
+        particleFSFrameCount = 1;
+        particleFSLoop = 0;
+        angleVar = 1;
+        animationName = "";
+        particleType = "Billboard";
+        timerPeriod = 1;
+        lifeTime = 0.5;
+        moveVelocity[] = {0,0,0};
+        rotationVelocity = 1;
+        weight = 1.23;
+        volume = 1;
+        rubbing = 0.2;
+        size[] = {0.6,1.8,2.5};
+        sizeCoef = 1;
+        color[] = {{0.5,0.5,0.5,0.14},{0.6,0.6,0.6,0.06},{0.7,0.7,0.7,0.02},{0.8,0.8,0.8,0.006},{0.9,0.9,0.9,0.001}};
+        colorCoef[] = {1,1,1,1};
+        animationSpeed[] = {5};
+        animationSpeedCoef = 1;
+        randomDirectionPeriod = 0.1;
+        randomDirectionIntensity = 0.1;
+        onTimerScript = "";
+        beforeDestroyScript = "";
+        blockAIVisibility = 0;
+        lifeTimeVar = 0.2;
+        positionVar[] = {0.08,0.08,0.08};
+        MoveVelocityVar[] = {0.3,0.3,0.3};
+        rotationVelocityVar = 20;
+        sizeVar = 0.15;
+        colorVar[] = {0,0,0,0};
+        randomDirectionPeriodVar = 0;
+        randomDirectionIntensityVar = 0;
+    };
 };
 
 class Missile2 {
@@ -221,5 +260,15 @@ class Missile4 {
 class Missile4_vanilla: Missile4 {
     class Missile4: Missile4 {
         type = "Missile4_vanilla";
+    };
+};
+
+class ArtilleryTrails {
+    class Trail1;
+};
+
+class ArtilleryTrails_vanilla: ArtilleryTrails {
+    class Trail1: Trail1 {
+        type = "ArtilleryShell1_vanilla";
     };
 };
