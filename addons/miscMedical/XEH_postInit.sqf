@@ -113,6 +113,26 @@ FUNC(calculateTNTEquivalent) = {
     _explosiveMass * _equivalent
 };
 
+GVAR(gurneyVelocityTable) = [
+    ["comp-b",           2700],
+    ["rdx",              2830],
+    ["hmx",              2800],
+    ["nitro",            2643],
+    ["tnt",              2440],
+  //["blasting-gelatin", 1],
+    ["dynamite",         2060],
+    ["semtex",           2930],
+    ["h-6",              2580],
+    ["tritonal",         2320],
+    ["comp-a3",          2630],
+    ["comp-c4",          2680],
+    ["explosive-d",      2417],
+    ["hbx-1",            2441],
+    ["hbx-3",            2339],
+    ["minol2",           2095],
+    ["anfo",             1453]
+];
+
 /*
     Coefficient Table:
         Steel: 1
@@ -402,7 +422,19 @@ if (isServer) then {
         private _mass = (getNumber (_explosiveConfig >> QACEGVAR(frag,charge))) / 1000;
         private _filler = getText (_explosiveConfig >> QGVAR(explosiveFiller));
         if (_filler isEqualTo "") then {
-            _filler = "comp-b";
+            private _gurneyC = getNumber (_explosiveConfig >> QACEGVAR(frag,gurney_c));
+            _filler = (GVAR(gurneyVelocityTable) select 0) select 0;
+            if (_gurneyC > 0) then  {
+                private _bestGurney = (GVAR(gurneyVelocityTable) select 0) select 1;
+                // estimate type of explosive by figuring out which is closest in velocity
+                {
+                    _x params ["_testFiller", "_testGurneyC"];
+                    if (abs (_gurneyC - _bestGurney) > abs (_gurneyC - _testGurneyC)) then {
+                        _bestGurney = _testGurneyC;
+                        _filler = _testFiller;
+                    }
+                } forEach GVAR(gurneyVelocityTable);
+            };
         };
 
         if (_mass <= 0) then {
