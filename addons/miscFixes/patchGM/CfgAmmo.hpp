@@ -69,4 +69,9 @@ class CfgAmmo {
         effectFly = "ArtilleryTrails_vanilla";
     };
 
+    class ShellBase;
+    class gm_warhead_base: ShellBase {
+        effectFly = "ArtilleryTrails_vanilla";
+    };
+
 };
