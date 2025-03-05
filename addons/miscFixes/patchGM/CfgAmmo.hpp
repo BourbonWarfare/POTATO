@@ -64,4 +64,9 @@ class CfgAmmo {
         effectsMissile = "missile2_vanilla";
     };
 
+    class gm_Submunition_base;
+    class gm_shell_artillery_Base: gm_Submunition_base {
+        effectFly = "ArtilleryTrails_vanilla";
+    };
+
 };
