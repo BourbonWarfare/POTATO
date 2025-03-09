@@ -4,7 +4,6 @@
 Squad equiped with with Spike Missile<br/><br/>
 
 Lock On Before Launch:<br/><br/>
-Switch to thermal view (Press N)<br/>
 Press and hold TAB to begin locking<br/><br/>
 3 Black dots indicate lock</br>
 Fire and forget (similar to a normal javelin)</br></br></br>
