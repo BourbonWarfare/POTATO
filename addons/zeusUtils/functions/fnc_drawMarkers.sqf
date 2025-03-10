@@ -20,6 +20,7 @@
 //IGNORE_PRIVATE_WARNING["_localCuratorModule"];
 TRACE_1("diag marker Handle:",diag_frameNo);
 
+private _modulePosASL = getPosASL _localCuratorModule;
 // It takes twice as long to access all these global variables as it does
 // to make a private copy and use that
 private _maxDisplayDistance = GVAR(markerDisplayDistance);
@@ -30,7 +31,7 @@ private _showMarkerText = GVAR(showMarkerText);
     if (isNull _drawObject) then {continue};
 
     private _baseDrawPos = (getPosASLVisual _drawObject) vectorAdd [0, 0, 15];
-    private _distance = _baseDrawPos distance _localCuratorModule;
+    private _distance = _baseDrawPos distance _modulePosASL;
     if (_maxDisplayDistance < _distance) then {continue};
 
     private _sizeModifier = _markerScale * _size * exp (-_distance / 300);
