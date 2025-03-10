@@ -41,7 +41,8 @@ if (!isClass _path) exitWith {
     diag_log formatText ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2)", _theBox, typeOf _theBox];
 };
 
-private _subBoxes = "true" configClasses _path;
+// For some reason configClasses doesn't seem to work as needed on missionConfig
+private _subBoxes = configProperties [_path, "isClass _x"];
 if (_subBoxes isNotEqualTo [] && GVAR(setSupplyBoxLoadouts) == 2) then {
     private _boxName = getText (_path >> "boxCustomName");
     if (_boxName isNotEqualTo "") then {
