@@ -10,7 +10,7 @@ class Cfg3DEN {
         };
         class GVAR(fireTeamControl): Title {
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(teamAttributeLoad));
-            attributeSave = QUOTE(_this call FUNC(teamAttributeSave));
+            attributeSave = QUOTE(call FUNC(teamAttributeSave));
             class Controls: Controls {
                 class Title: Title{};
                 class Value: ctrlToolbox {
@@ -23,7 +23,7 @@ class Cfg3DEN {
                     columns = 5;
                     strings[] = {TEAM_COLOR_STRINGS};
                     values[] = {TEAM_COLORS};
-                    onToolboxSelChanged = QUOTE(_this call FUNC(teamColorChange));
+                    onToolboxSelChanged = QUOTE(call FUNC(teamColorChange));
                 };
             };
         };

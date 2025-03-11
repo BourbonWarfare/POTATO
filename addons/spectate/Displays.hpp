@@ -17,18 +17,18 @@ class GVAR(overlay) {
     movingEnable = 0;
     closeOnMissionEnd = 1;
 
-    onKeyDown = QUOTE(_this call FUNC(ui_handleKeyDown));
-    onMouseMoving = QUOTE(_this call FUNC(ui_handleMouseMoving));
-    onChildDestroyed = QUOTE(_this call FUNC(ui_checkToClose));
+    onKeyDown = QUOTE(call FUNC(ui_handleKeyDown));
+    onMouseMoving = QUOTE(call FUNC(ui_handleMouseMoving));
+    onChildDestroyed = QUOTE(call FUNC(ui_checkToClose));
 
     class ControlsBackground {
         class MouseHandler: RscText {
             idc = MOUSE_IDC;
 
-            onMouseZChanged = QUOTE(_this call FUNC(ui_handleMouseZ));
-            onMouseButtonUp = QUOTE(_this call FUNC(ui_handleMouseUp));
-            onMouseButtonDown = QUOTE(_this call FUNC(ui_handleMouseDown));
-            onMouseButtonDblClick = QUOTE(_this call FUNC(ui_handleMouseDoubleClick));
+            onMouseZChanged = QUOTE(call FUNC(ui_handleMouseZ));
+            onMouseButtonUp = QUOTE(call FUNC(ui_handleMouseUp));
+            onMouseButtonDown = QUOTE(call FUNC(ui_handleMouseDown));
+            onMouseButtonDblClick = QUOTE(call FUNC(ui_handleMouseDoubleClick));
 
             x = "safeZoneXAbs";
             y = "safeZoneY";
@@ -239,8 +239,8 @@ class GVAR(overlay) {
         class Map: RscMapControl {
             idc = MAP_IDC;
 
-            onDraw = QUOTE(_this call FUNC(ui_handleMapDraw));
-            onMouseButtonClick = QUOTE(_this call FUNC(ui_handleMapClick));
+            onDraw = QUOTE(call FUNC(ui_handleMapDraw));
+            onMouseButtonClick = QUOTE(call FUNC(ui_handleMapClick));
 
             x = 0;
             y = 0.15;

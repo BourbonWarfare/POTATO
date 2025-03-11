@@ -24,7 +24,7 @@ class GVAR(RscDisplayAttributes_factory): RscDisplayAttributes {
         class Content: Content {
             class Controls {
                 class factoryAttributes: RscControlsGroupNoScrollbars {
-                    onSetFocus = QUOTE(_this call FUNC(zeusAttributes_factory));
+                    onSetFocus = QUOTE(call FUNC(zeusAttributes_factory));
                     idc = 26422;
                     x = "0";
                     y = "0";
@@ -114,7 +114,7 @@ class GVAR(RscDisplayAttributes_place): RscDisplayAttributes {
         class Content: Content {
             class Controls {
                 class placeAttributes: RscControlsGroupNoScrollbars {
-                    onSetFocus = QUOTE(_this call FUNC(zeusAttributes_place));
+                    onSetFocus = QUOTE(call FUNC(zeusAttributes_place));
                     idc = 26422;
                     x = "0";
                     y = "0";

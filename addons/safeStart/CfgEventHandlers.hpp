@@ -19,7 +19,7 @@ class Extended_PostInit_EventHandlers {
 class Extended_FiredBIS_EventHandlers {
     class AllVehicles {
         class ADDON {
-            firedBIS = QUOTE(if (GVAR(safeStartEnabled)) then {_this call DFUNC(handleFired)});
+            firedBIS = QUOTE(if (GVAR(safeStartEnabled)) then {call DFUNC(handleFired)});
         };
     };
 };

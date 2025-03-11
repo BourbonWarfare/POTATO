@@ -1,6 +1,9 @@
 [config.file_type]
 options.allow_no_extension = true
 
+[config.math_could_be_unquoted]
+enabled = "pedantic" #lots in patchHAFMHelis
+
 [stringtables.usage]
 options.ignore_unused = true
 

@@ -7,7 +7,7 @@ class CfgAmmo {
     class G_40mm_HE;
     class AMMO(40x53mm_HE_M384): G_40mm_HE {
         airFriction = -0.00045;
-        aiAmmoUsageFlags = "64 + 128";
+        aiAmmoUsageFlags = 64 + 128;
         displayNameshort = "M384 HE";
         displayName = "M384 40x53mm HE";
         ACEGVAR(frag,charge) = 54.5;
@@ -22,7 +22,7 @@ class CfgAmmo {
 
     class G_40mm_HEDP;
     class AMMO(40x46mm_HEDP_M433): G_40mm_HEDP { // Amtec corp datasheet
-        aiAmmoUsageFlags = "64 + 128 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 512;
         cost = 12;
         fuseDistance = 15;
         displayNameshort = "M433 HEDP";
@@ -50,7 +50,7 @@ class CfgAmmo {
     };
     class AMMO(40x53mm_HEDP_M430A1): G_40mm_HEDP { // based on  NDC M430A1 HEDP
         airFriction = -0.00045;
-        aiAmmoUsageFlags = "64 + 128 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 512;
         cost = 12;
         displayNameshort = "M430A1 HEDP";
         displayName = "M430A1 40x53mm HEDP";

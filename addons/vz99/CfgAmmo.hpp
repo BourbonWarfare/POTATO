@@ -45,10 +45,10 @@ class CfgAmmo {
 
         muzzleEffect = "";
         class CamShakeExplode {
-            power = "(82*0.2)";
+            power = (82*0.2);
             duration = "((round (82^0.5))*0.2 max 0.2)";
             frequency = 20;
-            distance = "((18 + 82^0.5)*8)";
+            distance = ((18 + 82^0.5)*8);
         };
         class CamShakeHit {
             power = 82;
@@ -57,10 +57,10 @@ class CfgAmmo {
             distance = 1;
         };
         class CamShakeFire {
-            power = "(82^0.25)";
+            power = (82^0.25);
             duration = "((round (82^0.5))*0.2 max 0.2)";
             frequency = 20;
-            distance = "((82^0.5)*8)";
+            distance = ((82^0.5)*8);
         };
         class CamShakePlayerFire {
             power = 0.01;

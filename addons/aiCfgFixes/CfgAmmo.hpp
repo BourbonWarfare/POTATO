@@ -240,7 +240,7 @@ class CfgAmmo {
     class CUP_R_SMAW_HEDP_N: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 50;
     };
@@ -253,7 +253,7 @@ class CfgAmmo {
     class CUP_R_RPG18_AT: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 50;
     };
@@ -263,26 +263,26 @@ class CfgAmmo {
     class CUP_R_MEEWS_HEDP: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 150;
     };
     class CUP_R_M136_AT: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 50;
     };
     class CUP_R_SMAW_HEDP: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 50;
     };
     class CUP_R_70mm_Hydra_HE: RocketBase {
-        aiAmmoUsageFlags = "64 + 128 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 512;
         allowAgainstInfantry = 1;
         cost = 100;
     };
@@ -292,42 +292,42 @@ class CfgAmmo {
     class CUP_R_OG7_AT: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256";
+        aiAmmoUsageFlags = 64 + 128 + 256;
         allowAgainstInfantry = 1;
         cost = 50;
     };
     class CUP_R_TBG7V_AT: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256";
+        aiAmmoUsageFlags = 64 + 128 + 256;
         allowAgainstInfantry = 1;
         cost = 150;
     };
     class CUP_R_PG7VR_AT: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 50;
     };
     class CUP_R_PG7VL_AT: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 50;
     };
     class CUP_R_PG7VM_AT: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 50;
     };
     class CUP_R_PG7V_AT: RocketBase {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 50;
     };
@@ -450,17 +450,17 @@ class CfgAmmo {
     };
     class R_80mm_HE;
     class potato_aiCfgFixes_he_rocket: R_80mm_HE {
-        aiAmmoUsageFlags = "64 + 128 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 512;
         allowAgainstInfantry = 1;
         cost = 100;
     };
     class CUP_R_57mm_HE: RocketBase {
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 150;
     };
     class CUP_R_M72A6_AT: RocketBase {
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
+        aiAmmoUsageFlags = 64 + 128 + 256 + 512;
         allowAgainstInfantry = 1;
         cost = 50;
     };

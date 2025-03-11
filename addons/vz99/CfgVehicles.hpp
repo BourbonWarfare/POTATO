@@ -24,8 +24,8 @@ class CfgVehicles {
         class ACE_SelfActions {
             class GVAR(deploy) {
                 displayName = "Deploy vz99";
-                condition = QUOTE(_this call FUNC(canDeployWeapon));
-                statement = QUOTE(_this call FUNC(doDeployWeapon));
+                condition = QUOTE(call FUNC(canDeployWeapon));
+                statement = QUOTE(call FUNC(doDeployWeapon));
                 exceptions[] = {};
                 icon = QPATHTOF(UI\action_mortar_ca.paa);
             };
@@ -67,8 +67,8 @@ class CfgVehicles {
                 displayName = "Pickup Weapon";
                 selection = "Konec hlavne";
                 distance = 3;
-                condition = QUOTE(_this call FUNC(canPickupWeapon));
-                statement = QUOTE(_this call FUNC(doPickupWeapon));
+                condition = QUOTE(call FUNC(canPickupWeapon));
+                statement = QUOTE(call FUNC(doPickupWeapon));
             };
         };
         class ACE_SelfActions: ACE_SelfActions {

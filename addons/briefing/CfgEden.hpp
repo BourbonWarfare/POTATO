@@ -52,7 +52,7 @@ class Cfg3DEN {
             };
         };
         class GVAR(bigEdit): Edit {
-            attributeSave = QUOTE(_this call FUNC(briefingAttributeSave));
+            attributeSave = QUOTE(call FUNC(briefingAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(briefingAttributeLoad));
 
             h = QUOTE(5 * 5 * (pixelH * pixelGrid * 0.50));
@@ -68,8 +68,8 @@ class Cfg3DEN {
             };
         };
         class GVAR(briefingSettings): TitleWide {
-            onLoad = QUOTE(_this call FUNC(briefingSettingsControlLoad));
-            attributeSave = QUOTE(_this call FUNC(briefingSettingsAttributeSave));
+            onLoad = QUOTE(call FUNC(briefingSettingsControlLoad));
+            attributeSave = QUOTE(call FUNC(briefingSettingsAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(briefingSettingsAttributeLoad));
             h = QUOTE((2 * SIZE_M + 1) * GRID_H);
 

@@ -70,10 +70,10 @@
 #define AUDIBLE_FIRE_SUBSONIC 10
 
 
-#define AI_AMMO_USAGE_FLAGS_TINY "64"
-#define AI_AMMO_USAGE_FLAGS_SMALL "64 + 128 + 256"
-#define AI_AMMO_USAGE_FLAGS_MEDIUM "64 + 128 + 256"
-#define AI_AMMO_USAGE_FLAGS_LARGE "64 + 128 + 256"
+#define AI_AMMO_USAGE_FLAGS_TINY (64)
+#define AI_AMMO_USAGE_FLAGS_SMALL (64 + 128 + 256)
+#define AI_AMMO_USAGE_FLAGS_MEDIUM (64 + 128 + 256)
+#define AI_AMMO_USAGE_FLAGS_LARGE (64 + 128 + 256)
 
 #define RED_TRACER "\A3\Weapons_f\Data\bullettracer\tracer_red"
 #define GREEN_TRACER "\A3\Weapons_f\Data\bullettracer\tracer_green"

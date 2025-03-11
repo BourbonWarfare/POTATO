@@ -25,6 +25,6 @@ class Extended_DisplayUnload_EventHandlers {
 
 class Extended_InitPost_EventHandlers {
     class GVAR(playableSpectator) {
-        class ADDON { init = QUOTE(_this call FUNC(initSpectatorUnit);); };
+        class ADDON { init = QUOTE(call FUNC(initSpectatorUnit);); };
     };
 };

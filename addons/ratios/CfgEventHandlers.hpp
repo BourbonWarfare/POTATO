@@ -10,6 +10,6 @@ class Extended_DisplayLoad_EventHandlers {
 };
 class Extended_DisplayUnload_EventHandlers {
     class RscDisplayMultiplayerSetup {
-        ADDON = QUOTE(_this call COMPILE_SCRIPT(functions\fnc_displayUnload));
+        ADDON = QUOTE(call COMPILE_SCRIPT(functions\fnc_displayUnload));
     };
 };

@@ -16,6 +16,6 @@ class Extended_PostInit_EventHandlers {
 
 class Extended_DisplayLoad_EventHandlers {
     class RscDisplayCurator {
-        ADDON = QUOTE(_this call FUNC(zeus_interfaceOpenedEH));
+        ADDON = QUOTE(call FUNC(zeus_interfaceOpenedEH));
     };
 };

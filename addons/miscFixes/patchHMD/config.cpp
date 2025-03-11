@@ -20,7 +20,7 @@ class CfgWeapons {
     class CannonCore: Default {};
     class gatling_20mm: CannonCore {
         cursorAim = "mg";
-        ballisticsComputer = "1 + 2 + 16";
+        ballisticsComputer = 1 + 2 + 16;
         magazines[] = {"2000Rnd_20mm_shells","1000Rnd_20mm_shells","300Rnd_20mm_shells","PylonWeapon_300Rnd_20mm_shells","ACE_500Rnd_20mm_shells_Comanche"};
     };
 };
