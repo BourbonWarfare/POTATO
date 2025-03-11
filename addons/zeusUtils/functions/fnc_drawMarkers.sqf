@@ -30,7 +30,7 @@ private _showMarkerText = GVAR(showMarkerText);
     if (isNull _drawObject) then {continue};
 
     private _baseDrawPos = (getPosASLVisual _drawObject) vectorAdd [0, 0, 15];
-    private _distance = _baseDrawPos distance _localCuratorModule;
+    private _distance = (ASLToAGL _baseDrawPos) distance _localCuratorModule;
     if (_maxDisplayDistance < _distance) then {continue};
 
     private _sizeModifier = _markerScale * _size * exp (-_distance / 300);

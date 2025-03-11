@@ -117,9 +117,9 @@ GVAR(hasTarget) = true;
 GVAR(surfaceSpeed) = false;
 GVAR(camTarget) = _oldUnit;
 GVAR(targetInVehicle) = !isNull objectParent GVAR(camTarget);
-GVAR(dummy) = "Logic" createVehicleLocal getPosASLVisual GVAR(camTarget);
+GVAR(dummy) = "Logic" createVehicleLocal ASLToAGL getPosASLVisual GVAR(camTarget);
 
-GVAR(cam) = "camcurator" camCreate eyePos GVAR(camTarget);
+GVAR(cam) = "camcurator" camCreate ASLToAGL eyePos GVAR(camTarget);
 GVAR(cam) cameraEffect ["internal", "back"];
 GVAR(cam) setPosASL eyePos GVAR(camTarget);
 GVAR(cam) setDir getDirVisual GVAR(camTarget);
