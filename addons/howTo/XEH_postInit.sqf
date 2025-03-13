@@ -12,7 +12,11 @@ GVAR(howToUse) = createHashMapFromArray [  //IGNORE_PRIVATE_WARNING ["_player", 
 ,
 #include "guides\ace_vector.inc.sqf"
 ,
-#include "guides\rpg7-pgo.inc.sqf"
+#include "guides\launcher_gm_m72.inc.sqf"
+,
+#include "guides\launcher_m136.inc.sqf"
+,
+#include "guides\launcher_rpg7-pgo.inc.sqf"
 ];
 
 ["unit", {
