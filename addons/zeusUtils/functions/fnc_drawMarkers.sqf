@@ -30,8 +30,8 @@ private _showMarkerText = GVAR(showMarkerText);
     _y params ["_drawObject", "_text", "_icon", "_color", "_size", "_posATL"];
     if (isNull _drawObject) then {continue};
 
-    private _baseDrawPos = (getPosASLVisual _drawObject) vectorAdd [0, 0, 15];
-    private _distance = _baseDrawPos distance _modulePosASL;
+    private _baseDrawPosASL = (getPosASLVisual _drawObject) vectorAdd [0, 0, 15];
+    private _distance = _baseDrawPosASL distance _modulePosASL;
     if (_maxDisplayDistance < _distance) then {continue};
 
     private _sizeModifier = _markerScale * _size * exp (-_distance / 300);
@@ -41,7 +41,7 @@ private _showMarkerText = GVAR(showMarkerText);
         drawIcon3D [
             _icon,
             _colorAlpha,
-            ASLToAGL _baseDrawPos,
+            ASLToAGL _baseDrawPosASL,
             _sizeModifier,
             _sizeModifier,
             0,
