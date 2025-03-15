@@ -99,7 +99,7 @@ if (inputAction "headlights" > 0) exitWith {
         _cameraLight setLightColor [0,0,0];
         _cameraLight lightAttachObject [GVAR(cam), [0,0,0]];
 
-        private _pointerLight = "#lightpoint" createVehicleLocal getPosASL GVAR(cam);
+        private _pointerLight = "#lightpoint" createVehicleLocal ASLToAGL getPosASL GVAR(cam);
         _pointerLight setLightBrightness 1;
         _pointerLight setLightAmbient [1,1,1];
         _pointerLight setLightColor [0,0,0];
