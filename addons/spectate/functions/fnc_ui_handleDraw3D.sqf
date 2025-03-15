@@ -42,42 +42,89 @@ GVAR(cursorObject) = _cursorObject;
 END_COUNTER(updateCursor);
 
 if !(GVAR(mapOpen) || GVAR(fullMapOpen)) then {
-    if (GVAR(tagsVisible)) then {
-        BEGIN_COUNTER(drawTags);
-        // Groups and Units
-        {
-            _x params ["_unit", "_type", "_icon"];
-            private _position = _unit modelToWorldVisual (_unit selectionPosition "Head");
-            _position set [2, (_position select 2) + HEIGHT_OFFSET];
+    switch (GVAR(tagsVisible)) do {
+        case TAGS_VISIBLE_MODE_NAMES: {
+            BEGIN_COUNTER(drawTags);
+            // Groups and Units
+            {
+                _x params ["_unit", "_type", "_icon"];
+                private _position = _unit modelToWorldVisual (_unit selectionPosition "Head");
+                _position set [2, (_position select 2) + HEIGHT_OFFSET];
 
-            if (_type == 2 && { _unit distance GVAR(cam) < DISTANCE_NAMES } && {_unit in GVAR(camTarget) || _unit in GVAR(cursorObject)}) then {
+                if (_type == 2 && { _unit distance GVAR(cam) < DISTANCE_NAMES } && {_unit in GVAR(camTarget) || _unit in GVAR(cursorObject)}) then {
+                    drawIcon3D [
+                        ICON_BACKGROUND_UNIT,
+                        [0, 0, 0, [0.4, 0.8] select (_unit in GVAR(camTarget))],
+                        _position,
+                        5.0,
+                        4,
+                        0.0,
+                        "",
+                        0,
+                        0.035,
+                        "PuristaMedium",
+                        "center"
+                    ];
+                };
+
+                // Apply modifiers
+                if (_type == 1 && { time <= _unit getVariable [QGVAR(highlightTime), 0] }) then {
+                    _icon set [1, [1,1,1, ((_icon select 1) select 3)]];
+                };
+                _icon set [2, _position];
+
+                // Draw icon
+                drawIcon3D _icon;
+
+                nil
+            } count GVAR(thingsToDraw); // count used here for speed, ensure nil above this line
+            END_COUNTER(drawTags);
+        };
+        case TAGS_VISIBLE_MODE_MARKS: {
+            BEGIN_COUNTER(drawTags);
+            // Markers
+            private _recalc = diag_tickTime > EGVAR(markers,nextUpdate);
+            if (_recalc) then {
+                EGVAR(markers,nextUpdate) = diag_tickTime + EGVAR(markers,groupAndUnitUpdateDelay);
+            };
+            private _cameraPosASL = getPosASL GVAR(cam);
+            private _markerScale = EGVAR(zeusUtils,markerDisplayScale) / 12; // Marker of size 24 => 2
+            {
+                _y params ["_drawObject", "_text", "_icon", "_color", "_size", "_posATL"];
+                private _baseDrawPosASL = if (isNull _drawObject) then {
+                    ATLToASL _posATL
+                } else {
+                    getPosASLVisual _drawObject
+                };
+                if (!isNull _drawObject && _recalc) then {
+                    _y set [5, ASLToATL _baseDrawPosASL];
+                };
+                private _distance = _baseDrawPosASL distance _cameraPosASL;
+                if (_maxDisplayDistance < 3000) then {continue};
+
+                private _sizeModifier = _markerScale * _size * exp (-_distance / 300);
+                private _colorAlpha = +_color;
+                _colorAlpha set [3, 0.55];
                 drawIcon3D [
-                    ICON_BACKGROUND_UNIT,
-                    [0, 0, 0, [0.4, 0.8] select (_unit in GVAR(camTarget))],
-                    _position,
-                    5.0,
-                    4,
-                    0.0,
-                    "",
+                    _icon,
+                    _colorAlpha,
+                    ASLToAGL _baseDrawPosASL vectorAdd [0, 0, 15],
+                    _sizeModifier,
+                    _sizeModifier,
                     0,
-                    0.035,
-                    "PuristaMedium",
-                    "center"
+                    _text,
+                    2,
+                    0.05 * _sizeModifier,
+                    "RobotoCondensedBold",
+                    "right",
+                    false,
+                    0.002 * _sizeModifier,
+                    -0.0265 * _sizeModifier
                 ];
-            };
-
-            // Apply modifiers
-            if (_type == 1 && { time <= _unit getVariable [QGVAR(highlightTime), 0] }) then {
-                _icon set [1, [1,1,1, ((_icon select 1) select 3)]];
-            };
-            _icon set [2, _position];
-
-            // Draw icon
-            drawIcon3D _icon;
-
-            nil
-        } count GVAR(thingsToDraw); // count used here for speed, ensure nil above this line
-        END_COUNTER(drawTags);
+            } forEach EGVAR(markers,markerHash);
+            END_COUNTER(drawTags);
+        };
+        default {};
     };
 
     // Draw projectiles and grenades paths

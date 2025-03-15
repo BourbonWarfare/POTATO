@@ -145,7 +145,7 @@ GVAR(needToAddBriefings) = true;
 GVAR(uiVisible) = true;
 GVAR(oldViewDistance) = viewDistance;
 GVAR(mapHighlighted) = objNull;
-GVAR(tagsVisible) = true;
+GVAR(tagsVisible) = TAGS_VISIBLE_MODE_NAMES;
 GVAR(cursorObject) = objNull;
 GVAR(holdingRightMouse) = false;
 

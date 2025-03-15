@@ -70,7 +70,7 @@ if (inputAction "nightVision" > 0) exitWith {
 // if the zeus key is pressed and unit is curator, open zeus interface
 if ((inputAction "CuratorInterface") > 0 && {!isNull (getAssignedCuratorLogic player)}) exitWith {
     GVAR(uiVisible) = false;
-    GVAR(tagsVisible) = false;
+    GVAR(tagsVisible) = TAGS_VISIBLE_MODE_NONE;
     GVAR(drawProjectiles) = false;
     OVERLAY closeDisplay 1;
     GVAR(cam) camCommand "manual off";
@@ -172,7 +172,7 @@ if (_key == DIK_BACKSPACE) exitWith {
 
 // handle toggling the Tags
 if (_key == DIK_BACKSLASH) exitWith {
-    GVAR(tagsVisible) = !GVAR(tagsVisible);
+    GVAR(tagsVisible) = (GVAR(tagsVisible) + 1) mod TAGS_VISIBLE_MODE_COUNT;
     true
 };
 

@@ -20,7 +20,7 @@ TRACE_1("checkToReopen",_this);
 
 if (GVAR(running) && {isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull])}) then {
     GVAR(uiVisible) = true;
-    GVAR(tagsVisible) = true;
+    GVAR(tagsVisible) = TAGS_VISIBLE_MODE_NAMES;
     GVAR(needToAddBriefings) = true;
 
     // create spectator display
