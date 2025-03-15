@@ -96,7 +96,7 @@ switch (GVAR(setVehicleLoadouts)) do {
         clearMagazineCargoGlobal _theVehicle;
         clearItemCargoGlobal _theVehicle;
         clearBackpackCargoGlobal _theVehicle;
-        private _boxes = "true" configClasses _path;
+        private _boxes = configProperties [_path, "isClass _x"];;
         if (_boxes isEqualTo []) exitWith {
             [_theVehicle, _path] call FUNC(setContainerContentsFromConfig);
         };
