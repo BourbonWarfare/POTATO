@@ -170,7 +170,7 @@ class GVAR(adminMenuDialog) {
             y = QUOTE(0.205 * safezoneH + safezoneY);
             w = QUOTE(0.125 * safezoneW);
             h = QUOTE(0.58 * safezoneH);
-            onLBSelChanged = QUOTE(_this call FUNC(uihook_tabChange));
+            onLBSelChanged = QUOTE(call FUNC(uihook_tabChange));
         };
         class CONTROL_ZEUS: RscControlsGroup {
             idc = 2300;
@@ -380,7 +380,7 @@ class GVAR(adminMenuDialog) {
                 class DOUBLES(ctrlCheckbox,IDC_CHECKBOX_SAFESTARTSAFETY): ctrlCheckbox {
                     idc = IDC_CHECKBOX_SAFESTARTSAFETY;
                     checked = 0;
-                    onCheckedChanged = QUOTE(_this call FUNC(uihook_checkboxes));
+                    onCheckedChanged = QUOTE(call FUNC(uihook_checkboxes));
                     onLoad = QUOTE((_this#0) cbSetChecked EGVAR(safeStart,safeStartSafetyOn));
                     tooltip = "Should the mission be held in Safe Start even if time expires"; //--- ToDo: Localize
                     x = QUOTE(0.31 * safezoneW);

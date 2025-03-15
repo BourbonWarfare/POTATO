@@ -20,7 +20,7 @@ class Extended_PostInit_EventHandlers {
 class Extended_FiredBIS_EventHandlers {
     class GVAR(mortar) {
         class ADDON {
-            firedBIS = QUOTE(_this call FUNC(handleFired));
+            firedBIS = QUOTE(call FUNC(handleFired));
         };
     };
 };

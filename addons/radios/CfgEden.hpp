@@ -103,8 +103,8 @@ class Cfg3DEN {
             class Controls;
         };
         class GVAR(radioChannels): TitleWide {
-            onLoad = QUOTE(_this call FUNC(channelControlLoad));
-            attributeSave = QUOTE(_this call FUNC(channelAttributeSave));
+            onLoad = QUOTE(call FUNC(channelControlLoad));
+            attributeSave = QUOTE(call FUNC(channelAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(channelAttributeLoad));
             h = QUOTE((17 * SIZE_M + 1) * GRID_H);
             class Controls: Controls {
@@ -124,8 +124,8 @@ class Cfg3DEN {
             };
         };
         class GVAR(babel): TitleWide {
-            onLoad = QUOTE(_this call FUNC(babelControlLoad));
-            attributeSave = QUOTE(_this call FUNC(babelAttributeSave));
+            onLoad = QUOTE(call FUNC(babelControlLoad));
+            attributeSave = QUOTE(call FUNC(babelAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(babelAttributeLoad));
             h = QUOTE((7 * SIZE_M + 1) * GRID_H);
             class Controls: Controls {
@@ -150,8 +150,8 @@ class Cfg3DEN {
             };
         };
         class GVAR(acreGlobalConfig): TitleWide {
-            onLoad = QUOTE(_this call FUNC(acreGlobalControlLoad));
-            attributeSave = QUOTE(_this call FUNC(acreGlobalAttributeSave));
+            onLoad = QUOTE(call FUNC(acreGlobalControlLoad));
+            attributeSave = QUOTE(call FUNC(acreGlobalAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(acreGlobalAttributeLoad));
             h = QUOTE((6 * SIZE_M + 1) * GRID_H);
 
@@ -226,8 +226,8 @@ class Cfg3DEN {
             };
         };
         class GVAR(acreSideConfig): TitleWide {
-            onLoad = QUOTE(_this call FUNC(acreSideControlLoad));
-            attributeSave = QUOTE(_this call FUNC(acreSideAttributeSave));
+            onLoad = QUOTE(call FUNC(acreSideControlLoad));
+            attributeSave = QUOTE(call FUNC(acreSideAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(acreSideAttributeLoad));
             h = QUOTE((26 * SIZE_M + 1) * GRID_H);
             class Controls: Controls {

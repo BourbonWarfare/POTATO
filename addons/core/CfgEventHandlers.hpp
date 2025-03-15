@@ -18,6 +18,6 @@ class Extended_PostInit_EventHandlers {
 
 class Extended_DisplayLoad_EventHandlers {
     class RscDisplayMain {
-        GVAR(mainMenu) = QUOTE(_this call COMPILE_SCRIPT(XEH_mainMenu));
+        GVAR(mainMenu) = QUOTE(call COMPILE_SCRIPT(XEH_mainMenu));
     };
 };

@@ -17,7 +17,7 @@ class GVAR(adminRespawn) {
     idd = ADMIN_RESPAWN_IDD;
 
     onLoad = QUOTE(_this spawn FUNC(ui_handleAdminLoad));
-    onUnload = QUOTE(_this call FUNC(ui_handleAdminUnload));
+    onUnload = QUOTE(call FUNC(ui_handleAdminUnload));
 
     class ControlsBackground {
         class BackGround: RscBackground {
@@ -85,7 +85,7 @@ class GVAR(adminRespawn) {
         };
         class GroupTree: RscTree {
             idc = GROUP_TREE_IDC;
-            onTreeDblClick = QUOTE(_this call FUNC(ui_handleSlotClick));
+            onTreeDblClick = QUOTE(call FUNC(ui_handleSlotClick));
             x = QUOTE(0.4375 * safezoneW + safezoneX);
             y = QUOTE(0.3 * safezoneH + safezoneY);
             w = QUOTE(0.1375 * safezoneW);
@@ -106,7 +106,7 @@ class GVAR(adminRespawn) {
         };
         class FactionCombo: RscCombo {
             idc = ADMIN_FACTION_COMBO_IDC;
-            onLBSelChanged = QUOTE(_this call FUNC(ui_handleFactionChange));
+            onLBSelChanged = QUOTE(call FUNC(ui_handleFactionChange));
             x = QUOTE(0.625 * safezoneW + safezoneX);
             y = QUOTE(0.32 * safezoneH + safezoneY);
             w = QUOTE(0.075 * safezoneW);
@@ -126,7 +126,7 @@ class GVAR(adminRespawn) {
         };
         class GroupCombo: RscCombo {
             idc = ADMIN_GROUP_COMBO_IDC;
-            onLBSelChanged = QUOTE(_this call FUNC(ui_handleGroupChange));
+            onLBSelChanged = QUOTE(call FUNC(ui_handleGroupChange));
             x = QUOTE(0.625 * safezoneW + safezoneX);
             y = QUOTE(0.36 * safezoneH + safezoneY);
             w = QUOTE(0.075 * safezoneW);
@@ -155,7 +155,7 @@ class GVAR(adminRespawn) {
         };
         class AddButton: RscButton {
             idc = ADMIN_ADD_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleAddClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleAddClick));
             text = "Add";
             x = QUOTE(0.6 * safezoneW + safezoneX);
             y = QUOTE(0.44 * safezoneH + safezoneY);
@@ -170,7 +170,7 @@ class GVAR(adminRespawn) {
         };
         class DeleteButton: RscButton {
             idc = ADMIN_DELETE_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleDeleteClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleDeleteClick));
             text = "Delete";
             x = QUOTE(0.655 * safezoneW + safezoneX);
             y = QUOTE(0.44 * safezoneH + safezoneY);
@@ -185,7 +185,7 @@ class GVAR(adminRespawn) {
         };
         class SlotButton: RscButton {
             idc = ADMIN_SLOT_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleSlotClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleSlotClick));
             text = "Slot";
             x = QUOTE(0.6 * safezoneW + safezoneX);
             y = QUOTE(0.48 * safezoneH + safezoneY);
@@ -200,7 +200,7 @@ class GVAR(adminRespawn) {
         };
         class UnslotButton: RscButton {
             idc = ADMIN_UNSLOT_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleUnslotClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleUnslotClick));
             text = "Unslot";
             x = QUOTE(0.655 * safezoneW + safezoneX);
             y = QUOTE(0.48 * safezoneH + safezoneY);
@@ -215,7 +215,7 @@ class GVAR(adminRespawn) {
         };
         class OpenRespawnButton: RscButton {
             idc = ADMIN_OPEN_RESPAWN_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleRespawnStateClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleRespawnStateClick));
             text = "Open Reinforcements";
             x = QUOTE(0.6 * safezoneW + safezoneX);
             y = QUOTE(0.52 * safezoneH + safezoneY);
@@ -238,7 +238,7 @@ class GVAR(adminRespawn) {
         };
         class TriggerButton: RscButton {
             idc = ADMIN_TRIGGER_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleTriggerClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleTriggerClick));
             text = "Trigger Reinforcements";
             x = QUOTE(0.6 * safezoneW + safezoneX);
             y = QUOTE(0.58 * safezoneH + safezoneY);
@@ -253,7 +253,7 @@ class GVAR(adminRespawn) {
         };
         class CancelButton: RscButton {
             idc = ADMIN_CANCEL_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleCancelClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleCancelClick));
             text = "Cancel Reinforcements";
             x = QUOTE(0.6 * safezoneW + safezoneX);
             y = QUOTE(0.64 * safezoneH + safezoneY);
@@ -268,7 +268,7 @@ class GVAR(adminRespawn) {
         };
         class ChatButtonOn: RscButton {
             idc = ADMIN_CHAT_BUTTON_ON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleChatClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleChatClick));
             text = "Chat";
             x = QUOTE(0.6 * safezoneW + safezoneX);
             y = QUOTE(0.7 * safezoneH + safezoneY);
@@ -290,7 +290,7 @@ class GVAR(adminRespawn) {
         };
         class CloseButton: RscButton {
             idc = ADMIN_CLOSE_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleCloseClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleCloseClick));
             text = "Close";
             x = QUOTE(0.6625 * safezoneW + safezoneX);
             y = QUOTE(0.7 * safezoneH + safezoneY);
@@ -305,8 +305,8 @@ class GVAR(adminRespawn) {
         };
         class Map: RscMapControl {
             idc = ADMIN_MAP_IDC;
-            onDraw = QUOTE(_this call FUNC(ui_handleMapDraw));
-            onMouseButtonClick = QUOTE(_this call FUNC(ui_handleMapClick));
+            onDraw = QUOTE(call FUNC(ui_handleMapDraw));
+            onMouseButtonClick = QUOTE(call FUNC(ui_handleMapClick));
             x = QUOTE(0.27 * safezoneW + safezoneX);
             y = QUOTE(0.23 * safezoneH + safezoneY);
             w = QUOTE(0.46 * safezoneW);
@@ -353,7 +353,7 @@ class GVAR(respawnEula) {
         };
         class AgreeButton: RscButton {
             idc = EULA_AGREE_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleAgreeClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleAgreeClick));
             text = "Agree";
             x = QUOTE(0.4375 * safezoneW + safezoneX);
             y = QUOTE(0.64 * safezoneH + safezoneY);
@@ -368,7 +368,7 @@ class GVAR(respawnEula) {
         };
         class DeclineButton: RscButton {
             idc = EULA_DECLINE_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleDeclineClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleDeclineClick));
             text = "Decline";
             x = QUOTE(0.5 * safezoneW + safezoneX);
             y = QUOTE(0.64 * safezoneH + safezoneY);
@@ -389,7 +389,7 @@ class GVAR(clientRespawn) {
     idd = CLIENT_RESPAWN_IDD;
 
     onLoad = QUOTE(_this spawn FUNC(ui_handleClientLoad));
-    onUnload = QUOTE(_this call FUNC(ui_handleClientUnload));
+    onUnload = QUOTE(call FUNC(ui_handleClientUnload));
 
     class ControlsBackground {
         class BackGround: RscBackground {
@@ -438,7 +438,7 @@ class GVAR(clientRespawn) {
         };
         class GroupTree: RscTree {
             idc = GROUP_TREE_IDC;
-            onTreeDblClick = QUOTE(_this call FUNC(ui_handleClientSlotClick));
+            onTreeDblClick = QUOTE(call FUNC(ui_handleClientSlotClick));
             x = QUOTE(0.38 * safezoneW + safezoneX);
             y = QUOTE(0.405 * safezoneH + safezoneY);
             w = QUOTE(0.215 * safezoneW);
@@ -449,7 +449,7 @@ class GVAR(clientRespawn) {
         };
         class SlotButton: RscButton {
             idc = CLIENT_SLOT_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleClientSlotClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleClientSlotClick));
             text = "Slot";
             x = QUOTE(0.4375 * safezoneW + safezoneX);
             y = QUOTE(0.64 * safezoneH + safezoneY);
@@ -464,7 +464,7 @@ class GVAR(clientRespawn) {
         };
         class UnslotButton: RscButton {
             idc = CLIENT_UNSLOT_BUTTON_IDC;
-            onButtonClick = QUOTE(_this call FUNC(ui_handleClientUnslotClick));
+            onButtonClick = QUOTE(call FUNC(ui_handleClientUnslotClick));
             text = "Unslot";
             x = QUOTE(0.5 * safezoneW + safezoneX);
             y = QUOTE(0.64 * safezoneH + safezoneY);

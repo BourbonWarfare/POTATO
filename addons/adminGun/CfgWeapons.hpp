@@ -8,7 +8,7 @@ class CfgWeapons {
 		scopeArsenal = 2;
 
 		class EventHandlers {
-			fired = QUOTE(_this call FUNC(onFired));
+			fired = QUOTE(call FUNC(onFired));
 		};
 	};
 };

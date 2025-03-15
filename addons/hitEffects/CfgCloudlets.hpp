@@ -216,8 +216,8 @@ class CfgCloudlets {
         timerPeriod = 3;
         lifeTime = "1+(intensity*3.5)";
         lifeTimeVar = ".2+(intensity*.5)";
-        weight = "1.275*20";
-        volume = "1*20";
+        weight = 1.275*20;
+        volume = 1*20;
         rubbing = 2;
         size[] = {".05+(intensity*.2)","1.2+(intensity*1)","1.3+(intensity*1.0)","1.4+(intensity*1.1)","1.5+(intensity*1.2)","1.6+(intensity*1.3)","1.7+(intensity*1.4)","1.8+(intensity*1.5)"};
         sizeCoef = 1;
@@ -262,8 +262,8 @@ class CfgCloudlets {
         moveVelocity[] = {0,"surfNormalY * (.5+(intensity*.5))",0};
         moveVelocityVar[] = {0,".1+(intensity*0.1)",0};
         rotationVelocity = 0;
-        weight = "2*20";
-        volume = "1*20";
+        weight = 2*20;
+        volume = 1*20;
         rubbing = 1;
         size[] = {"intensity*.4","intensity*4"};
         sizeVar = 0.3;
@@ -295,8 +295,8 @@ class CfgCloudlets {
         lifeTimeVar = "0.1";
         moveVelocity[] = {0,0,0};
         rotationVelocity = 0;
-        weight = "1.275*20";
-        volume = "1*20";
+        weight = 1.275*20;
+        volume = 1*20;
         rubbing = 0.5;
         size[] = {".2","intensity*3"};
         sizeVar = 0.2;

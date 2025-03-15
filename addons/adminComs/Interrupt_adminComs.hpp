@@ -51,7 +51,7 @@ class GVAR(chatList): RscListBox {
     h = "5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
     sizeEx = "0.0175 * safeZoneH";
     font = "EtelkaMonospacePro";
-    onLBSelChanged = QUOTE(_this call FUNC(logListBoxChanged););
+    onLBSelChanged = QUOTE(call FUNC(logListBoxChanged););
 };
 class GVAR(sendMessageToUser): RscButtonMenu {
     idc = 840432;

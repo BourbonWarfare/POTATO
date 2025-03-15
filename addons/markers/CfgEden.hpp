@@ -13,8 +13,8 @@ class Cfg3DEN {
             class Controls;
         };
         class GVAR(configureMarker): TitleWide {
-            onLoad = QUOTE(_this call FUNC(markerControlLoad));
-            attributeSave = QUOTE(_this call FUNC(markerAttributeSave));
+            onLoad = QUOTE(call FUNC(markerControlLoad));
+            attributeSave = QUOTE(call FUNC(markerAttributeSave));
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(markerAttributeLoad));
             h = QUOTE((9 * SIZE_M + 1) * GRID_H);
             class Controls: Controls {
