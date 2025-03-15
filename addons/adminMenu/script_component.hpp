@@ -48,6 +48,9 @@
 
 #define UI_TABS_INDEX_MARKERS 9
 
+#define UI_TAB      7
+#define MARKERS_TAB 9
+
 // Markers sub menu
 #define POTATO_MARKER_MENU_IDD 250224
 #define POTATO_MARKER_TEXT_IDC  2300

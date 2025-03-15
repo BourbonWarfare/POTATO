@@ -541,7 +541,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.32 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE([] call FUNC(uihook_resetMarkersButton));
+                    action = QUOTE([UI_TAB] call FUNC(uihook_resetMarkersButton));
                 };
             };
         };
@@ -627,7 +627,7 @@ class GVAR(adminMenuDialog) {
                     text = "Reload Unit Local Markers";
                     tooltip = "Reloads the selected clients\nmarkers from their local marker caches";
                     y = QUOTE(0.38 * safezoneH);
-                    action = QUOTE([] call FUNC(uihook_resetMarkersButton));
+                    action = QUOTE([MARKERS_TAB] call FUNC(uihook_resetMarkersButton));
                 };
                 class resetAllMarkers: attachMarkerToClient {
                     text = "Reload All Client Markers";

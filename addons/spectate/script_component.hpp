@@ -191,7 +191,7 @@
 'Right Arrow' to switch focus to the next unit<br/>\
 'Left Arrow' to switch focus to the previous unit<br/>\
 'Backspace' to toggle the UI<br/>\
-'Back Slash' to toggle the Tags<br/>\
+'Back Slash' to cycle displaying unit Tags and Markers<br/>\
 Map toggle (default 'M') to open/close the full map<br/>\
 GPS toggle (default 'Ctrl + M') to open/close the mini map<br/>\
 Zero up (default 'Page Up') to increase client view distance<br/>\
@@ -205,5 +205,10 @@ Get over (default 'V') to toggle camera speed at ground level<br/>\
 Tasks/diary (default 'J') to open/close the briefings<br/>\
 Compass (default 'K') to open/close the compass<br/>\
 </t>
+
+#define TAGS_VISIBLE_MODE_COUNT 3
+#define TAGS_VISIBLE_MODE_NAMES 2
+#define TAGS_VISIBLE_MODE_MARKS 1
+#define TAGS_VISIBLE_MODE_NONE  0
 
 #include "\z\potato\addons\core\script_macros.hpp"
