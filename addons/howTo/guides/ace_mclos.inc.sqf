@@ -16,5 +16,6 @@ Squad vehicle may be equiped with MCLOS missiles<br/><br/>
 
 Fire missile and control with num-pad direction keys<br/>
 -Keybind is changeable<br/>
+ Controls->Configure Addons->ACE Weapons->MCLOS Up/Down/Left/Right<br/>
 -Make small adjustments<br/>
 "}]]
