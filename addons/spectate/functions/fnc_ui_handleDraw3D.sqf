@@ -100,7 +100,7 @@ if !(GVAR(mapOpen) || GVAR(fullMapOpen)) then {
                     _y set [5, ASLToATL _baseDrawPosASL];
                 };
                 private _distance = _baseDrawPosASL distance _cameraPosASL;
-                if (_maxDisplayDistance < 3000) then {continue};
+                if (_distance > 3000) then {continue};
 
                 private _sizeModifier = _markerScale * _size * exp (-_distance / 300);
                 private _colorAlpha = +_color;
