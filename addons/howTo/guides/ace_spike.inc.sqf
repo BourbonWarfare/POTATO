@@ -1,4 +1,4 @@
-["Javelin", [{
+["Spike", [{
     (_units findIf {(secondaryWeapon _x) == "ace_spike_launcher"}) != -1
 }, {"
 Squad equiped with with Spike Missile<br/><br/>

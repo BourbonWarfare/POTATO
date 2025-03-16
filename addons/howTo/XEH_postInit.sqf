@@ -18,7 +18,7 @@ GVAR(howToUse) = createHashMapFromArray [  //IGNORE_PRIVATE_WARNING ["_player", 
 ,
 #include "guides\launcher_rpg7-pgo.inc.sqf"
 ];
-
+GVAR(showAll) = false;
 ["unit", {
     private _endtime = CBA_missionTime + 60;
     [{
@@ -49,7 +49,7 @@ GVAR(howToUse) = createHashMapFromArray [  //IGNORE_PRIVATE_WARNING ["_player", 
         {
             if (_x in _added) then { continue };
             _y params ["_condition", "_text"];
-            if (call _condition) then {
+            if (GVAR(showAll) || _condition) then {
                 _added pushBack _x;
                 if (!(_player diarySubjectExists QUOTE(ADDON))) then {
                     _player createDiarySubject [QUOTE(ADDON), "HowTo", QPATHTOEF(core,potato_icon_ca.paa)];
