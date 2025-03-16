@@ -119,7 +119,7 @@ GVAR(camTarget) = _oldUnit;
 GVAR(targetInVehicle) = !isNull objectParent GVAR(camTarget);
 GVAR(dummy) = "Logic" createVehicleLocal getPosASLVisual GVAR(camTarget);
 
-GVAR(cam) = "camcurator" camCreate eyePos GVAR(camTarget);
+GVAR(cam) = "camcurator" camCreate ASLToAGL eyePos GVAR(camTarget);
 GVAR(cam) cameraEffect ["internal", "back"];
 GVAR(cam) setPosASL eyePos GVAR(camTarget);
 GVAR(cam) setDir getDirVisual GVAR(camTarget);
@@ -145,7 +145,7 @@ GVAR(needToAddBriefings) = true;
 GVAR(uiVisible) = true;
 GVAR(oldViewDistance) = viewDistance;
 GVAR(mapHighlighted) = objNull;
-GVAR(tagsVisible) = true;
+GVAR(tagsVisible) = TAGS_VISIBLE_MODE_NAMES;
 GVAR(cursorObject) = objNull;
 GVAR(holdingRightMouse) = false;
 
