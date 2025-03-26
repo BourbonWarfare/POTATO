@@ -164,7 +164,25 @@ _lines pushBack format ['#define PISTOL_MAG %1', [GVAR(loadout_pistol), GVAR(loa
 _lines pushBack format ['#define PISTOL_ATTACHMENTS %1', [GVAR(loadout_pistolAttachments)] call _fnc_formatList];
 
 _lines pushBack format ["// Grenades"];
-_lines pushBack format ["#define LEADER_GRENADES BASE_FRAG,LEADER_SMOKES,SIDE_CHEM_LIGHT"];
+private _fragGrenades = if (count GVAR(loadout_handGrenade) > 1) then {
+    (GVAR(loadout_handGrenade) apply {str _x}) joinString ",";
+} else {
+    (GVAR(loadout_handGrenade) apply {str (_x + ":2")}) joinString ",";
+};
+if (_fragGrenades == "") then  {
+    _fragGrenades = "BASE_FRAG";
+};
+private _smokeGrenades = if (count GVAR(loadout_smokeGrenade) > 1) then {
+    (GVAR(loadout_smokeGrenade) apply {str _x}) joinString ",";
+} else {
+    (GVAR(loadout_smokeGrenade) apply {str (_x + ":2")}) joinString ",";
+};
+if (_smokeGrenades == "") then  {
+    _smokeGrenades = "BASE_SMOKE";
+};
+_lines pushBack format ["#define LEADER_GRENADES %1,LEADER_SMOKES,SIDE_CHEM_LIGHT", _fragGrenades];
+_lines pushBack format ["// SIDE_BASE_GRENADES in side_gear.hpp"];
+_lines pushBack format ["//#define SIDE_BASE_GRENADES %1,%2", _fragGrenades, _smokeGrenades];
 
 _lines pushBack format ["// Gear"];
 _lines pushBack format ["#define TOOLS BASE_TOOLS"];

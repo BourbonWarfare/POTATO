@@ -127,6 +127,30 @@ case ("pistol"): {
         GVAR(loadout_pistolAttachments) = handgunItems _unit;
         systemChat format ["[Set %1]: %2 %3 %4", _fncString, GVAR(loadout_pistol), GVAR(loadout_pistolMags), GVAR(loadout_pistolAttachments)];
     };
+case ("grenades"): {
+        private _throwables = (throwables _unit) apply {_x#0};
+        _throwables = _throwables arrayIntersect _throwables;
+        private _cfgMags = configFile >> "CfgMagazines";
+        private _cfgAmmo = configFile >> "CfgAmmo";
+        GVAR(loadout_smokeGrenade) = _throwables select {
+            private _ammo = getText (_cfgMags >> _x >> "ammo");
+            private _aiAmmoCfg = _cfgAmmo >> _ammo >> "aiAmmoUsageFlags";
+            if (isText _aiAmmoCfg) then { // check if "4" flag is set for smoke
+                private _aiAmmoValues = (((getText _aiAmmoCfg) splitString " +") apply {parseNumber _x});
+                4 in _aiAmmoValues || {
+                    private _tempBool = false;
+                    {
+                        _tempBool = _tempBool || [_x, 4] call BIS_fnc_bitflagsCheck
+                    } forEach _aiAmmoValues;
+                    _tempBool
+                }
+            } else {
+                [getNumber _aiAmmoCfg, 4] call BIS_fnc_bitflagsCheck
+            };
+        };
+        GVAR(loadout_handGrenade) = _throwables - GVAR(loadout_smokeGrenade);
+        systemChat format ["[Set %1]: %2, %3", _fncString, GVAR(loadout_handGrenade), GVAR(loadout_smokeGrenade)];
+    };
     default {ERROR_1("bad fnc [%1]",_fncString);};
 };
 
