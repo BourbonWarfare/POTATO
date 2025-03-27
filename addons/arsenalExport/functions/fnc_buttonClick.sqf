@@ -76,6 +76,34 @@ case ("mat"): {
 case ("hmg"): {
         GVAR(loadout_hmg) = secondaryWeapon _unit;
         GVAR(loadout_hmgMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_hmg)] call CBA_fnc_compatibleMagazines);
+        if (GVAR(loadout_hmgMags) isEqualTo [] && {isClass (configFile >> "CfgWeapons" >> GVAR(loadout_hat) >> "ace_csw")}) then {
+            // Find CSW vehicle
+            private _cswCfg = configFile >> "CfgWeapons" >> GVAR(loadout_hmg) >> "ace_csw";
+            private _vehicle = if (isClass (_cswCfg >> "assembleTo")) then {
+                private _assembleTo = configName ((configProperties [_cswCfg >> "assembleTo"])#0);
+                getText (_cswCfg >> "assembleTo" >> _assembleTo);
+            } else {
+                getText (_cswCfg >> "deploy");
+            };
+            // Find weapon and compatible magazines
+            private _vehicleTurretCfg = configFile >> "CfgVehicles" >> _vehicle >> "Turrets";
+            private _firstTurret = (configProperties [_vehicleTurretCfg, "isClass _x"])#0;
+            private _weapon = (getArray (_firstTurret >> "weapons"))#0;
+            private _compatibleMagazines = compatibleMagazines _weapon;
+            // Find player CSW mags
+            private _unitMags = magazines _unit;
+            private _cswGroups = configFile >> "ace_csw_groups";
+            private _cswMagCfgs = [];
+            {
+                if (isClass (_cswGroups >> _x)) then {
+                    _cswMagCfgs pushBack (_cswGroups >> _x);
+                };
+            } forEach (_unitMags arrayIntersect _unitMags);
+            _cswMags = flatten (_cswMagCfgs apply {
+                (configProperties [_x, "getNumber _x == 1"]) apply {configName _x}
+            });
+            GVAR(loadout_hmgMags) = _compatibleMagazines arrayIntersect _cswMags;
+        };
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_hmg), GVAR(loadout_hmgMags)];
     };
 case ("hmg_tri_1"): {
@@ -89,6 +117,34 @@ case ("hmg_tri_2"): {
 case ("hat"): {
         GVAR(loadout_hat) = secondaryWeapon _unit;
         GVAR(loadout_hatMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_hat)] call CBA_fnc_compatibleMagazines);
+        if (GVAR(loadout_hatMags) isEqualTo [] && {isClass (configFile >> "CfgWeapons" >> GVAR(loadout_hat) >> "ace_csw")}) then {
+            // Find CSW vehicle
+            private _cswCfg = configFile >> "CfgWeapons" >> GVAR(loadout_hat) >> "ace_csw";
+            private _vehicle = if (isClass (_cswCfg >> "assembleTo")) then {
+                private _assembleTo = configName ((configProperties [_cswCfg >> "assembleTo"])#0);
+                getText (_cswCfg >> "assembleTo" >> _assembleTo);
+            } else {
+                getText (_cswCfg >> "deploy");
+            };
+            // Find weapon and compatible magazines
+            private _vehicleTurretCfg = configFile >> "CfgVehicles" >> _vehicle >> "Turrets";
+            private _firstTurret = (configProperties [_vehicleTurretCfg, "isClass _x"])#0;
+            private _weapon = (getArray (_firstTurret >> "weapons"))#0;
+            private _compatibleMagazines = compatibleMagazines _weapon;
+            // Find player CSW mags
+            private _unitMags = magazines _unit;
+            private _cswGroups = configFile >> "ace_csw_groups";
+            private _cswMagCfgs = [];
+            {
+                if (isClass (_cswGroups >> _x)) then {
+                    _cswMagCfgs pushBack (_cswGroups >> _x);
+                };
+            } forEach (_unitMags arrayIntersect _unitMags);
+            _cswMags = flatten (_cswMagCfgs apply {
+                (configProperties [_x, "getNumber _x == 1"]) apply {configName _x}
+            });
+            GVAR(loadout_hatMags) = _compatibleMagazines arrayIntersect _cswMags;
+        };
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_hat), GVAR(loadout_hatMags)];
     };
 case ("hat_tri_1"): {
