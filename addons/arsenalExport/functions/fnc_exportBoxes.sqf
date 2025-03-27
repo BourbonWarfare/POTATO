@@ -7,7 +7,7 @@ TRACE_1("exportBoxes",_this);
 #define RIFLE_ROUNDS 300
 #define GLRIFLE_ROUNDS 150
 #define CARBINE_ROUNDS 300
-#define AR_ROUNDS 800
+#define AR_ROUNDS 600
 #define LAT_ROUNDS 2
 #define LAT_CRATE_ROUNDS 6
 #define LAT_CRATE_MAX_ROUNDS 8
