@@ -164,6 +164,12 @@ _lines pushBack format ['#define PISTOL_MAG %1', [GVAR(loadout_pistol), GVAR(loa
 _lines pushBack format ['#define PISTOL_ATTACHMENTS %1', [GVAR(loadout_pistolAttachments)] call _fnc_formatList];
 
 _lines pushBack format ["// Grenades"];
+if (GVAR(loadout_handGrenade) isEqualType "") then {
+    GVAR(loadout_handGrenade) = [];
+};
+if (GVAR(loadout_smokeGrenade) isEqualType "") then {
+    GVAR(loadout_smokeGrenade) = [];
+};
 private _fragGrenades = if (count GVAR(loadout_handGrenade) > 1) then {
     (GVAR(loadout_handGrenade) apply {str _x}) joinString ",";
 } else {
