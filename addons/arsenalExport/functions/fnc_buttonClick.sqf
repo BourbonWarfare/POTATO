@@ -76,7 +76,7 @@ case ("mat"): {
 case ("hmg"): {
         GVAR(loadout_hmg) = secondaryWeapon _unit;
         GVAR(loadout_hmgMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_hmg)] call CBA_fnc_compatibleMagazines);
-        if (GVAR(loadout_hmgMags) isEqualTo [] && {isClass (configFile >> "CfgWeapons" >> GVAR(loadout_hat) >> "ace_csw")}) then {
+        if (GVAR(loadout_hmgMags) isEqualTo [] && {isClass (configFile >> "CfgWeapons" >> GVAR(loadout_hmg) >> "ace_csw")}) then {
             // Find CSW vehicle
             private _cswCfg = configFile >> "CfgWeapons" >> GVAR(loadout_hmg) >> "ace_csw";
             private _vehicle = if (isClass (_cswCfg >> "assembleTo")) then {
