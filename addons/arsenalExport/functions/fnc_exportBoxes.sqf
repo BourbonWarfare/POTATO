@@ -13,7 +13,6 @@ TRACE_1("exportBoxes",_this);
 #define LAT_CRATE_MAX_ROUNDS 8
 #define MAT_ROUNDS 6
 #define HAT_ROUNDS 4
-#define SAM_ROUNDS 2
 #define MMG_ROUNDS 1000
 #define HMG_ROUNDS 800
 

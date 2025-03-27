@@ -59,7 +59,6 @@ _lines pushBack format ["// Camo set"];
 _lines pushBack format ['#define CAMO_UNIFORM "%1"', GVAR(loadout_uniform)];
 _lines pushBack format ['#define CAMO_VEST "%1"', GVAR(loadout_vest)];
 _lines pushBack format ['#define CAMO_BACKPACK "%1"', GVAR(loadout_backpack)];
-systemChat format ["%1", [GVAR(loadout_carryall),GVAR(loadout_backpack)] call _fnc_default];
 _lines pushBack format ['#define CARRYALL "%1"', [GVAR(loadout_carryall),GVAR(loadout_backpack)] call _fnc_default];
 _lines pushBack format ['#define CAMO_HEADGEAR "%1"', GVAR(loadout_headgear)];
 _lines pushBack format ['#define CAMO_HEADGEAR_SPECIAL "%1"', [GVAR(loadout_headgear_alt),GVAR(loadout_headgear)] call _fnc_default];
