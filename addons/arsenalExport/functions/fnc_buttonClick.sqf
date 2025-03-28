@@ -90,19 +90,21 @@ case ("hmg"): {
             private _firstTurret = (configProperties [_vehicleTurretCfg, "isClass _x"])#0;
             private _weapon = (getArray (_firstTurret >> "weapons"))#0;
             private _compatibleMagazines = compatibleMagazines _weapon;
-            // Find player CSW mags
+            // Find compatible player CSW mags
             private _unitMags = magazines _unit;
             private _cswGroups = configFile >> "ace_csw_groups";
             private _cswMagCfgs = [];
             {
-                if (isClass (_cswGroups >> _x)) then {
-                    _cswMagCfgs pushBack (_cswGroups >> _x);
+                private _cfgPath = _cswGroups >> _x;
+                if (isClass _cfgPath && {
+                    private _convertMags = (configProperties [_cfgPath, "getNumber _x == 1"]) apply {configName _x};
+                    systemChat format ["convert mags: %1 | intersect: %2", _convertMags, _convertMags arrayIntersect _compatibleMagazines];
+                    (_convertMags arrayIntersect _compatibleMagazines) isNotEqualTo []
+                }) then {
+                    _cswMagCfgs pushBack _x;
                 };
             } forEach (_unitMags arrayIntersect _unitMags);
-            _cswMags = flatten (_cswMagCfgs apply {
-                (configProperties [_x, "getNumber _x == 1"]) apply {configName _x}
-            });
-            GVAR(loadout_hmgMags) = _compatibleMagazines arrayIntersect _cswMags;
+            GVAR(loadout_hmgMags) = _cswMagCfgs;
         };
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_hmg), GVAR(loadout_hmgMags)];
     };
@@ -131,19 +133,21 @@ case ("hat"): {
             private _firstTurret = (configProperties [_vehicleTurretCfg, "isClass _x"])#0;
             private _weapon = (getArray (_firstTurret >> "weapons"))#0;
             private _compatibleMagazines = compatibleMagazines _weapon;
-            // Find player CSW mags
+            // Find compatible player CSW mags
             private _unitMags = magazines _unit;
             private _cswGroups = configFile >> "ace_csw_groups";
             private _cswMagCfgs = [];
             {
-                if (isClass (_cswGroups >> _x)) then {
-                    _cswMagCfgs pushBack (_cswGroups >> _x);
+                private _cfgPath = _cswGroups >> _x;
+                if (isClass _cfgPath && {
+                    private _convertMags = (configProperties [_cfgPath, "getNumber _x == 1"]) apply {configName _x};
+                    systemChat format ["convert mags: %1 | intersect: %2", _convertMags, _convertMags arrayIntersect _compatibleMagazines];
+                    (_convertMags arrayIntersect _compatibleMagazines) isNotEqualTo []
+                }) then {
+                    _cswMagCfgs pushBack _x;
                 };
             } forEach (_unitMags arrayIntersect _unitMags);
-            _cswMags = flatten (_cswMagCfgs apply {
-                (configProperties [_x, "getNumber _x == 1"]) apply {configName _x}
-            });
-            GVAR(loadout_hatMags) = _compatibleMagazines arrayIntersect _cswMags;
+            GVAR(loadout_hatMags) = _cswMagCfgs;
         };
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_hat), GVAR(loadout_hatMags)];
     };
