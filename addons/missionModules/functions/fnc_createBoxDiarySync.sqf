@@ -23,7 +23,7 @@ if !(ACEGVAR(common,settingsInitFinished)) exitWith {
     if (isNil QGVAR(resupplyToRun)) then {
         GVAR(resupplyToRun) = [];
     };
-    GVAR(resupplyToRun) pushBack [_this, FUNC(createBoxDiarySync)];
+    GVAR(resupplyToRun) pushBack [_this, {call FUNC(createBoxDiarySync)}];
 };
 
 private _side = switch (_logic getVariable ["side", 0]) do {
@@ -64,6 +64,7 @@ private _fnc_combineInventroy = {
 
 // Gather all boxes
 private _supplyBoxes = _objectsToAdd select {_x isKindOf "ReammoBox_F"};
+TRACE_1("Adding supplyboxes",_supplyBoxes);
 if (_boxLoadouts == 0) then {
     {
         TRACE_1("Adding",typeName _x);
@@ -79,6 +80,7 @@ if (_boxLoadouts == 0) then {
     } forEach _supplyBoxes;
 };
 
+TRACE_1("Adding vehicles",(_objectsToAdd - _supplyBoxes));
 if (_vicLoadouts == 0) then {
     {
         TRACE_1("Adding",typeName _x);

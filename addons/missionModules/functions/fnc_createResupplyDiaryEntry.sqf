@@ -60,10 +60,10 @@ private _diaryEntries = _unit allDiaryRecords QGVAR(resupply);
 private _recordIdx = -1;
 private _diary = "";
 {
-    _x params ["_idx", "_titleLocal", "", "", "", "", "", "", "_diaryLocal"];
+    _x params ["", "_titleLocal", "", "", "", "", "", "", "_diaryLocal"];
     if (_title == _titleLocal) exitWith {
         _diary = _diaryLocal;
-        _recordIdx = _idx;
+        _recordIdx = _forEachIndex;
     };
 } forEach _diaryEntries;
 
@@ -126,8 +126,7 @@ _mags sort false;
     if (_magName == "") then {continue};
     _newEntry pushBack (_string + str _count + " - " + _magName);
 } forEach (_mags apply {_x#1});
-
-TRACE_1("Adding items types",_mags,_items);
+TRACE_1("Adding items types",_items);
 {
     (_x splitString ":") params ["_item", ["_count", "1"]];
     _count = parseNumber _count;
