@@ -25,6 +25,12 @@ GVAR(ehAdded) = false;
     if (GVAR(aiSkill_set)) then {
         [QGVAR(updateAISettings), []] call CBA_fnc_localEvent;
     };
+    if !(isNil QGVAR(resupplyToRun)) then {
+        {
+            _x params ["_args", "_function"];
+            _args call _function;
+        } forEach GVAR(resupplyToRun);
+    };
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(banzi), {

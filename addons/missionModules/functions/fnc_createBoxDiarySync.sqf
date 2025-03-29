@@ -19,6 +19,13 @@ if (!_activated || !hasInterface) exitWith {
     TRACE_3("leaving resup diary early",_logic,_activated,hasInterface);
 };
 
+if !(ACEGVAR(common,settingsInitFinished)) exitWith {
+    if (isNil QGVAR(resupplyToRun)) then {
+        GVAR(resupplyToRun) = [];
+    };
+    GVAR(resupplyToRun) pushBack [_this, FUNC(createBoxDiarySync)];
+};
+
 private _side = switch (_logic getVariable ["side", 0]) do {
     case 1: {west};
     case 2: {east};
@@ -27,8 +34,8 @@ private _side = switch (_logic getVariable ["side", 0]) do {
     default {0};
 };
 
-if (_side isEqualType west  && {side player != _side}) exitWith {
-    TRACE_3("Bad side",_side,side player,ace_player);
+if (_side isEqualType west && {side ace_player != _side}) exitWith {
+    TRACE_3("Bad side",_side,side ace_player,ace_player);
 };
 
 private _baseConfigPath = missionConfigFile >> "CfgLoadouts";
@@ -61,7 +68,7 @@ if (_boxLoadouts == 0) then {
     {
         TRACE_1("Adding",typeName _x);
         [
-            player,
+            ace_player,
             getText ((configOf _x) >> "displayName"),
             LOADOUT_DIARY_TYPE_BOX, [
                 [backpackCargo _x] call _fnc_combineInventroy,
@@ -76,7 +83,7 @@ if (_vicLoadouts == 0) then {
     {
         TRACE_1("Adding",typeName _x);
         [
-            player,
+            ace_player,
             getText ((configOf _x) >> "displayName"),
             LOADOUT_DIARY_TYPE_VEHICLE, [
                 [backpackCargo _x] call _fnc_combineInventroy,

@@ -74,7 +74,6 @@ private _sigFigs = 0;
     _count = parseNumber _count;
     _sigFigs = _sigFigs max (1 + floor log _count);
 } forEach (flatten _supplies);
-diag_log formatText ["[LMD][DBG SIFGIGS:%1", _sigFigs];
 
 private _newEntry = [format ["<font color=""#FFBF46"" size=""18"">%1</font color>", _boxName]];
 // Make a new entry
@@ -88,8 +87,7 @@ TRACE_1("Adding backpack types",_backpacks);
     for "_i" from 1 to (_sigFigs - _width) do {
         _string = _string + " ";
     };
-    private _backpackCfg = configFile >> "CfgVehicles" >> _weapon;
-    private _backpack = getText (_backpackCfg >> "displayName");
+    private _backpack = getText (configFile >> "CfgVehicles" >> _weapon >> "displayName");
     if (_backpack == "") then {continue};
     _newEntry pushBack (_string + str _count + " - " + _backpack);
 } forEach _backpacks;
@@ -102,12 +100,20 @@ TRACE_1("Adding weapon types",_weapons);
     for "_i" from 1 to (_sigFigs - _width) do {
         _string = _string + "0";
     };
-    private _wepCfg = configFile >> "CfgWeapons" >> _weapon;
-    private _wepName = getText (_wepCfg >> "displayName");
+    private _wepName = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName");
     if (_wepName == "") then {continue};
     _newEntry pushBack (_string + str _count + " - " + _wepName);
 } forEach _weapons;
 TRACE_1("Adding magazine types",_mags);
+// sort magazines by ammo count
+private _cfgMags = configFile >> "CfgMagazines";
+_mags = _mags apply {
+    (_x splitString ":") params ["_magazine", ["_count", "1"]];
+
+    private _cfg = _cfgMags >> _magazine >> "count";
+    [1000 * (getNumber _cfg) + (parseNumber _count), _x]
+};
+_mags sort false;
 {
     (_x splitString ":") params ["_magazine", ["_count", "1"]];
     _count = parseNumber _count;
@@ -116,11 +122,10 @@ TRACE_1("Adding magazine types",_mags);
     for "_i" from 1 to (_sigFigs - _width) do {
         _string = _string + "0";
     };
-    private _magCfg = configFile >> "CfgMagazines" >> _magazine;
-    private _magName = getText (_magCfg >> "displayName");
+    private _magName = getText (_cfgMags >> _magazine >> "displayName");
     if (_magName == "") then {continue};
     _newEntry pushBack (_string + str _count + " - " + _magName);
-} forEach _mags;
+} forEach (_mags apply {_x#1});
 
 TRACE_1("Adding items types",_mags,_items);
 {
@@ -131,8 +136,7 @@ TRACE_1("Adding items types",_mags,_items);
     for "_i" from 1 to (_sigFigs - _width) do {
         _string = _string + "0";
     };
-    private _itemCfg = configFile >> "CfgWeapons" >> _item;
-    private _itemName = getText (_itemCfg >> "displayName");
+    private _itemName = getText (configFile >> "CfgWeapons" >> _item >> "displayName");
     if (_itemName == "") then {continue};
     _newEntry pushBack (_string + str _count + " - " + _itemName);
 } forEach _items;
