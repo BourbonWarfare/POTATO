@@ -347,11 +347,11 @@ class CfgVehicles {
         };
     };
 
-    class GVAR(boxBrief): Module_F {
+    class GVAR(boxBrief_cfgLoadouts): Module_F {
         author = QUOTE(PREFIX);
         category = QEGVAR(core,util);
         scope = 2;
-        displayName = "Create Resupply Crate Brief";
+        displayName = "Create CfgLoadouts Resupply Brief ";
         icon = "iconCrate";
         isGlobal = 2;
         isTriggerActivated = 0;
@@ -393,6 +393,45 @@ class CfgVehicles {
                 property = QGVAR(boxClass);
                 typeName = "STRING";
                 tooltip = "The classes to display. If yours is missing make sure your CfgLoadouts is properly configured, save your mission, and try again.";
+            };
+        };
+    };
+    class GVAR(boxBrief_sync): Module_F {
+        author = QUOTE(PREFIX);
+        category = QEGVAR(core,util);
+        scope = 2;
+        displayName = "Create Sync'd Resupply Brief";
+        icon = "iconCrate";
+        isGlobal = 2;
+        isTriggerActivated = 0;
+        function = QFUNC(createBoxDiarySync);
+        class Attributes {
+            class Side: Combo {
+                displayName = "$STR_eval_typeside";
+                property = QGVAR(side);
+                expression = "_this setVariable ['%s', _value, true];";
+                control="Combo";
+                typeName = "NUMBER";
+                defaultValue = 1;
+                tooltip = "The side to show the info to";
+                class values {
+                    class All {
+                        name = "All";
+                        value = 0;
+                    };
+                    class West {
+                        name = "$STR_WEST";
+                        value = 1;
+                    };
+                    class East {
+                        name = "$STR_east";
+                        value = 2;
+                    };
+                    class Indp {
+                        name = "$STR_guerrila";
+                        value = 3;
+                    };
+                };
             };
         };
     };

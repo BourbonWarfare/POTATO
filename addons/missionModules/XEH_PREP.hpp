@@ -1,6 +1,8 @@
 TRACE_1("",QUOTE(ADDON));
 
 PREP(createBoxDiary);
+PREP(createBoxDiarySync);
+PREP(createResupplyDiaryEntry);
 PREP(identity_module);
 PREP(identity_set);
 PREP(initMapClickTeleport);
