@@ -17,6 +17,7 @@ class CfgPatches {
     };
 };
 
+#include "ACE_CSW_Groups.hpp"
 #include "CfgAmmo.hpp"
 #include "CfgMagazines.hpp"
 #include "CfgMagazineWells.hpp"
