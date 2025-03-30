@@ -2,10 +2,12 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function initializes teleports available in the ACE self-interact menu.
+ * This function populates the given ctrlGroup dropdown menu with the
+ * CfgLoadouts configured vehicle and supply box classes.
  *
  * Arguments:
- * 0: The module being initialized
+ * 0: The control group that is being populated
+ * 1: The vlast saved value to the control
  *
  * Examples:
  * Should be called by module init

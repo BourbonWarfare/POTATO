@@ -17,7 +17,7 @@
  *   1: Weapons <ARRAY>
  *   2: Magazines <ARRAY>
  *   3: Items <ARRAY>
- *
+ *   4: Supply Box config paths <ARRAY>
  *
  * Examples:
  * [player, "Rifle Box", [[], ["arifle_TRG20_F"], [], []]] call potato_missionModules_fnc_createResupplyDiaryEntry
@@ -73,23 +73,23 @@ private _sigFigs = 0;
     (_x splitString ":") params ["", ["_count", "1"]];
     _count = parseNumber _count;
     _sigFigs = _sigFigs max (1 + floor log _count);
-} forEach (flatten _supplies);
+} forEach (flatten (_supplies select [0, 4]));
 
 private _newEntry = [format ["<font color=""#FFBF46"" size=""18"">%1</font color>", _boxName]];
 // Make a new entry
-_supplies params ["_backpacks", "_weapons", "_mags", "_items"];
+_supplies params ["_backpacks", "_weapons", "_mags", "_items", ["_subBoxes", []]];
 TRACE_1("Adding backpack types",_backpacks);
 {
     (_x splitString ":") params ["_weapon", ["_count", "1"]];
     _count = parseNumber _count;
     private _width = 1 + floor log _count;
-    private _string = "0";
+    private _string = " ";
     for "_i" from 1 to (_sigFigs - _width) do {
-        _string = _string + " ";
+        _string = _string + "0";
     };
     private _backpack = getText (configFile >> "CfgVehicles" >> _weapon >> "displayName");
     if (_backpack == "") then {continue};
-    _newEntry pushBack (_string + str _count + " - " + _backpack);
+    _newEntry pushBack (_string + str _count + "x - " + _backpack);
 } forEach _backpacks;
 TRACE_1("Adding weapon types",_weapons);
 {
@@ -102,7 +102,7 @@ TRACE_1("Adding weapon types",_weapons);
     };
     private _wepName = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName");
     if (_wepName == "") then {continue};
-    _newEntry pushBack (_string + str _count + " - " + _wepName);
+    _newEntry pushBack (_string + str _count + "x - " + _wepName);
 } forEach _weapons;
 TRACE_1("Adding magazine types",_mags);
 // sort magazines by ammo count
@@ -124,8 +124,13 @@ _mags sort false;
     };
     private _magName = getText (_cfgMags >> _magazine >> "displayName");
     if (_magName == "") then {continue};
-    _newEntry pushBack (_string + str _count + " - " + _magName);
+    _newEntry pushBack (_string + str _count + "x - " + _magName);
 } forEach (_mags apply {_x#1});
+_items = _items apply {
+    (_x splitString ":") params ["", ["_count", "1"]];
+    [parseNumber _count, _x]
+};
+_items sort false;
 TRACE_1("Adding items types",_items);
 {
     (_x splitString ":") params ["_item", ["_count", "1"]];
@@ -137,8 +142,22 @@ TRACE_1("Adding items types",_items);
     };
     private _itemName = getText (configFile >> "CfgWeapons" >> _item >> "displayName");
     if (_itemName == "") then {continue};
-    _newEntry pushBack (_string + str _count + " - " + _itemName);
-} forEach _items;
+    _newEntry pushBack (_string + str _count + "x - " + _itemName);
+} forEach (_items apply {_x#1});
+if (_diaryType == LOADOUT_DIARY_TYPE_BOXOFBOX) then {
+    TRACE_1("Adding subboxes",_subBoxes);
+    _subBoxes = _subBoxes apply {[getText (_x >> "boxCustomName"), 1 max getNumber (_x >> "boxCount")]};
+    private _sigFigs = selectMax (_subBoxes apply {1 + floor log (_x#1)});
+    {
+        _x params ["_boxName", "_count"];
+        private _width = 1 + floor log _count;
+        private _string = " ";
+        for "_i" from 1 to (_sigFigs - _width) do {
+            _string = _string + "0";
+        };
+        _newEntry pushBack (_string + str _count + "x - " + _boxName);
+    } forEach _subBoxes;
+};
 _newEntry pushBack "<br/>";
 
 // Put it all together

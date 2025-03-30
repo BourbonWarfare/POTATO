@@ -1,7 +1,10 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function
+ * This function is run by a module on init. It takes all the synced
+ * objectes of the module and creates resupply entries for them in the
+ * players diary. This function can be called on the module later as the
+ * module should not be automatically deleted.
  *
  * Arguments:
  * 0: The module being initialized
@@ -14,8 +17,8 @@
  * Public: No
  */
 TRACE_1("CreateBoxSync",_this);
-params ["_logic", "_objectsToAdd", "_activated"];
-if (!_activated || !hasInterface) exitWith {
+params ["_logic", "_objectsToAdd", "_activated", ["_player", ace_player, [objNull]]];
+if (!_activated || !hasInterface || isNull _player) exitWith {
     TRACE_3("leaving resup diary early",_logic,_activated,hasInterface);
 };
 
@@ -34,8 +37,8 @@ private _side = switch (_logic getVariable ["side", 0]) do {
     default {0};
 };
 
-if (_side isEqualType west && {side ace_player != _side}) exitWith {
-    TRACE_3("Bad side",_side,side ace_player,ace_player);
+if (_side isEqualType west && {side _player != _side}) exitWith {
+    TRACE_3("Bad side",_side,side _player,_player);
 };
 
 private _baseConfigPath = missionConfigFile >> "CfgLoadouts";
@@ -69,7 +72,7 @@ if (_boxLoadouts == 0) then {
     {
         TRACE_1("Adding",typeName _x);
         [
-            ace_player,
+            _player,
             getText ((configOf _x) >> "displayName"),
             LOADOUT_DIARY_TYPE_BOX, [
                 [backpackCargo _x] call _fnc_combineInventroy,
@@ -85,7 +88,7 @@ if (_vicLoadouts == 0) then {
     {
         TRACE_1("Adding",typeName _x);
         [
-            ace_player,
+            _player,
             getText ((configOf _x) >> "displayName"),
             LOADOUT_DIARY_TYPE_VEHICLE, [
                 [backpackCargo _x] call _fnc_combineInventroy,
