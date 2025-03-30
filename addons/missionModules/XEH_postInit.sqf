@@ -31,6 +31,25 @@ GVAR(ehAdded) = false;
             _args call _function;
         } forEach GVAR(resupplyToRun);
     };
+    if !(isNil QGVAR(configSupplyToAdd)) then {
+        private _supplyBoxesAdded = [];
+        {
+            _y params [
+                ["_entryName", "Error", [""]],
+                ["_loadoutType", LOADOUT_DIARY_TYPE_VEHICLE, [LOADOUT_DIARY_TYPE_VEHICLE]],
+                ["_loadoutArray", [], [[]]]
+            ];
+            if (_entryName in _supplyBoxesAdded) then {continue};
+            _supplyBoxesAdded pushBack _entryName;
+            [
+                ace_player,
+                _entryName,
+                _loadoutType,
+                _loadoutArray
+            ] call FUNC(createResupplyDiaryEntry);
+        } forEach GVAR(configSupplyToAdd);
+        GVAR(configSupplyToAdd) = createHashMap;
+    };
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(banzi), {

@@ -3,8 +3,10 @@
 #define TRAVERSE_TYPE_CHILDREN 1
 /*
  * Author: Lambda.Tiger
- * This function handles initialization of teleport between a module and a
- * sync'd object.
+ * This function is run by a module on init. It takes the configured
+ * side and configs to create resupply entries for them in the
+ * players diary. This function can be called on the module later as the
+ * module should not be automatically deleted.
  *
  * Arguments:
  * 0: The module being initialized
@@ -15,12 +17,21 @@
  *
  * Public: No
  */
-params ["_logic", "", "_activated"];
-if (!_activated || !hasInterface) exitWith {
+ TRACE_1("create diary entry from config",_this);
+params ["_logic", "", "_activated", ["_player", ace_player, [objNull]]];
+if (!_activated || !hasInterface || isNull _player) exitWith {
     TRACE_3("leaving resup diary early",_logic,_activated,hasInterface);
 };
 
-private _side = switch (_logic getVariable [QGVAR(side), 0]) do {
+// we would like _player, so we may have to wait a moment
+if !(ACEGVAR(common,settingsInitFinished)) exitWith {
+    if (isNil QGVAR(resupplyToRun)) then {
+        GVAR(resupplyToRun) = [];
+    };
+    GVAR(resupplyToRun) pushBack [_this, {call FUNC(createBoxDiary)}];
+};
+
+private _side = switch (_logic getVariable ["side", 0]) do {
     case 1: {west};
     case 2: {east};
     case 3: {resistance};
@@ -28,15 +39,18 @@ private _side = switch (_logic getVariable [QGVAR(side), 0]) do {
     default {0};
 };
 
-if (_side isEqualType west && {side ace_player != _side}) exitWith {};
+if (_side isEqualType west && {side _player != _side}) exitWith {
+    TRACE_2("side error",_side,side _player);
+};
 
-private _boxLoadouts = getNumber (_baseConfigPath >> "setSupplyBoxLoadouts");
-private _vicLoadouts = getNumber (_baseConfigPath >> "setVehicleLoadouts");
+private _baseCfg = missionConfigFile >> "CfgLoadouts";
+private _boxLoadouts = getNumber (_baseCfg >> "setSupplyBoxLoadouts");
+private _vicLoadouts = getNumber (_baseCfg >> "setVehicleLoadouts");
+TRACE_2("loadout types",_boxLoadouts,_vicLoadouts);
 if (_boxLoadouts <= 0 && _vicLoadouts <= 0) exitWith {};
 
-private _parsedBox = (_logic getVariable [QGVAR(boxClass), "ALL"]) splitString "|";
+private _parsedBox = (_logic getVariable ["boxClass", "ALL"]) splitString "|";
 private _traverseType = TRAVERSE_TYPE_SINGLE;
-private _baseCfg = missionConfigFile >> "CfgLoadouts";
 (switch (_parsedBox#0) do {
     case "ALL": {
         _traverseType = TRAVERSE_TYPE_CHILDREN;
@@ -90,53 +104,131 @@ private _baseCfg = missionConfigFile >> "CfgLoadouts";
     };
 }) params ["_supplyBoxCfgs", "_loadoutCfgs"];
 
+TRACE_2("Gathered box types",_supplyBoxCfgs,_loadoutCfgs);
 _supplyBoxCfgs = _supplyBoxCfgs select {isClass _x};
 _loadoutCfgs = _loadoutCfgs select {isClass _x};
 if (_supplyBoxCfgs isEqualTo []
     && _loadoutCfgs isEqualTo []) exitWith {};
 
-// We need a few funcitons
+// We need a few funcitons to gather config
+private _fnc_hasSubboxes = {
+    params [["_configPath", configNull, [configNull]]];
+    [] isNotEqualTo (configProperties [_configPath, "isClass _x"]);
+};
 private _fnc_transportContents = {
     params [["_path", configNull]];
     if (isNull _path) exitWith {[[], [], [], []]};
-    private _contents = [];
-    {
-        private _gearArray = getArray (_path >> _x);
-        private _content = [];
-        {
-            (_x splitString ":") params [
-                "_magazine",
-                ["_roundCount", 1]
-            ];
-            _content pushBack [_magazine, _roundCount];
-        } forEach _gearArray;
-        _contents pushBack _content;
-    } forEach ["TransportBackpacks", "TransportWeapons", "TransportMagazines", "TransportItems"];
+    params [["_configPath", configNull]];
+    private _contents = [getArray (_path >> "TransportBackpacks")];
+    _contents pushBack getArray (_path >> "TransportWeapons");
+    _contents pushBack getArray (_path >> "TransportMagazines");
+    _contents pushBack getArray (_path >> "TransportItems");
+    _contents
 };
 
-if (isNil QGVAR(boxContentsHash)) then { // we're going to cache these
-    // format: cfgLoadoutsPath => [trnsprtBackpack, trnsprtWeaps, trnsprtMags, trnsprtItems]
-    GVAR(boxContentsHash) = createHashMap; // deleted/set nil'd at end of safe-start
+// pull configs needed
+if (_boxLoadouts < 1) then {
+    _supplyBoxCfgs = [];
 };
 
-private _fnc_showObj = {
-    params [
-        ["_configPath", configNull, [configNull]],
-        ["_searchSubClasses", false, [false]]
-    ];
-
-    if (isNull _configPath) exitWith {[]};
-    private _return = false;
-    if (_searchSubClasses) then {
-        {
-            _return = _return || {[_x, _searchSubClasses] call _fnc_showObj};
-        } forEach (configProperties [_configPath, "isClass _x"]);
+if (_traverseType > 0 ) then {
+    // if _traverseType > 0 then _supplyBoxCfgs is either just the supplyBoxes
+    // config path OR it's emtpy
+    switch (_boxLoadouts) do {
+        case 1: { // just the cfg into the box
+            _supplyBoxCfgs = configProperties [_supplyBoxCfgs#0, "isClass _x"];
+        };
+        case 2;
+        case 3: { // subboxes
+            _supplyBoxCfgs = configProperties [_supplyBoxCfgs#0, "isClass _x"];
+            private _endBoxes = [];
+            {
+                if ([_x] call _fnc_hasSubboxes) then {
+                    _endBoxes append (configProperties [_x, "isClass _x"]);
+                };
+            } forEach _supplyBoxCfgs;
+            _supplyBoxCfgs append _endBoxes;
+        };
+        default {
+            _supplyBoxCfgs = [];
+        };
     };
-    _return || ([_configPath] call _fnc_containsTransport)
+
+    switch (_vicLoadouts) do {
+        case 1;
+        case 2: {
+            // Only use this function here
+            private _fnc_containsTransport = {
+                params [["_configPath", configNull]];
+                if (isNull _path) exitWith {false};
+                private _contents = getArray (_path >> "TransportBackpacks");
+                _contents append getArray (_path >> "TransportWeapons");
+                _contents append getArray (_path >> "TransportMagazines");
+                _contents append getArray (_path >> "TransportItems");
+                _contents isNotEqualTo []
+            };
+            {
+                {
+                    private _cfgName = configName _x;
+                    if !(isClass (configFile >> "CfgVehicles" >> _cfgName)) then {continue};
+                    if ([_x] call _fnc_containsTransport) then {
+                        _supplyBoxCfgs pushBack _x;
+                    };
+                } forEach configProperties [_x, "isClass _x"];
+            } forEach _loadoutCfgs;
+        };
+        case 3: {
+            {
+                {
+                    private _cfgName = configName _x;
+                    if !(isClass (configFile >> "CfgVehicles" >> _cfgName)) then {continue};
+                    if ([_x] call _fnc_hasSubboxes) then {
+                        _supplyBoxCfgs append (configProperties [_x, "isClass _x"])
+                    } else {
+                        _supplyBoxCfgs pushBack _x;
+                    };
+                } forEach configProperties [_x, "isClass _x"];
+            } forEach _loadoutCfgs;
+        };
+        default {};
+    };
 };
 
-if (_traverseType > 0) then {
-    // pull supply box classes
-    // check  each and then add classes to queue as needed
-
+// Figure out the contents of each box and list them
+private _fnc_isSupplyBox = {
+    params ["_path"];
+    "SupplyBox" in str _path;
 };
+if (isNil QGVAR(configSupplyToAdd)) then {
+    GVAR(configSupplyToAdd) = createHashMap;
+};
+private _useSubBoxes = [_vicLoadouts > 2, _boxLoadouts > 1];
+{
+    private _isSupplyBox = [_x] call _fnc_isSupplyBox;
+    private _checkChildren = _useSubBoxes select _isSupplyBox;
+    private _hasSubBoxes = [_x] call _fnc_hasSubboxes;
+    private _name = getText (_x >> "boxCustomName");
+    if (_name == "") then {
+        _name = getText (configFile >> "CfgVehicles" >> (configName _x) >> "displayName");
+    };
+    private _boxEnum = if (_isSupplyBox) then {
+        [
+            LOADOUT_DIARY_TYPE_BOX,
+            LOADOUT_DIARY_TYPE_BOXOFBOX
+        ] select (_hasSubBoxes && _checkChildren);
+    } else {
+        LOADOUT_DIARY_TYPE_VEHICLE
+    };
+    if (_checkChildren && {_hasSubBoxes}) then {
+        GVAR(configSupplyToAdd) set [_x, [
+            _name,
+            _boxEnum,
+            [[], [], [], [], configProperties [_x, "isClass _x"]]
+        ]];
+    } else {
+        private _boxContents = [_x] call _fnc_transportContents;
+        if (_boxContents isNotEqualTo [[], [], [], []]) then {
+            GVAR(configSupplyToAdd) set [_x, [_name, _boxEnum, _boxContents]];
+        };
+    };
+} forEach _supplyBoxCfgs;
