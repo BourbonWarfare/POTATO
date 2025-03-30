@@ -171,7 +171,7 @@ switch (_vicLoadouts) do {
     case 2: {
         // Only use this function here
         private _fnc_containsTransport = {
-            params [["_configPath", configNull]];
+            params [["_path", configNull]];
             if (isNull _path) exitWith {false};
             private _contents = getArray (_path >> "TransportBackpacks");
             _contents append getArray (_path >> "TransportWeapons");
