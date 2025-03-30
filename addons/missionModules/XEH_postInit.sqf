@@ -50,6 +50,42 @@ GVAR(ehAdded) = false;
         } forEach GVAR(configSupplyToAdd);
         GVAR(configSupplyToAdd) = createHashMap;
     };
+    if (ace_player diarySubjectExists QGVAR(resupply)) then { // Check if diary entry exists
+        ["unit", {
+            TRACE_1("playerChanged eh",ace_player);
+            [{
+                diag_tickTime > (_this select 1)
+            }, {
+                if !(isNil QGVAR(resupplyToRun)) then {
+                    {
+                        _x params ["_args", "_function"];
+                        (_args + (_this#0)) call _function;
+                    } forEach GVAR(resupplyToRun);
+                };
+                if !(isNil QGVAR(configSupplyToAdd)) then {
+                    private _supplyBoxesAdded = [];
+                    {
+                        _y params [
+                            ["_entryName", "Error", [""]],
+                            ["_loadoutType", LOADOUT_DIARY_TYPE_VEHICLE, [LOADOUT_DIARY_TYPE_VEHICLE]],
+                            ["_loadoutArray", [], [[]]]
+                        ];
+                        if (_entryName in _supplyBoxesAdded) then {continue};
+                        _supplyBoxesAdded pushBack _entryName;
+                        [
+                            _this#0,
+                            _entryName,
+                            _loadoutType,
+                            _loadoutArray
+                        ] call FUNC(createResupplyDiaryEntry);
+                    } forEach GVAR(configSupplyToAdd);
+                    GVAR(configSupplyToAdd) = createHashMap;
+                };
+            }, [
+                _this select 0, diag_tickTime + 1
+            ]] call CBA_fnc_waitUntilAndExecute;
+        }, true] call CBA_fnc_addPlayerEventHandler;
+    };
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(banzi), {
