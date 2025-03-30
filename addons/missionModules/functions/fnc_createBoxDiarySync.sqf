@@ -18,7 +18,7 @@
  */
 TRACE_1("CreateBoxSync",_this);
 params ["_logic", "_objectsToAdd", "_activated", ["_player", ace_player, [objNull]]];
-if (!_activated || !hasInterface || isNull _player) exitWith {
+if (!_activated || !hasInterface) exitWith {
     TRACE_3("leaving resup diary early",_logic,_activated,hasInterface);
 };
 
@@ -28,6 +28,7 @@ if !(ACEGVAR(common,settingsInitFinished)) exitWith {
     };
     GVAR(resupplyToRun) pushBack [_this, {call FUNC(createBoxDiarySync)}];
 };
+if (isNull _player) exitWith {};
 
 private _side = switch (_logic getVariable ["side", 0]) do {
     case 1: {west};

@@ -1,6 +1,4 @@
 #include "..\script_component.hpp"
-#define TRAVERSE_TYPE_SINGLE 0
-#define TRAVERSE_TYPE_CHILDREN 1
 /*
  * Author: Lambda.Tiger
  * This function is run by a module on init. It takes the configured
@@ -19,7 +17,7 @@
  */
  TRACE_1("create diary entry from config",_this);
 params ["_logic", "", "_activated", ["_player", ace_player, [objNull]]];
-if (!_activated || !hasInterface || isNull _player) exitWith {
+if (!_activated || !hasInterface) exitWith {
     TRACE_3("leaving resup diary early",_logic,_activated,hasInterface);
 };
 
@@ -30,6 +28,8 @@ if !(ACEGVAR(common,settingsInitFinished)) exitWith {
     };
     GVAR(resupplyToRun) pushBack [_this, {call FUNC(createBoxDiaryCfg)}];
 };
+
+if (isNull _player) exitWith {};
 
 private _side = switch (_logic getVariable ["side", 0]) do {
     case 1: {west};
@@ -49,11 +49,10 @@ private _vicLoadouts = getNumber (_baseCfg >> "setVehicleLoadouts");
 TRACE_2("loadout types",_boxLoadouts,_vicLoadouts);
 if (_boxLoadouts <= 0 && _vicLoadouts <= 0) exitWith {};
 
-private _parsedBox = (_logic getVariable ["boxClass", "ALL"]) splitString "|";
-private _traverseType = TRAVERSE_TYPE_SINGLE;
+private _parsedBox = (_logic getVariable ["Box", "ALL"]) splitString "|";
+DIAG_log formatText ["[lmd][dbg] %2 || %1", allVariables _logic, _parsedBox];
 (switch (_parsedBox#0) do {
     case "ALL": {
-        _traverseType = TRAVERSE_TYPE_CHILDREN;
         [[_baseCfg >> "SupplyBoxes"], switch (_side) do {
             case west: {[_baseCfg >> "potato_w"]};
             case east: {[_baseCfg >> "potato_e"]};
@@ -66,16 +65,9 @@ private _traverseType = TRAVERSE_TYPE_SINGLE;
         }]
     };
     case "SUPPLY": {
-        _traverseType = TRAVERSE_TYPE_CHILDREN;
         [[_baseCfg >> "SupplyBoxes"], []]
     };
     case "SIDE": {
-        _traverseType = TRAVERSE_TYPE_CHILDREN;
-        private _subPath = switch (_parsedBox#1) do {
-            case "East": {"potato_e"};
-            case "Indi": {"potato_i"};
-            default {"potato_w"};
-        };
         [[], switch (_side) do {
             case east: {[_baseCfg >> "potato_e"]};
             case resistance: {[_baseCfg >> "potato_i"]};
@@ -96,6 +88,7 @@ private _traverseType = TRAVERSE_TYPE_SINGLE;
             case "Indi": {"potato_i"};
             default {"potato_w"};
         };
+        TRACE_2("specific config path",_supplyBox,isClass (_baseCfg >> _subCfgPath >> _className));
         if (_supplyBox) then {
             [[_baseCfg >> _subCfgPath >> _className], []]
         } else {
@@ -115,14 +108,31 @@ private _fnc_hasSubboxes = {
     params [["_configPath", configNull, [configNull]]];
     [] isNotEqualTo (configProperties [_configPath, "isClass _x"]);
 };
+private _fnc_combineInventroy = {
+    params [["_inputArray", []]];
+    private _itemHash = createHashMap;
+    {
+        (_x splitString ":") params ["_magazine", ["_count", "1"]];
+        if (_magazine in _itemHash) then {
+            _itemHash set [_magazine, (_itemHash get _magazine) + parseNumber _count];
+        } else {
+            _itemHash set [_magazine, parseNumber _count];
+        };
+    } forEach _inputArray;
+    private _outputArray = [];
+    {
+        _outputArray pushBack (_x + ":" + str _y);
+    } forEach _itemHash;
+    _outputArray
+};
 private _fnc_transportContents = {
     params [["_path", configNull]];
     if (isNull _path) exitWith {[[], [], [], []]};
     params [["_configPath", configNull]];
-    private _contents = [getArray (_path >> "TransportBackpacks")];
-    _contents pushBack getArray (_path >> "TransportWeapons");
-    _contents pushBack getArray (_path >> "TransportMagazines");
-    _contents pushBack getArray (_path >> "TransportItems");
+    private _contents = [[getArray (_path >> "TransportBackpacks")] call _fnc_combineInventroy];
+    _contents pushBack ([getArray (_path >> "TransportWeapons")] call _fnc_combineInventroy);
+    _contents pushBack ([getArray (_path >> "TransportMagazines")] call _fnc_combineInventroy);
+    _contents pushBack ([getArray (_path >> "TransportItems")] call _fnc_combineInventroy);
     _contents
 };
 
@@ -130,86 +140,103 @@ private _fnc_transportContents = {
 if (_boxLoadouts < 1) then {
     _supplyBoxCfgs = [];
 };
-
-if (_traverseType > 0 ) then {
-    // if _traverseType > 0 then _supplyBoxCfgs is either just the supplyBoxes
-    // config path OR it's emtpy
-    switch (_boxLoadouts) do {
-        case 1: { // just the cfg into the box
+// if _traverseType > 0 then _supplyBoxCfgs is either just the supplyBoxes
+// config path OR it's emtpy
+switch (_boxLoadouts) do {
+    case 1: { // just the cfg into the box
+        if (_supplyBoxCfgs isNotEqualTo []) then {
             _supplyBoxCfgs = configProperties [_supplyBoxCfgs#0, "isClass _x"];
-        };
-        case 2;
-        case 3: { // subboxes
-            _supplyBoxCfgs = configProperties [_supplyBoxCfgs#0, "isClass _x"];
-            private _endBoxes = [];
-            {
-                if ([_x] call _fnc_hasSubboxes) then {
-                    _endBoxes append (configProperties [_x, "isClass _x"]);
-                };
-            } forEach _supplyBoxCfgs;
-            _supplyBoxCfgs append _endBoxes;
-        };
-        default {
-            _supplyBoxCfgs = [];
         };
     };
-
-    switch (_vicLoadouts) do {
-        case 1;
-        case 2: {
-            // Only use this function here
-            private _fnc_containsTransport = {
-                params [["_configPath", configNull]];
-                if (isNull _path) exitWith {false};
-                private _contents = getArray (_path >> "TransportBackpacks");
-                _contents append getArray (_path >> "TransportWeapons");
-                _contents append getArray (_path >> "TransportMagazines");
-                _contents append getArray (_path >> "TransportItems");
-                _contents isNotEqualTo []
+    case 2;
+    case 3: { // subboxes
+        if (_supplyBoxCfgs isNotEqualTo []) then {
+            _supplyBoxCfgs = configProperties [_supplyBoxCfgs#0, "isClass _x"];
+        };
+        private _endBoxes = [];
+        {
+            if ([_x] call _fnc_hasSubboxes) then {
+                _endBoxes append (configProperties [_x, "isClass _x"]);
             };
-            {
-                {
-                    private _cfgName = configName _x;
-                    if !(isClass (configFile >> "CfgVehicles" >> _cfgName)) then {continue};
-                    if ([_x] call _fnc_containsTransport) then {
-                        _supplyBoxCfgs pushBack _x;
-                    };
-                } forEach configProperties [_x, "isClass _x"];
-            } forEach _loadoutCfgs;
-        };
-        case 3: {
-            {
-                {
-                    private _cfgName = configName _x;
-                    if !(isClass (configFile >> "CfgVehicles" >> _cfgName)) then {continue};
-                    if ([_x] call _fnc_hasSubboxes) then {
-                        _supplyBoxCfgs append (configProperties [_x, "isClass _x"])
-                    } else {
-                        _supplyBoxCfgs pushBack _x;
-                    };
-                } forEach configProperties [_x, "isClass _x"];
-            } forEach _loadoutCfgs;
-        };
-        default {};
+        } forEach _supplyBoxCfgs;
+        _supplyBoxCfgs append _endBoxes;
     };
+    default {
+        _supplyBoxCfgs = [];
+    };
+};
+
+switch (_vicLoadouts) do {
+    case 1;
+    case 2: {
+        // Only use this function here
+        private _fnc_containsTransport = {
+            params [["_configPath", configNull]];
+            if (isNull _path) exitWith {false};
+            private _contents = getArray (_path >> "TransportBackpacks");
+            _contents append getArray (_path >> "TransportWeapons");
+            _contents append getArray (_path >> "TransportMagazines");
+            _contents append getArray (_path >> "TransportItems");
+            _contents isNotEqualTo []
+        };
+        {
+            {
+                private _cfgName = configName _x;
+                if !(isClass (configFile >> "CfgVehicles" >> _cfgName)) then {continue};
+                if ([_x] call _fnc_containsTransport) then {
+                    _supplyBoxCfgs pushBack _x;
+                };
+            } forEach configProperties [_x, "isClass _x"];
+        } forEach _loadoutCfgs;
+    };
+    case 3: {
+        {
+            _supplyBoxCfgs pushBack _x;
+            {
+                private _cfgName = configName _x;
+                if !(isClass (configFile >> "CfgVehicles" >> _cfgName)) then {continue};
+                _supplyBoxCfgs pushBack _x;
+                if ([_x] call _fnc_hasSubboxes) then {
+                    _supplyBoxCfgs append (configProperties [_x, "isClass _x"])
+                };
+            } forEach configProperties [_x, "isClass _x"];
+        } forEach _loadoutCfgs;
+    };
+    default {};
 };
 
 // Figure out the contents of each box and list them
 private _fnc_isSupplyBox = {
     params ["_path"];
-    "SupplyBox" in str _path;
+    (configName _path) isKindOf "ReammoBox_F";
 };
 if (isNil QGVAR(configSupplyToAdd)) then {
     GVAR(configSupplyToAdd) = createHashMap;
 };
+TRACE_1("boxCfgs",_supplyBoxCfgs apply {configName _x});
 private _useSubBoxes = [_vicLoadouts > 2, _boxLoadouts > 1];
 {
     private _isSupplyBox = [_x] call _fnc_isSupplyBox;
     private _checkChildren = _useSubBoxes select _isSupplyBox;
     private _hasSubBoxes = [_x] call _fnc_hasSubboxes;
+    private _cfgName = configName _x;
     private _name = getText (_x >> "boxCustomName");
     if (_name == "") then {
-        _name = getText (configFile >> "CfgVehicles" >> (configName _x) >> "displayName");
+        if ((toLowerANSI _cfgName) in ["car", "tank", "helicopter"]) then {
+            _name = switch (toLowerANSI _cfgName) do {
+                case "car": {
+                    "Wheeled Vehicles"
+                };
+                case "tank": {
+                    "Tracked Vehicles"
+                };
+                default {
+                    "Helicopters"
+                };
+            }
+        } else {
+            _name = getText (configFile >> "CfgVehicles" >> _cfgName >> "displayName");
+        };
     };
     private _boxEnum = if (_isSupplyBox) then {
         [
@@ -219,6 +246,7 @@ private _useSubBoxes = [_vicLoadouts > 2, _boxLoadouts > 1];
     } else {
         LOADOUT_DIARY_TYPE_VEHICLE
     };
+    TRACE_5("adding entry to hash",_isSupplyBox,_checkChildren,_hasSubBoxes,_cfgName,_name);
     if (_checkChildren && {_hasSubBoxes}) then {
         GVAR(configSupplyToAdd) set [_x, [
             _name,

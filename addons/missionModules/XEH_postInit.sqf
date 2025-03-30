@@ -39,6 +39,7 @@ GVAR(ehAdded) = false;
                 ["_loadoutType", LOADOUT_DIARY_TYPE_VEHICLE, [LOADOUT_DIARY_TYPE_VEHICLE]],
                 ["_loadoutArray", [], [[]]]
             ];
+            TRACE_3("configureSupplyBoxes",_entryName,_loadoutType,_loadoutArray);
             if (_entryName in _supplyBoxesAdded) then {continue};
             _supplyBoxesAdded pushBack _entryName;
             [
@@ -48,6 +49,7 @@ GVAR(ehAdded) = false;
                 _loadoutArray
             ] call FUNC(createResupplyDiaryEntry);
         } forEach GVAR(configSupplyToAdd);
+        TRACE_1("Supply boxes added",_supplyBoxesAdded);
         GVAR(configSupplyToAdd) = createHashMap;
     };
     if (ace_player diarySubjectExists QGVAR(resupply)) then { // Check if diary entry exists
@@ -59,7 +61,7 @@ GVAR(ehAdded) = false;
                 if !(isNil QGVAR(resupplyToRun)) then {
                     {
                         _x params ["_args", "_function"];
-                        (_args + (_this#0)) call _function;
+                        (_args + [_this#0]) call _function;
                     } forEach GVAR(resupplyToRun);
                 };
                 if !(isNil QGVAR(configSupplyToAdd)) then {
@@ -84,7 +86,7 @@ GVAR(ehAdded) = false;
             }, [
                 _this select 0, diag_tickTime + 1
             ]] call CBA_fnc_waitUntilAndExecute;
-        }, true] call CBA_fnc_addPlayerEventHandler;
+        }] call CBA_fnc_addPlayerEventHandler;
     };
 }] call CBA_fnc_addEventHandler;
 

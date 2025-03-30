@@ -144,7 +144,7 @@ TRACE_1("Adding items types",_items);
     if (_itemName == "") then {continue};
     _newEntry pushBack (_string + str _count + "x - " + _itemName);
 } forEach (_items apply {_x#1});
-if (_diaryType == LOADOUT_DIARY_TYPE_BOXOFBOX) then {
+if (_subBoxes isNotEqualTo []) then {
     TRACE_1("Adding subboxes",_subBoxes);
     _subBoxes = _subBoxes apply {[getText (_x >> "boxCustomName"), 1 max getNumber (_x >> "boxCount")]};
     private _sigFigs = selectMax (_subBoxes apply {1 + floor log (_x#1)});
