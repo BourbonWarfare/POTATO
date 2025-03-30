@@ -28,7 +28,7 @@ if !(ACEGVAR(common,settingsInitFinished)) exitWith {
     if (isNil QGVAR(resupplyToRun)) then {
         GVAR(resupplyToRun) = [];
     };
-    GVAR(resupplyToRun) pushBack [_this, {call FUNC(createBoxDiary)}];
+    GVAR(resupplyToRun) pushBack [_this, {call FUNC(createBoxDiaryCfg)}];
 };
 
 private _side = switch (_logic getVariable ["side", 0]) do {

@@ -351,11 +351,11 @@ class CfgVehicles {
         author = QUOTE(PREFIX);
         category = QEGVAR(core,util);
         scope = 2;
-        displayName = "Create CfgLoadouts Resupply Brief ";
+        displayName = "Create Resupply Entries (CfgLoadouts)";
         icon = "iconCrate";
         isGlobal = 2;
         isTriggerActivated = 0;
-        function = QFUNC(createBoxDiary);
+        function = QFUNC(createBoxDiaryCfg);
 
         class Attributes {
             class Side: Combo {
@@ -400,7 +400,7 @@ class CfgVehicles {
         author = QUOTE(PREFIX);
         category = QEGVAR(core,util);
         scope = 2;
-        displayName = "Create Sync'd Resupply Brief";
+        displayName = "Create Resupply Entries (Sync)";
         icon = "iconCrate";
         isGlobal = 2;
         isTriggerActivated = 0;

@@ -1,6 +1,6 @@
 TRACE_1("",QUOTE(ADDON));
 
-PREP(createBoxDiary);
+PREP(createBoxDiaryCfg);
 PREP(createBoxDiarySync);
 PREP(createResupplyDiaryEntry);
 PREP(identity_module);
