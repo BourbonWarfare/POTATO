@@ -50,7 +50,6 @@ TRACE_2("loadout types",_boxLoadouts,_vicLoadouts);
 if (_boxLoadouts <= 0 && _vicLoadouts <= 0) exitWith {};
 
 private _parsedBox = (_logic getVariable ["Box", "ALL"]) splitString "|";
-DIAG_log formatText ["[lmd][dbg] %2 || %1", allVariables _logic, _parsedBox];
 (switch (_parsedBox#0) do {
     case "ALL": {
         [[_baseCfg >> "SupplyBoxes"], switch (_side) do {
