@@ -76,6 +76,36 @@ case ("mat"): {
 case ("hmg"): {
         GVAR(loadout_hmg) = secondaryWeapon _unit;
         GVAR(loadout_hmgMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_hmg)] call CBA_fnc_compatibleMagazines);
+        if (GVAR(loadout_hmgMags) isEqualTo [] && {isClass (configFile >> "CfgWeapons" >> GVAR(loadout_hmg) >> "ace_csw")}) then {
+            // Find CSW vehicle
+            private _cswCfg = configFile >> "CfgWeapons" >> GVAR(loadout_hmg) >> "ace_csw";
+            private _vehicle = if (isClass (_cswCfg >> "assembleTo")) then {
+                private _assembleTo = configName ((configProperties [_cswCfg >> "assembleTo"])#0);
+                getText (_cswCfg >> "assembleTo" >> _assembleTo);
+            } else {
+                getText (_cswCfg >> "deploy");
+            };
+            // Find weapon and compatible magazines
+            private _vehicleTurretCfg = configFile >> "CfgVehicles" >> _vehicle >> "Turrets";
+            private _firstTurret = (configProperties [_vehicleTurretCfg, "isClass _x"])#0;
+            private _weapon = (getArray (_firstTurret >> "weapons"))#0;
+            private _compatibleMagazines = compatibleMagazines _weapon;
+            // Find compatible player CSW mags
+            private _unitMags = magazines _unit;
+            private _cswGroups = configFile >> "ace_csw_groups";
+            private _cswMagCfgs = [];
+            {
+                private _cfgPath = _cswGroups >> _x;
+                if (isClass _cfgPath && {
+                    private _convertMags = (configProperties [_cfgPath, "getNumber _x == 1"]) apply {configName _x};
+                    systemChat format ["convert mags: %1 | intersect: %2", _convertMags, _convertMags arrayIntersect _compatibleMagazines];
+                    (_convertMags arrayIntersect _compatibleMagazines) isNotEqualTo []
+                }) then {
+                    _cswMagCfgs pushBack _x;
+                };
+            } forEach (_unitMags arrayIntersect _unitMags);
+            GVAR(loadout_hmgMags) = _cswMagCfgs;
+        };
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_hmg), GVAR(loadout_hmgMags)];
     };
 case ("hmg_tri_1"): {
@@ -89,6 +119,36 @@ case ("hmg_tri_2"): {
 case ("hat"): {
         GVAR(loadout_hat) = secondaryWeapon _unit;
         GVAR(loadout_hatMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_hat)] call CBA_fnc_compatibleMagazines);
+        if (GVAR(loadout_hatMags) isEqualTo [] && {isClass (configFile >> "CfgWeapons" >> GVAR(loadout_hat) >> "ace_csw")}) then {
+            // Find CSW vehicle
+            private _cswCfg = configFile >> "CfgWeapons" >> GVAR(loadout_hat) >> "ace_csw";
+            private _vehicle = if (isClass (_cswCfg >> "assembleTo")) then {
+                private _assembleTo = configName ((configProperties [_cswCfg >> "assembleTo"])#0);
+                getText (_cswCfg >> "assembleTo" >> _assembleTo);
+            } else {
+                getText (_cswCfg >> "deploy");
+            };
+            // Find weapon and compatible magazines
+            private _vehicleTurretCfg = configFile >> "CfgVehicles" >> _vehicle >> "Turrets";
+            private _firstTurret = (configProperties [_vehicleTurretCfg, "isClass _x"])#0;
+            private _weapon = (getArray (_firstTurret >> "weapons"))#0;
+            private _compatibleMagazines = compatibleMagazines _weapon;
+            // Find compatible player CSW mags
+            private _unitMags = magazines _unit;
+            private _cswGroups = configFile >> "ace_csw_groups";
+            private _cswMagCfgs = [];
+            {
+                private _cfgPath = _cswGroups >> _x;
+                if (isClass _cfgPath && {
+                    private _convertMags = (configProperties [_cfgPath, "getNumber _x == 1"]) apply {configName _x};
+                    systemChat format ["convert mags: %1 | intersect: %2", _convertMags, _convertMags arrayIntersect _compatibleMagazines];
+                    (_convertMags arrayIntersect _compatibleMagazines) isNotEqualTo []
+                }) then {
+                    _cswMagCfgs pushBack _x;
+                };
+            } forEach (_unitMags arrayIntersect _unitMags);
+            GVAR(loadout_hatMags) = _cswMagCfgs;
+        };
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_hat), GVAR(loadout_hatMags)];
     };
 case ("hat_tri_1"): {
@@ -126,6 +186,30 @@ case ("pistol"): {
         GVAR(loadout_pistolMags) = ((handgunMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_pistol)] call CBA_fnc_compatibleMagazines);
         GVAR(loadout_pistolAttachments) = handgunItems _unit;
         systemChat format ["[Set %1]: %2 %3 %4", _fncString, GVAR(loadout_pistol), GVAR(loadout_pistolMags), GVAR(loadout_pistolAttachments)];
+    };
+case ("grenades"): {
+        private _throwables = (throwables _unit) apply {_x#0};
+        _throwables = _throwables arrayIntersect _throwables;
+        private _cfgMags = configFile >> "CfgMagazines";
+        private _cfgAmmo = configFile >> "CfgAmmo";
+        GVAR(loadout_smokeGrenade) = _throwables select {
+            private _ammo = getText (_cfgMags >> _x >> "ammo");
+            private _aiAmmoCfg = _cfgAmmo >> _ammo >> "aiAmmoUsageFlags";
+            if (isText _aiAmmoCfg) then { // check if "4" flag is set for smoke
+                private _aiAmmoValues = (((getText _aiAmmoCfg) splitString " +") apply {parseNumber _x});
+                4 in _aiAmmoValues || {
+                    private _tempBool = false;
+                    {
+                        _tempBool = _tempBool || [_x, 4] call BIS_fnc_bitflagsCheck
+                    } forEach _aiAmmoValues;
+                    _tempBool
+                }
+            } else {
+                [getNumber _aiAmmoCfg, 4] call BIS_fnc_bitflagsCheck
+            };
+        };
+        GVAR(loadout_handGrenade) = _throwables - GVAR(loadout_smokeGrenade);
+        systemChat format ["[Set %1]: %2, %3", _fncString, GVAR(loadout_handGrenade), GVAR(loadout_smokeGrenade)];
     };
     default {ERROR_1("bad fnc [%1]",_fncString);};
 };

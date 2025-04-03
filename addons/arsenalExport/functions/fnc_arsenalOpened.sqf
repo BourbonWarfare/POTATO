@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-
+#define QQUOTE(var1) QUOTE(QUOTE(var1))
 #define PIXELSCALE  0.25
 #define GRID_W (pixelW * pixelGridNoUIScale * PIXELSCALE)
 
@@ -27,7 +27,7 @@ private _fnc_updateInfo = {
     private _aceCtrlMenu = _display displayCtrl 10;
     private _ctrlGroup = _display displayCtrl IDC_CTRLGROUP;
     if (isNull _aceCtrlMenu) exitWith {};
-    _ctrlGroup ctrlShow (ctrlShown _aceCtrlMenu); 
+    _ctrlGroup ctrlShow (ctrlShown _aceCtrlMenu);
 };
 _display displayAddEventHandler ["MouseMoving", _fnc_updateInfo];
 _display displayAddEventHandler ["MouseHolding", _fnc_updateInfo];
@@ -73,11 +73,34 @@ private _fnc_createButton = {
 ["Set Spotter", "spotter", [QGVAR(loadout_spotter), QGVAR(loadout_spotterMags), QGVAR(loadout_spotterAttachments)]] call _fnc_createButton;
 ["Set SMG", "smg", [QGVAR(loadout_smg), QGVAR(loadout_smgMags)]] call _fnc_createButton;
 ["Set Pistol", "pistol", [QGVAR(loadout_pistol), QGVAR(loadout_pistolMags), QGVAR(loadout_pistolAttachments)]] call _fnc_createButton;
+["Set Grenades", "grenades", [QGVAR(loadout_handGrenade), QGVAR(loadout_smokeGrenade)]] call _fnc_createButton;
 
 private _rscButton = _display ctrlCreate ["RscButton", -1, _ctrlGroup];
-_rscButton ctrlSetText "Export";
+_rscButton ctrlSetText "Export Loadout";
 _rscButton ctrlSetEventHandler ["ButtonClick", 'call FUNC(export)'];
 _rscButton ctrlSetPosition [0 + (1 * _height), 0 + _height * (_y + 0.25), 8 * _height, _height];
+_rscButton ctrlSetTooltip "Export the standard loadout arrays.";
+_rscButton ctrlCommit 0.25;
+_y = _y  + 1;
+_rscButton = _display ctrlCreate ["RscButton", -1, _ctrlGroup];
+_rscButton ctrlSetText "Export Fireteam Crates";
+_rscButton ctrlSetEventHandler ["ButtonClick", QUOTE([QQUOTE(FT)] call FUNC(exportBoxes))];
+_rscButton ctrlSetPosition [0 + (1 * _height), 0 + _height * (_y + 0.25), 8 * _height, _height];
+_rscButton ctrlSetTooltip "Export a standard fireteam resupply crate based on loadout.";
+_rscButton ctrlCommit 0.25;
+_y = _y  + 1;
+_rscButton = _display ctrlCreate ["RscButton", -1, _ctrlGroup];
+_rscButton ctrlSetText "Export LAT, MAT, & HAT Crates";
+_rscButton ctrlSetEventHandler ["ButtonClick", QUOTE([QQUOTE(AT)] call FUNC(exportBoxes))];
+_rscButton ctrlSetPosition [0 + (1 * _height), 0 + _height * (_y + 0.25), 8 * _height, _height];
+_rscButton ctrlSetTooltip "Export a standard LAT, MAT, and HAT crates based on loadout.";
+_rscButton ctrlCommit 0.25;
+_y = _y  + 1;
+_rscButton = _display ctrlCreate ["RscButton", -1, _ctrlGroup];
+_rscButton ctrlSetText "Export MMG & HMG Crates";
+_rscButton ctrlSetEventHandler ["ButtonClick", QUOTE([QQUOTE(MG)] call FUNC(exportBoxes))];
+_rscButton ctrlSetPosition [0 + (1 * _height), 0 + _height * (_y + 0.25), 8 * _height, _height];
+_rscButton ctrlSetTooltip "Export a standard MMG, abd HMG crate based on loadout.";
 _rscButton ctrlCommit 0.25;
 
 _ctrlGroup ctrlSetPosition [_xPos, _yPos, 12*_height, _height * (_y + 1.5)];
