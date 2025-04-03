@@ -1,12 +1,16 @@
 TRACE_1("",QUOTE(ADDON));
 
-PREP(manInitEH);
-PREP(moveHcsToModule);
-PREP(moveHcsToPos);
+PREP(createBoxDiaryCfg);
+PREP(createBoxDiarySync);
+PREP(createResupplyDiaryEntry);
 PREP(identity_module);
 PREP(identity_set);
 PREP(initMapClickTeleport);
 PREP(initObjectTeleport);
+PREP(initResupBoxCtrl);
+PREP(manInitEH);
+PREP(moveHcsToModule);
+PREP(moveHcsToPos);
 PREP(setFog);
 PREP(setSkillsDialogLoad);
 PREP(setSkillsDialogSet);

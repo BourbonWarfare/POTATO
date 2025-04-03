@@ -8,10 +8,18 @@ class Cfg3DEN {
     class Attributes {
         class Default;
         class Title: Default {
-            class Controls;
+            class Controls{
+                class Title;
+            };
         };
         class TitleWide: Default {
             class Controls;
+        };
+        class Combo: Title {
+           class Controls: Controls {
+               class Title: Title {};
+               class Value;
+           };
         };
         class GVAR(sideMarkerIcon): TitleWide {
             attributeSave = QUOTE([ARR_3(_this,ICON_IDC,[ICON_VALUES])] call FUNC(toolboxAttributeSave));
@@ -147,6 +155,14 @@ class Cfg3DEN {
                 class Title: Title {};
                 class Value: Value {
                     sliderRange[] = {0, 360};
+                };
+            };
+        };
+        class GVAR(boxBriefCombo): Combo {
+            onLoad = QUOTE(_this call FUNC(initResupBoxCtrl));
+            class Controls: Controls {
+                class Title: Title {};
+                class Value: Value {
                 };
             };
         };
