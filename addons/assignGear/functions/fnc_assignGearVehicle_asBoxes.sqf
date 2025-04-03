@@ -53,9 +53,9 @@ private _semiGreedyFill = {
     private _pickedItems = [];
     private _chosen = "";
     private _amounts = [0];
-    for "_added" from 0 to _max do {
+    for "_added" from 1 to _max do {
         // check if item of this type remain
-        if ((_amounts select 0) == 0) then {
+        if ((_amounts select 0) <= 0) then {
             _loadoutInfo deleteAt _chosen;
             if (_available isEqualTo []) exitWith {
                 _chosen = "";
