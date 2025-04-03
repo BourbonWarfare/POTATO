@@ -73,17 +73,16 @@ class CfgAmmo {
     };
 
     class AMMO(40x46mm_HEDP_M433_penetrator): ammo_Penetrator_Base {
-        hit = 70; // a guess
-        caliber = 4.2; // 63mm steel
+        hit = 80; // a guess
+        caliber = 4.467; // 67mm steel (should be 4.2 for 63mm, but it was under performing)
         timeToLive = 0.1;
         // fix double explosion
         soundsetexplosion[] = {};
     };
     class AMMO(40x53mm_HEDP_M430A1_penetrator): ammo_Penetrator_Base {
-        hit = 80; // a guess
+        hit = 90;
         caliber = 5.067; // 76mm steel
         timeToLive = 0.1;
-        // fix double explosion
         soundsetexplosion[] = {};
     };
 };
