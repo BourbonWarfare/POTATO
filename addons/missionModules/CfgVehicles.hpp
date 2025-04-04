@@ -357,7 +357,7 @@ class CfgVehicles {
         isTriggerActivated = 0;
         function = QFUNC(createBoxDiaryCfg);
 
-        class Attributes {
+        class Attributes: AttributesBase {
             class Side: Combo {
                 displayName = "$STR_eval_typeside";
                 property = QGVAR(side);
@@ -405,7 +405,7 @@ class CfgVehicles {
         isGlobal = 2;
         isTriggerActivated = 0;
         function = QFUNC(createBoxDiarySync);
-        class Attributes {
+        class Attributes: AttributesBase {
             class Side: Combo {
                 displayName = "$STR_eval_typeside";
                 property = QGVAR(side);
