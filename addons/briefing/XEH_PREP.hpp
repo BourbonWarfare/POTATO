@@ -17,4 +17,5 @@ PREP(briefingSettingsSetControlsFromGVars);
 PREP(convertHTMLToNewLine);
 PREP(convertNewLineToHTML);
 PREP(displayDanger);
+PREP(displayDebriefing);
 PREP(setBriefingVar);
