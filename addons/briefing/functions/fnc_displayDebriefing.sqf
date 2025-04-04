@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 _this spawn {
     params ["_control"];
     private _display = ctrlParent _control;
