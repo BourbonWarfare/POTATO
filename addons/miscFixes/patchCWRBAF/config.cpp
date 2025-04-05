@@ -122,39 +122,21 @@ class CfgVehicles {
 };
 
 class CfgWeapons {
-    class autocannon_Base_F;
-    class autocannon_40mm_CTWS: autocannon_Base_F {
+    class autocannon_40mm_CTWS;
+    class CUP_Rarden_CTWS_veh: autocannon_40mm_CTWS {
         class AP;
         class HE;
     };
-    class CUP_Rarden_CTWS_veh: autocannon_40mm_CTWS {
-        class AP: AP {
-            class player;
-        };
-        class HE: HE {
-            class player;
-        };
-    };
     class POTFIX(CUP_Rarden_CTWS_veh): CUP_Rarden_CTWS_veh {
         magazineReloadTime = 20;
-        autoReload = 0;
+        autoReload = 1;
         class AP: AP {
             magazineReloadTime = 3;
-            autoReload = 0;
             magazines[] = {QPOTFIX(CUP_6Rnd_TE1_Red_Tracer_30mmAPFSDS_M)};
-            class player: player {
-                autoFire = 1;
-                autoReload = 0;
-            };
         };
         class HE: HE {
             magazineReloadTime = 3;
-            autoReload = 0;
             magazines[] = {QPOTFIX(CUP_6Rnd_TE1_Red_Tracer_30mmGPR_M)};
-            class player: player {
-                autoFire = 1;
-                autoReload = 0;
-            };
         };
     };
 };
