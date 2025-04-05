@@ -18,7 +18,7 @@ private _xPos = safeZoneX + safeZoneW - 15 * _height;
 if (_shiftLeft) then {
     _xPos = _xPos - 93 * GRID_W;
 };
-private _yPos = (safeZoneY + 1.5 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25)) + 16 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25);
+private _yPos = (safeZoneY + 1.5 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25)) + 4 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25);
 
 private _ctrlGroup = _display ctrlCreate ["RscControlsGroup", IDC_CTRLGROUP];
 
