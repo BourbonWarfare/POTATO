@@ -58,7 +58,7 @@ class CfgVehicles {
     class POTFIX(cwr3_b_uk_fv107): cwr3_b_uk_fv107 {
         scope = 2;
         curatorScope = 2;
-        displayName = "FV107 Scimitar (Semi)";
+        displayName = "FV107 Scimitar (6Rnd)";
         class Turrets: Turrets {
             class MainTurret: MainTurret {
                 class Components;
@@ -88,7 +88,7 @@ class CfgVehicles {
         };
     };
     class POTFIX(cwr3_b_uk_fv107_unstab): cwr3_b_uk_fv107 {
-        displayName = "FV107 Scimitar (Semi, Unstab)";
+        displayName = "FV107 Scimitar (6Rnd, Unstab)";
         class Turrets: Turrets {
             class MainTurret: MainTurret {
                 class Components;

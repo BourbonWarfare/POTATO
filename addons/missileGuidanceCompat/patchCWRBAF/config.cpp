@@ -15,45 +15,16 @@ class CfgPatches {
     };
 };
 
+#include "\z\potato\addons\missileGuidanceCompat\CfgMissileTypesNato.hpp"
+
 class CfgAmmo {
-    class MissileBase;
-    class CUP_M_Stinger_AA: MissileBase {
-        class ace_missileguidance;
-    };
+    class CUP_M_Stinger_AA;
     class GVAR(M_javelin_AA): CUP_M_Stinger_AA {
-        class ace_missileguidance: ace_missileguidance {
+        class ace_missileguidance: ACEGVAR(missileguidance,type_RBS70) {
             enabled = 1;
-            pitchRate = 45;
-            yawRate = 45;
-
-            canVanillaLock = 0;
-            showTrail = 1;
-
-            defaultSeekerType = "SACLOS";
-            seekerTypes[] = { "SACLOS" };
-
-            defaultSeekerLockMode = "LOAL";
-            seekerLockModes[] = { "LOAL", "LOBL" };
-
-            defaultNavigationType = "Line";
-            navigationTypes[] = { "Line" };
-
             lineGainP = 30;
             lineGainD = 16;
-
-            initialPitch = 2;
-
-            seekLastTargetPos = 0;
-            seekerAngle = 30;
-            seekerAccuracy = 1;
-            seekerMinRange = 75;
             seekerMaxRange = 6000;
-
-            correctionDistance = 30;
-            offsetFromCrosshair[] = { 0, 0, 0 };
-
-            defaultAttackProfile = "BEAM";
-            attackProfiles[] = {"BEAM"};
         };
     };
 };
