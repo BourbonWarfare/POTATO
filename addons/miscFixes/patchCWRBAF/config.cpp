@@ -49,7 +49,7 @@ class CfgVehicles {
     class Tank;
     class Tank_F: Tank {
         class AnimationSources;
-    }
+    };
     class CUP_MCV80_Base: Tank_F {
         class Turrets;
     };
