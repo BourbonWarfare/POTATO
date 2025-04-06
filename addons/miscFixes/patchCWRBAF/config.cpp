@@ -46,11 +46,15 @@ class CfgMagazines {
 };
 
 class CfgVehicles {
-    class Tank_F;
+    class Tank;
+    class Tank_F: Tank {
+        class AnimationSources;
+    }
     class CUP_MCV80_Base: Tank_F {
         class Turrets;
     };
     class cwr3_b_uk_fv107: CUP_MCV80_Base {
+        class AnimationSources: AnimationSources {};
         class Turrets: Turrets {
             class MainTurret;
         };
@@ -59,6 +63,20 @@ class CfgVehicles {
         scope = 2;
         curatorScope = 2;
         displayName = "FV107 Scimitar (6Rnd)";
+        class AnimationSources: AnimationSources {
+            class recoil_source {
+                source = "reload";
+                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
+            };
+            class muzzle_rot_ctws {
+                source = "ammorandom";
+                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
+            };
+            class muzzle_hide_ctws {
+                source = "reload";
+                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
+            };
+        };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
                 class Components;
@@ -89,6 +107,20 @@ class CfgVehicles {
     };
     class POTFIX(cwr3_b_uk_fv107_unstab): cwr3_b_uk_fv107 {
         displayName = "FV107 Scimitar (6Rnd, Unstab)";
+        class AnimationSources: AnimationSources {
+            class recoil_source {
+                source = "reload";
+                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
+            };
+            class muzzle_rot_ctws {
+                source = "ammorandom";
+                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
+            };
+            class muzzle_hide_ctws {
+                source = "reload";
+                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
+            };
+        };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
                 class Components;
