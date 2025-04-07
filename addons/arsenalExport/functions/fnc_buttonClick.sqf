@@ -98,7 +98,6 @@ case ("hmg"): {
                 private _cfgPath = _cswGroups >> _x;
                 if (isClass _cfgPath && {
                     private _convertMags = (configProperties [_cfgPath, "getNumber _x == 1"]) apply {configName _x};
-                    systemChat format ["convert mags: %1 | intersect: %2", _convertMags, _convertMags arrayIntersect _compatibleMagazines];
                     (_convertMags arrayIntersect _compatibleMagazines) isNotEqualTo []
                 }) then {
                     _cswMagCfgs pushBack _x;
@@ -141,7 +140,6 @@ case ("hat"): {
                 private _cfgPath = _cswGroups >> _x;
                 if (isClass _cfgPath && {
                     private _convertMags = (configProperties [_cfgPath, "getNumber _x == 1"]) apply {configName _x};
-                    systemChat format ["convert mags: %1 | intersect: %2", _convertMags, _convertMags arrayIntersect _compatibleMagazines];
                     (_convertMags arrayIntersect _compatibleMagazines) isNotEqualTo []
                 }) then {
                     _cswMagCfgs pushBack _x;
