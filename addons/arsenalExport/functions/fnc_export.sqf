@@ -94,11 +94,6 @@ switch (true) do {
         _lines pushBack format ['#define GLRIFLE_MAG_HE "1Rnd_HE_Grenade_shell:5"'];
         _lines pushBack format ['#define GLRIFLE_MAG_FLARE "UGL_FlareYellow_F:4"'];
     };
-    case (({"rhs_GRD40_White" == _x} count _glMags) > 0):{
-        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "rhs_GRD40_White:2","rhs_GRD40_Red:2"'];
-        _lines pushBack format ['#define GLRIFLE_MAG_HE "rhs_VOG25:5"'];
-        _lines pushBack format ['#define GLRIFLE_MAG_FLARE "rhs_VG40OP_red:4"'];
-    };
     default {
         _lines pushBack format ["// WARNING - Unknown GL Muzzle [%1->%2]", GVAR(loadout_glrifle), _glMuzzle];
         _lines pushBack format ['#define GLRIFLE_MAG_SMOKE ""'];

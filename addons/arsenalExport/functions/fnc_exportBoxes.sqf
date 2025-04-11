@@ -123,20 +123,20 @@ switch (_boxType) do {
         private _glMuzzle = (getArray (configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> "muzzles")) param [1, "no2ndMuzzle"];
         private _glMags = [configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> _glMuzzle] call CBA_fnc_compatibleMagazines;
         switch (true) do {
-            case (({"1Rnd_Smoke_Grenade_shell" == _x} count _glMags) > 0): {
-                _transMags append [
-                    "1Rnd_Smoke_Grenade_shell:4",
-                    "1Rnd_SmokeRed_Grenade_shell",
-                    "1Rnd_SmokeGreen_Grenade_shell",
-                    "potato_1Rnd_40mm_m433_HEDP:6"
-                ];
-            };
             case (({"rhs_GRD40_White" == _x} count _glMags) > 0): {
                 _transMags append [
                     "rhs_GRD40_White:4",
                     "rhs_GRD40_Green",
                     "rhs_GRD40_Red",
                     "rhs_VOG25:6"
+                ];
+            };
+            case (({"1Rnd_Smoke_Grenade_shell" == _x} count _glMags) > 0): {
+                _transMags append [
+                    "1Rnd_Smoke_Grenade_shell:4",
+                    "1Rnd_SmokeRed_Grenade_shell",
+                    "1Rnd_SmokeGreen_Grenade_shell",
+                    "potato_1Rnd_40mm_m433_HEDP:6"
                 ];
             };
             default {};
@@ -172,36 +172,42 @@ switch (_boxType) do {
     };
     case "AT": {
         /// LAT Boxes - 6 tubes or 10 rockets
-        if ((getArray (configFile >> "CBA_DisposableLaunchers" >> GVAR(loadout_at))) isNotEqualTo []) then {
-            _transWeaps = [GVAR(loadout_at) + QUOTE(:LAT_CRATE_ROUNDS)];
-        } else {
-            private _count = count GVAR(loadout_atMags);
-            private _nRounds = floor (LAT_CRATE_MAX_ROUNDS / _count);
-            {
-                _transMags pushBack format ["%1:%2", _x, _nRounds];
-            } forEach GVAR(loadout_atMags);
+        if (GVAR(loadout_at) isNotEqualTo [] && GVAR(loadout_at) != "NotSet") then {
+            if ((getArray (configFile >> "CBA_DisposableLaunchers" >> GVAR(loadout_at))) isNotEqualTo []) then {
+                _transWeaps = [GVAR(loadout_at) + QUOTE(:LAT_CRATE_ROUNDS)];
+            } else {
+                private _count = 1 max count GVAR(loadout_atMags);
+                private _nRounds = floor (LAT_CRATE_MAX_ROUNDS / _count);
+                {
+                    _transMags pushBack format ["%1:%2", _x, _nRounds];
+                } forEach GVAR(loadout_atMags);
+            };
+            ["Box_NATO_WpsLaunch_F", "Launcher Crate"] call _fnc_dumpBoxType;
         };
-        ["Box_NATO_WpsLaunch_F", "Launcher Crate"] call _fnc_dumpBoxType;
-        if ((getArray (configFile >> "CBA_DisposableLaunchers" >> GVAR(loadout_mat))) isNotEqualTo []) then {
-            _transWeaps = [GVAR(loadout_mat) + QUOTE(:MAT_ROUNDS)];
-        } else {
-            private _count = count GVAR(loadout_matMags);
-            private _nRounds = floor (MAT_ROUNDS / _count);
-            {
-                _transMags pushBack format ["%1:%2", _x, _nRounds];
-            } forEach GVAR(loadout_matMags);
+        if (GVAR(loadout_mat) isNotEqualTo [] && GVAR(loadout_mat) != "NotSet") then {
+            if ((getArray (configFile >> "CBA_DisposableLaunchers" >> GVAR(loadout_mat))) isNotEqualTo []) then {
+                _transWeaps = [GVAR(loadout_mat) + QUOTE(:MAT_ROUNDS)];
+            } else {
+                private _count = 1 max count GVAR(loadout_matMags);
+                private _nRounds = floor (MAT_ROUNDS / _count);
+                {
+                    _transMags pushBack format ["%1:%2", _x, _nRounds];
+                } forEach GVAR(loadout_matMags);
+            };
+            ["Box_NATO_WpsSpecial_F", "MAT Crate"] call _fnc_dumpBoxType;
         };
-        ["Box_NATO_WpsSpecial_F", "MAT Crate"] call _fnc_dumpBoxType;
-        if ((getArray (configFile >> "CBA_DisposableLaunchers" >> GVAR(loadout_hat))) isNotEqualTo []) then {
-            _transWeaps = [GVAR(loadout_hat) + QUOTE(:HAT_ROUNDS)];
-        } else {
-            private _count = count GVAR(loadout_hatMags);
-            private _nRounds = floor (HAT_ROUNDS / _count);
-            {
-                _transMags pushBack format ["%1:%2", _x, _nRounds];
-            } forEach GVAR(loadout_hatMags);
+        if (GVAR(loadout_hat) isNotEqualTo [] && GVAR(loadout_hat) != "NotSet") then {
+            if ((getArray (configFile >> "CBA_DisposableLaunchers" >> GVAR(loadout_hat))) isNotEqualTo []) then {
+                _transWeaps = [GVAR(loadout_hat) + QUOTE(:HAT_ROUNDS)];
+            } else {
+                private _count = 1 max count GVAR(loadout_hatMags);
+                private _nRounds = floor (HAT_ROUNDS / _count);
+                {
+                    _transMags pushBack format ["%1:%2", _x, _nRounds];
+                } forEach GVAR(loadout_hatMags);
+            };
+            ["Box_EAF_WpsSpecial_F", "HAT Crate"] call _fnc_dumpBoxType;
         };
-        ["Box_EAF_WpsSpecial_F", "HAT Crate"] call _fnc_dumpBoxType;
     };
     case "MG": {
         /// MMG Crate
@@ -210,7 +216,7 @@ switch (_boxType) do {
         _transMags = flatten (([GVAR(loadout_hmg), GVAR(loadout_hmgMags), HMG_ROUNDS] call _fnc_getMags) splitString ", ");
         if ("ERROR_no_valid_mags" in _transMags) then {
             _transMags = [
-                "Could not find relevant mag, may be NSV or M2:",
+                "Could not find relevant mag, may be NSV/Kord or M2:",
                 "ace_csw_50Rnd_127x108_mag:5",
                 "ace_csw_100Rnd_127x99_mag:5"
             ];
