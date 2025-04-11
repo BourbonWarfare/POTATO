@@ -15,3 +15,14 @@ class CfgPatches {
 
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
+
+
+class RscText;
+class RscStandardDisplay;
+class RscDisplayDebriefing: RscStandardDisplay {
+    class controls {
+        class PlayerName: RscText {
+            onLoad = QUOTE(call FUNC(DisplayDebriefing));
+        };
+    };
+};
