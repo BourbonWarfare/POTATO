@@ -60,7 +60,4 @@ private _seekerTargetPos = [0, 0, 0];
     };
 } forEachReversed _seekerModes;
 
-if (_finalStateParams isNotEqualTo []) then {
-    (_args#4) set [1, _finalStateParams];
-};
 _seekerTargetPos
