@@ -3,8 +3,8 @@
  * Author: Lambda.Tiger
  * This function is an intermediate with the goal of handling multiple seekers
  * for a single projectile using ACE missile guidance. While somewhat generic,
- * it is intended for use the MULTI seeker type that combines SALH and GPS
- * seekers. The function first takes the missile guidance paramters, and if
+ * it is intended for use the MULTI seeker type that combines at least SALH and
+ * GPS seekers. The function first takes the missile guidance paramters, and if
  * the seekerTypes array is not properly set, will exit with a target of
  * [0, 0, 0]. The seeker arguments are cached in a variable attached to hte
  * projectile. All seekers parameters are computed, with only the latest
@@ -31,8 +31,7 @@ if (_seekerModes isEqualTo ["MULTI"] || _seekerModes isEqualTo []) exitWith {
 };
 _seekerModes = _seekerModes select [1]; // remove where MULTI should sit in the array
 
-// create the seeker arg hash. This could be condensed but I'm not sure what
-// is and isn't required
+// Create or retrieve the seeker arg hash
 private _seekerHash = _projectile getVariable [QGVAR(state), createHashMap];
 if (_seekerHash isEqualTo createHashMap) then {
     private _seekerStateParams = _args#4#1;
@@ -48,13 +47,15 @@ if (_seekerHash isEqualTo createHashMap) then {
 };
 
 // Go through and do every seeker calculations in reverse order as to keep
-// the highest precidence seeker
+// the earlier defined seekers at a higher precidence
 private _seekerTypesPath = configFile >> "ace_missileGuidance_SeekerTypes";
 private _seekerTargetPos = [0, 0, 0];
 {
     (_args#4) set [1, _seekerHash get _x];
     private _seekerFunction = getText (_seekerTypesPath >> _x >> "functionName");
     private _localSeekerTargetPos = call (missionNamespace getVariable _seekerFunction);
+    // override with "most valued" seeker value - we could do some sort of fusion here
+    //              may look into that for GBU-53/B w/ SALH, Active Radar, and GPS
     if (_localSeekerTargetPos isNotEqualTo [0, 0, 0]) then {
         _seekerTargetPos = _localSeekerTargetPos;
     };
