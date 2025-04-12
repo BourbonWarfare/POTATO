@@ -21,8 +21,9 @@
  *
  * Public: No
  */
-(_this#1) params ["_firedEH"];
-_firedEH params ["","","","","_ammo","","_projectile"];
+params ["", "_args"];
+_args params ["_firedEH"];
+_firedEH params ["_shooter","","","","_ammo","","_projectile"];
 
 private _seekerModes = getArray (configFile >> "CfgAmmo" >> _ammo >> "ace_missileguidance" >> "seekerTypes");
 if (_seekerModes isEqualTo ["MULTI"] || _seekerModes isEqualTo []) exitWith {
@@ -34,9 +35,16 @@ _seekerModes = _seekerModes select [1]; // remove where MULTI should sit in the 
 // is and isn't required
 private _seekerHash = _projectile getVariable [QGVAR(state), createHashMap];
 if (_seekerHash isEqualTo createHashMap) then {
+    private _seekerStateParams = _args#4#1;
+    if (_shooter != ace_player &&
+            !isPlayer _shooter &&
+            (_seekerStateParams#0#0) isEqualTo [0, 0, 0]) then {
+        (_seekerStateParams#0) set [0, getPosASL getAttackTarget _shooter];
+    };
     {
-        _seekerHash set [_x, +_this#1];
+        _seekerHash set [_x, +_seekerStateParams];
     } forEach _seekerModes;
+    _projectile setVariable [QGVAR(state), _seekerHash];
 };
 
 // Go through and do every seeker calculations in reverse order as to keep
@@ -44,7 +52,7 @@ if (_seekerHash isEqualTo createHashMap) then {
 private _seekerTypesPath = configFile >> "ace_missileGuidance_SeekerTypes";
 private _seekerTargetPos = [0, 0, 0];
 {
-    _this set [1, _seekerHash get _x];
+    (_args#4) set [1, _seekerHash get _x];
     private _seekerFunction = getText (_seekerTypesPath >> _x >> "functionName");
     private _localSeekerTargetPos = call (missionNamespace getVariable _seekerFunction);
     if (_localSeekerTargetPos isNotEqualTo [0, 0, 0]) then {
@@ -52,4 +60,7 @@ private _seekerTargetPos = [0, 0, 0];
     };
 } forEachReversed _seekerModes;
 
+if (_finalStateParams isNotEqualTo []) then {
+    (_args#4) set [1, _finalStateParams];
+};
 _seekerTargetPos
