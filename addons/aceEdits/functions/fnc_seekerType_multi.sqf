@@ -3,7 +3,7 @@
  * Author: Lambda.Tiger
  * This function is an intermediate with the goal of handling multiple seekers
  * for a single projectile using ACE missile guidance. While somewhat generic,
- * it is intended for use the LSDB seeker type that combines SALH and GPS
+ * it is intended for use the MULTI seeker type that combines SALH and GPS
  * seekers. The function first takes the missile guidance paramters, and if
  * the seekerTypes array is not properly set, will exit with a target of
  * [0, 0, 0]. The seeker arguments are cached in a variable attached to hte
@@ -17,19 +17,18 @@
  * New target seeker position
  *
  * Examples:
- * [Missile guidance params] call potato_aceEdits_fnc_seekerType_LSDB;
+ * [Missile guidance params] call potato_aceEdits_fnc_seekerType_multi;
  *
  * Public: No
  */
-
 (_this#1) params ["_firedEH"];
 _firedEH params ["","","","","_ammo","","_projectile"];
 
 private _seekerModes = getArray (configFile >> "CfgAmmo" >> _ammo >> "ace_missileguidance" >> "seekerTypes");
-if (_seekerModes isEqualTo ["LSDB"] || _seekerModes isEqualTo []) exitWith {
+if (_seekerModes isEqualTo ["MULTI"] || _seekerModes isEqualTo []) exitWith {
     [0, 0, 0]
 };
-_seekerModes = _seekerModes select [1]; // remove where LSDB should sit in the array
+_seekerModes = _seekerModes select [1]; // remove where MULTI should sit in the array
 
 // create the seeker arg hash. This could be condensed but I'm not sure what
 // is and isn't required

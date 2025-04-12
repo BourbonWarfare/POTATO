@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"ace_interaction"};
+        requiredAddons[] = {"ace_interaction", "ace_missile_sdb"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"Lambda.Tiger"};
