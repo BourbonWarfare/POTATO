@@ -4,7 +4,7 @@ class CfgMagazines {
     class ACEGVAR(missile_sdb,PylonRack_bom_SDB_x1): ACEGVAR(missile_sdb,magazine_bomb_SDB_x1) {
         // Add capabilities to CUP and other mods (can look jank)
         hardpoints[] = {"B_BOMB_PYLON", "B_SDB_QUAD_RAIL"};
-        mass = 129; // Pylons treat mass as kg
+        mass = 93; // Pylons treat mass as kg
         model = "\A3\Weapons_F\DynamicLoadout\PylonPod_1x_Missile_AGM_02_F.p3d";
     };
     class GVAR(magazine_bomb_LSDB_x1): ACEGVAR(missile_sdb,magazine_bomb_SDB_x1) {
@@ -15,13 +15,13 @@ class CfgMagazines {
     };
     class GVAR(PylonRack_bomb_LSDB_x1): GVAR(magazine_bomb_LSDB_x1) {
         hardpoints[] = {"B_BOMB_PYLON", "B_SDB_QUAD_RAIL"};
-        mass = 129;
+        mass = 93;
         model = "\A3\Weapons_F\DynamicLoadout\PylonPod_1x_Missile_AGM_02_F.p3d";
     };
 
     class PylonRack_Bomb_SDB_x4: magazine_Bomb_SDB_x1 {
         hardpoints[] = {"B_BOMB_PYLON", "B_SDB_QUAD_RAIL"};
-        mass = 550;
+        mass = 422;
     };
     class ACEGVAR(missile_sdb,PylonRack_bomb_SDB_x4): PylonRack_Bomb_SDB_x4 {};
     class GVAR(PylonRack_bomb_LSDB_x4): ACEGVAR(missile_sdb,PylonRack_bomb_SDB_x4) {
