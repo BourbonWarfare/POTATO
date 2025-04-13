@@ -51,7 +51,9 @@ if (_seekerHash isEqualTo createHashMap) then {
 private _seekerTypesPath = configFile >> "ace_missileGuidance_SeekerTypes";
 private _seekerTargetPos = [0, 0, 0];
 {
-    (_args#4) set [1, _seekerHash get _x];
+    private _seekerArgs = _seekerHash get _x;
+    (_args#4) set [1, _seekerArgs];
+    _this set [2, _seekerArgs];
     private _seekerFunction = getText (_seekerTypesPath >> _x >> "functionName");
     private _localSeekerTargetPos = call (missionNamespace getVariable _seekerFunction);
     // override with "most valued" seeker value - we could do some sort of fusion here
