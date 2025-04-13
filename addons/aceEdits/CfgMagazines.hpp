@@ -6,6 +6,7 @@ class CfgMagazines {
         author = "Lambda.Tiger";
         displayName = "1x GBU-39B/B LSDB [POT]";
         displayNameShort = "GBU-39B/B [POT]";
+        pylonWeapon = QGVAR(lsdb);
     };
     class GVAR(PylonRack_bomb_LSDB_x1): GVAR(magazine_bomb_LSDB_x1) {
         hardpoints[] = {"B_BOMB_PYLON", "B_SDB_QUAD_RAIL"};
