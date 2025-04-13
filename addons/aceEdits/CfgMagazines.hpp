@@ -1,12 +1,6 @@
 class CfgMagazines {
     class magazine_Bomb_SDB_x1;
     class ACEGVAR(missile_sdb,magazine_bomb_SDB_x1): magazine_Bomb_SDB_x1 {};
-    class ACEGVAR(missile_sdb,PylonRack_bom_SDB_x1): ACEGVAR(missile_sdb,magazine_bomb_SDB_x1) {
-        // Add capabilities to CUP and other mods (can look jank)
-        hardpoints[] = {"B_BOMB_PYLON", "B_SDB_QUAD_RAIL"};
-        mass = 93; // Pylons treat mass as kg
-        model = "\A3\Weapons_F\DynamicLoadout\PylonPod_1x_Missile_AGM_02_F.p3d";
-    };
     class GVAR(magazine_bomb_LSDB_x1): ACEGVAR(missile_sdb,magazine_bomb_SDB_x1) {
         ammo = QGVAR(lsdb);
         author = "Lambda.Tiger";
