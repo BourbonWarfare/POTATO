@@ -570,6 +570,29 @@ class GVAR(adminMenuDialog) {
             w = QUOTE(0.54 * safezoneW);
             h = QUOTE(0.58 * safezoneH);
             class controls {
+                class Help1: RscButton {
+                    idc = POTATO_MARKER_HELP_IDC;
+                    text = "Help1";
+                    x = QUOTE((0.33 + 0 * 0.05) * safezoneW);
+                    y = QUOTE(0);
+                    w = QUOTE(0.048 * safezoneW);
+                    h = QUOTE(0.019 * safezoneH);
+                };
+                class Help2: Help1 {
+                    idc = POTATO_MARKER_HELP_IDC + 1;
+                    text = "Help2";
+                    x = QUOTE((0.33 + 1 * 0.05) * safezoneW);
+                };
+                class Help3: Help1 {
+                    idc = POTATO_MARKER_HELP_IDC + 2;
+                    text = "Help3";
+                    x = QUOTE((0.33 + 2 * 0.05) * safezoneW);
+                };
+                class Help4: Help1 {
+                    idc = POTATO_MARKER_HELP_IDC + 3;
+                    text = "Help4";
+                    x = QUOTE((0.33 + 3 * 0.05) * safezoneW);
+                };
                 class PlayerList: RscListBox {
                     idc = IDC_LISTBOX_MARKERS_PLAYERS;
                     x = QUOTE(0.01 * safezoneW);
