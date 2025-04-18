@@ -18,6 +18,7 @@ PREP(uihook_endMission);
 PREP(uihook_missionHint);
 PREP(uihook_openEndMission);
 PREP(uihook_giveAdminGun);
+PREP(uihook_groupUnitBriefTest);
 PREP(uihook_handleMarkerDialogUI);
 PREP(uihook_tabChange);
 PREP(uihook_safeStart);

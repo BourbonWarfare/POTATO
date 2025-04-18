@@ -147,4 +147,4 @@ _textArray append _civClasses;
 if (!(player diarySubjectExists "POTATO")) then {
     player createDiarySubject ["POTATO", "POTATO"];
 };
-player createDiaryRecord ["POTATO", ["Weapon Report", (_textArray joinString "<br/>")]];
+player createDiaryRecord ["POTATO", ["Weapon Report", "<font size=20 ace=""PuristaBold"">Weapon Report</font><br/>" + (_textArray joinString "<br/>")], taskNull, "NONE", false];

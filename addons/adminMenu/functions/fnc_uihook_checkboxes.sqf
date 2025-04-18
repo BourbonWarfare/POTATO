@@ -19,9 +19,7 @@
  *
  * Public: No
  */
-
 TRACE_1("params",_this);
-
 params ["_control", "_checked", ["_propagate", true, [true]]];
 
 // CBA doesn't like to transfer controls
