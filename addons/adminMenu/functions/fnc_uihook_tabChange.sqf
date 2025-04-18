@@ -243,6 +243,56 @@ case UI_TABS_INDEX_MARKERS: {
         TRACE_1("showing markers tab",_sel);
         private _display = uiNamespace getVariable QGVAR(adminMenuDialog);
 
+        private _help  = _display displayCtrl (POTATO_MARKER_HELP_IDC + 0);
+        _help ctrlSetTooltip "There are two types of markers in BW
+- Group markers - markers attached to a group leader and transferred when someone does the ""become leader"" action
+- Unit markers - markers attached to specific unit that stay with them (i.e., Medic, FAC, etc)
+
+Basics of the Menu
+First list - Players:
+- [LEFT] Names of all player names sorted in order: Has marker, no marker, dead, spectators
+- [RIGHT] Marker side and text if they have a marker
+Second list - Markers:
+- [LEFT] Marker side and text
+- [RIGHT] Whether the marker is attached to, followed by the marker icon. The text means either:
+- ""AI"" for AI
+- ""NA"" For not attached
+- "" "" For attached to a player
+When you're hovering over a marker in the marker list it will give you context of who the marker is currently attached to (unit), although the marker may be either a group or unit marker
+";
+        _help  = _display displayCtrl (POTATO_MARKER_HELP_IDC + 1);
+        _help ctrlSetTooltip "The buttons on the righthand side give context on hover but from top to bottom
+- Attach Marker to Unit - Attached the selected marker to the selected unit (converts marker to unit marker) - Mainly used for medics or FACs who crash and have to reJIP
+- Attach Marker to Unit Group - Attach the selected marker to the selected unit's group (converts to a group marker) - For times when all group members mistakenly leave their group
+- Detach Marker - Assigns the marker to no group/unit
+- Delete Marker - Deletes marker
+- Create Marker - Opens the creates new marker dialog
+- Edit Marker - Opens the edit marker dialog (can edit
+- Reload Unit Local Markers - Forces the selected unit to read any local markers they have
+- Reload All Client Markers - Reloads everyone's markers from their local caches
+- Reinit Server AI Markers - Sometimes unit markers don't appear on AI on the server during testing, this button just forces the server to reinitialize them.
+";
+        _help  = _display displayCtrl (POTATO_MARKER_HELP_IDC + 2);
+        _help ctrlSetTooltip "How to Solve Common Problems
+A player doesn't have a marker and should
+- Check if the marker exists, if it doesn't make sure the MM intends for it to exist
+- If it exists either attach it to them or their squad (depending if it's a unit or group marker)
+- If it doesn't exist and the MM intended for it to be there, add it using the ""Create Marker"" dialog
+- You can select whether the marker is attached to a unit or group in the dialog
+A marker is no longer attached to a group because everyone left that group and joined a new one
+- Check that group already has a marker, if so they will need to choose one or the other
+- If they want the one not currently setup as their group marker, detach or delete the old group marker attach that marker to their group
+- If they want the new one, you don't have to do anything
+- If they don't have a marker, just attach the marker using the ""attach to group""";
+        _help  = _display displayCtrl (POTATO_MARKER_HELP_IDC + 3);
+        _help ctrlSetTooltip "A squad's SL died and an FTL would like to take over with the SL marker
+- The FTL should join on the medic if alive and take command of the group
+- If no one is left in that group, the FTL should leave their fireteam using the ""leave group"" interact and then the marker can be given to their new group
+Someone can't see any markers
+- Select the unit and click ""Reload Unit Local Markers""
+- If that doesn't work after 20-30 seconds, run ""Reload All Client Markers""
+";
+
         // Setup marker list
         private _markerList = _display displayCtrl IDC_LISTBOX_MARKERS_MARKERS;
         lbClear _markerList;
