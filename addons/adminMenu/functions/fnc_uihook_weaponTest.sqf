@@ -137,7 +137,7 @@ private _fncGetWeaponInfo = {
 } forEach allUnits;
 
 
-private _textArray = [[(format ["Weapon Report at %1 minutes:", (floor (time/60))])]];
+private _textArray = ["<font size=28>Weapon Report</font>", format ["Weapon Report at %1 minutes:", floor (time/60)]];
 
 _textArray append _westClasses;
 _textArray append _eastClasses;
@@ -147,4 +147,4 @@ _textArray append _civClasses;
 if (!(player diarySubjectExists "POTATO")) then {
     player createDiarySubject ["POTATO", "POTATO"];
 };
-player createDiaryRecord ["POTATO", ["Weapon Report", "<font size=20 ace=""PuristaBold"">Weapon Report</font><br/>" + (_textArray joinString "<br/>")], taskNull, "NONE", false];
+player createDiaryRecord ["POTATO", ["Weapon Report", _textArray joinString "<br/>"], taskNull, "NONE", false];

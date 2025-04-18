@@ -425,12 +425,12 @@ class GVAR(adminMenuDialog) {
                 };
                 class RscButton_UnitAndGroupBrief: RscButton {
                     idc = -1;
-                    text = "Unit and Group Brief Test"; //--- ToDo: Localize;
+                    text = "Unit, Group, and Side Brief";
                     x = QUOTE(0.01 * safezoneW);
                     y = QUOTE(0.15 * safezoneH);
                     w = QUOTE(0.52 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE([] call FUNC(uihook_groupUnitBriefTest));
+                    action = QUOTE([] call FUNC(uihook_unitGroupSideBrief));
                 };
                 class RscButton_160055444: RscButton {
                     idc = -1;
