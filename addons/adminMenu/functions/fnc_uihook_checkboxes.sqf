@@ -14,8 +14,8 @@
  * None
  *
  * Examples:
- * [checkbox_IDC, 0] call potato_safeStart_fnc_forceEndSafeStart;
- * [checkbox_control, 1, false] call potato_safeStart_fnc_forceEndSafeStart;
+ * [checkbox_IDC, 0] call potato_adminMenu_fnc_uihook_checkboxes;
+ * [checkbox_control, 1, false] call potato_adminMenu_fnc_uihook_checkboxes;
  *
  * Public: No
  */
