@@ -28,7 +28,7 @@ private _briefs = [];
         private _name = if (_x isEqualType objNull) then {
             ((roleDescription _x) splitString "@")#0
         } else {
-            groupID _x
+            groupId _x
         };
         _briefs pushBack format ["<font size=""14"" face=""PuristaBold"">%1</font><br/>%2",_name,_brief];
     };
