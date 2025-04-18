@@ -37,7 +37,9 @@ private _briefs = ["<font size=20 ace=""PuristaBold"">Group and Unit Briefs</fon
 if !(player diarySubjectExists "POTATO") then {
     player createDiarySubject ["POTATO", "POTATO"];
 };
-player createDiaryRecord ["POTATO", ["Group and Unit Briefs", _briefs joinString "<br/><br/>"], taskNull, "NONE", false];
+if (count _briefs > 1) then {
+    player createDiaryRecord ["POTATO", ["Group and Unit Briefs", _briefs joinString "<br/><br/>"], taskNull, "NONE", false];
+};
 
 {
     private _sideText = [format ["<font size=28 face=""PuristaBold"">%1 Brief</font><br/>",_x]];
