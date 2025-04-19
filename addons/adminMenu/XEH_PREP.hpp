@@ -28,6 +28,7 @@ PREP(uihook_resetMedicalButton);
 PREP(uihook_resetSpectateButton);
 PREP(uihook_teleportButton);
 PREP(uihook_weaponTest);
+PREP(uihook_unitGroupSideBrief);
 PREP(uihook_zeusConnectPlayer);
 PREP(uihook_enableMissionTesting);
 

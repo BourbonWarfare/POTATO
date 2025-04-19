@@ -423,11 +423,20 @@ class GVAR(adminMenuDialog) {
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_checkSettings));
                 };
+                class RscButton_UnitAndGroupBrief: RscButton {
+                    idc = -1;
+                    text = "Unit, Group, and Side Brief";
+                    x = QUOTE(0.01 * safezoneW);
+                    y = QUOTE(0.15 * safezoneH);
+                    w = QUOTE(0.52 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_unitGroupSideBrief));
+                };
                 class RscButton_160055444: RscButton {
                     idc = -1;
                     text = "Weapons Test"; //--- ToDo: Localize;
                     x = QUOTE(0.01 * safezoneW);
-                    y = QUOTE(0.15 * safezoneH);
+                    y = QUOTE(0.22 * safezoneH);
                     w = QUOTE(0.52 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_weaponTest));
@@ -436,7 +445,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Enable Mission Checklist"; //--- ToDo: Localize;
                     x = QUOTE(0.01 * safezoneW);
-                    y = QUOTE(0.22 * safezoneH);
+                    y = QUOTE(0.29 * safezoneH);
                     w = QUOTE(0.52 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_enableMissionTesting));
