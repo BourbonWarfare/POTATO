@@ -11,7 +11,7 @@
 * None
 *
 * Examples:
-* [] call potato_adminMenu_fnc_unitGroupSideBrief;
+* [] call potato_adminMenu_fnc_uihook_unitGroupSideBrief;
 *
 * Public: No
 */
