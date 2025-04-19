@@ -19,3 +19,4 @@ PREP(convertNewLineToHTML);
 PREP(displayDanger);
 PREP(displayDebriefing);
 PREP(setBriefingVar);
+PREP(sortOrbat);
