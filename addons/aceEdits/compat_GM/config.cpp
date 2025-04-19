@@ -1,6 +1,6 @@
 #include "\z\potato\addons\aceEdits\script_component.hpp"
 #undef COMPONENT
-#define COMPONENT aceDits_compat_GM
+#define COMPONENT aceEdits_compat_GM
 
 class CfgPatches {
     class ADDON {
