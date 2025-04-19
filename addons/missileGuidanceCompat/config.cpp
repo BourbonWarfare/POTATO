@@ -15,4 +15,3 @@ class CfgPatches {
 
 #include "CfgMissileTypesWarsaw.hpp"
 #include "CfgMissileTypesNato.hpp"
-#include "CfgAmmo.hpp"

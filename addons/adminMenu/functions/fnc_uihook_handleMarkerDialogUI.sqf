@@ -27,7 +27,7 @@
  * None
  *
  * Examples:
- * [false] call potato_adminMenu_uihook_handleMarkersDialogUI;
+ * [false] call potato_adminMenu_uihook_handleMarkerDialogUI;
  *
  * Public: No
  */
