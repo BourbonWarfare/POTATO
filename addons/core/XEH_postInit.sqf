@@ -38,6 +38,7 @@ if (hasInterface) then {
         private _returnValue = nil;
         // Block player messages, not on breifing, who are not spectators
         if ((isPlayer _person) && {CBA_missionTime > 0} && {getNumber (configOf _person >> "isPlayableLogic") != 1}) then {
+            if (_sentenceType == 0) exitWith {}; // probably a scripted `globalChat` or `sideChat` message
             if ((_text select [0,5]) == "force") then {
                 // _returnValue = _text select [5]; // optionally clean up text
             } else {
