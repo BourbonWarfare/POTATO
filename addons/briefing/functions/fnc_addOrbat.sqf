@@ -17,7 +17,7 @@
 TRACE_1("params",_this);
 
 _this spawn {
-    params ["_unit", ["_delay", 1, [123]]];
+    params ["_unit", ["_delay", 10, [123]]];
     uiSleep _delay;
 
     TRACE_1("",_unit);
@@ -27,7 +27,7 @@ _this spawn {
     private _drawCompact = GVAR(useCompactOrbat);
     private _shouldSort = GVAR(sortOrbat);
     {
-        if (({isPlayer _x || true} count (units _x)) > 0) then {
+        if (({isPlayer _x} count (units _x)) > 0) then {
             if (((side _x) getFriend playerSide) >= 0.6) then {
                 private _color = switch (side _x) do {
                     case (west): { "#0088EE" }; // use profile colors here?
