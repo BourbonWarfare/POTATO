@@ -24,4 +24,9 @@ class CfgAmmo {
             lineGainD = 10;
         };
     };
+    // clean up missile and smoke mod to make Vikhr's visible
+    class M_Scalpel_AT;
+    class ace_missile_vikhr_9k121: M_Scalpel_AT {
+        effectsMissile = "Missile2_vanilla";
+    };
 };
