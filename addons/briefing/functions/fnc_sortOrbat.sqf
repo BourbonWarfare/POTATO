@@ -132,9 +132,9 @@ _subKeys = [];
     private _idx = _roleDescript find "(";
     private _keysToFind = if (_idx < 0) then {
         switch (true) do {
-            ("1" in _leadStr): {["alpha", "bravo", "charlie"]};
-            ("3" in _leadStr): {["delta", "echo", "foxtrot"]};
-            ("2" in _leadStr): {["golf", "hotel", "india"]};
+            case ("1" in _leadStr): {["alpha", "bravo", "charlie"]};
+            case ("3" in _leadStr): {["delta", "echo", "foxtrot"]};
+            case ("2" in _leadStr): {["golf", "hotel", "india"]};
             default {["alpha", "bravo", "charlie"]};
         }
     } else {
