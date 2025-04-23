@@ -18,9 +18,10 @@
 private _debugMsg = format ["Group and Unit Brief Test"];
 ["potato_adminMsg", [_debugMsg, profileName]] call CBA_fnc_globalEvent;
 
-//Needs a player to add to breifing:
+// Needs a player to add to breifing:
 if ((isNull player) || {!alive player}) exitWith {};
 
+/// Group and Unit
 private _briefs = ["<font size=20 ace=""PuristaBold"">Group and Unit Briefs</font>"];
 {
     private _brief = _x getVariable ["potato_briefing_briefing", ""];
@@ -41,22 +42,23 @@ if (count _briefs > 1) then {
     player createDiaryRecord ["POTATO", ["Group and Unit Briefs", _briefs joinString "<br/><br/>"], taskNull, "NONE", false];
 };
 
+/// Side briefing
 {
     private _sideText = [format ["<font size=28 face=""PuristaBold"">%1 Brief</font><br/>",_x]];
     private _sideBriefMission = getMissionConfigValue [format [QEGVAR(briefing,brief%1Mission), _x], ""];
     private _sideBriefSituation = getMissionConfigValue [format [QEGVAR(briefing,brief%1Situation), _x], ""];
     private _sideBriefAdministration = getMissionConfigValue [format [QEGVAR(briefing,brief%1Administration), _x], ""];
-    if (_sideBriefAdministration != "") then {
-        _sideText pushBack "<font size=20 face=""PuristaBold"">Admin</font>";
-        _sideText pushBack (_sideBriefAdministration + "<br/>");
+    if (_sideBriefSituation != "") then {
+        _sideText pushBack "<font size=20 face=""PuristaBold"">Situation</font>";
+        _sideText pushBack (_sideBriefSituation + "<br/>");
     };
     if (_sideBriefMission != "") then {
         _sideText pushBack "<font size=20 face=""PuristaBold"">Mission</font>";
         _sideText pushBack (_sideBriefMission + "<br/>");
     };
-    if (_sideBriefSituation != "") then {
-        _sideText pushBack "<font size=20 face=""PuristaBold"">Situation</font>";
-        _sideText pushBack (_sideBriefSituation + "<br/>");
+    if (_sideBriefAdministration != "") then {
+        _sideText pushBack "<font size=20 face=""PuristaBold"">Admin</font>";
+        _sideText pushBack (_sideBriefAdministration + "<br/>");
     };
     if (count _sideText > 1) then {
         player createDiaryRecord [

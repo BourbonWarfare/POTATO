@@ -14,7 +14,8 @@ class CfgPatches {
             GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(02),
             GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(03),
             GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(04),
-            GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(05)
+            GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(05),
+            GENERIC_CUP_ADAPTED_FLASHLIGHT_LMD(06)
         };
         units[] = {};
         requiredVersion = REQUIRED_VERSION;

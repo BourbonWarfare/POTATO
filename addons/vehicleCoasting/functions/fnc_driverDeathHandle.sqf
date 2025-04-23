@@ -29,9 +29,12 @@ if (!local _vehicle) exitWith {
     TRACE_1("Not local",_vehicle);
 };
 #ifdef DEBUG_MODE_FULL
-diag_log text (str _vehicle + " lt: " + str (_vehicle getHitPointDamage "hitltrack") + " rt: "
-        + str (_vehicle getHitPointDamage "hitrtrack") + " e: "
-        + str (_vehicle getHitPointDamage "hitengine"));
+diag_log formatText [
+    "%1 lt: %2 rt: %3",
+    str _vehicle,
+    _vehicle getHitPointDamage "hitltrack",
+    _vehicle getHitPointDamage "hitrtrack"
+];
 #endif
 
 private _driver = driver _vehicle;
@@ -40,7 +43,7 @@ if (!(_vehicle isKindOf "LandVehicle") ||
     !alive _vehicle ||
     _unit != _driver ||
     (getObjectID _vehicle) in GVAR(activeVehicles)) exitWith {
-    TRACE_4("ExitHandle",typeOf _vehicle,speed _vehicle,_unit,_driver);
+    TRACE_5("ExitHandle",typeOf _vehicle,speed _vehicle,_unit,_driver,alive _driver);
 };
 
 TRACE_3("Continuing",_unit,_vehicle,speed _vehicle);

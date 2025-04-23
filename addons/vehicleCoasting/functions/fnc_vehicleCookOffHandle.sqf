@@ -24,9 +24,12 @@ if !(alive _vehicle && local _vehicle &&
     TRACE_3("invalid vehicle",alive _vehicle,local _vehicle,alive driver _vehicle);
 };
 #ifdef DEBUG_MODE_FULL
-diag_log text (str _vehicle + " lt: " + str (_vehicle getHitPointDamage "hitltrack") + " rt: "
-        + str (_vehicle getHitPointDamage "hitrtrack") + " e: "
-        + str (_vehicle getHitPointDamage "hitengine"));
+diag_log formatText [
+    "%1 lt: %2 rt: %3",
+    str _vehicle,
+    _vehicle getHitPointDamage "hitltrack",
+    _vehicle getHitPointDamage "hitrtrack"
+];
 #endif
 private _driver = driver _vehicle;
 // Make it happen more often

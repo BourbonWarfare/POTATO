@@ -478,7 +478,7 @@ class CfgWeapons {
         };
     };
     class GVAR(acc_cup_Flashlight_04_Wide): GVAR(acc_cup_Flashlight_02_Wide) {
-        displayName="Flashlight (Flood, White)";
+        displayName="Flashlight (Flood, Red)";
         MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_04);
         MRT_SwitchItemPrevClass = QGVAR(acc_cup_Flashlight_04_Spot);
         MRT_switchItemHintText = "Flashlight (Flood, Red)";
@@ -504,10 +504,10 @@ class CfgWeapons {
         };
     };
     class GVAR(acc_cup_Flashlight_05_Spot): GVAR(acc_cup_Flashlight_02_Spot) {
-        displayName="Flashlight (White, Red)";
+        displayName="Flashlight (Multimode, Medium White)";
         MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_05_Wide);
         MRT_SwitchItemPrevClass = QGVAR(acc_cup_Flashlight_05);
-        MRT_switchItemHintText = "Flashlight (White, Red)";
+        MRT_switchItemHintText = "Flashlight (Medium White)";
         baseWeapon = QGVAR(acc_cup_Flashlight_05);
         class ItemInfo: ItemInfo {
             class FlashLight: FlashLight {
@@ -527,10 +527,10 @@ class CfgWeapons {
         };
     };
     class GVAR(acc_cup_Flashlight_05): GVAR(acc_cup_Flashlight_02) {
-        displayName="Flashlight (Multimode, White)";
+        displayName="Flashlight (Multimode, Medium White)";
         MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_05_Spot);
         MRT_SwitchItemPrevClass = QGVAR(acc_cup_Flashlight_05_Wide);
-        MRT_switchItemHintText = "Flashlight (White)";
+        MRT_switchItemHintText = "Flashlight (Medium White)";
         class ItemInfo: ItemInfo {
             class FlashLight: FlashLight {
                 ACE_Flashlight_Size = 1;
@@ -548,10 +548,10 @@ class CfgWeapons {
         };
     };
     class GVAR(acc_cup_Flashlight_05_Wide): GVAR(acc_cup_Flashlight_02_Wide) {
-        displayName="Flashlight (Flood, White)";
+        displayName="Flashlight (Flood, Medium White)";
         MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_05);
         MRT_SwitchItemPrevClass = QGVAR(acc_cup_Flashlight_05_Spot);
-        MRT_switchItemHintText = "Flashlight (Flood, White)";
+        MRT_switchItemHintText = "Flashlight (Flood, Medium White)";
         baseWeapon = QGVAR(acc_cup_Flashlight_05);
         class ItemInfo: ItemInfo {
             class FlashLight: FlashLight {
@@ -564,6 +564,47 @@ class CfgWeapons {
                 class Attenuation: Attenuation {
                     hardLimitStart = 30;
                     hardLimitEnd = 80;
+                    start = 5;
+                };
+            };
+        };
+    };
+    class GVAR(acc_cup_Flashlight_06_Spot): GVAR(acc_cup_Flashlight_05_Spot) {
+        displayName="Flashlight (Spot, White)";
+        MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_06_Wide);
+        MRT_SwitchItemPrevClass = QGVAR(acc_cup_Flashlight_06);
+        MRT_switchItemHintText = "Flashlight (Spot, White)";
+        baseWeapon = QGVAR(acc_cup_Flashlight_06);
+        class ItemInfo: ItemInfo {};
+    };
+    class GVAR(acc_cup_Flashlight_06): GVAR(acc_cup_Flashlight_05) {
+        displayName="Flashlight (Multimode, White)";
+        MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_06_Spot);
+        MRT_SwitchItemPrevClass = QGVAR(acc_cup_Flashlight_06_Wide);
+        MRT_switchItemHintText = "Flashlight (White)";
+        class ItemInfo: ItemInfo {};
+    };
+    class GVAR(acc_cup_Flashlight_06_Wide): GVAR(acc_cup_Flashlight_05_Wide) {
+        displayName="Flashlight (Flood, White)";
+        MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_06);
+        MRT_SwitchItemPrevClass = QGVAR(acc_cup_Flashlight_06_Spot);
+        MRT_switchItemHintText = "Flashlight (Flood, White)";
+        baseWeapon = QGVAR(acc_cup_Flashlight_06);
+        class ItemInfo: ItemInfo {
+            class FlashLight: FlashLight {
+                ACE_Flashlight_Size = 1;
+                useFlare = 1;
+                flareMaxDistance = 40;
+                flareSize = 1;
+                intensity = 4;
+                volumeShape = "";
+                class Attenuation: Attenuation {
+                    hardLimitStart = 30;
+                    hardLimitEnd = 80;
+                    start = 1;
+                    constant = 0.5;
+                    linear = 0;
+                    quadratic = 0.02;
                 };
             };
         };
@@ -588,6 +629,7 @@ class asdg_FrontSideRail: asdg_SlotInfo {
         ACC_FLASHLIGHT_TRIPLET_LMD(03);
         ACC_FLASHLIGHT_TRIPLET_LMD(04);
         ACC_FLASHLIGHT_TRIPLET_LMD(05);
+        ACC_FLASHLIGHT_TRIPLET_LMD(06);
     };
 };
 class PointerSlot;
@@ -616,5 +658,6 @@ class rhs_russian_ak_barrel_slot: SlotInfo {
         ACC_FLASHLIGHT_TRIPLET_LMD(03);
         ACC_FLASHLIGHT_TRIPLET_LMD(04);
         ACC_FLASHLIGHT_TRIPLET_LMD(05);
+        ACC_FLASHLIGHT_TRIPLET_LMD(06);
 	};
 };
