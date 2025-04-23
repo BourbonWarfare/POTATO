@@ -43,6 +43,9 @@ TRACE_1("Coast handler",CBA_missionTime);
 
 if (GVAR(activeVehicles) isEqualTo createHashMap) then {
     GVAR(loopRunning) = false;
+    #ifdef DEBUG_MODE_DRAW_EH
+    call FUNC(cleanDraw);
+    #endif
 } else {
     [{call FUNC(coastVehicles)}, 0, COAST_LOOP_INTERVAL] call CBA_fnc_waitAndExecute;
 };
