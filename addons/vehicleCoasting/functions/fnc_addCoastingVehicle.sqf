@@ -34,11 +34,11 @@ if (_vehicle getHitPointDamage "hitrtrack" >  0.8 ||
         {_vehicle getHitPointDamage "hitltrack" >  0.8}) then {
     _vehicle setHitPointDamage ["hitrtrack", 0.4 min (_vehicle getHitPointDamage "hitrtrack"), false];
     _vehicle setHitPointDamage ["hitltrack", 0.4 min (_vehicle getHitPointDamage "hitltrack"), false];
-    _freeRunLen = 1 + random 2;
+    _freeRunLen = 2 + random 3;
 };
 
 if (_vehicle isKindOf "Car_F") then {
-    _freeRunLen = _freeRunLen / 4;
+    _freeRunLen = _freeRunLen / 2;
 };
 
 private _startTime = 1 + random 1;
