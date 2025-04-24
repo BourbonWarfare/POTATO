@@ -10,7 +10,8 @@ class CfgPatches {
         requiredAddons[] = {
             "potato_core",
             "potato_miscFixes",
-            "rhs_main_loadorder"
+            "rhs_main_loadorder",
+            "ace_compat_rhs_afrf3_missileguidance"
         };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
