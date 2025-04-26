@@ -200,7 +200,7 @@ class CfgVehicles {
     // CUP UH-60M
     class Helicopter; // might need to inherit from Air;
     class Helicopter_Base_F: Helicopter {};
-    class Helicopter_Base_H: Helicopter_Base_F {}:
+    class Helicopter_Base_H: Helicopter_Base_F {};
     class CUP_Uh60_Base: Helicopter_Base_H {
         class textureSources {
             class AUS { // adds Australian UH-60M skin authored by the ADF Re-Cut [Beta] team: (https://steamcommunity.com/sharedfiles/filedetails/?id=2971219389)
@@ -210,6 +210,22 @@ class CfgVehicles {
                     QPATHTOEF(miscFixes,patchCUP\data\aussie_uh60m_fuselage_co.paa),
                     QPATHTOEF(miscFixes,patchCUP\data\aussie_uh60m_engine_co.paa),
                     "cup\airvehicles\cup_airvehicles_uh60\data\default_co.paa"
+                };
+            };
+        };
+    };
+    
+    // CUP CH-47F
+    class CUP_CH47F_base: Helicopter_Base_H {
+        class textureSources {
+            class AUS { // adds Australian CH-47F skin authored by the ADF Re-Cut [Beta] team: (https://steamcommunity.com/sharedfiles/filedetails/?id=2971219389)
+                displayname = "Australian";
+                author = "ADF Re-Cut [Beta] Team";
+                textures[] = {
+                    "cup\airvehicles\cup_airvehicles_ch47\data\ch47_ext_1_co.paa",
+                    "cup\airvehicles\cup_airvehicles_ch47\data\ch47_ext_2_co.paa",
+                    QPATHTOEF(miscFixes,patchCUP\data\aussie_ch47f_nalepky_ca.paa),
+                    "cup\airvehicles\cup_airvehicles_ch47\data\ch47_ext_mlod_co.paa"
                 };
             };
         };
