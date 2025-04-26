@@ -198,7 +198,7 @@ class CfgVehicles {
     };
     
     // CUP UH-60M
-    class Helicopter; // might need to inherit from Air;
+    class Helicopter; // might need to inherit from Air; per the CH-47 config?
     class Helicopter_Base_F: Helicopter {};
     class Helicopter_Base_H: Helicopter_Base_F {};
     class CUP_Uh60_Base: Helicopter_Base_H {
@@ -237,8 +237,8 @@ class CfgVehicles {
                     "cup\airvehicles\cup_airvehicles_ch47\data\ch47_ext_mlod_co.paa"
                 };
             };
-            class AUS_GREY { // adds Australian CH-47F skin authored by the ADF Re-Cut [Beta] team: (https://steamcommunity.com/sharedfiles/filedetails/?id=2971219389)
-                displayname = "Australian Army (alt)";
+            class AUS_GREY { // adds alt Australian CH-47F skin authored by the ADF Re-Cut [Beta] team: (https://steamcommunity.com/sharedfiles/filedetails/?id=2971219389)
+                displayname = "Australian Army (Gray)";
                 author = "ADF Re-Cut [Beta] Team";
                 textures[] = {
                     QPATHTOEF(miscFixes,patchCUP\data\aussie_ch47f_ext_1_co.paa),
