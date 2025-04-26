@@ -198,7 +198,7 @@ class CfgVehicles {
     };
     
     // CUP UH-60M
-    class Helicopter
+    class Helicopter; // might need to inherit from Air;
     class Helicopter_Base_F: Helicopter {};
     class Helicopter_Base_H: Helicopter_Base_F {}:
     class CUP_Uh60_Base: Helicopter_Base_H {
