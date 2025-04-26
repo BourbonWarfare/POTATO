@@ -213,7 +213,7 @@ class CfgVehicles {
                 };
             };
             class PTV { // adds Project True Viking 2.0 UH-60M skin made by Chesheire
-                displayname = "Askelandic Army";
+                displayname = "Askeland Defense Force";
                 author = "Chesheire";
                 textures[] = {
                     QPATHTOEF(miscFixes,patchCUP\data\ptv_mh60s_fuselage_co.paa),
