@@ -45,7 +45,6 @@ class CfgVehicles {
     class potato_s_g3cw_serp_m05wdl_v2: ptv_s_m08 {
         author = "AMF/VityaB/Siege-A & PTV/Chesheire";
         scope = 2;
-        displayName = "Särmä TST L6 Hardshell Jacket (M05 Wdl) v2";
         model = "\ptv_characters\uniforms\ptv_Uniform_07.p3d";
         modelSides[] = {3,1};
         nakedUniform = "U_BasicBody";
@@ -75,7 +74,6 @@ class CfgVehicles {
     class potato_s_g3cw_serp_m05wdl_v3: ptv_s_m08 {
         author = "AMF/VityaB/Siege-A & PTV/Chesheire";
         scope = 2;
-        displayName = "Särmä TST L6 Hardshell Jacket (M05 Wdl) v3";
         model = "\ptv_characters\uniforms\ptv_Uniform_07.p3d";
         modelSides[] = {3,1};
         nakedUniform = "U_BasicBody";
@@ -105,7 +103,6 @@ class CfgVehicles {
     class potato_s_g3cw_serp_m05wdlwint: ptv_s_m08 {
         author = "AMF/VityaB/Siege-A & PTV/Chesheire";
         scope = 2;
-        displayName = "Särmä TST L6 Hardshell Jacket (M05 Wdl/Wint)";
         model = "\ptv_characters\uniforms\ptv_Uniform_07.p3d";
         modelSides[] = {3,1};
         nakedUniform = "U_BasicBody";
@@ -135,7 +132,6 @@ class CfgVehicles {
     class potato_s_g3cw_serp_m05wdlwint_v2: ptv_s_m08 {
         author = "AMF/VityaB/Siege-A & PTV/Chesheire";
         scope = 2;
-        displayName = "Särmä TST L6 Hardshell Jacket (M05 Wdl/Wint) v2";
         model = "\ptv_characters\uniforms\ptv_Uniform_07.p3d";
         modelSides[] = {3,1};
         nakedUniform = "U_BasicBody";

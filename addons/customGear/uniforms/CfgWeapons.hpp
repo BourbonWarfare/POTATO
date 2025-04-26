@@ -25,7 +25,7 @@ class CfgWeapons {
     };
     
     class csla_jehlici: jasons_indfor_uniform_base {
-        displayName = "CZE M69 (Jehlici)";
+        displayName = "ČSLA M69 (Jehlici)";
 		picture = "\cwr3\humans\cwr3_soldiers_rus\ui\cwr3_u_m82_ca.paa";
 		hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {
@@ -43,7 +43,7 @@ class CfgWeapons {
     };
     
     class csla_tan_jehlici: csla_jehlici {
-        displayName = "CZE M69 (Jehlici,Tan)";
+        displayName = "ČSLA M69 (Jehlici, Tan)";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {
             QPATHTOEF(customGear,uniforms\data\czech_needle_brown_uniform_1_co.paa)
@@ -65,7 +65,7 @@ class CfgWeapons {
     class potato_u_g3cw_serp_m05wdl_v2: ptv_u_m08 {
 		author = "HOBO/LYYAMAO/AMF & PTV/Chesheire";
 		scope = 2;
-		displayName = "Särmä TST L6 Hardshell Jacket (M05 Wdl) v2";
+		displayName = "Särmä TST L6 Hardshell Jacket (M05 Wdl) + flag";
 		picture = "\ptv_characters\data\ui\icon_u_ptv_uniform_03_ca.paa";
 		model = "\ptv_characters\uniforms\ptv_suitpack_uni_02";
 		hiddenSelections[] = {
@@ -86,7 +86,7 @@ class CfgWeapons {
     class potato_u_g3cw_serp_m05wdl_v3: ptv_u_m08 {
 		author = "HOBO/LYYAMAO/AMF & PTV/Chesheire";
 		scope = 2;
-		displayName = "Särmä TST L6 Hardshell Jacket (M05 Wdl) v3";
+		displayName = "Särmä TST L6 Hardshell Jacket (M05 Wdl)";
 		picture = "\ptv_characters\data\ui\icon_u_ptv_uniform_03_ca.paa";
 		model = "\ptv_characters\uniforms\ptv_suitpack_uni_02";
 		hiddenSelections[] = {
@@ -141,7 +141,7 @@ class CfgWeapons {
         };
 		class ItemInfo: UniformItem {
 			uniformModel = "-";
-			uniformClass = "potato_s_g3cw_serp_m05wdlwint";
+			uniformClass = "potato_s_g3cw_serp_m05wdlwint_v2";
 			containerClass = "Supply40";
 			mass = 40;
 		};
@@ -153,7 +153,7 @@ class CfgWeapons {
 		author = "AChesheireCat";
 		scope = 2;
 		allowedSlots[] = {901};
-		displayName = "Crye Gen 3  (MARPAT Woodland v8)";
+		displayName = "Crye Gen 3  (MARPAT Woodland v1)";
 		picture = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_USArmy\data\ui\icon_CUP_CRYE_V1_Full.paa";
 		model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
 		class ItemInfo: UniformItem {
@@ -167,7 +167,7 @@ class CfgWeapons {
 		author = "AChesheireCat";
 		scope = 2;
 		allowedSlots[] = {901};
-		displayName = "Crye Gen 3  (MARPAT Woodland v9)";
+		displayName = "Crye Gen 3  (MARPAT Woodland v2)";
 		picture = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_USArmy\data\ui\icon_CUP_CRYE_V1_Full.paa";
 		model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
 		class ItemInfo: UniformItem {
