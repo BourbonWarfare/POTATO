@@ -26,7 +26,7 @@ class CfgPatches {
 class MainTurret: MainTurret {\
     disableSoundAttenuation = 1;\
     };\
-};
+}
 
 #include "CfgAmmo.hpp"
 class CfgVehicles {
@@ -205,13 +205,13 @@ class CfgVehicles {
         class textureSources {
             class AUS {
                 displayname = "Australian";
-				author = "ADF Re-Cut [Beta] Team";
-				textures[] = {
+                author = "ADF Re-Cut [Beta] Team";
+                textures[] = {
                     QPATHTOEF(miscFixes,patchCUP\data\aussie_uh60m_fuselage_co.paa),
                     QPATHTOEF(miscFixes,patchCUP\data\aussie_uh60m_engine_co.paa),
                     "cup\airvehicles\cup_airvehicles_uh60\data\default_co.paa"
                 };
-				factions[] = {};
+                factions[] = {};
             };
         };
     };
@@ -219,14 +219,14 @@ class CfgVehicles {
         class textureSources {
             class AUS {
                 displayname = "Australian";
-				author = "ADF Re-Cut [Beta] Team";
-				textures[] = {
+                author = "ADF Re-Cut [Beta] Team";
+                textures[] = {
                     "cup\airvehicles\cup_airvehicles_ch47\data\ch47_ext_1_co.paa",
                     "cup\airvehicles\cup_airvehicles_ch47\data\ch47_ext_2_co.paa",
                     QPATHTOEF(miscFixes,patchCUP\data\aussie_ch47f_nalepky_ca.paa),
                     "cup\airvehicles\cup_airvehicles_ch47\data\ch47_ext_mlod_co.paa"
                 };
-				factions[] = {};
+                factions[] = {};
             };
         };
     };
