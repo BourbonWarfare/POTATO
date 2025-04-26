@@ -26,7 +26,7 @@ class CfgPatches {
 class MainTurret: MainTurret {\
     disableSoundAttenuation = 1;\
     };\
-}
+};
 
 #include "CfgAmmo.hpp"
 class CfgVehicles {
