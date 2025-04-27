@@ -64,7 +64,7 @@ GVAR(techOnlyTesting) = false; // can set to true to force bot to run (but not p
         private _missionType = getMissionConfigValue [QEGVAR(missionTesting,missionType), 0];
         if (_missionType == 0) exitWith { INFO_1("ignoring mission type %1",_missionType) };
         private _missionTypeStr = ["Other", "COOP", "TvT"] select _missionType;
-        ["embed", "tech", GVAR(orbat), format ["Mission End: %1", _missionTypeStr]] call FUNC(botMessage);
+        ["embed", "arma", GVAR(orbat), format ["Mission End: %1", _missionTypeStr]] call FUNC(botMessage);
     }];
 }] call CBA_fnc_waitUntilAndExecute;
 
