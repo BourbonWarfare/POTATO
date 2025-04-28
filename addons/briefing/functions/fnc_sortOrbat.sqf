@@ -69,7 +69,7 @@ _orbatAbrev set ["wsl", [_leadKey, _subKeys]];
             _subKeys pushBack _groupID;
             _argArray set [2, true];
         };
-    } forEach ["mtr", "hmg", "mmg", "mat", "hat", "sniper", "st", "sam", "demo", "arty", "truck"];
+    } forEach ["mtr", "hmg", "mmg", "mat", "hat", "sniper", "st", "sam", "demo", "arty"];
 } forEach _orbatToSort;
 
 /// Armor / SV
@@ -86,7 +86,7 @@ _orbatAbrev set ["ARMOR_NOLEAD", ["", _subKeys]];
             _subKeys pushBack _groupID;
             _argArray set [2, true];
         };
-    } forEach ["ifv", "tank", "support", "sv", "tnk", "apc"];
+    } forEach ["ifv", "tank", "support", "sv", "tnk", "apc", "truck", "technical", "gun"];
 } forEach _orbatToSort;
 
 /// Air (AH/TH)
