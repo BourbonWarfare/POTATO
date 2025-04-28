@@ -86,7 +86,7 @@ _orbatAbrev set ["ARMOR_NOLEAD", ["", _subKeys]];
             _subKeys pushBack _groupID;
             _argArray set [2, true];
         };
-    } forEach ["ifv", "tank", "support", "sv", "tnk"];
+    } forEach ["ifv", "tank", "support", "sv", "tnk", "apc"];
 } forEach _orbatToSort;
 
 /// Air (AH/TH)
@@ -279,7 +279,9 @@ private _fnc_enumAlpha = {
     _args params ["_lead", "_groups"];
     if (_lead == "" && _groups isEqualTo []) then {continue};
     _diaryBuilderArray pushBack _str;
+    private _addedPlt = false;
     if (_lead != "") then {
+        _addedPlt = true;
         private _args = _orbatToSort get _lead;
         _diaryBuilderArray pushBack (_args#1);
     };
@@ -295,11 +297,12 @@ private _fnc_enumAlpha = {
         };
         {
             private _args = _orbatToSort get _x;
-            if ("sl" in toLowerANSI _x || { // nasty regex isn't it?
+            if (_addedPlt && ("sl" in toLowerANSI _x || { // nasty regex isn't it?
                 (_x regexMatch ".*alpha.*|.*bravo.*|.*charlie.*|.*delta.*|.*echo.*|.*foxtrot.*|.*golf.*|.*hotel.*|.*india.*/gi")
-            }) then {
+            })) then {
                 _diaryBuilderArray pushBack ("<font size='4'><br/></font>" + (_args#1));
             } else {
+                _addedPlt = true;
                 _diaryBuilderArray pushBack (_args#1);
             };
         } forEach _groups;
