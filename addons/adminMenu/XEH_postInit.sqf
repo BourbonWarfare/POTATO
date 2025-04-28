@@ -55,6 +55,10 @@
 }] call CBA_fnc_addEventHandler;
 
 GVAR(openEndMission) = false;
+[QGVAR(endMission), { 
+    // delay a frame to allow other scripts to complete
+    [FUNC(endMission), _this] call CBA_fnc_execNextFrame;
+}] call CBA_fnc_addEventHandler;
 
 if (isServer) then {
     GVAR(zeusCenter) = createCenter sideLogic;
