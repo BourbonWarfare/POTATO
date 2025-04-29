@@ -58,14 +58,14 @@ GVAR(techOnlyTesting) = false; // can set to true to force bot to run (but not p
 
 
     GVAR(orbat) = call FUNC(getOrbat); // simple leadership orbat, for now not handling jips/dc/respawn
-    addMissionEventHandler ["Ended", { 
+    [QEGVAR(adminMenu,endMission), {
         // Dump orbat at mission conclusion
-        params ["_endType"];
+        // params ["_side"];
         private _missionType = getMissionConfigValue [QEGVAR(missionTesting,missionType), 0];
         if (_missionType == 0) exitWith { INFO_1("ignoring mission type %1",_missionType) };
         private _missionTypeStr = ["Other", "COOP", "TvT"] select _missionType;
-        ["embed", "tech", GVAR(orbat), format ["Mission End: %1", _missionTypeStr]] call FUNC(botMessage);
-    }];
+        ["embed", "arma", GVAR(orbat), format ["Mission End: %1", _missionTypeStr]] call FUNC(botMessage);
+    }] call CBA_fnc_addEventHandler;
 }] call CBA_fnc_waitUntilAndExecute;
 
 
