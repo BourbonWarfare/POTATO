@@ -21,7 +21,7 @@ class CfgPatches {
             QPOTFIX(CUP_Rarden_CTWS_veh)
         };
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "cwr3_vehicle_fv101_uk", "cwr3_javelin_uk" };
+        requiredAddons[] = { "potato_core", "cwr3_vehicle_fv101_uk" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -43,25 +43,7 @@ class CfgMagazines {
         displayNameShort = "30mm APFSDS-T";
         count = 6;
     };
-    class cwr3_javelin_m;
-    class GVAR(blowpipe_m): cwr3_javelin_m {
-        displayName = "Blowpipe";
-        displayNameShort = "Blowpipe";
-        descriptionShort = "Range : 3500 m<br/>Type : ground-air<br/>Used in : Blowpipe";
-        author = "CWR III (BW Config)";
-        ammo = QGVAR(blowpipe_a);
-    };
 };
-#include "\z\potato\addons\missileGuidanceCompat\CfgMissileTypesNato.hpp"
-class CfgAmmo {
-    class CUP_M_Stinger_AA;
-    class GVAR(blowpipe_a): CUP_M_Stinger_AA {
-        class ace_missileguidance: ACEGVAR(missileguidance,type_Blowpipe) {
-            enabled = 1;
-        };
-    };
-};
-
 class CfgVehicles {
     class Tank;
     class Tank_F: Tank {
@@ -187,15 +169,5 @@ class CfgWeapons {
             magazineReloadTime = 3;
             magazines[] = {QPOTFIX(CUP_6Rnd_TE1_Red_Tracer_30mmGPR_M)};
         };
-    };
-    class cwr3_launch_javelin;
-    class GVAR(blowpipe): cwr3_launch_javelin {
-        displayName = "Blowpipe";
-        descriptionShort = "Blowpipe<br/>MCLOS Guided";
-        author = "CWR III (BW Config)";
-        baseWeapon = QGVAR(blowpipe);
-        scope = 2;
-        canLock = 0;
-        magazines[] = {QGVAR(blowpipe_m)};
     };
 };
