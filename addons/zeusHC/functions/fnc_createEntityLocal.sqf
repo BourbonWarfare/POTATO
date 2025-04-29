@@ -18,7 +18,7 @@ private _createUnits = getArray (_config >> QGVAR(createUnits));
 private _crewAir = getText (_config >> QGVAR(crewAir));
 private _crewArmor = getText (_config >> QGVAR(crewArmor));
 
-TRACE_5("",_faction,_createVic,_createUnits,_crewAir,_crewArmor);
+TRACE_5("config params",_faction,_createVic,_createUnits,_crewAir,_crewArmor);
 
 private _side = switch (_faction) do {
     case ("east");
