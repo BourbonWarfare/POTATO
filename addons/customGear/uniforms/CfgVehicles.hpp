@@ -161,8 +161,7 @@ class CfgVehicles {
     
     // CUP Crye G3 retextures
     
-    class CUP_Creatures_Military_USMC_Soldier_Base: SoldierWB {};
-    class CUP_B_USMC_Soldier_02: CUP_Creatures_Military_USMC_Soldier_Base {};
+    class CUP_B_USMC_Soldier_02;
     class potato_CRYE_G3C_MARWDL_v8_US: CUP_B_USMC_Soldier_02 { // I think it's this one that's the best one iirc
 		author = "AChesheireCat";
 		scope = 1;
