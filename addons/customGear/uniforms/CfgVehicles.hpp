@@ -1,7 +1,4 @@
 class CfgVehicles {
-    class Man;
-    class CAManBase: Man {};
-    class SoldierWB: CAManBase {};
     class B_Soldier_base_F;
     class csla_jehlici_uniform_base: B_Soldier_base_F {
         model = "\cwr3\humans\cwr3_soldiers_rus\uniforms\cwr3_uniform_m69.p3d";
