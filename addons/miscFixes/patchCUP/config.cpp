@@ -198,9 +198,7 @@ class CfgVehicles {
     };
     
     // CUP UH-60M
-    class Helicopter; // might need to inherit from Air; per the CH-47 config?
-    class Helicopter_Base_F: Helicopter {};
-    class Helicopter_Base_H: Helicopter_Base_F {};
+    class Helicopter_Base_H;
     class CUP_Uh60_Base: Helicopter_Base_H {
         class textureSources {
             class AUS { // adds Australian UH-60M skin authored by the ADF Re-Cut [Beta] team: (https://steamcommunity.com/sharedfiles/filedetails/?id=2971219389)
