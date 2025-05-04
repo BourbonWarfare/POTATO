@@ -23,7 +23,7 @@ class CfgWeapons {
     class gm_145mm_kpvt_base: gm_autoCannon_base {
         class GunParticles: GunParticles {
             class Effect_01: Effect_01 {
-                effectName = "MachineGunCloud";
+                effectName = QGVARMAIN(MachineGunCloud);
             };
         };
     };
