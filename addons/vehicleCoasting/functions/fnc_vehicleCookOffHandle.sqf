@@ -21,7 +21,7 @@ TRACE_2("params",_vehicle,typeOf _vehicle);
 
 if !(alive _vehicle && local _vehicle &&
     !((getObjectID _vehicle) in GVAR(activeVehicles))) exitWith {
-    TRACE_3("invalid vehicle",alive _vehicle,local _vehicle,alive driver _vehicle);
+    TRACE_4("invalid vehicle",alive _vehicle,local _vehicle,alive driver _vehicle,(getObjectID _vehicle) in GVAR(activeVehicles));
 };
 #ifdef DEBUG_MODE_FULL
 diag_log formatText [
@@ -41,7 +41,6 @@ if (speed _vehicle < 4 || alive _driver ||
     !(_vehicle isKindOf "LandVehicle")) exitWith {
     TRACE_3("invalid vehicle",speed _vehicle,alive _driver,typeOf _vehicle);
 };
-if (random 1 < POTATO_VEHICLEC_COASTING_COOKOFF_CHANCE) then {
-    [_vehicle, _driver] call FUNC(addCoastingVehicle);
-    [_vehicle] call FUNC(forceBail);
-};
+TRACE_3("Continuing",_unit,_vehicle,speed _vehicle);
+[_vehicle, _driver] call FUNC(addCoastingVehicle);
+[_vehicle] call FUNC(forceBail);
