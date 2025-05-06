@@ -17,7 +17,7 @@
                 !isNull objectParent _unit) exitWith {};
             private _vehicle = vehicle _unit;
             TRACE_4("uncon vehicle",_vehicle,driver _vehicle,_unit == driver _vehicle,speed _vehicle);
-            if (_unit == driver _vehicle && speed _vehicle >= 3 && random 1 < POTATO_VEHICLEC_COASTING_UNCON_CHANCE) then {
+            if (_unit == driver _vehicle && speed _vehicle >= 3) then {
                 TRACE_2("entering addCoastingVehicle",_vehicle,_unit);
                 [_vehicle, _unit] call FUNC(addCoastingVehicle);
             };
