@@ -2,12 +2,11 @@
 
 [FUNC(loop), [], 5] call CBA_fnc_waitAndExecute;
 
-if ((GVAR(show) == 0) || {GVAR(show == 1) && {!EGVAR(safeStart,safeStartEnabled)}}) exitWith {
+if ((GVAR(show) == 0) || {GVAR(show) == 1 && {!EGVAR(safeStart,safeStartEnabled)}}) exitWith {
     if (GVAR(setOn) isEqualTo []) exitWith {};
     TRACE_1("full cleanup",GVAR(show));
     {
         _x setVariable ["diwako_dui_nametags_customGroup", nil];
-        _x setVariable [QGVAR(lastSet), nil];
     } forEach (GVAR(setOn) + allUnits); // handle respawns
     GVAR(setOn) = [];
 };
@@ -17,8 +16,6 @@ if ((GVAR(show) == 0) || {GVAR(show == 1) && {!EGVAR(safeStart,safeStartEnabled)
     if (_goby == "") then {
         _x setVariable ["diwako_dui_nametags_customGroup", nil];
     } else {
-        if (_goBy == (_x getVariable [QGVAR(lastSet), ""])) exitWith {}; // don't update if nothing changed
-        _x setVariable [QGVAR(lastSet), _goby];
         GVAR(setOn) pushBackUnique _x;
         TRACE_2("setting",_x, _goby);
 
