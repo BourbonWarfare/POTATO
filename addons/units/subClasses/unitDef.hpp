@@ -1,3 +1,23 @@
+#ifdef NO_LAMBS
+#define NO_LAMBS_CONFIG \
+crouchProbabilityCombat = 0.4;\
+crouchProbabilityEngage = 0.75;\
+crouchProbabilityHiding = 0.8;\
+formationTime = 5;\
+formationX = 5;\
+brakeDistance = 1;\
+sensitivity = 5;\
+fsmDanger = "";\
+class EventHandlers: EventHandlers {\
+    class PREFIX {\
+        init = "params [""_unit""]; _unit setVariable [""lambs_danger_disableAI"", true]; (group _unit) setVariable [""lambs_danger_disableGroupAI"", true];";\
+    };\
+};
+#else
+#define NO_LAMBS_CONFIG /* nothing */
+#endif
+
+
 #define FACTION_DEF(BASE_UNIT,FACTION_LETTER,SCOPE)\
 class BASE_UNIT: CAManBase {\
   class EventHandlers;\
@@ -8,21 +28,7 @@ class FACTION_MACRO(rifleman): BASE_UNIT {\
     faction = QUOTE(DOUBLES(PREFIX,FACTION_LETTER));\
     role = "Rifleman";\
     scope = SCOPE;\
-#ifdef NO_LAMBS\
-    crouchProbabilityCombat = 0.4;\
-    crouchProbabilityEngage = 0.75;\
-    crouchProbabilityHiding = 0.8;\
-    formationTime = 5;\
-    formationX = 5;\
-    brakeDistance = 1;\
-    sensitivity = 5;\
-    fsmDanger = "";\
-    class EventHandlers: EventHandlers {\
-        class PREFIX {\
-            init = "params [""_unit""]; _unit setVariable [""lambs_danger_disableAI"", true]; (group _unit) setVariable [""lambs_danger_disableGroupAI"", true];";\
-        };\
-    };\
-#endif\
+NO_LAMBS_CONFIG\
     editorSubcategory = "Fireteam";\
 };\
 class FACTION_MACRO(rifleman_02): FACTION_MACRO(rifleman) {\
