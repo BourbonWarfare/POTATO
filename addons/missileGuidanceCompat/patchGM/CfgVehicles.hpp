@@ -13,6 +13,20 @@ class CfgVehicles {
         };
     };
 
+    // M113A1G Milan
+    class gm_m113a1_base;
+    class gm_m113a1g_base: gm_m113a1_base {
+        class Turrets;
+    };
+    class gm_m113a1g_apc_milan_base: gm_m113a1g_base {
+        class MachineGunTurret_base;
+        class Turrets: Turrets {
+            class MilanTurret_01: MachineGunTurret_base {
+                magazines[] = {"gm_1Rnd_milan_heat_dm92_ace_mg","gm_1Rnd_milan_heat_dm92_ace_mg","gm_1Rnd_milan_heat_dm92_ace_mg","gm_1Rnd_milan_heat_dm92_ace_mg"};
+            };
+        };
+    };
+
     // Iltis with MILAN
     class gm_wheeled_car_base;
     class gm_iltis_base: gm_wheeled_car_base {
