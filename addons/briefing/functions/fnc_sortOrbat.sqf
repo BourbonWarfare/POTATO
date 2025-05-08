@@ -201,7 +201,6 @@ if (_subKeys isNotEqualTo []) then {
         } forEach ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india"];
     } forEach _orbatToSort;
 } else {
-    systemChat _leadKey;
     if (_leadKey == "") then {
         {
             private _groupID = _x;
@@ -258,20 +257,22 @@ _subKeys = _orbatArr#1;
     _leadKey = _orbatArr#0;
     _subKeys = _orbatArr#1;
 } forEach ["1pl", "2pl", "3pl"];
-{
-    private _groupID = _x;
-    _y params ["_roleDescript", "", "_used"];
-    if (_used) then {continue};
-    private _argArray = _y;
-    private _lowerGroupID = toLowerANSI _groupID;
-    private _lowerGroupDesc = toLowerANSI _roleDescript;
+if (_leadKey != "") then {
     {
-        if (_x in _lowerGroupDesc || _x in _lowerGroupID) exitWith {
-            _subKeys pushBack (" | " + _groupID);
-            _argArray set [2, true];
-        };
-    } forEach ["logi", "eng"];
-} forEach _orbatToSort;
+        private _groupID = _x;
+        _y params ["_roleDescript", "", "_used"];
+        if (_used) then {continue};
+        private _argArray = _y;
+        private _lowerGroupID = toLowerANSI _groupID;
+        private _lowerGroupDesc = toLowerANSI _roleDescript;
+        {
+            if (_x in _lowerGroupDesc || _x in _lowerGroupID) exitWith {
+                _subKeys pushBack (" | " + _groupID);
+                _argArray set [2, true];
+            };
+        } forEach ["logi", "eng"];
+    } forEach _orbatToSort;
+};
 
 /// Other
 _subKeys = [];
