@@ -63,6 +63,7 @@ switch (_exitCode) do {
                 default {(_display displayCtrl POTATO_MARKER_SIZE_IDC) lbSetCurSel 1};
             };
             private _iconIdx = [UNIT_MARKERS_STRINGS] find _icon;
+            _iconIdx = [_iconIdx, DEFAULT_MARKER_ICON_INDEX] select (_iconIdx < 0);
             if (_iconIdx >= 0 && _iconIdx < 20) then {
                 (_display displayCtrl POTATO_MARKER_ICON_IDC) lbSetCurSel _iconIdx;
             };

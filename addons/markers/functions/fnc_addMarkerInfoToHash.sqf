@@ -49,7 +49,7 @@ private _findIndex = COLOR_INDEX_ARRAY find _color;
 if (_findIndex >= 0) then {_color = _findIndex};
 
 _findIndex = [UNIT_MARKERS_STRINGS] find _icon;
-if (_findIndex >= 0) then {_icon = _findIndex};
+_icon = [_findIndex, DEFAULT_MARKER_ICON_INDEX] select (_findIndex < 0);
 
 if (_drawObject isEqualType grpNull) then {
     _drawObject = leader _drawObject;

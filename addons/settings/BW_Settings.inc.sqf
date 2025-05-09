@@ -23,6 +23,7 @@ _settings = [
 [QACEGVAR(medical_statemachine,AIUnconsciousness), false], // default: true
 [QACEGVAR(medical_statemachine,cardiacArrestTime), 180], // default: 30
 [QACEGVAR(medical_treatment,treatmentTimeTourniquet), 4], // default: 7
+[QACEGVAR(medical_treatment,treatmentTimeTrainedTourniquet), 4], // default: 7
 [QACEGVAR(medical_treatment,allowSharedEquipment), 3], // default: 0 (allows trained medics to use their own items first)
 
 ["ace_medical_engine_damagepassthrougheffect", 0],

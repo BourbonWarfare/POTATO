@@ -60,7 +60,7 @@ _subKeys = [];
 _orbatAbrev set ["wsl", [_leadKey, _subKeys]];
 {
     private _groupID =  _x;
-    _y params ["_roleDescript", "", "_used"];
+    _y params ["", "", "_used"];
     if (_used) then {continue};
     private _argArray = _y;
     private _lowerGroupID = toLowerANSI _groupID;
@@ -69,7 +69,7 @@ _orbatAbrev set ["wsl", [_leadKey, _subKeys]];
             _subKeys pushBack _groupID;
             _argArray set [2, true];
         };
-    } forEach ["mtr", "hmg", "mmg", "mat", "hat", "sniper", "st", "sam", "demo", "arty", "truck"];
+    } forEach ["mtr", "hmg", "mmg", "mat", "hat", "sniper", "st", "sam", "demo", "arty"];
 } forEach _orbatToSort;
 
 /// Armor / SV
@@ -77,7 +77,7 @@ _subKeys = [];
 _orbatAbrev set ["ARMOR_NOLEAD", ["", _subKeys]];
 {
     private _groupID = _x;
-    _y params ["_roleDescript", "", "_used"];
+    _y params ["", "", "_used"];
     if (_used) then {continue};
     private _argArray = _y;
     private _lowerGroupID = toLowerANSI _groupID;
@@ -86,7 +86,7 @@ _orbatAbrev set ["ARMOR_NOLEAD", ["", _subKeys]];
             _subKeys pushBack _groupID;
             _argArray set [2, true];
         };
-    } forEach ["ifv", "tank", "support", "sv", "tnk"];
+    } forEach ["ifv", "tank", "support", "sv", "tnk", "apc", "truck", "technical", "gun"];
 } forEach _orbatToSort;
 
 /// Air (AH/TH)
@@ -105,6 +105,24 @@ _orbatAbrev set ["AIR_NOLEAD", ["", _subKeys]];
             _argArray set [2, true];
         };
     } forEach ["helo", "heli", "fixed", "plane", "ah"];
+} forEach _orbatToSort;
+
+/// Zeus
+_subKeys = [];
+_orbatAbrev set ["ZEUS", ["", _subKeys]];
+{
+    private _groupID = _x;
+    _y params ["_roleDescript", "", "_used"];
+    if (_used) then {continue};
+    private _argArray = _y;
+    private _lowerGroupDesc = toLowerANSI _roleDescript;
+    private _lowGroupID = toLowerANSI _x;
+    {
+        if (_x in _lowerGroupDesc || _x in _lowGroupID) exitWith {
+            _subKeys pushBack _groupID;
+            _argArray set [2, true];
+        };
+    } forEach ["zeus", "zane"];
 } forEach _orbatToSort;
 
 // plt1-3
@@ -183,7 +201,6 @@ if (_subKeys isNotEqualTo []) then {
         } forEach ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india"];
     } forEach _orbatToSort;
 } else {
-    systemChat _leadKey;
     if (_leadKey == "") then {
         {
             private _groupID = _x;
@@ -230,7 +247,34 @@ if (_subKeys isNotEqualTo []) then {
     } forEach _orbatToSort;
 };
 
-// Other
+/// Logi
+private _orbatArr = _orbatAbrev getOrDefault ["coy", ["", []]];
+_leadKey = _orbatArr#0;
+_subKeys = _orbatArr#1;
+{
+    if (_leadKey != "") exitWith {};
+    _orbatArr = _orbatAbrev getOrDefault [_x, ["", []]];
+    _leadKey = _orbatArr#0;
+    _subKeys = _orbatArr#1;
+} forEach ["1pl", "2pl", "3pl"];
+if (_leadKey != "") then {
+    {
+        private _groupID = _x;
+        _y params ["_roleDescript", "", "_used"];
+        if (_used) then {continue};
+        private _argArray = _y;
+        private _lowerGroupID = toLowerANSI _groupID;
+        private _lowerGroupDesc = toLowerANSI _roleDescript;
+        {
+            if (_x in _lowerGroupDesc || _x in _lowerGroupID) exitWith {
+                _subKeys pushBack (" | " + _groupID);
+                _argArray set [2, true];
+            };
+        } forEach ["logi", "eng"];
+    } forEach _orbatToSort;
+};
+
+/// Other
 _subKeys = [];
 _orbatAbrev set ["OTH_NOLEAD", ["", _subKeys]];
 {
@@ -242,6 +286,7 @@ _orbatAbrev set ["OTH_NOLEAD", ["", _subKeys]];
 private _fnc_enumAlpha = {
     params ["_str", ""];
     switch ((toLowerANSI _str) select [0,1]) do {
+        case " ": {-10};
         case "a": {00};
         case "b": {10};
         case "c": {20};
@@ -279,12 +324,13 @@ private _fnc_enumAlpha = {
     _args params ["_lead", "_groups"];
     if (_lead == "" && _groups isEqualTo []) then {continue};
     _diaryBuilderArray pushBack _str;
+    private _addedPlt = false;
     if (_lead != "") then {
+        _addedPlt = true;
         private _args = _orbatToSort get _lead;
         _diaryBuilderArray pushBack (_args#1);
     };
     if (_groups isNotEqualTo []) then {
-        _groups sort true;
         if ("pl" in _key) then {
             _groups = _groups apply {
                 [([_x] call _fnc_enumAlpha), parseNumber (_x select [1]), _x]
@@ -292,14 +338,18 @@ private _fnc_enumAlpha = {
             _groups sort true;
             _groups = _groups apply {_x#2};
             _args set [1, _groups];
+        } else {
+            _groups sort true;
         };
         {
+            if (_x select [0, 3] == " | ") then {_x = _x select [3]};
             private _args = _orbatToSort get _x;
-            if ("sl" in toLowerANSI _x || { // nasty regex isn't it?
+            if (_addedPlt && ("sl" in toLowerANSI _x || { // nasty regex isn't it?
                 (_x regexMatch ".*alpha.*|.*bravo.*|.*charlie.*|.*delta.*|.*echo.*|.*foxtrot.*|.*golf.*|.*hotel.*|.*india.*/gi")
-            }) then {
+            })) then {
                 _diaryBuilderArray pushBack ("<font size='4'><br/></font>" + (_args#1));
             } else {
+                _addedPlt = true;
                 _diaryBuilderArray pushBack (_args#1);
             };
         } forEach _groups;
@@ -312,5 +362,6 @@ private _fnc_enumAlpha = {
     ["3pl", "<br/><font face='PuristaBold' size='12'>3rd Platoon</font>"],
     ["ARMOR_NOLEAD", "<br/><font face='PuristaBold' size='12'>Armor Assets</font>"],
     ["AIR_NOLEAD", "<br/><font face='PuristaBold' size='12'>Air Assets</font>"],
-    ["OTH_NOLEAD", "<br/>"]
+    ["OTH_NOLEAD", ""],
+    ["ZEUS", "<br/><font face='PuristaBold' size='12'>High Command</font>"]
 ];

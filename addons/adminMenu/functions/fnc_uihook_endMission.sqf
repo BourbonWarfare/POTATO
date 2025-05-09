@@ -9,4 +9,4 @@ private _debugMsg = format ["Ending mission for winning side %1", _side];
 
 ["potato_adminMsg", [_debugMsg, profileName, "#ALL"]] call CBA_fnc_globalEvent;
 
-[_side] remoteExecCall [QFUNC(endMission), 0];
+[QGVAR(endMission), [_side]] call CBA_fnc_globalEvent;

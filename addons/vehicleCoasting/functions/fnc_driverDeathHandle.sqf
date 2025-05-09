@@ -47,7 +47,4 @@ if (!(_vehicle isKindOf "LandVehicle") ||
 };
 
 TRACE_3("Continuing",_unit,_vehicle,speed _vehicle);
-if (random 1 < POTATO_VEHICLEC_COASTING_DRIVER_CHANCE) then {
-    TRACE_2("Chance success",_unit,_vehicle);
-    [_vehicle, _driver] call FUNC(addCoastingVehicle);
-};
+[_vehicle, _driver] call FUNC(addCoastingVehicle);
