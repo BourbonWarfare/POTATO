@@ -28,6 +28,9 @@ class CfgAmmo {
         };
     };
     class GVAR(blowpipe_a): CUP_M_Stinger_AA {
+        thrustTime = 15;
+        thrust = 300;
+        maxSpeed = 500; // ~mach 1.5
         class ace_missileguidance: ACEGVAR(missileguidance,type_Blowpipe) {
             enabled = 1;
         };
