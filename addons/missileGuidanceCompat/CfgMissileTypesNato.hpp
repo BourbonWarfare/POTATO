@@ -18,6 +18,7 @@ class ACEGVAR(missileguidance,type_Redeye);
 class ACEGVAR(missileguidance,type_Sidewinder);
 class ACEGVAR(missileguidance,type_Stinger);
 class ACEGVAR(missileguidance,type_TOW);
+class ACEGVAR(missileguidance,type_Blowpipe);
 class GVAR(laser_artillery) {
     enabled = 0;
     canVanillaLock = 0;

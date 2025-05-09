@@ -44,7 +44,6 @@ class CfgMagazines {
         count = 6;
     };
 };
-
 class CfgVehicles {
     class Tank;
     class Tank_F: Tank {
