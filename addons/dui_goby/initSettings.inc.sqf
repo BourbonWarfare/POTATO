@@ -21,3 +21,15 @@ private _category = ["POTATO - User", "Go By (DUI Nametags)"];
     [[0, 1, 2], ["Disabled", "During Safe-Start", "Always"], 1],
     false
 ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(color),
+    "COLOR",
+    ["Color"],
+    _category,
+    [1, 0.3, 0, 1],
+    false,
+    {
+        GVAR(colorHex) = [(_this select 0) * 255,(_this select 1) * 255,(_this select 2) * 255] call diwako_dui_main_fnc_toHex;
+    }
+] call CBA_fnc_addSetting;

@@ -23,7 +23,7 @@ if ((GVAR(show) == 0) || {GVAR(show) == 1 && {!EGVAR(safeStart,safeStartEnabled)
         // We inject the group and then a fake </t> and new line to add a third line to the nametag
 
         private _group = groupId (group _x);
-        private _formating = format ["<t font='%1' color='%2' size='%3' shadow='%4'>", diwako_dui_nametags_fontGroup, "#FF5B00", (profileNamespace getVariable ['igui_diwako_dui_nametags_h', pixelH * 64]) * 9, diwako_dui_nametags_groupFontShadow];
+        private _formating = format ["<t font='%1' color='%2' size='%3' shadow='%4'>", diwako_dui_nametags_fontGroup, GVAR(colorHex), (profileNamespace getVariable ['igui_diwako_dui_nametags_h', pixelH * 64]) * 9, diwako_dui_nametags_groupFontShadow];
         private _customGroup = format ["%1</t><br/>%2[ %3 ]", _group, _formating, _goby];
         _x setVariable ["diwako_dui_nametags_customGroup", _customGroup];
     };
