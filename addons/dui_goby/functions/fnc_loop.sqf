@@ -17,7 +17,7 @@ if ((GVAR(show) == 0) || {GVAR(show) == 1 && {!EGVAR(safeStart,safeStartEnabled)
         _x setVariable ["diwako_dui_nametags_customGroup", nil];
     } else {
         GVAR(setOn) pushBackUnique _x;
-        TRACE_2("setting",_x, _goby);
+        TRACE_2("setting",_x,_goby);
 
         // DUI is expecting a simple string for customGroup ie `<t>%1</t>`
         // We inject the group and then a fake </t> and new line to add a third line to the nametag
