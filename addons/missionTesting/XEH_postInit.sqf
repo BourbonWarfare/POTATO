@@ -10,7 +10,7 @@ GVAR(MissionTestingChecklistMaster) = [
             ,["Make sure the mission description isn't confusing/vague",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
             ,["Read the briefings make sure they exist and are clear",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
             ,["Make sure objectives are marked",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
-            ,["Take a quick look at the map for terrain imbalances, and make sure the mission maker has taken them into account (I.E. defenders need better gear and/or more people if they're defending a bowl that has sparse cover)",D_CHECK,MISSION_TYPE_APPLIES_TVT]
+            ,["Check the play area for terrain imbalances and make sure the mission maker has taken them into account (I.E. defenders need better equipment and/or more people if terrain is not in their favour",D_CHECK,MISSION_TYPE_APPLIES_TVT]
             ,["Ensure there is a signals tab, and the channel names make sense for the mission",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
             ,["Ensure that if it is a night mission it is tagged as such in the mission description on the slotting screen",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
             ,["Ensure that if Safe Start ends automatically, it is clear from the slotting screen or a plan exists to inform leadership before mission start",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
@@ -30,6 +30,7 @@ GVAR(MissionTestingChecklistMaster) = [
         [
             ["Ensure vehicle gear is correct for the side using it (Mainly for COOPs), or removed (mainly for TvTs)",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
             ,["Ensure the vehicles are balanced (I.E. if one team has a BTR, one team has the AT to kill it, or if two teams are racing to an objectives, their vics go about the same speed)",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
+            ,["Ensure names of vehicle roles match Mission Makers' intent for qualifications to apply (ie. - if there's a 'Co-Pilot' role, it requires a Pilot Qual to slot)",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
             ,["Ensure vehicles with weapons have their ammo balanced, (I.E. a Little Bird with 32 rockets is overkill vs infantry)",D_CHECK,MISSION_TYPE_APPLIES_TVT]
         ],D_PASSFAIL,"",D_NOTEFLAG
     ]
@@ -38,13 +39,14 @@ GVAR(MissionTestingChecklistMaster) = [
             ["Talk to the Zeus/mission-maker about their intent.",D_CHECK,MISSION_TYPE_APPLIES_COOP]
             ,["Make sure the humans can kill whatever Zeus intends to spawn in.",D_CHECK,MISSION_TYPE_APPLIES_COOP]
             ,["Make sure that no heavy scripts are killing server FPS/CPS",D_CHECK,MISSION_TYPE_APPLIES_COOP]
-            ,["Talk about the objectives and make a call on if they are doable within the time frame of 75-80 minutes. Essentially is it likely that we will have all objectives completed or nearing completion around the 90 minute mark (including Safe Start).",D_CHECK,MISSION_TYPE_APPLIES_COOP]
+            ,["Talk about the objectives and make a call on if they are doable within the time frame of 75-80 minutes assuming ideal player conditions. Essentially is it likely that we will have all objectives completed or nearing completion around the 90 minute mark (including Safe Start).",D_CHECK,MISSION_TYPE_APPLIES_COOP]
         ],D_PASSFAIL,"",D_NOTEFLAG
     ]
     ,["OTHER CONSIDERATIONS CHECKLIST",
         [
-            ["Ensure you're going to BW spectate on death",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
-            ,["Placeholder",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
+            ["Check to see if AMA is in use for this mission",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
+            ,["If AMA is in use, verify that infantry weapon damage is reasonable",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
+            ,["Ensure you're going to BW spectate on death",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
         ],D_PASSFAIL,"",D_NOTEFLAG
     ]
 ];
@@ -57,7 +59,7 @@ GVAR(MissionMakerChecklistMaster) = [
             ,["Is the gear for both sides correct? (do a visual scan to make sure uniforms, gear, etc are correct)",D_CHECK,MISSION_TYPE_APPLIES_TVT]
             ,["Test each class on a fireteam. Do I have my ammo, radios, and medical gear?",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
             ,["Are the objectives concise and not spread too far apart?",D_CHECK,MISSION_TYPE_APPLIES_COOP]
-            ,["AI tiggers/spawns working ok? How is server FPS?",D_CHECK,MISSION_TYPE_APPLIES_COOP]
+            ,["AI triggers/spawns working ok? How is server FPS?",D_CHECK,MISSION_TYPE_APPLIES_COOP]
         ],D_PASSFAIL,"",D_NOTEFLAG
     ]
 ];
