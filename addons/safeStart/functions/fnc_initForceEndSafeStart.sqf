@@ -26,6 +26,17 @@ params [["_minTime", 0.001, [0]]];
 if (!(isServer && GVAR(enabled) && GVAR(safeStartEnabled)) ||
    {!(getMissionConfigValue [QEGVAR(missionTesting,SSForceEnd), false])}) exitWith {
     TRACE_2("Did not initialize force end safe start",isServer,GVAR(enabled));
+    // Send message to admins
+    private _missionType = getMissionConfigValue[QEGVAR(missionTesting,missionType), 0];
+    if (isServer && isMultiplayer && !(is3DEN || is3DENPreview) && _missionType == 2) then {
+        [
+            "potato_adminMsg",
+            [
+                "Safe start will not automatically end.",
+                "Server", "Admins"
+            ]
+        ] call CBA_fnc_globalEvent;
+    };
 };
 
 // Check safe start "0" time or use CBA_missionTime
