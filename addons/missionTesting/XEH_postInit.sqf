@@ -45,7 +45,7 @@ GVAR(MissionTestingChecklistMaster) = [
     ,["OTHER CONSIDERATIONS CHECKLIST",
         [
             ["Check to see if AMA is in use for this mission",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
-            ,["If AMA is in use, verify that infantry weapon damage is reasonable",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
+            ,["Verify that infantry weapon damage is reasonable",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
             ,["Ensure you're going to BW spectate on death",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
         ],D_PASSFAIL,"",D_NOTEFLAG
     ]
