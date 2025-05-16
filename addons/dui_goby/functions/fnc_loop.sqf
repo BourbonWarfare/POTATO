@@ -11,7 +11,7 @@ if ((GVAR(show) == 0) || {GVAR(show) == 1 && {!EGVAR(safeStart,safeStartEnabled)
     GVAR(setOn) = [];
 };
 
-private _size = (profileNamespace getVariable ['igui_diwako_dui_nametags_h', pixelH * 64]) * diwako_dui_nametags_fontNameSize;
+private _size = (profileNamespace getVariable ['igui_diwako_dui_nametags_h', pixelH * 64]) * GVAR(fontSize);
 {
     private _goby = _x getVariable [QGVAR(goBy), ""];
     if (_goby == "") then {
