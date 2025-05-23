@@ -134,7 +134,7 @@ class CfgVehicles {
         armor = 600; // original 300
     };
     class Land_Kasarna: House {
-        armor = 450; // original 200
+        armor = 500; // original 200
     };
     class Land_Dum_mesto_in: Land_Dum_mesto_in_bare {
         armor = 600; // original 300
