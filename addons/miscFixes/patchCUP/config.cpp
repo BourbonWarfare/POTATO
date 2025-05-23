@@ -31,7 +31,9 @@ class MainTurret: MainTurret {\
 #include "CfgAmmo.hpp"
 class CfgVehicles {
     #include "CfgVehiclesA10A.hpp"
-    // Base classes
+    /// Base classes
+    class House;
+    class House_EP1;
     class Car;
     class Car_F: Car {
         class HitPoints {
@@ -40,7 +42,16 @@ class CfgVehicles {
         };
         class Turrets;
     };
-    // Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
+
+    /// Building armor x4 default
+    class Land_A_BuildingWIP: House {
+        armor = 2000;
+    };
+    class Land_A_BuildingWIP_EP1: House_EP1 {
+        armor = 2000;
+    };
+
+    /// Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
     class CUP_B_FV432_Bulldog_GB_D;
     class CUP_B_FV432_Base: CUP_B_FV432_Bulldog_GB_D {
         class Turrets;
