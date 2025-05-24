@@ -59,7 +59,7 @@ class CfgVehicles {
         armor = 2000; // original 500
     };
     class Land_A_Pub_01: House {
-        armor = 1200; // original 600
+        armor = 1400; // original 600
     };
     class Land_Mil_Barracks_L: House {
         armor = 800; // original 400
@@ -74,7 +74,10 @@ class CfgVehicles {
         armor = 288; // original 180
     };
     class Land_a_stationhouse: House {
-        armor = 800; // original 320
+        armor = 1000; // original 320
+    };
+    class Land_A_Stationhouse_ep1: House_EP1 {
+        armor = 1000; // original 350
     };
     class Land_WIP_F: House_F {
         armor = 2000; // original 500
@@ -86,7 +89,7 @@ class CfgVehicles {
         armor = 600; // original 300
     };
     class Land_Budova4: Land_Budova4_in {
-        armor = 700; // original 150
+        armor = 750; // original 150
     };
     class Land_Budova3: House {
         armor = 600; // original 300
@@ -101,7 +104,7 @@ class CfgVehicles {
         armor = 225; // original 75
     };
     class Land_Dum_olez_istan1: Land_Dum_olez_istan1_closed {
-        armor = 300; // original 150
+        armor = 600; // original 150
     };
     class Land_Stanice: House {
         armor = 800; // original 500
@@ -110,13 +113,19 @@ class CfgVehicles {
         armor = 1000; // original 500
     };
     class Land_Dum_olezlina: Land_Dum_olezlina_closed {
-        armor = 600; // original 150
+        armor = 750; // original 150
     };
     class Land_Dum_m2: House {
         armor = 750; // original 500
     };
+    class Land_Dum_mesto: House {
+        armor = 750;
+    };
+    class Land_Dum_mesto2: House {
+        armor = 750;
+    };
     class Land_Dum_mesto3: House {
-        armor = 400; // original 150
+        armor = 600; // original 150
     };
     class Land_Budova5: House {
         armor = 750; // original 500
