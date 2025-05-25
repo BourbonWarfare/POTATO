@@ -15,13 +15,23 @@ class CfgPatches {
     class ADDON {
         units[] = {
             QPOTFIX(cwr3_b_uk_fv107),
-            QPOTFIX(cwr3_b_uk_fv107_unstab)
+            QPOTFIX(cwr3_b_uk_fv107_unstab),
+            QGVARMAIN(cwr3_b_uk_fv101_unstab),
+            QGVARMAIN(cwr3_b_uk_fv432_gpmg_unstab),
+            QGVARMAIN(cwr3_b_uk_fv510_unstab)
         };
         weapons[] = {
             QPOTFIX(CUP_Rarden_CTWS_veh)
         };
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "cwr3_vehicle_fv101_uk" };
+        requiredAddons[] = {
+            "potato_core",
+            "cwr3_vehicle_fv101_uk",
+            "cwr3_vehicle_fv510_uk",
+            "cwr3_vehicle_fv432_uk",
+            "cwr3_vehicle_fv620_uk",
+            "cwr3_vehicle_lr_uk"
+        };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -44,113 +54,6 @@ class CfgMagazines {
         count = 6;
     };
 };
-class CfgVehicles {
-    class Tank;
-    class Tank_F: Tank {
-        class AnimationSources;
-    };
-    class CUP_MCV80_Base: Tank_F {
-        class Turrets;
-    };
-    class cwr3_b_uk_fv107: CUP_MCV80_Base {
-        class AnimationSources: AnimationSources {};
-        class Turrets: Turrets {
-            class MainTurret;
-        };
-    };
-    class POTFIX(cwr3_b_uk_fv107): cwr3_b_uk_fv107 {
-        scope = 2;
-        curatorScope = 2;
-        displayName = "FV107 Scimitar (6Rnd)";
-        class AnimationSources: AnimationSources {
-            class recoil_source {
-                source = "reload";
-                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
-            };
-            class muzzle_rot_ctws {
-                source = "ammorandom";
-                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
-            };
-            class muzzle_hide_ctws {
-                source = "reload";
-                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
-            };
-        };
-        class Turrets: Turrets {
-            class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class OpticsIn;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
-                discreteDistance[] = {100,200,300,400,500,600,700,800,1000,1200,1500,1800,2100,2400};
-                weapons[] = {
-                    QPOTFIX(CUP_Rarden_CTWS_veh),
-                    "CUP_Vlmg_L94A1_Coax"
-                };
-                magazines[] = {
-                    MAG_20(QPOTFIX(CUP_6Rnd_TE1_Red_Tracer_30mmGPR_M)),
-                    MAG_20(QPOTFIX(CUP_6Rnd_TE1_Red_Tracer_30mmAPFSDS_M)),
-                    MAG_2(QUOTE(CUP_1200Rnd_TE4_Red_Tracer_762x51_M240_M))
-                };
-            };
-        };
-    };
-    class POTFIX(cwr3_b_uk_fv107_unstab): cwr3_b_uk_fv107 {
-        displayName = "FV107 Scimitar (6Rnd, Unstab)";
-        class AnimationSources: AnimationSources {
-            class recoil_source {
-                source = "reload";
-                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
-            };
-            class muzzle_rot_ctws {
-                source = "ammorandom";
-                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
-            };
-            class muzzle_hide_ctws {
-                source = "reload";
-                weapon = QPOTFIX(CUP_Rarden_CTWS_veh);
-            };
-        };
-        class Turrets: Turrets {
-            class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class OpticsIn;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
-                discreteDistance[] = {100,200,300,400,500,600,700,800,1000,1200,1500,1800,2100,2400};
-                weapons[] = {
-                    QPOTFIX(CUP_Rarden_CTWS_veh),
-                    "CUP_Vlmg_L94A1_Coax"
-                };
-                magazines[] = {
-                    MAG_20(QPOTFIX(CUP_6Rnd_TE1_Red_Tracer_30mmGPR_M)),
-                    MAG_20(QPOTFIX(CUP_6Rnd_TE1_Red_Tracer_30mmAPFSDS_M)),
-                    MAG_2(QUOTE(CUP_1200Rnd_TE4_Red_Tracer_762x51_M240_M))
-                };
-                stabilizedInAxes = 0;
-            };
-        };
-    };
-
-};
 
 class CfgWeapons {
     class autocannon_40mm_CTWS;
@@ -171,3 +74,5 @@ class CfgWeapons {
         };
     };
 };
+
+#include "CfgVehicles.hpp"
