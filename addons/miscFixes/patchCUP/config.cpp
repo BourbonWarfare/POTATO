@@ -32,9 +32,6 @@ class MainTurret: MainTurret {\
 class CfgVehicles {
     #include "CfgVehiclesA10A.hpp"
     /// Base classes
-    class House;
-    class House_EP1;
-    class House_F;
     class Car;
     class Car_F: Car {
         class HitPoints {
