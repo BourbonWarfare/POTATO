@@ -19,7 +19,7 @@ class CfgPatches {
 };
 
 class CfgVehicles {
-    /// Base classes
+    // Base classes
     class House;
     class House_EP1;
     class House_F;

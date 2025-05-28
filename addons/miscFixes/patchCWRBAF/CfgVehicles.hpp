@@ -1,5 +1,5 @@
 class CfgVehicles {
-    /// Base classes
+    // Base classes
     class Tank;
     class Tank_F: Tank {
         class AnimationSources;

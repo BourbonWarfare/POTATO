@@ -31,7 +31,7 @@ class MainTurret: MainTurret {\
 #include "CfgAmmo.hpp"
 class CfgVehicles {
     #include "CfgVehiclesA10A.hpp"
-    /// Base classes
+    // Base classes
     class Car;
     class Car_F: Car {
         class HitPoints {
