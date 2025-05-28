@@ -98,21 +98,21 @@ if (GVAR(intraFireteamEnabled) && {(ctrlMapScale _mapControl) < 0.5}) then {
             private _unitPosition = position _x;
             private _unitName = if (alive _x) then { name _x } else { "" };
 
-            _mapControl drawIcon [UNIT_MARKER_ICON,
-                                  _color,
-                                  _unitPosition,
-                                  UNIT_MARKER_SIZE * _sizeFactor,
-                                  UNIT_MARKER_SIZE * _sizeFactor,
-                                  direction _x,
-                                  _unitName,
-                                  1,
-                                  (([0,0.02] select (((ctrlMapScale _mapControl) * _mapSize) < 0.005)) * _sizeFactor),
-                                  'TahomaB',
-                                  "left"];
+            _mapControl drawIcon [
+                UNIT_MARKER_ICON,
+                _color,
+                _unitPosition,
+                UNIT_MARKER_SIZE * _sizeFactor,
+                UNIT_MARKER_SIZE * _sizeFactor,
+                direction _x,
+                _unitName,
+                1,
+                (([0,0.02] select (((ctrlMapScale _mapControl) * _mapSize) < 0.005)) * _sizeFactor),
+                'TahomaB',
+                "left"
+            ];
         };
-
-        nil
-    } count (units (group player));
+    } forEach ([units (group player), [player]] select GVAR(intraFireteam_playerOnly));
 };
 
 END_COUNTER(drawMarkers);

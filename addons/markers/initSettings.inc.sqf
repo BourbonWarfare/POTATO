@@ -10,7 +10,17 @@
 
 [
     QGVAR(intraFireteamEnabled), "CHECKBOX",
-    ["intraFireteam"], 
+    ["intraFireteam"],
+    ["POTATO - Mission Maker", "Markers"],
+    false, // default value
+    true, // isGlobal
+    {},
+    true // Needs mission restart
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(intraFireteam_playerOnly), "CHECKBOX",
+    ["intraFireteam - player only"],
     ["POTATO - Mission Maker", "Markers"],
     false, // default value
     true, // isGlobal
