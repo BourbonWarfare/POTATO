@@ -43,152 +43,11 @@ class CfgVehicles {
         };
         class Turrets;
     };
-
-    /// Building armor increases
-    class Land_Budova4_in;
-    class Land_Garaz_s_tankem;
-    class Land_Cihlovej_Dum_in;
-    class Land_Dum_olezlina_closed;
-    class Land_Dum_mesto_in_bare;
-    class Land_Ind_Shed_01_EP1;
-    class Land_Dum_olez_istan1_closed;
-    class Land_A_BuildingWIP: House {
-        armor = 2000; // original 500
+    class Tank;
+    class Tank_F: Tank {
+        class Turrets;
     };
-    class Land_A_BuildingWIP_EP1: House_EP1 {
-        armor = 2000; // original 500
-    };
-    class Land_A_Pub_01: House {
-        armor = 1400; // original 600
-    };
-    class Land_Mil_Barracks_L: House {
-        armor = 800; // original 400
-    };
-    class Land_Mil_Barracks_i: House {
-        armor = 600; // original 400
-    };
-    class Land_Mil_Barracks: House {
-        armor = 600; // original 400
-    };
-    class Land_HouseB_Tenement: House {
-        armor = 288; // original 180
-    };
-    class Land_a_stationhouse: House {
-        armor = 1000; // original 320
-    };
-    class Land_A_Stationhouse_ep1: House_EP1 {
-        armor = 1000; // original 350
-    };
-    class Land_WIP_F: House_F {
-        armor = 2000; // original 500
-    };
-    class Land_Letistni_hala: House {
-        armor = 400; // original 200
-    };
-    class Land_Garaz_bez_tanku: Land_Garaz_s_tankem {
-        armor = 600; // original 300
-    };
-    class Land_Budova4: Land_Budova4_in {
-        armor = 750; // original 150
-    };
-    class Land_Budova3: House {
-        armor = 600; // original 300
-    };
-    class Land_Budova2: House {
-        armor = 700; // original 150
-    };
-    class Land_Budova1: House {
-        armor = 700; // original 500
-    };
-    class Land_Garaz: House {
-        armor = 225; // original 75
-    };
-    class Land_Dum_olez_istan1: Land_Dum_olez_istan1_closed {
-        armor = 600; // original 150
-    };
-    class Land_Stanice: House {
-        armor = 800; // original 500
-    };
-    class Land_Cihlovej_Dum_mini: Land_Cihlovej_Dum_in {
-        armor = 1000; // original 500
-    };
-    class Land_Dum_olezlina: Land_Dum_olezlina_closed {
-        armor = 750; // original 150
-    };
-    class Land_Dum_m2: House {
-        armor = 750; // original 500
-    };
-    class Land_Dum_mesto: House {
-        armor = 750;
-    };
-    class Land_Dum_mesto2: House {
-        armor = 750;
-    };
-    class Land_Dum_mesto3: House {
-        armor = 600; // original 150
-    };
-    class Land_Budova5: House {
-        armor = 750; // original 500
-    };
-    class Land_Repair_center: House {
-        armor = 750; // original 500
-    };
-    class Land_Dumruina_mini: House {
-        armor = 800; // original 500
-    };
-    class Land_Sara_zluty_statek_in: House {
-        armor = 300; // original 150
-    };
-    class Land_Sara_domek_zluty: House {
-        armor = 600; // original 300
-    };
-    class Land_Kasarna: House {
-        armor = 500; // original 200
-    };
-    class Land_Dum_mesto_in: Land_Dum_mesto_in_bare {
-        armor = 600; // original 300
-    };
-    class Land_Barrack2: House {
-        armor = 300; // original 100
-    };
-    class Land_Ind_Shed_02_EP1: Land_Ind_Shed_01_EP1 {
-        armor = 250; // original 110
-    };
-    class Land_Mil_Repair_center_EP1: House_EP1 {
-        armor = 750; // original 250
-    };
-    class Land_Mil_Barracks_EP1: House_EP1 {
-        armor = 500; // original 250
-    };
-    class Land_Mil_Barracks_i_EP1: House_EP1 {
-        armor = 800; // original 400
-    };
-    class Land_Mil_Barracks_L_EP1: House_EP1 {
-        armor = 800; // original 400
-    };
-    class Land_Mil_Guardhouse_EP1: House_EP1 {
-        armor = 600; // original 250
-    };
-    class Land_House_L_9_EP1: House_EP1 {
-        armor = 750; // original 250
-    };
-    class Land_ZalChata: House {
-        armor = 800; // original 500
-    };
-    class Land_Mil_Guardhouse: House {
-        armor = 800; // original 400
-    };
-    class Land_Bouda3: House {
-        armor = 600; // original 200
-    };
-    class Land_Dum_olez_istan2_maly: House {
-        armor = 600; // original 150
-    };
-    class Land_Dum_istan2: House {
-        armor = 800; // original 700
-    };
-
-    /// Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
+    // Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
     class CUP_B_FV432_Bulldog_GB_D;
     class CUP_B_FV432_Base: CUP_B_FV432_Bulldog_GB_D {
         class Turrets;
@@ -343,6 +202,91 @@ class CfgVehicles {
     };
     class CUP_Tigr_M_KORD_Base: CUP_Tigr_Base {
         CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    /// BMP-3 non-crew side gunners
+    class CUP_BMP3_Base: Tank_F {
+        class Turrets: Turrets {
+            class MainTurret;
+            class LeftTurret;
+            class RightTurret: LeftTurret {};
+        };
+    };
+    class CUP_O_BMP3_RU: CUP_BMP3_Base {
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
+            };
+            class LeftTurret: LeftTurret {
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
+                dontCreateAI = 1;
+            };
+            class RightTurret: RightTurret {
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
+                dontCreateAI = 1;
+            };
+        };
+    };
+    class CUP_O_BMP3_CSAT_T: CUP_BMP3_Base {
+        class Turrets: Turrets {
+            class LeftTurret: LeftTurret {
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
+                dontCreateAI = 1;
+            };
+            class RightTurret: RightTurret {
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
+                dontCreateAI = 1;
+            };
+        };
     };
 };
 

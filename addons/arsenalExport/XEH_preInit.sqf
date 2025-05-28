@@ -21,7 +21,7 @@ if (is3DENPreview || is3DEN || {
     }] call CBA_fnc_addEventHandler;
 
 
-    [
+    /*[
         missionNamespace,
         "arsenalOpened",
         {
@@ -32,7 +32,7 @@ if (is3DENPreview || is3DEN || {
             params ["_display"];
             [_display, false] call FUNC(arsenalOpened);
         }
-    ] call bis_fnc_addscriptedeventhandler;
+    ] call bis_fnc_addscriptedeventhandler;*/
 
 
     ["ace_arsenal_statsToggle", {

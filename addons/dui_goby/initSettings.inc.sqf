@@ -23,6 +23,15 @@ private _category = ["POTATO - User", "Go By (DUI Nametags)"];
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(fontSize),
+    "SLIDER",
+    ["Front Scale"],
+    _category,
+    [0, 20, 8, 1],
+    false
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(color),
     "COLOR",
     ["Color"],
@@ -30,6 +39,6 @@ private _category = ["POTATO - User", "Go By (DUI Nametags)"];
     [1, 0.3, 0, 1],
     false,
     {
-        GVAR(colorHex) = [(_this select 0) * 255,(_this select 1) * 255,(_this select 2) * 255] call diwako_dui_main_fnc_toHex;
+        GVAR(colorHex) = _this call BIS_fnc_colorRGBAtoHTML;
     }
 ] call CBA_fnc_addSetting;
