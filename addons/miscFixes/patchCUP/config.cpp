@@ -40,6 +40,10 @@ class CfgVehicles {
         };
         class Turrets;
     };
+    class Tank;
+    class Tank_F: Tank {
+        class Turrets;
+    };
     // Fix broken artillery computer on FV432 Mortar (shows artillery computer for 7.62mg)
     class CUP_B_FV432_Bulldog_GB_D;
     class CUP_B_FV432_Base: CUP_B_FV432_Bulldog_GB_D {
@@ -195,6 +199,91 @@ class CfgVehicles {
     };
     class CUP_Tigr_M_KORD_Base: CUP_Tigr_Base {
         CUP_MAINTURRET_DISABLE_ATTENUATE;
+    };
+    /// BMP-3 non-crew side gunners
+    class CUP_BMP3_Base: Tank_F {
+        class Turrets: Turrets {
+            class MainTurret;
+            class LeftTurret;
+            class RightTurret: LeftTurret {};
+        };
+    };
+    class CUP_O_BMP3_RU: CUP_BMP3_Base {
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
+            };
+            class LeftTurret: LeftTurret {
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
+                dontCreateAI = 1;
+            };
+            class RightTurret: RightTurret {
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
+                dontCreateAI = 1;
+            };
+        };
+    };
+    class CUP_O_BMP3_CSAT_T: CUP_BMP3_Base {
+        class Turrets: Turrets {
+            class LeftTurret: LeftTurret {
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
+                dontCreateAI = 1;
+            };
+            class RightTurret: RightTurret {
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
+                dontCreateAI = 1;
+            };
+        };
     };
 };
 
