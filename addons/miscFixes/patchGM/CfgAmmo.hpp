@@ -58,6 +58,7 @@ class CfgAmmo {
     };
     class gm_shell_artillery_HE_Base;
     class gm_shell_120mm_he_of843: gm_shell_artillery_HE_Base {
+        ACEGVAR(frag,skip) = 0;
         ACEGVAR(frag,charge) = 1.4;
         ACEGVAR(frag,metal) = 15;
         ACEGVAR(frag,gurney_k) = 0.6;
@@ -66,6 +67,7 @@ class CfgAmmo {
         ACEGVAR(frag,fragCount) = 3000;
     };
     class gm_shell_120mm_he_dm51: gm_shell_artillery_HE_Base {
+        ACEGVAR(frag,skip) = 0;
         ACEGVAR(frag,charge) = 2;
         ACEGVAR(frag,metal) = 11;
         ACEGVAR(frag,gurney_k) = 0.6;
