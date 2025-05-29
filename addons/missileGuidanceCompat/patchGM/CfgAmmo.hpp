@@ -20,8 +20,8 @@ class CfgAmmo {
         class ace_missileguidance: ace_missileguidance {
             enabled = 1;
 
-            pitchRate = 30;
-            yawRate = 30;
+            pitchRate = 45;
+            yawRate = 45;
             lineGainP = 12;
             lineGainD = 4;
             defaultSeekerType = "SACLOS";
