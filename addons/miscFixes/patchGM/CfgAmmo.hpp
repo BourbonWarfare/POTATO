@@ -63,24 +63,6 @@ class CfgAmmo {
     class gm_missile_maljutka_base: gm_missile_saclos_base {
         effectsMissile = "missile2_vanilla";
     };
-    class gm_missile_maljutka_heat_9m14m: gm_missile_maljutka_base {
-        class ace_missileguidance;
-    };
-    class GVARMAIN(gm_missile_maljutka_heat_9m14p): gm_missile_maljutka_heat_9m14m {
-        class ace_missileguidance: ace_missileguidance {
-            enabled = 1;
-
-            pitchRate = 30;
-            yawRate = 30;
-            lineGainP = 12;
-            lineGainD = 4;
-            defaultSeekerType = "SACLOS";
-            seekerTypes[] = { "SACLOS" };
-
-            defaultSeekerLockMode = "LOAL";
-            seekerLockModes[] = { "LOAL", "LOBL" };
-        };
-    };
 
     class gm_Submunition_base;
     class gm_shell_artillery_Base: gm_Submunition_base {

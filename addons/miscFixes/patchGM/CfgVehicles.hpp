@@ -180,35 +180,4 @@ class CfgVehicles {
         displayName = "Highway Bridge (Single Collapse)";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_03_50_highway_half_win.p3d";
     };
-
-    // Updated 9P133 to SACLOS variant
-    class gm_wheeled_base;
-    class gm_wheeled_APC_base: gm_wheeled_base {
-        class Turrets;
-    };
-    class gm_brdm2_base: gm_wheeled_APC_base {
-        class Turrets: Turrets {
-            class MainTurret;
-        };
-    };
-    class gm_brdm2_9p133_base: gm_brdm2_base {
-        class Turrets: Turrets {
-            class MainTurret: MainTurret {
-                magazines[] = {QGVARMAIN(gm_6Rnd_maljutka_heat_9m14p),QGVARMAIN(gm_6Rnd_maljutka_heat_9m14p),QGVARMAIN(gm_6Rnd_maljutka_heat_9m14p)};
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class Hitpoints;
-                class MGunClouds;
-                class OpticsIn;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
-            };
-        };
-    };
 };
