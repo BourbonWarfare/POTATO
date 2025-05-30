@@ -23,6 +23,12 @@ class RscChatListDefault {
     colorBackground[] = {0,0,0,0.3};
     colorMessageProtocol[] = {0.65,0.65,0.65,0.9};
 };
+class CfgDamageAround {
+    class DamageAroundHouse {
+        indirectHit = 0.7;
+        radiusRatio = 1;
+    };
+};
 
 #include "CfgAmmo.hpp"
 #include "CfgCloudlets.hpp"
