@@ -262,11 +262,11 @@ class CfgWeapons {
 
     //// Helmets
     class H_HelmetB;
-    class gm_headhear_base: H_HelmetB {
+    class gm_headgear_base: H_HelmetB {
         class ItemInfo;
     };
     // Armored Helmets
-    class gm_headgear_armored_base: gm_headhear_base {
+    class gm_headgear_armored_base: gm_headgear_base {
         class ItemInfo: ItemInfo {
             class HitpointsProtection {
                 class Head {
@@ -277,12 +277,8 @@ class CfgWeapons {
             };
         };
     };
-    class gm_ge_headgear_psh77_base: gm_headgear_armored_base {
-        class ItemInfo: ItemInfo {};
-    };
-    class gm_ge_headgear_psh77_cover_base: gm_ge_headgear_psh77_base {
-        class ItemInfo: ItemInfo {};
-    };
+    class gm_ge_headgear_psh77_base: gm_headgear_armored_base {};
+    class gm_ge_headgear_psh77_cover_base: gm_ge_headgear_psh77_base {};
     class gm_ge_headgear_psh77_cover_down_base: gm_ge_headgear_psh77_base {
         class ItemInfo: ItemInfo {
             class HitpointsProtection: HitpointsProtection {
@@ -299,5 +295,4 @@ class CfgWeapons {
             };
         };
     };
-
 };
