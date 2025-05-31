@@ -10,7 +10,8 @@ class CfgPatches {
         requiredAddons[] = {
             "potato_armor_modifier_ace",
             "gm_characters_gc_characters",
-            "gm_characters_ge_characters"
+            "gm_characters_ge_characters",
+            "gm_core_characters"
         };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
