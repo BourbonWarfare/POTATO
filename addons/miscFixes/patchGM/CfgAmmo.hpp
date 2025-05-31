@@ -92,7 +92,7 @@ class CfgAmmo {
     };
 
     class gm_Submunition_base;
-    class gm_shell_artillery_submunition_Bas: gm_Submunition_base {
+    class gm_shell_artillery_submunition_Base: gm_Submunition_base {
         effectFly = "ArtilleryTrails_vanilla";
     };
 
