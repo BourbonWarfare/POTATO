@@ -434,7 +434,7 @@ class CfgWeapons {
     class CUP_launch_M136_Loaded: Launcher_Base_F {
         ace_overpressure_angle = 45;
         ace_overpressure_damage = 0.5;
-        ace_overpressure_range = 50; // increasing range due to reduction in "lethal" damage - original 10m was described as "lethal"
+        ace_overpressure_range = 50; // increasing range due to reduction in "lethal" damage - original 10m was described as "lethal", irl total backblast range listed as 100m
     };
 };
 
