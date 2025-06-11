@@ -28,9 +28,9 @@ class CfgWeapons {
         baseWeapon = "potato_launch_M136A1_CS_Loaded";
         jsrs_soundeffect = "JSRS2_Distance_Effects_Launcher";
         AGM_UsedTube = "AGM_launch_M136_Used_F";
-        ace_overpressure_angle = 10;
-        ace_overpressure_damage = 0.5;
-        ace_overpressure_range = 2;
+        ace_overpressure_angle = 15;
+        ace_overpressure_damage = 0.6;
+        ace_overpressure_range = 3;
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 177.4;
         };
