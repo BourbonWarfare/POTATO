@@ -29,8 +29,8 @@ class CfgWeapons {
         jsrs_soundeffect = "JSRS2_Distance_Effects_Launcher";
         AGM_UsedTube = "AGM_launch_M136_Used_F";
         ace_overpressure_angle = 15;
-        ace_overpressure_damage = 0.6;
-        ace_overpressure_range = 3;
+        ace_overpressure_damage = 0.5;
+        ace_overpressure_range = 5;
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 177.4;
         };
