@@ -6,12 +6,12 @@ class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {
-            "potato_launch_M136A1_CS_Loaded",
-            "potato_launch_M136A1_CS",
-            "potato_launch_M136A1_CS_Used",
-            "potato_launch_M72A9_Loaded",
-            "potato_launch_M72A9",
-            "potato_launch_M72A9_Used"
+            QWEAPON(launch_M136A1_CS_Loaded),
+            QWEAPON(launch_M136A1_CS),
+            QWEAPON(launch_M136A1_CS_Used),
+            QWEAPON(launch_M72A9_Loaded),
+            QWEAPON(launch_M72A9),
+            QWEAPON(launch_M72A9_Used)
         };
         magazines[] = {};
         requiredVersion = REQUIRED_VERSION;
@@ -24,11 +24,8 @@ class CfgPatches {
     };
 };
 
-class CBA_DisposableLaunchers {
-    potato_launch_M136A1_CS_Loaded[] = {"potato_launch_M136A1_CS","potato_launch_M136A1_CS_Used"};
-    potato_launch_M72A9_Loaded[] = {"potato_launch_M72A9","potato_launch_M72A9_Used"};
-};
 
-#include "CfgWeapons.hpp"
 #include "CfgAmmo.hpp"
+#include "CfgDisposableLaunchers.hpp"
 #include "CfgMagazines.hpp"
+#include "CfgWeapons.hpp"
