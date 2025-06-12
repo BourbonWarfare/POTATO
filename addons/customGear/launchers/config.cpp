@@ -15,7 +15,7 @@ class CfgPatches {
         };
         magazines[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "CUP_Weapons_LoadOrder", "jsrs_soundmod_complete_edition", "jsrs_soundmod_complete_edition_soundFiles" };
+        requiredAddons[] = { "potato_core", "CUP_Weapons_LoadOrder"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"AChesheireCat"};
