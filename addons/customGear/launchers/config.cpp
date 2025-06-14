@@ -9,16 +9,12 @@ class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {
-            QWEAPON(launch_M136A1_CS_Loaded),
-            QWEAPON(launch_M136A1_CS),
-            QWEAPON(launch_M136A1_CS_Used),
-            QWEAPON(launch_M72A9_Loaded),
-            QWEAPON(launch_M72A9),
-            QWEAPON(launch_M72A9_Used),
+            WEAPONS_PATCHES(M136A1_CS),
             WEAPONS_PATCHES(AT4CS_LMAW),
             WEAPONS_PATCHES(AT4CS_HP),
             WEAPONS_PATCHES(M72A7),
             WEAPONS_PATCHES(M72A8),
+            WEAPONS_PATCHES(M72A9),
             WEAPONS_PATCHES(M72A10)
         };
         magazines[] = {};
