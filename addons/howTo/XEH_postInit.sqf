@@ -10,6 +10,8 @@ GVAR(howToUse) = createHashMapFromArray [  //IGNORE_PRIVATE_WARNING ["_player", 
 ,
 #include "guides\ace_spike.inc.sqf"
 ,
+#include "guides\ace_superDragon.inc.sqf"
+,
 #include "guides\ace_vector.inc.sqf"
 ,
 #include "guides\launcher_gm_m72.inc.sqf"

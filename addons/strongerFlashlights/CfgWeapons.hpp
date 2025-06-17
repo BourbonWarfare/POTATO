@@ -272,7 +272,7 @@ class CfgWeapons {
                 outerAngle = 5;
                 coneFadeCoef = 6;
                 useFlare = 1;
-                dayLight = 0;
+                dayLight = 1;
                 flareMaxDistance = 250;
                 flareSize = 2;
                 intensity = 120;
@@ -357,6 +357,7 @@ class CfgWeapons {
                 ACE_Flashlight_Beam = "\z\ace\addons\flashlights\UI\Flashlight_Beam_yellow_ca.paa";
                 ACE_Flashlight_Colour = "Yellow";
                 ACE_Flashlight_Size = 1;
+                dayLight = 1;
                 innerAngle = 3;
                 outerAngle = 5;
                 coneFadeCoef = 6;
@@ -435,6 +436,7 @@ class CfgWeapons {
                 ACE_Flashlight_Beam = "\z\ace\addons\flashlights\UI\Flashlight_Beam_red_ca.paa";
                 ACE_Flashlight_Colour = "Red";
                 ACE_Flashlight_Size = 1;
+                dayLight = 1;
                 innerAngle = 3;
                 outerAngle = 5;
                 coneFadeCoef = 6;
@@ -504,14 +506,15 @@ class CfgWeapons {
         };
     };
     class GVAR(acc_cup_Flashlight_05_Spot): GVAR(acc_cup_Flashlight_02_Spot) {
-        displayName="Flashlight (Multimode, Medium White)";
+        displayName="Flashlight (Spot, Medium White)";
         MRT_SwitchItemNextClass = QGVAR(acc_cup_Flashlight_05_Wide);
         MRT_SwitchItemPrevClass = QGVAR(acc_cup_Flashlight_05);
-        MRT_switchItemHintText = "Flashlight (Medium White)";
+        MRT_switchItemHintText = "Flashlight (Spot, Medium White)";
         baseWeapon = QGVAR(acc_cup_Flashlight_05);
         class ItemInfo: ItemInfo {
             class FlashLight: FlashLight {
                 ACE_Flashlight_Size = 1;
+                dayLight = 1;
                 innerAngle = 3;
                 outerAngle = 5;
                 coneFadeCoef = 6;

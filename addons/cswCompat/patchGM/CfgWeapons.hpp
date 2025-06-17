@@ -22,8 +22,8 @@ class CfgWeapons {
         };
         displayName = "[CSW] MILAN (GM)";
         author = "Lambda.Tiger";
-        scope = 2;
-        scopeArsenal = 2;
+        scope = 1;
+        scopeArsenal = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = "\gm\gm_weapons\gm_launchers\gm_milan\data\ui\picture_gm_milan_launcher_weaponBag_ca";
@@ -45,8 +45,8 @@ class CfgWeapons {
         };
         displayName = "[CSW] Fagot (GM)";
         author = "Lambda.Tiger";
-        scope = 2;
-        scopeArsenal = 2;
+        scope = 1;
+        scopeArsenal = 1;
         model = ACE_APL_PATH(ACE_CSW_Bag.p3d);
         modes[] = {};
         picture = "\gm\gm_weapons\gm_launchers\gm_fagot\data\ui\picture_gm_fagot_launcher_weaponBag_ca";
@@ -71,6 +71,8 @@ class CfgWeapons {
         class WeaponSlotsInfo: WeaponSlotsInfo {};
     };
     class GVAR(gm_MG3TripodCarry): ace_csw_m3CarryTripod {
+        scope = 1;
+        scopeArsenal = 1;
         class ACE_CSW {
             type = "mount";
             deployTime = 4;

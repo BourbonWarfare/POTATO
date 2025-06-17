@@ -38,4 +38,3 @@ class CfgPatches {
 #include "ACE_CSW_Groups.hpp"
 #include "CfgMagazines.hpp"
 #include "CfgWeapons.hpp"
-#include "CfgVehicles.hpp"

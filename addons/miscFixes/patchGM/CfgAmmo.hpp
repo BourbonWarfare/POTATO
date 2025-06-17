@@ -40,6 +40,14 @@ class CfgAmmo {
         ACEGVAR(frag,classes)[] = {QACEGVAR(frag,tiny_HD), QACEGVAR(frag,tiny_HD), QACEGVAR(frag,small_HD)};
         ACEGVAR(frag,fragCount) = 1200;
     };
+    class gm_HandGrenade_frag_m56: gm_HandGrenade_frag_base {
+        ACEGVAR(frag,charge) = 0.19;
+        ACEGVAR(frag,metal) = 0.39;
+        ACEGVAR(frag,gurney_k) = 0.6;
+        ACEGVAR(frag,gurney_c) = 2440;
+        ACEGVAR(frag,classes)[] = {QACEGVAR(frag,tiny_HD), QACEGVAR(frag,tiny_HD), QACEGVAR(frag,small_HD)};
+        ACEGVAR(frag,fragCount) = 1200;
+    };
     class gm_HandGrenade_frag_rgd5: gm_HandGrenade_frag_base {
         ACEGVAR(frag,charge) = 0.11;
         ACEGVAR(frag,metal) = 0.2;
@@ -47,6 +55,25 @@ class CfgAmmo {
         ACEGVAR(frag,gurney_c) = 2440;
         ACEGVAR(frag,classes)[] = {QACEGVAR(frag,tiny_HD), QACEGVAR(frag,small_HD), QACEGVAR(frag,small_HD)};
         ACEGVAR(frag,fragCount) = 350;
+    };
+    class gm_shell_artillery_HE_Base;
+    class gm_shell_120mm_he_of843: gm_shell_artillery_HE_Base {
+        ACEGVAR(frag,skip) = 0;
+        ACEGVAR(frag,charge) = 1.4;
+        ACEGVAR(frag,metal) = 15;
+        ACEGVAR(frag,gurney_k) = 0.6;
+        ACEGVAR(frag,gurney_c) = 2440;
+        ACEGVAR(frag,classes)[] = {QACEGVAR(frag,tiny_HD), QACEGVAR(frag,small_HD), QACEGVAR(frag,small_HD), QACEGVAR(frag,small), QACEGVAR(frag,medium_HD)};
+        ACEGVAR(frag,fragCount) = 3000;
+    };
+    class gm_shell_120mm_he_dm51: gm_shell_artillery_HE_Base {
+        ACEGVAR(frag,skip) = 0;
+        ACEGVAR(frag,charge) = 2;
+        ACEGVAR(frag,metal) = 11;
+        ACEGVAR(frag,gurney_k) = 0.6;
+        ACEGVAR(frag,gurney_c) = 2440;
+        ACEGVAR(frag,classes)[] = {QACEGVAR(frag,tiny_HD), QACEGVAR(frag,small_HD), QACEGVAR(frag,small_HD), QACEGVAR(frag,small), QACEGVAR(frag,medium_HD)};
+        ACEGVAR(frag,fragCount) = 2800;
     };
 
     // Make the missiles aimable by returning old smoke effects
@@ -65,13 +92,17 @@ class CfgAmmo {
     };
 
     class gm_Submunition_base;
-    class gm_shell_artillery_Base: gm_Submunition_base {
+    class gm_shell_artillery_submunition_Base: gm_Submunition_base {
         effectFly = "ArtilleryTrails_vanilla";
     };
 
     class ShellBase;
     class gm_warhead_base: ShellBase {
         effectFly = "ArtilleryTrails_vanilla";
+    };
+    class gm_shell_base: ShellBase {};
+    class gm_shell_artillery_Base: gm_shell_base {
+        effectFly = "";
     };
 
 };
