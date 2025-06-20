@@ -50,7 +50,7 @@ class CfgAmmo {
         hit = 200;
         explosive = 0.9;
         indirectHit = 4;
-        indirectHitRange = 3;
+        indirectHitRange = 4;
         submunitionAmmo = QAMMO(P_M72A7_AT);
         typicalSpeed = 200;
         warheadName = "HEAT";
@@ -73,9 +73,9 @@ class CfgAmmo {
         aiAmmoUsageFlags = 192; // if airLock = 1, set to 448
         cost = 100;
         hit = 300;
-        explosive = 0.95;
+        explosive = 1;
         indirectHit = 5;
-        indirectHitRange = 5;
+        indirectHitRange = 8;
         submunitionAmmo = "";
         typicalSpeed = 130;
         warheadName = "HE";
