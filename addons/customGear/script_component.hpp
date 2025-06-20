@@ -17,5 +17,7 @@
 #define QMAGAZINE(var1) QUOTE(MAGAZINE(var1))
 #define MAGWELL(var1) DOUBLES(PREFIX,var1)
 #define QMAGWELL(var1) QUOTE(MAGWELL(var1))
+#define WEAPON(var1) DOUBLES(PREFIX,var1)
+#define QWEAPON(var1) QUOTE(WEAPON(var1))
 
 #define MAGWELL_ENTRY_NAME DOUBLES(PREFIX,magazineWell)
