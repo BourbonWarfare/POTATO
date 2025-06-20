@@ -241,8 +241,9 @@ class CfgWeapons {
         ACEGVAR(overpressure,damage) = 0;
         ACEGVAR(overpressure,range) = 0;
         author = "Potato";
-        discreteDistance[] = {50,100,150};
-        discreteDistanceCameraPoint[] = {"eye_1","eye_3","eye_4"};
+        discreteDistance[] = {50,75,100,150};
+        discreteDistanceCameraPoint[] = {"eye_1","eye_2","eye_3","eye_4"};
+        discreteDistanceInitIndex = 1;
         scope = 1;
         scopeArsenal = 1;
         displayName = "M72A10 (LASM, FFE)";
