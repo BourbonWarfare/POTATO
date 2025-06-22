@@ -37,3 +37,14 @@ class CfgDamageAround {
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
 #include "CfgFontFamilies.hpp"
+
+class SteamManagerConfig {
+    class GameRecording {
+        class UnitKilled {
+            scope = 0; // hide vanilla event?
+        };
+        class myUnitKilled: UnitKilled {
+            scope = 2;
+        };
+    };
+};

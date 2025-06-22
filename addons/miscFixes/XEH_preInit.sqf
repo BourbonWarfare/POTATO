@@ -65,3 +65,27 @@ addUserActionEventHandler ["toggleRaiseWeapon","Activate",{
         };
     }, [_nAnim], 0.5] call CBA_fnc_waitAndExecute;
 }];
+
+GVAR(events) = [];
+DFUNC(addSteamEvents) = {
+    {
+        _x params ["_time", "_event", "_params"];
+        private _relativeTime = _time - CBA_missionTime; // negative time
+        call compile "steamGameRecordingEvent [_event, 0, _params, _relativeTime]";
+    } forEach GVAR(events);
+    GVAR(events) = [];
+    INFO("Added Steam Events");
+};
+addMissionEventHandler ["Ended", FUNC(addSteamEvents)];
+
+["ace_killtracker_kill", {
+    params ["_name", "", "_distance"];
+    GVAR(events) pushBack [CBA_missionTime, "myUnitKilled", [_name, 33 toFixed 0]];
+}] call CBA_fnc_addEventHandler;
+
+
+["ace_killtracker_death", {
+    params ["_name", "", "_distance"];
+    GVAR(events) pushBack [CBA_missionTime, "myUnitDieded", [_name, 34 toFixed 0]];
+}] call CBA_fnc_addEventHandler;
+
