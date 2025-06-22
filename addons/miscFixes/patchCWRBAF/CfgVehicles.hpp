@@ -316,7 +316,6 @@ class CfgVehicles {
             };
             class attenuationTurnedOut: attenuationTurnedOut {
                 class Compartment1;
-                class Compartment2;
             };
         };
     };
@@ -325,17 +324,17 @@ class CfgVehicles {
             class attenuation: attenuation {
                 class Compartment1: Compartment1 {
                     Compartment1 = 0;
-                    Compartment2 = 0.8;
+                    Compartment2 = 0.4;
                 };
                 class Compartment2: Compartment2 {
-                    Compartment1 = 0.8;
+                    Compartment1 = 0.4;
                     Compartment2 = 0;
                 };
             };
             class attenuationTurnedOut: attenuationTurnedOut {
                 class Compartment1: Compartment1 {
-                    Compartment1 = 0.5;
-                    Compartment2 = 0.4;
+                    Compartment1 = 0.25;
+                    Compartment2 = 0.2;
                     Compartment3 = 1;
                     Compartment4 = 1;
                 };
