@@ -108,13 +108,14 @@ if (["diwako_dui_main"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 ["diwako_dui_indicators_range", 20], // User-Setting
 
 // DUI - Squad Radar - Radar
+["diwako_dui_compassRange", 50], // User-Setting (this one sets the starting range)
 ["diwako_dui_compassRangeLimit", 50, true], // this one sets the MAX limit
 ["diwako_dui_radar_compassrangecrew", 75, true], // User-Setting
 ["diwako_dui_enable_compass_dir", 1, true], // User-Setting "Show Bearing = only in vehicles"
 ["diwako_dui_radar_sqlfirst", true],
 ["diwako_dui_radar_vehiclecompassenabled", true], // turning back on due to giant marker issue fixed due to below setting
 ["diwako_dui_radar_icon_scale_crew", 1.5, true], // the scaling was set to 6.0, which is why when we enabled the vehicle compass, the icon was massive
-["diwako_dui_distanceWarning", 5, true], // User-Setting
+["diwako_dui_distanceWarning", 5], // User-Setting
 
 // DUI - Squad Radar - Nametags
 ["diwako_dui_nametags_enableocclusion", false, true], // User-Setting
