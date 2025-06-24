@@ -12,9 +12,7 @@ class CfgWeapons {
         class WeaponSlotsInfo;
     };
     class CUP_srifle_AS50: Rifle_Long_Base_F {
-        class WeaponSlotsInfo: WeaponSlotsInfo {
-            class CUP_PicatinnyTopMountAS50: CUP_PicatinnyTopMount {};
-        };
+        class WeaponSlotsInfo: WeaponSlotsInfo {};
     };
 
     class potato_fauxPGS: CUP_srifle_AS50 {
@@ -25,18 +23,14 @@ class CfgWeapons {
         scopeArsenal = 2;
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 300;
-            // class CUP_PicatinnyTopMountAS50: CUP_PicatinnyTopMountAS50 {
-            //     compatibleItems[] = { "ace_xm157_prototype" };
-            // };
-            // delete CUP_PicatinnySideMountAS50;
         };
         magazineWell[] = {};
-        magazines[]  = {
-            QGVAR(5rnd_HE), QGVAR(5rnd_HEDP), QGVAR(5rnd_airburst), QGVAR(5rnd_smoke_white)
+        magazines[] = {
+            QGVAR(5rnd_HE), QGVAR(5rnd_HEDP), QGVAR(5rnd_airburst), QGVAR(5rnd_smoke_white), QGVAR(5rnd_smoke_red), QGVAR(5rnd_00buckshot)
         };
 
         modes[] = {"Single"};
-        discreteDistance[] = {200};
+        discreteDistance[] = {100};
         discreteDistanceInitIndex = 0;
 
         class Single: Mode_SemiAuto {
