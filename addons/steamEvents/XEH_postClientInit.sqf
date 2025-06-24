@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-if (!hasInterface) exitWith {};
+if (!hasInterface || profileNamespace getVariable [QGVAR(disable), false]) exitWith {};
 
 ["ace_unconscious", {
     params ["_unit", "_uncon"];
