@@ -1,10 +1,6 @@
 #include "script_component.hpp"
 
-if (!hasInterface || [missionConfigFile >> "CfgLoadouts" >> "usePotato"] call CFUNC(getBool)) exitWith {};
-
-["potato_safeStartOff", {
-    steamGameRecordingEvent [QGVARMAIN(safeStart), 0, ["ending", [CBA_missionTime, "M:SS"] call CBA_fnc_formatElapsedTime]];
-}] call CBA_fnc_addEventHandler;
+if (!hasInterface) exitWith {};
 
 ["ace_unconscious", {
     params ["_unit", "_uncon"];
@@ -30,3 +26,13 @@ if (!hasInterface || [missionConfigFile >> "CfgLoadouts" >> "usePotato"] call CF
         default {steamGameRecordingEvent [QGVARMAIN(aceThrow), 0, ["Hand grenade"]];};
     };
 }] call CBA_fnc_addEventHandler;
+
+if ([missionConfigFile >> "CfgLoadouts" >> "usePotato"] call CFUNC(getBool)) then {
+    ["potato_safeStartOff", {
+        steamGameRecordingEvent [QGVARMAIN(safeStart), 0, ["ending", [CBA_missionTime, "M:SS"] call CBA_fnc_formatElapsedTime]];
+    }] call CBA_fnc_addEventHandler;
+    addMissionEventHandler ["Ended", {
+        params ["_endType"];
+        steamGameRecordingEvent [QGVARMAIN(missionEnd), 0, [[CBA_missionTime] call CBA_fnc_formatElapsedTime]];
+    }];
+};

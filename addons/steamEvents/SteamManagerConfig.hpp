@@ -7,6 +7,10 @@ class SteamManagerConfig {
             icon = "a3_steam_flag"; // Icon is enum, there is hardcoded set of available icons
             priority = 50; // See ISteamTimeline documentation
         };
+        class GVARMAIN(missionEnd): GVARMAIN(safeStart) {
+            title = "Mission End";
+            description = "End of mission (%1)";
+        };
         class GVARMAIN(uncon): GVARMAIN(safeStart) {
             title = "Uncon Event";
             description = "%1 at %2";
