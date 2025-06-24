@@ -10,6 +10,7 @@ class SteamManagerConfig {
         class GVARMAIN(missionEnd): GVARMAIN(safeStart) {
             title = "Mission End";
             description = "End of mission (%1)";
+            icon = "a3_challenge_timer";
         };
         class GVARMAIN(uncon): GVARMAIN(safeStart) {
             title = "Uncon Event";
