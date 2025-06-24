@@ -71,8 +71,7 @@ DFUNC(addSteamEvents) = {
     {
         _x params ["_time", "_event", "_params"];
         private _relativeTime = _time - diag_tickTime; // negative time
-        // call compile because steamGameRecordingEvent unknown command to hemtt
-        call compile "steamGameRecordingEvent [_event, 0, _params, _relativeTime]"; 
+        steamGameRecordingEvent [_event, 0, _params, _relativeTime];
     } forEach GVAR(events);
     GVAR(events) = [];
     INFO("Added Steam Events");
@@ -81,5 +80,5 @@ addMissionEventHandler ["Ended", FUNC(addSteamEvents)];
 
 ["ace_killtracker_kill", {
     params ["_name", "", "_distance"];
-    GVAR(events) pushBack [diag_tickTime, "myUnitKilled", [_name, 33 toFixed 0]];
+    GVAR(events) pushBack [diag_tickTime, "myUnitKilled", [_name, _distance]];
 }] call CBA_fnc_addEventHandler;
