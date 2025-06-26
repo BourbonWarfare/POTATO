@@ -1,5 +1,7 @@
 class CfgWeapons {
+    //// Vests
     class gm_vest_base;
+    // Armored vest
     class gm_vest_armored_base: gm_vest_base {
         class ItemInfo;
     };
@@ -228,8 +230,7 @@ class CfgWeapons {
             };
         };
     };
-
-    // Unarmored Armored Armor
+    // Unarmored vest
     class gm_vest_unarmored_base: gm_vest_base {
         class ItemInfo;
     };
@@ -254,6 +255,42 @@ class CfgWeapons {
                     armor = 16;
                     HitpointName = "HitDiaphragm";
                     passThrough = 0.6;
+                };
+            };
+        };
+    };
+
+    //// Helmets
+    class H_HelmetB;
+    class gm_headgear_base: H_HelmetB {
+        class ItemInfo;
+    };
+    // Armored Helmets
+    class gm_headgear_armored_base: gm_headgear_base {
+        class ItemInfo: ItemInfo {
+            class HitpointsProtection {
+                class Head {
+                    armor = 6;
+                    hitpointName = "HitHead";
+                    passThrough = 0.5;
+                };
+            };
+        };
+    };
+    class gm_ge_headgear_psh77_base: gm_headgear_armored_base {};
+    class gm_ge_headgear_psh77_cover_base: gm_ge_headgear_psh77_base {};
+    class gm_ge_headgear_psh77_cover_down_base: gm_ge_headgear_psh77_base {
+        class ItemInfo: ItemInfo {
+            class HitpointsProtection: HitpointsProtection {
+                class Head {
+                    armor = 16;
+                    hitpointName = "HitHead";
+                    passThrough = 0.15;
+                };
+                class Face {
+                    armor = 12;
+                    hitpointName = "HitFace";
+                    passThrough = 0.15;
                 };
             };
         };
