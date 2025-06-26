@@ -1,13 +1,15 @@
 class CfgAmmo {
     class G_40mm_HE;
     class GVAR(he): G_40mm_HE {
-        hit = 60;
+        // cartridge = "FxCartridge_abgrenade"; // from CUP_Weapons_XM29
+        hit = 65;
         indirectHit = 6;
         indirectHitRange = 5;
     };
     class G_40mm_HEDP;
     class GVAR(hedp): G_40mm_HEDP {
-        hit = 80;
+        // cartridge = "FxCartridge_abgrenade";
+        hit = 90;
         indirectHit = 4;
         indirectHitRange = 3;
     };

@@ -27,13 +27,13 @@ class CfgMagazines {
         displayName = "30mm 5Rnd Smoke-White";
         displayNameShort = "Smoke-White";
         descriptionShort = "30mm 5Rnd Smoke-White";
-        ammo = "SmokeShell";
+        ammo = "G_40mm_Smoke";
     };
     class GVAR(5rnd_smoke_red): GVAR(5rnd_HE) {
         displayName = "30mm 5Rnd Smoke-Red";
         displayNameShort = "Smoke-Red";
         descriptionShort = "30mm 5Rnd Smoke-Red";
-        ammo = "SmokeShellRed";
+        ammo = "G_40mm_SmokeRed";
     };
     class GVAR(5rnd_00buckshot): GVAR(5rnd_HE) {
         displayName = "30mm 5Rnd Buckshot";
