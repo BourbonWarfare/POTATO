@@ -1,10 +1,10 @@
 class CfgVehicles {
     class B_Soldier_base_F;
-    class csla_jehlici_uniform_base: B_Soldier_base_F {
+    class potato_jehlici_uniform_base: B_Soldier_base_F {
         model = "\cwr3\humans\cwr3_soldiers_rus\uniforms\cwr3_uniform_m69.p3d";
 		scope = 1;
 		scopeCurator = 1;
-		uniformClass = "csla_jehlici";
+		uniformClass = "potato_jehlici";
         hiddenSelections[] = {
             "hs_camo1",
             "hs_camo2",
@@ -19,8 +19,8 @@ class CfgVehicles {
 		    ""
         };
     };
-    class csla_jehlici_uniform_tan: csla_jehlici_uniform_base {
-		uniformClass = "csla_tan_jehlici";
+    class potato_jehlici_uniform_tan: potato_jehlici_uniform_base {
+		uniformClass = "potato_tan_jehlici";
         hiddenSelections[] = {
             "hs_camo1",
             "hs_camo2",

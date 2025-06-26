@@ -24,7 +24,7 @@ class CfgWeapons {
         };
     };
     
-    class csla_jehlici: jasons_indfor_uniform_base {
+    class potato_jehlici: jasons_indfor_uniform_base {
         displayName = "ČSLA M69 (Jehlici)";
 		picture = "\cwr3\humans\cwr3_soldiers_rus\ui\cwr3_u_m82_ca.paa";
 		hiddenSelections[] = {"camo"};
@@ -37,12 +37,12 @@ class CfgWeapons {
         class ItemInfo : UniformItem {
             containerClass = "Supply40";
 		   mass = 20;
-		   uniformClass = "csla_jehlici_uniform_base"; 
+		   uniformClass = "potato_jehlici_uniform_base"; 
 		   uniformModel = "-";
         };
     };
     
-    class csla_tan_jehlici: csla_jehlici {
+    class potato_tan_jehlici: potato_jehlici {
         displayName = "ČSLA M69 (Jehlici, Tan)";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {
@@ -54,7 +54,7 @@ class CfgWeapons {
         class ItemInfo : UniformItem {
             containerClass = "Supply40";
 		   mass = 20;
-		   uniformClass = "csla_jehlici_uniform_tan"; 
+		   uniformClass = "potato_jehlici_uniform_tan"; 
 		   uniformModel = "-";
         };
     };
