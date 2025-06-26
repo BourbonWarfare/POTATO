@@ -142,7 +142,11 @@ private _loadoutArray = GVAR(loadoutCache) getOrDefaultCall [_loadoutKey, {
 
 // set unit loadout overrides our sick shades :(
 _loadoutArray set [LA_FACEWARE_INDEX, goggles _unit];
-_unit setUnitLoadout _loadoutArray;
+if (isSwitchingWeapon _unit) then {
+    [{!isSwitchingWeapon (_this#0)}, {(_this#0) setUnitLoadout (_this#1)}, [_unit, _loadoutArray]] call CBA_fnc_waitUntilAndExecute;
+} else {
+    _unit setUnitLoadout _loadoutArray;
+};
 
 if (isText (_path >> "init")) then {
     TRACE_1("calling init code",getText (_path >> "init"));

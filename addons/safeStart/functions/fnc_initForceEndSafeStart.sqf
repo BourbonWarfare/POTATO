@@ -46,14 +46,23 @@ private _safeStartLength = (getMissionConfigValue [QEGVAR(missionTesting,SSTimeG
 [
     {
         params ["_safeStartLength"];
+        if !(GVAR(safeStartEnabled)) exitWith {
+            TRACE_3("Aborting auto end safe start:",CBA_missionTime,_safeStartLength,GVAR(safeStartSafetyOn));
+        };
         TRACE_3("Attempting to end safe start:",CBA_missionTime,_safeStartLength,GVAR(safeStartSafetyOn));
-        // Only exit safe start if the safety is off and it's passed het end of safe start
+        // Only exit safe start if the safety is off and it's passed the end of safe start
         if (GVAR(safeStartSafetyOn) || CBA_missionTime < _safeStartLength) then {
-            5 call FUNC(initForceEndSafeStart);
+            [{CBA_missionTime >= _this && !GVAR(safeStartSafetyOn)},{
+                [false] call FUNC(toggleSafeStart);
+            }, _safeStartLength, 30, {
+                if !(GVAR(safeStartEnabled)) then {
+                    call FUNC(initForceEndSafeStart);
+                };
+            }] call CBA_fnc_waitUntilAndExecute;
         } else {
-            [false] call potato_safeStart_fnc_toggleSafeStart;
+            [false] call FUNC(toggleSafeStart);
         };
     },
     [_safeStartLength],
-     _minTime max (_safeStartLength - CBA_missionTime)
+    _minTime max (_safeStartLength - CBA_missionTime - 1)
 ] call CBA_fnc_waitAndExecute;

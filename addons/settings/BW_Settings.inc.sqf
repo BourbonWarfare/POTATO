@@ -26,7 +26,7 @@ _settings = [
 [QACEGVAR(medical_treatment,treatmentTimeTrainedTourniquet), 4], // default: 7
 [QACEGVAR(medical_treatment,allowSharedEquipment), 3], // default: 0 (allows trained medics to use their own items first)
 
-["ace_medical_engine_damagepassthrougheffect", 0],
+[QACEGVAR(medical,alternateArmorPenetration), false],
 
 // Medical Extras:
 [QACEGVAR(medical_ai,enabledFor), 0],
@@ -45,7 +45,7 @@ _settings = [
 [QACEGVAR(cookoff,ammoCookoffDuration), 0.15],
 [QACEGVAR(dragging,weightCoefficient), 0.25], // allows carry/drag 4x the normal weight
 [QACEGVAR(finger,enabled), true],
-[QACEGVAR(finger,maxrange), 7, true],
+[QACEGVAR(finger,maxrange), 7, true], // still seems to only work when set via the mission settings
 [QACEGVAR(fortify,timeCostCoefficient), 0],
 [QACEGVAR(fortify,timeMin), 0],
 [QACEGVAR(gforces,enabledFor), 0],
@@ -108,11 +108,14 @@ if (["diwako_dui_main"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 ["diwako_dui_indicators_range", 20], // User-Setting
 
 // DUI - Squad Radar - Radar
-["diwako_dui_compassRange", 35, true], // User-Setting
+["diwako_dui_compassRange", 50], // User-Setting (this one sets the starting range)
+["diwako_dui_compassRangeLimit", 50, true], // this one sets the MAX limit
 ["diwako_dui_radar_compassrangecrew", 75, true], // User-Setting
 ["diwako_dui_enable_compass_dir", 1, true], // User-Setting "Show Bearing = only in vehicles"
 ["diwako_dui_radar_sqlfirst", true],
-["diwako_dui_radar_vehiclecompassenabled", false], // (getting giant markers if this is on w/ low range, so I think leave off??)
+["diwako_dui_radar_vehiclecompassenabled", true], // turning back on due to giant marker issue fixed due to below setting
+["diwako_dui_radar_icon_scale_crew", 1.5, true], // the scaling was set to 6.0, which is why when we enabled the vehicle compass, the icon was massive
+["diwako_dui_distanceWarning", 5], // User-Setting
 
 // DUI - Squad Radar - Nametags
 ["diwako_dui_nametags_enableocclusion", false, true], // User-Setting

@@ -47,7 +47,7 @@ if (isServer) then {
         };
 
         // report specific medical settings
-        private _log = format ["[AMA=%1] [aDmgPass=%2]", potato_armor_modifier_ace, ace_medical_engine_damagePassThroughEffect toFixed 2];
+        private _log = format ["[AMA=%1] [altPen=%2]", potato_armor_modifier_ace, ACEGVAR(medical,alternateArmorPenetration)];
         ["potato_adminMsg", [_log, "Mission"]] call CBA_fnc_globalEvent;
     }, [_settings], 4] call CBA_fnc_waitAndExecute;
 

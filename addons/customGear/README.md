@@ -11,3 +11,7 @@ A mod that serves as a place to put custom gear retextures, new gear items, and 
 - Adds 40x53mm HV M430A1 HEDP and M384 HE grenades for Mk19 and similar grenade launchers
 
 - Adds 40x46mm LV M433 HEDP grenades for M203 and EGLM UGLs
+
+- Adds modern reduced backblast version of the M136 called the M136 CS-RS
+
+- Adds new HEDP/ASM version of the M72A6 LAW called the M72A9 (LASM)
