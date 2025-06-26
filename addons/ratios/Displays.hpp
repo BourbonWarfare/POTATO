@@ -7,7 +7,6 @@ class RscStandardDisplay;
 class RscDisplayMultiplayerSetup: RscStandardDisplay {
     class controls {
         class TextListedPlayers;
-        class ValueListedPlayers;
 
         class GVAR(PlayerOverride): TextListedPlayers {
             x = "25.8 * (((safezoneW / safezoneH) min 1.2) / 40) +(safezoneX) + 1 * (safezoneW - ((safezoneW / safezoneH) min 1.2))";

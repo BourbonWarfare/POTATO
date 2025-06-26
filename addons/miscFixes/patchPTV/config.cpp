@@ -38,10 +38,8 @@ class CfgVehicles {
 
 
 class Mode_SemiAuto;
-class Mode_Burst;
 class Mode_FullAuto;
 class CfgWeapons {
-    class Default;    // External class reference
     class Pistol;
     class Pistol_Base_F: Pistol {};
     class Rifle;
@@ -335,7 +333,6 @@ class CfgWeapons {
         magazineWell[] = {"UGL_40x36", "CBA_40mm_M203", "CBA_40mm_EGLM"};
     };
 
-    class Vest_Base;
     class VestItem;
     class V_PlateCarrier1_rgr;
     // Normalizes PTV armor values to be in line with vanilla/CUP armor values

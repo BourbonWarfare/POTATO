@@ -121,7 +121,6 @@ class CfgVehicles {
         class AnimationSources;
     };
     class CUP_Boxer_Base_HMG: CUP_Boxer_Base {
-        class CargoTurret;
         class Turrets {
             class MainTurret: NewTurret {
                 weapons[] = {"CUP_Vhmg_M3P_veh","SmokeLauncher"}; // was CUP_Vhmg_M2_veh
@@ -158,7 +157,6 @@ class CfgVehicles {
         };
     };
     class CUP_Boxer_Base_GMG: CUP_Boxer_Base_HMG {
-        class CargoTurret;
         class Turrets {
             class MainTurret: NewTurret {
                 weapons[] = {"CUP_Vgmg_HKGMG_veh","SmokeLauncher"}; // added smoke launcher
@@ -211,44 +209,11 @@ class CfgVehicles {
     class CUP_O_BMP3_RU: CUP_BMP3_Base {
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
             };
             class LeftTurret: LeftTurret {
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 dontCreateAI = 1;
             };
             class RightTurret: RightTurret {
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 dontCreateAI = 1;
             };
         };
@@ -256,31 +221,9 @@ class CfgVehicles {
     class CUP_O_BMP3_CSAT_T: CUP_BMP3_Base {
         class Turrets: Turrets {
             class LeftTurret: LeftTurret {
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 dontCreateAI = 1;
             };
             class RightTurret: RightTurret {
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 dontCreateAI = 1;
             };
         };
@@ -349,7 +292,6 @@ class CfgWeapons {
     };
 
     // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
-    class ItemCore;
     class CUP_Vest_Camo_Base;
     class CUP_V_B_ALICE: CUP_Vest_Camo_Base {
         class ItemInfo;
@@ -382,7 +324,6 @@ class CfgWeapons {
         };
     };
 
-    class Rifle_Base_F;
     class Rifle_Short_Base_F;
     class Rifle_Long_Base_F;
     class CUP_lmg_M240: Rifle_Long_Base_F { // Applies good cool m240 custom recoil values defined in cfgrecoil

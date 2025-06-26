@@ -1,6 +1,5 @@
 class ctrlToolbox;
 class ctrlStatic;
-class ctrlListNBox;
 class ctrlTree;
 class ctrlXSliderH;
 
@@ -9,9 +8,7 @@ class Cfg3DEN {
     class Attributes {
         class Default;
         class TitleWide: Default {
-            class Controls {
-                class Title;
-            };
+            class Controls;
         };
         class GVAR(vehAmmoAttribute): TitleWide {
             attributeLoad = QUOTE([ARR_2(_this,_value)] call FUNC(attributeLoad));
