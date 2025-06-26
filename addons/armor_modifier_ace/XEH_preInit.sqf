@@ -9,4 +9,7 @@ GVAR(defaultArmorHash) = DEFAULT_HASH_SETTINGS;
 // CBA Settings
 #include "initSettings.inc.sqf"
 
+// for getItemArmor funcs from ace
+GVAR(armorCache) = createHashMap;
+
 ADDON = true;

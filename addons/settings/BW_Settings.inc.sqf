@@ -26,7 +26,7 @@ _settings = [
 [QACEGVAR(medical_treatment,treatmentTimeTrainedTourniquet), 4], // default: 7
 [QACEGVAR(medical_treatment,allowSharedEquipment), 3], // default: 0 (allows trained medics to use their own items first)
 
-["ace_medical_engine_damagepassthrougheffect", 0],
+[QACEGVAR(medical,alternateArmorPenetration), false],
 
 // Medical Extras:
 [QACEGVAR(medical_ai,enabledFor), 0],
