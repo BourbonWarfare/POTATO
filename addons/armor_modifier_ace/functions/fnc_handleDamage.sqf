@@ -62,16 +62,11 @@ if (_context != 2 && {_context == 4 || _newDamage == 0}) exitWith {
     _oldDamage
 };
 
-// Get scaled armor value of hitpoint and calculate damage before armor
+// Get armor value of hitpoint and calculate damage before armor
 // We scale using passThrough to handle explosive-resistant armor properly (#9063)
 // We need realDamage to determine which limb was hit correctly
-[_unit, _hitpoint] call ACEFUNC(medical_engine,getHitpointArmor) params ["_armor", "_armorScaled"];
+[_unit, _hitpoint] call FUNC(getHitpointArmor) params ["_armor"];
 private _realDamage = _newDamage * _armor;
-if (!_structuralDamage) then {
-    private _armorCoef = _armor/_armorScaled;
-    private _damageCoef = linearConversion [0, 1, ACEGVAR(medical_engine,damagePassThroughEffect), 1, _armorCoef];
-    _newDamage = _newDamage * _damageCoef;
-};
 TRACE_6("Received hit",_hitpoint,_ammo,_newDamage,_realDamage,_directHit,_context);
 
 // Drowning doesn't fire the EH for each hitpoint so the "ace_hdbracket" code never runs

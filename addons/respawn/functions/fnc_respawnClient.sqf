@@ -125,3 +125,5 @@ if !(isNull _zeusModule) then {
     [_newUnit, _group, _rank, _isLeader, _colorTeam],
     10
 ] call CBA_fnc_waitAndExecute;
+
+[QGVAR(localRespawn)] call CBA_fnc_localEvent;
