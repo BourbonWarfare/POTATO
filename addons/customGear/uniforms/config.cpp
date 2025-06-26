@@ -6,8 +6,8 @@ class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {
-            "csla_jehlici",
-            "clsa_tan_jehlici",
+            "potato_jehlici",
+            "potato_tan_jehlici",
             "potato_u_g3cw_serp_m05wdl_v2",
             "potato_u_g3cw_serp_m05wdl_v3",
             "potato_u_g3cw_serp_m05wdlwint",
