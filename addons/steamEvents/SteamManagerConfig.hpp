@@ -29,5 +29,12 @@ class SteamManagerConfig {
             icon = "a3_grenade_throw";
             priority = 20;
         };
+
+        class UnitKilled {
+            scope = 0; // hide vanilla event
+        };
+        class GVARMAIN(UnitKilled): UnitKilled {
+            scope = 2;
+        };
     };
 };

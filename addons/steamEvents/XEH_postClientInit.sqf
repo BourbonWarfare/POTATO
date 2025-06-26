@@ -2,6 +2,18 @@
 
 if (!hasInterface || profileNamespace getVariable [QGVAR(disable), false]) exitWith {};
 
+GVAR(delayedEvents) = [];
+DFUNC(addDelayedEvents) = {
+    {
+        _x params ["_time", "_event", "_params"];
+        private _relativeTime = _time - diag_tickTime; // negative time
+        steamGameRecordingEvent [_event, 0, _params, _relativeTime];
+    } forEach GVAR(delayedEvents);
+    GVAR(delayedEvents) = [];
+    INFO("Added Steam Events");
+};
+addMissionEventHandler ["Ended", FUNC(addDelayedEvents)];
+
 ["ace_unconscious", {
     params ["_unit", "_uncon"];
     if (_unit != ACE_player) exitWith {};
@@ -36,3 +48,9 @@ if ([missionConfigFile >> "CfgLoadouts" >> "usePotato"] call CFUNC(getBool)) the
         steamGameRecordingEvent [QGVARMAIN(missionEnd), 0, [[CBA_missionTime] call CBA_fnc_formatElapsedTime]];
     }];
 };
+
+["ace_killtracker_kill", {
+    params ["_name", "", "_unit"];
+    private _distance = ace_player distance _unit;
+    GVAR(delayedEvents) pushBack [diag_tickTime, QGVARMAIN(UnitKilled), [_name, _distance]];
+}] call CBA_fnc_addEventHandler;
