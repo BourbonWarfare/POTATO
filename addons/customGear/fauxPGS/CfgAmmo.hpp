@@ -1,11 +1,15 @@
 class CfgAmmo {
     class G_40mm_HE;
     class GVAR(he): G_40mm_HE {
-        // 40->30mm conversion
+        hit = 60;
+        indirectHit = 6;
+        indirectHitRange = 5;
     };
     class G_40mm_HEDP;
     class GVAR(hedp): G_40mm_HEDP {
-        // 40->30mm conversion
+        hit = 80;
+        indirectHit = 4;
+        indirectHitRange = 3;
     };
     class GVAR(airburst): GVAR(he) {
         class Eventhandlers {
