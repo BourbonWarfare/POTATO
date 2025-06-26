@@ -41,7 +41,7 @@ class CfgVehicles {
     class ptv_s_m08: B_Soldier_base_F {};
     class potato_s_g3cw_serp_m05wdl_v2: ptv_s_m08 {
         author = "AMF/VityaB/Siege-A & PTV/Chesheire";
-        scope = 2;
+        scope = 1;
         model = "\ptv_characters\uniforms\ptv_Uniform_07.p3d";
         modelSides[] = {3,1};
         nakedUniform = "U_BasicBody";
@@ -70,7 +70,7 @@ class CfgVehicles {
     };
     class potato_s_g3cw_serp_m05wdl_v3: ptv_s_m08 {
         author = "AMF/VityaB/Siege-A & PTV/Chesheire";
-        scope = 2;
+        scope = 1;
         model = "\ptv_characters\uniforms\ptv_Uniform_07.p3d";
         modelSides[] = {3,1};
         nakedUniform = "U_BasicBody";
@@ -99,7 +99,7 @@ class CfgVehicles {
     };
     class potato_s_g3cw_serp_m05wdlwint: ptv_s_m08 {
         author = "AMF/VityaB/Siege-A & PTV/Chesheire";
-        scope = 2;
+        scope = 1;
         model = "\ptv_characters\uniforms\ptv_Uniform_07.p3d";
         modelSides[] = {3,1};
         nakedUniform = "U_BasicBody";
@@ -128,7 +128,7 @@ class CfgVehicles {
     };
     class potato_s_g3cw_serp_m05wdlwint_v2: ptv_s_m08 {
         author = "AMF/VityaB/Siege-A & PTV/Chesheire";
-        scope = 2;
+        scope = 1;
         model = "\ptv_characters\uniforms\ptv_Uniform_07.p3d";
         modelSides[] = {3,1};
         nakedUniform = "U_BasicBody";
