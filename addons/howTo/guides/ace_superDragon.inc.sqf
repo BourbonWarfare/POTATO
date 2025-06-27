@@ -1,5 +1,5 @@
 ["SuperDragon", [{
-    (_units findIf {(toLower secondaryWeapon _x) in ["ace_dragon_super", "cup_launch_m47"]}) != -1
+    (_units findIf {secondaryWeapon _x == "ace_dragon_super"}) != -1
 }, {"<font  color=""#FFA700"">Setup and Disassembly Instructions:</font color><br/>
 ----------------------------------<br/>
 - Deploy the dragon using the ACE Self-Interact menu and selecting ""deploy tripod"".<br/>
