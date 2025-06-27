@@ -6,6 +6,8 @@ GVAR(howToUse) = createHashMapFromArray [  //IGNORE_PRIVATE_WARNING ["_player", 
 ,
 #include "guides\ace_javelin.inc.sqf"
 ,
+#include "guides\ace_manpad_locking.inc.sqf"
+,
 #include "guides\ace_mclos.inc.sqf"
 ,
 #include "guides\ace_spike.inc.sqf"
@@ -29,7 +31,8 @@ GVAR(showAll) = false;
         if (CBA_missionTime > _endTime) exitWith { [_handle] call CBA_fnc_removePerFrameHandler };
 
         private _player = ace_player;
-        private _units = [_player] + (units group _player);
+        private _units = [_player];
+        if GVAR(showForGroupMembers) then { _units append (units group _player); };
         _units = _units arrayIntersect _units;
 
         private _type = toLower (typeOf _player) select [9];
