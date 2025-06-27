@@ -1,4 +1,3 @@
-
 class CfgVideoOptions {
     class Particles {
         class Low {
