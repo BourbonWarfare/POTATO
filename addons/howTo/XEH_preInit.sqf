@@ -7,6 +7,6 @@ private _category = ["POTATO - User", "How To"];
     "CHECKBOX",
     ["Show For Group Members", "Show how to hints for equipment other people in your group are using"],
     _category,
-    false,
+    true,
     0
 ] call CBA_fnc_addSetting;
