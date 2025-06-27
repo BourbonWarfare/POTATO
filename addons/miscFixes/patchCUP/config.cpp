@@ -426,6 +426,20 @@ class CfgWeapons {
             "CUP_200Rnd_TE1_Red_Tracer_127x99_M"
         };
     };
+
+    // M47 Dragon Optic Zoom
+    class Launcher_Base_F;
+    class CUP_launch_M47: Launcher_Base_F {
+        modelOptics = "\z\ace\addons\dragon\models\optics_m47";
+        class OpticsModes {
+            class  StepScope {
+                opticsZoomInit = 0.055;
+                opticsZoomMax = 0.055;
+                opticsZoomMin = 0.055;
+                visionMode[] = {"Normal"};
+            };
+        };
+    };
 };
 
 class SlotInfo;
