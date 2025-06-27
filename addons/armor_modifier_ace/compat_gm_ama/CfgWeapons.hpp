@@ -279,7 +279,7 @@ class CfgWeapons {
     };
     class gm_ge_headgear_psh77_base: gm_headgear_armored_base {};
     class gm_ge_headgear_psh77_cover_base: gm_ge_headgear_psh77_base {};
-    class gm_ge_headgear_psh77_cover_down_base: gm_ge_headgear_psh77_base {
+    class gm_ge_headgear_psh77_cover_down_base: gm_ge_headgear_psh77_cover_base {
         class ItemInfo: ItemInfo {
             class HitpointsProtection: HitpointsProtection {
                 class Head {
