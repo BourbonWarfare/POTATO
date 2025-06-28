@@ -52,5 +52,5 @@ if ([missionConfigFile >> "CfgLoadouts" >> "usePotato"] call CFUNC(getBool)) the
 ["ace_killtracker_kill", {
     params ["_name", "", "_unit"];
     private _distance = ace_player distance _unit;
-    GVAR(delayedEvents) pushBack [diag_tickTime, QGVARMAIN(UnitKilled), [_name, _distance]];
+    GVAR(delayedEvents) pushBack [diag_tickTime, QGVARMAIN(UnitKilled), [_name, _distance toFixed 0]];
 }] call CBA_fnc_addEventHandler;
