@@ -7,7 +7,6 @@ class CfgWeapons {
 
     // CUP Inheritances
     class CUP_launch_M136_Loaded: Launcher_Base_F {
-        class WeaponSlotsInfo;
         class EventHandlers;
     };
     class CUP_launch_M136: CUP_launch_M136_Loaded {};

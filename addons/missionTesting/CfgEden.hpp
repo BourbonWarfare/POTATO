@@ -28,20 +28,6 @@ class display3DEN {
 // Attribute dialog in Eden for saving settings.
 
 class Cfg3DEN {
-    class Attributes {
-        class Default;
-        class Title: Default {
-        class Controls {
-            class Title;
-            };
-        };
-        class TitleWide: Default {
-            class Controls {
-                class Title;
-            };
-        };
-    };
-
     class Mission {
         class GVAR(missionTestingInfo) {
             displayName = "Mission Testing Information";

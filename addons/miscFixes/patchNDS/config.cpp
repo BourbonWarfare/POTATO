@@ -16,7 +16,6 @@ class CfgPatches {
 };
 
 // fix broken XEH
-class CBA_Extended_EventHandlers;
 class CfgVehicles {
     class Mortar_01_base_F;
     class NDS_M224_mortar_base: Mortar_01_base_F { XEH_ENABLED; }; // "M224 Mortar base" 2472780935

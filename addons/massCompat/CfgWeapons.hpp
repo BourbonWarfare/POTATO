@@ -29,9 +29,6 @@ class CfgWeapons {
     class CUP_CZ_BREN2_GL_Base;
     class CUP_hgun_Makarov;
     class CUP_arifle_XM8_Base;
-    class CUP_smg_MP5SD6;
-    class CUP_smg_MP5A5;
-    class CUP_arifle_Colt727;
 
     // init speeds
     class rhs_weap_ak105: rhs_weap_ak74m {

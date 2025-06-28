@@ -2,13 +2,11 @@
 // so much padding
 
 class CfgMagazines {
-    class CA_Magazine;
     // temp inheritance
     class 30Rnd_545x39_Mag_F;
     class 30Rnd_762x39_Mag_F;
     class 30Rnd_556x45_Stanag;
     class 150Rnd_556x45_Drum_Mag_F;
-    class 200Rnd_556x45_Box_F;
     class 30Rnd_65x39_caseless_black_mag;
     class 100Rnd_65x39_caseless_black_mag;
     class 200Rnd_65x39_cased_Box;
@@ -18,7 +16,6 @@ class CfgMagazines {
     class 10Rnd_762x54_Mag;
     class 9Rnd_45ACP_Mag;
     class 16Rnd_9x21_Mag;
-    class 30Rnd_9x21_Mag;
     class 11Rnd_45ACP_Mag;
     class 6Rnd_45ACP_Cylinder;
     class 10Rnd_338_Mag;
@@ -31,7 +28,6 @@ class CfgMagazines {
     class 50Rnd_570x28_SMG_03;
     class 150Rnd_762x51_Box;
     class 150Rnd_762x54_Box;
-    class 30Rnd_9x21_Mag_SMG_02;
     class 150Rnd_93x64_Mag;
     class 10Rnd_127x54_Mag;
     class 20Rnd_650x39_Cased_Mag_F;
@@ -57,11 +53,8 @@ class CfgMagazines {
     class CUP_8Rnd_762x25_TT;
     class CUP_40Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M;
     class CUP_75Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M;
-    class CUP_30Rnd_Sa58_M;
     class CUP_1Rnd_762x51_CZ584;
     class CUP_5Rnd_762x51_M24;
-    class CUP_20Rnd_762x51_B_M110;
-    class CUP_10Rnd_762x51_CZ750_Tracer;
     class CUP_30Rnd_TE1_Yellow_Tracer_762x51_FNFAL_M;
     class CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M;
     class hlc_200Rnd_762x51_B_M60E4;
@@ -69,7 +62,6 @@ class CfgMagazines {
     class hlc_250Rnd_762x51_B_MG3;
     class CUP_20Rnd_762x51_B_SCAR;
     class CUP_50Rnd_762x51_B_SCAR;
-    class hlc_20Rnd_762x51_b_amt;
     class CUP_5Rnd_762x54_Mosin_M;
     class CUP_50Rnd_UK59_762x54R_Tracer;
     class hlc_50Rnd_792x57_B_MG42;

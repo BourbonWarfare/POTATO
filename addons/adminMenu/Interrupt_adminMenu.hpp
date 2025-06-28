@@ -7,7 +7,6 @@ class RscControlsGroup;
 class RscCombo;
 class RscButton;
 class RscStructuredText;
-class RscButtonMenu;
 class RscEdit;
 class RscShortcutButton;
 class RscButtonMenuCancel;
