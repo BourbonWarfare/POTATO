@@ -22,3 +22,11 @@ if (_author == "*** Insert author name here. ***") then {
       ERROR_WITH_TITLE("Old Framework","~~~~~~~~~~~~~~~~~~~~ Download a newer framework ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
    };
 };
+
+private _current_uuid = QGVAR(metadata) get3DENMissionAttribute QGVAR(uuid);
+diag_log format["POTATO - loaded UUID: %1", _current_uuid];
+if (!(_current_uuid isEqualType "") || { _current_uuid isEqualTo "" }) then {
+   _current_uuid = call CBA_fnc_createUUID;
+   diag_log format["POTATO - setting mission uuid: %1", _current_uuid];
+   set3DENMissionAttributes [[QGVAR(metadata), QGVAR(uuid), _current_uuid]];
+};
