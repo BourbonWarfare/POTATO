@@ -109,7 +109,7 @@ if (["diwako_dui_main"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 
 // DUI - Squad Radar - Radar
 ["diwako_dui_compassRange", 50], // User-Setting (this one sets the starting range)
-["diwako_dui_compassRangeLimit", 50, true], // this one sets the MAX limit
+["diwako_dui_radar_compassRangeLimit", 50, true], // this one sets the MAX limit
 ["diwako_dui_radar_compassrangecrew", 75, true], // User-Setting
 ["diwako_dui_enable_compass_dir", 1, true], // User-Setting "Show Bearing = only in vehicles"
 ["diwako_dui_radar_sqlfirst", true],
