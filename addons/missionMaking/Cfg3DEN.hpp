@@ -5,6 +5,25 @@ class Cfg3DEN {
             onMissionLoad = QUOTE(call compile preprocessFileLineNumbers QUOTE(QPATHTOF(functions\fnc_onMissionLoad.sqf)));
         };
     };
+    class Mission {
+        class GVAR(metadata) {
+            displayName = "Mission Metadata; NEVER EDIT MANUALLY";
+            tooltip = "Clear out and then save/reload if making a sequel / new mission based on old";
+            class AttributeCategories {
+                class Uuid {
+                    class Attributes {
+                        class GVAR(uuid) {
+                            property = QGVAR(uuid);
+                            expression = QUOTE(potato_mission_uuid = _value);
+                            defaultValue = "";
+                            validate = "none";
+                            wikiType = "[[String]]";
+                        };
+                    };
+                };
+            };
+        };
+    };
 };
 
 class ctrlMenu;
