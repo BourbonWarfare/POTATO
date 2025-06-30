@@ -8,6 +8,7 @@ class Cfg3DEN {
     class Mission {
         class GVAR(metadata) {
             displayName = "Mission Metadata; NEVER EDIT MANUALLY";
+            tooltip = "Clear out and then save/reload if making a sequel / new mission based on old";
             class AttributeCategories {
                 class Uuid {
                     class Attributes {
