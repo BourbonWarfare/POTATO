@@ -6,7 +6,6 @@ class CfgWeapons {
     class CUP_acc_Flashlight: ItemCore { //CUP Flashlight -surefire
         class ItemInfo;
     };
-    class ACE_acc_pointer_green;
     class acc_flashlight_pistol;
 
 /////////////////////////////////////////

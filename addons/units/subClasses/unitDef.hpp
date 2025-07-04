@@ -1,4 +1,5 @@
 #ifdef NO_LAMBS
+#define BASE_EH class EventHandlers;
 #define NO_LAMBS_CONFIG \
 crouchProbabilityCombat = 0.4;\
 crouchProbabilityEngage = 0.75;\
@@ -15,12 +16,13 @@ class EventHandlers: EventHandlers {\
 };
 #else
 #define NO_LAMBS_CONFIG /* nothing */
+#define BASE_EH /* nothing */
 #endif
 
 
 #define FACTION_DEF(BASE_UNIT,FACTION_LETTER,SCOPE)\
 class BASE_UNIT: CAManBase {\
-  class EventHandlers;\
+  BASE_EH\
 };\
 class FACTION_MACRO(rifleman): BASE_UNIT {\
     author = "AACO";\

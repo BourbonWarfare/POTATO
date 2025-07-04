@@ -58,7 +58,6 @@ class CfgAmmo {
         audibleFire = 200;
     };
     class vn_BulletBase;
-    class B_12Gauge_Pellets_Submunition;
     class vn_melee_stab: BulletBase {
         audibleFire = 0.1;
     };
@@ -176,7 +175,6 @@ class CfgAmmo {
         audibleFire = 200;
     };
     class GrenadeBase;
-    class FlareCore;
     class vn_m10_ammo: GrenadeBase {
         audibleFire = 100;
     };

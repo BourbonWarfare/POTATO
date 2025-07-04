@@ -1,15 +1,7 @@
 class RscPicture;
-class RscFrame;
-class RscText;
 class RscListBox;
-class RscControlsGroup;
-class RscCombo;
-class RscButton;
-class RscStructuredText;
 class RscButtonMenu;
 class RscEdit;
-class RscShortcutButton;
-class RscActiveText;
 
 class RscStandardDisplay;
 

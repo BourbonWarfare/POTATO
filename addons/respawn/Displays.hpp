@@ -10,7 +10,6 @@ class RscListBox;
 class RscBackground;
 class RscMapControl;
 class RscStructuredText;
-class RscControlsGroupNoScrollbars;
 
 // admin respawn tool
 class GVAR(adminRespawn) {
