@@ -6,14 +6,17 @@ class Cfg3DEN {
         };
     };
     class Mission {
-        class GVAR(metadata) {
-            displayName = "Mission Metadata; NEVER EDIT MANUALLY";
-            tooltip = "Clear out and then save/reload if making a sequel / new mission based on old";
+        class EGVAR(missiontesting,missionTestingInfo) {
             class AttributeCategories {
-                class Uuid {
+                class Metadata {
+                    displayName = "Mission Meatdata";
+                    collapsed = 1;
                     class Attributes {
                         class GVAR(uuid) {
+                            displayName = "uuid";
+                            tooltip = "Clear out and then save/reload if making a sequel / new mission based on old";
                             property = QGVAR(uuid);
+                            control = "Edit";
                             expression = QUOTE(potato_mission_uuid = _value);
                             defaultValue = "";
                             validate = "none";
