@@ -123,6 +123,10 @@ switch (GVAR(setVehicleLoadouts)) do {
             };
         } forEach _boxes;
     };
+    case 4: { // Boxes of ammo boxes from config
+        [_theVehicle, _path, 4] call FUNC(fillObjectFromConfig);
+
+    };
 };
 
 //Add a Toolkit
