@@ -57,11 +57,12 @@ if (_subBoxes isNotEqualTo [] && _maxDepth > 0) then {
         _theObject setVariable [QACEGVAR(cargo,customName), format [_formatString, _boxName], true];
     };
     private _objectSpace = (getNumber (_path >> "boxSpace")) max (getNumber (_path >> "minVehicleBoxSpace"));
-    _objectSpace = _objectSpace max (_theObject getVariable [
-        QACEGVAR(cargo,hasCargo),
-        getNumber (configOf _theObject >> QACEGVAR(cargo,space))
-    ]);
+    _objectSpace = _objectSpace max (
+        (_theObject call ACEFUNC(cargo,getCargoSpaceLeft)) +
+        count (_theObject getVariable [QACEGVAR(cargo,loaded), []])
+    );
     [_theObject, [_objectSpace, 4] select (_objectSpace == 0)] call ACEFUNC(cargo,setSpace);
+    TRACE_1("cargoSize",_objectSpace);
     {
         private _subBoxType = configName _x;
         private _boxCount = (getNumber (_x >> "boxCount")) max 1;
