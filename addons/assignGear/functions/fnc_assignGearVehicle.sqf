@@ -125,7 +125,6 @@ switch (GVAR(setVehicleLoadouts)) do {
     };
     case 4: { // Boxes of ammo boxes from config
         [_theVehicle, _path, 4] call FUNC(fillObjectFromConfig);
-
     };
 };
 
