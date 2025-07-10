@@ -213,7 +213,7 @@ class GVAR(RscDisplayAttributes_place): RscDisplayAttributes {
                         };
                         class usemoLAMBSCheckbox: RscCheckBox {
                             idc = 23078;
-                            tooltip = "Create units and crew without LAMBS FSMs. This disables both group automatic behaviours and specific task subroutines.";
+                            tooltip = "Create dismounts without LAMBS FSMs. This disables both group automatic behaviours and specific task subroutines.";
                             x = "17.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             y = "6 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                             w = "1 * (((safezoneW / safezoneH) min 1.2) / 40)";
