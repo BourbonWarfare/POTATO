@@ -41,7 +41,7 @@ if (_theObject isKindOf "ReammoBox_F") then {
 
 private _addMarkingActions = getNumber (_path >> "addMarkingActions");
 if (_addMarkingActions >= 1) then {
-    [QGVAR(resupplyBoxAddActions), [_theBox, _addMarkingActions]] call CBA_fnc_globalEventJIP;
+    [QGVAR(resupplyBoxAddActions), [_theObject, _addMarkingActions]] call CBA_fnc_globalEventJIP;
 };
 
 private _subBoxes = configProperties [_path, "isClass _x"];
