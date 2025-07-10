@@ -1,7 +1,7 @@
 // getTransportType
 #include "script_component.hpp"
 
-params ["_factoryLogic", "_transportType", "_side", "_useNoLAMBS"];
+params ["_factoryLogic", "_transportType", "_side"];
 TRACE_3("getTransportType",_factoryLogic,_transportType,_side);
 
 private _vehType = "";
@@ -15,18 +15,10 @@ switch (_transportType) do {
 };
 
 private _crewType = ["vicd", "pilot"] select (_vehType isKindOf "Air");
-if (_useNoLAMBS) then {
-    _crewType = switch (_side) do {
-        case (west): {"potato_noLambs_w_" + _crewType};
-        case (east): {"potato_noLambs_e_" + _crewType};
-        case (resistance): {"potato_noLambs_i_" + _crewType};
-    };
-} else {
-    _crewType = switch (_side) do {
-        case (west): {"potato_w_" + _crewType};
-        case (east): {"potato_e_" + _crewType};
-        case (resistance): {"potato_i_" + _crewType};
-    };
+_crewType = switch (_side) do {
+    case (west): {"potato_w_" + _crewType};
+    case (east): {"potato_e_" + _crewType};
+    case (resistance): {"potato_i_" + _crewType};
 };
 
 // Return:

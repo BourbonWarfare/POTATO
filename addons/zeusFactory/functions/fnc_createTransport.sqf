@@ -1,10 +1,10 @@
 // createTransport
 #include "script_component.hpp"
 
-params ["_factoryLogic", "_transportType", "_group", "_side", "_useNoLAMBS"];
+params ["_factoryLogic", "_transportType", "_group", "_side"];
 TRACE_4("createTransport",_factoryLogic,_transportType,_group,_side);
 
-([_factoryLogic,_transportType,_side,_useNoLAMBS] call FUNC(getTransportType)) params ["_vehType", "_crewType"];
+([_factoryLogic,_transportType,_side] call FUNC(getTransportType)) params ["_vehType", "_crewType"];
 TRACE_2("getTransportType",_vehType,_crewType);
 if ((_vehType == "") || {_crewType == ""}) exitWith {ERROR_2("bad data[%1-%2]",_vehType,_crewType);};
 

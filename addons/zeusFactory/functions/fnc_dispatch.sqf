@@ -7,13 +7,12 @@ if (isNull _factoryLogic || {isNull _placeLogic} || {isNull _group}) exitWith {E
 
 private _transportType = _placeLogic getVariable [QGVAR(transportType), -1];
 private _ordersType = _placeLogic getVariable [QGVAR(ordersType), -1];
-private _useNoLAMBS = _placeLogic getVariable [QGVAR(useNoLAMBS), false];
 TRACE_4("",_factoryLogic,_placeLogic,_transportType,_ordersType);
 if ((_ordersType < 0) || {_transportType < 0}) exitWith {ERROR("bad transport-orders");};
 
 
 private _transportInfo = [];
-if ((_transportType != TRANSPORT_FOOT) && {_transportInfo = [_factoryLogic, _transportType, _group, _side, _useNoLAMBS] call FUNC(createTransport); (_transportInfo isEqualTo [])}) exitWith {
+if ((_transportType != TRANSPORT_FOOT) && {_transportInfo = [_factoryLogic, _transportType, _group, _side] call FUNC(createTransport); (_transportInfo isEqualTo [])}) exitWith {
     TRACE_1("No Transport Available",_transportType);
     false
 };
