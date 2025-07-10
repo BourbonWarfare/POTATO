@@ -203,6 +203,22 @@ class GVAR(RscDisplayAttributes_place): RscDisplayAttributes {
                             w = "1 * (((safezoneW / safezoneH) min 1.2) / 40)";
                             h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
                         };
+                        class usenoLAMBSText: RscText {
+                            text = "Potato No-LAMBS Units";
+                            idc = -1;
+                            x = "17.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            y = "5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                            w = "8.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                        };
+                        class usemoLAMBSCheckbox: RscCheckBox {
+                            idc = 23078;
+                            tooltip = "Create units and crew without LAMBS FSMs. This disables both group automatic behaviours and specific task subroutines.";
+                            x = "17.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            y = "6 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                            w = "1 * (((safezoneW / safezoneH) min 1.2) / 40)";
+                            h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+                        };
                     };
                 };
             };
