@@ -20,7 +20,7 @@ params [["_showTimer", true, [true]]];
 if (_showTimer) then {
     if !(isNil QGVAR(timerID)) exitWith { LOG("Tried to start safestart while it was already running") };
 
-    if (GVAR(showTimer)) then {
+    if (GVAR(showTimer) > 0) then {
         [QGVAR(timerRscTitle)] call CFUNC(createRscTitle);
     };
 

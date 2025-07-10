@@ -9,21 +9,32 @@
 
 [
     QGVAR(showTimer),
-    "CHECKBOX",
-    ["Show SafeStart Timer", "False disables the on screen timer, can use to make clean recordings."],
+    "LIST",
+    ["Show SafeStart Timer", "Whether to show the safe start timer and additional safe start equipment information."],
     ["POTATO - User", "Safe Start"],
-    true,
-    0,
-    {
-        if (missionNamespace getVariable [QGVAR(startTime_PV), -1] != -1) then {
-            if (_this) then {
+    [[0, 1, 2], ["Timer and Info Off", "Display Timer", "Display Timer and Info"], 1],
+    0, {
+    if (missionNamespace getVariable [QGVAR(startTime_PV), -1] != -1) then {
+        if (_this > 0) then {
+            private _title = uiNamespace getVariable [QGVAR(timerRscTitle), displayNull];
+            if (isNull _title) exitWith {
                 [QGVAR(timerRscTitle)] call CFUNC(createRscTitle);
-            } else {
-                QGVAR(timerRscTitle) cutFadeOut 0;
+                _title = uiNamespace getVariable [QGVAR(timerRscTitle), displayNull];
             };
+            private _ctrlGroup = _title displayCtrl IDC_SAFESTARTINFO_BASEGRP;
+            if (_this == 2) then {
+                (_ctrlGroup controlsGroupCtrl IDC_SAFESTARTEQUIP_BACKGROUND) ctrlShow true;
+                (_ctrlGroup controlsGroupCtrl IDC_SAFESTARTINFO_DISP) ctrlShow true;
+                [_ctrlGroup controlsGroupCtrl IDC_SAFESTARTINFO_DISP] call FUNC(fillSafeStartEquip);
+            } else {
+                (_ctrlGroup controlsGroupCtrl IDC_SAFESTARTEQUIP_BACKGROUND) ctrlShow false;
+                (_ctrlGroup controlsGroupCtrl IDC_SAFESTARTINFO_DISP) ctrlShow false;
+            };
+        } else {
+            QGVAR(timerRscTitle) cutFadeOut 0;
         };
-    }
-] call cba_settings_fnc_init;
+    };
+}] call cba_settings_fnc_init;
 
 [
     QGVAR(enabled),
