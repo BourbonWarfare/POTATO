@@ -178,17 +178,13 @@ class CfgWeapons {
     
     // RHS 6B28 retextures
     
-    class H_HelmetB: ItemCore {};
-    class rhs_6b27m: H_HelmetB {};
-    class rhs_6b28: rhs_6b27m {};
-    class rhs_6b28_green: rhs_6b28 {};
-    class rhs_6b28_ess: rhs_6b28 {};
-    class rhs_6b28_green_ess: rhs_6b28_ess {};
+    class rhs_6b28_green;
     class potato_helmet_6b28_irreg: rhs_6b28_green {
         author = "AChesheireCat";
         scope = 2;
         hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\potato_6b28_2_irreg_co.paa)};
     };
+    class rhs_6b28_green_ess;
     class potato_helmet_6b28_irreg_ess: rhs_6b28_green_ess {
         author = "AChesheireCat";
         scope = 2;
@@ -196,10 +192,7 @@ class CfgWeapons {
     };
     
     // CWRIII LBV retextures
-    
-    class cwr3_b_vest_base: ItemCore {};
-    class cwr3_b_vest_alice: cwr3_b_vest_base {};
-    class cwr3_b_vest_lbv: cwr3_b_vest_alice {};
+    class cwr3_b_vest_lbv;
     class potato_vest_grad2: cwr3_b_vest_lbv {
         author = "AChesheireCat";
         scope = 2;
