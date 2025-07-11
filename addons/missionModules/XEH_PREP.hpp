@@ -29,5 +29,6 @@ PREP(toolboxAttributeSave);
 PREP(zeus_banziCharge);
 PREP(zeus_bodyBag);
 PREP(zeus_missionHint);
+PREP(zeus_resupplyBoxes);
 PREP(zeusAttributes);
 PREP(zeusAttributes_missionHint);

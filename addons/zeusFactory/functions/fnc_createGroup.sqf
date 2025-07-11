@@ -13,10 +13,19 @@ if (_vehType != "") then {
     _maxCargoRoom = _maxCargoRoom min (([_vehType] call FUNC(getSeatInfo)) # 1);
 };
 
-switch (_side) do {
-    case (west): {_soldierList = _soldierList apply {"potato_w_"+_x};};
-    case (east): {_soldierList = _soldierList apply {"potato_e_"+_x};};
-    case (resistance): {_soldierList = _soldierList apply {"potato_i_"+_x};};
+private _useNoLambs = _placeLogic getVariable [QGVAR(useNoLAMBS), false];
+if (_useNoLambs) then {
+    switch (_side) do {
+        case (west): {_soldierList = _soldierList apply {"potato_noLambs_w_"+_x};};
+        case (east): {_soldierList = _soldierList apply {"potato_noLambs_e_"+_x};};
+        case (resistance): {_soldierList = _soldierList apply {"potato_noLambs_i_"+_x};};
+    };
+} else {
+    switch (_side) do {
+        case (west): {_soldierList = _soldierList apply {"potato_w_"+_x};};
+        case (east): {_soldierList = _soldierList apply {"potato_e_"+_x};};
+        case (resistance): {_soldierList = _soldierList apply {"potato_i_"+_x};};
+    };
 };
 
 if ((count _soldierList) > _maxCargoRoom) then {

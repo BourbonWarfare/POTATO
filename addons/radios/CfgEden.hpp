@@ -7,9 +7,7 @@ class ctrlEdit;
 class ctrlStatic;
 class ctrlToolbox;
 class ctrlListNBox;
-class ctrlXSliderH;
 class ctrlMenuStrip;
-class ctrlCheckboxBaseline;
 
 class GVAR(setAttribute): ctrlToolbox {
     idc = RADIO_SET_IDC;

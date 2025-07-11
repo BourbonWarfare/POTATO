@@ -22,8 +22,7 @@ params ["_theBox", "_path", ["_nameFormatString", "%1", [""]]];
 [_theBox, _path] call FUNC(setContainerContentsFromConfig);
 
 private _boxName = getText (_path >> "boxCustomName");
-if (_boxName isNotEqualTo "") then {
-    _theBox setVariable [QACEGVAR(cargo,customName), format [_nameFormatString, _boxName], true];
+if (_boxName != "") then {
     _theBox setVariable [QACEGVAR(cargo,customName), format [_nameFormatString, _boxName], true];
 };
 

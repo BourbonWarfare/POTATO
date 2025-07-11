@@ -15,7 +15,6 @@ class CfgPatches {
     };
 };
 
-class CBA_Extended_EventHandlers;
 class CfgVehicles {
     class THIRSK_WeatherPreSet;
     class TH_SNOWING1: THIRSK_WeatherPreSet { XEH_ENABLED; }; // "Snowing Strenght 1" 3237942199

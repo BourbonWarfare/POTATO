@@ -21,7 +21,6 @@ class CfgVehicles {
     class Car: LandVehicle {};
     class Car_F: Car {
         class HitPoints {
-            class HitBody;
             class HitEngine;
             class HitFuel;
             class HitHull;
@@ -39,8 +38,6 @@ class CfgVehicles {
         class NewTurret;
         class Turrets {
             class MainTurret: NewTurret {
-                class ViewOptics;
-                class ViewGunner;
                 class Turrets {
                     class CommanderOptics;
                 };

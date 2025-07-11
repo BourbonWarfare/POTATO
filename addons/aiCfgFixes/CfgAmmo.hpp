@@ -417,13 +417,10 @@ class CfgAmmo {
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
-    class M_Mo_82mm_AT;
     class ammo_Missile_CruiseBase: MissileBase {
         audibleFire = 64;
     };
-    class M_Mo_120mm_AT;
     class M_Mo_155mm_AT;
-    class M_Mo_120mm_AT_LG;
     class M_Mo_230mm_AT: M_Mo_155mm_AT {
         audibleFire = 64;
     };
