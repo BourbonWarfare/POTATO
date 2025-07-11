@@ -16,9 +16,9 @@ switch (_transportType) do {
 
 private _crewType = ["vicd", "pilot"] select (_vehType isKindOf "Air");
 _crewType = switch (_side) do {
-	case (west): {"potato_w_" + _crewType};
-	case (east): {"potato_e_" + _crewType};
-	case (resistance): {"potato_i_" + _crewType};
+    case (west): {"potato_w_" + _crewType};
+    case (east): {"potato_e_" + _crewType};
+    case (resistance): {"potato_i_" + _crewType};
 };
 
 // Return:
