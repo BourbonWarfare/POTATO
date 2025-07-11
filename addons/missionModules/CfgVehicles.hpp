@@ -1,10 +1,7 @@
 class CfgVehicles {
     class Logic;
     class Module_F: Logic {
-        class ArgumentsBaseUnits;
-        class ModuleDescription;
         class AttributesBase {
-            class Edit;
             class Combo;
         };
     };

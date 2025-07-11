@@ -40,19 +40,6 @@ class CfgVehicles {
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class OpticsIn;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 discreteDistance[] = {100,200,300,400,500,600,700,800,1000,1200,1500,1800,2100,2400};
                 weapons[] = {
                     QPOTFIX(CUP_Rarden_CTWS_veh),
@@ -86,19 +73,6 @@ class CfgVehicles {
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class OpticsIn ;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 discreteDistance[] = {100,200,300,400,500,600,700,800,1000,1200,1500,1800,2100,2400};
                 weapons[] = {
                     QPOTFIX(CUP_Rarden_CTWS_veh),
@@ -117,40 +91,13 @@ class CfgVehicles {
     // FV101
     class cwr3_b_uk_fv101: cwr3_b_uk_fv107 {
         class Turrets: Turrets {
-            class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class OpticsIn;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
-            };
+            class MainTurret: MainTurret {};
         };
     };
     class POTFIX(cwr3_b_uk_fv101_unstab): cwr3_b_uk_fv101 {
         displayName = "FV101 Scorpion (Unstab)";
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class OpticsIn;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 stabilizedInAxes = 0;
             };
         };
@@ -220,11 +167,6 @@ class CfgVehicles {
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
                 class OpticsIn {
                     class Wide {
                         gunnerOpticsEffect[] = {};
@@ -257,13 +199,6 @@ class CfgVehicles {
                         visionMode[] = {"Normal","NVG"};
                     };
                 };
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 discreteDistance[] = {100,200,300,400,500,600,700,800,1000,1200,1500,1800,2100,2400};
                 weapons[] = {
                     QPOTFIX(CUP_Rarden_CTWS_veh),
