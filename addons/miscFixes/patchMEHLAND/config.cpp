@@ -94,13 +94,10 @@ class RscDisplayMain: RscStandardDisplay {
                 };
                 class GroupHover: GroupHover {
                     class Controls: Controls {
-                        class Overlay;
                         class LineLeft: LineLeft {};
-                        class LineRight;
                         class LineTop: LineTop {
                             text = "$STR_A3_RSCDISPLAYMAIN_SPOTLIGHT_OPEN";
                         };
-                        class LineBottom;
                     };
                 };
                 class TextBackground: TextBackground {};

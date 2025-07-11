@@ -1,5 +1,4 @@
 class Mode_SemiAuto;
-class CUP_PicatinnyTopMount;
 class CfgWeapons {
     class ItemCore;
     class ace_xm157_prototype: ItemCore {
