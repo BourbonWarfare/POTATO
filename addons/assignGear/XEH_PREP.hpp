@@ -10,6 +10,7 @@ PREP(assignGearVehicle);
 PREP(changeableOptics_getChildren);
 PREP(changeableOptics_setOptic);
 PREP(cleanPrefix);
+PREP(fillObjectFromConfig);
 PREP(getContainerInfo);
 PREP(getDisposableInfo); // temp?? for cba change to disposable hash maps
 PREP(getLinkedIndex);
