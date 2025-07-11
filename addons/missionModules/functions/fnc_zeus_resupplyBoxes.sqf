@@ -9,7 +9,7 @@
 TRACE_1("params",_this);
 params ["_logic"];
 
-if (!local _logic) exitWith {};
+if !(isServer) exitWith {};
 
 private _boxes = configProperties [missionConfigFile >> "CfgLoadouts" >> "SupplyBoxes", "isClass _x"];
 private _posAGL = ASLToAGL getPosASL _logic;

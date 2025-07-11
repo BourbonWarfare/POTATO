@@ -86,7 +86,7 @@ class CfgVehicles {
         category = QEGVAR(core,util);
         scope = 1;
         scopeCurator = 2;
-        isTriggerActivated = 1;
+        isGlobal = 0;
         displayName = "Create defined resupply boxes";
         function = QFUNC(zeus_resupplyBoxes);
         curatorCost = 0;
