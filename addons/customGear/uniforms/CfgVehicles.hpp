@@ -190,9 +190,7 @@ class CfgVehicles {
     
     // RHS 6B28 retextures
     
-    class Item_Base_F;
-    class Item_rhs_6b28_green: Item_Base_F {};
-    class Item_rhs_6b28_green_ess: Item_Base_F {};
+    class Item_rhs_6b28_green;
     class potato_6b28_irreg: Item_rhs_6b28_green {
         scope = 1;
         scopeCurator = 1;
@@ -204,6 +202,7 @@ class CfgVehicles {
             };
         };
     };
+    class Item_rhs_6b28_green_ess;
     class potato_6b28_irreg_ess: Item_rhs_6b28_green_ess {
         scope = 1;
         scopeCurator = 1;
