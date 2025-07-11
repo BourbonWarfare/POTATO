@@ -1,8 +1,6 @@
 class CfgWeapons {
-    class InventoryItem_Base_F;
     class ItemCore;
     class Uniform_Base;
-    class HeadGearItem;
     class UniformItem;
     
     class jasons_indfor_uniform_base: ItemCore {
@@ -180,9 +178,7 @@ class CfgWeapons {
     
     // RHS 6B28 retextures
     
-    class H_HelmetB: ItemCore {
-        class ItemInfo;
-    };
+    class H_HelmetB: ItemCore {};
     class rhs_6b27m: H_HelmetB {};
     class rhs_6b28: rhs_6b27m {};
     class rhs_6b28_green: rhs_6b28 {};
