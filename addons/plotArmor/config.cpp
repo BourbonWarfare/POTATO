@@ -5,7 +5,7 @@ class CfgPatches {
 		author = "SagJangi";
         authorUrl = "https://steamcommunity.com/sharedfiles/filedetails/?id=2075156290";
 		units[] = {};
-		weapons[] = {"PLOT_ARMOR_V_Pockets_F","PLOT_ARMOR_V_BandollierB","PLOT_ARMOR_V_TacChestrig_grn_F","PLOT_ARMOR_V_Chestrig","PLOT_ARMOR_V_HarnessO_brn","PLOT_ARMOR_V_HarnessOGL_brn","PLOT_ARMOR_H_No_Hat","PLOT_ARMOR_H_Cap_oli","PLOT_ARMOR_H_Cap_tan","PLOT_ARMOR_H_Cap_grn","PLOT_ARMOR_H_Bandanna_cbr","PLOT_ARMOR_H_Bandanna_khk","PLOT_ARMOR_H_Bandanna_sand","PLOT_ARMOR_H_Booniehat_khk","PLOT_ARMOR_H_Booniehat_oli","PLOT_ARMOR_H_Booniehat_tan","PLOT_ARMOR_H_Shemag_olive","PLOT_ARMOR_H_ShemagOpen_khk","PLOT_ARMOR_H_ShemagOpen_tan"};
+		weapons[] = {"PLOT_ARMOR_V_Pockets_F","PLOT_ARMOR_V_BandollierB","PLOT_ARMOR_V_TacChestrig_grn_F","PLOT_ARMOR_V_Chestrig","PLOT_ARMOR_V_HarnessO_brn","PLOT_ARMOR_V_HarnessOGL_brn","PLOT_ARMOR_H_No_Hat","PLOT_ARMOR_H_Cap_oli","PLOT_ARMOR_H_Cap_tan","PLOT_ARMOR_H_Cap_grn","PLOT_ARMOR_H_Bandanna_cbr","PLOT_ARMOR_H_Bandanna_khk","PLOT_ARMOR_H_Bandanna_sand","PLOT_ARMOR_H_Booniehat_khk","PLOT_ARMOR_H_Booniehat_oli","PLOT_ARMOR_H_Booniehat_tan","PLOT_ARMOR_H_Shemag_olive","PLOT_ARMOR_H_ShemagOpen_khk","PLOT_ARMOR_H_ShemagOpen_tan","PLOT_ARMOR_H_3holeBalaclava"};
         requiredAddons[] = {"potato_core"};
         VERSION_CONFIG;
 	};
@@ -184,4 +184,14 @@ class CfgWeapons {
 		picture = "\A3\Characters_F_Bootcamp\Data\UI\icon_H_ShemagOpen_khk_ca.paa";
 		hiddenSelectionsTextures[] = {"\A3\Characters_F_Bootcamp\Civil\Data\h_shemag_brn_co.paa"};
 	};
+    class PLOT_ARMOR_H_3holeBalaclava: H_HelmetIA {
+        author = "Chesheire";
+		displayName = "PLOT ARMOR 3-hole Balaclava (Black)";
+		picture = "\A3\Characters_F_Bootcamp\Data\UI\icon_G_Balaclava_clean_ca.paa";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"\a3\characters_f_bootcamp\guerrilla\data\headgear_balaclava_blk_co.paa"};
+		class ItemInfo: ItemInfo {
+			uniformModel = "\A3\Characters_F_Bootcamp\Guerrilla\g_balaclava_clean.p3d";
+		};
+    };
 };
