@@ -192,15 +192,15 @@ class CfgWeapons {
     class potato_arifle_M4RIS: potato_arifle_M4 {
         displayName = "M4 Carbine RIS";
         reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M4_Reload",1,1,10};
-		changeFiremodeSound[] = {"A3\sounds_f\weapons\closure\firemode_changer_2",0.25118864,1,20};
+        changeFiremodeSound[] = {"A3\sounds_f\weapons\closure\firemode_changer_2",0.25118864,1,20};
         drySound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\Dry",1,1,35};
         jsrs_soundeffect = "JSRS2_Distance_Effects_M4";
         discreteDistance[] = {300};
-		ACE_barrelTwist = 178;
-		ACE_barrelLength = 368;
-		ACE_overheating_mrbs = 3600;
-		ACE_overheating_dispersion = 1;
-		ACE_overheating_slowdownFactor = 1;
+        ACE_barrelTwist = 178;
+        ACE_barrelLength = 368;
+        ACE_overheating_mrbs = 3600;
+        ACE_overheating_dispersion = 1;
+        ACE_overheating_slowdownFactor = 1;
         model = "\CUP\Weapons\CUP_Weapons_M16\CUP_M4A1_BUIS.p3d";
         picture = "\CUP\Weapons\CUP_Weapons_M16\data\ui\gear_m4a1_buis_x_ca.paa";
         hiddenSelections[] = {"camo","camo_rail","camo1","camo2","camo3","camo4","camo_lod"};
@@ -236,6 +236,44 @@ class CfgWeapons {
         };
         inertia = 0.4;
         dexterity = 1.6;
+    };
+    class potato_arifle_M4RIS_grip: potato_arifle_M4RIS {
+        displayName = "M4 Carbine RIS (Grip)";
+        model = "\CUP\Weapons\CUP_Weapons_M16\CUP_M4A3.p3d";
+        picture = "\CUP\Weapons\CUP_Weapons_M16\data\ui\gear_M4A3_X_ca.paa";
+        handAnim[] = {"OFP2_ManSkeleton","\CUP\Weapons\CUP_Weapons_M16\data\anim\M4FG.rtm"};
+        inertia = 0.32;
+        dexterity = 2;
+        recoil = "CUP_M4A3_recoil";
+        hiddenSelections[] = {"camo","camo_rail","camo1","camo2","camo3","camo4","camo_lod"};
+        hiddenSelectionsTextures[] = {"CUP\Weapons\CUP_Weapons_M16\data\tigg_m4_co.paa","CUP\Weapons\CUP_Weapons_M16\data\m4_v3_co.paa","CUP\Weapons\CUP_Weapons_M16\data\tigg_m4furniture_co.paa","CUP\Weapons\CUP_Weapons_M16\data\tigg_m4barrel_co.paa","CUP\Weapons\CUP_Weapons_M16\data\tigg_carryhandle_co.paa","CUP\Weapons\CUP_Weapons_WeaponsData\Data\RIS_cover\rail_cover_co.paa","CUP\Weapons\CUP_Weapons_M16\data\m4_co.paa"};
+        class WeaponSlotsInfo: WeaponSlotsInfo {
+            class CUP_PicatinnyTopMountM4: CUP_PicatinnyTopMount {
+                iconPinPoint = "center";
+                iconPosition[] = {0.502,0.219};
+                iconScale = 0.2;
+                iconPicture = "\A3\Weapons_F\Data\UI\attachment_top.paa";
+            };
+            class CUP_PicatinnySideMountM4: CUP_PicatinnySideMount {
+                iconPinPoint = "center";
+                iconPosition[] = {0.326,0.375};
+                iconScale = 0.26;
+                iconPicture = "\A3\Weapons_F\Data\UI\attachment_side.paa";
+            };
+            class CUP_PicatinnyUnderMountM16: CUP_PicatinnyUnderMount {
+                iconPinPoint = "center";
+                iconPosition[] = {0.266,0.621};
+                iconScale = 0.3;
+                iconPicture = "\A3\weapons_f_mark\data\UI\attachment_under.paa";
+            };
+            class MuzzleSlot: asdg_MuzzleSlot_556 {
+                iconPinPoint = "center";
+                iconPosition[] = {0.02,0.375};
+                iconScale = 0.25;
+                iconPicture = "\A3\Weapons_F\Data\UI\attachment_muzzle.paa";
+            };
+            allowedslots[] = {901};
+        };
     };
     class potato_arifle_M4RIS_M203GL: potato_arifle_M4RIS {
         displayName = "M4 Carbine RIS M203";
