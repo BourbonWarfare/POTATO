@@ -1,4 +1,13 @@
 class Mode_FullAuto;
+class CUP_PicatinnyTopMount;
+class CUP_PicatinnySideMount;
+class asdg_MuzzleSlot;
+class asdg_MuzzleSlot_556: asdg_MuzzleSlot {
+    class compatibleItems {
+        CUP_muzzle_snds_M16_camo = 1;
+        CUP_muzzle_snds_M16 = 1;
+    };
+};
 class CfgWeapons {
     // Adds C7, C7GL, and C7A2, C7A2
     class CUP_arifle_M16A1E1;
@@ -84,8 +93,9 @@ class CfgWeapons {
     
     // Burst Fire M4s
     
-    class Mode_SemiAuto;
-    class Mode_Burst;
+//    class Mode_SemiAuto;
+//    class Mode_Burst;
+
     class UGL_F;
     class Rifle;
     class Rifle_Base_F: Rifle {
