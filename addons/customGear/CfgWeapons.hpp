@@ -23,6 +23,10 @@ class CfgWeapons {
     };
     
     // Burst-fire M4s
+    class Mode_SemiAuto;
+    class Mode_Burst;
+    class Mode_FullAuto;
+    class SlotInfo;
     class UGL_F;
     class Rifle;
     class Rifle_Base_F: Rifle {
