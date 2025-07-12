@@ -250,11 +250,11 @@ class CfgRecoils {
         permanent = 0.08;
         temporary = 0.005;
     };
-    class GVAR(recoil_SAW_2): recoil_default { // 15% reduced vertical and horizontal recoil
-        muzzleOuter[] = {0.68,1.19,0.35,0.21};
-        kickBack[] = {0.015,0.02};
-        permanent = 0.08;
-        temporary = 0.005;
+    class GVAR(recoil_SAW_2): recoil_default { // testing weird shit v2
+        muzzleOuter[] = {0.52,0.91,0.35,0.25};
+        kickBack[] = {0.018,0.023};
+        permanent = 0.03;
+        temporary = 0.015;
     };
     class GVAR(recoil_SAW_3): recoil_default { // 35% reduced vertical and horizontal recoil
         muzzleOuter[] = {0.52,0.91,0.35,0.21};
