@@ -256,6 +256,12 @@ class CfgRecoils {
         permanent = 0.03;
         temporary = 0.015;
     };
+    class GVAR(recoil_SAW_2prone): recoil_default { // testing weird shit v2
+        muzzleOuter[] = {0.26,0.455,0.175,0.125};
+        kickBack[] = {0.0075,0.01};
+        permanent = 0.015;
+        temporary = 0.0075;
+    };
     class GVAR(recoil_SAW_3): recoil_default { // 35% reduced vertical and horizontal recoil
         muzzleOuter[] = {0.52,0.91,0.35,0.21};
         kickBack[] = {0.015,0.02};
@@ -358,6 +364,7 @@ class CfgWeapons {
     class CUP_lmg_minimi_railed: CUP_lmg_minimipara {};
     class CUP_lmg_m249_pip2: CUP_lmg_minimi_railed {
         recoil = QGVAR(recoil_SAW_2);
+        recoilProne = QGVAR(recoil_SAW_2prone);
     };
     class CUP_lmg_m249_pip3: CUP_lmg_minimi_railed {
         recoil = QGVAR(recoil_SAW_3);
