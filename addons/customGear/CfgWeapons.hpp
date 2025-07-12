@@ -30,7 +30,7 @@ class CfgWeapons {
     class Rifle;
     class Rifle_Base_F: Rifle {
         class WeaponSlotsInfo;
-        class GunParticles;
+//        class GunParticles;
     };
     class CUP_arifle_M16_Base: Rifle_Base_F {};
     class CUP_arifle_Colt727: CUP_arifle_M16_Base {};
