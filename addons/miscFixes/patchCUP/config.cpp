@@ -252,7 +252,7 @@ class CfgRecoils {
     };
     class GVAR(recoil_SAW_2): recoil_default { // testing weird shit v2
         muzzleOuter[] = {0.52,0.91,0.35,0.25};
-        kickBack[] = {0.018,0.023};
+        kickBack[] = {0.015,0.02};
         permanent = 0.03;
         temporary = 0.015;
     };
