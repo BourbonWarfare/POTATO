@@ -1,5 +1,6 @@
 class Mode_FullAuto;
 class CUP_PicatinnyTopMount;
+class CUP_PicatinnyUnderMount;
 class CUP_PicatinnySideMount;
 class asdg_MuzzleSlot;
 class asdg_MuzzleSlot_556: asdg_MuzzleSlot {
