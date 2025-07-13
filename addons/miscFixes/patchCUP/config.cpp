@@ -251,16 +251,16 @@ class CfgRecoils {
         temporary = 0.005;
     };
     class GVAR(recoil_SAW_2): recoil_default { // testing weird shit v2
-        muzzleOuter[] = {0.52,0.91,0.35,0.25};
+        muzzleOuter[] = {0.442,0.7735,0.2975,0.2125};
         kickBack[] = {0.015,0.02};
-        permanent = 0.03;
-        temporary = 0.015;
+        permanent = 0.04;
+        temporary = 0.02;
     };
-    class GVAR(recoil_SAW_2prone): recoil_default { // testing weird shit v2
+    class GVAR(recoil_SAW_2prone): recoil_default {
         muzzleOuter[] = {0.26,0.455,0.175,0.125};
         kickBack[] = {0.0075,0.01};
         permanent = 0.015;
-        temporary = 0.0075;
+        temporary = 0.005;
     };
     class GVAR(recoil_SAW_3): recoil_default { // 35% reduced vertical and horizontal recoil
         muzzleOuter[] = {0.52,0.91,0.35,0.21};
@@ -270,9 +270,9 @@ class CfgRecoils {
     };
     class GVAR(recoil_SAW_4): recoil_default { // testing weird shit
         muzzleOuter[] = {0.52,0.91,0.35,0.25};
-        kickBack[] = {0.018,0.023};
+        kickBack[] = {0.015,0.02};
         permanent = 0.03;
-        temporary = 0.013;
+        temporary = 0.015;
     };
     class GVAR(recoil_uk59): recoil_default {
         muzzleOuter[] = {0.71,1.22,0.35,0.55};
