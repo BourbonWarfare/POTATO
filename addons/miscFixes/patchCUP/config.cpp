@@ -244,28 +244,22 @@ class CfgRecoils {
         permanent = 0.1;
         temporary = 0.005;
     };
-    class GVAR(recoil_SAW): recoil_default { // original modified saw recoil
-        muzzleOuter[] = {0.8,1.4,0.35,0.25};
+    class GVAR(recoil_SAW): recoil_default { // testing +15% muzzleOuter x,y
+        muzzleOuter[] = {0.59,1.04,0.29,0.21};
         kickBack[] = {0.015,0.02};
-        permanent = 0.08;
-        temporary = 0.005;
+        permanent = 0.03;
+        temporary = 0.015;
     };
-    class GVAR(recoil_SAW_2): recoil_default { // testing weird shit v2
+    class GVAR(recoil_SAW_2): recoil_default { // the one
         muzzleOuter[] = {0.52,0.91,0.29,0.21};
         kickBack[] = {0.015,0.02};
         permanent = 0.03;
         temporary = 0.015;
     };
-    class GVAR(recoil_SAW_3): recoil_default { // 35% reduced vertical and horizontal recoil
-        muzzleOuter[] = {0.52,0.91,0.35,0.21};
+    class GVAR(recoil_SAW_3): recoil_default { // increasing permanent value
+        muzzleOuter[] = {0.52,0.91,0.29,0.21};
         kickBack[] = {0.015,0.02};
-        permanent = 0.08;
-        temporary = 0.005;
-    };
-    class GVAR(recoil_SAW_4): recoil_default { // testing weird shit
-        muzzleOuter[] = {0.52,0.91,0.35,0.25};
-        kickBack[] = {0.015,0.02};
-        permanent = 0.03;
+        permanent = 0.038;
         temporary = 0.015;
     };
     class GVAR(recoil_uk59): recoil_default {
@@ -361,9 +355,6 @@ class CfgWeapons {
     };
     class CUP_lmg_m249_pip3: CUP_lmg_minimi_railed {
         recoil = QGVAR(recoil_SAW_3);
-    };
-    class CUP_lmg_m249_pip4: CUP_lmg_minimi_railed {
-        recoil = QGVAR(recoil_SAW_4);
     };
     class CUP_smg_MP7: Rifle_Short_Base_F { // Applies the APEX dlc MP5 recoil to the CUP MP7
         recoil = "recoil_smg_05";
