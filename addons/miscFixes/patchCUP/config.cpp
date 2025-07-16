@@ -244,7 +244,7 @@ class CfgRecoils {
         permanent = 0.1;
         temporary = 0.005;
     };
-    class GVAR(recoil_SAW): recoil_default { // testing +15% muzzleOuter x,y
+    class GVAR(recoil_SAW): recoil_default { // testing +15% muzzleOuter x,y (my favorite, more bouncy but less mouse control needed)
         muzzleOuter[] = {0.59,1.04,0.29,0.21};
         kickBack[] = {0.015,0.02};
         permanent = 0.03;
@@ -262,7 +262,7 @@ class CfgRecoils {
         permanent = 0.038;
         temporary = 0.015;
     };
-    class GVAR(recoil_SAW_4): recoil_default { // 35% reduced vertical and horizontal recoil
+    class GVAR(recoil_SAW_4): recoil_default { // 35% reduced vertical and horizontal recoil (my second favorite, harder to keep on target but still "controllable" in the vertical)
         muzzleOuter[] = {0.52,0.91,0.35,0.21};
         kickBack[] = {0.015,0.02};
         permanent = 0.08;
