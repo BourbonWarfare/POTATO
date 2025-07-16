@@ -262,6 +262,12 @@ class CfgRecoils {
         permanent = 0.038;
         temporary = 0.015;
     };
+    class GVAR(recoil_SAW_4): recoil_default { // 35% reduced vertical and horizontal recoil
+        muzzleOuter[] = {0.52,0.91,0.35,0.21};
+        kickBack[] = {0.015,0.02};
+        permanent = 0.08;
+        temporary = 0.005;
+    };
     class GVAR(recoil_uk59): recoil_default {
         muzzleOuter[] = {0.71,1.22,0.35,0.55};
         kickBack[] = {0.026,0.064};
@@ -355,6 +361,9 @@ class CfgWeapons {
     };
     class CUP_lmg_m249_pip3: CUP_lmg_minimi_railed {
         recoil = QGVAR(recoil_SAW_3);
+    };
+    class CUP_lmg_m249_pip4: CUP_lmg_minimi_railed {
+        recoil = QGVAR(recoil_SAW_4);
     };
     class CUP_smg_MP7: Rifle_Short_Base_F { // Applies the APEX dlc MP5 recoil to the CUP MP7
         recoil = "recoil_smg_05";
