@@ -85,30 +85,35 @@ class CfgWeapons {
     class CUP_lmg_m249_pip1;
     class potato_lmg_m249_pip1_coop: CUP_lmg_m249_pip1 {
         scope = 1;
+        scopeArsenal = 0;
         recoil = QGVAR(recoil_SAW_coop);
         recoilProne = QGVAR(recoil_SAW_prone_coop);
     };
     class CUP_lmg_m249_pip3;
     class potato_lmg_m249_pip3_coop: CUP_lmg_m249_pip3 {
         scope = 1;
+        scopeArsenal = 0;
         recoil = QGVAR(recoil_SAW_coop);
         recoilProne = QGVAR(recoil_SAW_prone_coop);
     };
     class CUP_lmg_m249_E1;
     class potato_lmg_m249_E1_coop: CUP_lmg_m249_E1 {
         scope = 1;
+        scopeArsenal = 0;
         recoil = QGVAR(recoil_SAW_coop);
         recoilProne = QGVAR(recoil_SAW_prone_coop);
     };
     class CUP_lmg_m249_E2;
     class potato_lmg_m249_E2_coop: CUP_lmg_m249_E2 {
         scope = 1;
+        scopeArsenal = 0;
         recoil = QGVAR(recoil_SAW_coop);
         recoilProne = QGVAR(recoil_SAW_prone_coop);
     };
     class CUP_lmg_minimipara;
     class potato_lmg_minimipara_coop: CUP_lmg_minimipara {
         scope = 1;
+        scopeArsenal = 0;
         recoil = QGVAR(recoil_SAW_coop);
         recoilProne = QGVAR(recoil_SAW_prone_coop);
     };
