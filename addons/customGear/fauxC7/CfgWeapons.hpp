@@ -143,7 +143,7 @@ class CfgWeapons {
         COMMON_M4_CARBINE_INCLUDES;
         displayName = "M4 Carbine (RIS)";
         class Library {
-            libTextDesc = "The M4 Carbine is a shortened version of the M16A2. It sports a shortened barrel and collapsible stock, making it the Special Operations weapon of choice. As with the M16A2, the M4 Carbine is limited to a 3-round burst mode.&lt;br/&gt;The M4 Carbine can be modified with a variety of special accessories including optics such as the Aimpoint 5000, an easily detachable suppressor, the M203 under barrel grenade launcher, and many others.";
+            libTextDesc = "The M4 Carbine is a shortened version of the M16A2. This specific version was formally adopted by the USMC in 2015 and sports a shortened barrel, collapsible stock, and RIS rail system. As with the M16A2, the M4 Carbine is limited to a 3-round burst mode.&lt;br/&gt;The M4 Carbine can be modified with a variety of special accessories including optics such as the M68 CCO, an easily detachable suppressor, the M203 under barrel grenade launcher, and many others.";
         };
     };
 
@@ -152,7 +152,7 @@ class CfgWeapons {
         COMMON_M4_CARBINE_INCLUDES;
         displayName = "M4 Carbine (RIS/Grip)";
         class Library {
-            libTextDesc = "The M4 Carbine is a shortened version of the M16A2. It sports a shortened barrel and collapsible stock, making it the Special Operations weapon of choice. As with the M16A2, the M4 Carbine is limited to a 3-round burst mode.&lt;br/&gt;The M4 Carbine can be modified with a variety of special accessories including optics such as the Aimpoint 5000, an easily detachable suppressor, the M203 under barrel grenade launcher, and many others.";
+            libTextDesc = "The M4 Carbine is a shortened version of the M16A2. This specific version was formally adopted by the USMC in 2015 and sports a shortened barrel, collapsible stock, and RIS rail system. As with the M16A2, the M4 Carbine is limited to a 3-round burst mode.&lt;br/&gt;The M4 Carbine can be modified with a variety of special accessories including optics such as the M68 CCO, an easily detachable suppressor, the M203 under barrel grenade launcher, and many others.";
         };
     };
 
@@ -161,7 +161,7 @@ class CfgWeapons {
         COMMON_M4_CARBINE_INCLUDES;
         displayName = "M4 Carbine M203 (RIS)";
         class Library {
-            libTextDesc = "The M4 Carbine is a shortened version of the M16A2. It sports a shortened barrel and collapsible stock, making it the Special Operations weapon of choice. As with the M16A2, the M4 Carbine is limited to a 3-round burst mode.&lt;br/&gt;The M4 Carbine uses 5.56x45mm NATO cartridges and this one is equipped with an M203 40mm grenade launcher.";
+            libTextDesc = "The M4 Carbine is a shortened version of the M16A2. This specific version was formally adopted by the USMC in 2015 and sports a shortened barrel, collapsible stock, and RIS rail system. As with the M16A2, the M4 Carbine is limited to a 3-round burst mode.&lt;br/&gt;The M4 Carbine uses 5.56x45mm NATO cartridges and this one is equipped with an M203 40mm grenade launcher.";
         };
     };
 
