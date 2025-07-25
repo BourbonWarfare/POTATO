@@ -21,27 +21,24 @@ class RscTitles {
             };
         };
     };
-    class GVAR(timerRscTitle) {
+    class GVAR(timerRscTitle): GVAR(timerRscTitle_old) {
         idd = -1;
-        onLoad = QUOTE(with uiNamespace do {GVAR(timerRscTitle) = _this select 0;};);
         movingEnable = 1;
         duration = 99999999;
-        fadeIn = 0;
-        fadeOut = 0.5;
         class controls {
             class controlGroup: RscControlsGroupNoScrollbars {
                 idc = IDC_SAFESTARTINFO_BASEGRP;
                 x = QUOTE(profileNamespace getVariable [ARR_2(QQUOTE(TRIPLES(igui,GVAR(grid),x)),SAFESTART_MENU_DEFAULT_X)]);
                 y = QUOTE(profileNamespace getVariable [ARR_2(QQUOTE(TRIPLES(igui,GVAR(grid),y)),SAFESTART_MENU_DEFAULT_Y)]);
                 w = SAFESTART_MENU_WIDTH;
-                h = "16.2 * (((safezoneW / safezoneH) min 1.2)) / 25";
+                h = "15.5 * (((safezoneW / safezoneH) min 1.2)) / 25";
                 class controls {
                     class Background: RscText { // We need to hide this when we don't show the info
                         idc = IDC_SAFESTARTEQUIP_BACKGROUND;
                         x = 0;
                         y = 0;
                         w = SAFESTART_MENU_WIDTH;
-                        h = "16.2 * ((safezoneW / safezoneH) min 1.2) / 25";
+                        h = "15.5 * ((safezoneW / safezoneH) min 1.2) / 25";
                         colorBackground[] = {0,0,0,0.6};
                     };
                     class safeStartHint: RscStructuredText {
@@ -70,8 +67,8 @@ class RscTitles {
                                 idc = IDC_SAFESTARTEQUIP_TITLE;
                                 text = "Safe Start Info";
                                 font = "PuristaBold";
-                                sizeEx = "0.0225 * SafezoneH";
-                                size = "0.0225 * SafezoneH";
+                                sizeEx = "0.048";
+                                size = "0.048";
                                 x = SAFESTART_TEXT_OFFSET_X;
                                 y = 0;
                                 w = SAFESTART_MENU_WIDTH_OFFSET;
@@ -87,8 +84,8 @@ class RscTitles {
                             class RscText_equip: RscStructuredText {
                                 idc = IDC_SAFESTARTEQUIP_TEXT;
                                 text = "";
-                                sizeEx = "0.025 * SafezoneH";
-                                size = "0.018 * SafezoneH";
+                                sizeEx = "0.053";
+                                size = "0.038";
                                 x = SAFESTART_TEXT_OFFSET_X;
                                 y = "0.8 * ((safezoneW / safezoneH) min 1.2) / 25";
                                 w = SAFESTART_MENU_WIDTH_OFFSET;
