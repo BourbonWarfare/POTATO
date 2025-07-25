@@ -1,4 +1,4 @@
-#define FORCE_ARMOR_GE90_FLK(classname) class classname: gm_ge_vest_armor_90_flk {\
+#define FORCE_ARMOR_GE90_FLK(classname) class classname: gm_ge_vest_armor_90_base {\
     class ItemInfo: ItemInfo {\
         class HitpointsProtectionInfo: HitpointsProtectionInfo {\
             class Abdomen {\
@@ -35,7 +35,7 @@
 }
 #define FORCE_ARMOR_PL80_AKM(classname) class classname: gm_pl_vest_armor_01_akm_80_base {\
     class ItemInfo: ItemInfo {\
-        class HitpointsProtectionInfo {\
+        class HitpointsProtectionInfo: HitpointsProtectionInfo {\
             class Abdomen {\
                 armor = 16;\
                 hitpointName = "HitAbdomen";\
@@ -179,41 +179,7 @@ class CfgWeapons {
             };
         };
     };
-    class gm_ge_vest_armor_90_flk: gm_ge_vest_armor_90_base {
-        class ItemInfo: ItemInfo {
-            class HitpointsProtectionInfo: HitpointsProtectionInfo {
-                class Abdomen {
-                    armor = 16;
-                    explosionShielding = 0.1;
-                    hitpointName = "HitAbdomen";
-                    passThrough = 0.9;
-                };
-                class Body {
-                    explosionShielding = 0.1;
-                    hitpointName = "HitBody";
-                    passThrough = 0.9;
-                };
-                class Chest {
-                    armor = 16;
-                    explosionShielding = 0.1;
-                    HitpointName = "HitChest";
-                    passThrough = 0.9;
-                };
-                class Diaphragm {
-                    armor = 16;
-                    explosionShielding = 0.1;
-                    HitpointName = "HitDiaphragm";
-                    passThrough = 0.9;
-                };
-                class Neck {
-                    armor = 8;
-                    explosionShielding = 0.1;
-                    hitpointName = "HitNeck";
-                    passThrough = 0.9;
-                };
-            };
-        };
-    };
+    FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_flk);
     FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_leader_flk);
     FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_medic_flk);
     FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_officer_flk);
