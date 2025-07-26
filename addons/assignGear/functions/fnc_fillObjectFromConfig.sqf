@@ -83,6 +83,7 @@ if (_subBoxes isNotEqualTo [] && _maxDepth > 0) then {
         [_theObject, true, [0, 1, 1], 0, true, true] call ACEFUNC(dragging,setCarryable);
         [_theObject, true, [0, 1.5, 0], 0, true, true] call ACEFUNC(dragging,setDraggable);
         _theObject addMagazineCargoGlobal [QGVAR(reminder), 1];
+        _theObject setMaxLoad 0;
     };
     0
 } else {
