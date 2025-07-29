@@ -274,6 +274,8 @@ class CfgMagazineWells {
     };
 };
 
+class Mode_SemiAuto; // inheritance for sa61 accuracy fix
+class Mode_FullAuto; // inheritance for sa61 accuracy fix
 class CfgWeapons {
     // Make A-10A compatible with CCIP
     class CannonCore;
@@ -324,6 +326,7 @@ class CfgWeapons {
         };
     };
 
+    class Rifle_Base_F;
     class Rifle_Short_Base_F;
     class Rifle_Long_Base_F;
     class CUP_lmg_M240: Rifle_Long_Base_F { // Applies good cool m240 custom recoil values defined in cfgrecoil
@@ -342,6 +345,14 @@ class CfgWeapons {
     };
     class CUP_lmg_UK59: Rifle_Long_Base_F { // Tones down the horrific standing recoil to a more manageable state. Still stucks, but less now
         recoil = QGVAR(recoil_uk59);
+    };
+    class CUP_smg_SA61: Rifle_Base_F { // buffs the Skorpion's accuracy to appropriate levels (can hit man size target 60% of the time at 100m)
+        class Single: Mode_SemiAuto {
+            dispersion = 0.00872; // was 0.018 (aka 61 MOA)
+        };
+        class FullAuto: Mode_FullAuto {
+            dispersion = 0.00872; // was 0.018 (aka 61 MOA)
+        };
     };
 
     // 40mm HEDP
