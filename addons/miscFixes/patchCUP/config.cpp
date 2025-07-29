@@ -348,10 +348,14 @@ class CfgWeapons {
     };
     class CUP_smg_SA61: Rifle_Base_F { // buffs the Skorpion's accuracy to appropriate levels (can hit man size target 60% of the time at 100m)
         class Single: Mode_SemiAuto {
-            dispersion = 0.00872; // was 0.018 (aka 61 MOA)
+            dispersion = 0.00436; // was 0.018 (aka 61 MOA)
+            recoil = "recoil_smg_05";
+            recoilProne = "recoil_smg_05";
         };
         class FullAuto: Mode_FullAuto {
-            dispersion = 0.00872; // was 0.018 (aka 61 MOA)
+            dispersion = 0.00436; // was 0.018 (aka 61 MOA)
+            recoil = "recoil_smg_05";
+            recoilProne = "recoil_smg_05";
         };
     };
 
