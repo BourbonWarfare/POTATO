@@ -351,7 +351,7 @@ class CfgWeapons {
             dispersion = 0.00639; // was 0.018 (aka 61 MOA)
         };
         class FullAuto: Mode_FullAuto {
-            dispersion = 0.00639// was 0.018 (aka 61 MOA)
+            dispersion = 0.00639; // was 0.018 (aka 61 MOA)
         };
     };
 
