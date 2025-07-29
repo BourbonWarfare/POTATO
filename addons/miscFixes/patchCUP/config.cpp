@@ -350,12 +350,10 @@ class CfgWeapons {
         class Single: Mode_SemiAuto {
             dispersion = 0.00436; // was 0.018 (aka 61 MOA)
             recoil = "recoil_smg_05";
-            recoilProne = "recoil_smg_05";
         };
         class FullAuto: Mode_FullAuto {
             dispersion = 0.00436; // was 0.018 (aka 61 MOA)
             recoil = "recoil_smg_05";
-            recoilProne = "recoil_smg_05";
         };
     };
 
