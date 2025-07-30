@@ -181,7 +181,7 @@ _subKeys = [];
             if (_firstChar == (_x select [0, 1]) && {
                 _x in _roleDescript
             }) exitWith {
-                TRACE_4("Zeus",_x,_fristChar,_groupID,_roleDescript);
+                TRACE_4("Zeus",_x,_firstChar,_groupID,_roleDescript);
                 _subKeys pushBack _groupID;
                 _argArray set [2, true];
             };
