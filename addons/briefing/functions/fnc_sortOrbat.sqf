@@ -1,3 +1,5 @@
+#define DEBUG_MODE_FULL
+#include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
  * This function attempts to find and group elements into categories of
@@ -19,7 +21,7 @@ params [
 
 if (_orbatToSort isEqualTo createHashMap)  exitWith {};
 
-/// Find all leaderships and  keys
+/// Find all leaderships and keys
 private _orbatAbrev = createHashMap;
 private _leadKey = "";
 {
@@ -27,6 +29,7 @@ private _leadKey = "";
     _y params ["_roleDescript", "", "_used"];
     if (_used) then {continue};
     if ("coy" in _groupID || {"coy" in _roleDescript}) exitWith {
+        TRACE_2("Found coy",_groupID,_roleDescript);
         _leadKey = _x;
         _y set [2, true];
     };
@@ -66,6 +69,7 @@ _orbatAbrev set ["wsl", [_leadKey, _subKeys]];
     private _lowerGroupID = toLowerANSI _groupID;
     {
         if (_x in _lowerGroupID) exitWith {
+            TRACE_3("Found weapons team",_x,_lowerGroupID,_groupID);
             _subKeys pushBack _groupID;
             _argArray set [2, true];
         };
@@ -83,6 +87,7 @@ _orbatAbrev set ["ARMOR_NOLEAD", ["", _subKeys]];
     private _lowerGroupID = toLowerANSI _groupID;
     {
         if (_x in _lowerGroupID) exitWith {
+            TRACE_3("Found ground vehicle",_x,_lowerGroupID,_groupID);
             _subKeys pushBack _groupID;
             _argArray set [2, true];
         };
@@ -98,16 +103,17 @@ _orbatAbrev set ["AIR_NOLEAD", ["", _subKeys]];
     if (_used) then {continue};
     private _argArray = _y;
     private _lowerGroupDesc = toLowerANSI _roleDescript;
-    private _lowGroupID = toLowerANSI _x;
+    private _lowGroupID = toLowerANSI _groupID;
     {
         if (_x in _lowerGroupDesc || _x in _lowGroupID) exitWith {
+            TRACE_5("Found air group",_x,_lowGroupID,_lowerGroupDesc,_groupID,_roleDescript);
             _subKeys pushBack _groupID;
             _argArray set [2, true];
         };
     } forEach ["helo", "heli", "fixed", "plane", "ah"];
 } forEach _orbatToSort;
 
-/// Zeus
+//// Zeus
 _subKeys = [];
 _orbatAbrev set ["ZEUS", ["", _subKeys]];
 {
@@ -119,13 +125,14 @@ _orbatAbrev set ["ZEUS", ["", _subKeys]];
     private _lowGroupID = toLowerANSI _x;
     {
         if (_x in _lowerGroupDesc || _x in _lowGroupID) exitWith {
+            TRACE_5("Zeus",_x,_lowGroupID,_lowerGroupDesc,_groupID,_roleDescript);
             _subKeys pushBack _groupID;
             _argArray set [2, true];
         };
     } forEach ["zeus", "zane"];
 } forEach _orbatToSort;
 
-// plt1-3
+//// plt1-3
 _subKeys = [];
 {
     private _leadStr = _x;
@@ -174,6 +181,7 @@ _subKeys = [];
             if (_firstChar == (_x select [0, 1]) && {
                 _x in _roleDescript
             }) exitWith {
+                TRACE_4("Zeus",_x,_fristChar,_groupID,_roleDescript);
                 _subKeys pushBack _groupID;
                 _argArray set [2, true];
             };
@@ -247,7 +255,7 @@ if (_subKeys isNotEqualTo []) then {
     } forEach _orbatToSort;
 };
 
-/// Logi
+//// Logi
 private _orbatArr = _orbatAbrev getOrDefault ["coy", ["", []]];
 _leadKey = _orbatArr#0;
 _subKeys = _orbatArr#1;
@@ -274,7 +282,7 @@ if (_leadKey != "") then {
     } forEach _orbatToSort;
 };
 
-/// Other
+//// Other
 _subKeys = [];
 _orbatAbrev set ["OTH_NOLEAD", ["", _subKeys]];
 {
