@@ -8,7 +8,7 @@ class CfgUIGrids {
                             SAFESTART_MENU_DEFAULT_X_QUOTE,
                             SAFESTART_MENU_DEFAULT_Y_QUOTE,
                             SAFESTART_MENU_WIDTH,
-                            "16.2 * ((safezoneW / safezoneH) min 1.2) / 25"
+                            "15.5 * ((safezoneW / safezoneH) min 1.2) / 25"
                         },
                         "((safeZoneW / safeZoneH) min 1.2) / 40",
                         "(((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25"

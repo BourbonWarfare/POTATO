@@ -21,7 +21,8 @@ class CfgAmmo {
             enabled = 1;
             defaultSeekerType = "MULTI";
             seekerTypes[] = {"MULTI", "SALH", "GPS"};
-            lineGainD = 10;
+            lineGainD = 20;
+            lineGainP = 100;
         };
     };
     // clean up missile and smoke mod to make Vikhr's visible

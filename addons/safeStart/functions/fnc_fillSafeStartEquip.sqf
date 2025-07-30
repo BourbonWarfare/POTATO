@@ -230,14 +230,14 @@ _subString = switch (true) do {
 };
 if (_itemBoolArray#1) then {
     if (_subString == "") then {
-        _subString = _subString + "RAT";
+        _subString = "RAT";
     } else {
         _subString = _subString + ", RAT";
     };
 };
 if (_itemBoolArray#0) then {
     if (_subString == "") then {
-        _subString = _subString + "Rifle";
+        _subString = "Rifle";
     } else {
         _subString = _subString + ", Rifle";
     };
