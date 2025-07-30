@@ -31,14 +31,14 @@ class RscTitles {
                 x = QUOTE(profileNamespace getVariable [ARR_2(QQUOTE(TRIPLES(igui,GVAR(grid),x)),SAFESTART_MENU_DEFAULT_X)]);
                 y = QUOTE(profileNamespace getVariable [ARR_2(QQUOTE(TRIPLES(igui,GVAR(grid),y)),SAFESTART_MENU_DEFAULT_Y)]);
                 w = SAFESTART_MENU_WIDTH;
-                h = "15.5 * (((safezoneW / safezoneH) min 1.2)) / 25";
+                h = SAFESTART_MENU_HEIGHT;
                 class controls {
                     class Background: RscText { // We need to hide this when we don't show the info
                         idc = IDC_SAFESTARTEQUIP_BACKGROUND;
                         x = 0;
                         y = 0;
                         w = SAFESTART_MENU_WIDTH;
-                        h = "15.5 * ((safezoneW / safezoneH) min 1.2) / 25";
+                        h = SAFESTART_MENU_HEIGHT;
                         colorBackground[] = {0,0,0,0.6};
                     };
                     class safeStartHint: RscStructuredText {
@@ -58,9 +58,9 @@ class RscTitles {
                     class safeStartInfoGroup: RscControlsGroupNoScrollbars {
                         idc = IDC_SAFESTARTINFO_DISP;
                         x = 0;
-                        y = "2.5 * ((safezoneW / safezoneH) min 1.2) / 25";
+                        y = "2.25 * ((safezoneW / safezoneH) min 1.2) / 25";
                         w = SAFESTART_MENU_WIDTH;
-                        h = "14 * ((safezoneW / safezoneH) min 1.2) / 25";
+                        h = "13.4 * ((safezoneW / safezoneH) min 1.2) / 25";
                         onLoad = QUOTE(_this call FUNC(fillSafeStartEquip));
                         class controls {
                             class RscText_title: RscStructuredText {
