@@ -5,7 +5,8 @@
 
 class CfgPatches {
     class ADDON {
-        weapons[] = { "potato_fauxC7_c7", "potato_fauxC7_c7GL", "potato_fauxC7_c7a2", "potato_fauxC7_c7a2GL" };
+        weapons[] = { "potato_fauxC7_c7", "potato_fauxC7_c7GL", "potato_fauxC7_c7a2", "potato_fauxC7_c7a2GL",
+            "potato_lmg_m249_pip1_coop", "potato_lmg_m249_pip3_coop", "potato_lmg_m249_E1_coop", "potato_lmg_m249_E2_coop", "potato_lmg_minimipara_coop" };
         units[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core", "CUP_Weapons_LoadOrder", "jsrs_soundmod_cup_weapons"};
@@ -17,4 +18,5 @@ class CfgPatches {
     };
 };
 
+#include "CfgRecoils.hpp"
 #include "CfgWeapons.hpp"
