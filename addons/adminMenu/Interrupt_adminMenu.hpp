@@ -666,13 +666,13 @@ class GVAR(adminMenuDialog) {
                     text = "Reload All Client Markers";
                     tooltip = "Reloads every clients markers from\ntheir local marker caches";
                     y = QUOTE(0.44 * safezoneH);
-                    action = QUOTE(remoteExecCall [QQEFUNC(markers,reinitMarkerHash)];SEND_ADMIN_MSG(Reload all client markers); [] call FUNC(reloadMarkersTab););
+                    action = QUOTE(remoteExecCall [ARR_2(QQEFUNC(markers,reinitMarkerHash),0)];SEND_ADMIN_MSG(Reload all client markers); [] call FUNC(reloadMarkersTab););
                 };
                 class initServerMarks: attachMarkerToClient {
                     text = "Reinit Server AI Markers";
                     tooltip = "Sometimes AI are spawned with markers on the server after\nthe init runs. Run again to fix missing AI markers.";
                     y = QUOTE(0.5 * safezoneH);
-                    action = QUOTE(remoteExecCall [ARR_2(QQEFUNC(markers,initLocalMarkers),0)];SEND_ADMIN_MSG(Reload server AI markers); [] call FUNC(reloadMarkersTab););
+                    action = QUOTE(remoteExecCall [ARR_2(QQEFUNC(markers,initLocalMarkers),2)];SEND_ADMIN_MSG(Reload server AI markers); [] call FUNC(reloadMarkersTab););
                 };
             };
         };
