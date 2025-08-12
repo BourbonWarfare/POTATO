@@ -53,15 +53,18 @@ LOG("Post init start");
                 if (didJIP) then {
                     [true] call FUNC(reinitMarkerHash);
                 };
-                // In an attempt to catch those who join in map screen and
-                // miss the reinitMarkerHash call we call it after mission start
-                // without the network sync
-                [{
-                    if (GVAR(drawHash) isEqualTo createHashMap) then {
-                        [] call FUNC(reinitMarkerHash);
-                    };
-                }, 0, 0.1] call CBA_fnc_waitAndExecute;
-                };
+                [QEGVAR(core,briefingEnd), {
+                    [{local player && getClientStateNumber > 8},{
+                        if (GVAR(drawHash) isEqualTo createHashMap) then {
+                            [] call FUNC(reinitMarkerHash);
+                        };
+                    }, [], 10, {
+                        if (GVAR(drawHash) isEqualTo createHashMap) then {
+                            [] call FUNC(reinitMarkerHash);
+                        };
+                    }];
+                }] call CBA_fnc_addEventHandler;
+            };
             [] call FUNC(checkForMapMarkerColor);
 
         } else {

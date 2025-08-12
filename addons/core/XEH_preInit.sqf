@@ -8,4 +8,10 @@ PREP_RECOMPILE_END;
 
 #include "initSettings.inc.sqf"
 
+if (isMultiplayer && isServer) then {
+    [{getClientStateNumber > 9}, {
+        [QGVAR(briefingEnd), CBA_missionTime] call CBA_fnc_globalEvent;
+    }];
+};
+
 ADDON = true;
