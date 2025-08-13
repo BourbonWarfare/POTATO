@@ -11,7 +11,7 @@ class CfgMagazines {
         descriptionShort = "Range: 10m - 200m<br/>Type: HEDP<br/>Used in: AT4CS LMAW";
         displayName = "AT4CS-RS (HEAT) Rocket";
         initSpeed = 220;
-        mass = 39.4;
+        mass = 69.4;
     };
     class MAGAZINE(AT4CS_LMAW): CUP_M136_M {
         author = "Potato";
