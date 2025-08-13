@@ -53,8 +53,8 @@ LOG("Post init start");
                 if (didJIP) then {
                     [true] call FUNC(reinitMarkerHash);
                 };
-                [QEGVAR(core,briefingEnd), {
-                    [{local player && getClientStateNumber > 8},{
+                [QCVAR(briefingEnd), {
+                    [{local player && getClientStateNumber > 9},{
                         if (GVAR(drawHash) isEqualTo createHashMap) then {
                             [] call FUNC(reinitMarkerHash);
                         };
