@@ -17,8 +17,8 @@ if (_fullGroup) then {
     {
         [QACEGVAR(medical_treatment,fullHealLocal), [_x, _x], _x] call CBA_fnc_targetEvent;
     } forEach units group _selectedUnit;
-    ["potato_adminMsg", [format ["Fully healed %1's group", (groupId group _selectedUnit)], profileName]] call CBA_fnc_globalEvent;
+    ["potato_adminMsg", [format ["Fully healed %1's group (%2 %3)", name _selectedUnit, side group _selectedUnit, groupId group _selectedUnit], profileName]] call CBA_fnc_globalEvent;
 } else {
     [QACEGVAR(medical_treatment,fullHealLocal), [_selectedUnit, _selectedUnit], _selectedUnit] call CBA_fnc_targetEvent;
-    ["potato_adminMsg", [format ["Fully healed %1", (name _selectedUnit)], profileName]] call CBA_fnc_globalEvent;
+    ["potato_adminMsg", [format ["Fully healed %1", name _selectedUnit], profileName]] call CBA_fnc_globalEvent;
 };
