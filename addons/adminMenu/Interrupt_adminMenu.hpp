@@ -539,10 +539,20 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Reset Medical (Full Heal)";
                     x = QUOTE(0.255 * safezoneW);
+                    y = QUOTE(0.12 * safezoneH);
+                    w = QUOTE(0.26 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([false] call FUNC(uihook_resetMedicalButton));
+                };
+                class ResetMedicalGroupButton: RscButton {
+                    idc = -1;
+                    text = "Reset Medical Group (Full Heal)";
+                    x = QUOTE(0.255 * safezoneW);
                     y = QUOTE(0.22 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE([] call FUNC(uihook_resetMedicalButton));
+                    tooltip = "Heal all group members of the selected unit.";
+                    action = QUOTE([true] call FUNC(uihook_resetMedicalButton));
                 };
                 class ResetMarkersButton: RscButton {
                     idc = -1;
