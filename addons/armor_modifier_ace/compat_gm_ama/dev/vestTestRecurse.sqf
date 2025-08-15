@@ -24,7 +24,7 @@ hit = 9;
 typicalSpeed = 920;
 /*********************/
 private _bullet = createVehicle ["B_556x45_Ball", getPosATL _unit vectorAdd [0, -1, 1.4], [], 0, "CAN_COLLIDE"];
-_bullet setvectorDirAndUp [[0, 1, 0], [0, 0, 1]];
+_bullet setVectorDirAndUp [[0, 1, 0], [0, 0, 1]];
 _bullet setVelocity [0, 920, 0];
 
 // Wait a moment and fire the next round

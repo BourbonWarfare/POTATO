@@ -37,10 +37,10 @@ diag_log formatText ["Beginning vest armor testing of %1 vests", count _vests];
             private _vest = vest _unit;
             private _armor = lmd_tst_vestArmors getOrDefaultCall [_vest, {
                 private _cfg = configFile >> "CfgWeapons" >> _vest >> "ItemInfo" >> "HitpointsProtectionInfo";
+                private _infoArr = [];
                 {
                     _infoArr pushBack getNumber (_cfg >> _x >> "armor");
                 } forEach ["Abdomen", "Chest", "Diaphragm", "Neck"];
-	            private _infoArr = [];
                 _infoArr
             }, true];
             if (_armor#_idx > 0 && {_damage > 1.1 * 9 / (_armor#_idx)}) then {
