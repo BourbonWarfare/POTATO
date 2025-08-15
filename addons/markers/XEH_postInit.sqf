@@ -62,7 +62,7 @@ LOG("Post init start");
                         if (GVAR(drawHash) isEqualTo createHashMap) then {
                             [] call FUNC(reinitMarkerHash);
                         };
-                    }];
+                    }] call CBA_fnc_waitUntilAndExecute;
                 }] call CBA_fnc_addEventHandler;
             };
             [] call FUNC(checkForMapMarkerColor);
