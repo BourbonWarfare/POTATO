@@ -45,6 +45,10 @@ class CfgWeapons {
     class Rifle;
     class Rifle_Base_F: Rifle {};
     class UGL_F;
+    class Rifle_Long_Base_F: Rifle_Base_F {};
+    class ptv_m249: Rifle_Long_Base_F {
+        UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
+    };
     class ptv_rs556 : Rifle_Base_F {
         bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.0099,1,10};
         bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.0099,1,10};
