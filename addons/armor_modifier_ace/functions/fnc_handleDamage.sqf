@@ -35,7 +35,7 @@ if (_structuralDamage) then {
 };
 
 // Damage can be disabled with old variable or via sqf command allowDamage
-if !(isDamageAllowed _unit && {_unit getVariable [QACEGVAR(medical_engine,allowDamage), true] || _ignoreAllowDamageACE}) exitWith {_oldDamage};
+if !(isDamageAllowed _unit && {_unit getVariable [QACEGVAR(medical,allowDamage), true] || _ignoreAllowDamageACE}) exitWith {_oldDamage};
 
 // Killing units via End key is an edge case (#10375)
 // This didn't matter pre-Arma 3 2.18 but now this goes through the event handler
@@ -127,11 +127,12 @@ private _multiplierArray = _unit getVariable [QGVAR(armorHash),
         side _unit,
         GVAR(defaultArmorHash)
     ]
-] getOrDefault [_hitPoint, DEFAULT_SETTINGS, true];
+] getOrDefault [toLowerANSI _hitPoint, DEFAULT_SETTINGS, true];
 
 private _modifiedNewDamage = _newDamage;
 
 // If default settings, we don't need to change anything, so skip calculcations and let ace handle damage
+TRACE_3("Premanipulation",_multiplierArray,_armor,_modifiedNewDamage);
 if (_multiplierArray isNotEqualTo DEFAULT_SETTINGS) then {
     _multiplierArray params ["_hitPointTimeser", "_armorMin", "_armorMax"];
 
@@ -154,62 +155,63 @@ if (_multiplierArray isNotEqualTo DEFAULT_SETTINGS) then {
 
     TRACE_4("Hitpoint damage multiplied",_armor,_newDamage,_modifiedNewDamage,_realDamage);
 };
+TRACE_1("Post-manipulation",_modifiedNewDamage);
 
 // Damages are stored for last iteration of the HandleDamage event (_context == 2)
-_unit setVariable [format ["ace_medical_engine_$%1", _hitPoint], [_realDamage, _newDamage, _modifiedNewDamage]];
+_unit setVariable [format [QACEGVAR(medical_engine,$%1), _hitPoint], [_realDamage, _modifiedNewDamage]];
 
 // Ref https://community.bistudio.com/wiki/Arma_3:_Event_Handlers#HandleDamage
 // Context 2 means this is the last iteration of HandleDamage, so figure out which hitpoint took the most real damage and send wound event
 // Don't exit, as the last iteration can be one of the hitpoints that we need to keep _oldDamage for
 if (_context == 2) then {
-    _unit setVariable ["ace_medical_lastDamageSource", _shooter];
-    _unit setVariable ["ace_medical_lastInstigator", _instigator];
+    _unit setVariable [QACEGVAR(medical,lastDamageSource), _shooter];
+    _unit setVariable [QACEGVAR(medical,lastInstigator), _instigator];
 
-    private _damageStructural = _unit getVariable ["ace_medical_engine_$#structural", [0,0,0]];
+    private _damageStructural = _unit getVariable [QACEGVAR(medical_engine,$#structural), [0,0,0]];
 
     // --- Head
     private _damageHead = [
-        _unit getVariable ["ace_medical_engine_$HitFace", [0,0,0]],
-        _unit getVariable ["ace_medical_engine_$HitNeck", [0,0,0]],
-        _unit getVariable ["ace_medical_engine_$HitHead", [0,0,0]]
+        _unit getVariable [QACEGVAR(medical_engine,$HitFace), [0,0]],
+        _unit getVariable [QACEGVAR(medical_engine,$HitNeck), [0,0]],
+        _unit getVariable [QACEGVAR(medical_engine,$HitHead), [0,0]]
     ];
     _damageHead sort false;
     _damageHead = _damageHead select 0;
 
     // --- Body
     private _damageBody = [
-        _unit getVariable ["ace_medical_engine_$HitPelvis", [0,0,0]],
-        _unit getVariable ["ace_medical_engine_$HitAbdomen", [0,0,0]],
-        _unit getVariable ["ace_medical_engine_$HitDiaphragm", [0,0,0]],
-        _unit getVariable ["ace_medical_engine_$HitChest", [0,0,0]]
+        _unit getVariable [QACEGVAR(medical_engine,$HitPelvis), [0,0]],
+        _unit getVariable [QACEGVAR(medical_engine,$HitAbdomen), [0,0]],
+        _unit getVariable [QACEGVAR(medical_engine,$HitDiaphragm), [0,0]],
+        _unit getVariable [QACEGVAR(medical_engine,$HitChest), [0,0]]
         // HitBody removed as it's a placeholder hitpoint and the high armor value (1000) throws the calculations off
     ];
     _damageBody sort false;
     _damageBody = _damageBody select 0;
 
     // --- Arms and Legs
-    private _damageLeftArm = _unit getVariable ["ace_medical_engine_$HitLeftArm", [0,0,0]];
-    private _damageRightArm = _unit getVariable ["ace_medical_engine_$HitRightArm", [0,0,0]];
-    private _damageLeftLeg = _unit getVariable ["ace_medical_engine_$HitLeftLeg", [0,0,0]];
-    private _damageRightLeg = _unit getVariable ["ace_medical_engine_$HitRightLeg", [0,0,0]];
+    private _damageLeftArm = _unit getVariable [QACEGVAR(medical_engine,$HitLeftArm), [0,0]];
+    private _damageRightArm = _unit getVariable [QACEGVAR(medical_engine,$HitRightArm), [0,0]];
+    private _damageLeftLeg = _unit getVariable [QACEGVAR(medical_engine,$HitLeftLeg), [0,0]];
+    private _damageRightLeg = _unit getVariable [QACEGVAR(medical_engine,$HitRightLeg), [0,0]];
 
     // Find hit point that received the maxium damage
     // Priority used for sorting if incoming damage is equal
     private _allDamages = [
         // Real damage,                                   Damage (with armor),                       Modified damage (with armor)
-        [_damageHead select 0,       PRIORITY_HEAD,       _damageHead select 1,       "Head",        _damageHead param [2, _damageHead select 1]],
-        [_damageBody select 0,       PRIORITY_BODY,       _damageBody select 1,       "Body",        _damageBody param [2, _damageBody select 1]],
-        [_damageLeftArm select 0,    PRIORITY_LEFT_ARM,   _damageLeftArm select 1,    "LeftArm",     _damageLeftArm param [2, _damageLeftArm select 1]],
-        [_damageRightArm select 0,   PRIORITY_RIGHT_ARM,  _damageRightArm select 1,   "RightArm",    _damageRightArm param [2, _damageRightArm select 1]],
-        [_damageLeftLeg select 0,    PRIORITY_LEFT_LEG,   _damageLeftLeg select 1,    "LeftLeg",     _damageLeftLeg param [2, _damageLeftLeg select 1]],
-        [_damageRightLeg select 0,   PRIORITY_RIGHT_LEG,  _damageRightLeg select 1,   "RightLeg",    _damageRightLeg param [2, _damageRightLeg select 1]],
-        [_damageStructural select 0, PRIORITY_STRUCTURAL, _damageStructural select 1, "#structural", _damageStructural param [2, _damageStructural select 1]]
+        [_damageHead select 0,       PRIORITY_HEAD,       _damageHead select 1,       "Head"],
+        [_damageBody select 0,       PRIORITY_BODY,       _damageBody select 1,       "Body"],
+        [_damageLeftArm select 0,    PRIORITY_LEFT_ARM,   _damageLeftArm select 1,    "LeftArm"],
+        [_damageRightArm select 0,   PRIORITY_RIGHT_ARM,  _damageRightArm select 1,   "RightArm"],
+        [_damageLeftLeg select 0,    PRIORITY_LEFT_LEG,   _damageLeftLeg select 1,    "LeftLeg"],
+        [_damageRightLeg select 0,   PRIORITY_RIGHT_LEG,  _damageRightLeg select 1,   "RightLeg"],
+        [_damageStructural select 0, PRIORITY_STRUCTURAL, _damageStructural select 1, "#structural"]
     ];
     TRACE_2("incoming",_allDamages,_damageStructural);
 
     _allDamages sort false;
     // Use modified damages instead of initial ones
-    _allDamages = _allDamages apply {[_x select 4, _x select 3, _x select 0]};
+    _allDamages = _allDamages apply {[_x select 2, _x select 3, _x select 0]};
 
     // Environmental damage sources all have empty ammo string
     // No explicit source given, we infer from differences between them
@@ -242,7 +244,7 @@ if (_context == 2) then {
     // TODO check if this needs to be changed for burning damage (occurs as lots of small events that we add together)
     if ((_allDamages select 0 select 0) > 1E-3) then {
         TRACE_1("received",_allDamages);
-        ["ace_medical_woundReceived", [_unit, _allDamages, _shooter, _ammo]] call CBA_fnc_localEvent;
+        [QACEGVAR(medical,woundReceived), [_unit, _allDamages, _shooter, _ammo]] call CBA_fnc_localEvent;
     };
 
     // Clear stored damages otherwise they will influence future damage events
@@ -250,10 +252,10 @@ if (_context == 2) then {
     {
         _unit setVariable [_x, nil];
     } forEach [
-        "ace_medical_engine_$HitFace","ace_medical_engine_$HitNeck","ace_medical_engine_$HitHead",
-        "ace_medical_engine_$HitPelvis","ace_medical_engine_$HitAbdomen","ace_medical_engine_$HitDiaphragm","ace_medical_engine_$HitChest","ace_medical_engine_$HitBody",
-        "ace_medical_engine_$HitLeftArm","ace_medical_engine_$HitRightArm","ace_medical_engine_$HitLeftLeg","ace_medical_engine_$HitRightLeg",
-        "ace_medical_engine_$#structural"
+        QACEGVAR(medical_engine,$HitFace),QACEGVAR(medical_engine,$HitNeck),QACEGVAR(medical_engine,$HitHead),
+        QACEGVAR(medical_engine,$HitPelvis),QACEGVAR(medical_engine,$HitAbdomen),QACEGVAR(medical_engine,$HitDiaphragm),QACEGVAR(medical_engine,$HitChest),QACEGVAR(medical_engine,$HitBody),
+        QACEGVAR(medical_engine,$HitLeftArm),QACEGVAR(medical_engine,$HitRightArm),QACEGVAR(medical_engine,$HitLeftLeg),QACEGVAR(medical_engine,$HitRightLeg),
+        QACEGVAR(medical_engine,$#structural)
     ];
 };
 
