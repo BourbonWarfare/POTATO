@@ -34,7 +34,7 @@ class CfgWeapons {
         ACEGVAR(overpressure,range) = 1;
         magazines[] = {QMAGAZINE(AT4CS_RS)};
         class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 177.4;
+            mass = 108;
         };
         class EventHandlers {
             fired = "_this call CBA_fnc_firedDisposable";
@@ -209,7 +209,7 @@ class CfgWeapons {
         descriptionShort = "Anti-structure missile launcher<br/>Unguided";
         class WeaponSlotsInfo: WeaponSlotsInfo {
             allowedSlots[] = {901};
-            mass = 47.4;
+            mass = 47.2;
         };
         class EventHandlers: EventHandlers {};
     };
@@ -232,7 +232,7 @@ class CfgWeapons {
         model = "\CUP\Weapons\CUP_Weapons_M72A6\CUP_m72a6_used.p3d";
         magazines[] = {"CBA_FakeLauncherMagazine"};
         class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 72.4;
+            mass = 47.2;
         };
     };
     // M72A10 (Light Anti-Structure Munition, Fire From Enclosure)
