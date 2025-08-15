@@ -11,7 +11,7 @@ PREP_RECOMPILE_END;
 if (isMultiplayer && isServer) then {
     [{getClientStateNumber > 9}, {
         [QGVAR(briefingEnd), CBA_missionTime] call CBA_fnc_globalEvent;
-    }];
+    }] call CBA_fnc_waitUntilAndExecute;
 };
 
 ADDON = true;
