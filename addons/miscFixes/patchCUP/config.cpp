@@ -245,10 +245,10 @@ class CfgRecoils {
         temporary = 0.005;
     };
     class GVAR(recoil_SAW): recoil_default {
-        muzzleOuter[] = {0.8,1.4,0.35,0.25};
+        muzzleOuter[] = {0.59,1.04,0.29,0.21};
         kickBack[] = {0.015,0.02};
-        permanent = 0.08;
-        temporary = 0.005;
+        permanent = 0.03;
+        temporary = 0.015;
     };
     class GVAR(recoil_uk59): recoil_default {
         muzzleOuter[] = {0.71,1.22,0.35,0.55};
