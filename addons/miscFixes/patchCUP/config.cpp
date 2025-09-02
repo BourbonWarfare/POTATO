@@ -100,7 +100,7 @@ class CfgVehicles {
     class CUP_nM1025_SOV_Base: CUP_nHMMWV_Base {
         attenuationEffectType = "OpenCarAttenuation";
     };
-    // Tweaks to the GTK Boxer's handling (accel/braking) + HMG swap to M3M + countermeasures move to gunner
+    // Tweaks to the GTK Boxer's handling (accel/braking) + countermeasures move to gunner
     class Wheeled_APC_F: Car_F {
         class NewTurret;
         class Turrets {
@@ -123,8 +123,8 @@ class CfgVehicles {
     class CUP_Boxer_Base_HMG: CUP_Boxer_Base {
         class Turrets {
             class MainTurret: NewTurret {
-                weapons[] = {"CUP_Vhmg_M3P_veh","SmokeLauncher"}; // was CUP_Vhmg_M2_veh
-                magazines[] = {"CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "SmokeLauncherMag"}; // was CUP_200Rnd_TE1_Red_Tracer_127x99_M
+                weapons[] = {"CUP_Vhmg_M2_veh","SmokeLauncher"};
+                magazines[] = {"CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","SmokeLauncherMag"}; // was CUP_200Rnd_TE1_Red_Tracer_127x99_M
             };
             class CommanderTurret: NewTurret {
                 weapons[] = {}; // was "SmokeLauncher"
@@ -139,20 +139,6 @@ class CfgVehicles {
             class wheel_1_1 {
                 maxBrakeTorque = 20000; // was 12500
                 maxHandBrakeTorque = 30000; // was 25000
-            };
-        };
-        class AnimationSources: AnimationSources {
-            class main_gun_muzzle_rot {
-                weapon = "CUP_Vhmg_M3P_veh";
-            };
-            class main_gun_reload {
-                weapon="CUP_Vhmg_M3P_veh";
-            };
-            class main_gun_reload_mag {
-                weapon="CUP_Vhmg_M3P_veh";
-            };
-            class main_gun_revolving {
-                weapon="CUP_Vhmg_M3P_veh";
             };
         };
     };
@@ -359,24 +345,6 @@ class CfgWeapons {
     class CUP_Vhmg_AGS30_veh;
     class CUP_Vgmg_MK19_veh: CUP_Vhmg_AGS30_veh {
         magazineWell[] += {"potato_HV_40x53mm"};
-    };
-
-    // Boxer HMG weapon
-    class CUP_Vhmg_M2_veh;
-    class CUP_Vhmg_M3P_veh: CUP_Vhmg_M2_veh {
-         magazines[] = {
-            "CUP_250Rnd_TE1_Red_Tracer_127x99_M", // CUP_Vhmg_M3P_veh default
-            "CUP_100Rnd_127x99_M", // rest from CUP_Vhmg_M2_veh
-            "CUP_100Rnd_TE4_Red_Tracer_127x99_M",
-            "CUP_100Rnd_TE4_Green_Tracer_127x99_M",
-            "CUP_100Rnd_TE4_Yellow_Tracer_127x99_M",
-            "CUP_100Rnd_TE4_White_Tracer_127x99_M",
-            "CUP_100Rnd_TE1_Red_Tracer_127x99_M",
-            "CUP_100Rnd_TE1_Green_Tracer_127x99_M",
-            "CUP_100Rnd_TE1_Yellow_Tracer_127x99_M",
-            "CUP_100Rnd_TE1_White_Tracer_127x99_M",
-            "CUP_200Rnd_TE1_Red_Tracer_127x99_M"
-        };
     };
 
     // M47 Dragon Optic Zoom
