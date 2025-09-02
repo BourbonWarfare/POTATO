@@ -392,6 +392,27 @@ class CfgWeapons {
             };
         };
     };
+    
+    // CUP MLRS Fix - accuracy buff for technical rocket pods
+    class RocketPods;
+    class rockets_230mm_GAT : RocketPods {
+        class Close;
+    };
+    class CUP_Vmlauncher_GRAD_veh  : rockets_230mm_GAT{
+        class Close;
+    };
+    class CUP_Vmlauncher_technical: CUP_Vmlauncher_GRAD_veh {
+        class Close : Close {
+            artilleryDispersion = 8;
+        };
+    };
+    class CUP_Vmlauncher_ub32_technical: CUP_Vmlauncher_GRAD_veh {
+        class Close : Close {
+            artilleryDispersion = 12;
+            aiRateOfFire = 0.35;
+            aiRateOfFireDistance = 1054;
+        };
+    };
 };
 
 class SlotInfo;
