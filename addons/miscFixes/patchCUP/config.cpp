@@ -118,7 +118,6 @@ class CfgVehicles {
                 radius = 0.1;
             };
         };
-        class AnimationSources;
     };
     class CUP_Boxer_Base_HMG: CUP_Boxer_Base {
         class Turrets {
