@@ -8,6 +8,7 @@ class CfgAmmo {
     };
     
     // CUP MLRS Fix
+    // Credit to martin509 via the CUP discord for the fix
     class R_230mm_HE;
 	class CUP_R_GRAD_HE : R_230mm_HE {
 		submunitionAmmo = "";

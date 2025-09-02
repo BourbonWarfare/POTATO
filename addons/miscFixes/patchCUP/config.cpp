@@ -394,6 +394,7 @@ class CfgWeapons {
     };
     
     // CUP MLRS Fix - accuracy buff for technical rocket pods
+    // Credit to martin509 via the CUP discord for the fix
     class RocketPods;
     class rockets_230mm_GAT : RocketPods {
         class Close;
