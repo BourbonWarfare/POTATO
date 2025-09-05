@@ -3,7 +3,7 @@
     "CHECKBOX", // setting type
     ["Disable Forestry", "Checking this box will turn OFF forestry, removing the option for players to chop down trees."], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "POTATO - Forestry", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    true, // data for this setting: [min, max, default, number of shown trailing decimals]
+    false, // data for this setting: [min, max, default, number of shown trailing decimals]
     true // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
 
