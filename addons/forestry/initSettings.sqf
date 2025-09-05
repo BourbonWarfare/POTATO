@@ -21,6 +21,6 @@
     "TIME", // setting type
     ["Chopping Time Duration", "Time, in seconds, required to chop down a tree."], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "POTATO - Forestry", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [1, 60, 8], // data for this setting: [min, max, default, number of shown trailing decimals]
+    [1, 60, 9], // data for this setting: [min, max, default, number of shown trailing decimals]
     true // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
