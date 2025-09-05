@@ -43,5 +43,5 @@ playSound3D [QPATHTOF(resources\chop.ogg), objNull, false, getPosASL player, 5, 
         }, _obj, 5] call CBA_fnc_waitAndExecute;
     },
     {[[QPATHTOF(resources\tree.paa), 2.0], ["Aborted nature abuse"]] call CBA_fnc_notify},
-    "Attacking nature"
+    "Attacking Nature"
 ] call ace_common_fnc_progressBar;
