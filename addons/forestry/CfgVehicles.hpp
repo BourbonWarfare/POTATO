@@ -2,8 +2,8 @@ class CfgVehicles {
     class Man;
     class CAManBase: Man {
         class ACE_SelfActions {
-            class BW_Menu {
-                displayName = "Clear Brush";
+            class POTATO_Menu {
+                displayName = "Forestry";
                 condition = "true";
                 statement = "";
                 icon = "\a3\modules_f\data\hideterrainobjects\icon32_ca.paa";

@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 /*
- * Author: Cyruz, Commy2, Drofseh
+ * Author: AChesheireCat, Cyruz, Commy2, Drofseh
  * Condition for chopping the shrubbery.
  *
  * Arguments:
@@ -21,8 +21,6 @@ if (
     potato_requireEntrenchingTool &&
     {!(_unit call ace_trenches_fnc_hasEntrenchingTool)}
 ) exitWith {false};
-
-// if !([_unit] call ace_trenches_fnc_hasEntrenchingTool) exitWith {false}; // checks to see if players have entrenching tools
 
 private _nearObj = nearestTerrainObjects [player, ["TREE", "SMALL TREE", "BUSH"], 5, false, true];
 

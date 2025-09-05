@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 /*
- * Author: Cyruz, Commy2, Drofseh
+ * Author: AChesheireCat, Cyruz, Commy2, Drofseh
  * Chops the shrubbery.
  *
  * Arguments:
