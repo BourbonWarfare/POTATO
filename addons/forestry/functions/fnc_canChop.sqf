@@ -13,13 +13,9 @@
  * [] call potato_forestry_fnc_canChop
  */
 
+params ["_unit"];
+
 if (potato_disableForestry) exitWith {false};
-
-private _nearObj = nearestTerrainObjects [player, ["TREE", "SMALL TREE", "BUSH"], 5, false, true];
-
-if (isNil "_nearObj" || { _nearObj isEqualTo [] }) exitWith {
-    false;
-};
 
 if (
     potato_requireEntrenchingTool &&
@@ -27,5 +23,11 @@ if (
 ) exitWith {false};
 
 // if !([_unit] call ace_trenches_fnc_hasEntrenchingTool) exitWith {false}; // checks to see if players have entrenching tools
+
+private _nearObj = nearestTerrainObjects [player, ["TREE", "SMALL TREE", "BUSH"], 5, false, true];
+
+if (isNil "_nearObj" || { _nearObj isEqualTo [] }) exitWith {
+    false;
+};
 
 true
