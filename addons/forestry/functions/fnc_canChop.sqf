@@ -13,6 +13,8 @@
  * [] call potato_forestry_fnc_canChop
  */
 
+if (potato_disableForestry) exitWith {false};
+
 private _nearObj = nearestTerrainObjects [player, ["TREE", "SMALL TREE", "BUSH"], 5, false, true];
 
 if (isNil "_nearObj" || { _nearObj isEqualTo [] }) exitWith {
