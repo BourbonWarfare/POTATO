@@ -41,3 +41,13 @@ class CfgVehicles {
     class DSA_ActiveIdol: DSA_SpookBase { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; };
     class DSA_ActiveIdol2: DSA_ActiveIdol { class EventHandlers { class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {}; }; };
 };
+
+class CfgFaces {
+    class Default;
+    class Man_A3: Default {
+        class Default;
+        class DSA_Noface: Default {
+            disabled = 1;
+        };
+    };
+};
