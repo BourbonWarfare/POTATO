@@ -8,7 +8,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "potato_core", "WBK_Zombies" };
-        skipWhenMissingDependencies = 1;
+        skipWhenMissingDependencies = 0;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
