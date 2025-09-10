@@ -7,7 +7,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "hlcweapons_G36" };
+        requiredAddons[] = { "potato_core", "hlcweapons_G36", "hlcweapons_core" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -30,3 +30,30 @@ class CfgMagazineWells {
     };
 };
 
+class CfgMagazines {
+    // fixes tracer every 3 mags to actually have te3
+    class 30Rnd_556x45_Stanag;
+    class hlc_30Rnd_545x39_B_AK: 30Rnd_556x45_Stanag {};
+    class hlc_30Rnd_545x39_T_ak: hlc_30Rnd_545x39_B_AK {};
+    class hlc_30Rnd_545x39_EP_ak : hlc_30Rnd_545x39_B_AK {
+        lastroundstracer = 3; // was 0
+        tracersevery = 3; // was 0
+    };
+    class hlc_30Rnd_545x39_EP_ak_Plum : hlc_30Rnd_545x39_B_AK {
+        lastroundstracer = 3; // was 0
+        tracersevery = 3; // was 0
+    };
+    class hlc_30Rnd_545x39_EP_ak_Black : hlc_30Rnd_545x39_B_AK {
+        lastroundstracer = 3; // was 0
+        tracersevery = 3; // was 0
+    };
+    class hlc_45Rnd_545x39_EP_rpk : hlc_30Rnd_545x39_T_ak {
+        tracersevery = 3; // was 0
+    };
+    class hlc_45Rnd_545x39_EP_rpkm : hlc_30Rnd_545x39_T_ak {
+        tracersevery = 3; // was 0
+    };
+    class hlc_60Rnd_545x39_EP_rpk : hlc_30Rnd_545x39_T_ak {
+        tracersevery = 3; // was 0
+    };
+};
