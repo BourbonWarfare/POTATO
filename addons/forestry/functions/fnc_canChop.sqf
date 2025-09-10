@@ -15,14 +15,14 @@
 
 params ["_unit"];
 
-if (potato_disableForestry) exitWith {false};
+if (GVAR(disableForestry)) exitWith {false};
 
 if (
-    potato_requireEntrenchingTool &&
+    GVAR(requireEntrenchingTool) &&
     {!(_unit call ace_trenches_fnc_hasEntrenchingTool)}
 ) exitWith {false};
 
-private _nearObj = nearestTerrainObjects [player, ["TREE", "SMALL TREE", "BUSH"], 5, false, true];
+private _nearObj = nearestTerrainObjects [ACE_player, ["TREE", "SMALL TREE", "BUSH"], 5, false, true];
 
 if (isNil "_nearObj" || { _nearObj isEqualTo [] }) exitWith {
     false;

@@ -2,7 +2,7 @@ class CfgVehicles {
     class Man;
     class CAManBase: Man {
         class ACE_SelfActions {
-            class POTATO_Menu {
+            class ADDON {
                 displayName = "Forestry";
                 condition = "true";
                 statement = "";

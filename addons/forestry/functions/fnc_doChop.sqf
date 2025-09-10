@@ -31,7 +31,7 @@ if (_intersectObj isEqualTo objNull && {_parentObject isEqualTo objNull}) exitWi
 private _obj = (nearestTerrainObjects [_intersectObj, ["TREE", "SMALL TREE", "BUSH"], 0, false, true]) #0;
 playSound3D [QPATHTOF(resources\chop.ogg), objNull, false, getPosASL player, 5, 1, 75];
 
-[potato_chopTime, // this controls how long it takes to chop - was 8
+[GVAR(chopTime), // this controls how long it takes to chop - was 8
     _obj,
     {
         params ["_obj"];
