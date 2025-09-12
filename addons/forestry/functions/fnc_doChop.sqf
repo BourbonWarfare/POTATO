@@ -4,10 +4,10 @@
  * Chops the shrubbery.
  *
  * Arguments:
- * 0: Volume <NUMBER>
+ * None
  *
  * Return Value:
- * None
+ * Chop Started <BOOL>
  *
  * Example:
  * [] call potato_forestry_fnc_doChop
@@ -18,14 +18,16 @@ private _endPos = AGLToASL positionCameraToWorld [0, 0, 5];
 private _intersection = (lineIntersectsSurfaces [_playerPos, _endPos, cameraOn, objNull, true, 1, "VIEW"]) #0;
 
 if (isNil "_intersection") exitWith {
-    [[QPATHTOF(resources\tree.paa), 2.0], ["Nothing to cut down"]] call CBA_fnc_notify
+    [[QPATHTOF(resources\tree.paa), 2.0], ["Nothing to cut down"]] call CBA_fnc_notify;
+    false
 };
 
 private _intersectObj = _intersection #2;
 private _parentObject = _intersection #3;
 
 if (_intersectObj isEqualTo objNull && {_parentObject isEqualTo objNull}) exitWith {
-    [[QPATHTOF(resources\tree.paa), 2.0], ["Nothing to cut down"]] call CBA_fnc_notify
+    [[QPATHTOF(resources\tree.paa), 2.0], ["Nothing to cut down"]] call CBA_fnc_notify;
+    false
 };
 
 private _obj = (nearestTerrainObjects [_intersectObj, ["TREE", "SMALL TREE", "BUSH"], 0, false, true]) #0;
@@ -35,7 +37,7 @@ playSound3D [QPATHTOF(resources\chop.ogg), objNull, false, getPosASL player, 5, 
     _obj,
     {
         params ["_obj"];
-        _obj setDamage [1, true, player];
+        _obj setDamage [1, true, ACE_player];
 
         [{
             params ["_object"];
@@ -45,3 +47,5 @@ playSound3D [QPATHTOF(resources\chop.ogg), objNull, false, getPosASL player, 5, 
     {[[QPATHTOF(resources\tree.paa), 2.0], ["Aborted nature abuse"]] call CBA_fnc_notify},
     "Attacking Nature"
 ] call ace_common_fnc_progressBar;
+
+true

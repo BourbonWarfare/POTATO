@@ -7,7 +7,7 @@ class CfgVehicles {
                 condition = "true";
                 statement = "";
                 icon = "\a3\modules_f\data\hideterrainobjects\icon32_ca.paa";
-                exceptions[] = {"isNotSwimming", "isNotInside", "isNotSitting", "isNotOnLadder", "isNotRefueling"};
+                exceptions[] = {"isNotSwimming", "isNotOnLadder"};
 
                 class Chop_Tree {
                     displayName = "Chop down tree";

@@ -4,18 +4,19 @@
  * Condition for chopping the shrubbery.
  *
  * Arguments:
- * None
+ * 0: Unit <OBJECT>
  *
  * Return Value:
  * 0: Can Chop <BOOL>
  *
  * Example:
- * [] call potato_forestry_fnc_canChop
+ * [player] call potato_forestry_fnc_canChop
  */
 
 params ["_unit"];
 
-if (GVAR(disableForestry)) exitWith {false};
+if ((GVAR(forestryEnabled) == 0) || 
+    {GVAR(forestryEnabled) == 2 && {!EGVAR(safeStart,safeStartEnabled)}}) exitWith {false};
 
 if (
     GVAR(requireEntrenchingTool) &&
