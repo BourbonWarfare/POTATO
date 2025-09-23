@@ -23,7 +23,7 @@ INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]",diag_frameNo,GVAR(in
     if (GVAR(initState) == 1) then {
         INFO_2("%1 - [InitState %2] Setting player presets",diag_frameNo,GVAR(initState));
 
-        private _presetArray = switch ((getNumber (configFile >> "CfgVehicles" >> (typeOf _player) >> "side"))) do {
+        private _presetArray = switch ((getNumber (configOf _player >> "side"))) do {
             case 0: { [EAST_SR, EAST_MR, EAST_LR, missionNamespace getVariable [QGVAR(eastDefaultLanguages), [DEFAULT_EAST_LANGS]]] };
             case 1: { [WEST_SR, WEST_MR, WEST_LR, missionNamespace getVariable [QGVAR(westDefaultLanguages), [DEFAULT_WEST_LANGS]]] };
             case 2: { [INDY_SR, INDY_MR, INDY_LR, missionNamespace getVariable [QGVAR(indyDefaultLanguages), [DEFAULT_INDY_LANGS]]] };

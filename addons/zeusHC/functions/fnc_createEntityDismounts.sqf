@@ -25,9 +25,9 @@ if !([_side, count _createUnits] call FUNC(canCreateGroup)) exitWith {
 
 private _newGroup = createGroup [_side, true]; // explicitly mark for cleanup
 
-private _cargoSelection = getText (configFile >> "CfgVehicles" >> (typeOf _attachedVehicle) >> "memoryPointsGetInCargo");
+private _cargoSelection = getText (configOf _attachedVehicle >> "memoryPointsGetInCargo");
 if (_cargoSelection == "") then {
-    private _cargoSelectionArr = getArray (configFile >> "CfgVehicles" >> (typeOf _attachedVehicle) >> "memoryPointsGetInCargo");
+    private _cargoSelectionArr = getArray (configOf _attachedVehicle >> "memoryPointsGetInCargo");
     if (_cargoSelectionArr isEqualTo []) exitWith {};
     _cargoSelection = _cargoSelectionArr select -1;
 };

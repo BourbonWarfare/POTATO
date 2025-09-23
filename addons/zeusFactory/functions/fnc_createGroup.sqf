@@ -4,7 +4,7 @@
 params ["_factoryLogic", "_side", "_placeLogic"];
 TRACE_3("createGroup",_factoryLogic,_side,_placeLogic);
 
-private _soldierList = getArray (configFile >> "CfgVehicles" >> (typeOf _placeLogic) >> QGVAR(soldierList));
+private _soldierList = getArray (configOf _placeLogic >> QGVAR(soldierList));
 
 private _transportType = _placeLogic getVariable [QGVAR(transportType), 0];
 ([_factoryLogic,_transportType,_side] call FUNC(getTransportType)) params ["_vehType"];

@@ -12,7 +12,7 @@
     TRACE_1("updateFactory eh",_factory);
     private _dispatchQueue = _factory getVariable [QGVAR(dispatchQueue), []];
     {
-        private _displayName = getText (configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName");
+        private _displayName = getText (configOf _x >> "displayName");
         _x setName format ["%1: Queued #%2", _displayName, (_forEachIndex + 1)];
     } forEach _dispatchQueue;
     private _factorySide = _factory getVariable QGVAR(side);

@@ -52,7 +52,7 @@ private _addNetToBriefing = {
 
 private _group = group ace_player;
 
-(switch ((getNumber (configFile >> "CfgVehicles" >> (typeOf ace_player) >> "side"))) do {
+(switch ((getNumber (configOf ace_player >> "side"))) do {
     case (1): {
         [
             missionNamespace getVariable [QGVAR(westDefaultLanguages), [DEFAULT_WEST_LANGS]],
