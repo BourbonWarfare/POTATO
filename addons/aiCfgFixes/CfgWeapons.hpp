@@ -4012,6 +4012,8 @@ class CfgWeapons {
         };
     };
     class CUP_Vhmg_M2_veh: HMG_M2 {
+        aiDispersionCoefX = 3.5;
+        aiDispersionCoefY = 5;
         modes[] = {"Manual","close","short","medium","far"};
         class Manual: MGun {
             showToPlayer = 1;
