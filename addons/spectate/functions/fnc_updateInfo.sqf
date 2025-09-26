@@ -36,6 +36,24 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
     } params ["_unit", "_killFeed", "_name"];
     TRACE_3("Kill Feed",typeOf _unit,count _killFeed,_name);
 
+    if (isPlayer _unit) then {
+        private _wounded = [];
+        {
+            private _unit = _x;
+            private _feed = _unit getVariable [QACEGVAR(killtracker,output), ""];
+            private _wounds = _feed regexFind [" from ([^<]*)"];
+            {
+                private _cause = _x select 1 select 0;
+                if (_cause == _name) exitWith {
+                    _wounded pushBackUnique ([_unit] call FUNC(getName));
+                };
+            } forEach _wounds;
+        } forEach allPlayers;
+        if (_wounded isNotEqualTo []) then {
+            _killFeed = format ["%2<br/><br/>Wounds on: %1", _wounded joinString ", ", _killFeed];
+        };
+    };
+
     if !(ctrlShown FOCUS_GROUP) then {
         FOCUS_GROUP ctrlShow true;
     };
