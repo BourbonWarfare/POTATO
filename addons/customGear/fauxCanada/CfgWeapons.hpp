@@ -1,4 +1,9 @@
 class CfgWeapons {
+    // Add magazine wells to 105x617mmR cannons
+    class CUP_Vcannon_L7_veh;
+    class CUP_Vcannon_M68_veh: CUP_Vcannon_L7_veh {
+        magazineWell[] += {"gm_magazineWell_105x617mm_l7"};
+    };
     // Make a C6-ish gun
     class CUP_Vlmg_M240_veh;
     class GVARMAIN(Vlmg_C6A1_veh): CUP_Vlmg_M240_veh {

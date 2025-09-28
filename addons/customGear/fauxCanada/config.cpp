@@ -20,7 +20,9 @@ class CfgPatches {
             "CUP_Vehicles_LoadOrder",
             "gm_vehicles_land_tracked_leopard1_ge_army_leopard1",
             "gm_vehicles_land_wheeled_iltis_ge_army_iltis",
-            "gm_vehicles_land_tracked_m113_dk_army_m113"
+            "gm_vehicles_land_tracked_m113_dk_army_m113",
+            "static_f_vietnam_c",
+            "weapons_v_f_vietnam_c"
         };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
