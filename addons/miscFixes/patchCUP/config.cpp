@@ -359,7 +359,7 @@ class CfgWeapons {
             };
         };
     };
-    
+
     // CUP MLRS Fix - accuracy buff for technical rocket pods
     // Credit to martin509 via the CUP discord for the fix
     class RocketPods;
