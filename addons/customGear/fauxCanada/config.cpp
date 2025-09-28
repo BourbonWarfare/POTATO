@@ -10,7 +10,6 @@ class CfgPatches {
             QGVARMAIN(ca_army_c5_high),
             QGVARMAIN(ca_army_iltis),
             QGVARMAIN(ca_army_Leopard_c1),
-            QGVARMAIN(ca_army_m113a1_command),
             QGVARMAIN(ca_army_m113a1_apc)
         };
         requiredVersion = REQUIRED_VERSION;

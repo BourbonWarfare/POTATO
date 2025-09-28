@@ -84,75 +84,6 @@ class CfgVehicles {
             };
         };
     };
-    class gm_dk_army_m113a1dk_command_base;
-    class gm_dk_army_m113a1dk_command: gm_dk_army_m113a1dk_command_base {
-        class TextureSources;
-    };
-    class GVARMAIN(ca_army_m113a1_command): gm_dk_army_m113a1dk_command {
-        crew = "potato_w_vicc";
-        displayName = "M113A1 Command";
-        displayNameShort = "M113A1";
-        faction = "gm_fc_ca";
-        gm_InsigniasDefaultNation = QGVAR(insignia_ca_01);
-        gm_LicensePlate = "gm_licenseplate_none";
-        gm_LicensePlateDefaultDigits = "";
-        gm_InsigniasSelectionNation = "Insignia_nation_01";
-        gm_TacticalNumbersDefaultNumber = "##$";
-        gm_TacticalNumbersFontNumbers = "gm_ge_schablonier_blk";
-        hiddenSelectionsTextures[] = {
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_01_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_03_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-            "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
-        };
-        class TextureSources: TextureSources {
-            class GVARMAIN(ca_forestGreen) {
-                author = "Bourbon Warfare";
-                displayname = "Canada (Forest Green)";
-                factions[] = {};
-                textures[] = {
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
-                };
-            };
-            class GVARMAIN(ca_green) {
-                author = "Bourbon Warfare";
-                displayname = "Canada (Green)";
-                factions[] = {};
-                textures[] = {
-                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-                    "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
-                };
-            };
-            class GVARMAIN(ca_camo) {
-                author = "Bourbon Warfare";
-                displayname = "Canada (Camo)";
-                factions[] = {};
-                textures[] = {
-                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_01_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_03_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-                    "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
-                };
-            };
-        };
-    };
     // Leopard C1
     class gm_ge_army_Leopard1a3a1_base;
     class gm_ge_army_Leopard1a3a1: gm_ge_army_Leopard1a3a1_base {
@@ -233,7 +164,7 @@ class CfgVehicles {
             "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_01_co.paa",
             "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_02_co.paa",
             "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_04_co.paa",
             "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
             "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
         };
