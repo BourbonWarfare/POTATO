@@ -95,7 +95,7 @@ class CfgWeapons {
             };
             class effect2 {
                 directionName = "mg1_machinegun_eject_dir";
-                effectName = "MachineGunEject1";
+                effectName = "MachineGunCartridge1";
                 positionName = "mg1_machinegun_eject_pos";
             };
             class effect3 {
