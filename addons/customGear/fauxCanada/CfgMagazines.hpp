@@ -13,6 +13,7 @@ class CfgMagazines {
         displayName = "250Rnd C5 Box";
         tracersEvery = 3;
     };
+    //// 105x617mmR Rounds
     // Smoke rounds
     class gm_1Rnd_105x617mm_apds_t_dm13;
     class GVARMAIN(1Rnd_105x617mm_wp_t_m416): gm_1Rnd_105x617mm_apds_t_dm13 {
@@ -23,7 +24,15 @@ class CfgMagazines {
         displaynameshort = "WP-T";
         nameSound = "cannon";
     };
+    class GVARMAIN(5Rnd_105x617mm_wp_t_m416): GVARMAIN(1Rnd_105x617mm_wp_t_m416) {
+        count = 5;
+    };
     class GVARMAIN(30Rnd_105x617mm_wp_t_m416): GVARMAIN(1Rnd_105x617mm_wp_t_m416) {
         count = 30;
     };
+    class gm_30Rnd_105x617mm_apfsds_t_dm33;
+    class GVARMAIN(25Rnd_105x617mm_apfsds_t_dm33): gm_30Rnd_105x617mm_apfsds_t_dm33 {
+        count = 25;
+    };
+
 };

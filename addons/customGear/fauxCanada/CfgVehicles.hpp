@@ -17,12 +17,12 @@ class CfgVehicles {
         gm_TacticalNumbersDefaultNumber = "##$";
         gm_TacticalNumbersFontNumbers = "gm_ge_schablonier_blk";
         hiddenSelectionsTextures[] = {
-            "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
             "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_01_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
             "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_03_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
             "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
         };
         class AnimationSources: AnimationSources {
@@ -40,9 +40,9 @@ class CfgVehicles {
             };
         };
         class TextureSources: TextureSources {
-            class GVARMAIN(ca_green) {
+            class GVARMAIN(ca_forestGreen) {
                 author = "Bourbon Warfare";
-                displayname = "Canada (Green)";
+                displayname = "Canada (Forest Green)";
                 factions[] = {};
                 textures[] = {
                     "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
@@ -54,17 +54,31 @@ class CfgVehicles {
                     "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
                 };
             };
+            class GVARMAIN(ca_green) {
+                author = "Bourbon Warfare";
+                displayname = "Canada (Green)";
+                factions[] = {};
+                textures[] = {
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
+                };
+            };
             class GVARMAIN(ca_camo) {
                 author = "Bourbon Warfare";
                 displayname = "Canada (Camo)";
                 factions[] = {};
                 textures[] = {
-                    "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
                     "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_01_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
                     "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_03_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
                     "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
                 };
             };
@@ -86,18 +100,18 @@ class CfgVehicles {
         gm_TacticalNumbersDefaultNumber = "##$";
         gm_TacticalNumbersFontNumbers = "gm_ge_schablonier_blk";
         hiddenSelectionsTextures[] = {
-            "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
             "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_01_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
             "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_03_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
             "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
         };
         class TextureSources: TextureSources {
-            class GVARMAIN(ca_green) {
+            class GVARMAIN(ca_forestGreen) {
                 author = "Bourbon Warfare";
-                displayname = "Canada (Green)";
+                displayname = "Canada (Forest Green)";
                 factions[] = {};
                 textures[] = {
                     "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
@@ -109,17 +123,31 @@ class CfgVehicles {
                     "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
                 };
             };
+            class GVARMAIN(ca_green) {
+                author = "Bourbon Warfare";
+                displayname = "Canada (Green)";
+                factions[] = {};
+                textures[] = {
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
+                };
+            };
             class GVARMAIN(ca_camo) {
                 author = "Bourbon Warfare";
                 displayname = "Canada (Camo)";
                 factions[] = {};
                 textures[] = {
-                    "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
                     "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_01_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
                     "\z\potato\addons\customGear\fauxCanada\data\m113a1_camo_03_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\m113a1_baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
                     "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
                 };
             };
@@ -179,6 +207,8 @@ class CfgVehicles {
                 class TurnIn;
                 class TurnOut;
                 class Turrets: Turrets {
+                    class CommanderTurret;
+                    class LoaderTurret;
                     class MachineGunTurret_01;
                 };
                 class TurretSpec;
@@ -199,12 +229,12 @@ class CfgVehicles {
         scope = 2;
         scopeCurator = 2;
         hiddenSelectionsTextures[] = {
-            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_01_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_02_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
             "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
         };
         class TextureSources: TextureSources {
@@ -213,12 +243,12 @@ class CfgVehicles {
                 displayname = "Canada (Green)";
                 factions[] = {};
                 textures[] = {
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_01_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_02_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_04_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
                     "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
                 };
             };
@@ -235,51 +265,38 @@ class CfgVehicles {
                 class TurnIn;
                 class TurnOut;
                 class Turrets: Turrets {
-                    class MainTurret: MainTurret {
-                        class Components: Components {};
-                        class GunClouds: GunClouds {};
-                        class GunFire: GunFire {};
-                        class Hitpoints: Hitpoints {};
-                        class MGunClouds: MGunClouds {};
-                        class OpticsIn: OpticsIn {};
-                        class Reflectors: Reflectors {};
-                        class TurnIn: TurnIn {};
-                        class TurnOut: TurnOut {};
-                        class Turrets: Turrets {
-                            class MachineGunTurret_01: MachineGunTurret_01 {
-                                class Components;
-                                class GunClouds;
-                                class GunFire;
-                                class Hitpoints;
-                                class MGunClouds;
-                                class Reflectors;
-                                class TurnIn;
-                                class TurnOut;
-                                class Turrets;
-                                class TurretSpec;
-                                class ViewGunner;
-                                class ViewOptics;
-                            };
-                                magazines[] = {
-                                    "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
-                                    "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
-                                    "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
-                                    "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"
-                                };
-                                weapons[] = {QGVARMAIN(Vlmg_C6A1_veh)};
+                    class CommanderTurret: CommanderTurret {};
+                    class LoaderTurret: LoaderTurret {};
+                    class MachineGunTurret_01: MachineGunTurret_01 {
+                        class Components;
+                        class GunClouds;
+                        class GunFire;
+                        class Hitpoints;
+                        class MGunClouds;
+                        class Reflectors;
+                        class TurnIn;
+                        class TurnOut;
+                        class Turrets;
+                        class TurretSpec;
+                        class ViewGunner;
+                        class ViewOptics;
+                        magazines[] = {
+                            "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
+                            "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
+                            "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
+                            "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"
                         };
-                        class TurretSpec: TurretSpec {};
-                        class ViewGunner: ViewGunner {};
-                        class ViewOptics: ViewOptics {};
+                        weapons[] = {QGVARMAIN(Vlmg_C6A1_veh)};
                     };
                 };
                 class TurretSpec;
                 class ViewGunner;
                 class ViewOptics;
+                discreteDistanceInitindex = 1;
                 magazines[] = {
-                    "gm_30Rnd_105x617mm_apfsds_t_dm33",
-                    "gm_30Rnd_105x617mm_heat_mp_t_dm12",// make these mags smaller
-                    "gm_30Rnd_105x617mm_hesh_t_dm512",
+                    QGVARMAIN(25Rnd_105x617mm_apfsds_t_dm33),
+                    "gm_30Rnd_105x617mm_heat_mp_t_dm12",
+                    QGVARMAIN(5Rnd_105x617mm_wp_t_m416),
                     "CUP_1200Rnd_TE4_Red_Tracer_762x51_M240_M",
                     "CUP_1200Rnd_TE4_Red_Tracer_762x51_M240_M",
                     "CUP_1200Rnd_TE4_Red_Tracer_762x51_M240_M"
@@ -327,9 +344,9 @@ class CfgVehicles {
             };
         };
         class TextureSources: TextureSources {
-            class GVARMAIN(ca_green) {
+            class GVARMAIN(ca_forestGreen) {
                 author = "Bourbon Warfare";
-                displayname = "Canada (Green)";
+                displayname = "Canada (Forest Green)";
                 factions[] = {};
                 textures[] = {
                     "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
@@ -338,7 +355,21 @@ class CfgVehicles {
                     "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
                     "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
                     "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
-                    "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
+                    "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
+                };
+            };
+            class GVARMAIN(ca_green) {
+                author = "Bourbon Warfare";
+                displayname = "Canada (Green)";
+                factions[] = {};
+                textures[] = {
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
                 };
             };
         };
