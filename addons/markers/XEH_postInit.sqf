@@ -54,17 +54,17 @@ LOG("Post init start");
                     [true] call FUNC(reinitMarkerHash);
                 };
                 [QCVAR(briefingEnd), {
-                    [{local player && getClientStateNumber > 9},{
-                        if (GVAR(drawHash) isEqualTo createHashMap) then {
-                            [] call FUNC(reinitMarkerHash);
-                        };
+                    [{local player && getClientStateNumber > 9}, {
+                        // used to check if the draw hash was empty before calling may need to be reverted
+                        [] call FUNC(reinitMarkerHash);
+                        [] call FUNC(initLocalMarkers);
                     }, [], 10, {
-                        if (GVAR(drawHash) isEqualTo createHashMap) then {
-                            [] call FUNC(reinitMarkerHash);
-                        };
+                        [] call FUNC(reinitMarkerHash);
+                        [] call FUNC(initLocalMarkers);
                     }] call CBA_fnc_waitUntilAndExecute;
                 }] call CBA_fnc_addEventHandler;
             };
+            [] call FUNC(initLocalMarkers); // this may cause locality issues. Remove me if we experience funkiness
             [] call FUNC(checkForMapMarkerColor);
 
         } else {
