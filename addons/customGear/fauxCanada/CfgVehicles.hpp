@@ -1,5 +1,5 @@
 class CfgVehicles {
-    // M113A1s
+    //// M113A1
     class gm_dk_army_m113a1dk_apc_base;
     class gm_dk_army_m113a1dk_apc: gm_dk_army_m113a1dk_apc_base {
         class AnimationSources;
@@ -84,7 +84,7 @@ class CfgVehicles {
             };
         };
     };
-    // Leopard C1
+    //// Leopard C1
     class gm_ge_army_Leopard1a3a1_base;
     class gm_ge_army_Leopard1a3a1: gm_ge_army_Leopard1a3a1_base {
         class Turrets;
@@ -236,7 +236,7 @@ class CfgVehicles {
             };
         };
     };
-    // Iltis
+    //// Iltis
     class gm_ge_army_iltis_cargo_base;
     class gm_ge_army_iltis_cargo: gm_ge_army_iltis_cargo_base {
         class AnimationSources;
@@ -302,6 +302,42 @@ class CfgVehicles {
                     "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
                     "\gm\gm_core\data\camo\gm_camonet_01_nato_wdl_ca.paa"
                 };
+            };
+        };
+    };
+    //// M151 C5 - SOG
+    class vn_wheeled_m151_mg_01_base;
+    class vn_b_wheeled_m151_mg_01_rok_army: vn_wheeled_m151_mg_01_base {
+        class Turrets;
+    };
+    class GVARMAIN(ca_army_m151_c5_base): vn_b_wheeled_m151_mg_01_rok_army {
+        scope = 1;
+        crew = "potato_w_rifleman";
+        displayName = "M151A1 (C5)";
+        editorSubcategory = "EdSubcat_Cars";
+        faction = "gm_fc_ca";
+        class Turrets: Turrets {
+            class MainTurret;
+        };
+    };
+    class GVARMAIN(ca_army_m151_c5): GVARMAIN(ca_army_m151_c5_base) {
+        scope = 2;
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                gunnerType = "potato_w_rifleman";
+                magazines[] = {QGVARMAIN(250Rnd_TE3_Red_Tracer_762x51_C5_M),QGVARMAIN(250Rnd_TE3_Red_Tracer_762x51_C5_M),QGVARMAIN(250Rnd_TE3_Red_Tracer_762x51_C5_M)};
+                weapons[] = {QGVARMAIN(c5_gpmg_veh_m151)};
+                class GunClouds;
+                class GunFire;
+                class HitPoints;
+                class MGunClouds;
+                class Reflectors;
+                class TurnIn;
+                class TurnOut;
+                class Turrets;
+                class TurretSpec;
+                class ViewGunner;
+                class ViewOptics;
             };
         };
     };
@@ -399,6 +435,48 @@ class CfgVehicles {
                     QGVARMAIN(250Rnd_TE3_Red_Tracer_762x51_C5_M),
                     QGVARMAIN(250Rnd_TE3_Red_Tracer_762x51_C5_M)
                 };
+            };
+        };
+    };
+    //// TOW
+    class vn_static_tow_base;
+    class vn_b_army_static_tow: vn_static_tow_base {
+        class AnimationSources;
+        class EventHandlers;
+    };
+    class GVARMAIN(ca_army_static_tow): vn_b_army_static_tow {
+        crew = "potato_w_rifleman";
+        editorSubcategory = "EdSubcat_Turrets";
+        faction = "gm_fc_ca";
+        class AnimationSources: AnimationSources {
+            class magazineSpare_hide {
+                animPeriod = 0.0001;
+                initPhase = 1;
+                source = "user";
+            };
+        };
+        class EventHandlers: EventHandlers {
+            class vn_tow_spareMagUpdate {}; // wipe out reload animation changes
+        };
+    };
+    //// M40A1
+    class vn_static_m40a1rr_base;
+    class vn_b_army_static_m40a1rr: vn_static_m40a1rr_base {
+        class AnimationSources;
+    };
+    class GVARMAIN(ca_army_static_m40a1): vn_b_army_static_m40a1rr {
+        crew = "potato_w_rifleman";
+        editorSubcategory = "EdSubcat_Turrets";
+        faction = "gm_fc_ca";
+        class AnimationSources: AnimationSources {
+            class hide_shells {
+                animPeriod = 0.0001;
+                appId = 1.2277e+06;
+                author = "Savage Game Design";
+                displayName = "Hide Shells";
+                dlc = "VN";
+                initPhase = 1;
+                source = "user";
             };
         };
     };

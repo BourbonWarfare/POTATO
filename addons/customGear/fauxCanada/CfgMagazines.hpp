@@ -11,6 +11,7 @@ class CfgMagazines {
         count = 250;
         descriptionShort = "250Rnd C5 Belt. <br />Caliber: 7.62x51mm. <br />1:2 tracer, used in C5 GPMG";
         displayName = "[CSW] 250Rnd C5 Box";
+        mass = 70;
         tracersEvery = 3;
     };
     //// 105x617mmR Rounds

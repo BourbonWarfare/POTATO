@@ -86,7 +86,7 @@ class CfgWeapons {
             displayName = "C5 GPMG";
             reloadTime = 0.1;
         };
-        // getting rid of ejection particles and changing cartridges
+        // fixing ejection particles and changing cartridges
         class GunParticles {
             class effect1 {
                 directionName = "mg1_konec_hlavne";
@@ -102,6 +102,26 @@ class CfgWeapons {
                 directionName = "mg1_linkeject_end";
                 effectName = "vn_machineguneject2";
                 positionName = "mg1_linkeject_start";
+            };
+        };
+    };
+    class GVARMAIN(c5_gpmg_veh_m151): GVARMAIN(c5_gpmg_static) {
+        // Effect positions and directions based on vn_m1919_v_03
+        class GunParticles {
+            class effect1 {
+                directionName = "mg3_konec_hlavne";
+                effectName = "vn_MachineGun_MuzzleSmoke";
+                positionName = "mg3_usti_hlavne";
+            };
+            class effect2 {
+                directionName = "mg3_machinegun_eject_dir";
+                effectName = "MachineGunCartridge1";
+                positionName = "mg3_machinegun_eject_pos";
+            };
+            class effect3 {
+                directionName = "mg3_linkeject_end";
+                effectName = "vn_machineguneject2";
+                positionName = "mg3_linkeject_start";
             };
         };
     };
