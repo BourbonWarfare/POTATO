@@ -364,7 +364,6 @@ class CfgWeapons {
     // Credit to martin509 via the CUP discord for the fix
     class RocketPods;
     class rockets_230mm_GAT : RocketPods {
-        class Close;
     };
     class CUP_Vmlauncher_GRAD_veh  : rockets_230mm_GAT{
         class Close;

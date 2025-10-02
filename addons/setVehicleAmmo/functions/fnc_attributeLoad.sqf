@@ -140,7 +140,7 @@ private _sliderChangedEH = {
 (_control controlsGroupCtrl 102) ctrlAddEventHandler ["SliderPosChanged", _sliderChangedEH];
 
 
-private _config = configFile >> "CfgVehicles" >> (typeOf _entity);
+private _config = configOf _entity;
 private _turrets = allTurrets _entity;
 TRACE_1("",_turrets);
 
