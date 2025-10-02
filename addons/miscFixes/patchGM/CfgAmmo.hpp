@@ -104,5 +104,4 @@ class CfgAmmo {
     class gm_shell_artillery_Base: gm_shell_base {
         effectFly = "";
     };
-
 };
