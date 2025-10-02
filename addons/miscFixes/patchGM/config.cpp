@@ -26,7 +26,8 @@ class CfgPatches {
             "gm_weapons_launchers_rpg7",
             "gm_weapons_launchers_rpg18",
             "gm_weapons_launchers_strela",
-            "gm_weapons_machinepistols_gm_mp2"
+            "gm_weapons_machinepistols_gm_mp2",
+            "gm_characters_ge_characters"
         };
         units[] = {
             "land_gm_euro_bridge_02_20_mainroad",
@@ -57,6 +58,7 @@ class CfgPatches {
 #include "CfgAmmo.hpp"
 #include "CfgCloudlets.hpp"
 #include "CfgEventHandlers.hpp"
+#include "CfgGlasses.hpp"
 #include "CfgMagazines.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
