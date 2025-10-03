@@ -93,7 +93,6 @@ class CfgVehicles {
         crew = "potato_w_vicc";
         scope = 1;
         scopeCurator = 1;
-        class TextureSources;
         class Turrets: Turrets {
             class MainTurret;
         };
@@ -102,22 +101,9 @@ class CfgVehicles {
         crew = "potato_w_vicc";
         scope = 1;
         scopeCurator = 1;
-        class TextureSources;
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class Hitpoints;
-                class MGunClouds;
-                class OpticsIn;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
                 class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
             };
         };
     };
@@ -128,23 +114,11 @@ class CfgVehicles {
         class TextureSources;
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class Hitpoints;
-                class MGunClouds;
-                class OpticsIn;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
                 class Turrets: Turrets {
                     class CommanderTurret;
                     class LoaderTurret;
                     class MachineGunTurret_01;
                 };
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
             };
         };
     };
@@ -186,31 +160,10 @@ class CfgVehicles {
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class Hitpoints;
-                class MGunClouds;
-                class OpticsIn;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
                 class Turrets: Turrets {
                     class CommanderTurret: CommanderTurret {};
                     class LoaderTurret: LoaderTurret {};
                     class MachineGunTurret_01: MachineGunTurret_01 {
-                        class Components;
-                        class GunClouds;
-                        class GunFire;
-                        class Hitpoints;
-                        class MGunClouds;
-                        class Reflectors;
-                        class TurnIn;
-                        class TurnOut;
-                        class Turrets;
-                        class TurretSpec;
-                        class ViewGunner;
-                        class ViewOptics;
                         magazines[] = {
                             "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
                             "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
@@ -220,9 +173,6 @@ class CfgVehicles {
                         weapons[] = {QGVARMAIN(Vlmg_C6A1_veh)};
                     };
                 };
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 discreteDistanceInitindex = 1;
                 magazines[] = {
                     QGVARMAIN(25Rnd_105x617mm_apfsds_t_dm33),
@@ -327,17 +277,6 @@ class CfgVehicles {
                 gunnerType = "potato_w_rifleman";
                 magazines[] = {QGVARMAIN(250Rnd_TE3_Red_Tracer_762x51_C5_M),QGVARMAIN(250Rnd_TE3_Red_Tracer_762x51_C5_M),QGVARMAIN(250Rnd_TE3_Red_Tracer_762x51_C5_M)};
                 weapons[] = {QGVARMAIN(c5_gpmg_veh_m151)};
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
             };
         };
     };
@@ -366,19 +305,6 @@ class CfgVehicles {
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class Hitpoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewCargo;
-                class ViewGunner;
-                class ViewOptics;
                 weapons[] = {QGVARMAIN(c5_gpmg_static)};
                 magazines[] = {
                     QGVARMAIN(250Rnd_TE3_Red_Tracer_762x51_C5_M),
@@ -414,19 +340,6 @@ class CfgVehicles {
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class Components;
-                class GunClouds;
-                class GunFire;
-                class Hitpoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewCargo;
-                class ViewGunner;
-                class ViewOptics;
                 weapons[] = {QGVARMAIN(c5_gpmg_static)};
                 magazines[] = {
                     QGVARMAIN(250Rnd_TE3_Red_Tracer_762x51_C5_M),
