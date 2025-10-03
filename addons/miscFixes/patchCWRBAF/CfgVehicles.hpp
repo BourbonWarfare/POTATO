@@ -130,7 +130,6 @@ class CfgVehicles {
                 gunnerAction = "CUP_FV432_GunnerOut";
                 gunnerInAction = "CUP_FV432_GunnerIn";
                 gunnerOutOpticsModel = "\A3\weapons_f\reticle\optics_empty";
-                gunnerDoor = "";
                 inGunnerMayFire = 0;
                 outGunnerMayFire = 1;
                 magazines[] = {
@@ -161,8 +160,8 @@ class CfgVehicles {
     // Peak Turret
     class cwr3_b_uk_fv432_peak: cwr3_fv432_gpmg_base {
         class Turrets: Turrets {
-            class Commander;
             class MainTurret;
+            class Commander;
         };
     };
     class GVARMAIN(cwr3_b_uk_fv432_peak_unstab): cwr3_b_uk_fv432_peak {
