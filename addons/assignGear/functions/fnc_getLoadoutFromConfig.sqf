@@ -93,7 +93,16 @@ private _binocularArray = [];
 private _assignedItems = ["", "", "", "", "", ""];
 
 // Process Weapons
-private _primaryWeaponArray = if (_configWeapons isEqualTo []) then { [] } else { [selectRandom _configWeapons, _configAttachments, _configMagazines] call FUNC(getWeaponArray) };
+private _primaryWeaponArray = if (_configWeapons isEqualTo []) then { [] } else {
+    private _weapon = selectRandom _configWeapons;
+    if (_weapon isEqualType []) then {
+        _weapon params [["_xWeapon", "", [""]], ["_xMagazines", [], [[]]], ["_xAttachments", [], [[]]]];
+        _weapon = _xWeapon;
+        _configMagazines append _xMagazines;
+        _configAttachments append _xAttachments;
+    };
+    [_weapon, _configAttachments, _configMagazines] call FUNC(getWeaponArray)
+};
 private _launcherWeaponArray = if (_configLaunchers isEqualTo []) then { [] } else { [selectRandom _configLaunchers, _configSecondaryAttachments, _configMagazines, false] call FUNC(getWeaponArray) }; // skip optic check on launchers
 private _handgunWeaponArray = if (_configHandguns isEqualTo []) then { [] } else { [selectRandom _configHandguns, _configHandgunAttachments, _configMagazines] call FUNC(getWeaponArray) };
 
