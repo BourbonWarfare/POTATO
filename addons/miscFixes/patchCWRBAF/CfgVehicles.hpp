@@ -103,7 +103,85 @@ class CfgVehicles {
         };
     };
     // FV432
-    class CUP_B_FV432_GB_GPMG;
+    class CUP_B_FV432_Base;
+    class CUP_B_FV432_GB_GPMG: CUP_B_FV432_Base {
+        class ACRE {
+            class attenuation {
+                class Compartment1 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0.5;
+                };
+                class Compartment2 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0.5;
+                };
+                class Compartment3 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+                class Compartment4 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+                class Compartment5 {
+                    Compartment1 = 0.5;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+            };
+            class attenuationTurnedOut {
+                class Compartment1 {
+                    Compartment1 = 0.5;
+                    Compartment2 = 0.5;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0.5;
+                };
+                class Compartment2 {
+                    Compartment1 = 0.5;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+                class Compartment3 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+                class Compartment4 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+                class Compartment5 {
+                    Compartment1 = 0.5;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+            };
+        };
+    };
     class cwr3_fv432_gpmg_base: CUP_B_FV432_GB_GPMG {
         class Turrets;
         class UserActions;
@@ -130,7 +208,6 @@ class CfgVehicles {
                 gunnerAction = "CUP_FV432_GunnerOut";
                 gunnerInAction = "CUP_FV432_GunnerIn";
                 gunnerOutOpticsModel = "\A3\weapons_f\reticle\optics_empty";
-                gunnerDoor = "";
                 inGunnerMayFire = 0;
                 outGunnerMayFire = 1;
                 magazines[] = {
@@ -161,8 +238,8 @@ class CfgVehicles {
     // Peak Turret
     class cwr3_b_uk_fv432_peak: cwr3_fv432_gpmg_base {
         class Turrets: Turrets {
-            class Commander;
             class MainTurret;
+            class Commander;
         };
     };
     class GVARMAIN(cwr3_b_uk_fv432_peak_unstab): cwr3_b_uk_fv432_peak {
