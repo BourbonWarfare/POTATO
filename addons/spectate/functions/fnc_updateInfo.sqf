@@ -37,6 +37,7 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
     TRACE_3("Kill Feed",typeOf _unit,count _killFeed,_name);
 
     if (isPlayer _unit) then {
+        if (missionNamespace getVariable [QGVAR(skipWoundSearch), false]) exitWith {}; // temp escape if performance issues
         private _wounded = [];
         {
             private _unit = _x;
