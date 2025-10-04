@@ -15,7 +15,7 @@ class CfgWeapons {
             minRangeProbab = 0.4;
         };
     };
-    class CUP_launch_RPG7V_optic: CUP_launch_RPG7V {
+    class GVARMAIN(launch_RPG7V_optic): CUP_launch_RPG7V {
         maxRange = 500;
         class Single: Single { // higher AI range with optics
             aiRateOfFire = 5;
@@ -29,7 +29,7 @@ class CfgWeapons {
         };
     };
     // Untrained RPG7
-    class CUP_launch_RPG7V_untrained: CUP_launch_RPG7V {
+    class GVARMAIN(launch_RPG7V_untrained): CUP_launch_RPG7V {
         scope = 1;
         scopeArsenal = 1;
         class Single: Single {
@@ -40,7 +40,7 @@ class CfgWeapons {
             minRangeProbab = 0.25;
         };
     };
-    class CUP_launch_RPG7V_untrained_optic: CUP_launch_RPG7V_optic {
+    class GVARMAIN(launch_RPG7V_untrained_optic): GVARMAIN(launch_RPG7V_optic) {
         maxRange = 500;
         class Single: Single {
             aiDispersionCoefY = 1.6;

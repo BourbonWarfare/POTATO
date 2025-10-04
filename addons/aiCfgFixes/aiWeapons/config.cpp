@@ -6,7 +6,9 @@ class CfgPatches {
     class ADDON {
         units[] = {};
         weapons[] = {
-            "CUP_launch_RPG7V_untrained"
+            QGVARMAIN(launch_RPG7V_optic),
+            QGVARMAIN(launch_RPG7V_untrained),
+            QGVARMAIN(launch_RPG7V_untrained_optic)
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
