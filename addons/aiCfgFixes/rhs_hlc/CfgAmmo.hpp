@@ -27,6 +27,7 @@ class CfgAmmo {
     };
     class R_PG32V_F;
     class rhs_ammo_rpg75_rocket: R_PG32V_F {
+        aiAmmoUsageFlags = 704;
         audibleFire = 16;
     };
     class rhs_rpg26_rocket: R_PG32V_F {
@@ -274,6 +275,7 @@ class CfgAmmo {
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
     class rhs_rpg7v2_pg7vl: rhs_rpg26_rocket {
+        aiAmmoUsageFlags = 960;
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };

@@ -332,7 +332,15 @@ class CfgAmmo {
         cost = 50;
     };
     class cwr3_r_rpg75_at: R_PG32V_F {
+        aiAmmoUsageFlags = 704;
         audibleFire = 16;
+    };
+    class R_PG7_F: RocketBase {
+        aiAmmoUsageFlags = 704;
+    };
+    class R_PG7VL: R_PG7_F {};
+    class R_PG7VR: R_PG7VL {
+        aiAmmoUsageFlags = 640;
     };
     class GrenadeBase;
     class FlareCore;
