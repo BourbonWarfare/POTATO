@@ -30,7 +30,6 @@ class CfgWeapons {
     };
     // Untrained RPG7
     class GVARMAIN(launch_RPG7V_untrained): CUP_launch_RPG7V {
-        scope = 1;
         scopeArsenal = 1;
         class Single: Single {
             aiDispersionCoefY = 2.2;
