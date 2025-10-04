@@ -33,7 +33,7 @@ private _opticClassnames = [];
 {
     private _xConfig = configFile >> "CfgWeapons" >> _x;
     private _xConfigName = configName _xConfig;
-    if ((isNumber (_xConfig >> "ItemInfo" >> "optics"))
+    if (((isNumber (_xConfig >> "ItemInfo" >> "optics")) || {isClass(_xConfig >> "ItemInfo" >> "OpticsModes")})
         && {GVAR(allowMagnifiedOptics) || {!([_xConfigName] call FUNC(isOpticMagnified))}}
         && {_xConfigName in _possibleAttachments}
     ) then {
