@@ -21,7 +21,7 @@ params [["_next", false, [false]]];
 
 private _allUnits = allUnits;
 
-if (count (_allUnits - [GVAR(camTarget)]) > 0) then {
+if ((_allUnits - [GVAR(camTarget)]) isNotEqualTo []) then {
     private _index = (_allUnits find GVAR(camTarget)) max 0;
 
     if (_next) then {

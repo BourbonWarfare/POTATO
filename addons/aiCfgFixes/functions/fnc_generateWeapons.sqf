@@ -156,7 +156,7 @@ private _alreadyDefined = [];
                     {
                         // if the possible config is in the "muzzles" array, that means we have to ignore it. Muzzles and modes are very similar
                         // We don't generate any values for a config that has the word "optic" in it, because scopes are harder to generate valeus for and arent used in our sessions
-                        if (count getArray(_x >> "sounds") > 0 && !(configName(_x) in _allModes) && !(configName(_x) in getArray(_weaponCfg >> "muzzles"))) then {
+                        if ((getArray(_x >> "sounds")) isNotEqualTo [] && !(configName(_x) in _allModes) && !(configName(_x) in getArray(_weaponCfg >> "muzzles"))) then {
                             private _currentTestModeName = configName _x;
                             // narrow-phase checking to ensure that the mode has not already been defined, even if the wrong capitalization
                             private _modeInside = {

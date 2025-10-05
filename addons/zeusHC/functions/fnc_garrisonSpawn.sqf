@@ -94,7 +94,7 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
 
         TRACE_2("",_unitsToAdd,_unitPositions);
 
-        if (count _unitsToAdd > 0) then {
+        if (_unitsToAdd isNotEqualTo []) then {
             [
                 [_unitsToAdd, _unitPositions, _side],
                 QFUNC(garrisonLocal)

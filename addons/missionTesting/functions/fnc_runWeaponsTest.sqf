@@ -127,7 +127,7 @@ private _fncGetWeaponInfo = {
         ["throw"] call _fncGetWeaponInfo;
 
         private _extraAmmo = (magazines _unit) - _usedAmmo;
-        if ((count _extraAmmo) > 0) then {
+        if (_extraAmmo isNotEqualTo []) then {
             _unitText = _unitText + "[Extra: ";
             {
                 private _magPic = getText (configFile >> "CfgMagazines" >> _x >> "picture");

@@ -85,10 +85,10 @@ _this spawn {
     };
     _diaryBuilder pushBack "<font size='8'>Only accurate at mission start.</font>";
     // Clean leading newlines
-    while {count _diaryBuilder > 0 && {_diaryBuilder#0 == "<br/>"}} do {
+    while {_diaryBuilder isNotEqualTo [] && {_diaryBuilder#0 == "<br/>"}} do {
         _diaryBuilder deleteAt 0;
     };
-    if (count _diaryBuilder > 0 && {(_diaryBuilder#0) select [0, 5] == "<br/>"}) then {
+    if (_diaryBuilder isNotEqualTo [] && {(_diaryBuilder#0) select [0, 5] == "<br/>"}) then {
         _diaryBuilder set [0, (_diaryBuilder#0) select [5]];
     };
 

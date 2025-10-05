@@ -39,7 +39,7 @@ GVAR(techOnlyTesting) = false; // can set to true to force bot to run (but not p
         TRACE_2("skipping test/training",_playerCount,_missionName);
     };
  
-    private _recruit_list = if (count GVAR(recruitsSeen) > 0) then {
+    private _recruit_list = if (GVAR(recruitsSeen) isNotEqualTo []) then {
         GVAR(recruitsSeen) joinString endl;
     } else {
         "None";
