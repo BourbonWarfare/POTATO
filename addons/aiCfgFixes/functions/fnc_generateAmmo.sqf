@@ -41,7 +41,7 @@ private _baseClasses = [];
     // _x = ammo_config
     if (((toLower configName _x) find "potato_bullet") == 0) then { continue; };
     if (!([toLower configName _x] call _fnc_filter)) then { continue; }; 
-    if (count configProperties[_x, SEARCH_CONFIG, false] > 0) then {
+    if ((configProperties[_x, SEARCH_CONFIG, false]) isNotEqualTo []) then {
         private _inherited = inheritsFrom(_x);
         private _prevInherited = [];
         _prevInherited pushBack [_x, inheritsFrom(_x)];

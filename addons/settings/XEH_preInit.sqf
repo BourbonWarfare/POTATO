@@ -13,7 +13,7 @@ if (isServer) then {
     #include "BW_Settings.inc.sqf"
 
     INFO_1("Setting server values for [%1] settings",count _settings);
-    if ((count _skip) > 0) then { WARNING_1("skipping %1",_skip) };
+    if (_skip isNotEqualTo []) then { WARNING_1("skipping %1",_skip) };
     {
         _x params ["_settingName", "_settingValue", ["_force", false]];
         if (isNil _settingName) then { INFO_1("Setting not init yet: %1",_settingName); }; // can just be a mod load order, not an error

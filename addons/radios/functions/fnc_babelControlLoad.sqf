@@ -13,7 +13,7 @@ private _ctrlBabel = _ctrlGroup controlsGroupCtrl BABEL_LIST_IDC;
 
 // determine selected objects, prioritize groups
 private _selectedGroups = get3DENSelected "group";
-private _babelSelected = if (count _selectedGroups > 0) then {
+private _babelSelected = if (_selectedGroups isNotEqualTo []) then {
     _selectedGroups
 } else {
     get3DENSelected "object"
