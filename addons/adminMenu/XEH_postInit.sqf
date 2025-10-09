@@ -74,3 +74,19 @@ if (isServer) then {
         } forEach _output; 
     }] call CBA_fnc_addEventHandler;
 };
+
+[QGVAR(medical_stabilize), {
+    params [["_unit", objNull, [objNull]]];
+    TRACE_1("Stabilizing unit",_unit);
+    while { (_unit getVariable ["ace_medical_woundBleeding", 0]) > 0 } do { 
+        { 
+            private _part =_x; 
+            { 
+                _x params ["", "_amountOf", "_bleeding"]; 
+                if (_amountOf * _bleeding > 0) then { 
+                    [_unit, _part, "FieldDressing"] call ace_medical_treatment_fnc_bandageLocal; 
+                }; 
+            } forEach _y; 
+        } forEach (_unit getVariable ["ace_medical_openWounds", createHashMap]);
+    };
+}] call CBA_fnc_addEventHandler;

@@ -540,9 +540,19 @@ class GVAR(adminMenuDialog) {
                     text = "Reset Medical (Full Heal)";
                     x = QUOTE(0.255 * safezoneW);
                     y = QUOTE(0.12 * safezoneH);
-                    w = QUOTE(0.26 * safezoneW);
+                    w = QUOTE(0.2 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([false] call FUNC(uihook_resetMedicalButton));
+                };
+                class StabilizeButton: RscButton {
+                    idc = -1;
+                    text = "Stabilize";
+                    tooltip = "Stops bleeding by bandaging wounds. Does not heal damage/pain.";
+                    x = QUOTE((0.255 + 0.2) * safezoneW);
+                    y = QUOTE(0.12 * safezoneH);
+                    w = QUOTE(0.06 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([2] call FUNC(uihook_resetMedicalButton));
                 };
                 class ResetMedicalGroupButton: RscButton {
                     idc = -1;
