@@ -15,6 +15,7 @@ class CfgPatches {
     };
 };
 
+// Buff some buildings
 class CfgVehicles {
     class House;
     class Land_MBG_GER_HUS_1: House {
@@ -34,6 +35,15 @@ class CfgVehicles {
     };
     class LAND_MBG_Fachwerk_A: House {
         armor = 1000;
+    };
+};
+
+// Fix intro mission using ArmA 2 units
+class CfgMissions {
+    class Cutscenes {
+        class Celle2Intro1 {
+            directory = "z\potato\addons\miscFixes\patchCelle\data\cutscenes\celleIntro.mbg_celle2";
+        };
     };
 };
 
