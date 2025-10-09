@@ -14,17 +14,17 @@ if (isNull _selectedUnit) exitWith {WARNING_1("Bad unit [%1] disconnect?",_selec
 
 if (!alive _selectedUnit) exitWith {hint "No zombies!";};
 switch (_mode) do {
-    case false: { // Full Heal
+    case true: { // Group Heal
     {
         [QACEGVAR(medical_treatment,fullHealLocal), [_x, _x], _x] call CBA_fnc_targetEvent;
     } forEach units group _selectedUnit;
     ["potato_adminMsg", [format ["Fully healed %1's group (%2 %3)", name _selectedUnit, side group _selectedUnit, groupId group _selectedUnit], profileName]] call CBA_fnc_globalEvent;
     };
-    case true: {
+    case false: { // Single Heal
     [QACEGVAR(medical_treatment,fullHealLocal), [_selectedUnit, _selectedUnit], _selectedUnit] call CBA_fnc_targetEvent;
     ["potato_adminMsg", [format ["Fully healed %1", name _selectedUnit], profileName]] call CBA_fnc_globalEvent;
     };
-    case 2: {
+    case 2: { // Stabilize
     [QGVAR(medical_stabilize), [_selectedUnit], _selectedUnit] call CBA_fnc_targetEvent;
     ["potato_adminMsg", [format ["Stabilized %1", name _selectedUnit], profileName]] call CBA_fnc_globalEvent;
     };
