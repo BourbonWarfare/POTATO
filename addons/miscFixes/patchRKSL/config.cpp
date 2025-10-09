@@ -15,7 +15,6 @@ class CfgPatches {
     };
 };
 
-class CBA_Extended_EventHandlers;
 class CfgVehicles {
     class Car_F;
     class rksla3_foxhound_lppv_base: Car_F { XEH_ENABLED; }; // "Foxhound LPPV" 1243862899

@@ -15,7 +15,6 @@ class CfgPatches {
     };
 };
 
-class CBA_Extended_EventHandlers;
 class CfgVehicles {
     class Logic;
     class PRAA_module_tunnels: Logic { XEH_ENABLED; }; // "PR: Tunnels module" 2782377305

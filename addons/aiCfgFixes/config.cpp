@@ -6,7 +6,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "potato_core", "ACE_ai", "CUP_Weapons_LoadOrder"
+            "potato_core", "ace_ai", "CUP_Weapons_LoadOrder"
         };
         skipWhenMissingDependencies = 1;
         author = "Potato";

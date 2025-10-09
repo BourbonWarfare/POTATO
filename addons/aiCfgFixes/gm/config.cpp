@@ -8,7 +8,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "potato_core", "ACE_ai",
+            "potato_core", "ace_ai",
             "gm_weapons_launchers_rpg7"
         };
         skipWhenMissingDependencies = 1;

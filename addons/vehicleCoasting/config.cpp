@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"CBA_main", "CBA_xeh", "CBA_xeh_a3"};
+        requiredAddons[] = {"cba_main", "cba_xeh", "cba_xeh_a3"};
         author = "Potato";
         authors[] = {"Lambda.Tiger"};
         skipWhenMissingDependencies = 1;
