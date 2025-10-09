@@ -19,7 +19,7 @@ class CfgPatches {
         };
         units[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cup_weapons_east_attachments", "cup_weapons_west_attachments", "ace_laserpointer"};
+        requiredAddons[] = {"CUP_Weapons_East_Attachments", "CUP_Weapons_West_Attachments", "ace_laserpointer"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"Carl", "Chesheire", "Lambda.Tiger"};
