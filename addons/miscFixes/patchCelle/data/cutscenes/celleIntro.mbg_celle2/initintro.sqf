@@ -24,7 +24,7 @@ private _fnc_camMove = {
     bw_celle_introCam camPreparePos _cameraGoalAGL;
     bw_celle_introCam camCommitPrepared _transitionTime;
 };
-bw_celle_introCam camPrepareFOV 0.7;
+bw_celle_introCam camPrepareFov 0.7;
 bw_celle_introCam cameraEffect ["Internal", "BACK"];
 titleText ["", "BLACK FADED"];
 showCinemaBorder false;
@@ -32,7 +32,7 @@ bw_celle_introCam camCommitPrepared 0;
 
 
 private _countIdx = 0;
-while {missionNameSpace getVariable ["BW_celle2IntroExit", true]} do {
+while {missionNamespace getVariable ["BW_celle2IntroExit", true]} do {
     [_infoArray, true] call CBA_fnc_shuffle;
     {
         _x params ["_focus", "_startPosAGL", "_endPosAGL", "_baseTransTime"];
