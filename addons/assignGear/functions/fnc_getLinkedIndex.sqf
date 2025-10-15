@@ -29,7 +29,7 @@
 TRACE_1("params",_this);
 params ["_linkedItem", "_binocularArray", "_configMagazines"];
 //IGNORE_PRIVATE_WARNING ["_x"];
-private _itemSim = [configFile >> "CfgWeapons" >> _x >> "simulation", "STRING", ""] call CBA_fnc_getConfigEntry;
+private _itemSim = getText (configFile >> "CfgWeapons" >> _x >> "simulation");
 // Maps
 if ("ItemMap" == _itemSim) exitWith {
     MAP_INDEX
