@@ -1,6 +1,6 @@
 [{
 // Load vests
-lmd_tst_fnc_vestTestRecurse = compileScript ["vestTestRecurse.sqf"];
+lmd_tst_fnc_vestTestRecurse = compileScript ["\z\potato\addons\armor_modifier_ace\compat_gm_ama\dev\vestTestRecurse.sqf"];
 lmd_tst_errors = 0;
 private _vests ="(configName _x) isKindOf [""Vest_Camo_Base"", configFile >> ""CfgWeapons""]  && getNumber (_x >> ""scope"") > 1"  configClasses (configFile >> "CfgWeapons");
 lmd_tst_vestArmors = createHashMap;

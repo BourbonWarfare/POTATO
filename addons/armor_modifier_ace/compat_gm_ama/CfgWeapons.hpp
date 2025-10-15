@@ -179,6 +179,8 @@ class CfgWeapons {
             };
         };
     };
+    // UBC  hard to fix because of how they do inheritance
+    // Official GMX addon makes the same mistake
     FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_flk);
     FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_leader_flk);
     FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_medic_flk);
