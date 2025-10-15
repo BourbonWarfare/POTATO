@@ -126,7 +126,109 @@ class CfgVehicles {
         displayName = "Leopard C1";
         displayNameShort = "Leopard C1";
         faction = "gm_fc_ca";
-        gm_InsigniasDefaultNation = QGVAR(insignia_ca_02);
+        gm_InsigniasDefaultNation = "gm_insignia_none";
+        gm_LicensePlate = "gm_licenseplate_none";
+        gm_LicensePlateDefaultDigits = "";
+        gm_TacticalNumbersDefaultNumber = "";
+        gm_TacticalNumbersFontNumbers = "gm_ge_schablonier_blk";
+        scope = 2;
+        scopeCurator = 2;
+        hiddenSelectionsTextures[] = {
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_01_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_02_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_04_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+            "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
+        };
+        class TextureSources: TextureSources {
+            class GVARMAIN(ca_green) {
+                author = "Bourbon Warfare";
+                displayname = "Canada (Green)";
+                factions[] = {};
+                textures[] = {
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_01_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_02_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_04_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+                    "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
+                };
+            };
+        };
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                class Turrets: Turrets {
+                    class CommanderTurret: CommanderTurret {};
+                    class LoaderTurret: LoaderTurret {};
+                    class MachineGunTurret_01: MachineGunTurret_01 {
+                        magazines[] = {
+                            "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
+                            "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
+                            "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
+                            "CUP_200Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"
+                        };
+                        weapons[] = {QGVARMAIN(Vlmg_C6A1_veh)};
+                    };
+                };
+                discreteDistanceInitindex = 1;
+                magazines[] = {
+                    QGVARMAIN(25Rnd_105x617mm_apfsds_t_dm33),
+                    "gm_30Rnd_105x617mm_heat_mp_t_dm12",
+                    QGVARMAIN(5Rnd_105x617mm_wp_t_m416),
+                    "CUP_1200Rnd_TE4_Red_Tracer_762x51_M240_M",
+                    "CUP_1200Rnd_TE4_Red_Tracer_762x51_M240_M",
+                    "CUP_1200Rnd_TE4_Red_Tracer_762x51_M240_M"
+                };
+                weapons[] = {"gm_105mm_l7a3", QGVARMAIN(Vlmg_C6A1_veh_coax)};
+            };
+        };
+    };
+    //// Leopard C2
+    class gm_ge_army_Leopard1a5_base;
+    class gm_ge_army_Leopard1a5: gm_ge_army_Leopard1a5_base {
+        class Turrets;
+    };
+    class GVARMAIN(ca_army_Leopard_C2_base_01): gm_ge_army_Leopard1a5 {
+        crew = "potato_w_vicc";
+        scope = 1;
+        scopeCurator = 1;
+        class Turrets: Turrets {
+            class MainTurret;
+        };
+    };
+    class GVARMAIN(ca_army_Leopard_C2_base_02): GVARMAIN(ca_army_Leopard_C2_base_01) {
+        crew = "potato_w_vicc";
+        scope = 1;
+        scopeCurator = 1;
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                class Turrets;
+            };
+        };
+    };
+    class GVARMAIN(ca_army_Leopard_C2_base_03): GVARMAIN(ca_army_Leopard_C2_base_02) {
+        crew = "potato_w_vicc";
+        scope = 1;
+        scopeCurator = 1;
+        class TextureSources;
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                class Turrets: Turrets {
+                    class CommanderTurret;
+                    class LoaderTurret;
+                    class MachineGunTurret_01;
+                };
+            };
+        };
+    };
+    class GVARMAIN(ca_army_Leopard_c2): GVARMAIN(ca_army_Leopard_C2_base_03) {
+        displayName = "Leopard C2";
+        displayNameShort = "Leopard C2";
+        faction = "gm_fc_ca";
+        gm_InsigniasDefaultNation = "gm_insignia_none";
         gm_LicensePlate = "gm_licenseplate_none";
         gm_LicensePlateDefaultDigits = "";
         gm_TacticalNumbersDefaultNumber = "";
