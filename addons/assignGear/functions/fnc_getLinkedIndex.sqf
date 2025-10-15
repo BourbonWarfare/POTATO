@@ -29,9 +29,9 @@
 TRACE_1("params",_this);
 params ["_linkedItem", "_binocularArray", "_configMagazines"];
 //IGNORE_PRIVATE_WARNING ["_x"];
-
+private _itemSim = [configFile >> "CfgWeapons" >> _x >> "simulation", "STRING", ""] call CBA_fnc_getConfigEntry;
 // Maps
-if (_x isKindOf ["ItemMap", configFile >> "CfgWeapons"]) exitWith {
+if ("ItemMap" == _itemSim) exitWith {
     MAP_INDEX
 };
 
@@ -41,22 +41,22 @@ if (_x isKindOf ["ItemGPS", configFile >> "CfgWeapons"] || {_x isKindOf ["UavTer
 };
 
 // Radios (non TFAR/ACRE)
-if (_x isKindOf ["ItemRadio", configFile >> "CfgWeapons"]) exitWith {
+if ("ItemRadio" == _itemSim) exitWith {
     RADIO_INDEX
 };
 
 // Compasses
-if (_x isKindOf ["ItemCompass", configFile >> "CfgWeapons"]) exitWith {
+if ("ItemCompass" == _itemSim) exitWith {
     COMPASS_INDEX
 };
 
 // Watches
-if (_x isKindOf ["ItemWatch", configFile >> "CfgWeapons"]) exitWith {
+if ("ItemWatch" == _itemSim) exitWith {
     WATCH_INDEX
 };
 
 // Night vision/thermal goggles
-if (_x isKindOf ["NVGoggles", configFile >> "CfgWeapons"]) exitWith {
+if ("NVGoggles" == _itemSim) exitWith {
     NVG_INDEX
 };
 
