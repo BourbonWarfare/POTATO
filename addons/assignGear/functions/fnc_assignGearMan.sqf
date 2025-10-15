@@ -149,7 +149,7 @@ if (isSwitchingWeapon _unit) then {
         params ["_unit", "_loadoutArray", "_path"];
         _unit setUnitLoadout _loadoutArray;
         if (isText (_path >> "init")) then {
-            TRACE_1("calling init code",getText (_path >> "init"));
+            TRACE_1("delayed calling init code",getText (_path >> "init"));
             _unit call compile ("this = _this;"+ getText (_path >> "init"));
         };
     }, [_unit, _loadoutArray, _path]] call CBA_fnc_waitUntilAndExecute;
