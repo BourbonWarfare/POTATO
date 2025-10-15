@@ -150,14 +150,14 @@ if (isSwitchingWeapon _unit) then {
         _unit setUnitLoadout _loadoutArray;
         if (isText (_path >> "init")) then {
             TRACE_1("delayed calling init code",getText (_path >> "init"));
-            _unit call compile ("this = _this;"+ getText (_path >> "init"));
+            [{(_this#0) call compile ("this = _this;"+ getText ((_this#1) >> "init"));}, [_unit, _path], 5] call CBA_fnc_waitAndExecute;
         };
     }, [_unit, _loadoutArray, _path]] call CBA_fnc_waitUntilAndExecute;
 } else {
     _unit setUnitLoadout _loadoutArray;
     if (isText (_path >> "init")) then {
         TRACE_1("calling init code",getText (_path >> "init"));
-        _unit call compile ("this = _this;"+ getText (_path >> "init"));
+            [{(_this#0) call compile ("this = _this;"+ getText ((_this#1) >> "init"));}, [_unit, _path], 5] call CBA_fnc_waitAndExecute;
     };
 };
 
