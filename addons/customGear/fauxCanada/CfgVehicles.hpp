@@ -134,15 +134,29 @@ class CfgVehicles {
         scope = 2;
         scopeCurator = 2;
         hiddenSelectionsTextures[] = {
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_01_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_02_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_04_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_01_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_02_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_04_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
             "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
         };
         class TextureSources: TextureSources {
+            class GVARMAIN(ca_forestGreen) {
+                author = "Bourbon Warfare";
+                displayname = "Canada (Forest Green)";
+                factions[] = {};
+                textures[] = {
+                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_01_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_02_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_04_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+                    "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
+                };
+            };
             class GVARMAIN(ca_green) {
                 author = "Bourbon Warfare";
                 displayname = "Canada (Green)";
@@ -236,15 +250,29 @@ class CfgVehicles {
         scope = 2;
         scopeCurator = 2;
         hiddenSelectionsTextures[] = {
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_01_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_02_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_camo_04_co.paa",
-            "\z\potato\addons\customGear\fauxCanada\data\baseCamo_co.paa",
-            "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
+            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_01_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_02_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_04_co.paa",
+            "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+                    "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
         };
         class TextureSources: TextureSources {
+            class GVARMAIN(ca_forestGreen) {
+                author = "Bourbon Warfare";
+                displayname = "Canada (Forest Green)";
+                factions[] = {};
+                textures[] = {
+                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_01_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_02_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\leopardc1_paint_04_co.paa",
+                    "\z\potato\addons\customGear\fauxCanada\data\basePaint_co.paa",
+                    "\gm\gm_core\data\camo\gm_camonet_01_east_wdl_ca.paa"
+                };
+            };
             class GVARMAIN(ca_green) {
                 author = "Bourbon Warfare";
                 displayname = "Canada (Green)";
