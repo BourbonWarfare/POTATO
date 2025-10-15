@@ -1,10 +1,7 @@
 class CfgVehicles {
     class Logic;
     class Module_F: Logic {
-        class ArgumentsBaseUnits;
-        class ModuleDescription;
         class AttributesBase {
-            class Edit;
             class Combo;
         };
     };
@@ -82,6 +79,17 @@ class CfgVehicles {
                 defaultValue = "'mil_dot_noShadow'";
             };
         };
+    };
+
+    class GVAR(zeus_resupplyBoxes): Module_F {
+        author = QUOTE(PREFIX);
+        category = QEGVAR(core,util);
+        scope = 1;
+        scopeCurator = 2;
+        isGlobal = 0;
+        displayName = "Create defined resupply boxes";
+        function = QFUNC(zeus_resupplyBoxes);
+        curatorCost = 0;
     };
 
     class GVAR(zeus_missionHint): Module_F {

@@ -88,6 +88,9 @@ private _delay = 0;
 
             private _newRespawnGroup = createGroup [_factionSide, true]; // explicitly mark for cleanup
             TRACE_2("new group",_factionSide,_newRespawnGroup);
+            if (isNull _newRespawnGroup) then {
+                ["potato_adminMsg", [format ["Failed to create respawn group for faction %1@%2", _factionClassname, _factionSide], "Respawn Error"]] call CBA_fnc_globalEvent;
+            };
 
             if ((_markerTexture != "") && {!(missionNamespace getVariable [QGVAR(noMarkers), false])}) then {
                 _newRespawnGroup setVariable [QEGVAR(markers,addMarker), true, true];

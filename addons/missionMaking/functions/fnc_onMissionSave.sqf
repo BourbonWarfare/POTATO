@@ -153,7 +153,7 @@ private _classesNone= [];
         _path = missionConfigFile >> "CfgLoadouts" >> _faction >> "fallback";
         if (isClass _path) then {
             if ((typeOf _x) == "O_helicrew_f") exitWith {}; // todo: fix framework
-            if (getText (configFile >> "CfgVehicles" >> typeOf _x >> "simulation") == "UAVPilot") exitWith {}; // Ignore UAV
+            if (getText (configOf _x >> "simulation") == "UAVPilot") exitWith {}; // Ignore UAV
             TRACE_1("using fallback",typeOf _x);
             _classesFallback pushBackUnique (typeOf _x);
         } else {

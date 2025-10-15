@@ -16,6 +16,7 @@ if (isNil QGVAR(lastOrders)) then {GVAR(lastOrders) = 0};
 if (isNil QGVAR(lastRadius)) then {GVAR(lastRadius) = 100};
 if (isNil QGVAR(attackTarget)) then {GVAR(attackTarget) = true};
 if (isNil QGVAR(useLAMBS)) then {GVAR(useLAMBS) = true};
+if (isNil QGVAR(useNoLAMBS)) then {GVAR(useNoLAMBS) = false};
 
 // Init: Transport List
 lbClear (_display displayCtrl 23071);
@@ -58,7 +59,11 @@ private _radius = _logicObject getVariable [QGVAR(radius), GVAR(lastRadius)];
 
 (_control controlsGroupCtrl 23076) cbSetChecked GVAR(attackTarget);
 (_control controlsGroupCtrl 23077) cbSetChecked GVAR(useLAMBS);
-
+if (isClass (configFile >> "CfgVehicles" >> "potato_nolambs_w_rifleman")) then {
+    (_control controlsGroupCtrl 23078) cbSetChecked GVAR(useNoLAMBS);
+} else {
+    (_control controlsGroupCtrl 23078) ctrlEnable false;
+};
 private _fnc_onUnload = {
     params [["_display", displayNull, [displayNull]], ["_exitCode", -1]];
     TRACE_1("_fnc_onUnload params",_display);
@@ -103,6 +108,10 @@ private _fnc_onConfirm = {
     private _useLAMBS = cbChecked (_display displayCtrl 23077);
     GVAR(useLAMBS) = _useLAMBS;
     _logicObject setVariable [QGVAR(useLAMBS), _useLAMBS, true];
+
+    private _useNoLAMBS = cbChecked (_display displayCtrl 23078);
+    GVAR(useNoLAMBS) = _useNoLAMBS;
+    _logicObject setVariable [QGVAR(useNoLAMBS), _useNoLAMBS, true];
 
     _logicObject setVariable [QGVAR(set), true, true];
     TRACE_3("set",_transportType,_ordersType,_radius);

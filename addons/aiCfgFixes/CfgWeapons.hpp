@@ -2,11 +2,21 @@ class Mode_FullAuto;
 class Mode_Burst;
 class Mode_SemiAuto;
 class CfgWeapons {
+    class Default;
     class Pistol_Base_F;
     class Rifle_Long_Base_F;
     class Rifle_Base_F;
     class Rifle_Short_Base_F;
     class MGun;
+    class GrenadeLauncher: Default {
+        aiDispersionCoefX = 3;
+    };
+    class UGL_F: GrenadeLauncher {
+        class Single: Mode_SemiAuto {
+            aiDispersionCoefX = 3;
+            aiDispersionCoefY = 6;
+        };
+    };
     class hgun_P07_F: Pistol_Base_F {
         modes[] = {"Single"};
         class Single: Mode_SemiAuto {
@@ -4012,6 +4022,8 @@ class CfgWeapons {
         };
     };
     class CUP_Vhmg_M2_veh: HMG_M2 {
+        aiDispersionCoefX = 3.5;
+        aiDispersionCoefY = 5;
         modes[] = {"Manual","close","short","medium","far"};
         class Manual: MGun {
             showToPlayer = 1;

@@ -17,7 +17,7 @@ if ((_transportType != TRANSPORT_FOOT) && {_transportInfo = [_factoryLogic, _tra
     false
 };
 
-while {(count (waypoints _group)) > 0} do {
+while {(waypoints _group) isNotEqualTo []} do {
     TRACE_1("clearing base group waypoint",((waypoints _group) select 0));
     deleteWaypoint ((waypoints _group) select 0);
 };
@@ -32,7 +32,7 @@ if (_transportInfo isEqualTo []) then {
     _vehicle setDir (_factoryLogic getDir _placeLogic);
 
     TRACE_3("transport",_vehicleGroup,_vehicle,typeOf _vehicle);
-    while {(count (waypoints _vehicleGroup)) > 0} do {
+    while {(waypoints _vehicleGroup) isNotEqualTo []} do {
         TRACE_1("clearing transport waypoint",((waypoints _vehicleGroup) select 0));
         deleteWaypoint ((waypoints _vehicleGroup) select 0);
     };

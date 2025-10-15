@@ -53,15 +53,18 @@ LOG("Post init start");
                 if (didJIP) then {
                     [true] call FUNC(reinitMarkerHash);
                 };
-                // In an attempt to catch those who join in map screen and
-                // miss the reinitMarkerHash call we call it after mission start
-                // without the network sync
-                [{
-                    if (GVAR(drawHash) isEqualTo createHashMap) then {
+                [QCVAR(briefingEnd), {
+                    [{local player && getClientStateNumber > 9}, {
+                        // used to check if the draw hash was empty before calling may need to be reverted
                         [] call FUNC(reinitMarkerHash);
-                    };
-                }, 0, 0.1] call CBA_fnc_waitAndExecute;
-                };
+                        [] call FUNC(initLocalMarkers);
+                    }, [], 10, {
+                        [] call FUNC(reinitMarkerHash);
+                        [] call FUNC(initLocalMarkers);
+                    }] call CBA_fnc_waitUntilAndExecute;
+                }] call CBA_fnc_addEventHandler;
+            };
+            [] call FUNC(initLocalMarkers); // this may cause locality issues. Remove me if we experience funkiness
             [] call FUNC(checkForMapMarkerColor);
 
         } else {

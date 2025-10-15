@@ -142,15 +142,23 @@ private _loadoutArray = GVAR(loadoutCache) getOrDefaultCall [_loadoutKey, {
 
 // set unit loadout overrides our sick shades :(
 _loadoutArray set [LA_FACEWARE_INDEX, goggles _unit];
+// 2.20 introduces a "fix" that requires unit to not be switching weapon
+// to use setUnitLoadout. This fix results in a delay, but should work.
 if (isSwitchingWeapon _unit) then {
-    [{!isSwitchingWeapon (_this#0)}, {(_this#0) setUnitLoadout (_this#1)}, [_unit, _loadoutArray]] call CBA_fnc_waitUntilAndExecute;
+    [{!isSwitchingWeapon (_this#0)}, {
+        params ["_unit", "_loadoutArray", "_path"];
+        _unit setUnitLoadout _loadoutArray;
+        if (isText (_path >> "init")) then {
+            TRACE_1("calling init code",getText (_path >> "init"));
+            _unit call compile ("this = _this;"+ getText (_path >> "init"));
+        };
+    }, [_unit, _loadoutArray, _path]] call CBA_fnc_waitUntilAndExecute;
 } else {
     _unit setUnitLoadout _loadoutArray;
-};
-
-if (isText (_path >> "init")) then {
-    TRACE_1("calling init code",getText (_path >> "init"));
-    _unit call compile ("this = _this;"+ getText (_path >> "init"));
+    if (isText (_path >> "init")) then {
+        TRACE_1("calling init code",getText (_path >> "init"));
+        _unit call compile ("this = _this;"+ getText (_path >> "init"));
+    };
 };
 
 _unit setVariable [QGVAR(gearSetup), true, true];

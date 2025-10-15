@@ -50,6 +50,82 @@ class CfgVehicles {
         class Turrets;
     };
     class CUP_B_FV432_GB_GPMG: CUP_B_FV432_Base {
+        class ACRE {
+            class attenuation {
+                class Compartment1 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0.5;
+                };
+                class Compartment2 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0.5;
+                };
+                class Compartment3 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+                class Compartment4 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+                class Compartment5 {
+                    Compartment1 = 0.5;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+            };
+            class attenuationTurnedOut {
+                class Compartment1 {
+                    Compartment1 = 0.5;
+                    Compartment2 = 0.5;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0.5;
+                };
+                class Compartment2 {
+                    Compartment1 = 0.5;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+                class Compartment3 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+                class Compartment4 {
+                    Compartment1 = 0;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+                class Compartment5 {
+                    Compartment1 = 0.5;
+                    Compartment2 = 0;
+                    Compartment3 = 0;
+                    Compartment4 = 0;
+                    Compartment5 = 0;
+                };
+            };
+        };
         class NewTurret;
         class Turrets: Turrets {
             class MainTurret;
@@ -100,7 +176,7 @@ class CfgVehicles {
     class CUP_nM1025_SOV_Base: CUP_nHMMWV_Base {
         attenuationEffectType = "OpenCarAttenuation";
     };
-    // Tweaks to the GTK Boxer's handling (accel/braking) + HMG swap to M3M + countermeasures move to gunner
+    // Tweaks to the GTK Boxer's handling (accel/braking) + countermeasures move to gunner
     class Wheeled_APC_F: Car_F {
         class NewTurret;
         class Turrets {
@@ -118,14 +194,12 @@ class CfgVehicles {
                 radius = 0.1;
             };
         };
-        class AnimationSources;
     };
     class CUP_Boxer_Base_HMG: CUP_Boxer_Base {
-        class CargoTurret;
         class Turrets {
             class MainTurret: NewTurret {
-                weapons[] = {"CUP_Vhmg_M3P_veh","SmokeLauncher"}; // was CUP_Vhmg_M2_veh
-                magazines[] = {"CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "CUP_200Rnd_TE1_Red_Tracer_127x99_M", "SmokeLauncherMag"}; // was CUP_200Rnd_TE1_Red_Tracer_127x99_M
+                weapons[] = {"CUP_Vhmg_M2_veh","SmokeLauncher"};
+                magazines[] = {"CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","CUP_100Rnd_TE4_Red_Tracer_127x99_M","SmokeLauncherMag"}; // was CUP_200Rnd_TE1_Red_Tracer_127x99_M
             };
             class CommanderTurret: NewTurret {
                 weapons[] = {}; // was "SmokeLauncher"
@@ -142,23 +216,8 @@ class CfgVehicles {
                 maxHandBrakeTorque = 30000; // was 25000
             };
         };
-        class AnimationSources: AnimationSources {
-            class main_gun_muzzle_rot {
-                weapon = "CUP_Vhmg_M3P_veh";
-            };
-            class main_gun_reload {
-                weapon="CUP_Vhmg_M3P_veh";
-            };
-            class main_gun_reload_mag {
-                weapon="CUP_Vhmg_M3P_veh";
-            };
-            class main_gun_revolving {
-                weapon="CUP_Vhmg_M3P_veh";
-            };
-        };
     };
     class CUP_Boxer_Base_GMG: CUP_Boxer_Base_HMG {
-        class CargoTurret;
         class Turrets {
             class MainTurret: NewTurret {
                 weapons[] = {"CUP_Vgmg_HKGMG_veh","SmokeLauncher"}; // added smoke launcher
@@ -211,44 +270,11 @@ class CfgVehicles {
     class CUP_O_BMP3_RU: CUP_BMP3_Base {
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
             };
             class LeftTurret: LeftTurret {
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 dontCreateAI = 1;
             };
             class RightTurret: RightTurret {
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 dontCreateAI = 1;
             };
         };
@@ -256,31 +282,9 @@ class CfgVehicles {
     class CUP_O_BMP3_CSAT_T: CUP_BMP3_Base {
         class Turrets: Turrets {
             class LeftTurret: LeftTurret {
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 dontCreateAI = 1;
             };
             class RightTurret: RightTurret {
-                class GunClouds;
-                class GunFire;
-                class HitPoints;
-                class MGunClouds;
-                class Reflectors;
-                class TurnIn;
-                class TurnOut;
-                class Turrets;
-                class TurretSpec;
-                class ViewGunner;
-                class ViewOptics;
                 dontCreateAI = 1;
             };
         };
@@ -302,10 +306,10 @@ class CfgRecoils {
         temporary = 0.005;
     };
     class GVAR(recoil_SAW): recoil_default {
-        muzzleOuter[] = {0.8,1.4,0.35,0.25};
+        muzzleOuter[] = {0.59,1.04,0.29,0.21};
         kickBack[] = {0.015,0.02};
-        permanent = 0.08;
-        temporary = 0.005;
+        permanent = 0.03;
+        temporary = 0.015;
     };
     class GVAR(recoil_uk59): recoil_default {
         muzzleOuter[] = {0.71,1.22,0.35,0.55};
@@ -331,6 +335,8 @@ class CfgMagazineWells {
     };
 };
 
+class Mode_SemiAuto; // inheritance for sa61 accuracy fix
+class Mode_FullAuto; // inheritance for sa61 accuracy fix
 class CfgWeapons {
     // Make A-10A compatible with CCIP
     class CannonCore;
@@ -349,7 +355,6 @@ class CfgWeapons {
     };
 
     // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
-    class ItemCore;
     class CUP_Vest_Camo_Base;
     class CUP_V_B_ALICE: CUP_Vest_Camo_Base {
         class ItemInfo;
@@ -402,29 +407,19 @@ class CfgWeapons {
     class CUP_lmg_UK59: Rifle_Long_Base_F { // Tones down the horrific standing recoil to a more manageable state. Still stucks, but less now
         recoil = QGVAR(recoil_uk59);
     };
+    class CUP_smg_SA61: Rifle_Base_F { // buffs the Skorpion's accuracy to appropriate levels (can hit man size target 60% of the time at 100m)
+        class Single: Mode_SemiAuto {
+            dispersion = 0.00639; // was 0.018 (aka 61 MOA)
+        };
+        class FullAuto: Mode_FullAuto {
+            dispersion = 0.00639; // was 0.018 (aka 61 MOA)
+        };
+    };
 
     // 40mm HEDP
     class CUP_Vhmg_AGS30_veh;
     class CUP_Vgmg_MK19_veh: CUP_Vhmg_AGS30_veh {
         magazineWell[] += {"potato_HV_40x53mm"};
-    };
-
-    // Boxer HMG weapon
-    class CUP_Vhmg_M2_veh;
-    class CUP_Vhmg_M3P_veh: CUP_Vhmg_M2_veh {
-         magazines[] = {
-            "CUP_250Rnd_TE1_Red_Tracer_127x99_M", // CUP_Vhmg_M3P_veh default
-            "CUP_100Rnd_127x99_M", // rest from CUP_Vhmg_M2_veh
-            "CUP_100Rnd_TE4_Red_Tracer_127x99_M",
-            "CUP_100Rnd_TE4_Green_Tracer_127x99_M",
-            "CUP_100Rnd_TE4_Yellow_Tracer_127x99_M",
-            "CUP_100Rnd_TE4_White_Tracer_127x99_M",
-            "CUP_100Rnd_TE1_Red_Tracer_127x99_M",
-            "CUP_100Rnd_TE1_Green_Tracer_127x99_M",
-            "CUP_100Rnd_TE1_Yellow_Tracer_127x99_M",
-            "CUP_100Rnd_TE1_White_Tracer_127x99_M",
-            "CUP_200Rnd_TE1_Red_Tracer_127x99_M"
-        };
     };
 
     // M47 Dragon Optic Zoom
@@ -438,6 +433,27 @@ class CfgWeapons {
                 opticsZoomMin = 0.055;
                 visionMode[] = {"Normal"};
             };
+        };
+    };
+
+    // CUP MLRS Fix - accuracy buff for technical rocket pods
+    // Credit to martin509 via the CUP discord for the fix
+    class RocketPods;
+    class rockets_230mm_GAT : RocketPods {
+    };
+    class CUP_Vmlauncher_GRAD_veh  : rockets_230mm_GAT{
+        class Close;
+    };
+    class CUP_Vmlauncher_technical: CUP_Vmlauncher_GRAD_veh {
+        class Close : Close {
+            artilleryDispersion = 8;
+        };
+    };
+    class CUP_Vmlauncher_ub32_technical: CUP_Vmlauncher_GRAD_veh {
+        class Close : Close {
+            artilleryDispersion = 12;
+            aiRateOfFire = 0.35;
+            aiRateOfFireDistance = 1054;
         };
     };
 };

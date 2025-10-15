@@ -96,7 +96,7 @@ switch (GVAR(setVehicleLoadouts)) do {
         clearMagazineCargoGlobal _theVehicle;
         clearItemCargoGlobal _theVehicle;
         clearBackpackCargoGlobal _theVehicle;
-        private _boxes = configProperties [_path, "isClass _x"];;
+        private _boxes = configProperties [_path, "isClass _x"];
         if (_boxes isEqualTo []) exitWith {
             [_theVehicle, _path] call FUNC(setContainerContentsFromConfig);
         };
@@ -122,6 +122,9 @@ switch (GVAR(setVehicleLoadouts)) do {
                 _box setVariable [QGVAR(initialized), true];
             };
         } forEach _boxes;
+    };
+    case 4: { // Boxes of ammo boxes from config
+        [_theVehicle, _path, 4] call FUNC(fillObjectFromConfig);
     };
 };
 

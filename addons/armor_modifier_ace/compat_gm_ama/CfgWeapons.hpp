@@ -1,3 +1,63 @@
+#define FORCE_ARMOR_GE90_FLK(classname) class classname: gm_ge_vest_armor_90_base {\
+    class ItemInfo: ItemInfo {\
+        class HitpointsProtectionInfo: HitpointsProtectionInfo {\
+            class Abdomen {\
+                armor = 16;\
+                explosionShielding = 0.1;\
+                hitpointName = "HitAbdomen";\
+                passThrough = 0.9;\
+            };\
+            class Body {\
+                explosionShielding = 0.1;\
+                hitpointName = "HitBody";\
+                passThrough = 0.9;\
+            };\
+            class Chest {\
+                armor = 16;\
+                explosionShielding = 0.1;\
+                HitpointName = "HitChest";\
+                passThrough = 0.9;\
+            };\
+            class Diaphragm {\
+                armor = 16;\
+                explosionShielding = 0.1;\
+                HitpointName = "HitDiaphragm";\
+                passThrough = 0.9;\
+            };\
+            class Neck {\
+                armor = 8;\
+                explosionShielding = 0.1;\
+                hitpointName = "HitNeck";\
+                passThrough = 0.9;\
+            };\
+        };\
+    };\
+}
+#define FORCE_ARMOR_PL80_AKM(classname) class classname: gm_pl_vest_armor_01_akm_80_base {\
+    class ItemInfo: ItemInfo {\
+        class HitpointsProtectionInfo: HitpointsProtectionInfo {\
+            class Abdomen {\
+                armor = 16;\
+                hitpointName = "HitAbdomen";\
+                passThrough = 0.85;\
+            };\
+            class Body {\
+                hitpointName = "HitBody";\
+                passThrough = 0.85;\
+            };\
+            class Chest {\
+                armor = 16;\
+                HitpointName = "HitChest";\
+                passThrough = 0.85;\
+            };\
+            class Diaphragm {\
+                armor = 16;\
+                HitpointName = "HitDiaphragm";\
+                passThrough = 0.85;\
+            };\
+        };\
+    };\
+}
 class CfgWeapons {
     //// Vests
     class gm_vest_base;
@@ -119,41 +179,14 @@ class CfgWeapons {
             };
         };
     };
-    class gm_ge_vest_armor_90_flk: gm_ge_vest_armor_90_base {
-        class ItemInfo: ItemInfo {
-            class HitpointsProtectionInfo: HitpointsProtectionInfo {
-                class Abdomen {
-                    armor = 16;
-                    explosionShielding = 0.1;
-                    hitpointName = "HitAbdomen";
-                    passThrough = 0.9;
-                };
-                class Body {
-                    explosionShielding = 0.1;
-                    hitpointName = "HitBody";
-                    passThrough = 0.9;
-                };
-                class Chest {
-                    armor = 16;
-                    explosionShielding = 0.1;
-                    HitpointName = "HitChest";
-                    passThrough = 0.9;
-                };
-                class Diaphragm {
-                    armor = 16;
-                    explosionShielding = 0.1;
-                    HitpointName = "HitDiaphragm";
-                    passThrough = 0.9;
-                };
-                class Neck {
-                    armor = 8;
-                    explosionShielding = 0.1;
-                    hitpointName = "HitNeck";
-                    passThrough = 0.9;
-                };
-            };
-        };
-    };
+    FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_flk);
+    FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_leader_flk);
+    FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_medic_flk);
+    FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_officer_flk);
+    FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_rifleman_flk);
+    FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_crew_flk);
+    FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_demolition_flk);
+    FORCE_ARMOR_GE90_FLK(gm_ge_vest_armor_90_machinegunner_flk);
     class gm_pl_vest_armor_01_akm_80_base: gm_vest_armored_base {
         class ItemInfo: ItemInfo {
             class HitpointsProtectionInfo {
@@ -179,6 +212,12 @@ class CfgWeapons {
             };
         };
     };
+    FORCE_ARMOR_PL80_AKM(gm_pl_army_vest_armor_01_akm_80_frog);
+    FORCE_ARMOR_PL80_AKM(gm_pl_army_vest_armor_01_akm_80_blu);
+    FORCE_ARMOR_PL80_AKM(gm_pl_army_vest_armor_01_akm_80_str);
+    FORCE_ARMOR_PL80_AKM(gm_pl_army_vest_armor_01_akm_80_oli);
+    FORCE_ARMOR_PL80_AKM(gm_pl_army_vest_armor_01_akm_80_bg);
+    FORCE_ARMOR_PL80_AKM(gm_pl_army_vest_armor_01_akm_80_win);
     class gm_ge_vest_type18_base: gm_vest_armored_base {
         class ItemInfo: ItemInfo {
             class HitpointsProtectionInfo {
@@ -279,7 +318,7 @@ class CfgWeapons {
     };
     class gm_ge_headgear_psh77_base: gm_headgear_armored_base {};
     class gm_ge_headgear_psh77_cover_base: gm_ge_headgear_psh77_base {};
-    class gm_ge_headgear_psh77_cover_down_base: gm_ge_headgear_psh77_base {
+    class gm_ge_headgear_psh77_cover_down_base: gm_ge_headgear_psh77_cover_base {
         class ItemInfo: ItemInfo {
             class HitpointsProtection: HitpointsProtection {
                 class Head {

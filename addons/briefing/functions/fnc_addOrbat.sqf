@@ -47,7 +47,7 @@ _this spawn {
                     private _groupUnitArray = [];
                     {
                         private _color = _colorSelectArray select (_unit == _x);
-                        private _xIcon = getText (configFile >> "CfgVehicles" >> typeOf _x >> "icon");
+                        private _xIcon = getText (configOf _x >> "icon");
                         private _roleText = switch (true) do {
                             case (_xIcon == "iconMan"): {""};
                             case ([_xIcon == "iconManEngineer"]): {QPATHTOF(data\wrench.paa)};
@@ -70,7 +70,7 @@ _this spawn {
                     _diaryBuilder pushBack format ["<font color='%1' size=16>%2</font>", _color, groupId _x];
                     {
                         private _color = _colorSelectArray select (_unit == _x);
-                        private _xIcon = getText (configFile >> "CfgVehicles" >> typeOf _x >> "icon");
+                        private _xIcon = getText (configOf _x >> "icon");
                         private _image = getText (configFile >> "CfgVehicleIcons" >> _xIcon);
                         _diaryBuilder pushBack format ["<img src='%1' width=16 height=16/><font color='%2' size=14>%3</font>", _image, _color, name _x];
                     } forEach (units _x);
@@ -85,10 +85,10 @@ _this spawn {
     };
     _diaryBuilder pushBack "<font size='8'>Only accurate at mission start.</font>";
     // Clean leading newlines
-    while {count _diaryBuilder > 0 && {_diaryBuilder#0 == "<br/>"}} do {
+    while {_diaryBuilder isNotEqualTo [] && {_diaryBuilder#0 == "<br/>"}} do {
         _diaryBuilder deleteAt 0;
     };
-    if (count _diaryBuilder > 0 && {(_diaryBuilder#0) select [0, 5] == "<br/>"}) then {
+    if (_diaryBuilder isNotEqualTo [] && {(_diaryBuilder#0) select [0, 5] == "<br/>"}) then {
         _diaryBuilder set [0, (_diaryBuilder#0) select [5]];
     };
 

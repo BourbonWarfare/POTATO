@@ -6,6 +6,8 @@
     if (GVAR(chance) > 0) then {
         addMissionEventHandler ["EntityKilled", {call FUNC(driverDeathHandle);}];
         ["ace_cookoff_cookOff",{call FUNC(vehicleCookOffHandle)}] call CBA_fnc_addEventHandler;
+        [QACEGVAR(vehicle_damage,bailOut),{call FUNC(forgetTargets)}] call CBA_fnc_addEventHandler;
+
 
         #ifdef DEBUG_MODE_DRAW_EH
         GVAR(dev_draw3DEH) = addMissionEventHandler ["Draw3D", {[] call FUNC(dev_debugDraw)}];

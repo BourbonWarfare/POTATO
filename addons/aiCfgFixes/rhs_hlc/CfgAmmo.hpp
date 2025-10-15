@@ -27,6 +27,7 @@ class CfgAmmo {
     };
     class R_PG32V_F;
     class rhs_ammo_rpg75_rocket: R_PG32V_F {
+        aiAmmoUsageFlags = 704;
         audibleFire = 16;
     };
     class rhs_rpg26_rocket: R_PG32V_F {
@@ -58,7 +59,6 @@ class CfgAmmo {
         audibleFire = 200;
     };
     class vn_BulletBase;
-    class B_12Gauge_Pellets_Submunition;
     class vn_melee_stab: BulletBase {
         audibleFire = 0.1;
     };
@@ -176,7 +176,6 @@ class CfgAmmo {
         audibleFire = 200;
     };
     class GrenadeBase;
-    class FlareCore;
     class vn_m10_ammo: GrenadeBase {
         audibleFire = 100;
     };
@@ -276,6 +275,7 @@ class CfgAmmo {
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };
     class rhs_rpg7v2_pg7vl: rhs_rpg26_rocket {
+        aiAmmoUsageFlags = 960;
         audibleFire = AI_AUDIBLE_FIRE_0;
         GVAR(macroUsed) = "AI_AUDIBLE_FIRE_0";
     };

@@ -14,7 +14,7 @@ private _ctrlChannels = _ctrlGroup controlsGroupCtrl RADIO_CHANNEL_IDC;
 
 // determine selected objects, prioritize groups
 private _selectedGroups = get3DENSelected "group";
-private _selected = if (count _selectedGroups > 0) then {
+private _selected = if (_selectedGroups isNotEqualTo []) then {
     _selectedGroups
 } else {
     get3DENSelected "object"
