@@ -391,7 +391,7 @@ class CfgWeapons {
         class FullAuto: Mode_FullAuto {
             class BaseSoundModeType {};
             class StandardSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_rpk74_shot_soundset","jsrs_7x62mm_reverb_soundset"};
+                soundSetShot[] = {"jsrs_ak_m_shot_soundset","jsrs_7x62mm_reverb_soundset"};
             };
             class SilencedSound: BaseSoundModeType {
                 soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
@@ -403,7 +403,7 @@ class CfgWeapons {
         class FullAuto: Mode_FullAuto {
             class BaseSoundModeType {};
             class StandardSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_rpk74_shot_soundset","jsrs_7x62mm_reverb_soundset"};
+                soundSetShot[] = {"jsrs_ak_m_shot_soundset","jsrs_7x62mm_reverb_soundset"};
             };
             class SilencedSound: BaseSoundModeType {
                 soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
