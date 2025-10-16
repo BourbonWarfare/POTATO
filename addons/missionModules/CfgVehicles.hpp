@@ -98,7 +98,7 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 2;
         isGlobal = 0;
-        displayName = "";
+        displayName = "Print player held AT count";
         function = QFUNC(zeus_printATCount);
         curatorCost = 0;
         class Arguments {};
