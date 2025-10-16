@@ -353,6 +353,51 @@ class CfgWeapons {
         scope = 1;
         UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
     };
+    
+    // Ups the ROF from 600 to 652, matching IRL specs
+    class CUP_arifle_AK_Base;
+    class CUP_arifle_AKS_Base;
+    class CUP_arifle_RPK74;
+    class CUP_arifle_AK74: CUP_arifle_AK_Base {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_AK74_GL: CUP_arifle_AK_Base {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_AKS74: CUP_arifle_AKS_Base {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_AKS74_GL: CUP_arifle_AK74_GL {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_AK74M: CUP_arifle_AK_Base {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_AK74M_GL: CUP_arifle_AK_Base {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_RPK74_45: CUP_arifle_RPK74 {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_RPK74M: CUP_arifle_RPK74 {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
 
     // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
     class CUP_Vest_Camo_Base;
