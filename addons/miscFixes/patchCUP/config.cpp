@@ -347,7 +347,7 @@ class CfgWeapons {
 
     class CUP_arifle_AK_Base;
     class CUP_arifle_AKS_Base;
-    class CUP_arifle_RPK74: CUP_arifle_AK_Base {};
+    class CUP_arifle_RPK74;
     class potato_arifle_RPK: CUP_arifle_RPK74 {
         // CUP_arifle_RPK74 is actually a chambered in 7.62 and just called RPK in-game
         // CUP_arifle_RPK74_45 is the 5.45 version and is called RPK-74 in game
@@ -389,11 +389,25 @@ class CfgWeapons {
     };
     class CUP_arifle_RPK74_45: CUP_arifle_RPK74 {
         class FullAuto: Mode_FullAuto {
+            class BaseSoundModeType {};
+            class StandardSound: BaseSoundModeType {
+                soundSetShot[] = {"jsrs_rpk74_shot_soundset","jsrs_7x62mm_reverb_soundset"};
+            };
+            class SilencedSound: BaseSoundModeType {
+                soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
+            };
             reloadTime = 0.092; // was 0.1
         };
     };
     class CUP_arifle_RPK74M: CUP_arifle_RPK74 {
         class FullAuto: Mode_FullAuto {
+            class BaseSoundModeType {};
+            class StandardSound: BaseSoundModeType {
+                soundSetShot[] = {"jsrs_rpk74_shot_soundset","jsrs_7x62mm_reverb_soundset"};
+            };
+            class SilencedSound: BaseSoundModeType {
+                soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
+            };
             reloadTime = 0.092; // was 0.1
         };
     };
