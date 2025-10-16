@@ -357,7 +357,6 @@ class CfgWeapons {
     // Ups the ROF from 600 to 652, matching IRL specs
     class CUP_arifle_AK_Base;
     class CUP_arifle_AKS_Base;
-    class CUP_arifle_RPK74;
     class CUP_arifle_AK74: CUP_arifle_AK_Base {
         class FullAuto: Mode_FullAuto {
             reloadTime = 0.092; // was 0.1
