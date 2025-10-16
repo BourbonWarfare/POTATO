@@ -345,7 +345,9 @@ class CfgWeapons {
         cursorAim = "mg";
     };
 
-    class CUP_arifle_RPK74;
+    class CUP_arifle_AK_Base;
+    class CUP_arifle_AKS_Base;
+    class CUP_arifle_RPK74: CUP_arifle_AK_Base {};
     class potato_arifle_RPK: CUP_arifle_RPK74 {
         // CUP_arifle_RPK74 is actually a chambered in 7.62 and just called RPK in-game
         // CUP_arifle_RPK74_45 is the 5.45 version and is called RPK-74 in game
@@ -355,8 +357,6 @@ class CfgWeapons {
     };
     
     // Ups the ROF from 600 to 652, matching IRL specs
-    class CUP_arifle_AK_Base;
-    class CUP_arifle_AKS_Base;
     class CUP_arifle_AK74: CUP_arifle_AK_Base {
         class FullAuto: Mode_FullAuto {
             reloadTime = 0.092; // was 0.1
