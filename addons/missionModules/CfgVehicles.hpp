@@ -86,7 +86,8 @@ class CfgVehicles {
         category = QEGVAR(core,util);
         scope = 1;
         scopeCurator = 2;
-        isGlobal = 0;
+        isGlobal = 1;
+        isDisposable = 1;
         displayName = "Create defined resupply boxes";
         function = QFUNC(zeus_resupplyBoxes);
         curatorCost = 0;
@@ -97,7 +98,7 @@ class CfgVehicles {
         category = QEGVAR(core,util);
         scope = 1;
         scopeCurator = 2;
-        isGlobal = 0;
+        isGlobal = 1;
         displayName = "Print player held AT count";
         function = QFUNC(zeus_printATCount);
         curatorCost = 0;

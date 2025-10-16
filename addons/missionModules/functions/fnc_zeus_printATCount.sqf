@@ -11,7 +11,9 @@
  * Public: No
  */
 params ["_logic"];
+if !(local _logic) exitWith {};
 deleteVehicle _logic;
+
 private _count = createHashMap;
 private _cfgAmmo = configFile >> "CfgAmmo";
 private _cfgMagazines = configFile >> "CfgMagazines";
