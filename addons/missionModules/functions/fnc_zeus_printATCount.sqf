@@ -10,6 +10,8 @@
  *
  * Public: No
  */
+params ["_logic"];
+deleteVehicle _logic;
 private _count = createHashMap;
 private _cfgAmmo = configFile >> "CfgAmmo";
 private _cfgMagazines = configFile >> "CfgMagazines";
