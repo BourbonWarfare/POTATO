@@ -92,6 +92,19 @@ class CfgVehicles {
         curatorCost = 0;
     };
 
+    class GVAR(zeus_printATCount): Module_F {
+        author = QUOTE(PREFIX);
+        category = QEGVAR(core,util);
+        scope = 1;
+        scopeCurator = 2;
+        isGlobal = 1;
+        displayName = "Print player held AT count";
+        function = QFUNC(zeus_printATCount);
+        curatorCost = 0;
+        class Arguments {};
+        class Attributes {};
+    };
+
     class GVAR(zeus_missionHint): Module_F {
         author = QUOTE(PREFIX);
         category = QEGVAR(core,util);
