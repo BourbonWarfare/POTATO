@@ -59,7 +59,16 @@ private _returnArray = [];
                     {(_itemToAdd isKindOf ["Binocular", configFile >> "CfgWeapons"]) && {!(_itemToAdd isKindOf ["NVGoggles", configFile >> "CfgWeapons"])}}
                 ]
             } else {
-                [-1, -1, [], false]
+                if (isClass (configFile >> "CfgGlasses" >> _classname)) then {
+                    [
+                        getNumber (configFile >> "CfgGlasses" >> _classname >> "mass"),
+                        -1,
+                        [],
+                        false
+                    ]
+                } else {
+                    [-1, -1, [], false]
+                }
             }
         } params ["_mass", "_count", "_allowedSlots", "_isWeapon"];
 
