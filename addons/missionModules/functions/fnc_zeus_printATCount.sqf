@@ -31,14 +31,15 @@ private _isAT = {
 };
 
 {
-    private _magazines = magazines _x;
-    _magazines = (_magazines arrayIntersect _magazines) - _magazineCache;
-    private _ammos = _magazines apply {_cfgAmmo >> (getText (_cfgMagazines >> _x >> "ammo"))};
+    private _magazines = magazinesAmmoFull [_x, false];
+    private _magazinesUnique = _magazines apply {_x#0};
+    _magazinesUnique = (_magazinesUnique arrayIntersect _magazinesUnique) - _magazineCache;
+    private _ammos = _magazinesUnique apply {_cfgAmmo >> (getText (_cfgMagazines >> _x >> "ammo"))};
     {
         if ([_ammos#_forEachIndex] call _isAT) then {
                 _magazineCache pushBackUnique _x;
         };
-    } forEach _magazines;
+    } forEach _magazinesUnique;
     private _weapons = weapons _x;
     private _uniqueWeapons = (_weapons arrayIntersect _weapons) - _weaponCache;
     {
@@ -69,6 +70,6 @@ private _sorted = createHashMap;
 private _text = [parseText "<t align=""left"" size=""1.4"">Player AT Count</t>"];
 {
 	_text pushBack lineBreak;
-	_text pushBack parseText format ["<t align=""center"">%1: %2</t>", _x, _y];
+	_text pushBack parseText format ["<t align=""center"" size=""1"">%1: %2</t>", _x, _y];
 } forEach _sorted;
-[composeText _text] call ace_common_fnc_displayTextStructured;
+[composeText _text, 1 + 0.5 * (0 max ((count _text)/2 - 1)) ] call ace_common_fnc_displayTextStructured;
