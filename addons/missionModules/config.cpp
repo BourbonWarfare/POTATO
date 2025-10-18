@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {QGVAR(zeus_missionHint), QGVAR(zeus_globalSetSkill), QGVAR(sideMarker), QGVAR(zeus_banziCharge), QGVAR(zeus_bodyBag), QGVAR(moveHcsToModule), QGVAR(identity_module), QGVAR(zeus_resupplyBoxes), QGVAR(zeus_printATCount)};
+        units[] = {QGVAR(zeus_missionHint), QGVAR(zeus_globalSetSkill), QGVAR(sideMarker), QGVAR(zeus_banziCharge), QGVAR(zeus_bodyBag), QGVAR(moveHcsToModule), QGVAR(identity_module), QGVAR(zeus_resupplyBoxes), QGVAR(zeus_printATCount), QGVAR(safeStartTeleport), QGVAR(objectTeleport), QGVAR(boxBrief_cfgLoadouts), QGVAR(boxBrief_sync)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};

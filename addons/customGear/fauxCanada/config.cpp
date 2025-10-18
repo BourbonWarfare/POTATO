@@ -11,6 +11,7 @@ class CfgPatches {
             QGVARMAIN(ca_army_iltis),
             QGVARMAIN(ca_army_m151_c5),
             QGVARMAIN(ca_army_Leopard_c1),
+            QGVARMAIN(ca_army_Leopard_c2),
             QGVARMAIN(ca_army_m113a1_apc),
             QGVARMAIN(ca_army_static_tow),
             QGVARMAIN(ca_army_static_m40a1)

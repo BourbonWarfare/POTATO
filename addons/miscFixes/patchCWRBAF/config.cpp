@@ -18,6 +18,7 @@ class CfgPatches {
             QPOTFIX(cwr3_b_uk_fv107_unstab),
             QGVARMAIN(cwr3_b_uk_fv101_unstab),
             QGVARMAIN(cwr3_b_uk_fv432_gpmg_unstab),
+            QGVARMAIN(cwr3_b_uk_fv432_peak_unstab),
             QGVARMAIN(cwr3_b_uk_fv510_unstab)
         };
         weapons[] = {
