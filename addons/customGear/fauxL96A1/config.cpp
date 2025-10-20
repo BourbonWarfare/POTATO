@@ -5,11 +5,7 @@
 
 class CfgPatches {
     class ADDON {
-        weapons[] = { 
-            "potato_srifle_L96A1",
-            "potato_srifle_L96A1_des",
-            "potato_srifle_L96A1_blk"
-        };
+        weapons[] = { "potato_srifle_L96A1" };
         units[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core", "CUP_Weapons_LoadOrder", "jsrs_soundmod_cup_weapons"};
