@@ -6,12 +6,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {
-          "gm_ge_army_milan_launcher_tripod_csw",
-          "gm_gc_army_fagot_launcher_tripod_csw",
-          "gm_ge_army_mg3_aatripod_csw",
-          QGVAR(gm_MG3Tripod)
-        };
+        units[] = {};
         weapons[] = {
           QGVAR(gm_milan_backpack),
           QGVAR(gm_fagot_backpack),
