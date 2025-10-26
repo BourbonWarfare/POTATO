@@ -8,7 +8,7 @@ class CfgPatches {
         weapons[] = { "potato_srifle_L96A1" };
         units[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core", "CUP_Weapons_LoadOrder", "jsrs_soundmod_cup_weapons"};
+        requiredAddons[] = {"potato_core", "CUP_Weapons_LoadOrder"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"AChesheireCat"};
