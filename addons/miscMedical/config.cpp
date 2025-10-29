@@ -2,8 +2,8 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {};
-        weapons[] = {};
+        units[] = {"potato_naloxoneItem"};
+        weapons[] = {"potato_naloxone"};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core", "ace_medical"};
         author = "Potato";
