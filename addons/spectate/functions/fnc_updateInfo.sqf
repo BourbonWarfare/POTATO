@@ -36,7 +36,7 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
     } params ["_unit", "_killFeed", "_name"];
     TRACE_3("Kill Feed",typeOf _unit,count _killFeed,_name);
 
-    if (isPlayer _unit) then {
+    if (isPlayer _unit || {!(_unit isNil "acre_sys_core_ts3id")}) then { // _unit may be a dead body
         if (missionNamespace getVariable [QGVAR(skipWoundSearch), false]) exitWith {}; // temp escape if performance issues
         private _wounded = [];
         {
@@ -51,7 +51,7 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
             } forEach _wounds;
         } forEach allPlayers;
         if (_wounded isNotEqualTo []) then {
-            _killFeed = format ["%2<br/><br/>Wounds on: %1", _wounded joinString ", ", _killFeed];
+            _killFeed = format ["%2<br/>Caused wounds on players:<br/> %1", _wounded joinString ", ", _killFeed];
         };
     };
 
