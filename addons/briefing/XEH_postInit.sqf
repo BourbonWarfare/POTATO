@@ -20,7 +20,7 @@ if (hasInterface) then {
         private _side = side group ACE_player;
         [QGVAR(coyIntentChanged), _side] call CBA_fnc_localEvent;
     }, true] call CBA_fnc_addPlayerEventHandler;
-    private _action = [QGVAR(coyIntent), "Set COY Intent", "", FUNC(coyIntentOpenDialog), FUNC(coyIntentCondition)] call ace_interact_menu_fnc_createAction;
+    private _action = [QGVAR(coyIntent), "Set COY Intent", "", LINKFUNC(coyIntentOpenDialog), LINKFUNC(coyIntentCondition)] call ace_interact_menu_fnc_createAction;
     ["CAManBase", 1, ["ACE_SelfActions"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 };
 ["CBA_settingsInitialized", {
