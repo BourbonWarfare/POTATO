@@ -32,3 +32,4 @@ class CfgPatches {
 #include "CfgDisposableLaunchers.hpp"
 #include "CfgMagazines.hpp"
 #include "CfgWeapons.hpp"
+#include "CfgMagazineWells.hpp"

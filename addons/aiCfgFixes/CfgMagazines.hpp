@@ -20,20 +20,4 @@ class CfgMagazines {
 	class CUP_40Rnd_S8_M: 38Rnd_80mm_rockets {
 		ammo = QGVAR(he_rocket);
 	};
-    
-    class CUP_PG7V_M;
-    class potato_PG7V_M: CUP_PG7V_M {
-        ammo = "potato_R_PG7V_AA";
-        maxLeadSpeed = 150;
-    };
-    class CUP_PG7VM_M;
-    class potato_PG7VM_M: CUP_PG7VM_M {
-        ammo = "potato_R_PG7V_AA";
-        maxLeadSpeed = 150;
-    };
-    class CUP_PG7VL_M;
-    class potato_PG7VL_M: CUP_PG7VL_M {
-        ammo = "potato_R_PG7V_AA";
-        maxLeadSpeed = 150;
-    };
 };

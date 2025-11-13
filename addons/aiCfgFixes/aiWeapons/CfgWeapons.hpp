@@ -5,7 +5,6 @@ class CfgWeapons {
     // Dumb down AI accuracy
     class CUP_launch_RPG7V: Launcher_Base_F {
         maxRange = 350;
-        magazines[] = {"CUP_PG7V_M","CUP_PG7VM_M","CUP_PG7VL_M","CUP_PG7VR_M","CUP_OG7_M","CUP_TBG7V_M","potato_PG7V_M","potato_PG7VM_M","potato_PG7VL_M"};
         class Single: Mode_SemiAuto { // lower AI range without optics
             aiRateOfFireDistance = 350;
             maxRange = 350;
