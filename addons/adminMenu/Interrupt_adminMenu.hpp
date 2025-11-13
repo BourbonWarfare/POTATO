@@ -650,49 +650,55 @@ class GVAR(adminMenuDialog) {
                 class attachMarkerToGroup: attachMarkerToClient {
                     text = "Attach Marker to Unit Group";
                     tooltip = "Attaches selected marker to the selected unit's group.";
-                    y = QUOTE(0.08 * safezoneH);
+                    y = QUOTE(0.075 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_attachMarkerGroup));
                 };
                 class detatchMarker: attachMarkerToClient {
                     text = "Detatch Marker";
                     tooltip = "Removes the selected marker attached object.\nGroup markers may be reattached by group.";
-                    y = QUOTE(0.14 * safezoneH);
+                    y = QUOTE(0.13 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_detachMarker));
                 };
                 class deleteMarker: attachMarkerToClient {
                     text = "Delete Marker";
-                    y = QUOTE(0.2 * safezoneH);
+                    y = QUOTE(0.185 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_deleteMarker));
                 };
                 class createMarkerOnSelected: attachMarkerToClient {
                     text = "Create Marker";
                     tooltip = "Create a group or unit marker on the\nselected unit's group or unit";
-                    y = QUOTE(0.26 * safezoneH);
+                    y = QUOTE(0.24 * safezoneH);
                     action = QUOTE(GVAR(editMarker) = false; findDisplay 6969 createDisplay QQGVAR(markerDialog));
                 };
                 class editSelectedMarker: attachMarkerToClient {
                     text = "Edit Marker";
                     tooltip = "Edit the selected marker.";
-                    y = QUOTE(0.32 * safezoneH);
+                    y = QUOTE(0.295 * safezoneH);
                     action = QUOTE(GVAR(editMarker) = true; findDisplay 6969 createDisplay QQGVAR(markerDialog));
                 };
                 class fixMarkerKey: attachMarkerToClient {
                     text = "Reload Unit Local Markers";
                     tooltip = "Reloads the selected clients\nmarkers from their local marker caches";
-                    y = QUOTE(0.38 * safezoneH);
+                    y = QUOTE(0.35 * safezoneH);
                     action = QUOTE([MARKERS_TAB] call FUNC(uihook_resetMarkersButton));
                 };
                 class resetAllMarkers: attachMarkerToClient {
                     text = "Reload All Client Markers";
                     tooltip = "Reloads every clients markers from\ntheir local marker caches";
-                    y = QUOTE(0.44 * safezoneH);
+                    y = QUOTE(0.405 * safezoneH);
                     action = QUOTE(remoteExecCall [ARR_2(QQEFUNC(markers,reinitMarkerHash),0)];SEND_ADMIN_MSG(Reload all client markers); [] call FUNC(reloadMarkersTab););
                 };
                 class initServerMarks: attachMarkerToClient {
                     text = "Reinit Server AI Markers";
                     tooltip = "Sometimes AI are spawned with markers on the server after\nthe init runs. Run again to fix missing AI markers.";
-                    y = QUOTE(0.5 * safezoneH);
+                    y = QUOTE(0.46 * safezoneH);
                     action = QUOTE(remoteExecCall [ARR_2(QQEFUNC(markers,initLocalMarkers),2)];SEND_ADMIN_MSG(Reload server AI markers); [] call FUNC(reloadMarkersTab););
+                };
+                class reintAllMarkers: attachMarkerToClient {
+                    text = "Reinit All Markers";
+                    tooltip = "Sometimes markers don't properly initialize. Run again to fix missing player markers.";
+                    y = QUOTE(0.515 * safezoneH);
+                    action = QUOTE(remoteExecCall [ARR_2(QQEFUNC(markers,initLocalMarkers),0)];SEND_ADMIN_MSG(Reload all markers); [] call FUNC(reloadMarkersTab););
                 };
             };
         };
