@@ -1,4 +1,3 @@
-#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
@@ -11,6 +10,10 @@
  *
  * Examples:
  * [_orbatHash, []] call potato_briefing_fnc_addOrbat;
+ *
+ * TODO:
+ * - Fix multiple friendly factions display overwriting eachother
+ * - Fix JIP leadership pulling squad out of order
  *
  * Public: No
  */
