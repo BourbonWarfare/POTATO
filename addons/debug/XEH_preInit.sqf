@@ -15,7 +15,6 @@ if (isServer) then {
 };
 
 #ifdef ENABLE_NETWORK_MARKERS
-[player] call FUNC(addMarkerInfoEvent);
 [QCVAR(briefingEnd), {
     [player] call FUNC(addMarkerInfoEvent);
     [{local player}, {
