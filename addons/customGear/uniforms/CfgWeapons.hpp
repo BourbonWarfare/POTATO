@@ -301,10 +301,10 @@ class CfgWeapons {
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_Ger_ProtectionVest2.p3d";
         hiddenSelections[] = {"camo1","camo2","camo3","camo4","_pistol","_pistol_cartridge_pouches","_pistol_holster"};
         hiddenSelectionsTextures[] = {
-            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch.paa)
+            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch_co.paa)
         };
         class ItemInfo: VestItem {
             uniformModel = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_Ger_ProtectionVest2.p3d";
@@ -344,10 +344,10 @@ class CfgWeapons {
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_Ger_ProtectionVest2.p3d";
         hiddenSelections[] = {"camo1","camo2","camo3","camo4","_backpack","_cartridge_pouches","_first_aid","_pistol","_pistol_cartridge_pouches","_pistol_holster"};
         hiddenSelectionsTextures[] = {
-            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch.paa)
+            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch_co.paa)
         };
         class ItemInfo: VestItem {
             uniformModel = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_Ger_ProtectionVest2.p3d";
@@ -383,10 +383,10 @@ class CfgWeapons {
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_Med.p3d";
         hiddenSelections[] = {"camo1","camo2","camo3","_cartridge_pouches"};
         hiddenSelectionsTextures[] = {
-            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch.paa)
+            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch_co.paa)
         };
         class ItemInfo: VestItem {
             uniformModel = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_Med.p3d";
@@ -422,9 +422,9 @@ class CfgWeapons {
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_Med.p3d";
         hiddenSelections[] = {"camo1","camo2","camo3","_cartridge_pouches"};
         hiddenSelectionsTextures[] = {
-            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch.paa)
+            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch_co.paa)
         };
         class ItemInfo: VestItem {
             uniformModel = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_Med.p3d";
@@ -460,10 +460,10 @@ class CfgWeapons {
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_TL.p3d";
         hiddenSelections[] = {"camo1","camo2","camo3","camo4"};
         hiddenSelectionsTextures[] = {
-            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch.paa)
+            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch_co.paa)
         };
         class ItemInfo: VestItem {
             uniformModel = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_TL.p3d";
@@ -499,9 +499,9 @@ class CfgWeapons {
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_TL.p3d";
         hiddenSelections[] = {"camo1","camo2","camo4"};
         hiddenSelectionsTextures[] = {
-            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch.paa)
+            QPATHTOEF(customGear,uniforms\data\orel_vest_noinsignia_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch_co.paa)
         };
         class ItemInfo: VestItem {
             uniformModel = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_TL.p3d";
@@ -540,10 +540,10 @@ class CfgWeapons {
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_Ger_ProtectionVest2.p3d";
         hiddenSelections[] = {"camo1","camo2","camo3","camo4","_pistol","_pistol_cartridge_pouches","_pistol_holster"};
         hiddenSelectionsTextures[] = {
-            QPATHTOEF(customGear,uniforms\data\orel_vest_insignia.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch.paa)
+            QPATHTOEF(customGear,uniforms\data\orel_vest_insignia_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch_co.paa)
         };
         class ItemInfo: VestItem {
             uniformModel = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_Ger_ProtectionVest2.p3d";
@@ -579,10 +579,10 @@ class CfgWeapons {
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_Med.p3d";
         hiddenSelections[] = {"camo1","camo2","camo3","_cartridge_pouches"};
         hiddenSelectionsTextures[] = {
-            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_vest_insignia.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch.paa)
+            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_vest_insignia_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch_co.paa)
         };
         class ItemInfo: VestItem {
             uniformModel = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_Med.p3d";
@@ -618,10 +618,10 @@ class CfgWeapons {
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_TL.p3d";
         hiddenSelections[] = {"camo1","camo2","camo3","camo4"};
         hiddenSelectionsTextures[] = {
-            QPATHTOEF(customGear,uniforms\data\orel_vest_insignia.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack.paa),
-            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch.paa)
+            QPATHTOEF(customGear,uniforms\data\orel_vest_insignia_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_cartridge_pouch_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_vest_backpack_co.paa),
+            QPATHTOEF(customGear,uniforms\data\orel_aid_pouch_co.paa)
         };
         class ItemInfo: VestItem {
             uniformModel = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Germany\CUP_V_Ger_TL.p3d";
@@ -659,7 +659,7 @@ class CfgWeapons {
         picture = "\A3\characters_f\Data\UI\icon_V_TacVest_blk_police_CA.paa";
         model = "A3\Characters_F\Common\equip_tacticalvest";
         hiddenSelections[] = {"camo"};
-        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\OREL_tacvest_black_mid.paa)};
+        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\OREL_tacvest_black_mid_co.paa)};
         class ItemInfo: VestItem {
             uniformModel = "A3\Characters_F\Common\equip_tacticalvest";
             containerClass = "Supply120";

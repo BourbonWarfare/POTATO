@@ -224,7 +224,7 @@ class CfgVehicles {
         scopeCurator = 0;
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Russia\CUP_RUS_Uniform_80s.p3d";
         uniformClass = "potato_U_M88_kamysh";
-        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_v6.paa)};
+        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_v6_co.paa)};
     };
     class potato_M88_kamysh_rolled: CUP_Creatures_Military_RUS_Soldier_Base {
         author = "AChesheireCat";
@@ -232,7 +232,7 @@ class CfgVehicles {
         scopeCurator = 0;
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Russia\CUP_RUS_Uniform_80s_rolled_up.p3d";
         uniformClass = "potato_U_M88_kamysh_rolled";
-        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_v6.paa)};
+        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_v6_co.paa)};
     };
     class potato_M88_kamysh_rolled_gloves: CUP_Creatures_Military_RUS_Soldier_Base {
         author = "AChesheireCat";
@@ -240,7 +240,7 @@ class CfgVehicles {
         scopeCurator = 0;
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Russia\CUP_RUS_Uniform_80s_rolled_up_gloves.p3d";
         uniformClass = "potato_U_M88_kamysh_rolled_gloves";
-        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_v6.paa)};
+        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_v6_co.paa)};
     };
     class potato_M88_OREL: CUP_Creatures_Military_RUS_Soldier_Base {
         author = "AChesheireCat";
@@ -248,7 +248,7 @@ class CfgVehicles {
         scopeCurator = 0;
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Russia\CUP_RUS_Uniform_80s.p3d";
         uniformClass = "potato_U_M88_OREL";
-        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_orel_v6.paa)};
+        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_orel_v6_co.paa)};
     };
     class potato_M88_OREL_rolled: CUP_Creatures_Military_RUS_Soldier_Base {
         author = "AChesheireCat";
@@ -256,7 +256,7 @@ class CfgVehicles {
         scopeCurator = 0;
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Russia\CUP_RUS_Uniform_80s_rolled_up.p3d";
         uniformClass = "potato_U_M88_OREL_rolled";
-        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_orel_v6.paa)};
+        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_orel_v6_co.paa)};
     };
     class potato_M88_OREL_rolled_gloves: CUP_Creatures_Military_RUS_Soldier_Base {
         author = "AChesheireCat";
@@ -264,6 +264,6 @@ class CfgVehicles {
         scopeCurator = 0;
         model = "\CUP\Creatures\People\Military\CUP_Creatures_People_Military_Russia\CUP_RUS_Uniform_80s_rolled_up_gloves.p3d";
         uniformClass = "potato_U_M88_OREL_rolled_gloves";
-        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_orel_v6.paa)};
+        hiddenSelectionsTextures[] = {QPATHTOEF(customGear,uniforms\data\m88_kamysh_orel_v6_co.paa)};
     };
 };
