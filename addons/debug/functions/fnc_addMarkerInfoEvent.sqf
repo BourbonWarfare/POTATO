@@ -24,7 +24,7 @@ params [
     ["_drawObject", player, [objNull]],
     ["_sendQueue", false, [false]]
 ];
-TRACE_2("params",_this);
+TRACE_1("params",_this);
 
 if (missionNameSpace getVariable [QGVAR(disableOutput), false]) exitWith {
     TRACE_1("enableOutput",missionNameSpace getVariable [QGVAR(disableOutput), false]);

@@ -37,7 +37,7 @@ switch (_eventEnum) do {
     case DEBUG_EVENT_NETWORK_MARKERS: {
         _hash set [_clientOwner, _params];
         if (GVAR(outPutLogs)) then {
-            call FUNC(printLogs);
+            call FUNC(printLog);
         };
     };
     default {};
