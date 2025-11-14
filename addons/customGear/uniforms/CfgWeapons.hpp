@@ -690,9 +690,8 @@ class CfgWeapons {
     };
     
     // GM Type 7 vest recolor
-    class gm_vest_armored_base;
-    class gm_ge_bgs_vest_type3_base: gm_vest_armored_base {};
-    class gm_ge_bgs_vest_type3_gry: gm_ge_bgs_vest_type3_base {
+    class gm_ge_vest_type3_base;
+    class gm_ge_bgs_vest_type3_gry: gm_ge_vest_type3_base {
         class ItemInfo;
     };
     class gmx_csgo_vest_type3_cream: gm_ge_bgs_vest_type3_gry {
