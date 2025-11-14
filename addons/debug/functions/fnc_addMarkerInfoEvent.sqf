@@ -25,10 +25,9 @@ params [
     ["_sendQueue", false, [false]]
 ];
 TRACE_2("params",_this);
-diag_log text "Params";
 
-if (missionNameSpace getVariable [QGVAR(enableOutput), true]) exitWith {
-    TRACE_1("enableOutput",missionNameSpace getVariable [QGVAR(enableOutput), true]);
+if (missionNameSpace getVariable [QGVAR(disableOutput), false]) exitWith {
+    TRACE_1("enableOutput",missionNameSpace getVariable [QGVAR(disableOutput), false]);
 };
 
 if (isNil QGVAR(markerQueue)) then {
@@ -55,5 +54,6 @@ GVAR(markerQueue) pushBack [
 if (_sendQueue) then {
     [{
         [QGVAR(recieveMessage), [DEBUG_EVENT_NETWORK_MARKERS, clientOwner, GVAR(markerQueue)]] call CBA_fnc_serverEvent;
+        GVAR(markerQueue) = nil;
     }, 0, clientOwner] call CBA_fnc_waitAndExecute;
 };

@@ -14,7 +14,7 @@ if (isServer) then {
     }] call CBA_fnc_addEventHandler;
 };
 
-#ifdef ENABLE_DEBUG_NETWORK_MARKERS
+#ifdef ENABLE_NETWORK_MARKERS
 [player] call FUNC(addMarkerInfoEvent);
 [QCVAR(briefingEnd), {
     [player] call FUNC(addMarkerInfoEvent);
