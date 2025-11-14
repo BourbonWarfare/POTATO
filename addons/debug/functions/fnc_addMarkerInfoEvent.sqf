@@ -26,8 +26,8 @@ params [
 ];
 TRACE_1("params",_this);
 
-if (missionNameSpace getVariable [QGVAR(disableOutput), false]) exitWith {
-    TRACE_1("enableOutput",missionNameSpace getVariable [QGVAR(disableOutput), false]);
+if (missionNamespace getVariable [QGVAR(disableOutput), false]) exitWith {
+    TRACE_1("enableOutput",missionNamespace getVariable [ARR_2(QGVAR(disableOutput),false)]);
 };
 
 if (isNil QGVAR(markerQueue)) then {
