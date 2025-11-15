@@ -73,7 +73,7 @@ class CfgWeapons {
         displayName = "AT4CS LMAW";
         baseWeapon = QWEAPON(launch_AT4CS_LMAW);
         jsrs_soundeffect = "JSRS2_Distance_Effects_Launcher";
-        magazines[] = {QMAGAZINE(AT4CS_RS)};
+        magazines[] = {QMAGAZINE(AT4CS_LMAW)};
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 108;
         };
