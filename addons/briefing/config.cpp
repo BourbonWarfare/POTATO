@@ -26,3 +26,10 @@ class RscDisplayDebriefing: RscStandardDisplay {
         };
     };
 };
+
+class GVAR(coy_intent) {
+    idd = -1;
+    movingEnable = 0;
+    enableSimulation = 1;
+    class controls {};
+};
