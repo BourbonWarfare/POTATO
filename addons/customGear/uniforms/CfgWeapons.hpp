@@ -1,11 +1,11 @@
 class CfgWeapons {
     class InventoryItem_Base_F;
-    class ItemCore;
     class Uniform_Base;
+    class Vest_Camo_Base;
     class UniformItem: InventoryItem_Base_F {};
     class VestItem: InventoryItem_Base_F {};
     
-    class jasons_indfor_uniform_base: ItemCore {
+    class jasons_indfor_uniform_base: Uniform_Base {
         allowedSlots[] = {901};
         author = "Colonel Jason";
         displayName = "Jason INDFOR Uniform Base";
@@ -16,7 +16,7 @@ class CfgWeapons {
         scope = 1;
         scopeCurator = 1;
         scopeArsenal = 1; 
-        class ItemInfo : UniformItem {
+        class ItemInfo: UniformItem {
             containerClass = "Supply40";
             mass = 20;
             uniformClass = "";
@@ -34,7 +34,7 @@ class CfgWeapons {
         scope = 2;          
         scopeCurator = 1;
         scopeArsenal = 2;
-        class ItemInfo : UniformItem {
+        class ItemInfo: UniformItem {
             containerClass = "Supply40";
            mass = 20;
            uniformClass = "potato_jehlici_uniform_base"; 
@@ -51,7 +51,7 @@ class CfgWeapons {
         scope = 2;          
         scopeCurator = 1;
         scopeArsenal = 2;
-        class ItemInfo : UniformItem {
+        class ItemInfo: UniformItem {
             containerClass = "Supply40";
            mass = 20;
            uniformClass = "potato_jehlici_uniform_tan"; 
@@ -149,7 +149,7 @@ class CfgWeapons {
     
     // CUP Crye G3 retextures
     
-    class potato_U_CRYE_G3C_MARWDL_v8_US: ItemCore { // I think it's this one that's the best one iirc
+    class potato_U_CRYE_G3C_MARWDL_v8_US: UniformItem  { // I think it's this one that's the best one iirc
         author = "AChesheireCat";
         scope = 2;
         allowedSlots[] = {901};
@@ -163,7 +163,7 @@ class CfgWeapons {
             mass = 20;
         };
     };
-    class potato_U_CRYE_G3C_MARWDL_v9_US: ItemCore {
+    class potato_U_CRYE_G3C_MARWDL_v9_US: UniformItem {
         author = "AChesheireCat";
         scope = 2;
         allowedSlots[] = {901};
@@ -205,7 +205,7 @@ class CfgWeapons {
     };
     
     // CUP M88 retextures
-    class potato_U_M88_kamysh: ItemCore {
+    class potato_U_M88_kamysh: Uniform_Base {
         author = "AChesheireCat";
         scope = 2;
         allowedSlots[] = {901};
@@ -219,7 +219,7 @@ class CfgWeapons {
             mass = 20;
         };
     };
-    class potato_U_M88_kamysh_rolled: ItemCore {
+    class potato_U_M88_kamysh_rolled: Uniform_Base {
         author = "AChesheireCat";
         scope = 2;
         allowedSlots[] = {901};
@@ -233,7 +233,7 @@ class CfgWeapons {
             mass = 20;
         };
     };
-    class potato_U_M88_kamysh_rolled_gloves: ItemCore {
+    class potato_U_M88_kamysh_rolled_gloves: Uniform_Base {
         author = "AChesheireCat";
         scope = 2;
         allowedSlots[] = {901};
@@ -247,7 +247,7 @@ class CfgWeapons {
             mass = 20;
         };
     };
-    class potato_U_M88_OREL: ItemCore {
+    class potato_U_M88_OREL: Uniform_Base {
         author = "AChesheireCat";
         scope = 2;
         allowedSlots[] = {901};
@@ -261,7 +261,7 @@ class CfgWeapons {
             mass = 20;
         };
     };
-    class potato_U_M88_OREL_rolled: ItemCore {
+    class potato_U_M88_OREL_rolled: Uniform_Base {
         author = "AChesheireCat";
         scope = 2;
         allowedSlots[] = {901};
@@ -275,7 +275,7 @@ class CfgWeapons {
             mass = 20;
         };
     };
-    class potato_U_M88_OREL_rolled_gloves: ItemCore {
+    class potato_U_M88_OREL_rolled_gloves: Uniform_Base {
         author = "AChesheireCat";
         scope = 2;
         allowedSlots[] = {901};
@@ -291,7 +291,7 @@ class CfgWeapons {
     };
     
     // CUP German Vest retextures
-    class potato_V_ORELVest_R_Black: ItemCore {
+    class potato_V_ORELVest_R_Black: Vest_Camo_Base {
         author = "AChesheireCat";
         dlc = "";
         scope = 2;
@@ -334,7 +334,7 @@ class CfgWeapons {
             };
         };
     };
-    class potato_V_ORELVest_R_Black_lite: ItemCore {
+    class potato_V_ORELVest_R_Black_lite: Vest_Camo_Base {
         author = "AChesheireCat";
         dlc = "";
         scope = 2;
@@ -651,7 +651,7 @@ class CfgWeapons {
             };
         };
     };
-    class potato_V_TacVest_blk_OREL: ItemCore {
+    class potato_V_TacVest_blk_OREL: Vest_Camo_Base {
         author = "AChesheireCat";
         scope = 2;
         displayName = "Tactical Vest (OREL)";
