@@ -64,4 +64,21 @@ class CfgMagazines {
         initSpeed = 108;
         mass = 80.4;
     };
+    
+    // Custom Anti-Air Capable RPG rounds
+    class CUP_PG7V_M;
+    class CUP_PG7VM_M;
+    class CUP_PG7VL_M;
+    class potato_PG7V_M: CUP_PG7V_M {
+        ammo = "potato_R_PG7V_AA";
+        maxLeadSpeed = 150;
+    };
+    class potato_PG7VM_M: CUP_PG7VM_M {
+        ammo = "potato_R_PG7V_AA";
+        maxLeadSpeed = 150;
+    };
+    class potato_PG7VL_M: CUP_PG7VL_M {
+        ammo = "potato_R_PG7V_AA";
+        maxLeadSpeed = 150;
+    };
 };

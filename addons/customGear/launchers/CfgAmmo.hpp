@@ -103,4 +103,18 @@ class CfgAmmo {
         caliber = 40;
         hit = 400;
     };
+    
+    // Custom Anti-Air Capable RPG rounds
+    class CUP_R_PG7VL_AT;
+    class CUP_R_PG7VM_AT;
+    class CUP_R_PG7V_AT;
+    class potato_R_PG7VL_AA: CUP_R_PG7VL_AT {
+        airLock = 1;
+    };
+    class potato_R_PG7VM_AA: CUP_R_PG7VM_AT {
+        airLock = 1;
+    };
+    class potato_R_PG7V_AA: CUP_R_PG7V_AT {
+        airLock = 1;
+    };
 };
