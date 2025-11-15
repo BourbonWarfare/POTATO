@@ -34,7 +34,7 @@ class CfgWeapons {
         displayName = "C7";
         modes[] = {"Single","FullAuto","Burst_medium","single_medium_optics1","single_medium_optics2"};
         class FullAuto: Mode_FullAuto {
-            class BaseSoundModeType;
+            class BaseSoundModeType {};
             class StandardSound: BaseSoundModeType {
                 soundsetshot[] = {"jsrs_m16a4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
             };
@@ -64,7 +64,7 @@ class CfgWeapons {
         displayName = "C7A2";
         modes[] = {"Single","FullAuto","Burst_medium","single_medium_optics1","single_medium_optics2"};
         class FullAuto: Mode_FullAuto {
-            class BaseSoundModeType;
+            class BaseSoundModeType {};
             class StandardSound: BaseSoundModeType {
                 soundsetshot[] = {"jsrs_m16a4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
             };
@@ -89,7 +89,7 @@ class CfgWeapons {
         displayName = "C7A2 M203";
         modes[] = {"Single","FullAuto","Burst_medium","single_medium_optics1","single_medium_optics2"};
         class FullAuto: Mode_FullAuto {
-            class BaseSoundModeType;
+            class BaseSoundModeType {};
             class StandardSound: BaseSoundModeType {
                 soundsetshot[] = {"jsrs_m16a4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
             };

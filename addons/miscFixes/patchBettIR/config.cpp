@@ -21,7 +21,7 @@ class BettIR_Config {
         class CUP_NVG_PVS14_WP: CUP_NVG_PVS14 {};
         class CUP_NVG_PVS15_black;
         class CUP_NVG_PVS15_black_WP: CUP_NVG_PVS15_black {};
-        class CUP_NVG_PVS15_green;
+        class CUP_NVG_PVS15_green: CUP_NVG_PVS15_black {};
         class CUP_NVG_PVS15_green_WP: CUP_NVG_PVS15_green {};
         class CUP_NVG_PVS15_tan;
         class CUP_NVG_PVS15_tan_WP: CUP_NVG_PVS15_tan {};
