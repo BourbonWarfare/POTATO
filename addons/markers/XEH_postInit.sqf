@@ -7,8 +7,10 @@ LOG("Post init start");
 
 [
     {
+        params ["_maxWaitForGroupCleanup", "_minWaitForSettingsSync"];
         ACEGVAR(common,settingsInitFinished)
-            && {(missionNamespace getVariable [QEGVAR(miscFixes,groupCleanupRan), false]) || {diag_tickTime > (_this select 0)}}
+            && {(missionNamespace getVariable [QEGVAR(miscFixes,groupCleanupRan), false]) || {diag_tickTime > _maxWaitForGroupCleanup}}
+            && {diag_tickTime > _minWaitForSettingsSync}
     },
     {
         TRACE_2("ACE Settings initialized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
@@ -95,7 +97,7 @@ LOG("Post init start");
             (_x select 1) call (_x select 0);
         } forEach GVAR(settingsDelayedFunctions);
     },
-    [diag_tickTime + 5]
+    [diag_tickTime + 5, diag_tickTime + 1]
 ] call CBA_fnc_waitUntilAndExecute;
 
 if !(isServer) then {
