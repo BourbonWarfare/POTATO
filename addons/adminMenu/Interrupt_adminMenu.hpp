@@ -222,6 +222,24 @@ class GVAR(adminMenuDialog) {
                     w = QUOTE(0.52 * safezoneW);
                     h = QUOTE(0.39 * safezoneH);
                 };
+                class RscButton_AllVictory: RscButton {
+                    idc = -1;
+                    text = "All Victory"; //--- ToDo: Localize;
+                    x = QUOTE(0.05 * safezoneW);
+                    y = QUOTE(0.436 * safezoneH);
+                    w = QUOTE(0.2 * safezoneW);
+                    h = QUOTE(0.044 * safezoneH);
+                    action = QUOTE([QQUOTE(all)] call FUNC(uihook_endMission));
+                };
+                class RscButton_Defeat: RscButton {
+                    idc = -1;
+                    text = "All Defeat"; //--- ToDo: Localize;
+                    x = QUOTE(0.25 * safezoneW);
+                    y = QUOTE(0.436 * safezoneH);
+                    w = QUOTE(0.2 * safezoneW);
+                    h = QUOTE(0.044 * safezoneH);
+                    action = QUOTE([QQUOTE(none)] call FUNC(uihook_endMission));
+                };
                 class RscButton_16055: RscButton {
                     idc = -1;
                     text = "West Victory"; //--- ToDo: Localize;
@@ -244,7 +262,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Ind Victory"; //--- ToDo: Localize;
                     x = QUOTE(0.05 * safezoneW);
-                    y = QUOTE(0.52 * safezoneH);
+                    y = QUOTE(0.523 * safezoneH);
                     w = QUOTE(0.2 * safezoneW);
                     h = QUOTE(0.044 * safezoneH);
                     action = QUOTE([resistance] call FUNC(uihook_endMission));
@@ -253,7 +271,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Civ Victory"; //--- ToDo: Localize;
                     x = QUOTE(0.25 * safezoneW);
-                    y = QUOTE(0.52 * safezoneH);
+                    y = QUOTE(0.523 * safezoneH);
                     w = QUOTE(0.2 * safezoneW);
                     h = QUOTE(0.044 * safezoneH);
                     action = QUOTE([civilian] call FUNC(uihook_endMission));

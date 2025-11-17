@@ -11,7 +11,7 @@ if (isServer) then {
     ["potato_adminMsg", [_debugMsg, profileName, "#ALL"]] call CBA_fnc_globalEvent;
 };
 
-if ((!hasInterface) || {EGVAR(core,playerStartingSide) == _winningSide}) then {
+if ((!hasInterface) || {EGVAR(core,playerStartingSide) isEqualTo _winningSide} || {_winningSide isEqualTo "all"}) then {
     ["", true, 1] call BIS_fnc_endMission;
 } else {
     ["", false, 1] call BIS_fnc_endMission;
