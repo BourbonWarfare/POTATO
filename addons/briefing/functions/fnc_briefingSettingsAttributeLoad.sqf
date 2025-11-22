@@ -5,7 +5,7 @@
  *
  * Arguments:
  * 0: Control group of the briefing component <CONTROL>
- * 1: The stored settings <STRING>
+ * 1: The stored settings <STRING> (or <BOOL> ?)
  *
  * Examples:
  * [_ctrlGroup, "true,true"] call potato_briefing_fnc_briefingSettingsAttributeLoad;

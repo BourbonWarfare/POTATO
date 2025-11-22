@@ -11,8 +11,8 @@
  * 2: Object marker is attached to <OBJECT>
  * 3: Side of the marker <SIDE>
  * 4: Marker text <STRING>
- * 5: Color array of the  or default color array index <ARRAY/NUMBER>
- * 6: Icon of the marker to show or default marker array index <STRING/NUMBER>
+ * 5: Color array of the  or default color array index <ARRAY><NUMBER>
+ * 6: Icon of the marker to show or default marker array index <STRING><NUMBER>
  * 7: Marker icon size DEFAULT_MARKER_SIZE <SCALAR>
  *
  * Example:

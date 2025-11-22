@@ -4,7 +4,7 @@
  *
  * Arguments:
  * 0: Display the map control lives on <DISPLAY>
- * 0: Map or GPS IDC <NUMBER>
+ * 1: Map or GPS IDC <NUMBER>
  *
  * Examples:
  * [(findDisplay 12), 52] call potato_markers_fnc_addMarkersToDisplay; // add markers to main map

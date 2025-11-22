@@ -4,7 +4,8 @@
  * Should only be called by UI events
  *
  * Arguments:
- * 0: arbitrary index of control set to be updated <NUMBER>
+ * 0: Slider <BOOL>
+ * 1: Index <NUMBER>
  *
  * Example:
  * [true,0] call potato_zeusHC_fnc_garrisonDialogControlChange;

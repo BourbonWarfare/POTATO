@@ -5,7 +5,7 @@
  *
  * Arguments:
  * 0: Vehicle <OBJECT>
- * 1: Default loadout type <STRING>
+ * 1: Default loadout type <CONFIG>
  *
  * Return Value:
  * Nothing
