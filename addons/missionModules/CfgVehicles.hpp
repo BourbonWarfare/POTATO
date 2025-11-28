@@ -328,6 +328,82 @@ class CfgVehicles {
         };
     };
 
+    class GVAR(titleText): Module_F {
+        author = QUOTE(PREFIX);
+        category = QEGVAR(core,util);
+        displayName = "Mission Intro Text";
+        scope = 2;
+        isTriggerActivated = 0;
+        isGlobal = 2;
+        function = QFUNC(initSafeStartEndText);
+        class Attributes: AttributesBase {
+            class side: Combo {
+                displayName = "Show to";
+                property = "side";
+                tooltip = "Which side will see the safestart text";
+                typeName = "NUMBER";
+                defaultValue = 0;
+                class Values {
+                    class all {
+                        name = "All sides";
+                        value = 0;
+                    };
+                    class west {
+                        name = "$STR_WEST";
+                        value = 1;
+                    };
+                    class east {
+                        name = "$STR_east";
+                        value = 2;
+                    };
+                    class resistance {
+                        name = "$STR_guerrila";
+                        value = 3;
+                    };
+                };
+            };
+            class missionNameColor: Combo {
+                displayName = "Mission Title Color";
+                property = "missionNameColor";
+                tooltip = "What color the first line will be, usually orange, but red and white offered for contrast";
+                typeName = "NUMBER";
+                defaultValue = 0;
+                class Values {
+                    class orange { name = "Orange"; value = 0; };
+                    class red { name = "Red"; value = 1; };
+                    class white { name = "White"; value = 2; };
+                };
+            };
+            class lineOne {
+                displayName = "Mission Title";
+                tooltip = "The mission name or title, the first line of the text shown.";
+                control = "Edit";
+                property = "lineOne";
+                expression = "_this setVariable ['%s',_value, true];";
+                defaultValue = """Mission Title""";
+                validate = "string";
+            };
+            class lineTwo: lineOne {
+                displayName = "Line Two";
+                property = "lineTwo";
+                tooltip = "Either details such as date, geographic location, or the author name.";
+                defaultValue = """ """;
+            };
+            class lineThree: lineOne {
+                displayName = "Line Three (optional)";
+                property = "lineThree";
+                tooltip = "An optional line of text.";
+                defaultValue = """ """;
+            };
+            class lineFour: lineOne {
+                displayName = "Line Four (optional)";
+                property = "lineFour";
+                tooltip = "Another optional line of text.";
+                defaultValue = """ """;
+            };
+        };
+    };
+
     class GVAR(objectTeleport): Module_F {
         author = QUOTE(PREFIX);
         category = QEGVAR(core,util);
@@ -420,7 +496,7 @@ class CfgVehicles {
     class GVAR(boxBrief_sync): Module_F {
         author = QUOTE(PREFIX);
         category = QEGVAR(core,util);
-        scope = 2;
+        scope = 1;
         displayName = "Create Resupply Entries (Sync)";
         icon = "iconCrate";
         isGlobal = 2;

@@ -8,6 +8,7 @@ PREP(identity_set);
 PREP(initMapClickTeleport);
 PREP(initObjectTeleport);
 PREP(initResupBoxCtrl);
+PREP(initSafeStartEndText);
 PREP(manInitEH);
 PREP(moveHcsToModule);
 PREP(moveHcsToPos);
