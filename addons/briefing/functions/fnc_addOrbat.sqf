@@ -22,13 +22,14 @@ _this spawn {
 
     TRACE_1("",_unit);
     private _orbatHash = createHashMap;
+    private _side = side _unit;
     private _diaryBuilder = [];
     private _colorSelectArray = ["#FFFFFF", GVAR(highlighColorOption) call BIS_fnc_colorRGBtoHTML];
     private _drawCompact = GVAR(useCompactOrbat);
     private _shouldSort = GVAR(sortOrbat);
     {
-        if (({isPlayer _x} count (units _x)) > 0) then {
-            if (((side _x) getFriend playerSide) >= 0.6) then {
+        if (({alive _x} count (units _x)) > 0) then {
+            if (((side _x) getFriend _side) >= 0.6) then {
                 private _color = switch (side _x) do {
                     case (west): { "#0088EE" }; // use profile colors here?
                     case (east): { "#DD0000" };
@@ -39,7 +40,7 @@ _this spawn {
                 if (_drawCompact) then {
                     private _groupID = groupId _x;
                     private _groupIDArr = _groupID splitString " ";
-                    _groupId = (_groupIDArr select {
+                    _groupID = (_groupIDArr select {
                         !(_x regexMatch ".*opf.*|.*ind.*|.*blu.*|.*msv.*|.*mech.*|.*commonwealth.*/gi")
                     }) joinString " ";
                     private _groupArray = [[],["<br/>"]] select (count _groupID > 2 && _diaryBuilder isNotEqualTo [] && _shouldSort);
@@ -62,7 +63,11 @@ _this spawn {
                     } forEach (units _x);
                     _groupArray pushBack (_groupUnitArray joinString ", ");
                     if (_shouldSort) then {
-                        _orbatHash set [_groupID, [roleDescription leader _x, _groupArray joinString "", false]];
+                        private _roleDescript = roleDescription leader _x;
+                        if ("jip" in toLowerANSI _roleDescript) then {
+                            _roleDescript = "@" + _groupID;
+                        };
+                        _orbatHash set [groupId _x, [_roleDescript, _groupArray joinString "" , false, _groupID, side leader _x]];
                     } else {
                         _diaryBuilder pushBack ((_groupArray joinString "")+ "<br/>");
                     };
