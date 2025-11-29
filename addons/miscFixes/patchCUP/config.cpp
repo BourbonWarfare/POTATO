@@ -379,6 +379,8 @@ class CfgWeapons {
         // so this isn't needed anymore
         scope = 1;
         UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
+        scopeArsenal = 2;
+        recoil = QGVAR(recoil_rpk);
     };
     
     // inheritance classes
@@ -407,7 +409,6 @@ class CfgWeapons {
     class CUP_arifle_AKMS_GL;
     class CUP_arifle_AKMS_GL_Early;
     class CUP_arifle_AKMS_GL_top_rail;
-    class CUP_arifle_RPK74;
     class CUP_arifle_RPK74_top_rail;
     class CUP_arifle_TYPE_56_2_Early;
     class CUP_arifle_TYPE_56_2;
@@ -552,11 +553,6 @@ class CfgWeapons {
     
     
     // RPK
-    class potato_arifle_RPK: CUP_arifle_RPK74 { // CUP RPK using custom recoil
-        scope = 1;
-        scopeArsenal = 2;
-        recoil = QGVAR(recoil_rpk);
-    };
     class potato_arifle_RPK_ris: CUP_arifle_RPK74_top_rail { // CUP RPK (RIS) using custom recoil
         scope = 1;
         scopeArsenal = 2;
