@@ -6,7 +6,12 @@ TRACE_1("params",_this);
 if (isServer) then {
     private _missionType = getMissionConfigValue[QEGVAR(missionTesting,missionType), 0];
     private _missionTypeStr = ["Other", "COOP", "TvT"] select _missionType;
-    [_winningSide, "Mission ended", _missionTypeStr] call ocap_fnc_exportData;
+    private _winningSideSide = switch (_winningSide) do {
+        case ("all"): {sideFriendly};
+        case ("none"): {sideEnemy};
+        default {_winningSide};
+    };
+    [_winningSideSide, "Mission ended", _missionTypeStr] call ocap_fnc_exportData;
     private _debugMsg = format ["Saving OCAP recording with winning side %1 and mission type %2", _winningSide, _missionTypeStr];
     ["potato_adminMsg", [_debugMsg, profileName, "#ALL"]] call CBA_fnc_globalEvent;
 };
