@@ -28,7 +28,7 @@ _this spawn {
     private _drawCompact = GVAR(useCompactOrbat);
     private _shouldSort = GVAR(sortOrbat);
     {
-        if (({alive _x} count (units _x)) > 0) then {
+        if (({isPlayer _x} count (units _x)) > 0) then {
             if (((side _x) getFriend _side) >= 0.6) then {
                 private _color = switch (side _x) do {
                     case (west): { "#0088EE" }; // use profile colors here?
