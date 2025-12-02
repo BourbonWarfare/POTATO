@@ -3,7 +3,7 @@
  * Function used to add a briefing to a group/unit on the frame after init
  *
  * Arguments:
- * 0: Object to add briefing to <OBJECT/GROUP>
+ * 0: Object to add briefing to <OBJECT><GROUP>
  * 1: Briefing to add <STRING>
  *
  * Examples:

@@ -4,7 +4,7 @@
  * Note: using values used in CfgVehicles laid out here: https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#side
  *
  * Arguments:
- * 0: The number or string to convert <NUMBER/STRING>
+ * 0: The number or string to convert <NUMBER><STRING>
  *
  * Return Value:
  * The matched side, or sideUnknown if a match wasn't found: <SIDE>

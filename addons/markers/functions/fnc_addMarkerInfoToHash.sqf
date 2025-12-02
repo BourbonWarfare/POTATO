@@ -5,7 +5,7 @@
  * Will broadcast new markers to other machines using remoteExec
  *
  * Arguments:
- * 0: Unit or Group to add to the marker system <OBJECT/GROUP>
+ * 0: Unit or Group to add to the marker system <OBJECT><GROUP>
  *
  * Return Value:
  * True if the info was added to the hash, false otherwise <BOOL>

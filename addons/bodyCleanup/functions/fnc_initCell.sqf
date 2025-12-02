@@ -6,8 +6,7 @@
  *
  * Arguments:
  * 0: The side length of the grid cell <NUMBER>
- * 1: Units to inititally populate cell with <ARRAY>
- * 2: Position of cell in world <ARRAY>
+ * 1: Position of cell in world <ARRAY>
  *
  * Return Value:
  * Cell key <ARRAY>

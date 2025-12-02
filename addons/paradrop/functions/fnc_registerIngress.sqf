@@ -4,11 +4,11 @@
  * Register the ingress point for the paradrop
  *
  * Arguments:
- * 1: Position <ARRAY>
- * 2: (Optional) Fly in height <NUMBER>
- * 3: (Optional) Drop delay <NUMBER>
- * 4: (Optional) Infantry Parachute Classname <STRING>
- * 5: (Optional) Cargo Parachute Classname <STRING>
+ * 0: Position <ARRAY>
+ * 1: (Optional) Fly in height <NUMBER>
+ * 2: (Optional) Drop delay <NUMBER>
+ * 3: (Optional) Infantry Parachute Classname <STRING>
+ * 4: (Optional) Cargo Parachute Classname <STRING>
  *
  * Return Value:
  * Ingress point ID <NUMBER>

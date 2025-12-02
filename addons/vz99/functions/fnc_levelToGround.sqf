@@ -4,7 +4,7 @@
  *
  * Arguments:
  * 0: Mortar Vehicle <OBJECT>
- * 1: Desired Starting Gun Dir (degrees) or false to skip <SCALAR><BOOL><OPTIONAL>
+ * 1: Desired Starting Gun Dir (degrees) or false to skip <SCALAR><BOOL>(Default: false)
  *
  * Return Value:
  * Nothing

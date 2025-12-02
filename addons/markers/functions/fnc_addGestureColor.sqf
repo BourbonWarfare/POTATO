@@ -5,7 +5,7 @@
  * Note, needed as a JIP safe function as the groups ids can be empty (throws reserved variable error in addGroupColorMapping)
  *
  * Arguments:
- * 0: Object/Group to add attributes to <GROUP>
+ * 0: Object/Group to add attributes to <OBJECT><GROUP>
  * 1: Color array <ARRAY>
  *
  * Example:

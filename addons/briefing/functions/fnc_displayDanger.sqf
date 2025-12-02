@@ -3,14 +3,16 @@
  * Function used to convert \r to <br/> inside a string
  *
  * Arguments:
- * 0: String to sanitize <STRING>
+ * 0: Value <NUMBER>
+ * 1: Min <NUMBER>
+ * 2: Range <NUMBER>
+ * 3: Inverse colors <BOOL>(Default: false)
  *
  * Return Value:
  * String with \r instances replaced with <br/> <STRING>
  *
  * Examples:
- * ["test \r break"] call potato_briefing_fnc_convertNewLineToHTML; // "test <br/> break"
- * ["why \r not?"] call potato_briefing_fnc_convertNewLineToHTML; // "why <br/> not?"
+ * [0, 1, 2, false] call potato_briefing_fnc_displayDanger
  *
  * Public: Yes
  */

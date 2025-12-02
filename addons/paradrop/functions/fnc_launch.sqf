@@ -11,8 +11,8 @@
  * Launch a paradrop mission with the specified paradrop information
  *
  * Arguments:
- * 1: Ingress ID <NUMBER>
- * 2: Vehicles to launch mission with <ARRAY>
+ * 0: Ingress ID <NUMBER>
+ * 1: Vehicles to launch mission with <ARRAY>
  *
  * Return Value:
  * Nothing

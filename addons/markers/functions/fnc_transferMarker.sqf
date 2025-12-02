@@ -21,7 +21,7 @@
 params [
     ["_hashKey", "", [""]],
     ["_newObject", objNull, [objNull]],
-    ["_newSide", sideNull, [sideNull]]
+    ["_newSide", sideUnknown, [sideUnknown]]
 ];
 
 private _markerArray = GVAR(markerHash) getOrDefault [_hashKey, []];
@@ -36,7 +36,7 @@ private _newPosATL = getPosATL _newObject;
 if (_newPosATL isNotEqualTo [0, 0, 0]) then {
     _markerArray set [5, _newPosATL];
 };
-if !(isNull _newSide) then {
+if (_newSide isNotEqualTo sideUnknown) then {
     _markerArray set [6, _newSide];
 };
 
