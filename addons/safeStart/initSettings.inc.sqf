@@ -12,7 +12,7 @@
     "LIST",
     ["Show SafeStart Timer", "Whether to show the safe start timer and additional safe start equipment information."],
     ["POTATO - User", "Safe Start"],
-    [[0, 1, 2], ["Timer and Info Off", "Display Timer", "(DEV) Display Timer and Info"], 1],
+    [[0, 1, 2], ["Timer and Info Off", "Display Timer", "Display Timer and Info"], 2],
     0, {
     if (missionNamespace getVariable [QGVAR(startTime_PV), -1] != -1) then {
         if (_this > 0) then {
