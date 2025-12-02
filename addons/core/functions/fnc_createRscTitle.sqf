@@ -9,7 +9,7 @@
  *
  * Arguments:
  * 0: Classname of RscTitle <STRING>
- * 1: Display the title over the map? <BOOL>
+ * 1: Display the title over the map? <BOOL> (default: false)
  *
  * Examples:
  * ["someRSCTitleClass", true] call potato_core_fnc_createRscTitle;

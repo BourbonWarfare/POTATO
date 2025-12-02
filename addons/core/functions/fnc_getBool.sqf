@@ -4,7 +4,7 @@
  *
  * Arguments:
  * 0: The config path to convert <CONFIG>
- * 1: The fallback value, default false <BOOL>
+ * 1: The fallback value <BOOL> (default: false)
  *
  * Return Value:
  * The parsed boolean from the config path. If the path isn't a number/string will

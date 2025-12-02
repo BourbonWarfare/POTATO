@@ -5,8 +5,8 @@
  * Arguments:
  * 0: The proposed minimum number <NUMBER>
  * 1: The proposed maximum number <NUMBER>
- * 3: The lower bound used to validate <NUMBER>
- * 4: The upper bound used to validate <NUMBER>
+ * 2: The lower bound used to validate <NUMBER>
+ * 3: The upper bound used to validate <NUMBER>
  *
  * Return Value:
  * Returns an array with: <ARRAY>

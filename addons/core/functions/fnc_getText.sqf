@@ -4,7 +4,7 @@
  *
  * Arguments:
  * 0: The config path to convert <CONFIG>
- * 1: The fallback value, default "" <STRING>
+ * 1: The fallback value <STRING> (default: "")
  *
  * Return Value:
  * The parsed string from the config path. If the path isn't a string will

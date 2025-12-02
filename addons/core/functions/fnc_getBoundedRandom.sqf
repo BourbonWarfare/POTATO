@@ -5,7 +5,7 @@
  * Arguments:
  * 0: The ensured minimum number (inclusive) <NUMBER>
  * 1: The ensured maximum number (exclusive) <NUMBER>
- * 2: True if the random number should be rounded <BOOL>
+ * 2: True if the random number should be rounded <BOOL> (default: false)
  *
  * Return Value:
  * Random number between the min (inclusive) and the max (exclusive): <NUMBER>

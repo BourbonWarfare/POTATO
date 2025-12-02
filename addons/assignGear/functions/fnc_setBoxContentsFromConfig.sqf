@@ -6,7 +6,7 @@
  * Arguments:
  * 0: Box <OBJECT>
  * 1: Config path for the box's loadout <CONFIG>
- * 2: Optional format string for box name, must contain "%1" <STRING>
+ * 2: Optional format string for box name, must contain "%1" <STRING> (default: "%1")
  *
  * Return Value:
  * None

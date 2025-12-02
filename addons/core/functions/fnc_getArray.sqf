@@ -4,7 +4,7 @@
  *
  * Arguments:
  * 0: The config path to convert <CONFIG>
- * 1: The fallback value, default [] <ARRAY>
+ * 1: The fallback value <ARRAY> (default: [])
  *
  * Return Value:
  * The parsed array from the config path. If the path isn't an array will

@@ -6,9 +6,9 @@
  *
  * Arguments:
  * 0: Old unit <OBJECT>
- * 1: New unit <OBJECT>
- * 2: Respawn type https://community.bistudio.com/wiki/Arma_3_Respawn#Respawn_Types <NUMBER>
- * 3: Respawn delay <NUMBER>
+ * 1: New unit <OBJECT> (default: objNull)
+ * 2: Respawn type https://community.bistudio.com/wiki/Arma_3_Respawn#Respawn_Types <NUMBER> (default: 1)
+ * 3: Respawn delay <NUMBER> (default: 0)
  *
  * Examples:
  * [] call potato_spectate_fnc_setup;
