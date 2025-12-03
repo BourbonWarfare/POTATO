@@ -178,6 +178,22 @@ class Cfg3DEN {
                             defaultValue = "''";
                             typeName = "STRING";
                         };
+                        class GVAR(briefWestEnemyInfo) {
+                            displayName = "West Enemy Info";
+                            tooltip = "Insert information on enemy composition and PID here";
+                            property = QGVAR(briefWestEnemyInfo);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
+                        class GVAR(briefWestIntent) {
+                            displayName = "West Intent";
+                            tooltip = "Insert information on expected mission flow, meta-information, transport available, etc., here";
+                            property = QGVAR(briefWestIntent);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
                     };
                 };
                 class EastBriefing {
@@ -204,6 +220,22 @@ class Cfg3DEN {
                             displayName = "East Administration";
                             tooltip = "Insert information on administration and logistics here";
                             property = QGVAR(briefEastAdministration);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
+                        class GVAR(briefEastEnemyInfo) {
+                            displayName = "East Enemy Info";
+                            tooltip = "Insert information on enemy composition and PID here";
+                            property = QGVAR(briefEastEnemyInfo);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
+                        class GVAR(briefEastIntent) {
+                            displayName = "East Intent";
+                            tooltip = "Insert information on expected mission flow, meta-information, transport available, etc., here";
+                            property = QGVAR(briefEastIntent);
                             control = QGVAR(bigEdit);
                             defaultValue = "''";
                             typeName = "STRING";
@@ -238,6 +270,22 @@ class Cfg3DEN {
                             defaultValue = "''";
                             typeName = "STRING";
                         };
+                        class GVAR(briefIndependentEnemyInfo) {
+                            displayName = "Independent Enemy Info";
+                            tooltip = "Insert information on enemy composition and PID here";
+                            property = QGVAR(briefIndependentEnemyInfo);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
+                        class GVAR(briefIndependentIntent) {
+                            displayName = "Independent Intent";
+                            tooltip = "Insert information on expected mission flow, meta-information, transport available, etc., here";
+                            property = QGVAR(briefIndependentIntent);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
                     };
                 };
                 class CivilianBriefing {
@@ -264,6 +312,22 @@ class Cfg3DEN {
                             displayName = "Civilian Administration";
                             tooltip = "Insert information on administration and logistics here";
                             property = QGVAR(briefCivilianAdministration);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
+                        class GVAR(briefCivilianEnemyInfo) {
+                            displayName = "Civilian Enemy Info";
+                            tooltip = "Insert information on enemy composition and PID here";
+                            property = QGVAR(briefCivilianEnemyInfo);
+                            control = QGVAR(bigEdit);
+                            defaultValue = "''";
+                            typeName = "STRING";
+                        };
+                        class GVAR(briefCivilianIntent) {
+                            displayName = "Civilian Intent";
+                            tooltip = "Insert information on expected mission flow, meta-information, transport available, etc., here";
+                            property = QGVAR(briefCivilianIntent);
                             control = QGVAR(bigEdit);
                             defaultValue = "''";
                             typeName = "STRING";
