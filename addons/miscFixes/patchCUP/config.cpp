@@ -618,25 +618,11 @@ class CfgWeapons {
     };
     class CUP_arifle_RPK74_45: CUP_arifle_RPK74 {
         class FullAuto: Mode_FullAuto {
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_ak_m_shot_soundset","jsrs_7x62mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
-            };
             reloadTime = 0.092; // was 0.1
         };
     };
     class CUP_arifle_RPK74M: CUP_arifle_RPK74 {
         class FullAuto: Mode_FullAuto {
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_ak_m_shot_soundset","jsrs_7x62mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
-            };
             reloadTime = 0.092; // was 0.1
         };
     };
