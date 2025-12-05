@@ -317,6 +317,31 @@ class CfgRecoils {
         permanent = 0.13;
         temporary = 0.005;
     };
+    
+    class GVAR(recoil_akm): recoil_default {// custom recoil (emulating GM's AKM recoil)
+        muzzleOuter[] = {0.4,1.5,0.3,0.5};
+		kickBack[] = {0.032,0.058};
+        permanent = 0.06;
+		temporary = 0.0065;
+    };
+    class GVAR(recoil_akm_hg): recoil_default {// custom recoil (emulating GM's AKM recoil)
+        muzzleOuter[] = {0.4,1.3,0.3,0.42};
+		kickBack[] = {0.032,0.050};
+        permanent = 0.053;
+		temporary = 0.006;
+    };
+    class GVAR(recoil_akm_gold): recoil_default {// meme recoil cannon
+        muzzleOuter[] = {1.2,2.3,0.75,0.9};
+		kickBack[] = {0.05,0.09};
+        permanent = 0.09;
+		temporary = 0.02;
+    };
+    class GVAR(recoil_rpk): recoil_default {// custom recoil (emulating GM's AKM recoil)
+        muzzleOuter[] = {0.36,1.26,0.3,0.38};
+		kickBack[] = {0.032,0.046};
+        permanent = 0.05;
+		temporary = 0.006;
+    };
 };
 
 class CfgMagazines {
@@ -345,6 +370,8 @@ class CfgWeapons {
         cursorAim = "mg";
     };
 
+    class CUP_arifle_AK_Base;
+    class CUP_arifle_AKS_Base;
     class CUP_arifle_RPK74;
     class potato_arifle_RPK: CUP_arifle_RPK74 {
         // CUP_arifle_RPK74 is actually a chambered in 7.62 and just called RPK in-game
@@ -352,6 +379,252 @@ class CfgWeapons {
         // so this isn't needed anymore
         scope = 1;
         UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
+        scopeArsenal = 2;
+        recoil = QGVAR(recoil_rpk);
+    };
+    
+    // inheritance classes
+    class CUP_arifle_AKM;
+    class CUP_arifle_AKM_Early;
+    class CUP_arifle_AKM_top_rail;
+    class CUP_arifle_AKM_GL;
+    class CUP_arifle_AKM_GL_Early;
+    class CUP_arifle_AKM_GL_top_rail;
+    class CUP_arifle_AKMN_railed;
+    class CUP_arifle_AKMN_railed_afg;
+    class CUP_arifle_AKMN_railed_afg_desert;
+    class CUP_arifle_AKMN_railed_desert;
+    class CUP_arifle_AK47;
+    class CUP_arifle_AK47_Early;
+    class CUP_arifle_AK47_top_rail;
+    class CUP_arifle_AK47_GL;
+    class CUP_arifle_AK47_GL_Early;
+    class CUP_arifle_AK47_GL_top_rail;
+    class CUP_arifle_AKS;
+    class CUP_arifle_AKS_top_rail;
+    class CUP_arifle_AKS_Gold;
+    class CUP_arifle_AKMS;
+    class CUP_arifle_AKMS_Early;
+    class CUP_arifle_AKMS_top_rail;
+    class CUP_arifle_AKMS_GL;
+    class CUP_arifle_AKMS_GL_Early;
+    class CUP_arifle_AKMS_GL_top_rail;
+    class CUP_arifle_RPK74_top_rail;
+    class CUP_arifle_TYPE_56_2_Early;
+    class CUP_arifle_TYPE_56_2;
+    class CUP_arifle_TYPE_56_2_top_rail;
+    
+    // AKM
+    class potato_arifle_AKM: CUP_arifle_AKM_Early { // CUP AKM using custom recoil
+        scope = 1; 
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    class potato_arifle_AKMN: CUP_arifle_AKM { // CUP AKMN using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    class potato_arifle_AKMN_ris: CUP_arifle_AKM_top_rail { // CUP AKMN (RIS) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    // AKM w/ GP25
+    class potato_arifle_AKM_GL: CUP_arifle_AKM_GL_Early { // CUP AKM using custom recoil
+        scope = 1; 
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    class potato_arifle_AKMN_GL: CUP_arifle_AKM_GL { // CUP AKMN using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    class potato_arifle_AKMN_GL_ris: CUP_arifle_AKM_GL_top_rail { // CUP AKMN (RIS) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    
+    
+    // AKM Zenitco
+    class potato_arifle_AKMN_zenit: CUP_arifle_AKMN_railed { // CUP AKMN (Zenitco) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    class potato_arifle_AKMN_zenit_afg: CUP_arifle_AKMN_railed_afg { // CUP AKMN (Zenitco) w/ AFG using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    class potato_arifle_AKMN_zenit_desert: CUP_arifle_AKMN_railed_desert { // CUP AKMN (Zenitco) in desert camo using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    class potato_arifle_AKMN_zenit_afg_desert: CUP_arifle_AKMN_railed_afg_desert { // CUP AKMN (Zenitco) w/ AFG in desert camo using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    
+    
+    // AK47
+    class potato_arifle_AK47: CUP_arifle_AK47_Early {// CUP AK47 (AK) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    class potato_arifle_AK47N: CUP_arifle_AK47 { // CUP AK47N (AKN) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    class potato_arifle_AK47N_ris: CUP_arifle_AK47_top_rail { // CUP AK47N (AKN) (RIS) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    //AK47 w/ GP25
+    class potato_arifle_AK47_GL: CUP_arifle_AK47_GL_Early {// CUP AK47 (AK) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    class potato_arifle_AK47N_GL: CUP_arifle_AK47_GL { // CUP AK47N (AKN) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    class potato_arifle_AK47N_GL_ris: CUP_arifle_AK47_GL_top_rail { // CUP AK47N (AKN) (RIS) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    
+    
+    // AKMS
+    class potato_arifle_AKMS: CUP_arifle_AKMS_Early { // CUP AKMS using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    class potato_arifle_AKMSN: CUP_arifle_AKMS { // CUP AKMSN using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    class potato_arifle_AKMSN_ris: CUP_arifle_AKMS_top_rail { // CUP AKMSN (RIS) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    // AKMS w/ GP25
+    class potato_arifle_AKMS_GL: CUP_arifle_AKMS_GL_Early { // CUP AKMS using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    class potato_arifle_AKMSN_GL: CUP_arifle_AKMS_GL { // CUP AKMSN using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    class potato_arifle_AKMSN_GL_ris: CUP_arifle_AKMS_GL_top_rail { // CUP AKMSN (RIS) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_hg);
+    };
+    
+    
+    // AKS
+    class potato_arifle_AKS: CUP_arifle_AKS { // CUP AKS using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    class potato_arifle_AKS_ris: CUP_arifle_AKS_top_rail { // CUP AKS (RIS) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    
+    
+    // RPK
+    class potato_arifle_RPK_ris: CUP_arifle_RPK74_top_rail { // CUP RPK (RIS) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_rpk);
+    };
+    
+    
+    // Type 56-2
+    class potato_arifle_TYPE_56_2: CUP_arifle_TYPE_56_2_Early {// CUP Type 56-2 using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    class potato_arifle_TYPE_56_2_dovetail: CUP_arifle_TYPE_56_2 { // CUP Type 56-2 (Dovetail) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    class potato_arifle_TYPE_56_2_ris: CUP_arifle_TYPE_56_2_top_rail { // CUP Type 56-2 (RIS) using custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm);
+    };
+    
+    
+    // Gold AKS
+    class potato_arifle_AKS_gold: CUP_arifle_AKS_Gold { // CUP AKS (Gold) using extra custom recoil
+        scope = 1;
+        scopeArsenal = 1;
+        recoil = QGVAR(recoil_akm_gold);
+    };
+    
+    // Ups the ROF from 600 to 652, matching IRL specs
+    class CUP_arifle_AK74: CUP_arifle_AK_Base {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_AK74_GL: CUP_arifle_AK_Base {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_AKS74: CUP_arifle_AKS_Base {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_AKS74_GL: CUP_arifle_AK74_GL {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_AK74M: CUP_arifle_AK_Base {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_AK74M_GL: CUP_arifle_AK_Base {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_RPK74_45: CUP_arifle_RPK74 {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
+    };
+    class CUP_arifle_RPK74M: CUP_arifle_RPK74 {
+        class FullAuto: Mode_FullAuto {
+            reloadTime = 0.092; // was 0.1
+        };
     };
 
     // Add "plot armor" to some vests /* From V_PlateCarrier2_rgr */
