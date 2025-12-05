@@ -54,7 +54,7 @@ private _cfgWeapons = configFile >> "CfgWeapons";
         {
             (_x splitString ":") params ["_item"];
             _gearArray pushBack _item;
-        } forEach getArray _x;
+        } forEach flatten getArray _x;
     } forEach configProperties [_x];
     _gearArray = _gearArray arrayIntersect _gearArray;
     {
@@ -209,11 +209,21 @@ _subString = switch (true) do {
 _textArr pushBack format ["<t color=""%1"">Laser Rangefinder: " + _subString +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_subString == "SL+")];
 
 // Shovels
-if ("ACE_EntrenchingTool" in (_unitHash getOrDefault ["rifleman", []])) then {
-    _textArr pushBack QUOTE(<t color=QUOTE(STANDARD_COLOR)>Entrenching Tool: Yes</t>);
-} else {
-    _textArr pushBack QUOTE(<t color=QUOTE(ATTENTION_COLOR)>Entrenching Tool: None</t>);
+_itemBoolArray = [
+    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["plt", []]),
+    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["sl", []]),
+    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["ftl", []]),
+    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["aar", []]),
+    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["mmgag", []]),
+    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["rifleman", []])
+];
+_subString = switch (true) do {
+    case (_itemBoolArray#5 && _itemBoolArray#3 && _itemBoolArray#2): {"Yes"};
+    case (_itemBoolArray#0 && _itemBoolArray#1 && _itemBoolArray#2): {"FTL+"};
+    case (_itemBoolArray#3 && _itemBoolArray#4): {"Assistants"};
+    default {"None"};
 };
+_textArr pushBack format ["<t color=""%1"">Entrenching Tool: " + _subString +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_subString == "Yes")];
 
 // Explosives
 _itemBoolArray = [
