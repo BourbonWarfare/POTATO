@@ -17,6 +17,7 @@ PREP(isTech);
 PREP(parseBool);
 PREP(playerJipHint);
 PREP(setControlFade);
+PREP(statRecoil);
 PREP(stringArrayToSideArray);
 PREP(zeroPadNumber);
 PREP(toSide);
