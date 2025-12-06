@@ -13,10 +13,11 @@ _statData params ["", "_cfg"];
 private _recoil = getText (_cfg >> "recoil");
 
 if (_type == 0) then {
-    private _kickback = getArray (configFile >> "CfgRecoils" >> _recoil >> "kickBack");
-    private _h = _kickback param [1, 0];
-    if (_h isEqualType "") then { _h = parseNumber _h; };
-    linearConversion [0, 1, _h, 0, 1, true]
+    private _recoil = getArray (configFile >> "CfgRecoils" >> _recoil >> "muzzleOuter");
+    _recoil params [["_x", 0], ["_y", 0]];
+    if (_x isEqualType "") then { _x = parseNumber _x; };
+    if (_y isEqualType "") then { _y = parseNumber _y; };
+    linearConversion [0, 2, vectorMagnitude [_x, _y], 0, 1, true]
 } else {
     _recoil
 };
