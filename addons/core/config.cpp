@@ -21,6 +21,7 @@ class CfgPatches {
 #include "CfgWeapons.hpp"
 
 #include "RscDisplayMain.hpp"
+#include "ace_arsenal_stats.hpp"
 
 #include "BW_CfgDiscordRichPresence.hpp"
 
