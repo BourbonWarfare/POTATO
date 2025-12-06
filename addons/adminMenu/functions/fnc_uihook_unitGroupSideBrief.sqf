@@ -48,6 +48,8 @@ if (count _briefs > 1) then {
     private _sideBriefMission = getMissionConfigValue [format [QEGVAR(briefing,brief%1Mission), _x], ""];
     private _sideBriefSituation = getMissionConfigValue [format [QEGVAR(briefing,brief%1Situation), _x], ""];
     private _sideBriefAdministration = getMissionConfigValue [format [QEGVAR(briefing,brief%1Administration), _x], ""];
+    private _sideBriefEnemyInfo = getMissionConfigValue [format [QEGVAR(briefing,brief%1EnemyInfo), _x], ""];
+    private _sideBriefIntent = getMissionConfigValue [format [QEGVAR(briefing,brief%1Intent), _x], ""];
     if (_sideBriefSituation != "") then {
         _sideText pushBack "<font size=20 face=""PuristaBold"">Situation</font>";
         _sideText pushBack (_sideBriefSituation + "<br/>");
@@ -59,6 +61,14 @@ if (count _briefs > 1) then {
     if (_sideBriefAdministration != "") then {
         _sideText pushBack "<font size=20 face=""PuristaBold"">Admin</font>";
         _sideText pushBack (_sideBriefAdministration + "<br/>");
+    };
+    if (_sideBriefEnemyInfo != "") then {
+        _sideText pushBack "<font size=20 face=""PuristaBold"">Enemy Info</font>";
+        _sideText pushBack (_sideBriefEnemyInfo + "<br/>");
+    };
+    if (_sideBriefIntent != "") then {
+        _sideText pushBack "<font size=20 face=""PuristaBold"">Intent</font>";
+        _sideText pushBack (_sideBriefIntent + "<br/>");
     };
     if (count _sideText > 1) then {
         player createDiaryRecord [
