@@ -33,6 +33,8 @@ if (missionNamespace getVariable [QGVAR(brief_addOrbat), false]) then { [_newPla
 private _sideBriefMission = "";
 private _sideBriefSituation = "";
 private _sideBriefAdministration = "";
+private _sideBriefEnemyInfo = "";
+private _sideBriefIntent = "";
 private _playerBrief = _newPlayer getVariable [QGVAR(briefing), ""];
 private _groupBrief = (group _newPlayer) getVariable [QGVAR(briefing), ""];
 
@@ -41,29 +43,43 @@ switch (_side) do {
         _sideBriefMission = getMissionConfigValue [QGVAR(briefWestMission), ""];
         _sideBriefSituation = getMissionConfigValue [QGVAR(briefWestSituation), ""];
         _sideBriefAdministration = getMissionConfigValue [QGVAR(briefWestAdministration), ""];
+        _sideBriefEnemyInfo = getMissionConfigValue [QGVAR(briefWestEnemyInfo), ""];
+        _sideBriefIntent = getMissionConfigValue [QGVAR(briefWestIntent), ""];
     };
     case (east): {
         _sideBriefMission = getMissionConfigValue [QGVAR(briefEastMission), ""];
         _sideBriefSituation = getMissionConfigValue [QGVAR(briefEastSituation), ""];
         _sideBriefAdministration = getMissionConfigValue [QGVAR(briefEastAdministration), ""];
+        _sideBriefEnemyInfo = getMissionConfigValue [QGVAR(briefEastEnemyInfo), ""];
+        _sideBriefIntent = getMissionConfigValue [QGVAR(briefEastIntent), ""];
     };
     case (independent): {
         _sideBriefMission = getMissionConfigValue [QGVAR(briefIndependentMission), ""];
         _sideBriefSituation = getMissionConfigValue [QGVAR(briefIndependentSituation), ""];
         _sideBriefAdministration = getMissionConfigValue [QGVAR(briefIndependentAdministration), ""];
+        _sideBriefEnemyInfo = getMissionConfigValue [QGVAR(briefIndependentEnemyInfo), ""];
+        _sideBriefIntent = getMissionConfigValue [QGVAR(briefIndependentIntent), ""];
     };
     case (civilian): {
         _sideBriefMission = getMissionConfigValue [QGVAR(briefCivilianMission), ""];
         _sideBriefSituation = getMissionConfigValue [QGVAR(briefCivilianSituation), ""];
         _sideBriefAdministration = getMissionConfigValue [QGVAR(briefCivilianAdministration), ""];
+        _sideBriefEnemyInfo = getMissionConfigValue [QGVAR(briefCivilianEnemyInfo), ""];
+        _sideBriefIntent = getMissionConfigValue [QGVAR(briefCivilianIntent), ""];
     };
     default {
         diag_log text format ["[POTATO-briefing] Unknown Side? %1", _side];
     };
 };
 
-TRACE_5("",count _sideBriefAdministration,count _sideBriefMission,count _sideBriefSituation,count _groupBrief,count _playerBrief);
+TRACE_7("",count _sideBriefIntent,count _sideBriefEnemyInfo,count _sideBriefAdministration,count _sideBriefMission,count _sideBriefSituation,count _groupBrief,count _playerBrief);
 
+if (_sideBriefIntent != "") then {
+    _newPlayer createDiaryRecord ["diary", ["Intent", _sideBriefIntent]];
+};
+if (_sideBriefEnemyInfo != "") then {
+    _newPlayer createDiaryRecord ["diary", ["Enemy Info", _sideBriefEnemyInfo]];
+};
 if (_sideBriefAdministration != "") then {
     _newPlayer createDiaryRecord ["diary", ["Administration", _sideBriefAdministration]];
 };

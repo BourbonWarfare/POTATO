@@ -59,15 +59,11 @@ _menuCancel ctrlSetText "Close";
 _menuCancel ctrlSetPosition [0.73,1,0.12,0.1];
 _menuCancel buttonSetAction "closeDialog 2;";
 _menuCancel ctrlCommit 0;
-private _ctrlCreateZeuzIntentTitle = DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),IDC_BREIFING + 0,BRIEFINGS_GROUP_L];
-private _ctrlCreateZeuzIntentText = DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),IDC_BREIFING + 1,BRIEFINGS_GROUP_L];
-private _ctrlCreateSituationTitle = DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),IDC_BREIFING + 2,BRIEFINGS_GROUP_L];
-private _ctrlCreateSituationText = DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),IDC_BREIFING + 3,BRIEFINGS_GROUP_L];
-private _ctrlCreateMissionTitle = DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),IDC_BREIFING + 4,BRIEFINGS_GROUP_L];
-private _ctrlCreateMissionText= DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),IDC_BREIFING + 5,BRIEFINGS_GROUP_L];
-private _ctrlCreateAdministrationTitle = DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),IDC_BREIFING + 6,BRIEFINGS_GROUP_L];
-private _ctrlCreateAdministrationText = DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),IDC_BREIFING + 7,BRIEFINGS_GROUP_L];
-private _ctrlCreateWeaponsReportTitle = DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),IDC_BREIFING + 8,BRIEFINGS_GROUP_R];
-private _ctrlCreateWeaponsReport = DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),IDC_BREIFING + 9,BRIEFINGS_GROUP_R];
+for "_i" from 0 to 11 step 2 do {
+    DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),IDC_BREIFING + _i, BRIEFINGS_GROUP_L];
+    DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),IDC_BREIFING + _i + 1, BRIEFINGS_GROUP_L];
+};
+DISPLAY_BRIEF ctrlCreate [QUOTE(RscText),IDC_BREIFING + 12,BRIEFINGS_GROUP_R];
+DISPLAY_BRIEF ctrlCreate [QUOTE(RscStructuredText),IDC_BREIFING + 13,BRIEFINGS_GROUP_R];
 
 [0] call FUNC(briefingsChangeSide);

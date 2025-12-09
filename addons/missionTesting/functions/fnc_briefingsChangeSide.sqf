@@ -3,9 +3,10 @@
  * Function is called by bottons and on load of the breifings page to update the informaiton.
  *
  * Arguments:
+ * 0: Side <NUMBER>
  *
  * Examples:
- * [east] call potato_missionTesting_fnc_briefingsSideChanged;
+ * [0] call potato_missionTesting_fnc_briefingsChangeSide;
  *
  * Public: No
  */
@@ -20,6 +21,8 @@ GVAR(yStartCoord) = 0;
 private _situation = nil;
 private _mission = nil;
 private _admin = nil;
+private _sideBriefEnemyInfo = "";
+private _sideBriefIntent = "";
 private _weaponsReport = nil;
 private _zuesIntent = getMissionConfigValue [QEGVAR(briefing,zeusintent), ""];
 private _reportArray = [];
@@ -35,41 +38,49 @@ switch (_side) do {
         _situation = getMissionConfigValue [QEGVAR(briefing,briefWestSituation), ""];
         _mission = getMissionConfigValue [QEGVAR(briefing,briefWestMission), ""];
         _admin = getMissionConfigValue [QEGVAR(briefing,briefWestAdministration), ""];
+        _sideBriefEnemyInfo = getMissionConfigValue [QEGVAR(briefing,briefWestEnemyInfo), ""];
+        _sideBriefIntent = getMissionConfigValue [QEGVAR(briefing,briefWestIntent), ""];
         _weaponsReport = GVAR(westClasses) joinString "<br/>";
     };
     case 1: {
         _situation = getMissionConfigValue [QEGVAR(briefing,briefEastSituation), ""];
         _mission = getMissionConfigValue [QEGVAR(briefing,briefEastMission), ""];
         _admin = getMissionConfigValue [QEGVAR(briefing,briefEastAdministration), ""];
+        _sideBriefEnemyInfo = getMissionConfigValue [QEGVAR(briefing,briefEastEnemyInfo), ""];
+        _sideBriefIntent = getMissionConfigValue [QEGVAR(briefing,briefEastIntent), ""];
         _weaponsReport = GVAR(eastClasses) joinString "<br/>";
     };
     case 2: {
         _situation = getMissionConfigValue [QEGVAR(briefing,briefIndependentSituation), ""];
         _mission = getMissionConfigValue [QEGVAR(briefing,briefIndependentMission), ""];
         _admin = getMissionConfigValue [QEGVAR(briefing,briefIndependentAdministration), ""];
+        _sideBriefEnemyInfo = getMissionConfigValue [QEGVAR(briefing,briefIndependentEnemyInfo), ""];
+        _sideBriefIntent = getMissionConfigValue [QEGVAR(briefing,briefIndependentIntent), ""];
         _weaponsReport = GVAR(indyClasses) joinString "<br/>";
     };
     case 3: {
         _situation = getMissionConfigValue [QEGVAR(briefing,briefCivilianSituation), ""];
         _mission = getMissionConfigValue [QEGVAR(briefing,briefCivilianMission), ""];
         _admin = getMissionConfigValue [QEGVAR(briefing,briefCivilianAdministration), ""];
+        _sideBriefEnemyInfo = getMissionConfigValue [QEGVAR(briefing,briefCivilianEnemyInfo), ""];
+        _sideBriefIntent = getMissionConfigValue [QEGVAR(briefing,briefCivilianIntent), ""];
         _weaponsReport = GVAR(civiClasses) joinString "<br/>";
     };
 };
 
-private _controls = [
-    (DISPLAY_BRIEF displayCtrl IDC_BREIFING + 0)
-    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 1)
-    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 2)
-    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 3)
-    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 4)
-    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 5)
-    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 6)
-    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 7)
-    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 8)
-    ,(DISPLAY_BRIEF displayCtrl IDC_BREIFING + 9)
+private _controls = [];
+for "_i" from 0 to 13 do {
+    _controls pushBack (DISPLAY_BRIEF displayCtrl (IDC_BREIFING + _i));
+};
+private _textArray = [
+    "Zues Intent",_zuesIntent,
+    "Situation",_situation,
+    "Mission",_mission,
+    "Administration",_admin,
+    "Enemy Info",_sideBriefEnemyInfo,
+    "Side Intent",_sideBriefIntent,
+    "WEAPONS REPORT",_weaponsReport
 ];
-private _textArray = ["Zues Intent",_zuesIntent,"Situation",_situation,"Mission",_mission,"Administration",_admin,"WEAPONS REPORT",_weaponsReport];
 
 {
     private _ctrlClass = ctrlClassName _x;
@@ -95,5 +106,5 @@ private _textArray = ["Zues Intent",_zuesIntent,"Situation",_situation,"Mission"
     _x ctrlCommit 0;
     GVAR(yStartCoord) = GVAR(yStartCoord) + _ctrlHeight;
     INCREMENT_YCOORD;
-    if (_forEachIndex == 7) then {GVAR(yStartCoord) = 0;};
+    if (_forEachIndex == 11) then {GVAR(yStartCoord) = 0;};
 }forEach _controls;
