@@ -1,0 +1,7 @@
+class CfgAmmo {
+    CREATE_AMMOS_SUBMUNTION(R_230mm_HE,R_230mm_fly);
+    CREATE_AMMOS(Sh_155mm_AMOS);
+    CREATE_AMMOS_SUBMUNTION(Sh_155mm_AMOS_guided,M_Mo_155mm_AT);
+    CREATE_AMMOS(Sh_82mm_AMOS);
+    CREATE_AMMOS_SUBMUNTION(Sh_82mm_AMOS_guided,M_Mo_82mm_AT);
+};
