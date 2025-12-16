@@ -5,7 +5,7 @@
  * cache object
  *
  * Arguments:
- * 0: Whether to sync marker positions with server, default false <BOOL>
+ * 0: Whether to sync marker positions with server, (default false) <BOOL>
  *
  * Examples:
  * [] call potato_markers_fnc_reinitMarkerHash;

@@ -4,8 +4,8 @@
  * Register a DZ for the paradrop system
  *
  * Arguments:
- * 1: Ingress ID <Number>
- * 2: Position <ARRAY>
+ * 0: Ingress ID <Number>
+ * 1: Position <ARRAY>
  *
  * Return Value:
  * Nothing

@@ -4,7 +4,7 @@
  * Sould only be called on the server
  *
  * Arguments:
- * 0: Start mission length warnings <BOOL>
+ * None
  *
  * Examples:
  * [] call potato_safeStart_fnc_missionTimeWarning;

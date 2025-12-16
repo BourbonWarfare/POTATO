@@ -3,7 +3,7 @@
  * Function used to send a hint to all curators
  *
  * Arguments:
- * 0: message to send to zeuses <STRING>
+ * 0: message to send to zanes <STRING><STRUCTUREDTEXT>
  * 1: Client to send message to (optional, default all curators) <ARRAY,OBJECT,NUMBER>
  *
  * Return Value:
