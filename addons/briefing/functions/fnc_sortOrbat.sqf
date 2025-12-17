@@ -79,6 +79,7 @@ private _sides = [];
     _orbatAbrev set ["wsl", [_leadKey, _subKeys]];
     {
         private _groupID =  (_y#3);
+        private _key = _x;
         _y params ["", "", "_used"];
         if (_used) then {continue};
         private _argArray = _y;
@@ -86,7 +87,7 @@ private _sides = [];
         {
             if (_x in _lowerGroupID) exitWith {
                 TRACE_3("Found weapons team",_x,_lowerGroupID,_groupID);
-                _subKeys pushBack _groupID;
+                _subKeys pushBack _key;
                 _argArray set [2, true];
             };
         } forEach ["mtr", "hmg", "mmg", "mat", "hat", "sniper", "st", "sam", "demo", "arty"];
@@ -97,6 +98,7 @@ private _sides = [];
     _orbatAbrev set ["ARMOR_NOLEAD", ["", _subKeys]];
     {
         private _groupID = (_y#3);
+        private _key = _x;
         _y params ["", "", "_used"];
         if (_used) then {continue};
         private _argArray = _y;
@@ -104,7 +106,7 @@ private _sides = [];
         {
             if (_x in _lowerGroupID) exitWith {
                 TRACE_3("Found ground vehicle",_x,_lowerGroupID,_groupID);
-                _subKeys pushBack _groupID;
+                _subKeys pushBack _key;
                 _argArray set [2, true];
             };
         } forEach ["ifv", "tank", "support", "sv", "tnk", "apc", "truck", "technical", "gun"];
@@ -115,6 +117,7 @@ private _sides = [];
     _orbatAbrev set ["AIR_NOLEAD", ["", _subKeys]];
     {
         private _groupID = (_y#3);
+        private _key = _x;
         _y params ["_roleDescript", "", "_used"];
         if (_used) then {continue};
         private _argArray = _y;
@@ -123,7 +126,7 @@ private _sides = [];
         {
             if (_x in _lowerGroupDesc || _x in _lowGroupID) exitWith {
                 TRACE_5("Found air group",_x,_lowGroupID,_lowerGroupDesc,_groupID,_roleDescript);
-                _subKeys pushBack _groupID;
+                _subKeys pushBack _key;
                 _argArray set [2, true];
             };
         } forEach ["helo", "heli", "fixed", "plane", "ah"];
@@ -134,6 +137,7 @@ private _sides = [];
     _orbatAbrev set ["ZEUS", ["", _subKeys]];
     {
         private _groupID = (_y#3);
+        private _key = _x;
         _y params ["_roleDescript", "", "_used"];
         if (_used) then {continue};
         private _argArray = _y;
@@ -142,7 +146,7 @@ private _sides = [];
         {
             if (_x in _lowerGroupDesc || _x in _lowGroupID) exitWith {
                 TRACE_5("Zeus",_x,_lowGroupID,_lowerGroupDesc,_groupID,_roleDescript);
-                _subKeys pushBack _groupID;
+                _subKeys pushBack _key;
                 _argArray set [2, true];
             };
         } forEach ["zeus", "zane"];
@@ -288,6 +292,7 @@ private _sides = [];
     if (_leadKey != "") then {
         {
             private _groupID = (_y#3);
+            private _key = _x;
             _y params ["_roleDescript", "", "_used"];
             if (_used) then {continue};
             private _argArray = _y;
@@ -295,7 +300,7 @@ private _sides = [];
             private _lowerGroupDesc = toLowerANSI _roleDescript;
             {
                 if (_x in _lowerGroupDesc || _x in _lowerGroupID) exitWith {
-                    _subKeys pushBack (" | " + _groupID);
+                    _subKeys pushBack (" | " + _key);
                     _argArray set [2, true];
                 };
             } forEach ["logi", "eng"];
@@ -384,7 +389,8 @@ private _sides = [];
         if (_groups isNotEqualTo []) then {
             if ("pl" in _key) then {
                 _groups = _groups apply {
-                    [([_x] call _fnc_enumAlpha), parseNumber (_x select [1]), _x]
+                    private _name = _sideOrbatToSort get _x;
+                    [([_name#3] call _fnc_enumAlpha), parseNumber (_name#3 select [1]), _x]
                 };
                 _groups sort true;
                 _groups = _groups apply {_x#2};
