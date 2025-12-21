@@ -23,7 +23,7 @@ params [
     "_control",
     ["_onLoad", false]
 ];
-TRACE_2("",_control,_toggleMode);
+TRACE_2("",_control,_onLoad);
 
 private _inDrawQueue = QGVAR(markerEH) in GVAR(draw3DFunctions);
 _control ctrlSetFade ([0, 0.2] select _inDrawQueue);

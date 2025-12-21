@@ -21,7 +21,7 @@ params [
     "_control",
     ["_onLoad", false]
 ];
-TRACE_2("",_control,_toggleMode);
+TRACE_2("",_control,_onLoad);
 
 if !(GVAR(missionFPSEnable)) exitWith {
     _control ctrlSetFade 1;
