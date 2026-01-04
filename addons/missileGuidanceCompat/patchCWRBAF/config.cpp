@@ -5,7 +5,7 @@
 class CfgPatches {
     class ADDON {
         units[] = {};
-        weapons[] = {};
+        weapons[] = {QGVAR(blowpipe)};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_missileGuidanceCompat", "cwr3_static_uk", "cwr3_javelin_uk"};
         skipWhenMissingDependencies = 1;

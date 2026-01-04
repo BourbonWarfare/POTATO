@@ -3,7 +3,7 @@
 class CfgPatches {
     class ADDON {
         units[] = {"potato_cheezItBoxPlaceable", "potato_serverPlaceable", "potato_gamestopPlaceable"};
-        weapons[] = {"potato_cheezItBox", "potato_serverBox", "potato_funGun_red", "potato_funGun_green"};
+        weapons[] = {"potato_cheezItBox", "potato_serverBox", "potato_funGun_red", "potato_funGun_green", "potato_gamestop"};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
         author = "Potato";

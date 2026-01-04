@@ -5,6 +5,7 @@ texHeaders.bin
 *.swp
 *.swo
 *.biprivatekey
+*.hemttprivatekey
 *.dll
 Thumbs.db
 

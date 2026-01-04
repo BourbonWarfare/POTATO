@@ -4,7 +4,7 @@
 
 class CfgPatches {
     class ADDON {
-        weapons[] = {QGVARMAIN(c5_carry)};
+        weapons[] = {QGVARMAIN(c5_carry), QGVARMAIN(c5_gpmg_veh_m151), QGVARMAIN(c5_gpmg_static)};
         units[] = {
             QGVARMAIN(ca_army_c5_low),
             QGVARMAIN(ca_army_c5_high),
