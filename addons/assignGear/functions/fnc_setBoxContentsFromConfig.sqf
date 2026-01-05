@@ -28,5 +28,5 @@ if (_boxName != "") then {
 
 private _overrideCarryWeight = 1 == (getNumber (_path >> "forceAllowCarry"));
 private _overrideDragWeight = 1 == (getNumber (_path >> "forceAllowDrag"));
-_theBox setVariable [QACEGVAR(cargo,ignoreWeightCarry), _overrideCarryWeight, true];
-_theBox setVariable [QACEGVAR(cargo,ignoreWeightDrag), _overrideCarryWeight || _overrideDragWeight, true];
+_theBox setVariable [QACEGVAR(dragging,ignoreWeightCarry), _overrideCarryWeight, true];
+_theBox setVariable [QACEGVAR(dragging,ignoreWeightDrag), _overrideCarryWeight || _overrideDragWeight, true];
