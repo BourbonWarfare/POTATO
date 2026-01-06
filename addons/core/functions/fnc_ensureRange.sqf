@@ -24,6 +24,6 @@ TRACE_1("params",_this);
 params ["_inputNumber","_lowerBound","_upperBound"];
 
 private _outputNumber = _inputNumber max _lowerBound;
-_outputNumber = _inputNumber min _upperBound;
+_outputNumber = _outputNumber min _upperBound;
 
 _outputNumber

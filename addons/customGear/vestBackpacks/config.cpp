@@ -4,7 +4,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {};
+        units[] = {"potato_Osprey_Mk4_Belt", "potato_Osprey_Mk4_Webbing", "potato_RPS_Smersh_AK_ModernOlive", "potato_RPS_Smersh_VOG_ModernOlive", "potato_RPS_Smersh_VOG_SPP_ModernOlive", "potato_RPS_Smersh_PKP_ModernOlive", "potato_RPS_Smersh_PKP_Light_ModernOlive", "potato_RPS_Smersh_PKP_SPP_ModernOlive", "potato_RPS_Smersh_SVD_ModernOlive", "potato_RPS_Smersh_AK_Coyote", "potato_V_TacVestIR_blk", "potato_6sh92_vog_headset", "potato_6sh92_vog", "potato_6sh92_radio", "potato_6sh92", "potato_6sh92_headset", "potato_RPS_Smersh_VOG_Coyote", "potato_RPS_Smersh_VOG_SPP_Coyote", "potato_RPS_Smersh_PKP_Coyote", "potato_RPS_Smersh_PKP_Light_Coyote", "potato_RPS_Smersh_PKP_SPP_Coyote", "potato_SLA_M23_1_OD", "potato_RPS_Smersh_SVD_Coyote", "potato_alice", "potato_alice_mg", "potato_alice_gl", "potato_alice_officer", "potato_TK_Vest_1", "potato_TK_Vest_2"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "potato_core", "CUP_Weapons_LoadOrder", "CUP_Creatures_People_LoadOrder", "rhs_main_loadorder", "cwr3_soldiers_us" };

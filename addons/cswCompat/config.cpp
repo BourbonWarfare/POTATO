@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {};
+        units[] = {QGVAR(cup_m119_csw)};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"ace_csw", "CUP_Weapons_StaticWeapons", "CUP_Creatures_StaticWeapons"};
         skipWhenMissingDependencies = 1;
