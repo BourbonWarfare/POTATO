@@ -9,10 +9,10 @@ class CfgWeapons {
     };
     class GVARMAIN(TBD_2A27_WEAPON): CUP_Vacannon_2A72_veh {
         magazines[] = {
-            "CUP_180Rnd_TE1_Green_Tracer_30mmAP_2A42_M",
-            "CUP_120Rnd_TE1_Green_Tracer_30mmHE_2A42_M",
-            "CUP_120Rnd_TE1_Green_Tracer_30mmAP_2A42_M",
-            "CUP_180Rnd_TE1_Green_Tracer_30mmHE_2A42_M"
+            QGVARMAIN(tbd_120Rnd_2a27_ap_magazine),
+            QGVARMAIN(tbd_180Rnd_2a27_ap_magazine),
+            QGVARMAIN(tbd_180Rnd_2a27_he_magazine),
+            QGVARMAIN(tbd_120Rnd_2a27_he_magazine)
         };
         magazineReloadTime = 0.5;
         muzzles[] = {"this"};
@@ -53,6 +53,7 @@ class CfgWeapons {
     class CUP_Vhmg_PKT_veh_Noeject;
     class GVARMAIN(TBD_PKT_WEAPON): CUP_Vhmg_PKT_veh_Noeject {
         magazineReloadTime = 19;
+        magazines[] = {QGVARMAIN(tbd_pkt_magazine)};
         selectionFireAnim = "machinegun_zasleh";
         class gunParticles {
             class Effect1 {
@@ -64,11 +65,13 @@ class CfgWeapons {
     };
     class GVARMAIN(TBD_PKT_INTERNAL_WEAPON): GVARMAIN(TBD_PKT_WEAPON) {
         magazineReloadTime = 1;
+        magazines[] = {QGVARMAIN(tbd_pkt_internal_magazine)};
     };
 
     class CUP_Vhmg_KPVT_veh;
     class GVARMAIN(TBD_KPVT_WEAPON): CUP_Vhmg_KPVT_veh {
         magazineReloadTime = 19;
+        magazines[] = {QGVARMAIN(tbd_kpvt_magazine)};
         selectionFireAnim = "autocannon_zasleh";
         class gunParticles {
             class Effect1 {
@@ -82,6 +85,7 @@ class CfgWeapons {
     class CUP_Vhmg_AGS30_veh;
     class GVARMAIN(TBD_AGS17_WEAPON): CUP_Vhmg_AGS30_veh {
         magazineReloadTime = 15;
+        magazines[] = {QGVARMAIN(tbd_ags17_magazine)};
         selectionFireAnim = "ags_zasleh";
         class gunParticles {
             class Effect1 {
