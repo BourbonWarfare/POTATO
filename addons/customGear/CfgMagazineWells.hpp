@@ -1,18 +1,21 @@
 class CfgMagazineWells {
     class CBA_40mm_EGLM {
         MAGWELL_ENTRY_NAME[] = {
-            QMAGAZINE(1Rnd_40mm_M433_HEDP)
+            QMAGAZINE(1Rnd_40mm_M433_HEDP),
+            QMAGAZINE(1Rnd_40mm_M576_MP)
         };
     };
 
     class CBA_40mm_GP {
         MAGWELL_ENTRY_NAME[] = {
-            QMAGAZINE(1Rnd_40mm_M433_HEDP)
+            QMAGAZINE(1Rnd_40mm_M433_HEDP),
+            QMAGAZINE(1Rnd_40mm_M576_MP)
         };
     };
     class CBA_40mm_M203 {
         MAGWELL_ENTRY_NAME[] = {
-            QMAGAZINE(1Rnd_40mm_M433_HEDP)
+            QMAGAZINE(1Rnd_40mm_M433_HEDP),
+            QMAGAZINE(1Rnd_40mm_M576_MP)
         };
     };
     class MAGWELL(HV_40x53mm) {

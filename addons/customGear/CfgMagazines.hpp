@@ -8,6 +8,15 @@ class CfgMagazines {
         displayName = "40x46mm M433 (HEDP) Grenade";
     };
 
+    class MAGAZINE(1Rnd_40mm_M576_MP): 1Rnd_HE_Grenade_shell {
+        ammo = QAMMO(40x46mm_MP_M576);
+        count = 1;
+        displayNameShort = "M576 MP";
+        displayName = "40x46mm M576 (MP) Canister";
+        initSpeed = 269;
+        mass = 2.4;
+    };
+
     /// HV 40x53mm grenade launcher
     class 200Rnd_40mm_G_belt;
     class MAGAZINE(96Rnd_40mm_MK19_M430A1_HEDP): 200Rnd_40mm_G_belt {
@@ -15,7 +24,7 @@ class CfgMagazines {
         count = 96;
         displayNameShort = "M430A1 HEDP";
         displayName = "40x53mm M430A1 HEDP";
-        initSpeed = 241;
+        initSpeed = 242;
     };
     class MAGAZINE(48Rnd_40mm_MK19_M430A1_HEDP): MAGAZINE(96Rnd_40mm_MK19_M430A1_HEDP) {
         count = 48;
