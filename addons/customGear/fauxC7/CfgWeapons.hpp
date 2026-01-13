@@ -8,7 +8,7 @@ class asdg_MuzzleSlot_556: asdg_MuzzleSlot {
 };
 
 #define JSRS_M4_SOUNDSET class StandardSound {\
-soundSetShot[] = {"jsrs_m4_shot_soundset","jsrs_5x56mm_reverb_soundset"};\
+soundSetShot[] = {"jsrs_2025_M4a1_shot_soundset","jsrs_2025_tailsystem_556mm_rifle_soundset"};\
 }
 #define JSRS_M4_AUDIO_DEFINES class Burst: Burst {\
     JSRS_M4_SOUNDSET;\
@@ -36,10 +36,10 @@ class CfgWeapons {
         class FullAuto: Mode_FullAuto {
             class BaseSoundModeType {};
             class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"jsrs_m16a4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+                soundsetshot[] = {"jsrs_2025_m16_shot_soundset", "jsrs_2025_tailsystem_556mm_rifle_soundset"};
             };
             class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+                soundsetshot[] = {"jsrs_2025_m16_shot_silenced_soundset", "jsrs_2025_tailsystem_556mm_rifle_silenced_soundset"};
             };
             soundBurst = 0;
             ffCount = 3;
@@ -66,10 +66,10 @@ class CfgWeapons {
         class FullAuto: Mode_FullAuto {
             class BaseSoundModeType {};
             class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"jsrs_m16a4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+                soundsetshot[] = {"jsrs_2025_m16_shot_soundset", "jsrs_2025_tailsystem_556mm_rifle_soundset"};
             };
             class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+                soundsetshot[] = {"jsrs_2025_m16_shot_silenced_soundset", "jsrs_2025_tailsystem_556mm_rifle_silenced_soundset"};
             };
             soundBurst = 0;
             ffCount = 3;
@@ -91,10 +91,10 @@ class CfgWeapons {
         class FullAuto: Mode_FullAuto {
             class BaseSoundModeType {};
             class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"jsrs_m16a4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+                soundsetshot[] = {"jsrs_2025_m16_shot_soundset", "jsrs_2025_tailsystem_556mm_rifle_soundset"};
             };
             class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+                soundsetshot[] = {"jsrs_2025_m16_shot_silenced_soundset", "jsrs_2025_tailsystem_556mm_rifle_silenced_soundset"};
             };
             soundBurst = 0;
             ffCount = 3;
@@ -152,12 +152,11 @@ class CfgWeapons {
         class single_medium_optics2;
     };
     class CUP_arifle_M4_Base: CUP_arifle_M16_Base {
-        JSRS_M4_AUDIO_DEFINES;
     };
     class CUP_arifle_Colt727: CUP_arifle_M16_Base {
-        JSRS_M4_AUDIO_DEFINES;
     };
     class potato_arifle_M4: CUP_arifle_Colt727 {
+        JSRS_M4_AUDIO_DEFINES;
         COMMON_M4_CARBINE_INCLUDES;
         displayName = "M4 Carbine";
         class Library {
@@ -167,6 +166,7 @@ class CfgWeapons {
 
     class CUP_arifle_Colt727_M203: CUP_arifle_Colt727 {};
     class potato_arifle_M4_M203: CUP_arifle_Colt727_M203 {
+        JSRS_M4_AUDIO_DEFINES;
         COMMON_M4_CARBINE_INCLUDES;
         displayName = "M4 Carbine M203";
         class Library {

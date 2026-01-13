@@ -7,7 +7,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "jsrs_soundmod_cup_weapons" };
+        requiredAddons[] = { "potato_core", "jsrs2025_compat_cup_weapons" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -26,7 +26,9 @@ class CfgWeapons {
                 // JSRS uses 
                 // soundsetshot[] = {"jsrs_m134_shot_soundset","jsrs_5x56mm_reverb_soundset"};
                 // but you cannot hear at range?? Just revert back to cup's
-                soundSetShot[] = {"CUP_M134_Shot_SoundSet","CUP_mmg1_Tail_SoundSet"};
+                // soundSetShot[] = {"CUP_M134_Shot_SoundSet","CUP_mmg1_Tail_SoundSet"};
+                // JSRSTODO: now soundsetshot[] = {"jsrs_2025_m134_low_shot_soundset"};
+                // pretty sure we can remove
             };
         };
     };
@@ -39,10 +41,12 @@ class CfgWeapons {
         class Single: Single {
             class basesoundmodetype;
             class standardsound: basesoundmodetype {
-                soundsetshot[] = {"jsrs_m4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+                // soundsetshot[] = {"jsrs_m4_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+                // JSRSTODO: now soundsetshot[] = {"jsrs_2025_m4a1_shot_soundset","jsrs_2025_tailsystem_556mm_rifle_soundset"}; 
+                // pretty sure we can remove
             };
             class silencedsound: basesoundmodetype {
-                soundsetshot[] = {"jsrs_m4_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+                // soundsetshot[] = {"jsrs_m4_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
             };
         };
     };
@@ -50,10 +54,12 @@ class CfgWeapons {
         class Burst: Mode_Burst {
             class basesoundmodetype;
             class standardsound: basesoundmodetype {
-                soundsetshot[] = {"jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+                // soundsetshot[] = {"jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+                // JSRSTODO: now soundsetshot[] = {"jsrs_2025_g36_shot_soundset","jsrs_2025_tailsystem_556mm_rifle_soundset"};
+                // pretty sure we can remove
             };
             class silencedsound: basesoundmodetype {
-                soundsetshot[] = {"jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+                // soundsetshot[] = {"jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
             };
         };
     };
@@ -63,10 +69,12 @@ class CfgWeapons {
         class FullAuto: Mode_FullAuto {
             class BaseSoundModeType {};
             class StandardSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_ak_m_shot_soundset","jsrs_7x62mm_reverb_soundset"};
+                // soundSetShot[] = {"jsrs_ak_m_shot_soundset","jsrs_7x62mm_reverb_soundset"};
+                // JSRSTODO: now soundsetshot[] = {"jsrs_2025_ak74_shot_soundset","jsrs_2025_tailsystem_556mm_lmg_soundset"};
+                // not sure
             };
             class SilencedSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
+                // soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
             };
         };
     };
@@ -74,10 +82,12 @@ class CfgWeapons {
         class FullAuto: Mode_FullAuto {
             class BaseSoundModeType {};
             class StandardSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_ak_m_shot_soundset","jsrs_7x62mm_reverb_soundset"};
+                // soundSetShot[] = {"jsrs_ak_m_shot_soundset","jsrs_7x62mm_reverb_soundset"};
+                // JSRSTODO: now soundsetshot[] = {"jsrs_2025_akm_shot_soundset","jsrs_2025_tailsystem_762mm_rifle_soundset"};
+                // pretty sure we can remove
             };
             class SilencedSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
+                // soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
             };
         };
     };
