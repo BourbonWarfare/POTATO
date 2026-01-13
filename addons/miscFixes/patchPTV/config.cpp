@@ -7,7 +7,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "ptv_vehicles", "ptv_characters_cfg", "ptv_characters", "ptv_sounds", "jsrs_soundmod_complete_edition", "jsrs_soundmod_complete_edition_soundfiles" };
+        requiredAddons[] = { "potato_core", "ptv_vehicles", "ptv_characters_cfg", "ptv_characters", "ptv_sounds", "jsrs2025_compat_ptv" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -37,8 +37,8 @@ class CfgVehicles {
 };
 
 
-class Mode_SemiAuto;
-class Mode_FullAuto;
+// class Mode_SemiAuto;
+// class Mode_FullAuto;
 class CfgWeapons {
     class Pistol;
     class Pistol_Base_F: Pistol {};
@@ -50,287 +50,291 @@ class CfgWeapons {
         UiPicture = "\A3\weapons_f\data\UI\icon_mg_CA.paa"; // STHUD/DUI Compat
     };
     class ptv_rs556 : Rifle_Base_F {
-        bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.0099,1,10};
-        bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.0099,1,10};
-        bullet3[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_3.ogg",2.0099,1,10};
-        bullet4[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_4.ogg",2.0099,1,10};
-        bullet5[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_1.ogg",2.0099,1,10};
-        bullet6[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_2.ogg",2.0099,1,10};
-        bullet7[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_3.ogg",2.0099,1,10};
-        bullet8[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_4.ogg",2.0099,1,10};
-        bullet9[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_1.ogg",2.0099,1,10};
-        bullet10[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_2.ogg",2.0099,1,10};
-        bullet11[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_3.ogg",2.0099,1,10};
-        bullet12[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_4.ogg",2.0099,1,10};
-        soundbullet[] = {"bullet1",0.08,"bullet2",0.084,"bullet3",0.084,"bullet4",0.084,"bullet5",0.093,"bullet6",0.093,"bullet7",0.074,"bullet8",0.074,"bullet9",0.084,"bullet10",0.085,"bullet11",0.083,"bullet12",0.083};
-        class Single: Mode_SemiAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
-        class FullAuto: Mode_FullAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
+        // JSRSTODO: now has a ptv_rs556 config (jsrs_2025_tavor_shot_soundset), so can probably remove this entire block
+        // bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.0099,1,10};
+        // bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.0099,1,10};
+        // bullet3[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_3.ogg",2.0099,1,10};
+        // bullet4[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_4.ogg",2.0099,1,10};
+        // bullet5[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_1.ogg",2.0099,1,10};
+        // bullet6[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_2.ogg",2.0099,1,10};
+        // bullet7[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_3.ogg",2.0099,1,10};
+        // bullet8[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_4.ogg",2.0099,1,10};
+        // bullet9[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_1.ogg",2.0099,1,10};
+        // bullet10[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_2.ogg",2.0099,1,10};
+        // bullet11[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_3.ogg",2.0099,1,10};
+        // bullet12[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_4.ogg",2.0099,1,10};
+        // soundbullet[] = {"bullet1",0.08,"bullet2",0.084,"bullet3",0.084,"bullet4",0.084,"bullet5",0.093,"bullet6",0.093,"bullet7",0.074,"bullet8",0.074,"bullet9",0.084,"bullet10",0.085,"bullet11",0.083,"bullet12",0.083};
+        // class Single: Mode_SemiAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType;
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
+        // class FullAuto: Mode_FullAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType;
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
         class M203: UGL_F {
             magazineWell[] = {"UGL_40x36", "CBA_40mm_M203"};
         };
     };
     class ptv_rs556s: ptv_rs556 {
+        // JSRSTODO: s now uses jsrs_2025_spar_shot_soundset
     // Updating base class Mode_SemiAuto->Single, by z\potato\addons\miscFixes\patchptv\config.cpp/CfgWeapons/ptv_rs556s/Single/ (original (ptv_weapons_cfg\config.bin - no unload))
     // due to ptv_sounds, as it has different inheritance from ptv_weapons_cfg
-        class Single : Single {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
-        class FullAuto : FullAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
+        // class Single : Single {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType;
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
+        // class FullAuto : FullAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType;
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_scar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
     };
 
     class ptv_rk62m2: Rifle_Base_F {
-        bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.0099,1,10};
-        bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.0099,1,10};
-        bullet3[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_3.ogg",2.0099,1,10};
-        bullet4[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_4.ogg",2.0099,1,10};
-        bullet5[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_1.ogg",2.0099,1,10};
-        bullet6[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_2.ogg",2.0099,1,10};
-        bullet7[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_3.ogg",2.0099,1,10};
-        bullet8[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_4.ogg",2.0099,1,10};
-        bullet9[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_1.ogg",2.0099,1,10};
-        bullet10[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_2.ogg",2.0099,1,10};
-        bullet11[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_3.ogg",2.0099,1,10};
-        bullet12[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_4.ogg",2.0099,1,10};
-        soundbullet[] = {"bullet1",0.08,"bullet2",0.084,"bullet3",0.084,"bullet4",0.084,"bullet5",0.093,"bullet6",0.093,"bullet7",0.074,"bullet8",0.074,"bullet9",0.084,"bullet10",0.085,"bullet11",0.083,"bullet12",0.083};
-        class Single: Mode_SemiAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"jsrs_ak103_shot_soundset","jsrs_7x62mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"jsrs_ak103_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
-            };
-        };
-        class FullAuto: Mode_FullAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"jsrs_ak103_shot_soundset","jsrs_7x62mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"jsrs_ak103_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
-            };
-        };
+        // JSRSTODO: now has config (jsrs_2025_vector_shot_soundset)
+        // bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.0099,1,10};
+        // bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.0099,1,10};
+        // bullet3[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_3.ogg",2.0099,1,10};
+        // bullet4[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_4.ogg",2.0099,1,10};
+        // bullet5[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_1.ogg",2.0099,1,10};
+        // bullet6[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_2.ogg",2.0099,1,10};
+        // bullet7[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_3.ogg",2.0099,1,10};
+        // bullet8[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_4.ogg",2.0099,1,10};
+        // bullet9[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_1.ogg",2.0099,1,10};
+        // bullet10[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_2.ogg",2.0099,1,10};
+        // bullet11[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_3.ogg",2.0099,1,10};
+        // bullet12[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_4.ogg",2.0099,1,10};
+        // soundbullet[] = {"bullet1",0.08,"bullet2",0.084,"bullet3",0.084,"bullet4",0.084,"bullet5",0.093,"bullet6",0.093,"bullet7",0.074,"bullet8",0.074,"bullet9",0.084,"bullet10",0.085,"bullet11",0.083,"bullet12",0.083};
+        // class Single: Mode_SemiAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"jsrs_ak103_shot_soundset","jsrs_7x62mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"jsrs_ak103_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
+        //     };
+        // };
+        // class FullAuto: Mode_FullAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"jsrs_ak103_shot_soundset","jsrs_7x62mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"jsrs_ak103_shot_silenced_soundset","jsrs_7x62mm_sd_reverb_soundset"};
+        //     };
+        // };
     };
 
     class ptv_hk433: Rifle_Base_F {
-        bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.01,1,10};
-        bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.01,1,10};
-        bullet3[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_3.ogg",2.01,1,10};
-        bullet4[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_4.ogg",2.01,1,10};
-        bullet5[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_1.ogg",2.01,1,10};
-        bullet6[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_2.ogg",2.01,1,10};
-        bullet7[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_3.ogg",2.01,1,10};
-        bullet8[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_4.ogg",2.01,1,10};
-        bullet9[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_1.ogg",2.01,1,10};
-        bullet10[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_2.ogg",2.01,1,10};
-        bullet11[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_3.ogg",2.01,1,10};
-        bullet12[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_4.ogg",2.01,1,10};
-        soundbullet[] = {"bullet1",0.08,"bullet2",0.084,"bullet3",0.084,"bullet4",0.084,"bullet5",0.093,"bullet6",0.093,"bullet7",0.074,"bullet8",0.074,"bullet9",0.084,"bullet10",0.085,"bullet11",0.083,"bullet12",0.083};
-        class Single: Mode_SemiAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_hk416_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
-        class FullAuto: Mode_FullAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_hk416_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
+        // bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.01,1,10};
+        // bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.01,1,10};
+        // bullet3[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_3.ogg",2.01,1,10};
+        // bullet4[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_4.ogg",2.01,1,10};
+        // bullet5[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_1.ogg",2.01,1,10};
+        // bullet6[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_2.ogg",2.01,1,10};
+        // bullet7[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_3.ogg",2.01,1,10};
+        // bullet8[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_4.ogg",2.01,1,10};
+        // bullet9[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_1.ogg",2.01,1,10};
+        // bullet10[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_2.ogg",2.01,1,10};
+        // bullet11[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_3.ogg",2.01,1,10};
+        // bullet12[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_4.ogg",2.01,1,10};
+        // soundbullet[] = {"bullet1",0.08,"bullet2",0.084,"bullet3",0.084,"bullet4",0.084,"bullet5",0.093,"bullet6",0.093,"bullet7",0.074,"bullet8",0.074,"bullet9",0.084,"bullet10",0.085,"bullet11",0.083,"bullet12",0.083};
+        // class Single: Mode_SemiAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType;
+        //     class StandardSound: BaseSoundModeType {
+        //         soundSetShot[] = {"jsrs_hk416_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundSetShot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
+        // class FullAuto: Mode_FullAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType;
+        //     class StandardSound: BaseSoundModeType {
+        //         soundSetShot[] = {"jsrs_hk416_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundSetShot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
     };
     class ptv_hk433s: ptv_rs556 {
-        class Single: Single {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_hk416_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
-        class FullAuto: FullAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType;
-            class StandardSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_hk416_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundSetShot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
+        // class Single: Single {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType;
+        //     class StandardSound: BaseSoundModeType {
+        //         soundSetShot[] = {"jsrs_hk416_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundSetShot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
+        // class FullAuto: FullAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType;
+        //     class StandardSound: BaseSoundModeType {
+        //         soundSetShot[] = {"jsrs_hk416_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundSetShot[] = {"jsrs_spar_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
     };
 
     class ptv_AG : Rifle_Base_F {
-        bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.0099,1,10};
-        bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.0099,1,10};
-        bullet3[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_3.ogg",2.0099,1,10};
-        bullet4[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_4.ogg",2.0099,1,10};
-        bullet5[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_1.ogg",2.0099,1,10};
-        bullet6[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_2.ogg",2.0099,1,10};
-        bullet7[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_3.ogg",2.0099,1,10};
-        bullet8[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_4.ogg",2.0099,1,10};
-        bullet9[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_1.ogg",2.0099,1,10};
-        bullet10[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_2.ogg",2.0099,1,10};
-        bullet11[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_3.ogg",2.0099,1,10};
-        bullet12[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_4.ogg",2.0099,1,10};
-        soundbullet[] = {"bullet1",0.08,"bullet2",0.084,"bullet3",0.084,"bullet4",0.084,"bullet5",0.093,"bullet6",0.093,"bullet7",0.074,"bullet8",0.074,"bullet9",0.084,"bullet10",0.085,"bullet11",0.083,"bullet12",0.083};
-        class Single: Mode_SemiAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
-        class FullAuto: Mode_FullAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
+        // JSRSTODO: now has config (jsrs_2025_galil_shot_soundset)
+        // bullet1[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_1.ogg",2.0099,1,10};
+        // bullet2[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_2.ogg",2.0099,1,10};
+        // bullet3[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_3.ogg",2.0099,1,10};
+        // bullet4[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\metal_4.ogg",2.0099,1,10};
+        // bullet5[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_1.ogg",2.0099,1,10};
+        // bullet6[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_2.ogg",2.0099,1,10};
+        // bullet7[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_3.ogg",2.0099,1,10};
+        // bullet8[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\dirt_4.ogg",2.0099,1,10};
+        // bullet9[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_1.ogg",2.0099,1,10};
+        // bullet10[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_2.ogg",2.0099,1,10};
+        // bullet11[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_3.ogg",2.0099,1,10};
+        // bullet12[] = {"\jsrs_soundmod_complete\jsrs_soundmod_soundfiles\weapons\shells\medium\grass_4.ogg",2.0099,1,10};
+        // soundbullet[] = {"bullet1",0.08,"bullet2",0.084,"bullet3",0.084,"bullet4",0.084,"bullet5",0.093,"bullet6",0.093,"bullet7",0.074,"bullet8",0.074,"bullet9",0.084,"bullet10",0.085,"bullet11",0.083,"bullet12",0.083};
+        // class Single: Mode_SemiAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
+        // class FullAuto: Mode_FullAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
         class EGLM: UGL_F {
             magazineWell[] = {"UGL_40x36", "CBA_40mm_M203", "CBA_40mm_EGLM"};
         };
     };
     class ptv_AG_k : ptv_AG {
-         class Single: Single {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
-        class FullAuto: FullAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
+        //  class Single: Single {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
+        // class FullAuto: FullAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
     };
     class ptv_AG_c : ptv_AG {
-         class Single: Single {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
-        class FullAuto: FullAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
+        //  class Single: Single {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
+        // class FullAuto: FullAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
     };
     class ptv_AGM : ptv_AG_k {
-         class Single: Single {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
-        class FullAuto: FullAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
+        //  class Single: Single {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
+        // class FullAuto: FullAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
     };
     class ptv_AGM_GL: ptv_AGM {
-        class Single: Single {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
-        class FullAuto: FullAuto {
-            sounds[] = {"StandardSound","SilencedSound"};
-            class BaseSoundModeType {};
-            class StandardSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
-            };
-            class SilencedSound: BaseSoundModeType {
-                soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
-            };
-        };
+        // class Single: Single {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
+        // class FullAuto: FullAuto {
+        //     sounds[] = {"StandardSound","SilencedSound"};
+        //     class BaseSoundModeType {};
+        //     class StandardSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_soundset","jsrs_5x56mm_reverb_soundset"};
+        //     };
+        //     class SilencedSound: BaseSoundModeType {
+        //         soundsetshot[] = {"ptv_rifle_shake_soundset","jsrs_g36_shot_silenced_soundset","jsrs_5x56mm_sd_reverb_soundset"};
+        //     };
+        // };
     };
 
     class ptv_hk69_Base_F: Pistol_Base_F {

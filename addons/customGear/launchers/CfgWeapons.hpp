@@ -28,7 +28,6 @@ class CfgWeapons {
         discreteDistanceCameraPoint[] = {"eye_1","eye_2","eye_4","eye_6","eye_8"};
         displayName = "M136A1 CS-RS";
         baseWeapon = QWEAPON(launch_M136A1_CS);
-        jsrs_soundeffect = "JSRS2_Distance_Effects_Launcher";
         ACEGVAR(overpressure,angle) = 45;
         ACEGVAR(overpressure,damage) = 0.8;
         ACEGVAR(overpressure,range) = 1;
@@ -72,7 +71,6 @@ class CfgWeapons {
         discreteDistanceCameraPoint[] = {"eye_1","eye_2","eye_4","eye_6","eye_8"};
         displayName = "AT4CS LMAW";
         baseWeapon = QWEAPON(launch_AT4CS_LMAW);
-        jsrs_soundeffect = "JSRS2_Distance_Effects_Launcher";
         magazines[] = {QMAGAZINE(AT4CS_LMAW)};
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 108;
@@ -108,7 +106,6 @@ class CfgWeapons {
         discreteDistanceCameraPoint[] = {"eye_1","eye_2","eye_4","eye_6","eye_8"};
         displayName = "AT4CS HP";
         baseWeapon = QWEAPON(launch_AT4CS_HP);
-        jsrs_soundeffect = "JSRS2_Distance_Effects_Launcher";
         magazines[] = {QMAGAZINE(AT4CS_HP)};
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 108;
@@ -136,7 +133,6 @@ class CfgWeapons {
         scopeArsenal = 1;
         displayName = "M72A7";
         baseWeapon = QWEAPON(launch_M72A7_Loaded);
-        jsrs_soundeffect = "JSRS2_Distance_Effects_Launcher";
         magazines[] = {QMAGAZINE(M72A7_M)};
         descriptionShort = "High Explosive Dual Purpose<br/>Unguided";
         class WeaponSlotsInfo: WeaponSlotsInfo {
@@ -170,7 +166,6 @@ class CfgWeapons {
         scopeArsenal = 1;
         displayName = "M72A8 (FFE)";
         baseWeapon = QWEAPON(launch_M72A8_Loaded);
-        jsrs_soundeffect = "JSRS2_Distance_Effects_Launcher";
         magazines[] = {QMAGAZINE(M72A8_M)};
         descriptionShort = "High Explosive Dual Purpose<br/>Fire From Enclosure<br/>Unguided";
         class WeaponSlotsInfo: WeaponSlotsInfo {
@@ -204,7 +199,6 @@ class CfgWeapons {
         scopeArsenal = 1;
         displayName = "M72A9 (LASM)";
         baseWeapon = QWEAPON(launch_M72A9_Loaded);
-        jsrs_soundeffect = "JSRS2_Distance_Effects_Launcher";
         magazines[] = {QMAGAZINE(M72A9_M)};
         descriptionShort = "Anti-structure missile launcher<br/>Unguided";
         class WeaponSlotsInfo: WeaponSlotsInfo {
@@ -247,7 +241,6 @@ class CfgWeapons {
         scopeArsenal = 1;
         displayName = "M72A10 (LASM, FFE)";
         baseWeapon = QWEAPON(launch_M72A10_Loaded);
-        jsrs_soundeffect = "JSRS2_Distance_Effects_Launcher";
         magazines[] = {QMAGAZINE(M72A10_M)};
         descriptionShort = "Light Anti-Structure Munition<br/>Fire From Enclosure<br/>Unguided";
         class WeaponSlotsInfo: WeaponSlotsInfo {
