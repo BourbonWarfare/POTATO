@@ -548,7 +548,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Reset Spectator";
                     x = QUOTE(0.255 * safezoneW);
-                    y = QUOTE(0.42 * safezoneH);
+                    y = QUOTE(0.32 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_resetSpectateButton));
@@ -557,7 +557,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Reset Medical (Full Heal)";
                     x = QUOTE(0.255 * safezoneW);
-                    y = QUOTE(0.12 * safezoneH);
+                    y = QUOTE(0.02 * safezoneH);
                     w = QUOTE(0.2 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([false] call FUNC(uihook_resetMedicalButton));
@@ -567,7 +567,7 @@ class GVAR(adminMenuDialog) {
                     text = "Stabilize";
                     tooltip = "Stops bleeding by bandaging wounds. Does not heal damage/pain.";
                     x = QUOTE((0.255 + 0.2) * safezoneW);
-                    y = QUOTE(0.12 * safezoneH);
+                    y = QUOTE(0.02 * safezoneH);
                     w = QUOTE(0.06 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([2] call FUNC(uihook_resetMedicalButton));
@@ -576,7 +576,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Reset Medical Group (Full Heal)";
                     x = QUOTE(0.255 * safezoneW);
-                    y = QUOTE(0.22 * safezoneH);
+                    y = QUOTE(0.12 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     tooltip = "Heal all group members of the selected unit.";
@@ -586,10 +586,19 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Reset Markers";
                     x = QUOTE(0.255 * safezoneW);
-                    y = QUOTE(0.32 * safezoneH);
+                    y = QUOTE(0.22 * safezoneH);
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([UI_TAB] call FUNC(uihook_resetMarkersButton));
+                };
+                class AddBaseLinkedButton: RscButton {
+                    idc = -1;
+                    text = "Add Map/Compass/Watch";
+                    x = QUOTE(0.255 * safezoneW);
+                    y = QUOTE(0.42 * safezoneH);
+                    w = QUOTE(0.26 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_addBaseLinked));
                 };
             };
         };
