@@ -291,16 +291,16 @@ private _sides = [];
     } forEach ["1pl", "2pl", "3pl"];
     if (_leadKey != "") then {
         {
-            private _groupID = (_y#3);
             private _key = _x;
-            _y params ["_roleDescript", "", "_used"];
+            _y params ["_roleDescript", "", "_used", "_groupID"];
             if (_used) then {continue};
             private _argArray = _y;
             private _lowerGroupID = toLowerANSI _groupID;
             private _lowerGroupDesc = toLowerANSI _roleDescript;
             {
                 if (_x in _lowerGroupDesc || _x in _lowerGroupID) exitWith {
-                    _subKeys pushBack (" | " + _key);
+                    _subKeys pushBack _key;
+                    _y set [3, " | " + _groupID];
                     _argArray set [2, true];
                 };
             } forEach ["logi", "eng"];
