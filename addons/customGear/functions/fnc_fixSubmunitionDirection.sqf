@@ -8,7 +8,7 @@
  * 0: The bullet creating a submunition to be corrected <OBJECT>
  *
  * Examples:
- * [bullet0] call potato_customGear_fnc_fixSubmunitionDirection;
+ * [bullet0] call potato_customGear_fnc_fixSubmunitDir;
  *
  * Public: No
  */
