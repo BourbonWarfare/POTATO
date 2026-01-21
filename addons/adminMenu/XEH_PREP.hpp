@@ -7,6 +7,7 @@ PREP(openAdminMenu);
 PREP(openRespawn);
 
 PREP(reloadMarkersTab);
+PREP(uihook_addBaseLinked);
 PREP(uihook_attachMarkerGroup);
 PREP(uihook_attachMarkerUnit);
 PREP(uihook_checkboxes);
