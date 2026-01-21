@@ -43,7 +43,6 @@ class CfgAmmo {
         timeToLive = 25;
         // Penetrator
         deleteParentWhenTriggered = 0;
-        simulation = "shotGrenade";
         submunitionAmmo = QAMMO(40x46mm_HEDP_M433_penetrator);
         submunitionDirectionType = "SubmunitionModelDirection";
         submunitionInitialOffset[] = {0, 0, -0.2};
