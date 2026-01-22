@@ -20,7 +20,9 @@ class CfgAmmo {
         timeToLive = 25;
     };
 
-    class G_40mm_HEDP;
+    class G_40mm_HEDP: G_40mm_HE {
+        class EventHandlers;
+    };
     class AMMO(40x46mm_HEDP_M433): G_40mm_HEDP { // Amtec corp datasheet
         aiAmmoUsageFlags = 64 + 128 + 512;
         cost = 12;
@@ -47,6 +49,11 @@ class CfgAmmo {
         submunitionInitSpeed = 1000;
         submunitionParentSpeedCoef = 0;
         triggerOnImpact = 1;
+        class EventHandlers: EventHandlers {
+            class ADDON {
+                init = QUOTE(call FUNC(fixSubmunitDir));
+            };
+        };
     };
     class AMMO(40x53mm_HEDP_M430A1): G_40mm_HEDP { // based on  NDC M430A1 HEDP
         airFriction = -0.00045;
@@ -60,7 +67,7 @@ class CfgAmmo {
         // Damage
         hit = 80; // reduce to match HEDP
         maxSpeed = 250;
-        typicalSpeed = 241;
+        typicalSpeed = 242;
         timeToLive = 25;
         // Penetrator
         deleteParentWhenTriggered = 0;
@@ -70,6 +77,11 @@ class CfgAmmo {
         submunitionInitSpeed = 1000;
         submunitionParentSpeedCoef = 0;
         triggerOnImpact = 1;
+        class EventHandlers: EventHandlers {
+            class ADDON {
+                init = QUOTE(call FUNC(fixSubmunitDir));
+            };
+        };
     };
 
     class AMMO(40x46mm_HEDP_M433_penetrator): ammo_Penetrator_Base {
@@ -84,5 +96,24 @@ class CfgAmmo {
         caliber = 5.067; // 76mm steel
         timeToLive = 0.1;
         soundsetexplosion[] = {};
+    };
+
+    // M576 Buckshot
+    // derived from ACE_12Gauge_Pellets_Submunition_No4_Buck_Deploy
+    class B_12Gauge_Pellets_Submunition_Deploy;
+    class AMMO(40x46mm_MP_M576_shot): B_12Gauge_Pellets_Submunition_Deploy {
+        airFriction = -0.0085;
+        caliber = 0.4;
+        hit = 2;
+        typicalSpeed = 269;
+    };
+    class B_12Gauge_Pellets_Submunition;
+    class AMMO(40x46mm_MP_M576): B_12Gauge_Pellets_Submunition {
+        submunitionAmmo = QAMMO(40x46mm_MP_M576_shot);
+        submunitionConeAngle = 1.4;
+        submunitionConeType[] = {"poissondisccenter",20};
+        submunitionDirectionType = "SubmunitionModelDirection";
+        submunitionInitSpeed = 0;
+        triggerSpeedCoef[] = {0.99, 1.02};
     };
 };

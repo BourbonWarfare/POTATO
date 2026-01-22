@@ -19,6 +19,7 @@ class CfgPatches {
 
 #include "ACE_CSW_Groups.hpp"
 #include "CfgAmmo.hpp"
+#include "CfgFunctions.hpp"
 #include "CfgMagazines.hpp"
 #include "CfgMagazineWells.hpp"
 #include "CfgWeapons.hpp"
