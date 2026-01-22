@@ -1,0 +1,105 @@
+#include "..\script_component.hpp"
+/**************************************************************//*
+* Selects and returns artillery pieces that can fire given
+* magazine at a given point ordered by TOF
+*
+* Arguments:
+* _targetAGL - Position (AGL) of the target
+* _magazine - Magazine desired to be fired
+*
+* Example:
+* [[12,42,0], "8Rnd_82mm_Mo_Smoke_white"] call lmd_fnc_addNewMission;
+*//**************************************************************/
+params [
+    ["_gun", objNull, [objNull]],
+    ["_offset", [0, 0, 0], [[]]],
+    ["_missionType", ARTILLERY_MISSIONTYPE_POINT, [ARTILLERY_MISSIONTYPE_POINT]],
+    "_magazine",
+    "_posATL",
+    ["_dispersion", 60, [60]],
+    ["_rotation", 0, [0]],
+    ["_avoidPlayers", true, [true]],
+    ["_rounds", 4, [4]],
+    ["_tof", -1, [-1]],
+    ["_gunIdx", 0, [0]],
+    ["_nGuns", 1, [1]],
+    ["_length", 180, [180]]
+];
+if (!alive _gun) exitWith {};
+
+private _gunner = gunner _gun;
+if !(local _gunner) then {};
+
+_gun setDir (_gun getDir _posATL);
+
+// clear mortar and load with magazines
+private _magazinesToRemove = _gun magazinesTurret [0];
+{_gun removeMagazinesTurret [_x, [0]]} count _magazinesToRemove;
+
+// save weapon parameters
+private _weapon = (weapons _gun)#0;
+
+// Fire barrage
+switch (_missionType) do {
+    case ARTILLERY_MISSIONTYPE_LAZY_WALK: {
+        private _targetArray = [];
+        _rotation = 180 + _rotation;
+        {
+            _targetArray pushBack (_posATL getPos [_x, _rotation - 5 + random 10]);
+        } forEach ARTILLERY_POSITIONS_LAZYADJUST;
+        [_gun, _targetArray, _magazine, _tof + 20 + random 15] call FUNC(fireOnArray);
+    };
+    case ARTILLERY_MISSIONTYPE_BRACKET_BARRAGE;
+    case ARTILLERY_MISSIONTYPE_LAZY_BARRAGE;
+    case ARTILLERY_MISSIONTYPE_POINT: {
+        [_gunner, _gun, _posATL, _dispersion,
+         _magazine, _weapon, _rounds,
+        [[cos _rotation, sin _rotation],[-sin _rotation, cos _rotation]]] call FUNC(fireOnPos);
+    };
+    case ARTILLERY_MISSIONTYPE_SLOW: {
+        private _reloadTime = [_weapon] call FUNC(getArtyReloadTime);
+        _length = _length max (_reloadTime * _rounds);
+        private _intrRnd = _length / (_rounds + 1);
+        _gunIdx = _gunIdx max 0;
+        private _interRndStart = _intrRnd * (_gunIdx + random [0, 0.3 + random 0.4, 1]) / _nGuns;
+        [
+            {call FUNC(fireOnPos)},
+            [_gunner, _gun, _posATL, _dispersion, _magazine, _weapon, _rounds,
+            [[cos _rotation, sin _rotation],[-sin _rotation, cos _rotation]],
+            call CBA_fnc_players, _intrRnd],
+            _interRndStart
+        ] call CBA_fnc_waitAndExecute;
+    };
+    case ARTILLERY_MISSIONTYPE_BRACKET_SHOTS: {
+        private _targetArray = [];
+        private _playerArray = call CBA_fnc_players;
+        _rotation = 180 + _rotation;
+        {
+            _targetArray pushBack ([
+                _posATL, _x, _rotation, _playerArray
+            ] call FUNC(findSafeMortarPos));
+        } forEach ARTILLERY_POSITIONS_BRACKET(_dispersion);
+        [_gun, _targetArray, _magazine, _tof + 10] call FUNC(fireOnArray);
+    };
+    case ARTILLERY_MISSIONTYPE_LINEAR: {
+        [[_offset getPos [_dispersion, _rotation - 180],
+          _offset getPos [_dispersion, _rotation]],
+          _gun,
+          _magazine,
+          2 * _rounds,
+          1,
+          true
+        ] call FUNC(linearBarrage);
+    };
+    case ARTILLERY_MISSIONTYPE_CREEPING: {
+        [[_offset getPos [_dispersion, _rotation],
+            _offset getPos [_dispersion, 180 + _rotation]],
+            _gun,
+            _magazine,
+            _rounds,
+            2,
+            false
+        ] call FUNC(linearBarrage);
+    };
+    default {};
+};
