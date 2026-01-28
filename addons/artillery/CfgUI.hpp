@@ -152,7 +152,8 @@ class GVAR(ArtilleryDisplay) {
             tooltip = "Type of Round";
         };
         class RscText_dispersion: RscText_gunCount {
-            text = "Round Dispersion";
+            idc = IDC_ARTILLERY_DISPERSIONTXT;
+            text = "Round Dispersion: 60m";
             y = 0.51;
         };
         class RscSlider_dispersion: RscXSliderH {
@@ -166,7 +167,8 @@ class GVAR(ArtilleryDisplay) {
             onSliderPosChanged = QUOTE([ARR_2(_this,IDC_ARTILLERY_DISPERSION)] call FUNC(ui_updateArtillleryMenu););
         };
         class RscText_lineAngle: RscText_gunCount {
-            text = "Mission Rotation";
+            idc = IDC_ARTILLERY_ROTATIONTXT;
+            text = "Mission Rotation: 0";
             y = 0.62;
         };
         class RscSlider_angle: RscSlider_dispersion {

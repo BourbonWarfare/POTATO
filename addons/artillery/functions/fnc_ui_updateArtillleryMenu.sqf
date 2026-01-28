@@ -22,9 +22,13 @@ private _display = ctrlParent _ctrl;
 private _dims = _display getVariable [QGVAR(pos), [[0, 0, 0], 60, 0]];
 switch (_sliderUpdate) do {
     case IDC_ARTILLERY_DISPERSION: {
+        private _textCtrl = _display displayCtrl IDC_ARTILLERY_DISPERSIONTXT;
+        _textCtrl ctrlSetText format ["Round Dispersion: %1m", round _newValue];
         _dims set [1, _newValue/2];
     };
     case IDC_ARTILLERY_ROTATION: {
+        private _textCtrl = _display displayCtrl IDC_ARTILLERY_ROTATIONTXT;
+        _textCtrl ctrlSetText format ["Mission Rotation: %1", round _newValue];
         _dims set [2, _newValue];
     };
     case IDC_ARTILLERY_MISSIONTYPE;
