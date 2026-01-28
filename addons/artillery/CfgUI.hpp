@@ -243,9 +243,9 @@ class GVAR(ArtilleryDisplay) {
             };
             class TextPos {
                 bottom = 0;
-                left = "0.25 * (((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 40)";
+                left = QUOTE(0.25 * (((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 40));
                 right = 0.005;
-                top = "(((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) - (((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) * 1)) / 2";
+                top = QUOTE((((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) - (((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) * 1)) / 2);
                 forceMiddle = 1;
             };
         };
@@ -263,9 +263,9 @@ class GVAR(ArtilleryDisplay) {
             };
             class TextPos {
                 bottom = 0;
-                left = "0.25 * (((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 40)";
+                left = QUOTE(0.25 * (((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 40));
                 right = 0.005;
-                top = "(((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) - (((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) * 1)) / 2";
+                top = QUOTE((((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) - (((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) * 1)) / 2);
                 forceMiddle = 1;
             };
         };

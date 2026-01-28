@@ -30,7 +30,7 @@ params [
     ["_clientID", 0, [0]],
     ["_missionHashMap", createHashMap,  [createHashMap]]
 ];
-
+TRACE_3("addingMission",_missionID,_clientID,_missionHashMap);
 // extract params and check overall system
 if (_missionHashMap isEqualTo createHashMap) exitWith {
     if (_clientID > 1 || !isMultiplayer) then {
@@ -52,12 +52,9 @@ if (_magazine#1 == "")  exitWith {
     };
 };
 
-if (isNil QGVAR(nextArtyMissionAdvert)) then {
-    GVAR(nextArtyMissionAdvert) = -1;
-};
-
 private _missionDelay = _missionHashMap getOrDefault ["missionDelay", ARTILLERY_MISSION_MIN_DELAY];
 if (_missionDelay > ARTILLERY_MISSION_MIN_DELAY) exitWith {
+    TRACE_1("Delayed Mission",_missionDelay);
     _missionHashMap set ["missionDelay", ARTILLERY_MISSION_MIN_DELAY];
     [{call FUNC(addMission)}, _this,
     (_missionDelay - ARTILLERY_MISSION_MIN_DELAY) max 0] call CBA_fnc_waitAndExecute;
@@ -68,6 +65,7 @@ if (_missionID == "") then {
     if (isNil QGVAR(artilleryMissionItr)) then {GVAR(artilleryMissionItr) = 0;};
     _missionID = "unknown:" + str GVAR(artilleryMissionItr);
     GVAR(artilleryMissionItr) = GVAR(artilleryMissionItr) + 1;
+    TRACE_2("NewID",GVAR(artilleryMissionItr),_missionID);
 };
 
 if (isNil QGVAR(artilleryMissionCache)) then {
