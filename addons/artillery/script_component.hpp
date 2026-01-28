@@ -19,7 +19,7 @@ class GVARMAIN(DOUBLES(parent,noFrag)): parent {\
 class GVARMAIN(DOUBLES(parent,noSplash)): GVARMAIN(DOUBLES(parent,noFrag)) {\
     indirectHit = 0;\
     indirectHitRange = 0;\
-    hit = 1;\
+    hit = 8;\
 }
 
 #define CREATE_AMMOS_SUBMUNTION(parent,submuntion) CREATE_AMMOS(submuntion);\
