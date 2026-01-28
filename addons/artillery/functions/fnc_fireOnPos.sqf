@@ -1,13 +1,33 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Helper function that fires mortar rounds
-*
-* Arguments:
-* _tPos - target position
-* _dist - min distance from _tPos to search
-* _dir - direction from _tPos to search
-* _avoidList - list of targets to ignore
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * Recursive function that manages a single gun firing on an elliptical area
+ * using a specified magazine, gun, and gunner. A round delay can be specified,
+ * or if the delay is less than 0 the config value is used. The relevant
+ * artillery piece has it's magazines and weapons manipulated to load a single
+ * round and then fire that round within an ellipse. The number of rounds to
+ * fire, _rounds, is decremented each time the function calls itself
+ *
+ * Arguments:
+ * _gunner - The gunner of the artillery piece, OBJECT
+ * _artillery - The artillery piece to shoot, OBJECT
+ * _targetPoSAGL - The center of the target area in AGL format, ARRAY
+ * _radius - The major axis of the area to be fired on, NUMBBER
+ * _magazine - The magazine the artillery piece should fire, STRING
+ * _weapon - The weapon the artillery piece should fire, STRING
+ * _rounds - The number of rounds to fire, NUMBER
+ * _rotMat - A 2D rotation matrix to adjust the angle the beaten zone is shaped, ARRAY, default I
+ * _avoidList - A list of objects to avoid hitting. ARRAY, default []
+ * _roundDelay - Simulated time between shots. NUMBER, default -1
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * [gunner arty0, arty0, getPosATL player, 200, "artilleryMag", "artilleryWeapon", 10] call potato_artillery_fnc_fireOnPos;
+ *
+ * Public: No
+ */
 params [
   "_gunner",
   "_artillery",

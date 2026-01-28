@@ -1,41 +1,48 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Uses the artilleryFrame array to conduct counter battery
-* missions
-*
-*
-*   addMissionEventHandler ["ArtilleryShellFired", {
-*       params ["_vehicle", "", "", "_gunner"];
-*       if (side _gunner != west) exitWith {};
-*       if (isNil QGVAR(cBatHash)) then {
-*           GVAR(cBatHash) = createHashMap;
-*           [{call FUNC(counterBattery)}, 0, 30] call CBA_fnc_waitAndExecute;
-*       };
-*       private _pos = _vehicle getPos [random 50, random 360];
-*       private _notFound = true;
-*       {
-*           if (_pos inArea [_x, 100, 100, 0, true]) exitWith {
-*               (_y#0) pushBack _pos;
-*               _y set [1, CBA_missionTime];
-*               _notFound = false;
-*           };
-*       } forEach GVAR(cBatHash);
-*       if (_notFound) then {
-*           GVAR(cBatHash) set [_pos apply {200 * round (_x / 200)}, [[_pos], CBA_missionTime]];
-*       };
-*   }];
-*
-*
-*
-*
-*
-*
-* Arguments:
-* None
-*
-* Example:
-* [] call lmd_fnc_counterBattery;
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * This function relies on a populated hashmap of detected firing events from
+ * artillery and uses this information to fire a counter battery mission up to
+ * once ever three minutes. The mission size, target, and time to target relies
+ * on a threat value based on when rounds were last fired and how many rounds
+ * were fired within regions. These regions are composed of 200m x 200m zones
+ * and are cleared after five minutes of inactivity. The mission accuracy and
+ * dispersion is linked to number of rounds fired recently as well, resulting
+ * in a number of rounds being fired from an area gaining attention more
+ * quickly. In addition, under a certain threat level, no mission is called,
+ * typically this means 1-2 rounds every five minutes does not result in a
+ * counter battery barrage.
+ *
+ * Arguments:
+ * None
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * addMissionEventHandler ["ArtilleryShellFired", {
+ *     params ["_vehicle", "", "", "_gunner"];
+ *     if (side _gunner != west) exitWith {};
+ *     if (isNil QGVAR(cBatHash)) then {
+ *         GVAR(cBatHash) = createHashMap;
+ *         [{call potato_artillery_fnc_counterBattery}, 0, 30] call CBA_fnc_waitAndExecute;
+ *     };
+ *     private _pos = _vehicle getPos [random 50, random 360];
+ *     private _notFound = true;
+ *     {
+ *         if (_pos inArea [_x, 100, 100, 0, true]) exitWith {
+ *             (_y#0) pushBack _pos;
+ *             _y set [1, CBA_missionTime];
+ *             _notFound = false;
+ *         };
+ *     } forEach GVAR(cBatHash);
+ *     if (_notFound) then {
+ *         GVAR(cBatHash) set [_pos apply {200 * round (_x / 200)}, [[_pos], CBA_missionTime]];
+ *     };
+ * }];
+ *
+ * Public: No
+ */
 private _cBatHash = GVAR(cBatHash);
 if (isNil "_cBatHash") exitWith {
 };
@@ -128,7 +135,7 @@ private _immediateStrike = _sumValue > 10;
 if (_immediateStrike) then {_rad = _rad max 100;};
 [QGVAR(addMission), [
     profileName + ":" + str CBA_missionTime,
-    clientOwner,
+    -1,
     createHashMapFromArray [["gunCount", round linearConversion [50, 250, _rad, 2, 4]],
         ["position", _avgPos],
         ["roundType", [82, "CUP_8Rnd_82mm_Mo_shells_veh"]],

@@ -1,13 +1,20 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Updates artillery map
-*
-* Arguments:
-* None
-*
-* Example:
-* [] call lmd_fnc_ui_updateArtillleryMenu
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * This function handles updating slider text for the artillery menu.
+ *
+ * Arguments:
+ * _args - An array wit the control and new value for the control. ARRAY
+ * _sliderUpdate - The slider IDC that is being updated. SCALAR, default -1
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * Only called via callback
+ *
+ * Public: No
+ */
 params ["_args", ["_sliderUpdate", -1]];
 _args params ["_ctrl", "_newValue"];
 

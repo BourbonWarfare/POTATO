@@ -1,13 +1,20 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* This function handles updates to the mission delay slide bar.
-* It also updates the number next to the slider.
-*
-* Arguments:
-* _display - The display to initialize
-*
-* [_display] call lmd_fnc_ui_initRoundTypes
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * This function handles gathers relevant caliber and magazine information
+ * about guns to use for walking barrage width and other event params.
+ *
+ * Arguments:
+ * _display - The artillery menu display. DISPLAY, defaeult displayNull
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * Only called via callback
+ *
+ * Public: No
+ */
 params [["_display", displayNull, [displayNull]]];
 
 if (isNull _display) exitWith {};

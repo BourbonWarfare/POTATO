@@ -1,17 +1,23 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Selects and returns artillery pieces that can fire given
-* magazine at a given point ordered by TOF
-*
-* Arguments:
-* _targetAGL - Position (AGL) of the target
-* _magazine - Magazine desired to be fired
-*
-* Example:
-* [[12,42,0], "8Rnd_82mm_Mo_Smoke_white"] call lmd_fnc_selectCanFireRound;
-*//**************************************************************/
-
-// Initialization
+/*
+ * Author: Lambda.Tiger
+ * Selects and returns artillery pieces from the local artillery pool that can
+ * fire a given magazine at an array of target positions point ordered by TOF.
+ * This function will add and remove magazines from the vehicles as there must
+ * be one for the getArtilleryETA command to work.
+ *
+ * Arguments:
+ * _targetsAGL - Positions (AGL) to check against. ARRAY of positions (AGL), default []
+ * _magazine - The magaine that the artillery gun should attempt to fire at the targets. STRING
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * [[12,42,0], getPosATL player], "8Rnd_82mm_Mo_Smoke_white"] call potato_artillery_fnc_selectCanFireRound;
+ *
+ * Public: No
+ */
 params [["_targetsAGL", [], [[]]], "_magazine"];
 
 if (isNil QGVAR(artilleryGunArray)) exitWith {

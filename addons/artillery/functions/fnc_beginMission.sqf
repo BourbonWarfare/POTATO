@@ -1,21 +1,27 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Selects and returns artillery pieces that can fire given
-* magazine at a given point ordered by TOF
-*
-* Arguments:
-* _targetAGL - Position (AGL) of the target
-* _magazine - Magazine desired to be fired
-*
-* Example:
-* [[12,42,0], "8Rnd_82mm_Mo_Smoke_white"] call lmd_fnc_addNewMission;
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * This function beginning a mission, it will begin by pulling the mission from
+ * the local hash. If no guns are able to participate in the mission, the
+ * mission fails to run and a notification is sent if clientID is valid. Guns
+ * are then chosen from possible guns, as well as guns to release from the
+ * mission. Depending on the mission type a call is made to the guns involved
+ * and the rest of the guns are released from a temporary hold.
+ *
+ * Arguments:
+ * _missionID - A unique string for the mission, these are not purged, STRING, default ""
+ *
+ * Example:
+ * ["lambda123"] call potato_artillery_fnc_beginMission;
+ *
+ * Public: No
+ */
 params [["_missionID", "", [""]]];
 
 if (_missionID == "" || !(_missionID in GVAR(artilleryMissionCache))) exitWith {};
 (GVAR(artilleryMissionCache) getOrDefault [_missionID, []]) params [
     ["_clientID", 2],
-    "_possibleGuns",
+    ["_possibleGuns", []],
     "_roundType",
     ["_centerPosATL", [0, 0, 0]],
     ["_gunCount", 2],

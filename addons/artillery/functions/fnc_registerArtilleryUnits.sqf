@@ -1,15 +1,24 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Adds artillery to pool for artillery missions.
-*
-* Arguments:
-* _posAGL - Position to search near for artillery pieces
-* _attachedObject - Artillery piece to add
-*
-* Example:
-* [getpos target, objNull] call lmd_fnc_registerArtilleryUnits;
-* [[0, 0, 0], _myMortar] call lmd_fnc_registerArtilleryUnits;
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * Adds nearby or a specific artillery piece to the local pool of artillery
+ * guns for artillery missions. It takes a position to search near and a
+ * specific object. If the object is not defined or null, a search within
+ * 50m of _posAGL will be conducted for valid artillery guns. To be a valid gun
+ * the vehicle must have the artilleryScanner component that allows AI to fire.
+ *
+ * Arguments:
+ * _posAGL - Position to search near for artillery pieces in AGL format. ARRAY
+ * _attachedObject - A specific artillery gun to add to the artillery pool.
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * [getPosATL player] call potato_artillery_fnc_registerArtilleryUnits;
+ *
+ * Public: No
+ */
 params [
   "_posAGL",
   ["_attachedObject", objNull]

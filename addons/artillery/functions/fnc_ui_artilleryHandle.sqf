@@ -1,15 +1,22 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* This function handles the artillery menu both opening and closing,
-* including making relevant calls on close and creating markers on open
-*
-* Arguments:
-* _isClosing - True if dialog is closing
-* _eventArgs - Array of arguments depending on state
-*
-* Only called via callback
-*//**************************************************************/
-
+/*
+ * Author: Lambda.Tiger
+ * This function handles the artillery menu both opening and closing,
+ * including making relevant calls on close and creating markers on open
+ *
+ * Arguments:
+ * _isClosing - True if dialog is closing. BOOLEAN
+ * _eventArgs - Array of arguments depending on state. ARRAY
+ * _initPos - The intial position to open the map to. ARRAY, default [0,0,0]
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * Only called via callback
+ *
+ * Public: No
+ */
 params ["_isClosing", "_eventArgs", ["_initPos", [0, 0, 0], [[]]]];
 
 if (_isClosing) then {

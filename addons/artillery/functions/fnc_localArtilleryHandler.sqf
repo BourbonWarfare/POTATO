@@ -1,15 +1,39 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Selects and returns artillery pieces that can fire given
-* magazine at a given point ordered by TOF
-*
-* Arguments:
-* _targetAGL - Position (AGL) of the target
-* _magazine - Magazine desired to be fired
-*
-* Example:
-* [[12,42,0], "8Rnd_82mm_Mo_Smoke_white"] call lmd_fnc;
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * Local handler to task artillery guns.
+ * This function takes a mission ID, a list of artillery pieces,
+ * a new status for the guns, and then extra mission parameters.
+ * It uses these to assign a state to the gun, one of:
+ * ARTILLERY_MISSION_STATUS_WAIT
+ *   Wait for a time specified in _details to decide whether the gun is being
+ *   used for a mission, or to wait for a follow-on fire mission.
+ * ARTILLERY_MISSION_STATUS_ASSIGN
+ *   The gun is definiteyl assigned to a mission and will wait to be provided
+ *   further mission details, by default the max waiting time is five minutes.
+ *   _details provides missionID and maximum hold time
+ * ARTILLERY_MISSION_STATUS_FIRING
+ *   This assigns the gun to the firing state and begins a fire mission.
+ *   _details contains a number of mission parameters see line 83
+ * ARTILLERY_MISSION_STATUS_FREE
+ *   Frees the gun from other status, readying it to be selected for
+ *   future missions.
+ *
+ * Arguments:
+ * _missionID - Unique fire mission ID. STRING, default ""
+ * _artyPieces - All artillery pieces assigned to the mission, including non-local.
+ *               ARRAY of objects, default []
+ * _newStatus - The new state the artillery pieces should enter. SCALAR, default ARTILLERY_MISSION_STATUS_FREE
+ * _details - State details, see above. ARRAY, default []
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * ["lambda123",[arty0],ARTILLERY_MISSION_STATUS_FREE] call potato_artillery_fnc_localArtilleryHandler;
+ *
+ * Public: No
+ */
 params [
     ["_missionID", "", [""]],
     ["_artyPieces", [], [[]]],

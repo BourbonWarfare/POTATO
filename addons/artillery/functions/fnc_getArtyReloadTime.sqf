@@ -1,13 +1,19 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Get the time reload time for shells between
-*
-* Arguments:
-* _weaponType - CfgWeapons class for the artillery piece
-*
-* Example:
-* private _reloadTime = ["CUP_Vcannon_D30_veh"] call FUNC(getArtyReloadTime);
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * Cache function that checks a weapon's minimum reload time
+ *
+ * Arguments:
+ * _weaponType - CfgWeapons class for the artillery piece, STRING
+ *
+ * Return:
+ * SCALAR - Minimum reload time
+ *
+ * Example:
+ * ["CUP_Vcannon_D30_veh"] call potato_artillery_fnc_getArtyReloadTime;
+ *
+ * Public: No
+ */
 params ["_weaponType"];
 
 if (isNil QGVAR(vehicleReloadCache)) then {

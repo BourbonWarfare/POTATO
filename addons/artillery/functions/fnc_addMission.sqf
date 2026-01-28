@@ -1,28 +1,44 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Selects and returns artillery pieces that can fire given
-* magazine at a given point ordered by TOF
-*
-* Arguments:
-* _targetAGL - Position (AGL) of the target
-* _magazine - Magazine desired to be fired
-*
-* Example:
-* [[12,42,0], "8Rnd_82mm_Mo_Smoke_white"] call lmd_fnc_addNewMission;
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * This function handles adding missions on the server. It parses some basic
+ * information from the mission hashmap and then creates a mission entry.
+ * The function may delay it's own call by the mission delay. Once an entry
+ * is created a call is sent out for every client to report any guns that
+ * could participate in the mission for the main handler to take care of.
+ * Sometimes mission require multiple states, in this case a secondary mission
+ * is created with relevant follow-on missions queued to be called on
+ * completion. Finally this function will call the begin mission function after
+ * a delay. The current delay is about five seconds, allowing for enough time
+ * for all clients to respond.
+ *
+ * Arguments:
+ * _missionID - A unique string for the mission, these are not purged, STRING, default ""
+ * _clientID - Numberic client ID of the machine requesting the mission,
+ *             values below 1 supress status messages, NUMBER, default 0
+ * _missionHashMap - A mission hashmap with a few different settings for the
+ *                   the mission, requires at least "position" and "roundType"
+ *                   HASHMAP, default createHashMap
+ *
+ * Example:
+ * ["lambda123", clientOwner lambda, _missionHash] call potato_artillery_fnc_addMission;
+ *
+ * Public: No
+ */
 params [
     ["_missionID", "", [""]],
     ["_clientID", 0, [0]],
     ["_missionHashMap", createHashMap,  [createHashMap]]
 ];
 
+// extract params and check overall system
 if (_missionHashMap isEqualTo createHashMap) exitWith {
     if (_clientID > 1 || !isMultiplayer) then {
         ["Invalid artillery mission recieved"] remoteExec ["systemChat", _clientID];
     };
 };
-private _positionATL = _missionHashMap getOrDefault ["position", [0, 0, 0]];
 
+private _positionATL = _missionHashMap getOrDefault ["position", [0, 0, 0]];
 if (_positionATL isEqualTo [0, 0, 0]) exitWith {
     if (_clientID > 1 || !isMultiplayer) then {
         ["Invalid artillery mission position"] remoteExec ["systemChat", _clientID];

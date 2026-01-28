@@ -1,15 +1,36 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Selects and returns artillery pieces that can fire given
-* magazine at a given point ordered by TOF
-*
-* Arguments:
-* _targetAGL - Position (AGL) of the target
-* _magazine - Magazine desired to be fired
-*
-* Example:
-* [[12,42,0], "8Rnd_82mm_Mo_Smoke_white"] call lmd_fnc_addNewMission;
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * Local handler to start artillery guns onto an artillery mission.
+ * This function takes a number of paramters and uses _missionType to start
+ * a specific type of mission using the parameters. If an invalid missionType
+ * is given or hte gunner of the gun is not local, the function exits. If the
+ * gunner is local, then the function will rotate the artillery piece using
+ * setDir and remove all magazines from turret path [0].
+ *
+ * Arguments:
+ * _gun - The gun (vehicle) firing in the mission. OBJECT, default objNull
+ * _offset - Position offset of the main fire mission target. ARRAY, default [0,0,0]
+ * _missionType - The mission type, prefence is defined types. SCALAR, default ARTILLERY_MISSIONTYPE_POINT
+ * _magazine - Magazine the artillery piece should fire. STRING
+ * _posATL - Position in ATL format the center of the mission occurs at. ARRAY
+ * _dispersion - Round dispersion, typically the major radius of the fire mission. SCALAR, default 60
+ * _rotation - Rotation in degrees of the mission. SCALAR, default 0
+ * _avoidPlayers - Attempt to avoid players, currently does nothing. BOOLEAN, true
+ * _rounds - The number of rounds a gun should fire. SCALAR, default 4
+ * _tof - Time of flight or other timing params, calculated by server. SCALAR, default -1
+ * _gunIdx - An index of which gun is given, used for slow barrages. SCALAR, default 0
+ * _nGuns - Number of guns involved in the mission, used in slow barrages. SCALAR, default 1
+ * _length - Length of the mission in seconds, used in slow barrages. SCALAR, default 180
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * [_arty0, [0,0,0], ARTILLERY_MISSIONTYPE_POINT, "8Rnd_82mm_Mo_Smoke_white", getPosATL palyer] call potato_artillery_fnc_localmissionInit;
+ *
+ * Public: No
+ */
 params [
     ["_gun", objNull, [objNull]],
     ["_offset", [0, 0, 0], [[]]],

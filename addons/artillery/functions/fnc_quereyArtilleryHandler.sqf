@@ -1,16 +1,33 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Author: Lambda.Tiger
-* Description:
-* This function finds all available artillery pieces and
-*
-* Arguments:
-* _missionName - Name of the mission in
-* _magazine - Magazine desired to be fired
-*
-* Example:
-* ["mission0", "8Rnd_82mm_Mo_Smoke_white", [getPosATL player, getPosATL car], 5] call lmd_fnc_quereyArtilleryHandler;
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * This functio takes a mission ID, magazine, array of taret positions, the
+ * number of guns requested, and a hold time to send a list of valid guns to
+ * the server. The function itself should be called on server request.
+ * The mission name is used to reserve guns for specific missions and the
+ * requested magazine is used to both decide if the gun is in range and can
+ * fire the desired rounds. The array of target positions generally define
+ * the area the mission will take place in. The list of valid guns is limited
+ * to _gunCount, and the guns returned to the server are reserved for the
+ * possible fire mission for _holdTime seconds.
+ *
+ * Arguments:
+ * _missionName - The unique mission ID. STRING, default ""
+ * _magazine - The magazine desired to be fired. STRING, default ""
+ * _targPosesATL - An array of positions the gun will be asked to fire on in
+                   ATL format. ARRAY, default []
+ * _gunCount - The number of guns requested. SCALAR, default 1
+ * _holdTime - Time to wait before releasing a valid gun back into the fire
+               mission pool. SCALAR, default 30
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * ["lambda123", "8Rnd_82mm_Mo_Smoke_white", [getPosATL player, getPosATL car], 5]] call potato_artillery_fnc_quereyArtilleryHandler;
+ *
+ * Public: No
+ */
 params [
     ["_missionName", "", [""]],
     ["_magazine", "", [""]],

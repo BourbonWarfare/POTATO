@@ -1,14 +1,30 @@
 #include "..\script_component.hpp"
-/**************************************************************//*
-* Helper function that fires mortar rounds
-*
-* Arguments:
-* _artilleryPiece - artillery piece to fire
-* _targetse - Array of positions to hit
-* _mag - magazine to fires
-* _roundDelay - simulated time between shots, minimum of 5
-* _cleanUp - Should reset tags on unit
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * Recursive function that manages a single gun firing on an array of targets
+ * positions using a specified magazine. A round delay can be specified, or
+ * if the delay is less than 0 the config value is used. The relevant artillery
+ * piece has it's magazines and weapons manipulated to load a single round
+ * and then fire that round. The target array, conceptually a stack, is
+ * used from the end to the front, removing each last element and using it
+ * to target a round. When the _targets array is empty the function will
+ * no longer call itself.
+ *
+ * Arguments:
+ * _artillery - The artillery piece to shoot, OBJECT
+ * _targets - An array of positions to fire on, ARRAY of posAGL
+ * _mag - The magazine the artillery piece should fire, STRING
+ * _roundDelay - Simulated time between shots. NUMBER, default -1
+ * _cleanUp - Should reset gun tags on mission compelte. BOOLEAN, default true
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * [arty0, [getPosATL player], "relevantArtyMag"] call potato_artillery_fnc_fireOnArray;
+ *
+ * Public: No
+ */
 params [
   "_artillery",
   "_targets",

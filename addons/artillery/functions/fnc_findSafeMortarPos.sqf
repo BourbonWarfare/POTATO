@@ -1,12 +1,22 @@
-/**************************************************************//*
-* Helper function that finds mortar points far from avoid list
-*
-* Arguments:
-* _tPos - target position
-* _dist - min distance from _tPos to search
-* _dir - direction from _tPos to search
-* _avoidList - list of targets to ignore
-*//**************************************************************/
+/*
+ * Author: Lambda.Tiger
+ * Helper function that finds artillery positions far from objects
+ * on the avoid list
+ *
+ * Arguments:
+ * _tPos - target position, ARRAY, posATL
+ * _dist - min distance from _tPos to search, NUMBER
+ * _dir - direction from _tPos to search, NUMBER
+ * _avoidList - list of targets to ignore, ARRAY
+ *
+ * Return:
+ * None
+ *
+ * Example:
+ * [getPosATL player, 250, 90, [player]] call potato_artillery_fnc_findSafeMortarPos;
+ *
+ * Public: No
+ */
 params ["_tPos", "_dist", "_dir", "_avoidList"];
 
 private _farEnough = true;
