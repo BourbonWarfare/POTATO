@@ -37,7 +37,7 @@ _roundType params ["_caliber", "_magazine"];
 
 if (_possibleGuns isEqualTo []) exitWith {
     if (_clientID > 2 || is3DENPreview) then {
-        ["artyNoGunsNotif"] remoteExecCall ["BIS_fnc_showNotification", _clientID];
+        [QGVAR(artyNoGunsNotif)] remoteExecCall ["BIS_fnc_showNotification", _clientID];
     };
 };
 
@@ -217,7 +217,7 @@ if (_clientID > 2 || is3DENPreview) then {
         case ARTILLERY_MISSIONTYPE_SLOW: {"Slow Barrage"};
         default {"Err"};
     };
-    ["artyNotif", [format ["Beginning %1 using %2 rounds [%3x %4mm]",
+    [QGVAR(artyNotif), [format ["Beginning %1 using %2 rounds [%3x %4mm]",
         _missionTypeStr,
         getText (configFile >> "CfgMagazines" >> _magazine >> "displayNameShort"),
         _gunCount,
