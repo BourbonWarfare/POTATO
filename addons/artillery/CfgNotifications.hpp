@@ -6,7 +6,7 @@ class CfgNotifications {
         iconPicture = "\a3\ui_f\data\gui\cfg\hints\icon_text\b_artillery_ca.paa";
         description = "%1";
     };
-    class artyNoGunsNotif: EGVAR(missionModules,baseNotif) {
+    class artyNoGunsNotif: artyNotif {
         description = "No guns available for requested mission";
     };
 };
