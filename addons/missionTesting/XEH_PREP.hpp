@@ -1,7 +1,7 @@
 TRACE_1("",QUOTE(ADDON));
 
 PREP(displayMenu);
-PREP(openMenuFromZues);
+PREP(openMenuFromZeus);
 
 PREP(openBriefings);
 PREP(briefingsChangeSide);

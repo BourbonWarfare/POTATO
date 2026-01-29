@@ -1,11 +1,11 @@
 /*
  * Author: BadWolf
- * Function is called by the user at the time that they want to use the checklist. This is only called if opened from Zues.
+ * Function is called by the user at the time that they want to use the checklist. This is only called if opened from Zeus.
  *
  * Arguments:
  *
  * Examples:
- * [_logic] call potato_missionTesting_fnc_openMenuFromZues;
+ * [_logic] call potato_missionTesting_fnc_openMenuFromZeus;
  *
  * Public: No
  */
