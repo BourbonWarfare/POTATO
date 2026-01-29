@@ -24,7 +24,7 @@ private _admin = nil;
 private _sideBriefEnemyInfo = "";
 private _sideBriefIntent = "";
 private _weaponsReport = nil;
-private _zuesIntent = getMissionConfigValue [QEGVAR(briefing,zeusintent), ""];
+private _zeusIntent = getMissionConfigValue [QEGVAR(briefing,zeusintent), ""];
 private _reportArray = [];
 
 if (!isNil QGVAR(TestRan)) then {
@@ -73,7 +73,7 @@ for "_i" from 0 to 13 do {
     _controls pushBack (DISPLAY_BRIEF displayCtrl (IDC_BREIFING + _i));
 };
 private _textArray = [
-    "Zues Intent",_zuesIntent,
+    "Zeus Intent",_zeusIntent,
     "Situation",_situation,
     "Mission",_mission,
     "Administration",_admin,
