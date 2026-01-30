@@ -27,7 +27,7 @@ if (isNil QGVAR(vehicleMagazineCache)) then {
 };
 private _type = typeOf _artilleryPiece;
 _magazine in (GVAR(vehicleMagazineCache) getOrDefaultCall [_type, {
-    if (isNil QGVAR(vehicleWeaponCache)) then {GVAR(vehicleMagazineCache) = createHashMap;};
+    if (isNil QGVAR(vehicleWeaponCache)) then {GVAR(vehicleWeaponCache) = createHashMap;};
     private _weapon = GVAR(vehicleWeaponCache) getOrDefaultCall [_type, {
         private _cfg = (configOf _artilleryPiece) >> "Turrets";
         private _turret = 0;
