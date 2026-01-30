@@ -1,5 +1,10 @@
 
 PREP(addMission);
+PREP(artyRndAttributeArrow);
+PREP(artyRndAttributeDblClick);
+PREP(artyRndAttributeKevEvent);
+PREP(artyRndAttributeLoad);
+PREP(artyRndAttributeSave);
 PREP(beginMission);
 PREP(canFireRound);
 PREP(counterBattery);
@@ -10,6 +15,9 @@ PREP(getArtyReloadTime);
 PREP(linearBarrage);
 PREP(localArtilleryHandler);
 PREP(localMissionInit);
+PREP(moduleArtyMagInit);
+PREP(moduleOpenDialog);
+PREP(moduleRegisterArty);
 PREP(quereyArtilleryHandler);
 PREP(registerArtilleryUnits);
 PREP(selectCanFireRound);

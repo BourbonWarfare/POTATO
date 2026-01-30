@@ -2,7 +2,7 @@
 #include "\z\potato\addons\core\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
-// #define DISABLE_COMPILE_CACHE
+#define DISABLE_COMPILE_CACHE
 // #define ENABLE_PERFORMANCE_COUNTERS
 
 #ifdef DEBUG_ENABLED_ADMINCOMS
@@ -101,3 +101,9 @@ class GVARMAIN(DOUBLES(baseMagazine,noSplash)): baseMagazine {\
 
 #define ARTILLERY_POSITIONS_LAZYADJUST [150, 300, 500]
 #define ARTILLERY_POSITIONS_BRACKET(dispersion) [200 max dispersion, -(200 max dispersion), -500]
+
+//// Zeus and Editor modules
+#define ARTILLERY_EDITOR_ROUND_ATTRIBUTE 260128
+#define ARTILLERY_EDITOR_ROUND_LISTBOX 2300
+#define ARTILLERY_EDITOR_ROUND_LEFTARROW 2301
+#define ARTILLERY_EDITOR_ROUND_RIGHTARROW 2302
