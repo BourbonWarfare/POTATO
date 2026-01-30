@@ -19,7 +19,7 @@ if (GVAR(enable)) then {
                     GVAR(artilleryMissionCache) = createHashMap;
                 };
                 (GVAR(artilleryMissionCache) getOrDefault [_missionID, []]) params [
-                    "", "", "", "", "", "", "", "", "", "", ["_parentMission", "", [""]]
+                    "", "", "", "", "", "", "", "", "", "", "", ["_parentMission", "", [""]]
                 ];
                 if (_parentMission != "") then {
                     [_parentMission] call FUNC(beginMission);

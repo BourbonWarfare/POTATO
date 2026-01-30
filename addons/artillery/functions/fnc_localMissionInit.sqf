@@ -58,12 +58,12 @@ private _magazinesToRemove = _gun magazinesTurret [0];
 {_gun removeMagazinesTurret [_x, [0]]} count _magazinesToRemove;
 
 // save weapon parameters
-private _weapon = GVAR(vehicleWeaponCache) getOrDefaultCall [typeOf _gun, {
+(GVAR(vehicleWeaponCache) getOrDefaultCall [typeOf _gun, {
     private _cfg = (configOf _gun) >> "Turrets";
     private _turret = 0;
     while {getNumber ((_cfg select _turret) >> "primaryGunner") == 0} do {_turret = _turret + 1;};
     (_gun weaponsTurret [_turret])#0
-}, true];
+}, true]) params ["_weapon", "_turret"];
 
 // Fire barrage
 switch (_missionType) do {
@@ -79,7 +79,7 @@ switch (_missionType) do {
     case ARTILLERY_MISSIONTYPE_LAZY_BARRAGE;
     case ARTILLERY_MISSIONTYPE_POINT: {
         [_gunner, _gun, _posATL, _dispersion,
-         _magazine, _weapon, _rounds,
+         _magazine, [_weapon, _turret], _rounds,
         [[cos _rotation, sin _rotation],[-sin _rotation, cos _rotation]]] call FUNC(fireOnPos);
     };
     case ARTILLERY_MISSIONTYPE_SLOW: {
@@ -90,7 +90,7 @@ switch (_missionType) do {
         private _interRndStart = _intrRnd * (_gunIdx + random [0, 0.3 + random 0.4, 1]) / _nGuns;
         [
             {call FUNC(fireOnPos)},
-            [_gunner, _gun, _posATL, _dispersion, _magazine, _weapon, _rounds,
+            [_gunner, _gun, _posATL, _dispersion, _magazine, [_weapon, _turret], _rounds,
             [[cos _rotation, sin _rotation],[-sin _rotation, cos _rotation]],
             call CBA_fnc_players, _intrRnd],
             _interRndStart
@@ -105,6 +105,7 @@ switch (_missionType) do {
                 _posATL, _x, _rotation, _playerArray
             ] call FUNC(findSafeMortarPos));
         } forEach ARTILLERY_POSITIONS_BRACKET(_dispersion);
+        systemChat str _targetArray;
         [_gun, _targetArray, _magazine, _tof + 10] call FUNC(fireOnArray);
     };
     case ARTILLERY_MISSIONTYPE_LINEAR: {

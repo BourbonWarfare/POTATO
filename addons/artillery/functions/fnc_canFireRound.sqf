@@ -32,7 +32,7 @@ _magazine in (GVAR(vehicleMagazineCache) getOrDefaultCall [_type, {
         private _cfg = (configOf _artilleryPiece) >> "Turrets";
         private _turret = 0;
         while {getNumber ((_cfg select _turret) >> "primaryGunner") == 0} do {_turret = _turret + 1;};
-        (_artilleryPiece weaponsTurret [_turret])#0
+        [(_artilleryPiece weaponsTurret [_turret])#0, [_turret]]
     }, true];
-	compatibleMagazines _weapon
+	compatibleMagazines (_weapon#0)
 }, true])

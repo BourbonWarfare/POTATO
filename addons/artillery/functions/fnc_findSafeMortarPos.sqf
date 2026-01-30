@@ -20,18 +20,19 @@
 params ["_tPos", "_dist", "_dir", "_avoidList"];
 
 private _farEnough = true;
+private _mTarg = _tPos getPos [_dist + (random 50), _dir + (random 40)];
 {
-  if (_x distance2D _tPos < 50) then
+  if (_x distance2D _mTarg < 50) then
   {
     _farEnough = false;
     break;
   };
 } forEach _avoidList;
-if (_farEnough) exitWith {_tPos};
+if (_farEnough) exitWith {_mTarg};
 
 _dir = _dir - 20;
 
-private _mTarg = _tPos getPos [_dist + (random 50), _dir + (random 40)];
+_mTarg = _tPos getPos [_dist + (random 50), _dir + (random 40)];
 {
   if (_x distance2D _mTarg < 50) then
   {

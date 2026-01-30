@@ -6,6 +6,8 @@ class RscMapControl;
 class RscXSliderH;
 class RscText;
 
+#define safeZoneW_POT 2.83769
+#define safezoneH_POT 2.12733
 
 class GVAR(ArtilleryDisplay) {
     idd = IDD_ARTILLERY_MENU;
@@ -245,9 +247,9 @@ class GVAR(ArtilleryDisplay) {
             };
             class TextPos {
                 bottom = 0;
-                left = QUOTE(0.25 * (((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 40));
+                left = QUOTE(0.25 * (((safeZoneW_POT / safezoneH_POT) min 1.2) / 40));
                 right = 0.005;
-                top = QUOTE((((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) - (((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) * 1)) / 2);
+                top = QUOTE((((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) - (((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) * 1)) / 2);
                 forceMiddle = 1;
             };
         };
@@ -265,9 +267,9 @@ class GVAR(ArtilleryDisplay) {
             };
             class TextPos {
                 bottom = 0;
-                left = QUOTE(0.25 * (((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 40));
+                left = QUOTE(0.25 * (((safeZoneW_POT / safezoneH_POT) min 1.2) / 40));
                 right = 0.005;
-                top = QUOTE((((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) - (((((safeZoneW_LMD / safezoneH_LMD) min 1.2) / 1.2) / 25) * 1)) / 2);
+                top = QUOTE((((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) - (((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) * 1)) / 2);
                 forceMiddle = 1;
             };
         };
