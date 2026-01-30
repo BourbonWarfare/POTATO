@@ -92,7 +92,7 @@ private _missionInfo = [
     _clientID, [], _magazine, _positionATL,
     _gunCount,
     _missionType,
-    _missionHashMap getOrDefault ["dispersion", 60],
+    _missionHashMap getOrDefault ["dispersion", 100],
     _missionHashMap getOrDefault ["rotation", 0],
     _missionHashMap getOrDefault ["avoidPlayers", true],
     _missionHashMap getOrDefault ["missionLength", 4],

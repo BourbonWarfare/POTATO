@@ -19,7 +19,7 @@ params ["_args", ["_sliderUpdate", -1]];
 _args params ["_ctrl", "_newValue"];
 
 private _display = ctrlParent _ctrl;
-private _dims = _display getVariable [QGVAR(pos), [[0, 0, 0], 60, 0]];
+private _dims = _display getVariable [QGVAR(pos), [[0, 0, 0], 100, 0]];
 switch (_sliderUpdate) do {
     case IDC_ARTILLERY_DISPERSION: {
         private _textCtrl = _display displayCtrl IDC_ARTILLERY_DISPERSIONTXT;

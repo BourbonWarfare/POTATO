@@ -153,7 +153,7 @@ class GVAR(ArtilleryDisplay) {
         };
         class RscText_dispersion: RscText_gunCount {
             idc = IDC_ARTILLERY_DISPERSIONTXT;
-            text = "Round Dispersion: 60m";
+            text = "Round Dispersion: 100m";
             y = 0.51;
         };
         class RscSlider_dispersion: RscXSliderH {
@@ -162,7 +162,7 @@ class GVAR(ArtilleryDisplay) {
             y = 0.52;
             w = 0.4;
             h = 0.04;
-            sliderPosition = 60;
+            sliderPosition = 100;
             sliderRange[] = {10, 600};
             onSliderPosChanged = QUOTE([ARR_2(_this,IDC_ARTILLERY_DISPERSION)] call FUNC(ui_updateArtillleryMenu););
         };

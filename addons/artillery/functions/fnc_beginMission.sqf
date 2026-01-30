@@ -26,7 +26,7 @@ if (_missionID == "" || !(_missionID in GVAR(artilleryMissionCache))) exitWith {
     ["_centerPosATL", [0, 0, 0]],
     ["_gunCount", 2],
     "_missionType",
-    ["_dispersion", 60],
+    ["_dispersion", 100],
     ["_rotation", 0],
     ["_avoidPlayers", false],
     ["_roundCount", 4],

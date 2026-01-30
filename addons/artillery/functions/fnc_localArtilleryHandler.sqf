@@ -85,7 +85,7 @@ switch (_newStatus) do {
             ["_posATL", [0, 0, 0], [[]]],
             ["_rounds", 4, [4]],
             ["_avoidPlayers", true, [true]],
-            ["_dispersion", 60, [60]],
+            ["_dispersion", 100, [100]],
             ["_rotation", 0, [0]],
             ["_tofMax", -1, [-1]],
             ["_length", 180, [180]]

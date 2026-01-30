@@ -14,7 +14,7 @@
  * _missionType - The mission type, prefence is defined types. SCALAR, default ARTILLERY_MISSIONTYPE_POINT
  * _magazine - Magazine the artillery piece should fire. STRING
  * _posATL - Position in ATL format the center of the mission occurs at. ARRAY
- * _dispersion - Round dispersion, typically the major radius of the fire mission. SCALAR, default 60
+ * _dispersion - Round dispersion, typically the major radius of the fire mission. SCALAR, default 100
  * _rotation - Rotation in degrees of the mission. SCALAR, default 0
  * _avoidPlayers - Attempt to avoid players, currently does nothing. BOOLEAN, true
  * _rounds - The number of rounds a gun should fire. SCALAR, default 4
@@ -37,7 +37,7 @@ params [
     ["_missionType", ARTILLERY_MISSIONTYPE_POINT, [ARTILLERY_MISSIONTYPE_POINT]],
     "_magazine",
     "_posATL",
-    ["_dispersion", 60, [60]],
+    ["_dispersion", 100, [100]],
     ["_rotation", 0, [0]],
     ["_avoidPlayers", true, [true]],
     ["_rounds", 4, [4]],
