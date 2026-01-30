@@ -12,7 +12,7 @@
  * _gunner - The gunner of the artillery piece, OBJECT
  * _artillery - The artillery piece to shoot, OBJECT
  * _targetPoSAGL - The center of the target area in AGL format, ARRAY
- * _radius - The major axis of the area to be fired on, NUMBBER
+ * _radius - The minor axis of the area to be fired on, NUMBBER
  * _magazine - The magazine the artillery piece should fire, STRING
  * _weapon - The weapon the artillery piece should fire, STRING
  * _rounds - The number of rounds to fire, NUMBER
