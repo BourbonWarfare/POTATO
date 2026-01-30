@@ -26,7 +26,7 @@ if (isNil QGVAR(artilleryGunArray)) exitWith {
 
 // update artillery array contents to
 GVAR(artilleryGunArray) = GVAR(artilleryGunArray) select {
-    alive _x && local _x && alive gunner _x
+    alive _x && local _x && alive gunner _x && !isPlayer gunner _x
 };
 
 private _viableArty = GVAR(artilleryGunArray) select {
