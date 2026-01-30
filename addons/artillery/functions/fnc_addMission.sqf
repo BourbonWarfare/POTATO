@@ -167,9 +167,10 @@ switch (_missionType) do { // Add extra points
     };
     case ARTILLERY_MISSIONTYPE_BRACKET: {
         private _dir = 180 + _missionInfo#7;
+        private _dispersion = _missionHashMap getOrDefault ["dispersion", 100];
         {
             _targetBounds pushBack (_positionATL getPos [_x, _dir]);
-        } forEach ARTILLERY_POSITIONS_BRACKET(0);
+        } forEach ARTILLERY_POSITIONS_BRACKET(_dispersion);
     };
     case ARTILLERY_MISSIONTYPE_LINEAR: {
         private _dir = 180 + _missionInfo#7;
