@@ -25,8 +25,14 @@ if (!alive _artilleryPiece ||
 if (isNil QGVAR(vehicleMagazineCache)) then {
     GVAR(vehicleMagazineCache) = createHashMap;
 };
-
-_magazine in (GVAR(vehicleMagazineCache) getOrDefaultCall [typeOf _artilleryPiece, {
-    private _weapon = (_artilleryPiece weaponsTurret [0])#0;
-    compatibleMagazines _weapon
+private _type = typeOf _artilleryPiece;
+_magazine in (GVAR(vehicleMagazineCache) getOrDefaultCall [_type, {
+    if (isNil QGVAR(vehicleWeaponCache)) then {GVAR(vehicleMagazineCache) = createHashMap;};
+    private _weapon = GVAR(vehicleWeaponCache) getOrDefaultCall [_type, {
+        private _cfg = (configOf _artilleryPiece) >> "Turrets";
+        private _turret = 0;
+        while {getNumber ((_cfg select _turret) >> "primaryGunner") == 0} do {_turret = _turret + 1;};
+        (_artilleryPiece weaponsTurret [_turret])#0
+    }, true];
+	compatibleMagazines _weapon
 }, true])

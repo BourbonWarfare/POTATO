@@ -58,7 +58,12 @@ private _magazinesToRemove = _gun magazinesTurret [0];
 {_gun removeMagazinesTurret [_x, [0]]} count _magazinesToRemove;
 
 // save weapon parameters
-private _weapon = (weapons _gun)#0;
+private _weapon = GVAR(vehicleWeaponCache) getOrDefaultCall [typeOf _gun, {
+    private _cfg = (configOf _gun) >> "Turrets";
+    private _turret = 0;
+    while {getNumber ((_cfg select _turret) >> "primaryGunner") == 0} do {_turret = _turret + 1;};
+    (_gun weaponsTurret [_turret])#0
+}, true];
 
 // Fire barrage
 switch (_missionType) do {

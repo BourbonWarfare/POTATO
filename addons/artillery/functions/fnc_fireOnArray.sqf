@@ -47,7 +47,12 @@ if (alive _gunner && {magazinesAmmo _artillery isNotEqualTo []}) exitWith {
   [{_this call FUNC(fireOnArray)}, _this, 0.25] call CBA_fnc_waitAndExecute;
 };
 
-private _weapon = (_artillery weaponsTurret [0])#0;
+private _weapon = GVAR(vehicleWeaponCache) getOrDefaultCall [typeOf _artillery, {
+    private _cfg = (configOf _artillery) >> "Turrets";
+    private _turret = 0;
+    while {getNumber ((_cfg select _turret) >> "primaryGunner") == 0} do {_turret = _turret + 1;};
+    (_artillery weaponsTurret [_turret])#0
+}, true];
 if (_roundDelay < 0) then {
     _roundDelay = _weapon call FUNC(getArtyReloadTime);
     _this set [3, _roundDelay];

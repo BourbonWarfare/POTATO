@@ -97,7 +97,13 @@ switch (_newStatus) do {
                 ["_tof", -1, [-1]],
                 ["_offset", [0, 0, 0], [[]]]
             ];
-            private _reloadTime = [(weapons _gun)#0] call FUNC(getArtyReloadTime);
+            private _weapon = GVAR(vehicleWeaponCache) getOrDefaultCall [typeOf _gun, {
+                private _cfg = (configOf _gun) >> "Turrets";
+                private _turret = 0;
+                while {getNumber ((_cfg select _turret) >> "primaryGunner") == 0} do {_turret = _turret + 1;};
+                (_gun weaponsTurret [_turret])#0
+            }, true];
+            private _reloadTime = [_weapon] call FUNC(getArtyReloadTime);
             private _holdTime = CBA_missionTime + 2 * (_reloadTime + 5) * _rounds;
             _gun setVariable  [QGVAR(artyMission), [
                 _missionID,
