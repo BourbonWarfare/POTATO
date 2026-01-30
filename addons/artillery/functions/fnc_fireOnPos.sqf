@@ -63,7 +63,6 @@ _artillery removeWeaponTurret [_weapon, _turret];
 if (_artillery currentMagazineTurret [0] != "") then {
   _artillery removeMagazineTurret [_artillery currentMagazineTurret [0], [0]];
 };
-systemChat format ["%1 | %2 || %3 %4", _artillery, weapons _artillery, _weapon, _turret];
 _artillery addMagazineTurret [_magazine, [0], 1];
 
 [

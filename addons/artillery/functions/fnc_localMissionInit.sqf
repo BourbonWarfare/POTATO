@@ -105,7 +105,6 @@ switch (_missionType) do {
                 _posATL, _x, _rotation, _playerArray
             ] call FUNC(findSafeMortarPos));
         } forEach ARTILLERY_POSITIONS_BRACKET(_dispersion);
-        systemChat str _targetArray;
         [_gun, _targetArray, _magazine, _tof + 10] call FUNC(fireOnArray);
     };
     case ARTILLERY_MISSIONTYPE_LINEAR: {
