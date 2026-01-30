@@ -49,5 +49,6 @@ lbClear _control;
     private _idx = _control lbAdd format ["%1 | %2", _caliberStr + "mm", _displayName];
     _control lbSetValue [_idx, _caliber];
     _control lbSetData [_idx, _x];
+    _control lbSetTooltip [_idx, _x];
 } forEach GVAR(artilleryAmmoTypes);
 lbSortByValue _control;
