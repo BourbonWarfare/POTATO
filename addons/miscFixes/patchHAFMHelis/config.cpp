@@ -7,7 +7,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "HAFM_NH90_Config", "HAFM_NH90", "Kimi_UI", "HAFM_EC635_Config", "jsrs_soundmod_complete_edition", "jsrs_soundmod_complete_edition_soundfiles" };
+        requiredAddons[] = { "potato_core", "HAFM_NH90_Config", "HAFM_NH90", "Kimi_UI", "HAFM_EC635_Config", "jsrs2025_config_c" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -181,401 +181,113 @@ class CfgVehicles {
                 hideOnUse=1;
                 priority=-11;
             };
-        };
-        soundgetin[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\open.ogg",1,1,50};
-        soundgetout[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\close.ogg",1,1,50};
-        soundengineonint[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\int_start.ogg",1,1};
-        soundengineonext[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\ext_start.ogg",1,1,300};
-        soundengineoffint[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\int_off.ogg",1,1};
-        soundengineoffext[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\ext_off.ogg",1,1,300};
-        sounddammage[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\helibasiccrash.ogg",0.75,1};
-        soundlocked[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\opfor_lock_1.ogg",0.75,1};
-        soundincommingmissile[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\opfor_lock_2.ogg",0.75,1};
-        rotordamageint[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_rotor_int.ogg",0.75,1};
-        rotordamageout[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_rotor_ext.ogg",2.0,1,300};
-        rotordamage[] = {"rotordamageint","rotordamageout"};
-        taildamageint[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_tail.ogg",0.75,1};
-        taildamageout[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_tail.ogg",2.0,1,300};
-        taildamage[] = {"taildamageint","taildamageout"};
-        landingsoundint0[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\landing_skids_int1_open.ogg",0.75,1};
-        landingsoundint1[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\landing_skids_int1_open.ogg",0.75,1};
-        landingsoundint[] = {"landingsoundint0",0.5,"landingsoundint1",0.5};
-        landingsoundout0[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\landing_skids_ext1.ogg",1,1,300};
-        landingsoundout1[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\landing_skids_ext1.ogg",1,1,300};
-        landingsoundout[] = {"landingsoundout0",0.5,"landingsoundout1",0.5};
-        gearupext[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\gear_up_out.ogg",1.5,1,700};
-        gearupint[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\gear_up_in.ogg",1.5,1};
-        gearup[] = {"gearupint","gearupext"};
-        geardownint[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\gear_down_in.ogg",1.5,1};
-        geardownext[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\gear_down_out.ogg",1.5,1,700};
-        geardown[] = {"geardownint","geardownext"};
-        slingcargoattach0[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_1hooklock.ogg",1.35,1};
-        slingcargoattach1[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_1hooklock.ogg",1,1,300};
-        slingcargoattach[] = {"slingcargoattach0","slingcargoattach1"};
-        slingcargodetach0[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_1hookunlock.ogg",1.5,1};
-        slingcargodetach1[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_1hookunlock.ogg",1,1,300};
-        slingcargodetach[] = {"slingcargodetach0","slingcargodetach1"};
-        class sounds {
-            class engineext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\engine_close.ogg",1.5,1,300};
-                frequency = "rotorspeed";
-                volume = "campos *1.5* (rotorspeed factor [0.6, 1]) * (1 + rotorthrust)";
-            };
-            class rotorext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\rotor_close.ogg",1.6,1,300};
-                frequency = "(rotorspeed factor [0.3, 0.7]) * (rotorspeed factor [0.3, 1]) * (1 - rotorthrust/4)";
-                volume = "campos *1.5* (rotorspeed factor [0.6, 1]) * (1 + rotorthrust)";
-            };
-            class rotorswist {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\tail_rotor.ogg",1,1,200};
-                frequency = 1;
-                volume = "campos * (rotorthrust factor [0.7, 0.9])";
-            };
-            class engineint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\int_main.ogg",1,1};
-                frequency = "rotorspeed";
-                volume = "1*(1-campos)*(0 max (rotorspeed-0.4))";
-            };
-            class rotorint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\int_rotor.ogg",1,1};
-                frequency = "(rotorspeed factor [0.3, 0.7]) * (rotorspeed factor [0.3, 1]) * (1 - rotorthrust/4)";
-                volume = "(1 - campos) * (rotorspeed factor [0.3, 0.7]) * (1 + rotorthrust) * 0.7";
-            };
-            class rotorbench {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\rotor\rotor_normal.ogg",0.5,1};
-                frequency = "(rotorspeed factor [0.3, 0.7]) * (rotorspeed factor [0.3, 1]) * (1 - rotorthrust/4)";
-                volume = "(playerpos factor [3.9, 4]) * (1 - campos) * (rotorspeed factor [0.3, 1]) * (1 + rotorthrust) * 0.4";
-                cone[] = {1.6,3.14,1.6,0.95};
-            };
-            class enginebench {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\rotor\rotor_normal.ogg",0.5,1};
-                frequency = "rotorspeed";
-                volume = "(playerpos factor [3.9, 4]) * (1 - campos) * (0 max (rotorspeed-0.4))";
-            };
-            class transmissiondamageext_phase1 {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_transmission_int_1.ogg",1,1,300};
-                frequency = "0.66 + rotorspeed / 3";
-                volume = "campos * (transmissiondamage factor [0.3, 0.35]) * (transmissiondamage factor [0.5, 0.45]) * (rotorspeed factor [0.2, 0.5])";
-            };
-            class transmissiondamageext_phase2 {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_transmission_int_1.ogg",1,1,300};
-                frequency = "0.66 + rotorspeed / 3";
-                volume = "campos * (transmissiondamage factor [0.45, 0.5]) * (rotorspeed factor [0.2, 0.5])";
-            };
-            class transmissiondamageint_phase1 {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_transmission_int_1.ogg",0.75,1};
-                frequency = "0.66 + rotorspeed / 3";
-                volume = "(1 - campos) * (transmissiondamage factor [0.3, 0.35]) * (transmissiondamage factor [0.5, 0.45]) * (rotorspeed factor [0.2, 0.5])";
-            };
-            class transmissiondamageint_phase2 {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_transmission_int_1.ogg",0.75,1};
-                frequency = "0.66 + rotorspeed / 3";
-                volume = "(1 - campos) * (transmissiondamage factor [0.45, 0.5]) * (rotorspeed factor [0.2, 0.5])";
-            };
-            class rotornoiseext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\rotor\rotor_normal.ogg",0.5,1,200};
-                frequency = 1;
-                volume = "(campos*(rotorspeed factor [0.6, 0.85]))";
-                cone[] = {1.6,3.14,2,0.95};
-            };
-            class distance {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\engine_far.ogg",1,1,1000};
-                frequency = "rotorspeed";
-                volume = "2 * campos * (0 max (rotorspeed-0.4))";
-            };
-            class fardistance {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\rotor_far.ogg",1,1,4000};
-                frequency = "rotorspeed";
-                volume = "campos *3* (rotorspeed factor [0.6, 1]) * (1 + rotorthrust)";
-            };
-            class damagealarmint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\damagealarm.ogg",0.75,1};
-                frequency = 1;
-                volume = "engineon * (1 - campos) * ( 1 - ((transmissiondamage factor [0.61, 0.60]) * (motordamage factor [0.61, 0.60]) * (rotordamage factor [0.51, 0.50]))) * (rotorspeed factor [0.0, 0.001])";
-            };
-            class damagealarmext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\damagealarm.ogg",1,1,100};
-                frequency = 1;
-                volume = "engineon * campos * ( 1 - ((transmissiondamage factor [0.61, 0.60]) * (motordamage factor [0.61, 0.60]) * (rotordamage factor [0.51, 0.50]))) * (rotorspeed factor [0, 0.001])";
-            };
-            class rotorlowalarmint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\lowrotoralarmint.ogg",0.75,1};
-                frequency = 1;
-                volume = "engineon * (1 - campos) * (rotorspeed factor [0.9, 0.8999]) * (rotorspeed factor [-0.5, 1]) * (speed factor [3, 3.01])";
-            };
-            class rotorlowalarmext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\lowrotoralarmint.ogg",1,1,75};
-                frequency = 1;
-                volume = "engineon * campos * (rotorspeed factor [0.9, 0.8999]) * (rotorspeed factor [-0.5, 1]) * (speed factor [3, 3.01])";
-            };
-            class windbench {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\wind_close_in.ogg",0.5,1};
-                frequency = 1;
-                volume = "4 * (playerpos factor [3.9, 4]) * (1 - campos) * ((speed factor[0, 30]) + (speed factor[0, -30]))";
-            };
-            class rainext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\rain1_ext.ogg",1,1,100};
-                frequency = 1;
-                volume = "campos * (rain - rotorspeed/2) * 2";
-            };
-            class rainint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\rain1_int_open.ogg",0.5,1};
-                frequency = 1;
-                volume = "(1-campos)*(rain - rotorspeed/2)*2";
-            };
-            class windint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\wind_close_in.ogg",0.5,1};
-                frequency = 1;
-                volume = "(1-campos)*(speed factor[5, 50])*(speed factor[5, 50])";
-            };
-            class windlateralmovementint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\wind_close_in.ogg",0.5,1,50};
-                frequency = 1;
-                volume = "(1-campos)*lateralmovement*((speed factor [5,40]) + (speed factor [-5,-40]))";
-            };
-            class gstress {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\vehicle_stress2b.ogg",0.75,1};
-                frequency = 1;
-                volume = "engineon * (1-campos) * ((gmeterz factor[1.5, 2.5]) + (gmeterz factor[0.5, -0.5]))";
-            };
-            class speedstress {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\vehicle_stress2b.ogg",0.75,1};
-                frequency = 1;
-                volume = "(1-campos)*(speed factor[40,80])";
-            };
-            class scrubtreeext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrubtree.ogg",1,1,500};
-                frequency = 1;
-                volume = "campos * (scrubtree factor[0.02, 0.05])";
-            };
-            class scrublandext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrublandext.ogg",1,1,500};
-                frequency = 1;
-                volume = "campos * (scrubland factor[0.02, 0.05])";
-            };
-            class scrubbuildingext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrubbuilding.ogg",1,1,500};
-                frequency = 1;
-                volume = "campos * (scrubbuilding factor[0.02, 0.05])";
-            };
-            class scrublandint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrublandint_open.ogg",0.75,1};
-                frequency = 1;
-                volume = "2 * (1-campos) * (scrubland factor[0.02, 0.05])";
-            };
-            class scrubbuildingint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrubbuilding.ogg",0.75,1};
-                frequency = 1;
-                volume = "2 * (1 - campos) * (scrubbuilding factor[0.02, 0.05])";
-            };
-            class scrubtreeint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrubtree.ogg",0.75,1};
-                frequency = 1;
-                volume = "(1 - campos) * ((scrubtree) factor [0, 0.01])";
-            };
-            class slingloaddownext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_enginedownext.ogg",1,1,500};
-                frequency = 1;
-                volume = "campos*(slingloadactive factor [0,-1])";
-            };
-            class slingloadupext {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_engineupext.ogg",1,1,500};
-                frequency = 1;
-                volume = "campos*(slingloadactive factor [0,1])";
-            };
-            class slingloaddownint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_enginedownint.ogg",0.75,1};
-                frequency = 1;
-                volume = "(1-campos)*(slingloadactive factor [0,-1])";
-            };
-            class slingloadupint {
-                sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_engineupint.ogg",0.75,1};
-                frequency = 1;
-                volume = "(1-campos)*(slingloadactive factor [0,1])";
-            };
-        };
-        class soundsext {
-            class soundevents{};
-            class sounds {
-                class engineext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\engine_close.ogg",1.5,1,300};
-                    frequency = "rotorspeed";
-                    volume = "campos *1.5* (rotorspeed factor [0.6, 1]) * (1 + rotorthrust)";
-                };
-                class rotorext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\rotor_close.ogg",1.6,1,300};
-                    frequency = "(rotorspeed factor [0.3, 0.7]) * (rotorspeed factor [0.3, 1]) * (1 - rotorthrust/4)";
-                    volume = "campos *1.5* (rotorspeed factor [0.6, 1]) * (1 + rotorthrust)";
-                };
-                class rotorswist {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\tail_rotor.ogg",1,1,200};
-                    frequency = 1;
-                    volume = "campos * (rotorthrust factor [0.7, 0.9])";
-                };
-                class engineint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\int_main.ogg",1,1};
-                    frequency = "rotorspeed";
-                    volume = "1*(1-campos)*(0 max (rotorspeed-0.4))";
-                };
-                class rotorint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\int_rotor.ogg",1,1};
-                    frequency = "(rotorspeed factor [0.3, 0.7]) * (rotorspeed factor [0.3, 1]) * (1 - rotorthrust/4)";
-                    volume = "(1 - campos) * (rotorspeed factor [0.3, 0.7]) * (1 + rotorthrust) * 0.7";
-                };
-                class rotorbench {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\rotor\rotor_normal.ogg",0.5,1};
-                    frequency = "(rotorspeed factor [0.3, 0.7]) * (rotorspeed factor [0.3, 1]) * (1 - rotorthrust/4)";
-                    volume = "(playerpos factor [3.9, 4]) * (1 - campos) * (rotorspeed factor [0.3, 1]) * (1 + rotorthrust) * 0.4";
-                    cone[] = {1.6,3.14,1.6,0.95};
-                };
-                class enginebench {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\rotor\rotor_normal.ogg",0.5,1};
-                    frequency = "rotorspeed";
-                    volume = "(playerpos factor [3.9, 4]) * (1 - campos) * (0 max (rotorspeed-0.4))";
-                };
-                class transmissiondamageext_phase1 {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_transmission_int_1.ogg",1,1,300};
-                    frequency = "0.66 + rotorspeed / 3";
-                    volume = "campos * (transmissiondamage factor [0.3, 0.35]) * (transmissiondamage factor [0.5, 0.45]) * (rotorspeed factor [0.2, 0.5])";
-                };
-                class transmissiondamageext_phase2 {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_transmission_int_1.ogg",1,1,300};
-                    frequency = "0.66 + rotorspeed / 3";
-                    volume = "campos * (transmissiondamage factor [0.45, 0.5]) * (rotorspeed factor [0.2, 0.5])";
-                };
-                class transmissiondamageint_phase1 {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_transmission_int_1.ogg",0.75,1};
-                    frequency = "0.66 + rotorspeed / 3";
-                    volume = "(1 - campos) * (transmissiondamage factor [0.3, 0.35]) * (transmissiondamage factor [0.5, 0.45]) * (rotorspeed factor [0.2, 0.5])";
-                };
-                class transmissiondamageint_phase2 {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\heli_damage_transmission_int_1.ogg",0.75,1};
-                    frequency = "0.66 + rotorspeed / 3";
-                    volume = "(1 - campos) * (transmissiondamage factor [0.45, 0.5]) * (rotorspeed factor [0.2, 0.5])";
-                };
-                class rotornoiseext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\rotor\rotor_normal.ogg",0.5,1,200};
-                    frequency = 1;
-                    volume = "(campos*(rotorspeed factor [0.6, 0.85]))";
-                    cone[] = {1.6,3.14,2,0.95};
-                };
-                class distance {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\engine_far.ogg",1,1,1000};
-                    frequency = "rotorspeed";
-                    volume = "2 * campos * (0 max (rotorspeed-0.4))";
-                };
-                class fardistance {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\ch49_mohawk\rotor_far.ogg",1,1,4000};
-                    frequency = "rotorspeed";
-                    volume = "campos *3* (rotorspeed factor [0.6, 1]) * (1 + rotorthrust)";
-                };
-                class damagealarmint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\damagealarm.ogg",0.75,1};
-                    frequency = 1;
-                    volume = "engineon * (1 - campos) * ( 1 - ((transmissiondamage factor [0.61, 0.60]) * (motordamage factor [0.61, 0.60]) * (rotordamage factor [0.51, 0.50]))) * (rotorspeed factor [0.0, 0.001])";
-                };
-                class damagealarmext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\damagealarm.ogg",1,1,100};
-                    frequency = 1;
-                    volume = "engineon * campos * ( 1 - ((transmissiondamage factor [0.61, 0.60]) * (motordamage factor [0.61, 0.60]) * (rotordamage factor [0.51, 0.50]))) * (rotorspeed factor [0, 0.001])";
-                };
-                class rotorlowalarmint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\lowrotoralarmint.ogg",0.75,1};
-                    frequency = 1;
-                    volume = "engineon * (1 - campos) * (rotorspeed factor [0.9, 0.8999]) * (rotorspeed factor [-0.5, 1]) * (speed factor [3, 3.01])";
-                };
-                class rotorlowalarmext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\lowrotoralarmint.ogg",1,1,75};
-                    frequency = 1;
-                    volume = "engineon * campos * (rotorspeed factor [0.9, 0.8999]) * (rotorspeed factor [-0.5, 1]) * (speed factor [3, 3.01])";
-                };
-                class windbench {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\wind_close_in.ogg",0.5,1};
-                    frequency = 1;
-                    volume = "4 * (playerpos factor [3.9, 4]) * (1 - campos) * ((speed factor[0, 30]) + (speed factor[0, -30]))";
-                };
-                class rainext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\rain1_ext.ogg",1,1,100};
-                    frequency = 1;
-                    volume = "campos * (rain - rotorspeed/2) * 2";
-                };
-                class rainint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\rain1_int_open.ogg",0.5,1};
-                    frequency = 1;
-                    volume = "(1-campos)*(rain - rotorspeed/2)*2";
-                };
-                class windint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\wind_close_in.ogg",0.5,1};
-                    frequency = 1;
-                    volume = "(1-campos)*(speed factor[5, 50])*(speed factor[5, 50])";
-                };
-                class windlateralmovementint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\wind_close_in.ogg",0.5,1,50};
-                    frequency = 1;
-                    volume = "(1-campos)*lateralmovement*((speed factor [5,40]) + (speed factor [-5,-40]))";
-                };
-                class gstress {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\vehicle_stress2b.ogg",0.75,1};
-                    frequency = 1;
-                    volume = "engineon * (1-campos) * ((gmeterz factor[1.5, 2.5]) + (gmeterz factor[0.5, -0.5]))";
-                };
-                class speedstress {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\vehicle_stress2b.ogg",0.75,1};
-                    frequency = 1;
-                    volume = "(1-campos)*(speed factor[40,80])";
-                };
-                class scrubtreeext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrubtree.ogg",1,1,500};
-                    frequency = 1;
-                    volume = "campos * (scrubtree factor[0.02, 0.05])";
-                };
-                class scrublandext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrublandext.ogg",1,1,500};
-                    frequency = 1;
-                    volume = "campos * (scrubland factor[0.02, 0.05])";
-                };
-                class scrubbuildingext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrubbuilding.ogg",1,1,500};
-                    frequency = 1;
-                    volume = "campos * (scrubbuilding factor[0.02, 0.05])";
-                };
-                class scrublandint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrublandint_open.ogg",0.75,1};
-                    frequency = 1;
-                    volume = "2 * (1-campos) * (scrubland factor[0.02, 0.05])";
-                };
-                class scrubbuildingint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrubbuilding.ogg",0.75,1};
-                    frequency = 1;
-                    volume = "2 * (1 - campos) * (scrubbuilding factor[0.02, 0.05])";
-                };
-                class scrubtreeint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\scrubtree.ogg",0.75,1};
-                    frequency = 1;
-                    volume = "(1 - campos) * ((scrubtree) factor [0, 0.01])";
-                };
-                class slingloaddownext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_enginedownext.ogg",1,1,500};
-                    frequency = 1;
-                    volume = "campos*(slingloadactive factor [0,-1])";
-                };
-                class slingloadupext {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_engineupext.ogg",1,1,500};
-                    frequency = 1;
-                    volume = "campos*(slingloadactive factor [0,1])";
-                };
-                class slingloaddownint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_enginedownint.ogg",0.75,1};
-                    frequency = 1;
-                    volume = "(1-campos)*(slingloadactive factor [0,-1])";
-                };
-                class slingloadupint {
-                    sound[] = {"\jsrs_soundmod_complete\JSRS_Soundmod_Soundfiles\air_vehicles\shared\sl_engineupint.ogg",0.75,1};
-                    frequency = 1;
-                    volume = "(1-campos)*(slingloadactive factor [0,1])";
-                };
-            };
-        };
+        };	
+        // JSRSTODO: 
+        // Copied from JSRS's BWA3_NH90_base
+        class Sounds
+		{
+			class engineext
+			{
+				sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\turbine_ext_close.ogg",1.4,1,400};
+				frequency = "rotorspeed * (1-rotorthrust/15) * 1.25";
+				volume = "campos*((rotorspeed-0.72)*4)";
+			};
+			class rotorext
+			{
+				sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\rotor_ext_close.ogg",1,1,700};
+				frequency = "rotorspeed * (1-rotorthrust/15) * 1.25";
+				volume = "1*campos*(0 max (rotorspeed-0.5))*(1 + rotorthrust)";
+				cone[] = {1.6,3.14,1.6,0.95};
+			};
+			class engineextdist
+			{
+				sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\turbine_ext_distance.ogg",1,1,1000};
+				frequency = "rotorspeed * (1-rotorthrust/15) * 1.25";
+				volume = "campos*((rotorspeed-0.72)*4)";
+			};
+			class rotorextdist
+			{
+				sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\rotor_ext_distance.ogg",1,1,3000};
+				frequency = "rotorspeed * (1-rotorthrust/15) * 1.25";
+				volume = "1*campos*(0 max (rotorspeed-0.5))*(1 + rotorthrust)";
+				cone[] = {1.6,3.14,1.6,0.95};
+			};
+			class rotornoiseext
+			{
+				sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\rotor_ext_distance.ogg",0,1,0};
+				frequency = "rotorspeed* 1";
+				volume = "campos * (rotorthrust factor [0.7,0.9])";
+				cone[] = {0.7,1.3,1,0};
+			};
+			class engineint
+			{
+				sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\turbine_int.ogg",1,1};
+				frequency = "1";
+				volume = "(1-campos)*((rotorspeed-0.75)*3)";
+			};
+			class rotorint
+			{
+				sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\rotor_int.ogg",0.5011872,1};
+				frequency = "rotorspeed * (1-rotorthrust/15) * 1.25";
+				volume = "(1-campos)*(0 max (rotorspeed-0.5))*(1 + rotorthrust)";
+			};
+			soundsetsint[] = {"jsrs_2025_helicopter_ch49_mohawk_engineint_soundset","jsrs_2025_helicopter_ch49_mohawk_rotorint_soundset","jsrs_2025_helicopter_transmissiondamageint_phase1_soundset","jsrs_2025_helicopter_transmissiondamageint_phase2_soundset","jsrs_2025_helicopter_damagealarmint_soundset","jsrs_2025_helicopter_rotorlowalarmint_soundset","jsrs_2025_helicopter_scrublandint_soundset","jsrs_2025_helicopter_scrubbuildingint_soundset","jsrs_2025_helicopter_scrubtreeint_soundset","jsrs_2025_helicopter_slingloaddownint_soundset","jsrs_2025_helicopter_slingloadupint_soundset","jsrs_2025_helicopter_rainint_soundset","jsrs_2025_helicopter_windint_soundset","jsrs_2025_helicopter_ch49_mohawk_gstress_soundset"};
+			soundsetsext[] = {"jsrs_2025_helicopter_ch49_mohawk_engineext_soundset","jsrs_2025_helicopter_ch49_mohawk_rotorext_soundset","jsrs_2025_helicopter_ch49_mohawk_evr_soundset","jsrs_2025_helicopter_ch49_mohawk_rotordistance_soundset","jsrs_2025_helicopter_ch49_mohawk_enginedistance_soundset","jsrs_2025_helicopter_transmissiondamageext_phase1_soundset","jsrs_2025_helicopter_transmissiondamageext_phase2_soundset","jsrs_2025_helicopter_scrublandext_soundset","jsrs_2025_helicopter_scrubbuildingext_soundset","jsrs_2025_helicopter_scrubtreeext_soundset","jsrs_2025_helicopter_slingloaddownext_soundset","jsrs_2025_helicopter_slingloadupext_soundset","jsrs_2025_helicopter_rainext_soundset"};
+		};
+		class soundsext
+		{
+			class soundevents{};
+			class Sounds
+			{
+				class engineext
+				{
+					sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\turbine_ext_close.ogg",1.4,1,400};
+					frequency = "rotorspeed * (1-rotorthrust/15) * 1.25";
+					volume = "campos*((rotorspeed-0.72)*4)";
+				};
+				class rotorext
+				{
+					sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\rotor_ext_close.ogg",1,1,700};
+					frequency = "rotorspeed * (1-rotorthrust/15) * 1.25";
+					volume = "1*campos*(0 max (rotorspeed-0.5))*(1 + rotorthrust)";
+					cone[] = {1.6,3.14,1.6,0.95};
+				};
+				class engineextdist
+				{
+					sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\turbine_ext_distance.ogg",1,1,1000};
+					frequency = "rotorspeed * (1-rotorthrust/15) * 1.25";
+					volume = "campos*((rotorspeed-0.72)*4)";
+				};
+				class rotorextdist
+				{
+					sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\rotor_ext_distance.ogg",1,1,3000};
+					frequency = "rotorspeed * (1-rotorthrust/15) * 1.25";
+					volume = "1*campos*(0 max (rotorspeed-0.5))*(1 + rotorthrust)";
+					cone[] = {1.6,3.14,1.6,0.95};
+				};
+				class rotornoiseext
+				{
+					sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\rotor_ext_distance.ogg",0,1,0};
+					frequency = "rotorspeed* 1";
+					volume = "campos * (rotorthrust factor [0.7,0.9])";
+					cone[] = {0.7,1.3,1,0};
+				};
+				class engineint
+				{
+					sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\turbine_int.ogg",1,1};
+					frequency = "1";
+					volume = "(1-campos)*((rotorspeed-0.75)*3)";
+				};
+				class rotorint
+				{
+					sound[] = {"z\jsrs2025\addons\sounds_air\sounds\helicopters\ch49_mohawk\rotor_int.ogg",0.5011872,1};
+					frequency = "rotorspeed * (1-rotorthrust/15) * 1.25";
+					volume = "(1-campos)*(0 max (rotorspeed-0.5))*(1 + rotorthrust)";
+				};
+				soundsetsint[] = {"jsrs_2025_helicopter_ch49_mohawk_engineint_soundset","jsrs_2025_helicopter_ch49_mohawk_rotorint_soundset","jsrs_2025_helicopter_transmissiondamageint_phase1_soundset","jsrs_2025_helicopter_transmissiondamageint_phase2_soundset","jsrs_2025_helicopter_damagealarmint_soundset","jsrs_2025_helicopter_rotorlowalarmint_soundset","jsrs_2025_helicopter_scrublandint_soundset","jsrs_2025_helicopter_scrubbuildingint_soundset","jsrs_2025_helicopter_scrubtreeint_soundset","jsrs_2025_helicopter_slingloaddownint_soundset","jsrs_2025_helicopter_slingloadupint_soundset","jsrs_2025_helicopter_rainint_soundset","jsrs_2025_helicopter_windint_soundset","jsrs_2025_helicopter_ch49_mohawk_gstress_soundset"};
+				soundsetsext[] = {"jsrs_2025_helicopter_ch49_mohawk_engineext_soundset","jsrs_2025_helicopter_ch49_mohawk_rotorext_soundset","jsrs_2025_helicopter_ch49_mohawk_evr_soundset","jsrs_2025_helicopter_ch49_mohawk_rotordistance_soundset","jsrs_2025_helicopter_ch49_mohawk_enginedistance_soundset","jsrs_2025_helicopter_ch49_mohawk_tailrotor_soundset","jsrs_2025_helicopter_transmissiondamageext_phase1_soundset","jsrs_2025_helicopter_transmissiondamageext_phase2_soundset","jsrs_2025_helicopter_scrublandext_soundset","jsrs_2025_helicopter_scrubbuildingext_soundset","jsrs_2025_helicopter_scrubtreeext_soundset","jsrs_2025_helicopter_slingloaddownext_soundset","jsrs_2025_helicopter_slingloadupext_soundset","jsrs_2025_helicopter_rainext_soundset"};
+			};
+		};
     };
     class NH90Armed_AAF: NH90 {
         transportSoldier = 8; // fixes issue where there are more available seats than physically present on model
