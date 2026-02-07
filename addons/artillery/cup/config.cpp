@@ -8,7 +8,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"CUP_Weapons_VehicleWeapons"};
+        requiredAddons[] = {"potato_miscFixes_patchCUP"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"Lambda.Tiger"};
