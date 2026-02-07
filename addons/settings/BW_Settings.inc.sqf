@@ -85,7 +85,7 @@ if (["WBK_DyingAnimationsMod"] call ACEFUNC(common,isModLoaded)) then { _setting
 ["WBK_DeathAnimMod_Deaths_PLR", false],
 ["WBK_DeathAnimMod_Hit_PLR", false],
 ["WBK_DeathAnimMod_Flinch_PLR", false],
-["wbk_deathanimmod_death_chance", "50"], // why are these strings??
+["wbk_deathanimmod_death_chance", "0"], // why are these strings??
 ["wbk_deathanimmod_hit_chance", "70"]
 ];} else { _skip pushBack "WBK_DyingAnimationsMod" };
 
