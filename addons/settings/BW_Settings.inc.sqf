@@ -117,6 +117,8 @@ if (["diwako_dui_main"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 ["diwako_dui_radar_icon_scale_crew", 1.5, true], // the scaling was set to 6.0, which is why when we enabled the vehicle compass, the icon was massive
 ["diwako_dui_distanceWarning", 5], // User-Setting
 
+["diwako_dui_linecompass_enableShowCustomWP", false, true], // User-Setting
+
 // DUI - Squad Radar - Nametags
 ["diwako_dui_nametags_enableocclusion", false, true], // User-Setting
 ["diwako_dui_nametags_showunconasdead", true, true], // User-Setting
