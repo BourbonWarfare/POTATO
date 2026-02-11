@@ -14,13 +14,24 @@ if (GVAR(enable)) then {
         [QGVAR(issueArty), {call FUNC(localArtilleryHandler)}] call CBA_fnc_addEventHandler;
         if (isServer) then {
             [QGVAR(missionComplete), {
-                params [["_missionID", "", [""]]];
+                params [["_missionID", "", [""]],["_cancelMission", false, [false]]];
                 if (isNil QGVAR(artilleryMissionCache)) then {
                     GVAR(artilleryMissionCache) = createHashMap;
                 };
                 (GVAR(artilleryMissionCache) getOrDefault [_missionID, []]) params [
                     "", "", "", "", "", "", "", "", "", "", "", ["_parentMission", "", [""]]
                 ];
+                // Free guns if cancelled
+                if (_cancelMission) exitWith {
+                     (GVAR(artilleryMissionCache) getOrDefault [_parentMission, []]) params [
+                        "", ["_viableGuns", [], [[]]]
+                    ];
+                    [QGVAR(issueArty), [
+                        _parentMission,
+                        _viableGuns,
+                        ARTILLERY_MISSION_STATUS_FREE
+                    ], _viableGuns] call CBA_fnc_targetEvent;
+                };
                 if (_parentMission != "") then {
                     [_parentMission] call FUNC(beginMission);
                 };

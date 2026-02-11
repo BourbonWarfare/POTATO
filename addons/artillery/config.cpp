@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {QGVAR(addArtilleryAmmo),QGVAR(registerArtillery),QGVAR(openMissionDialog)};
+        units[] = {QGVAR(addArtilleryAmmo),QGVAR(registerArtillery),QGVAR(openMissionDialog),QGVAR(clearMission)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"A3_Weapons_F", "potato_missionModules", "CBA_main"};

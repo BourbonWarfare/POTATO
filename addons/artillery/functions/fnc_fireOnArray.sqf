@@ -33,19 +33,7 @@ params [
   ["_cleanUp", true]
 ];
 
-private _gunner = _artillery turretUnit [0];
-if (!alive _artillery || !alive _gunner || _targets isEqualTo []) exitWith {};
-
-if !(local _gunner) then {
-    [_this] remoteExecCall [QFUNC(fireOnArray), _gunner];
-};
-
-if (alive _gunner && {magazinesAmmo _artillery isNotEqualTo []}) exitWith {
-  if (_artillery magazineTurretAmmo [_mag, [0]] == 0) then {
-    _artillery setMagazineTurretAmmo [_mag, 1, [0]];
-  };
-  [{_this call FUNC(fireOnArray)}, _this, 0.25] call CBA_fnc_waitAndExecute;
-};
+if (_artillery getVariable [QGVAR(artyMission), []] isEqualTo []) exitWith {};
 
 (GVAR(vehicleWeaponCache) getOrDefaultCall [typeOf _artillery, {
     private _cfg = (configOf _artillery) >> "Turrets";
@@ -53,6 +41,20 @@ if (alive _gunner && {magazinesAmmo _artillery isNotEqualTo []}) exitWith {
     while {getNumber ((_cfg select _turret) >> "primaryGunner") == 0} do {_turret = _turret + 1;};
     (_artillery weaponsTurret [_turret])#0
 }, true]) params ["_weapon", "_turret"];
+private _gunner = _artillery turretUnit _turret;
+if (!alive _artillery || !alive _gunner || _targets isEqualTo []) exitWith {};
+
+if !(local _gunner) then {
+    [_this] remoteExecCall [QFUNC(fireOnArray), _gunner];
+};
+
+if (alive _gunner && {magazinesAmmo _artillery isNotEqualTo []}) exitWith {
+  if (_artillery magazineTurretAmmo [_mag, _turret] == 0) then {
+    _artillery setMagazineTurretAmmo [_mag, 1, _turret];
+  };
+  [{_this call FUNC(fireOnArray)}, _this, 0.25] call CBA_fnc_waitAndExecute;
+};
+
 
 if (_roundDelay < 0) then {
     _roundDelay = _weapon call FUNC(getArtyReloadTime);
@@ -62,14 +64,14 @@ if (_roundDelay < 0) then {
 _roundDelay = 4 max _roundDelay;
 _artillery removeWeaponTurret [_weapon, _turret];
 {
-  _artillery removeMagazinesTurret [_x, [0]];
+  _artillery removeMagazinesTurret [_x, _turret];
 } forEach getArtilleryAmmo [_artillery];
 
-if (_artillery currentMagazineTurret [0] != "") then {
-  _artillery removeMagazineTurret [_artillery currentMagazineTurret [0], [0]];
+if (_artillery currentMagazineTurret _turret != "") then {
+  _artillery removeMagazineTurret [_artillery currentMagazineTurret _turret, _turret];
 };
 
-_artillery addMagazineTurret [_mag, [0], 1];
+_artillery addMagazineTurret [_mag, _turret, 1];
 [{
     params ["_artillery", "_weapon", "_gunner", "_targ", "_mag", "_turret"];
     _artillery addWeapon _weapon;
@@ -78,7 +80,7 @@ _artillery addMagazineTurret [_mag, [0], 1];
 
 if (_cleanUp && _targets isEqualTo []) then {
     [{
-        params ["_artillery", "_magazine"];
+        params ["_artillery", "_magazine", "_turret"];
         private _missionParams = _artillery getVariable [QGVAR(artyMission), [""]];
         _missionParams params [
             "_missionID", "", "_holdTime", ["_missionType", ARTILLERY_MISSIONTYPE_POINT]
@@ -91,9 +93,9 @@ if (_cleanUp && _targets isEqualTo []) then {
         } else {
             _artillery setVariable [QGVAR(artyMission), nil];
         };
-        _artillery removeMagazinesTurret [_magazine, [0]];
+        _artillery removeMagazinesTurret [_magazine, _turret];
 
-    }, [_artillery, _mag], _roundDelay + 15] call CBA_fnc_waitAndExecute;
+    }, [_artillery, _mag, _turret], _roundDelay + 15] call CBA_fnc_waitAndExecute;
 };
 
 if (_targets isNotEqualTo []) then {

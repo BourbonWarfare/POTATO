@@ -41,15 +41,17 @@ params [
   ["_reloadTime", -1]
 ];
 
+if (_artillery getVariable [QGVAR(artyMission), []] isEqualTo []) exitWith {};
+
 if !(alive _artillery && alive _gunner && _rounds > 0) exitWith {};
 
+_weaponPars params ["_weapon", "_turret"];
 if (magazinesAmmo _artillery isNotEqualTo []) exitWith {
-  if (_artillery magazineTurretAmmo [_magazine, [0]] == 0) then {
-    _artillery setMagazineTurretAmmo [_magazine, 1, [0]];
+  if (_artillery magazineTurretAmmo [_magazine, _turret] == 0) then {
+    _artillery setMagazineTurretAmmo [_magazine, 1, _turret];
   };
   [{_this call FUNC(fireOnPos)}, _this, 0.25] call CBA_fnc_waitAndExecute;
 };
-_weaponPars params ["_weapon", "_turret"];
 if (_reloadTime < 0 && _rounds > 1) then {
     _reloadTime = (_weapon call FUNC(getArtyReloadTime)) + random 1;
     _this set [9, _reloadTime];
@@ -57,13 +59,13 @@ if (_reloadTime < 0 && _rounds > 1) then {
 
 _artillery removeWeaponTurret [_weapon, _turret];
 {
-  _artillery removeMagazinesTurret [_x,  [0]];
+  _artillery removeMagazinesTurret [_x,  _turret];
 } forEach getArtilleryAmmo [_artillery];
 
-if (_artillery currentMagazineTurret [0] != "") then {
-  _artillery removeMagazineTurret [_artillery currentMagazineTurret [0], [0]];
+if (_artillery currentMagazineTurret _turret != "") then {
+  _artillery removeMagazineTurret [_artillery currentMagazineTurret _turret, _turret];
 };
-_artillery addMagazineTurret [_magazine, [0], 1];
+_artillery addMagazineTurret [_magazine, _turret, 1];
 
 [
   {
@@ -84,10 +86,10 @@ _artillery addMagazineTurret [_magazine, [0], 1];
 
 if (_rounds <= 1) then {
     [{ // free gun
-        params ["_artillery", "_magazine"];
+        params ["_artillery", "_magazine", "_turret"];
         _artillery setVariable [QGVAR(artyMission), nil];
-        _artillery removeMagazinesTurret [_magazine, [0]];
-    }, [_artillery, _magazine], 7 max _reloadTime] call CBA_fnc_waitAndExecute;
+        _artillery removeMagazinesTurret [_magazine, _turret];
+    }, [_artillery, _magazine, _turret], 7 max _reloadTime] call CBA_fnc_waitAndExecute;
 } else {
   _this set [6, _rounds - 1];
   [{call FUNC(fireOnPos)}, _this, 7 max _reloadTime] call CBA_fnc_waitAndExecute;
