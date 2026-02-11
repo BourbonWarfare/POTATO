@@ -15,6 +15,7 @@ if (GVAR(enable)) then {
         if (isServer) then {
             [QGVAR(missionComplete), {
                 params [["_missionID", "", [""]],["_cancelMission", false, [false]]];
+                TRACE_2("Mission Complete Event",_missionID,_cancelMission);
                 if (isNil QGVAR(artilleryMissionCache)) then {
                     GVAR(artilleryMissionCache) = createHashMap;
                 };
@@ -23,16 +24,19 @@ if (GVAR(enable)) then {
                 ];
                 // Free guns if cancelled
                 if (_cancelMission) exitWith {
-                     (GVAR(artilleryMissionCache) getOrDefault [_parentMission, []]) params [
+                    (GVAR(artilleryMissionCache) getOrDefault [_parentMission, []]) params [
                         "", ["_viableGuns", [], [[]]]
                     ];
+                    _viableGuns = _viableGuns apply {_x#1};
+                    TRACE_2("canceling mission on",_parentMission,_viableGuns);
                     [QGVAR(issueArty), [
-                        _parentMission,
+                        _missionID,
                         _viableGuns,
                         ARTILLERY_MISSION_STATUS_FREE
                     ], _viableGuns] call CBA_fnc_targetEvent;
                 };
                 if (_parentMission != "") then {
+                    TRACE_1("Calling parent mission",_parentMission);
                     [_parentMission] call FUNC(beginMission);
                 };
             }] call CBA_fnc_addEventHandler;

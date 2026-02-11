@@ -40,13 +40,13 @@ params [
   ["_avoidList", []],
   ["_reloadTime", -1]
 ];
-
+TRACE_10("firingOnArray",_gunner,_artillery,_targetPosAGL,_radius,_magazine,_weaponPars,_rounds,_rotMat,_avoidList,_reloadTime);
 if (_artillery getVariable [QGVAR(artyMission), []] isEqualTo []) exitWith {};
 
 if !(alive _artillery && alive _gunner && _rounds > 0) exitWith {};
 
 _weaponPars params ["_weapon", "_turret"];
-if (magazinesAmmo _artillery isNotEqualTo []) exitWith {
+if (!unitReady _gunner  && magazinesAmmo _artillery isNotEqualTo []) exitWith {
   if (_artillery magazineTurretAmmo [_magazine, _turret] == 0) then {
     _artillery setMagazineTurretAmmo [_magazine, 1, _turret];
   };
@@ -70,7 +70,7 @@ _artillery addMagazineTurret [_magazine, _turret, 1];
 [
   {
     params ["_artillery", "_weapon", "_gunner", "_targetPosAGL", "_radius", "_magazine", "_rotMat", "_avoidList", "_turret"];
-    _artillery addWeapon _weapon;
+    _artillery addWeaponTurret [_weapon, _turret];
     private _angle = random 360;
     private _rad = _radius * sqrt(random 1);
     private _offset = flatten (_rotMat matrixMultiply [[_rad * cos _angle],[ARTILLERY_ELLIPSE_COMPRESSION * _rad * sin _angle]]);

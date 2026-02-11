@@ -32,7 +32,7 @@ params [
   ["_roundDelay", -1],
   ["_cleanUp", true]
 ];
-
+TRACE_5("firingOnArray",_artillery,_targets,_mag,_roundDelay,_cleanUp);
 if (_artillery getVariable [QGVAR(artyMission), []] isEqualTo []) exitWith {};
 
 (GVAR(vehicleWeaponCache) getOrDefaultCall [typeOf _artillery, {
@@ -48,7 +48,7 @@ if !(local _gunner) then {
     [_this] remoteExecCall [QFUNC(fireOnArray), _gunner];
 };
 
-if (alive _gunner && {magazinesAmmo _artillery isNotEqualTo []}) exitWith {
+if (alive _gunner && !unitReady _gunner && {magazinesAmmo _artillery isNotEqualTo []}) exitWith {
   if (_artillery magazineTurretAmmo [_mag, _turret] == 0) then {
     _artillery setMagazineTurretAmmo [_mag, 1, _turret];
   };
@@ -74,7 +74,7 @@ if (_artillery currentMagazineTurret _turret != "") then {
 _artillery addMagazineTurret [_mag, _turret, 1];
 [{
     params ["_artillery", "_weapon", "_gunner", "_targ", "_mag", "_turret"];
-    _artillery addWeapon _weapon;
+    _artillery addWeaponTurret [_weapon, _turret];
     _gunner doArtilleryFire [_targ, _mag, 1];
 }, [_artillery, _weapon, _gunner, ((_this#1) deleteAt [-1])#0, _mag, _turret], 1] call CBA_fnc_waitAndExecute;
 
