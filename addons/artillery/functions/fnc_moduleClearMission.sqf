@@ -24,7 +24,7 @@ private _artilleryToClear = _nearObjects select {
     {_x in GVAR(artilleryGunArray)}} &&
     {(_x getVariable [QGVAR(artyMission), ["", ARTILLERY_MISSION_STATUS_FREE]])#1 == ARTILLERY_MISSION_STATUS_FIRING}
 };
-
+TRACE_1("gunsToClear",_artilleryToClear);
 {
     private _missionParams = _x getVariable [QGVAR(artyMission), [""]];
     _missionParams params [
