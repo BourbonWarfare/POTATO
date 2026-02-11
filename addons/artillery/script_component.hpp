@@ -100,7 +100,7 @@ class GVARMAIN(DOUBLES(baseMagazine,noSplash)): baseMagazine {\
 #define ARTILLERY_MISSION_STATUS_FIRING  2
 
 #define ARTILLERY_POSITIONS_LAZYADJUST [150, 300, 500]
-#define ARTILLERY_POSITIONS_BRACKET(dispersion) [200 max dispersion, -(200 max dispersion), -500]
+#define ARTILLERY_POSITIONS_BRACKET(dispersion) [200 max dispersion, 300 max dispersion, -500]
 
 //// Zeus and Editor modules
 #define ARTILLERY_EDITOR_ROUND_ATTRIBUTE 260128
