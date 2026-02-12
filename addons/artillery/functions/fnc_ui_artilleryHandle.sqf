@@ -55,7 +55,7 @@ if (_isClosing) then {
     ctrlMapAnimCommit _mapCtrl;
     private _dims = [
         _initPos,
-        (GVAR(artilleryParams) getOrDefault ["dispersion", 100])/2,
+        (GVAR(artilleryParams) getOrDefault ["dispersion", 100]),
         GVAR(artilleryParams) getOrDefault ["rotation", 0]
     ];
     _display setVariable [QGVAR(pos), _dims];
@@ -112,11 +112,15 @@ if (_isClosing) then {
     [_display] call FUNC(ui_initRoundTypes);
     (_display displayCtrl IDC_ARTILLERY_GUUNCOUNT) lbSetCurSel (GVAR(artilleryParams) getOrDefault ["gunCount", 2]);
     (_display displayCtrl IDC_ARTILLERY_MISSIONTYPE) lbSetCurSel (GVAR(artilleryParams) getOrDefault ["missionType", ARTILLERY_MISSIONTYPE_LAZY]);
-    (_display displayCtrl IDC_ARTILLERY_ROUNDTYPE) lbSetCurSel (GVAR(artilleryAmmoTypes) find ((GVAR(artilleryParams) getOrDefault ["roundType", [0,0]])#1));
+    (_display displayCtrl IDC_ARTILLERY_ROUNDTYPE) lbSetCurSel ((GVAR(artilleryAmmoTypes) find ((GVAR(artilleryParams) getOrDefault ["roundType", [0,0]])#1)) - 1);
     (_display displayCtrl IDC_ARTILLERY_DISPERSION) sliderSetPosition (2 * (_dims#1));
     (_display displayCtrl IDC_ARTILLERY_ROTATION) sliderSetPosition (_dims#2);
     (_display displayCtrl IDC_ARTILLERY_AVOIDPLAYERS) cbSetChecked (GVAR(artilleryParams) getOrDefault ["avoidPlayers", true]);
     // update initial values
+    private _textCtrl = _display displayCtrl IDC_ARTILLERY_DISPERSIONTXT;
+    _textCtrl ctrlSetText format ["Round Dispersion: %1m", round (_dims#1)];
+    private _textCtrl = _display displayCtrl IDC_ARTILLERY_ROTATIONTXT;
+    _textCtrl ctrlSetText format ["Mission Rotation: %1", round (_dims#2)];
     private _missionLength = GVAR(artilleryParams) getOrDefault ["missionLength", 4];
     private _sliderControl = _display displayCtrl IDC_ARTILLERY_MISSIONGLENGTH;
     [[_sliderControl, _missionLength], IDC_ARTILLERY_MISSIONGLENGTH] call FUNC(ui_updateArtillleryMenu);
