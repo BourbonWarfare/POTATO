@@ -79,6 +79,12 @@ _artillery addMagazineTurret [_magazine, _turret, 1];
         _targPos = [_targPos, 30, random 360, _avoidList] call FUNC(findSafeMortarPos);
     };
     _gunner doArtilleryFire [_targPos, _magazine, 1];
+    [{unitReady (_this#0)},{
+        params ["_gunner", "_arty", "_mag", "_targetPos", "_turret"];
+        if (_arty magazineTurretAmmo [_mag, _turret] > 0) then {
+            _gunner doArtilleryFire [_targetPos, _mag, 1];
+        };
+    }, [_gunner, _artillery, _magazine, _targPos, _turret], 3, {}] call CBA_fnc_waitUntilAndExecute;
   },
   [_artillery, _weapon, _gunner, _targetPosAGL, _radius, _magazine, _rotMat, _avoidList, _turret],
   1
