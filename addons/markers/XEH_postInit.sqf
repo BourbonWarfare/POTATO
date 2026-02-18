@@ -13,10 +13,14 @@ LOG("Post init start");
             && {diag_tickTime > _minWaitForSettingsSync}
     },
     {
+        params ["_maxWaitForGroupCleanup"];
+        if (diag_tickTime > _maxWaitForGroupCleanup) then {
+            WARNING_1("Group cleanup MAY have timedout [%1 elapsed]", diag_tickTime - _maxWaitForGroupCleanup);
+        };
         TRACE_2("ACE Settings initialized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
         if (GVAR(groupAndUnitEnabled)) then {[] call FUNC(initLocalMarkers);}; // we always want everyone to submit markers
         if (isNil QEGVAR(miscFixes,groupCleanupRan)) then {ERROR_1("Server never set %1",QEGVAR(miscFixes,groupCleanupRan));};
-        if (hasInterface && GVAR(groupAndUnitEnabled) || GVAR(intraFireteamEnabled)) then {
+        if (hasInterface && {GVAR(groupAndUnitEnabled) || GVAR(intraFireteamEnabled)}) then {
             GVAR(skipInstallingEH) = false;
 
             // To custom define these for your mission just define them in init.sqf:
@@ -97,7 +101,7 @@ LOG("Post init start");
             (_x select 1) call (_x select 0);
         } forEach GVAR(settingsDelayedFunctions);
     },
-    [diag_tickTime + 5, diag_tickTime + 1]
+    [diag_tickTime + 8, diag_tickTime + 3]
 ] call CBA_fnc_waitUntilAndExecute;
 
 if !(isServer) then {
