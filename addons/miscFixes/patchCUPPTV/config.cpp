@@ -30,22 +30,23 @@ class CfgWeapons {
     class CUP_arifle_M16_Base: Rifle_Base_F {};
     class CUP_arifle_M4_Base: CUP_arifle_M16_Base {};
     class CUP_arifle_M4A1_BUIS_Base: CUP_arifle_M4_Base {};
-    class CUP_arifle_M4A1_MOE_black: CUP_arifle_M4A1_BUIS_Base{
+    class CUP_arifle_M4A1_BUIS_NoUnder_Base: CUP_arifle_M4_Base {};
+    class CUP_arifle_M4A1_MOE_black: CUP_arifle_M4A1_BUIS_NoUnder_Base{
 		reloadAction = "GestureReloadSPAR_01";
         magazineReloadSwitchPhase = 0.1829;
         reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M16_Reload",1,1,10};
 	};
-    class CUP_arifle_M4A1_MOE_short_black: CUP_arifle_M4A1_BUIS_Base {
+    class CUP_arifle_M4A1_MOE_short_black: CUP_arifle_M4A1_BUIS_NoUnder_Base {
         reloadAction = "GestureReloadSPAR_01";
         magazineReloadSwitchPhase = 0.1829;
         reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M16_Reload",1,1,10};
 	};
-    class CUP_arifle_M4A1_standard_black: CUP_arifle_M4A1_BUIS_Base {
+    class CUP_arifle_M4A1_standard_black: CUP_arifle_M4A1_BUIS_NoUnder_Base {
 		reloadAction = "GestureReloadSPAR_01";
         magazineReloadSwitchPhase = 0.1829;
         reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M16_Reload",1,1,10};
 	};
-    class CUP_arifle_M4A1_standard_short_black: CUP_arifle_M4A1_BUIS_Base {
+    class CUP_arifle_M4A1_standard_short_black: CUP_arifle_M4A1_BUIS_NoUnder_Base {
         reloadAction = "GestureReloadSPAR_01";
         magazineReloadSwitchPhase = 0.1829;
         reloadMagazineSound[] = {"CUP\Weapons\CUP_Weapons_M16\data\sfx\M16_Reload",1,1,10};
