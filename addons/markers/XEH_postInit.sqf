@@ -15,7 +15,7 @@ LOG("Post init start");
     {
         params ["_maxWaitForGroupCleanup"];
         if (diag_tickTime > _maxWaitForGroupCleanup) then {
-            WARNING_1("Group cleanup MAY have timedout [%1 elapsed]", diag_tickTime - _maxWaitForGroupCleanup);
+            WARNING_1("Group cleanup MAY have timedout [%1 elapsed]",diag_tickTime - _maxWaitForGroupCleanup);
         };
         TRACE_2("ACE Settings initialized",GVAR(groupAndUnitEnabled),GVAR(intraFireteamEnabled));
         if (GVAR(groupAndUnitEnabled)) then {[] call FUNC(initLocalMarkers);}; // we always want everyone to submit markers
