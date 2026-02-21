@@ -14,7 +14,7 @@
  * None
  *
  * Example:
- * [[12,42,0], getPosATL player], "8Rnd_82mm_Mo_Smoke_white"] call potato_artillery_fnc_selectCanFireRound;
+ * [[[12,42,0], getPosATL player], "8Rnd_82mm_Mo_Smoke_white"] call potato_artillery_fnc_selectCanFireRound;
  *
  * Public: No
  */

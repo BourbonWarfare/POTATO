@@ -15,7 +15,7 @@
  * None
  *
  * Example:
- * [getPosATL player] call potato_artillery_fnc_registerArtilleryUnits;
+ * [ASLToAGL getPosASL player] call potato_artillery_fnc_registerArtilleryUnits;
  *
  * Public: No
  */
@@ -29,7 +29,7 @@ if (isNil QGVAR(artilleryGunArray)) then {
 };
 
 if (isNull _attachedObject) then {
-    private _nearObjects = (ASLToAGL _posAGL) nearEntities [["StaticWeapon", "Car_F", "Tank_F"], 50];
+    private _nearObjects = _posAGL nearEntities [["StaticWeapon", "Car_F", "Tank_F"], 50];
     private _artilleryToAdd = _nearObjects select {
         local _x &&
         {0 < getNumber ((configOf _x) >> "artilleryScanner")}

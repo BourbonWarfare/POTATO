@@ -43,7 +43,7 @@ class Cfg3DEN {
                 };
                 class ArrowLeft: ctrlButton {
                     idc = ARTILLERY_EDITOR_ROUND_LEFTARROW;
-                    onButtonClick = QUOTE([ARR_2(ctrlParentControlsGroup (_this select 0),false)] call FUNC(artyRndAttributeArrow));
+                    onButtonClick = QUOTE([ARR_2(ctrlParentControlsGroup (_this select 0),true)] call FUNC(artyRndAttributeArrow));
                     text = "-";
                     font = "RobotoCondensedBold";
                     x = -1;
@@ -53,7 +53,7 @@ class Cfg3DEN {
                 };
                 class ArrowRight: ArrowLeft {
                     idc = ARTILLERY_EDITOR_ROUND_RIGHTARROW;
-                    onButtonClick = QUOTE([ARR_2(ctrlParentControlsGroup (_this select 0),true)] call FUNC(artyRndAttributeArrow));
+                    onButtonClick = QUOTE([ARR_2(ctrlParentControlsGroup (_this select 0),false)] call FUNC(artyRndAttributeArrow));
                     text = "+";
                 };
             };

@@ -43,5 +43,15 @@ class CfgVehicles {
         isGlobal = 2;
         class Attributes {};
     };
+    class GVAR(clearMission): Module_F {
+        author = QUOTE(PREFIX);
+        scope = 1;
+        scopeCurator = 2;
+        displayName = "Clear Active Mission (50m)";
+        category = QGVAR(modules);
+        function = QFUNC(moduleClearMission);
+        isGlobal = 2;
+        class Attributes {};
+    };
 
 };

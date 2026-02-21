@@ -16,6 +16,7 @@ PREP(linearBarrage);
 PREP(localArtilleryHandler);
 PREP(localMissionInit);
 PREP(moduleArtyMagInit);
+PREP(moduleClearMission);
 PREP(moduleOpenDialog);
 PREP(moduleRegisterArty);
 PREP(quereyArtilleryHandler);
