@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"ace_interaction", "ace_missile_sdb"};
+        requiredAddons[] = {"ace_interaction", "ace_missile_sdb", "ace_medical_damage"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"Lambda.Tiger"};
@@ -15,6 +15,7 @@ class CfgPatches {
 };
 
 #include "ACE_GuidanceConfig.hpp"
+#include "ACE_Medical_Injuries.hpp"
 #include "CfgAmmo.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgMagazines.hpp"
