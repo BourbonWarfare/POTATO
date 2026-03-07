@@ -12,9 +12,9 @@ _settings = [
 [QACEGVAR(medical,bleedingcoefficient), 1, true], // default: 1.0 (also set in mission.sqm) [forced to override old bwmf]
 // [QACEGVAR(medical,fatalDamageSource), 1], // default: 0 // wait till L/K values finalized
 [QACEGVAR(medical,ivFlowRate), 1.5], // default: 1.0
-[QACEGVAR(medical,spontaneousWakeUpChance), 0.4], // default: 0.05
+[QACEGVAR(medical,spontaneousWakeUpChance), 0.28], // default: 0.05
 [QACEGVAR(medical,spontaneousWakeUpEpinephrineBoost), 2], // default: 1
-[QACEGVAR(medical,playerDamageThreshold), 1], // default: 1
+[QACEGVAR(medical,playerDamageThreshold), 1.15], // default: 1
 [QACEGVAR(medical_treatment,advancedDiagnose), 3], // default: 1 (Allows diagnosing death/CA)
 [QACEGVAR(medical_treatment,clearTrauma), 2], // default: 0
 [QACEGVAR(medical_treatment,litterCleanupDelay), 300], // default: 600
