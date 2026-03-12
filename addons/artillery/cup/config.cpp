@@ -8,7 +8,19 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"CUP_Weapons_VehicleWeapons"};
+        requiredAddons[] = {
+            "potato_artillery",
+            "potato_miscFixes_patchCUP",
+            "CUP_Weapons_VehicleWeapons",
+            "A3_Weapons_F",
+            "gm_weapons_cannons_122mm_2a18",
+            "gm_weapons_mortars_m120",
+            "gm_weapons_mortars_2s12",
+            "gm_weapons_cannons_155mm_m126",
+            "gm_weapons_launchers_mlrs_110mm",
+            "gm_weapons_launchers_luna",
+            "gm_weapons_launchers_mlrs_122mm"
+        };
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"Lambda.Tiger"};
