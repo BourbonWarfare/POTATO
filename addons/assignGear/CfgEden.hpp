@@ -7,7 +7,7 @@ class display3DEN {
                     items[] += {QGVAR(resetLoadouts)};
                 };
                 class GVAR(resetLoadouts) {
-                    text = "Save \& Reload BWMF Loadouts";
+                    text = "Save & Reload BWMF Loadouts";
                     action = QUOTE(call compileScript [QUOTE(QPATHTOF(functions\fnc_resetLoadouts.sqf))];);
                 };
             };
