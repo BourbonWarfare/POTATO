@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+// Used in reset loadout button to import config without full save output
+if (!isNil QGVAR(skipSaveTest) && {GVAR(skipSaveTest)}) exitWith {nil};
 private _startTime = diag_tickTime;
 
 diag_log text "";
@@ -7,7 +9,7 @@ diag_log text "------------------------------------------------------";
 diag_log text "[POTATO] Saving - Doing mission test:";
 diag_log text "------------------------------------------------------";
 
-private _allMissionObjects = (all3DENEntities select 0);
+private _allMissionObjects = all3DENEntities select 0;
 private _allUnits = _allMissionObjects select {(_x isKindOf "CaManBase") && {!((_x isKindOf "B_UAV_AI") || {_x isKindOf "O_UAV_AI"} || {_x isKindOf "UAV_AI_base_F"})}};
 private _sideCounts = [west, east, resistance] apply {
     private _side = _x;
