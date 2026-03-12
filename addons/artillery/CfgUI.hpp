@@ -137,6 +137,10 @@ class GVAR(ArtilleryDisplay) {
                     text = "Slow Barrage with Walk";
                     value = ARTILLERY_MISSIONTYPE_SLOW_WITH_WALK;
                 };
+                class lazyZeroQuick {
+                    text = "Slow Adjust (90 Second Warning)";
+                    value = ARTILLERY_MISSIONTYPE_QUICK_LAZY_WALK;
+                };
             };
         };
         class RscText_roundType: RscText_gunCount {
