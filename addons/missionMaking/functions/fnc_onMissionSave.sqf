@@ -177,7 +177,6 @@ if (_classesNone isNotEqualTo []) then {
 private _checkWeapons = [];
 private _checkMagazines = [];
 private _checkMedical = [];
-private _checkDeprecatedGear = [];
 {
     private _unit = _x;
     private _typeOf = toLower typeOf _unit;
@@ -244,16 +243,6 @@ private _checkDeprecatedGear = [];
         };
     };
 
-    // Check deprecated gear:
-    /*
-    private _gear = (weapons _unit);
-    _gear append [uniform _unit, vest _unit, backpack _unit];
-    {
-        if ((_x select [0, 5]) == "XXX_") then {
-            _checkDeprecatedGear pushBackUnique _x;
-        };
-    } forEach _gear;
-    */
 
 } forEach _allUnits;
 
@@ -265,9 +254,6 @@ if (_checkMagazines isNotEqualTo []) then {
 };
 if (_checkMedical isNotEqualTo []) then {
     _problems pushBack ["Units missing medical", _checkMedical];
-};
-if (_checkDeprecatedGear isNotEqualTo []) then {
-    _problems pushBack ["Units using gear from mod we will drop", _checkDeprecatedGear];
 };
 
 private _fortifies = (all3DENEntities select 3) select {_x isKindOf "potato_fortify_setupModule"};
@@ -304,5 +290,6 @@ if (_problems isEqualTo []) then {
         } forEach _problems;
     };
 };
+call compileScript [QPATHTOF(functions\fnc_checkModDeprecation.sqf)];
 
 nil
