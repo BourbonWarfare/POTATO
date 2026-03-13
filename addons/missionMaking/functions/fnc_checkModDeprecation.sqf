@@ -89,24 +89,33 @@ if (_cfgPatches isNotEqualTo []) then {
 	};
 	} forEach vehicles;
 };
-
-if (toLowerANSI worldName in _terrains) then {
-	private _msg = "Terrain slated for removal in next BW modset update";
-	systemChat _msg;
-	[_msg] call BIS_fnc_3DENNotification;
-	uiSleep 1.5;
-};
-private _itemCount = count _items;
-if (_itemCount > 0) then {
-	private _msg = format ["Mission uses [%1] vehicles, weapons, or items part of mods slated for removal.", _itemCount];
-	systemChat _msg;
-	[_msg] call BIS_fnc_3DENNotification;
-	uiSleep 2.5;
-	{
-		_x params ["_name", "_class", "_patch"];
-		private _msg = format ["[%1/%2] %3 (%4) is part of %5", (_forEachIndex + 1), _itemCount, _name, _class, _patch];
-		systemChat _msg;
-		[_msg] call BIS_fnc_3DENNotification;
-		uiSleep 1.5;
-	} forEach _items;
+[_items, _terrains] spawn {
+    params ["_items", "_terrains"];
+    uiSleep 1.5;
+    if (toLowerANSI worldName in _terrains) then {
+        private _msg = "Terrain slated for removal in next BW modset update";
+        systemChat _msg;
+        [_msg] call BIS_fnc_3DENNotification;
+        uiSleep 1.5;
+    };
+    private _itemCount = count _items;
+    if (_itemCount > 0) then {
+        private _msg = format ["Mission uses [%1] vehicles, weapons, or items part of mods slated for removal including:", _itemCount];
+        systemChat _msg;
+        [_msg] call BIS_fnc_3DENNotification;
+        uiSleep 2.5;
+        for "_i" from 0 to _itemCount - 1 do {
+            (_items#_i) params ["_name", "_class", "_patch"];
+            private _msg = if (_itemCount > 8 && _i == 4) then {
+                format ["[%1/%2] %3 (%4) is part of %5 + %6 more", (_i + 1), _itemCount, _name, _class, _patch, _itemCount - 5];
+            } else {
+                format ["[%1/%2] %3 (%4) is part of %5", (_i + 1), _itemCount, _name, _class, _patch];
+            };
+            systemChat _msg;
+            if (_i < 5 || ((_itemCount > 10 && _i < 5) || (_i < 10 && _itemCount <= 8))) then {
+                [_msg] call BIS_fnc_3DENNotification;
+                uiSleep 1.5;
+            };
+        };
+    };
 };
