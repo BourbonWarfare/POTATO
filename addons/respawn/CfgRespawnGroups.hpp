@@ -119,6 +119,7 @@ class CfgRespawnGroups {
             class ASL: Alpha {
                 displayName = "Alpha";
                 markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class BSL: Bravo {
                 displayName = "Bravo";
