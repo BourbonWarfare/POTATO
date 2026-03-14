@@ -115,7 +115,6 @@ if (_isClosing) then {
     (_display displayCtrl IDC_ARTILLERY_ROUNDTYPE) lbSetCurSel ((GVAR(artilleryAmmoTypes) find ((GVAR(artilleryParams) getOrDefault ["roundType", [0,0]])#1)) - 1);
     (_display displayCtrl IDC_ARTILLERY_DISPERSION) sliderSetPosition (2 * (_dims#1));
     (_display displayCtrl IDC_ARTILLERY_ROTATION) sliderSetPosition (_dims#2);
-    (_display displayCtrl IDC_ARTILLERY_AVOIDPLAYERS) cbSetChecked (GVAR(artilleryParams) getOrDefault ["avoidPlayers", true]);
     // update initial values
     private _textCtrl = _display displayCtrl IDC_ARTILLERY_DISPERSIONTXT;
     _textCtrl ctrlSetText format ["Round Dispersion: %1m", round (_dims#1)];

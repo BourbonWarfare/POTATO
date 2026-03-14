@@ -76,6 +76,7 @@ switch (_missionType) do {
         } forEach ARTILLERY_POSITIONS_LAZYADJUST;
         [_gun, _targetArray, _magazine, _tof + 20 + random 15] call FUNC(fireOnArray);
     };
+    case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_WALK;
     case ARTILLERY_MISSIONTYPE_QUICK_LAZY_WALK: {
         private _targetArray = [];
         _rotation = 180 + _rotation;
@@ -84,6 +85,7 @@ switch (_missionType) do {
         } forEach ARTILLERY_POSITIONS_QUICKLAZYADJUST;
         [_gun, _targetArray, _magazine, 25 + random 20] call FUNC(fireOnArray);
     };
+    case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_BARRAGE;
     case ARTILLERY_MISSIONTYPE_QUICK_LAZY_BARRAGE;
     case ARTILLERY_MISSIONTYPE_BRACKET_BARRAGE;
     case ARTILLERY_MISSIONTYPE_LAZY_BARRAGE;

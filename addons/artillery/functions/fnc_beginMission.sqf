@@ -200,6 +200,32 @@ switch (_missionType) do {
             ]
         ], _holdGuns] call CBA_fnc_targetEvent;
     };
+    case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_WALK: {
+        private _holdGuns = (_gunsToUse select [1]) apply {_x#1}; // selects all but first element
+        private _bracketGun = _gunsToUse#0#1;
+        [QGVAR(issueArty), [
+            _missionID,
+           [[_bracketGun, 30]],
+            ARTILLERY_MISSION_STATUS_FIRING, [
+                ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_WALK,
+                _magazine,
+                _centerPosATL,
+                _roundCount,
+                _avoidPlayers,
+                _dispersion,
+                _rotation
+            ]
+        ], _bracketGun] call CBA_fnc_targetEvent;
+
+        [QGVAR(issueArty), [
+            _missionID,
+            _holdGuns,
+            ARTILLERY_MISSION_STATUS_ASSIGN, [
+                ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_BARRAGE,
+                200 // we force the mission to take 30-45 secs per round
+            ]
+        ], _holdGuns] call CBA_fnc_targetEvent;
+    };
     case ARTILLERY_MISSIONTYPE_LAZY_WALK: {
         private _holdGuns = (_gunsToUse select [1]) apply {_x#1}; // selects all but first element
         private _bracketGun = _gunsToUse#0#1;
@@ -235,6 +261,7 @@ if (_clientID > 2 || is3DENPreview) then {
         case ARTILLERY_MISSIONTYPE_LAZY_BARRAGE;
         case ARTILLERY_MISSIONTYPE_BRACKET_BARRAGE;
         case ARTILLERY_MISSIONTYPE_QUICK_LAZY_BARRAGE;
+        case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_BARRAGE;
         case ARTILLERY_MISSIONTYPE_POINT: {"Area Barrage"};
         case ARTILLERY_MISSIONTYPE_LAZY_WALK: {"Lazy Walk onto target"};
         case ARTILLERY_MISSIONTYPE_LINEAR_WALK;
@@ -242,6 +269,7 @@ if (_clientID > 2 || is3DENPreview) then {
         case ARTILLERY_MISSIONTYPE_LINEAR: {"Linear Barrage"};
         case ARTILLERY_MISSIONTYPE_CREEPING: {"Creeping Barrage"};
         case ARTILLERY_MISSIONTYPE_SLOW: {"Slow Barrage"};
+        case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_WALK;
         case ARTILLERY_MISSIONTYPE_QUICK_LAZY_WALK: {"Lazy Walk (Quick) onto target"};
         default {"Err"};
     };

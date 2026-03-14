@@ -44,7 +44,7 @@ switch (_sliderUpdate) do {
             _newValue = _newValue * 2;
             _baseText = "Rounds per gun (2-32): ";
         };
-        if (_missionTypeIdx in [ARTILLERY_MISSIONTYPE_SLOW, ARTILLERY_MISSIONTYPE_SLOW_WITH_WALK]) then {
+        if (_missionTypeIdx in ARTILLERY_SLOWBARRAGE_TIMER) then {
             (_display displayCtrl IDC_ARTILLERY_MISSIONGLENGTHTIME) ctrlEnable true;
         } else {
             (_display displayCtrl IDC_ARTILLERY_MISSIONGLENGTHTIME) ctrlEnable false;

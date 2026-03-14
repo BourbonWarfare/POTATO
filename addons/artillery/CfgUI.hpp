@@ -139,7 +139,11 @@ class GVAR(ArtilleryDisplay) {
                 };
                 class lazyZeroQuick {
                     text = "Slow Adjust (90 Second Warning)";
-                    value = ARTILLERY_MISSIONTYPE_QUICK_LAZY_WALK;
+                    value = ARTILLERY_MISSIONTYPE_QUICK_LAZY;
+                };
+                class slowBarrageQuickWalk {
+                    text = "Slow Barrage (90 Second Warning)";
+                    value = ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY;
                 };
             };
         };
