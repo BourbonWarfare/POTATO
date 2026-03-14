@@ -74,6 +74,10 @@ if (!isClass _path) then {
 
 if (!isClass _path) exitWith {
     diag_log text format ["[POTATO-assignGear] - No loadout found for %1 (typeOf %2) (kindOf %3) (defaultLoadout: %4)", _theVehicle, typeOf _theVehicle, _loadout, _defaultLoadout];
+    clearWeaponCargoGlobal _theVehicle;
+    clearMagazineCargoGlobal _theVehicle;
+    clearItemCargoGlobal _theVehicle;
+    clearBackpackCargoGlobal _theVehicle;
 };
 
 switch (GVAR(setVehicleLoadouts)) do {

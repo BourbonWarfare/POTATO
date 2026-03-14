@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {QGVAR(addArtilleryAmmo),QGVAR(registerArtillery),QGVAR(openMissionDialog),QGVAR(clearMission)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"A3_Weapons_F", "potato_missionModules", "CBA_main"};
+        requiredAddons[] = {"potato_missionModules"};
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"Lambda.Tiger"};

@@ -7193,7 +7193,8 @@ class CfgWeapons {
     class CUP_arifle_M4A1_BUIS_Base: CUP_arifle_M4_Base {
         modes[] = {"Single","FullAuto","Burst_medium","Single_medium_optics1","Single_medium_optics2"};
     };
-    class CUP_arifle_M4A1_MOE_short_black: CUP_arifle_M4A1_BUIS_Base {
+    class CUP_arifle_M4A1_BUIS_NoUnder_Base: CUP_arifle_M4_Base {}; // added in cupdate winter 2026?
+    class CUP_arifle_M4A1_MOE_short_black: CUP_arifle_M4A1_BUIS_NoUnder_Base {
         modes[] = {"Single","FullAuto","Burst_medium","Single_medium_optics1","Single_medium_optics2"};
         class Single: Single {
             minRange = 2;
@@ -7239,7 +7240,7 @@ class CfgWeapons {
 
         };
     };
-    class CUP_arifle_M4A1_standard_short_black: CUP_arifle_M4A1_BUIS_Base {
+    class CUP_arifle_M4A1_standard_short_black: CUP_arifle_M4A1_BUIS_NoUnder_Base {
         modes[] = {"Single","FullAuto","Burst_medium","Single_medium_optics1","Single_medium_optics2"};
         class Single: Single {
             minRange = 2;
@@ -7285,7 +7286,7 @@ class CfgWeapons {
 
         };
     };
-    class CUP_arifle_M4_MOE_BW: CUP_arifle_M4A1_BUIS_Base {
+    class CUP_arifle_M4_MOE_BW: CUP_arifle_M4A1_BUIS_NoUnder_Base {
         modes[] = {"Single","Single_medium_optics1","Single_medium_optics2"};
         class Single: Mode_SemiAuto {
             minRange = 2;

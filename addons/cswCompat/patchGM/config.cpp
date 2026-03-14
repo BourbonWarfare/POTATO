@@ -1,6 +1,6 @@
 // "\gm\gm_weapons\gm_launchers\gm_milan\gm_milan_heat_dm92.p3d"
 // "\gm\gm_weapons\gm_launchers\gm_fagot\gm_fagot_heat_9m111.p3d"
-#include "\z\potato\addons\cswCompatCUP\script_component.hpp"
+#include "\z\potato\addons\cswCompat\script_component.hpp"
 #undef COMPONENT
 #define COMPONENT cswCompatCUP_patchGM
 
