@@ -1,5 +1,5 @@
 #define REPLACE_DAMAGE_CLASSES class Laceration {\
-    weighting[] = {{20,10},{4,1},{0.3,1},{0,0}};\
+    weighting[] = {{20,10},{4,2},{1,1},{0.3,1},{0,0}};\
 }
 
 class ACE_Medical_Injuries {
