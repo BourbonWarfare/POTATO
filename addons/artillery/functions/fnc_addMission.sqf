@@ -127,6 +127,30 @@ switch (_missionType) do {
         ];
         GVAR(artilleryMissionCache) set [_missionID, _missionInfo];
     };
+    case ARTILLERY_MISSIONTYPE_QUICK_LAZY: {
+        private _parentMission = _missionID;
+        _missionID = _missionID + "_lazy";
+        _missionType = ARTILLERY_MISSIONTYPE_QUICK_LAZY_WALK;
+        _missionInfo set [5, ARTILLERY_MISSIONTYPE_QUICK_LAZY_BARRAGE];
+        _missionInfo = [
+            _clientID, _missionInfo#1, _magazine, _positionATL,
+            _missionInfo#4, _missionType, _missionInfo#6, _missionInfo#7,
+            true, 1, _missionInfo#10, _parentMission
+        ];
+        GVAR(artilleryMissionCache) set [_missionID, _missionInfo];
+    };
+    case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY: {
+        private _parentMission = _missionID;
+        _missionID = _missionID + "_lazy";
+        _missionType = ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_WALK;
+        _missionInfo set [5, ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_BARRAGE];
+        _missionInfo = [
+            _clientID, _missionInfo#1, _magazine, _positionATL,
+            _missionInfo#4, _missionType, _missionInfo#6, _missionInfo#7,
+            true, 1, _missionInfo#10, _parentMission
+        ];
+        GVAR(artilleryMissionCache) set [_missionID, _missionInfo];
+    };
     case ARTILLERY_MISSIONTYPE_LAZY: {
         private _parentMission = _missionID;
         _missionID = _missionID + "_lazy";
@@ -157,7 +181,9 @@ switch (_missionType) do {
 // calculate target zone bounds []
 private _targetBounds = [_positionATL];
 switch (_missionType) do { // Add extra points
-    case ARTILLERY_MISSIONTYPE_LAZY: {
+    case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_WALK;
+    case ARTILLERY_MISSIONTYPE_QUICK_LAZY_WALK;
+    case ARTILLERY_MISSIONTYPE_LAZY_WALK: {
         private _dir = 180 + _missionInfo#7;
         {
             private _targetPos =  (_positionATL getPos [_x, _dir]);
@@ -165,7 +191,7 @@ switch (_missionType) do { // Add extra points
             _targetBounds pushBack _targetPos;
         } forEach ARTILLERY_POSITIONS_LAZYADJUST;
     };
-    case ARTILLERY_MISSIONTYPE_BRACKET: {
+    case ARTILLERY_MISSIONTYPE_BRACKET_SHOTS: {
         private _dir = 180 + _missionInfo#7;
         private _dispersion = _missionHashMap getOrDefault ["dispersion", 100];
         {
