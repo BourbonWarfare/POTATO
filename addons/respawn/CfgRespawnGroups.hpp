@@ -119,6 +119,7 @@ class CfgRespawnGroups {
             class ASL: Alpha {
                 displayName = "Alpha";
                 markerText = "SL";
+                markerTexture = QPATHTOEF(markers,data\hq.paa);
             };
             class BSL: Bravo {
                 displayName = "Bravo";
@@ -189,7 +190,7 @@ class CfgRespawnGroups {
                 displayName = "Rifleman 1";
                 colorTeam = 2;
             };
-            class Rifleman2: BaseUnit {
+            class Rifleman2: Rifleman1 {
                 displayName = "Rifleman 2";
             };
         };
@@ -401,6 +402,7 @@ class CfgRespawnGroups {
             class RiflemanAntiTank: BaseUnit {
                 displayName = "Rifleman Anti-Tank";
                 type = "lat";
+                colorTeam = 2;
             };
         };
 
@@ -409,181 +411,181 @@ class CfgRespawnGroups {
                 displayName = "Alpha 1";
                 markerText = "1";
                 colorTeam1 = "RED";
+                colorTeam2 = "GREEN";
             };
             class A2: Alpha {
                 displayName = "Alpha 2";
                 markerText = "2";
-                colorTeam1 = "GREEN";
+                colorTeam1 = "BLUE";
+                colorTeam2 = "YELLOW";
             };
-            class A3: Alpha {
+            class A3: A1 {
                 displayName = "Alpha 3";
                 markerText = "3";
-                colorTeam1 = "BLUE";
             };
-            class A4: Alpha {
+            class A4: A2 {
                 displayName = "Alpha 4";
                 markerText = "4";
-                colorTeam1 = "YELLOW";
             };
             class B1: Bravo {
                 displayName = "Bravo 1";
                 markerText = "1";
                 colorTeam1 = "RED";
+                colorTeam2 = "GREEN";
             };
             class B2: Bravo {
                 displayName = "Bravo 2";
                 markerText = "2";
-                colorTeam1 = "GREEN";
+                colorTeam1 = "BLUE";
+                colorTeam2 = "YELLOW";
             };
-            class B3: Bravo {
+            class B3: B1 {
                 displayName = "Bravo 3";
                 markerText = "3";
-                colorTeam1 = "BLUE";
             };
-            class B4: Bravo {
+            class B4: B2 {
                 displayName = "Bravo 4";
                 markerText = "4";
-                colorTeam1 = "YELLOW";
             };
             class C1: Charlie {
                 displayName = "Charlie 1";
                 markerText = "1";
                 colorTeam1 = "RED";
+                colorTeam2 = "GREEN";
             };
             class C2: Charlie {
                 displayName = "Charlie 2";
                 markerText = "2";
-                colorTeam1 = "GREEN";
+                colorTeam1 = "BLUE";
+                colorTeam2 = "YELLOW";
             };
-            class C3: Charlie {
+            class C3: C1 {
                 displayName = "Charlie 3";
                 markerText = "3";
-                colorTeam1 = "BLUE";
             };
-            class C4: Charlie {
+            class C4: C2 {
                 displayName = "Charlie 4";
                 markerText = "4";
-                colorTeam1 = "YELLOW";
             };
             class D1: Delta {
                 displayName = "Delta 1";
                 markerText = "1";
                 colorTeam1 = "RED";
+                colorTeam2 = "GREEN";
             };
             class D2: Delta {
                 displayName = "Delta 2";
                 markerText = "2";
-                colorTeam1 = "GREEN";
+                colorTeam1 = "BLUE";
+                colorTeam2 = "YELLOW";
             };
-            class D3: Delta {
+            class D3: D1 {
                 displayName = "Delta 3";
                 markerText = "3";
-                colorTeam1 = "BLUE";
             };
-            class D4: Delta {
+            class D4: D2 {
                 displayName = "Delta 4";
                 markerText = "4";
-                colorTeam1 = "YELLOW";
             };
             class E1: Echo {
                 displayName = "Echo 1";
                 markerText = "1";
                 colorTeam1 = "RED";
+                colorTeam2 = "GREEN";
             };
             class E2: Echo {
                 displayName = "Echo 2";
                 markerText = "2";
-                colorTeam1 = "GREEN";
+                colorTeam1 = "BLUE";
+                colorTeam2 = "YELLOW";
             };
-            class E3: Echo {
+            class E3: E1 {
                 displayName = "Echo 3";
                 markerText = "3";
-                colorTeam1 = "BLUE";
             };
-            class E4: Echo {
+            class E4: E2 {
                 displayName = "Echo 4";
                 markerText = "4";
-                colorTeam1 = "YELLOW";
             };
             class F1: Foxtrot {
                 displayName = "Foxtrot 1";
                 markerText = "1";
                 colorTeam1 = "RED";
+                colorTeam2 = "GREEN";
             };
             class F2: Foxtrot {
                 displayName = "Foxtrot 2";
                 markerText = "2";
-                colorTeam1 = "GREEN";
+                colorTeam1 = "BLUE";
+                colorTeam2 = "YELLOW";
             };
-            class F3: Foxtrot {
+            class F3: F1 {
                 displayName = "Foxtrot 3";
                 markerText = "3";
-                colorTeam1 = "BLUE";
             };
-            class F4: Foxtrot {
+            class F4: F2 {
                 displayName = "Foxtrot 4";
                 markerText = "4";
-                colorTeam1 = "YELLOW";
             };
             class G1: Golf {
                 displayName = "Golf 1";
                 markerText = "1";
                 colorTeam1 = "RED";
+                colorTeam2 = "GREEN";
             };
             class G2: Golf {
                 displayName = "Golf 2";
                 markerText = "2";
-                colorTeam1 = "GREEN";
+                colorTeam1 = "BLUE";
+                colorTeam2 = "YELLOW";
             };
-            class G3: Golf {
+            class G3: G1 {
                 displayName = "Golf 3";
                 markerText = "3";
-                colorTeam1 = "BLUE";
             };
-            class G4: Golf {
+            class G4: G2 {
                 displayName = "Golf 4";
                 markerText = "4";
-                colorTeam1 = "YELLOW";
             };
             class H1: Hotel {
                 displayName = "Hotel 1";
                 markerText = "1";
                 colorTeam1 = "RED";
+                colorTeam2 = "GREEN";
             };
             class H2: Hotel {
                 displayName = "Hotel 2";
                 markerText = "2";
-                colorTeam1 = "GREEN";
+                colorTeam1 = "BLUE";
+                colorTeam2 = "YELLOW";
             };
-            class H3: Hotel {
+            class H3: H1 {
                 displayName = "Hotel 3";
                 markerText = "3";
-                colorTeam1 = "BLUE";
             };
-            class H4: Hotel {
+            class H4: H2 {
                 displayName = "Hotel 4";
                 markerText = "4";
-                colorTeam1 = "YELLOW";
             };
             class I1: India {
                 displayName = "India 1";
                 markerText = "1";
                 colorTeam1 = "RED";
+                colorTeam2 = "GREEN";
             };
             class I2: India {
                 displayName = "India 2";
                 markerText = "2";
-                colorTeam1 = "GREEN";
+                colorTeam1 = "BLUE";
+                colorTeam2 = "YELLOW";
             };
-            class I3: India {
+            class I3: I1 {
                 displayName = "India 3";
                 markerText = "3";
-                colorTeam1 = "BLUE";
             };
-            class I4: India {
+            class I4: I2 {
                 displayName = "India 4";
                 markerText = "4";
-                colorTeam1 = "YELLOW";
             };
         };
     };
