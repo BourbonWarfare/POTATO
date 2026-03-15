@@ -1,5 +1,10 @@
 #include "..\script_component.hpp"
-(profileNameSpace getVariable [QGVAR(modUpdateInfo), [[], "false"]]) params ["_terrains", "_selectionCode"];
+(profileNamespace getVariable [QGVAR(modUpdateInfo), [[], "false", 0]]) params ["_terrains", "_selectionCode", "_validDate"];
+
+// quick exit so you don't search for ms at a time for no reason
+private _date = systemTimeUTC;
+_date = 10000 * _date#0 + 100 * _date#1 + _date#2;
+if (_date > _validDate) exitWith {};
 
 private _cfgPatches = _selectionCode configClasses (configFile >> "CfgPatches");
 _cfgPatches = _cfgPatches apply {toLowerANSI configName _x};
