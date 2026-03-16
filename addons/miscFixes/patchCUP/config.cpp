@@ -294,21 +294,21 @@ class CfgVehicles {
 class CfgRecoils {
     class recoil_default;
     class GVAR(recoil_m240): recoil_default {
-        muzzleOuter[] = {0.9,1.3,0.35,0.25};
-        kickBack[] = {0.015,0.02};
-        permanent = 0.05;
+        muzzleOuter[] = {0.5,0.85,0.6,0.25};
+        kickBack[] = {0.015,0.04};
+        permanent = 0.07;
         temporary = 0.005;
     };
     class GVAR(recoil_pkm): recoil_default {
-        muzzleOuter[] = {1.1,0.8,0.4,0.2};
-        kickBack[] = {0.015,0.03};
+        muzzleOuter[] = {0.5,0.9,0.6,0.3};
+        kickBack[] = {0.02,0.05};
         permanent = 0.1;
         temporary = 0.005;
     };
     class GVAR(recoil_SAW): recoil_default {
-        muzzleOuter[] = {0.59,1.04,0.29,0.21};
-        kickBack[] = {0.015,0.02};
-        permanent = 0.03;
+        muzzleOuter[] = {0.2,0.6,0.25,0.15};
+        kickBack[] = {0.005,0.02};
+        permanent = 0.065;
         temporary = 0.015;
     };
     class GVAR(recoil_uk59): recoil_default {
@@ -317,7 +317,7 @@ class CfgRecoils {
         permanent = 0.13;
         temporary = 0.005;
     };
-    
+
     class GVAR(recoil_akm): recoil_default {// custom recoil (emulating GM's AKM recoil)
         muzzleOuter[] = {0.4,1.5,0.3,0.5};
 		kickBack[] = {0.032,0.058};
@@ -382,7 +382,7 @@ class CfgWeapons {
         scopeArsenal = 2;
         recoil = QGVAR(recoil_rpk);
     };
-    
+
     // inheritance classes
     class CUP_arifle_AKM;
     class CUP_arifle_AKM_Early;
@@ -413,10 +413,10 @@ class CfgWeapons {
     class CUP_arifle_TYPE_56_2_Early;
     class CUP_arifle_TYPE_56_2;
     class CUP_arifle_TYPE_56_2_top_rail;
-    
+
     // AKM
     class potato_arifle_AKM: CUP_arifle_AKM_Early { // CUP AKM using custom recoil
-        scope = 1; 
+        scope = 1;
         scopeArsenal = 1;
         recoil = QGVAR(recoil_akm);
     };
@@ -432,7 +432,7 @@ class CfgWeapons {
     };
     // AKM w/ GP25
     class potato_arifle_AKM_GL: CUP_arifle_AKM_GL_Early { // CUP AKM using custom recoil
-        scope = 1; 
+        scope = 1;
         scopeArsenal = 1;
         recoil = QGVAR(recoil_akm_hg);
     };
@@ -446,8 +446,8 @@ class CfgWeapons {
         scopeArsenal = 1;
         recoil = QGVAR(recoil_akm_hg);
     };
-    
-    
+
+
     // AKM Zenitco
     class potato_arifle_AKMN_zenit: CUP_arifle_AKMN_railed { // CUP AKMN (Zenitco) using custom recoil
         scope = 1;
@@ -469,8 +469,8 @@ class CfgWeapons {
         scopeArsenal = 1;
         recoil = QGVAR(recoil_akm_hg);
     };
-    
-    
+
+
     // AK47
     class potato_arifle_AK47: CUP_arifle_AK47_Early {// CUP AK47 (AK) using custom recoil
         scope = 1;
@@ -503,8 +503,8 @@ class CfgWeapons {
         scopeArsenal = 1;
         recoil = QGVAR(recoil_akm_hg);
     };
-    
-    
+
+
     // AKMS
     class potato_arifle_AKMS: CUP_arifle_AKMS_Early { // CUP AKMS using custom recoil
         scope = 1;
@@ -537,8 +537,8 @@ class CfgWeapons {
         scopeArsenal = 1;
         recoil = QGVAR(recoil_akm_hg);
     };
-    
-    
+
+
     // AKS
     class potato_arifle_AKS: CUP_arifle_AKS { // CUP AKS using custom recoil
         scope = 1;
@@ -550,16 +550,16 @@ class CfgWeapons {
         scopeArsenal = 1;
         recoil = QGVAR(recoil_akm);
     };
-    
-    
+
+
     // RPK
     class potato_arifle_RPK_ris: CUP_arifle_RPK74_top_rail { // CUP RPK (RIS) using custom recoil
         scope = 1;
         scopeArsenal = 1;
         recoil = QGVAR(recoil_rpk);
     };
-    
-    
+
+
     // Type 56-2
     class potato_arifle_TYPE_56_2: CUP_arifle_TYPE_56_2_Early {// CUP Type 56-2 using custom recoil
         scope = 1;
@@ -576,15 +576,15 @@ class CfgWeapons {
         scopeArsenal = 1;
         recoil = QGVAR(recoil_akm);
     };
-    
-    
+
+
     // Gold AKS
     class potato_arifle_AKS_gold: CUP_arifle_AKS_Gold { // CUP AKS (Gold) using extra custom recoil
         scope = 1;
         scopeArsenal = 1;
         recoil = QGVAR(recoil_akm_gold);
     };
-    
+
     // Ups the ROF from 600 to 652, matching IRL specs
     class CUP_arifle_AK74: CUP_arifle_AK_Base {
         class FullAuto: Mode_FullAuto {
