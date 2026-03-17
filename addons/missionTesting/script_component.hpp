@@ -30,7 +30,7 @@
 #define A_CHECK ["X","O"]
 #define A_YESNO ["No","Yes"]
 #define A_CHECK_TF [false,true]
-#define A_MISSION_TYPE ["BOTH","COOP","TVT"]
+#define A_MISSION_TYPE ["After-Hours","COOP","TVT","Long COOP","Unconventional TVT", "Unconventional COOP"]
 #define A_MISSION_TAGS ["NONE","NIGHT","DAWN","MSV","TvT1","TvT2","AH","FOG","BRIEF ON MAP"]
 
 // BBCode Defines

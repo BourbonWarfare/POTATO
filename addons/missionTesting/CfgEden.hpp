@@ -44,8 +44,8 @@ class Cfg3DEN {
                             defaultValue = 0;
                             typeName = "NUMBER";
                             class Values {
-                                class SELECT {
-                                    name = "SELECT";
+                                class AFTER_HOURS {
+                                    name = "After-Hours";
                                     value = 0;
                                 };
                                 class COOP {
@@ -67,10 +67,6 @@ class Cfg3DEN {
                                 class UNCONVENTIONAL_TVT {
                                     name = "Unconventional TVT";
                                     value = 4;
-                                };
-                                class AFTER_HOURS {
-                                    name = "After-Hours";
-                                    value = 99;
                                 };
                             };
                         };
