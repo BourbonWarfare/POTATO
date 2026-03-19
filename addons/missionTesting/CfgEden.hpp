@@ -13,7 +13,7 @@ class display3DEN {
                     items[] += {QGVAR(missionTesting),QGVAR(editorOpenMenu)};
                 };
                 class GVAR(missionTesting) {
-                    text = "Mission Testing Attributes";
+                    text = "Mission Attributes";
                     action = QUOTE(edit3DENMissionAttributes QUOTE(QGVAR(missionTestingInfo)););
                 };
                 class GVAR(editorOpenMenu) {
