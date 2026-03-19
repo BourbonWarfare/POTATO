@@ -30,7 +30,7 @@ class display3DEN {
 class Cfg3DEN {
     class Mission {
         class GVAR(missionTestingInfo) {
-            displayName = "Mission Testing Information";
+            displayName = "Mission Information";
             display = "Display3DENEditAttributes";
             class AttributeCategories {
                 class MissionGeneraInfo {
@@ -64,6 +64,7 @@ class Cfg3DEN {
                             property = QGVAR(missionVersion);
                             defaultValue = 1;
                             typeName = "STRING";
+                            validate = "number";
                         };
                     };
                 };
@@ -77,6 +78,7 @@ class Cfg3DEN {
                             control = QUOTE(EditShort);
                             defaultValue = "20";
                             typeName = "STRING";
+                            validate = "number";
                         };
                         class GVAR(playerCountRecommended) {
                             displayName = "Player Count Recommended:";
@@ -84,6 +86,7 @@ class Cfg3DEN {
                             control = QUOTE(EditShort);
                             defaultValue = "40";
                             typeName = "STRING";
+                            validate = "number";
                         };
                         class GVAR(playerCountMaximum) {
                             displayName = "Player Count Maximum:";
@@ -91,6 +94,7 @@ class Cfg3DEN {
                             control = QUOTE(EditShort);
                             defaultValue = "60";
                             typeName = "STRING";
+                            validate = "number";
                         };
                     };
                 };
@@ -104,12 +108,13 @@ class Cfg3DEN {
                             control = QUOTE(EditShort);
                             defaultValue = 0;
                             typeName = "NUMBER";
+                            validate = "number";
                         };
                         class GVAR(SSForceEnd) {
                             displayName = "Force End Safe Start:";
                             property = QGVAR(SSForceEnd);
-                            control = QUOTE(Checkbox);
-                            defaultValue = QUOTE(false);
+                            control = "Checkbox";
+                            defaultValue = "false";
                         };
                         class GVAR(missionTimeLength) {
                             displayName = "Mission Length (mins):";
@@ -117,6 +122,7 @@ class Cfg3DEN {
                             control = QUOTE(EditShort);
                             defaultValue = 0;
                             typeName = "NUMBER";
+                            validate = "number";
                         };
                     };
                 };
