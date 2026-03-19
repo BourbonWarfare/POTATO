@@ -91,6 +91,8 @@ private _safeStartLength = getMissionConfigValue [QEGVAR(missionTesting,SSTimeGi
 private _missionLength = getMissionConfigValue [QEGVAR(missionTesting,missionTimeLength), 0];
 private _safeStartInBounds = true;
 private _missionLengthInBounds = true;
+if !(_safeStartLength isEqualType 0) then {_safeStartLength = 0};
+if !(_missionLength isEqualType 0) then {_missionLength = 0};
 switch (_missionTypeEnum) do {
     case 1: { // Coop
         _safeStartInBounds = _safeStartLength == 15;
