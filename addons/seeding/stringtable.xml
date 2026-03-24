@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="LMD">
+    <Package name="Fortify">
+        <Key ID="STR_LMD_bags">
+            <English>Bags</English>
+        </Key>
+        <Key ID="STR_LMD_bunker">
+            <English>Bunker</English>
+        </Key>
+        <Key ID="STR_LMD_dug">
+            <English>Dug</English>
+        </Key>
+        <Key ID="STR_LMD_grad">
+            <English>GRAD</English>
+        </Key>
+        <Key ID="STR_LMD_misc">
+            <English>Misc</English>
+        </Key>
+    </Package>
+</Project>
