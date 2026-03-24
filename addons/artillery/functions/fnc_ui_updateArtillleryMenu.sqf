@@ -40,7 +40,7 @@ switch (_sliderUpdate) do {
         };
         private _missionTypeIdx = lbCurSel (_display displayCtrl IDC_ARTILLERY_MISSIONTYPE);
         if (_missionTypeIdx in
-            [ARTILLERY_MISSIONTYPE_LINEAR, ARTILLERY_MISSIONTYPE_CREEPING, ARTILLERY_MISSIONTYPE_LINEAR_WITH_WALK]) then {
+            [ARTILLERY_MISSIONTYPE_LINEAR, ARTILLERY_MISSIONTYPE_CREEPING, ARTILLERY_MISSIONTYPE_LINEAR_WITH_BRACKET]) then {
             _newValue = _newValue * 2;
             _baseText = "Rounds per gun (2-32): ";
         };
