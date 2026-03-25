@@ -13,8 +13,6 @@ GVAR(dev_traceHash) = createHashMap;
 GVAR(loopRunning) = false;
 GVAR(activeVehicles) = createHashMap;
 
-#include "initSettings.inc.sqf"
-
 #ifdef DEBUG_MODE_FULL
 #endif
 
