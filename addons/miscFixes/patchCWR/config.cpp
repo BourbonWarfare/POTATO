@@ -7,7 +7,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "potato_customGear", "cwr3_intro", "cwr3_vehicle_m41", "cwr3_soldiers_us" };
+        requiredAddons[] = { "potato_core", "potato_customGear", "cwr3_intro", "cwr3_vehicle_m41", "cwr3_soldiers_us", "cwr3_vehicle_m113" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -49,6 +49,39 @@ class CfgVehicles {
         ACEGVAR(vehicle_damage,engineFireProb) = 0.5;
         ACEGVAR(vehicle_damage,detonationDuringFireProb) = 0.5;
         ACEGVAR(vehicle_damage,canHaveFireRing) = 1;
+    };
+    class CUP_M113New_Base: Tank_F {
+        class Turrets;
+    };
+    class CUP_M163New_Base: CUP_M113New_Base {
+        class Turrets: Turrets {
+            class MainTurret;
+        };
+    };
+    class cwr3_m901_itv_base: CUP_M163New_Base {
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                magazines[] = {"cwr3_2rnd_tow2","cwr3_2rnd_tow2","cwr3_2rnd_tow2","cwr3_2rnd_tow2","cwr3_2rnd_tow2","cwr3_2rnd_tow2"};
+                weapons[] = {"cwr3_vmlauncher_tow_veh_m901"};
+                class OpticsIn {
+                    class Wide {
+                        gunnerOpticsEffect[] = {"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
+                        gunnerOpticsModel = "\CUP\Weapons\CUP_Weapons_StaticWeapons\TOW_TI.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.2;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.2;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.025;
+                        thermalMode[] = {2, 3};
+                        visionMode[] = {"Normal","Ti"};
+                    };
+                };
+            };
+        };
     };
 };
 
