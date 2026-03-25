@@ -56,7 +56,7 @@ class Cfg3DEN {
             class potato_attributes {
                 class Attributes {
                     class vehicleCustomizationSet {
-                        displayName = "Copy Custom Garage Apperence";
+                        displayName = "Copy Custom Garage Appearance";
                         tooltip = "Apply this vehicle's camo customiation to ALL other vehicles spawned with the SAME classname";
                         property = QGVAR(vehicleCustomizationSet);
                         control = "Checkbox";
@@ -64,6 +64,12 @@ class Cfg3DEN {
                         typeName = "BOOL";
                         condition = "objectVehicle";
                         defaultValue = "(false)";
+                    };
+                    class gmVehicleCustomizationSet: vehicleCustomizationSet {
+                        displayName = "Copy Custom GM Appearance";
+                        tooltip = "Apply this vehicle's GM customization to ALL other vehicles spawned with the SAME classname";
+                        property = QGVAR(gmVehicleCustomizationSet);
+                        expression = QUOTE(if (_value) then {[ARR_2(_this,true)] call FUNC(vehicleCustomizationSet) });
                     };
                     class GVAR(rearmCustom) {
                         displayName = "Set as Rearm-Scripted Loadouts";
