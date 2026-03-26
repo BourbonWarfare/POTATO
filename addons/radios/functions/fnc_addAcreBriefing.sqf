@@ -4,6 +4,8 @@
 
 #include "script_component.hpp"
 TRACE_1("params",_this);
+#define QQUOTE(var) QUOTE(QUOTE(var))
+#define QQQUOTE(car) QUOTE(QQUOTE(var))
 
 if ((ace_player getVariable [QGVAR(briefingAdded), objNull]) isEqualTo ace_player) exitWith {
     TRACE_1("briefing already added",_this);
@@ -145,6 +147,7 @@ _diaryBuilder pushBack "<br/><font size=15>LR Radio Net (117)</font><br/>";
 _diaryBuilder pushBack "<br/><br/>Note: Subject to change.";
 
 _diaryBuilder pushBack QUOTE(<br/><br/><execute expression='[] call FUNC(reinitializeRadios);'>Reinitialize radios</execute>);
+_diaryBuilder pushBack QUOTE(<br/><br/><execute expression='if (EGVAR(safeStart,safeStartEnabled)) then{ ace_player addItem QQUOTE(ACRE_PRC148); [ARR_2(QQUOTE(potato_adminMsg),[ARR_2(format [ARR_2(QQUOTE(Adding MR radio to %1),name ace_player)],name ace_player)])] call CBA_fnc_globalEvent;};'>Add MR radio to player</execute>);
 
 ace_player createDiaryRecord ["diary", ["SIGNALS", _diaryBuilder joinString ""]];
 ace_player setVariable [QGVAR(briefingAdded), ace_player];
