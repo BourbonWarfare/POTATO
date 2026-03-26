@@ -48,7 +48,6 @@ params [
     ["_length", 180, [180]]
 ];
 if (!alive _gun) exitWith {};
-lmd_gun = _gun;
 
 private _gunner = gunner _gun;
 if !(local _gunner) then {};
