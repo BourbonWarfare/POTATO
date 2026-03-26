@@ -60,7 +60,7 @@ if (_reloadTime < 0 && _rounds > 1) then {
 _artillery removeWeaponTurret [_weapon, _turret];
 {
   _artillery removeMagazinesTurret [_x,  _turret];
-} forEach getArtilleryAmmo [_artillery];
+} forEach (getArtilleryAmmo [_artillery] + [_magazine]);
 
 if (_artillery currentMagazineTurret _turret != "") then {
   _artillery removeMagazineTurret [_artillery currentMagazineTurret _turret, _turret];
@@ -78,6 +78,11 @@ _artillery addMagazineTurret [_magazine, _turret, 1];
     if (_avoidList isNotEqualTo []) then {
         _targPos = [_targPos, 30, random 360, _avoidList] call FUNC(findSafeMortarPos);
     };
+#ifdef DRAW_SHOT_PLACEMENT
+    private _marker = createMarkerLocal [QGVAR(shot) + str _artillery + str time, _targPos];
+    _marker setMarkerTypeLocal "mil_dot_noshadow";
+    _marker setMarkerText (str _artillery + " " + str time);
+#endif
     _gunner doArtilleryFire [_targPos, _magazine, 1];
     [{unitReady (_this#0)},{
         params ["_gunner", "_arty", "_mag", "_targetPos", "_turret"];

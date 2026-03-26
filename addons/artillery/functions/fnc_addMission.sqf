@@ -115,10 +115,10 @@ switch (_missionType) do {
         ];
         GVAR(artilleryMissionCache) set [_missionID, _missionInfo];
     };
-    case ARTILLERY_MISSIONTYPE_LINEAR_WITH_WALK: {
+    case ARTILLERY_MISSIONTYPE_LINEAR_WITH_BRACKET: {
         private _parentMission = _missionID;
         _missionID = _missionID + "_lazy";
-        _missionType = ARTILLERY_MISSIONTYPE_LAZY_WALK;
+        _missionType = ARTILLERY_MISSIONTYPE_LINEAR_BRACKET;
         _missionInfo set [5, ARTILLERY_MISSIONTYPE_LINEAR_BARRAGE];
         _missionInfo = [
             _clientID, _missionInfo#1, _magazine, _positionATL,

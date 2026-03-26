@@ -36,8 +36,26 @@ if (isNull _attachedObject) then {
     };
     GVAR(artilleryGunArray) = GVAR(artilleryGunArray) - _artilleryToAdd;
     GVAR(artilleryGunArray) append _artilleryToAdd;
+    private _ammo = getArtilleryAmmo _artilleryToAdd;
+    {
+        private _arty = _x;
+        {
+            if ([_arty, _x] call FUNC(canFireRound)) then {
+                (GVAR(vehicleWeaponCache) getOrDefault [typeOf _arty, ["", [0]]]) params ["", "_turret"];
+                _arty removeMagazinesTurret [_x,  _turret];
+            };
+        } forEach _ammo;
+    } forEach _artilleryToAdd;
 } else {
     if (local _attachedObject && {0 < getNumber ((configOf _attachedObject) >> "artilleryScanner")}) then {
         GVAR(artilleryGunArray) pushBackUnique _attachedObject;
+        private _ammo = getArtilleryAmmo [_attachedObject];
+        private _type = typeOf _attachedObject;
+        {
+            if ([_attachedObject, _x] call FUNC(canFireRound)) then {
+                (GVAR(vehicleWeaponCache) getOrDefault [_type, ["", [0]]]) params ["", "_turret"];
+                _attachedObject removeMagazinesTurret [_x,  _turret];
+            };
+        } forEach _ammo;
     };
 };

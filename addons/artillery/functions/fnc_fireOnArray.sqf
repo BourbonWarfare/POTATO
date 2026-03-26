@@ -64,8 +64,8 @@ if (_roundDelay < 0) then {
 _roundDelay = 4 max _roundDelay;
 _artillery removeWeaponTurret [_weapon, _turret];
 {
-  _artillery removeMagazinesTurret [_x, _turret];
-} forEach getArtilleryAmmo [_artillery];
+  _artillery removeMagazinesTurret [_x,  _turret];
+} forEach (getArtilleryAmmo [_artillery] + [_mag]);
 
 if (_artillery currentMagazineTurret _turret != "") then {
   _artillery removeMagazineTurret [_artillery currentMagazineTurret _turret, _turret];
@@ -75,6 +75,11 @@ _artillery addMagazineTurret [_mag, _turret, 1];
 [{
     params ["_artillery", "_weapon", "_gunner", "_targ", "_mag", "_turret"];
     _artillery addWeaponTurret [_weapon, _turret];
+#ifdef DRAW_SHOT_PLACEMENT
+    private _marker = createMarkerLocal [QGVAR(shot) + str _artillery + str time, _targ];
+    _marker setMarkerTypeLocal "mil_dot_noshadow";
+    _marker setMarkerText (str _artillery + " " + str time);
+#endif
     _gunner doArtilleryFire [_targ, _mag, 1];
 }, [_artillery, _weapon, _gunner, ((_this#1) deleteAt [-1])#0, _mag, _turret], 1] call CBA_fnc_waitAndExecute;
 
