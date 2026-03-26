@@ -5,7 +5,6 @@
 #include "script_component.hpp"
 TRACE_1("params",_this);
 #define QQUOTE(var) QUOTE(QUOTE(var))
-#define QQQUOTE(car) QUOTE(QQUOTE(var))
 
 if ((ace_player getVariable [QGVAR(briefingAdded), objNull]) isEqualTo ace_player) exitWith {
     TRACE_1("briefing already added",_this);
