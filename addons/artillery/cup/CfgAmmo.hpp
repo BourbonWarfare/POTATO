@@ -1,13 +1,13 @@
 #define SET_SOUND_FLY(pitch,volume) soundFly[] = {"CUP\Weapons\CUP_Weapons_Ammunition\data\sound\shorter.wss",volume,pitch,1000}
-#define PITCH_155MM 0.4
+#define PITCH_155MM 1
 #define VOLUME_155MM 3.5
 #define PITCH_122MM 1
 #define VOLUME_122MM 3
-#define PITCH_120MM 1.05
+#define PITCH_120MM 1
 #define VOLUME_120MM 2.5
-#define PITCH_105MM 1.5
+#define PITCH_105MM 1
 #define VOLUME_105MM 2.25
-#define PITCH_8XMM 2
+#define PITCH_8XMM 1
 #define VOLUME_8XMM 2
 #define PITCH_110MM_ROCKET 0.5
 #define VOLUME_110MM_ROCKET 0.5
