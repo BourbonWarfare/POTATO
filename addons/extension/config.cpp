@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"potato_core"};
+        requiredAddons[] = {"potato_core", "potato_missionTesting"};
         author = "Potato";
         authors[] = {"BadWolf"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";

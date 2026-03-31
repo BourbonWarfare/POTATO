@@ -14,6 +14,7 @@
 #endif
 
 #include "\z\potato\addons\core\script_macros.hpp"
+#include "script_macros.hpp"
 
 #define TEXT_ORANGE [1,0.5,0,1]
 #define TEXT_H_LARGE 0.06
@@ -24,18 +25,6 @@
 #define D_PASSFAIL 0
 #define D_CHECK false
 #define D_NOTEFLAG 0
-
-// Array Defines
-#define A_PASSFAIL ["FAIL","PASS","NA"]
-#define A_CHECK ["X","O"]
-#define A_YESNO ["No","Yes"]
-#define A_CHECK_TF [false,true]
-/*
-    The last value of the `A_MISSION_TYPE` array MUST be the string for the `INVALID` mission type.
-    The type is defined as `-1` and will thus select the last value always.
-*/
-#define A_MISSION_TYPE ["Other","COOP","TVT","Long COOP","Unconventional TVT", "Unconventional COOP", "Invalid - Don't pass"]
-#define A_MISSION_TAGS ["NONE","NIGHT","DAWN","MSV","TvT1","TvT2","AH","FOG","BRIEF ON MAP"]
 
 // BBCode Defines
 #define BBNOTEFLAG_A ["","[size=85][i](Check notes in spoiler tag!!!)[/i][/size]"]

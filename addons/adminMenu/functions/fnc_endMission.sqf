@@ -1,11 +1,12 @@
 #include "script_component.hpp"
+#include "\z\potato\missionTesting\script_macros.hpp"
 
 params ["_winningSide"];
 TRACE_1("params",_this);
 
 if (isServer) then {
     private _missionType = getMissionConfigValue[QEGVAR(missionTesting,missionType), 0];
-    private _missionTypeStr = ["Other", "COOP", "TvT"] select _missionType;
+    private _missionTypeStr = A_MISSION_TYPE select _missionType;
     private _winningSideSide = switch (_winningSide) do {
         case ("all"): {sideFriendly};
         case ("none"): {sideEnemy};

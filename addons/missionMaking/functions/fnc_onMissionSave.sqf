@@ -116,7 +116,7 @@ if (_onLoadName == "*** Insert mission name here. ***") then {
     _problems pushBackUnique ["Minor: Need to set loading screen info", ["description.ext -> onLoadName"]];
 };
 private _missionType = (getMissionConfigValue QEGVAR(missionTesting,missionType));
-if (_missionType == 0) then {
+if (_missionType < 0) then {
     _problems pushBackUnique ["Need to select mission type", ["POTATO -> Mission Testing Attributes -> Mission Type"]];
 };
 private _missionLength = getMissionConfigValue QEGVAR(missionTesting,missionTimeLength);
