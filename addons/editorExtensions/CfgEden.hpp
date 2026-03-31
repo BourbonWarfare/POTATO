@@ -81,5 +81,23 @@ class Cfg3DEN {
                 };
             };
         };
+
+        class GVAR(editTable): Default {
+            attributeLoad = QUOTE(call FUNC(editTable_load));
+            attributeSave = QUOTE(call FUNC(editTable_save));
+            class Controls {
+                class Container: ctrlListNBox {
+                    idc = IDC_EDIT_TABLE_LISTBOX;
+                    idcLeft = IDC_EDIT_TABLE_LEFT;
+                    idcRight = IDC_EDIT_TABLE_RIGHT;
+                    drawSideArrows = 1;
+                    disableOverflow = 1;
+                    x = QUOTE(5 * ATTRIBUTE_W);
+                    y = 0;
+                    w = QUOTE(125 * ATTRIBUTE_W);
+                    h = QUOTE(65 * ATTRIBUTE_H);
+                };
+            };
+        };
     };
 };
