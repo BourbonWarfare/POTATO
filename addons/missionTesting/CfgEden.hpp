@@ -44,8 +44,12 @@ class Cfg3DEN {
                             defaultValue = 0;
                             typeName = "NUMBER";
                             class Values {
+                                class INVALID {
+                                    name = "Select an Option";
+                                    value = -1;
+                                };
                                 class AFTER_HOURS {
-                                    name = "After-Hours";
+                                    name = "After-Hours/Offnight";
                                     value = 0;
                                 };
                                 class COOP {
