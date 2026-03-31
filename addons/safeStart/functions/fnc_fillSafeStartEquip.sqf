@@ -83,7 +83,7 @@ if (_menuxPos > 0.5) then {
     private _title = _ctrlGroup controlsGroupCtrl IDC_SAFESTARTEQUIP_TITLE;
     _title ctrlSetStructuredText parseText "<t align='right'>Safe Start Info</t>"
 };
-private _missionType = ["Other", "Coop", "TvT", "After Hours"]#_missionTypeEnum;
+private _missionType = ["After-Hours","Coop","TVT","Long Coop","Unconventional TVT", "Unconventional Coop"]#_missionTypeEnum;
 
 _textArr pushBack format ["Mission Type: %1", _missionType];
 //// Timings
