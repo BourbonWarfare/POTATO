@@ -1,9 +1,10 @@
+#include "..\script_component.hpp"
 /*
  * Author: AACO
  * Function used to check a unit for a map marker color
  *
  * Arguments:
- * None
+ * 0: First Attempt <BOOL> - If true try again if group data not available (OPTIONAL, default: true)
  *
  * Return Value:
  * None
@@ -14,10 +15,20 @@
  * Public: No
  */
 
-#include "..\script_component.hpp"
-TRACE_1("Params",_this);
-
+params [["_firstAttempt", true, [true]]];
 private _group = group player;
+
+INFO_2("checkForMapMarkerColor [%1-%2]",_group,_firstAttempt);
+
+if (_firstAttempt && {_group isNil QGVAR(markerColor)}) exitWith {
+    WARNING_1("Group [%1] data not available - trying again in 10 seconds",_group);
+    [{
+        params ["_maxWaitTime"];
+        diag_tickTime > _maxWaitTime
+    }, {
+        [false] call FUNC(checkForMapMarkerColor);
+    }, [diag_tickTime + 10]] call CBA_fnc_waitUntilAndExecute;
+};
 
 private _debugAdd = _group getVariable [QGVAR(addMarker), -1];
 private _debugColor = _group getVariable [QGVAR(markerColor), -1];
