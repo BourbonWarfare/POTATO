@@ -338,6 +338,14 @@ class Cfg3DEN {
                     };
                 };
             };
+            class acre_attributes {
+                class Attributes {
+                    class acre_sys_radio_edenSetup {
+                        defaultValue = "[]";
+                        expression = "";
+                    };
+                };
+            };
         };
     };
     class Mission {
