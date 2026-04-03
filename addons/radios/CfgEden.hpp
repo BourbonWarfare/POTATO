@@ -341,8 +341,8 @@ class Cfg3DEN {
             class acre_attributes {
                 class Attributes {
                     class acre_sys_radio_edenSetup {
+                        condition = 0;
                         defaultValue = "[]";
-                        expression = "";
                     };
                 };
             };
