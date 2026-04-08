@@ -6,6 +6,8 @@ PREP_RECOMPILE_START;
 #include "XEH_PREP.hpp"
 PREP_RECOMPILE_END;
 
+GVAR(ready) = false;
+
 #include "initSettings.inc.sqf"
 
 ADDON = true;
