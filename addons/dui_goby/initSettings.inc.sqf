@@ -28,3 +28,18 @@ private _category = ["POTATO - User", "Go By (DUI Nametags)"];
         };
     }
 ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(color),
+    "COLOR",
+    ["Color"],
+    _category,
+    [1, 0.3, 0, 1],
+    false,
+    {
+        GVAR(colorHex) = _this call BIS_fnc_colorRGBAtoHTML;
+        if (hasInterface && GVAR(ready)) then {
+            true call FUNC(updateUnit);
+        };
+    }
+] call CBA_fnc_addSetting;
