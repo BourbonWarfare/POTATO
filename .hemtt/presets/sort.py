@@ -36,4 +36,13 @@ new_html = re.sub(
 with open(r'.hemtt\presets\bw.html', 'w', encoding='utf-8') as f:
     f.write(new_html)
 
+base = r"D:\SteamLibrary\steamapps\workshop\content\107410"
+bat_output = r"vn;gm;"
+for (url, row) in rows_with_urls:
+    mod_id = re.search(r'id=(\d+)', url).group(1)
+    mod_path = base + "\\" + mod_id
+    bat_output += f"{mod_path};"
+
+print(bat_output)
+
 print(f"Sorted {len(rows_with_urls)} mods by URL")

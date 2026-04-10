@@ -70,7 +70,7 @@ if (_isClosing) then {
             [0.8,0,0,1], _dims#0, 20 / _scale, 20 / _scale, _dims#2
         ];
         switch (lbCurSel (_display displayCtrl IDC_ARTILLERY_MISSIONTYPE)) do {
-            case ARTILLERY_MISSIONTYPE_LINEAR_WITH_WALK;
+            case ARTILLERY_MISSIONTYPE_LINEAR_WITH_BRACKET;
             case ARTILLERY_MISSIONTYPE_LINEAR: {
                 _map drawRectangle [_dims#0, 10, _dims#1, _dims#2, [0.8,0,0,1], ""];
             };
@@ -109,6 +109,7 @@ if (_isClosing) then {
             _map drawEllipse [(_map ctrlMapScreenToWorld [_xPos, _yPos]) + [0], _dims#1, _dims#1, 0, [0.8,0,0,0.5], ""];
         };
     }]];*/
+    [_display, IDC_ARTILLERY_MAP] call EFUNC(markers,addMarkersToDisplay);
     [_display] call FUNC(ui_initRoundTypes);
     (_display displayCtrl IDC_ARTILLERY_GUUNCOUNT) lbSetCurSel (GVAR(artilleryParams) getOrDefault ["gunCount", 2]);
     (_display displayCtrl IDC_ARTILLERY_MISSIONTYPE) lbSetCurSel (GVAR(artilleryParams) getOrDefault ["missionType", ARTILLERY_MISSIONTYPE_LAZY]);
@@ -117,7 +118,7 @@ if (_isClosing) then {
     (_display displayCtrl IDC_ARTILLERY_ROTATION) sliderSetPosition (_dims#2);
     // update initial values
     private _textCtrl = _display displayCtrl IDC_ARTILLERY_DISPERSIONTXT;
-    _textCtrl ctrlSetText format ["Round Dispersion: %1m", round (_dims#1)];
+    _textCtrl ctrlSetText format ["Round Dispersion: %1m", round (2 * (_dims#1))];
     private _textCtrl = _display displayCtrl IDC_ARTILLERY_ROTATIONTXT;
     _textCtrl ctrlSetText format ["Mission Rotation: %1", round (_dims#2)];
     private _missionLength = GVAR(artilleryParams) getOrDefault ["missionLength", 4];

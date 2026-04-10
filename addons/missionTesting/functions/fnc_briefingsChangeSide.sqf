@@ -67,7 +67,21 @@ switch (_side) do {
         _weaponsReport = GVAR(civiClasses) joinString "<br/>";
     };
 };
-
+// Sanatize of the briefing markdown
+private _replaceStr = [];
+{
+    private _str = _x;
+    private _sanatizePoints = _str regexFind ["<(?!br\/>)|(?<!<br\/)>/gi"];
+    private _newStr = [];
+    private _idx = 0;
+    {
+        _newStr pushBack (_str select [_idx, _x#0#1 - _idx]);
+        _idx = _x#0#1 + 1;
+    } forEach _sanatizePoints;
+    _newStr pushBack (_str select [_idx, count _str - _idx]);
+    _replaceStr pushBack (_newStr joinString "||");
+} forEach [_zeusIntent, _situation, _mission, _admin, _sideBriefEnemyInfo, _sideBriefIntent];
+_replaceStr params ["_zeusIntent", "_situation", "_mission", "_admin", "_sideBriefEnemyInfo", "_sideBriefIntent"];
 private _controls = [];
 for "_i" from 0 to 13 do {
     _controls pushBack (DISPLAY_BRIEF displayCtrl (IDC_BREIFING + _i));

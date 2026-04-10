@@ -89,7 +89,7 @@ switch (_missionType) do {
             ]
         ], _gunsToUse apply {_x#0}] call CBA_fnc_targetEvent;
     };
-    case ARTILLERY_MISSIONTYPE_LINEAR_WITH_WALK;
+    case ARTILLERY_MISSIONTYPE_LINEAR_WITH_BRACKET;
     case ARTILLERY_MISSIONTYPE_LINEAR: {
         private _halfStep = _dispersion / _gunCount;
         private _stepLength = 2 * _halfStep;
@@ -255,19 +255,46 @@ switch (_missionType) do {
     };
     default {};
 };
+#ifdef DRAW_SHOT_PLACEMENT
+switch (_missionType) do {
+    case ARTILLERY_MISSIONTYPE_POINT;
+    case ARTILLERY_MISSIONTYPE_SLOW: {
+        private _marker = createMarkerLocal [QGVAR(mission) + _missionID, _centerPosATL];
+        _marker setMarkerShapeLocal "ELLIPSE";
+        _marker setMarkerBrushLocal "Border";
+        _marker setMarkerDirLocal _rotation;
+        _marker setMarkerSize [_dispersion, ARTILLERY_ELLIPSE_COMPRESSION * _dispersion];
+    };
+    case ARTILLERY_MISSIONTYPE_LINEAR: {
+        private _marker = createMarkerLocal [QGVAR(mission) + _missionID, _centerPosATL];
+        _marker setMarkerShapeLocal "RECTANGLE";
+        _marker setMarkerBrushLocal "Border";
+        _marker setMarkerDirLocal _rotation;
+        _marker setMarkerSize [20, _dispersion];
+    };
+    case ARTILLERY_MISSIONTYPE_LINEAR: {
+        private _marker = createMarkerLocal [QGVAR(mission) + _missionID, _centerPosATL];
+        _marker setMarkerShapeLocal "RECTANGLE";
+        _marker setMarkerBrushLocal "Border";
+        _marker setMarkerDirLocal _rotation;
+        _marker setMarkerSize [20 * _gunCount, _dispersion];
+    };
+    default {};
+};
+#endif
 
 if (_clientID > 2 || is3DENPreview) then {
     private _missionTypeStr = switch (_missionType) do {
         case ARTILLERY_MISSIONTYPE_LAZY_BARRAGE;
         case ARTILLERY_MISSIONTYPE_BRACKET_BARRAGE;
         case ARTILLERY_MISSIONTYPE_QUICK_LAZY_BARRAGE;
-        case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_BARRAGE;
         case ARTILLERY_MISSIONTYPE_POINT: {"Area Barrage"};
         case ARTILLERY_MISSIONTYPE_LAZY_WALK: {"Lazy Walk onto target"};
-        case ARTILLERY_MISSIONTYPE_LINEAR_WALK;
+        case ARTILLERY_MISSIONTYPE_LINEAR_BRACKET;
         case ARTILLERY_MISSIONTYPE_BRACKET_SHOTS: {"Bracketing Rounds"};
         case ARTILLERY_MISSIONTYPE_LINEAR: {"Linear Barrage"};
         case ARTILLERY_MISSIONTYPE_CREEPING: {"Creeping Barrage"};
+        case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_BARRAGE;
         case ARTILLERY_MISSIONTYPE_SLOW: {"Slow Barrage"};
         case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_WALK;
         case ARTILLERY_MISSIONTYPE_QUICK_LAZY_WALK: {"Lazy Walk (Quick) onto target"};

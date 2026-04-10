@@ -85,7 +85,6 @@ switch (_missionType) do {
         } forEach ARTILLERY_POSITIONS_QUICKLAZYADJUST;
         [_gun, _targetArray, _magazine, 25 + random 20] call FUNC(fireOnArray);
     };
-    case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_BARRAGE;
     case ARTILLERY_MISSIONTYPE_QUICK_LAZY_BARRAGE;
     case ARTILLERY_MISSIONTYPE_BRACKET_BARRAGE;
     case ARTILLERY_MISSIONTYPE_LAZY_BARRAGE;
@@ -94,6 +93,7 @@ switch (_missionType) do {
          _magazine, [_weapon, _turret], _rounds,
         [[cos _rotation, sin _rotation],[-sin _rotation, cos _rotation]]] call FUNC(fireOnPos);
     };
+    case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_BARRAGE;
     case ARTILLERY_MISSIONTYPE_SLOW: {
         private _reloadTime = [_weapon] call FUNC(getArtyReloadTime);
         _length = _length max (_reloadTime * _rounds);

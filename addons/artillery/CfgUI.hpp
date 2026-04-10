@@ -109,6 +109,10 @@ class GVAR(ArtilleryDisplay) {
                     value = ARTILLERY_MISSIONTYPE_LAZY;
                     default = 1;
                 };
+                class lazyZeroQuick {
+                    text = "Slow Adjust (90 Second Warning)";
+                    value = ARTILLERY_MISSIONTYPE_QUICK_LAZY;
+                };
                 class bracket {
                     text = "Bracket";
                     value = ARTILLERY_MISSIONTYPE_BRACKET;
@@ -123,7 +127,7 @@ class GVAR(ArtilleryDisplay) {
                 };
                 class linearBarrageCreep {
                     text = "Linear with Bracketing";
-                    value = ARTILLERY_MISSIONTYPE_LINEAR_WITH_WALK;
+                    value = ARTILLERY_MISSIONTYPE_LINEAR_WITH_BRACKET;
                 };
                 class creeping {
                     text = "Creeping";
@@ -136,10 +140,6 @@ class GVAR(ArtilleryDisplay) {
                 class slowBarrageWalk {
                     text = "Slow Barrage with Walk";
                     value = ARTILLERY_MISSIONTYPE_SLOW_WITH_WALK;
-                };
-                class lazyZeroQuick {
-                    text = "Slow Adjust (90 Second Warning)";
-                    value = ARTILLERY_MISSIONTYPE_QUICK_LAZY;
                 };
                 class slowBarrageQuickWalk {
                     text = "Slow Barrage (90 Second Warning)";
