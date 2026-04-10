@@ -91,9 +91,9 @@ private _glMuzzle = (getArray (configFile >> "CfgWeapons" >> GVAR(loadout_glrifl
 private _glMags = [configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> _glMuzzle] call CBA_fnc_compatibleMagazines;
 switch (true) do {
     case (({"CUP_1Rnd_HE_GP25_M" == _x} count _glMags) > 0): {
-        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "CUP_1Rnd_SMOKE_GP25_M:2","CUP_1Rnd_SmokeRed_GP25_M:2"'];
-        _lines pushBack format ['#define GLRIFLE_MAG_HE "CUP_1Rnd_HE_GP25_M:5"'];
-        _lines pushBack format ['#define GLRIFLE_MAG_FLARE "CUP_FlareYellow_GP25_M:4"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "1Rnd_Smoke_GRD40_shell:2","1Rnd_SmokeRed_GRD40_shell:2"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_HE "1Rnd_HE_VOG25_shell:5"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_FLARE "1Rnd_FlareYellow_Illum_VG40OP_shell:4"'];
     };
     case (({"1Rnd_Smoke_Grenade_shell" == _x} count _glMags) > 0):{
         _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "1Rnd_Smoke_Grenade_shell:2","1Rnd_SmokeRed_Grenade_shell:2"'];
