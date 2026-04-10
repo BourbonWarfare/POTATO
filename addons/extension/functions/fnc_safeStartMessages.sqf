@@ -1,5 +1,5 @@
 #include "..\script_component.hpp"
-#include "\z\potato\missionTesting\script_macros.hpp"
+#include "\z\potato\addons\missionTesting\script_macros.hpp"
 /*
  * Author: BadWolf, PabstMirror
  * This function sends the session start messages to discord and removes

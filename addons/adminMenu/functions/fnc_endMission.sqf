@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-#include "\z\potato\missionTesting\script_macros.hpp"
+#include "\z\potato\addons\missionTesting\script_macros.hpp"
 
 params ["_winningSide"];
 TRACE_1("params",_this);
