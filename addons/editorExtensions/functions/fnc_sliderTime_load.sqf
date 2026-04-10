@@ -1,3 +1,4 @@
+//IGNORE_PRIVATE_WARNING["_config", "_value"];
 #include "script_component.hpp"
 
 private _increment = getNumber (_config >> "increment");
