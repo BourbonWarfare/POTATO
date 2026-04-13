@@ -15,7 +15,7 @@ INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]",diag_frameNo,GVAR(in
 
 [
 {
-    params ["_player"];
+    params ["_player", "_waitingForGroupDataReported", "_waitingForGroupDataMaxTime"];
     if (!alive _player) exitWith {true};
 
     private _return = false;
@@ -43,6 +43,14 @@ INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]",diag_frameNo,GVAR(in
     };
     if (GVAR(initState) == 2) then {
         if (!(_player getVariable [QEGVAR(assignGear,gearSetup), false])) exitWith {};
+        // Check if group var is set
+        private _group = group _player;
+        if ((diag_tickTime < _waitingForGroupDataMaxTime) && {_group isNil QGVAR(srChannel)}) exitWith {
+            if (!(_waitingForGroupDataReported)) then { // Only report once.  This may be true for CIV groups or similar
+                _this set [1, true];
+                INFO_3("%1 - [InitState %2] Waiting for [group %3] data",diag_frameNo,GVAR(initState),_group);
+            };
+        };
         INFO_2("%1 - [InitState %2] Setting briefing",diag_frameNo,GVAR(initState));
         [] call FUNC(addAcreBriefing);
         GVAR(initState) = 3;
@@ -58,4 +66,4 @@ INFO_4("%1 - [InitState %2] Setting up new player [%3][%4]",diag_frameNo,GVAR(in
 },
 {
     INFO_2("%1 - [InitState %2] DONE",diag_frameNo,GVAR(initState));
-}, [_player]] call CBA_fnc_waitUntilAndExecute;
+}, [_player, false, diag_tickTime + 10]] call CBA_fnc_waitUntilAndExecute;
