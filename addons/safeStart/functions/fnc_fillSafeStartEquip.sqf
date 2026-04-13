@@ -24,7 +24,7 @@ params [["_ctrlGroup", controlNull, [controlNull]]];
 
 if (isNull _ctrlGroup) exitWith {};
 private _missionTypeEnum = getMissionConfigValue [QEGVAR(missionTesting,missionType), 0];
-if (GVAR(showTimer) != 2 || (_missionTypeEnum != 1 && _missionTypeEnum != 2 && !is3DENPreview)) exitWith {
+if (GVAR(showTimer) != 2) exitWith {
     _ctrlGroup ctrlShow false;
     private _ctrlGroupParent = ctrlParentControlsGroup _ctrlGroup;
     (_ctrlGroupParent controlsGroupCtrl IDC_SAFESTARTEQUIP_BACKGROUND) ctrlShow false;
@@ -83,7 +83,7 @@ if (_menuxPos > 0.5) then {
     private _title = _ctrlGroup controlsGroupCtrl IDC_SAFESTARTEQUIP_TITLE;
     _title ctrlSetStructuredText parseText "<t align='right'>Safe Start Info</t>"
 };
-private _missionType = ["Other", "Coop", "TvT", "After Hours"]#_missionTypeEnum;
+private _missionType = ["Other","Coop","TVT","Long Coop","Unconventional TVT", "Unconventional Coop","Undefined"]#_missionTypeEnum;
 
 _textArr pushBack format ["Mission Type: %1", _missionType];
 //// Timings
@@ -94,11 +94,17 @@ private _missionLengthInBounds = true;
 if !(_safeStartLength isEqualType 0) then {_safeStartLength = 0};
 if !(_missionLength isEqualType 0) then {_missionLength = 0};
 switch (_missionTypeEnum) do {
-    case 1: { // Coop
+    case 1;
+    case 5: { // Coop
         _safeStartInBounds = _safeStartLength == 15;
         _missionLengthInBounds = _missionLength >= 60 && _missionLength <= 75;
     };
-    case 2: { // TvT
+    case 3: { // LC
+        _safeStartInBounds = _safeStartLength == 15;
+        _missionLengthInBounds = _missionLength >= 90 && _missionLength <= 120;
+    };
+    case 2;
+    case 4: { // TvT
         _safeStartInBounds = _safeStartLength == 10;
         _missionLengthInBounds = _missionLength >= 30 && _missionLength <= 40;
     };
