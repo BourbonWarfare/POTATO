@@ -1,6 +1,6 @@
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
 ["POTATO", QGVAR(keybindInfo), ["(EXP) Zeus ACRE PTT", "(Experimental) Talk on your active radio, changeable by ACE self-interact"], {
-    if (side ace_player == sideLogic || !alive ace_payer) exitWith {};
+    if (side ace_player == sideLogic || !alive ace_payer || !ACRE_IS_SPECTATOR) exitWith {};
     ACRE_IS_SPECTATOR = false;
     [-1] call acre_sys_core_fnc_handleMultiPttKeyPress;
 }, {;
