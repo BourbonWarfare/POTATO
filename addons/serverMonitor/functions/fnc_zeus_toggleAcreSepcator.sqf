@@ -9,6 +9,7 @@ if (ACRE_IS_SPECTATOR) then {
     [false] call acre_api_fnc_setSpectator;
 } else {
     ace_player setVariable [QGVAR(specRadios), ACRE_SPECTATOR_RADIOS];
+    ACRE_SPECTATOR_RADIOS = [];
     private _weapons = [ace_player] call acre_sys_core_fnc_getGear;
     private _radioList = _weapons select {_x call acre_sys_radio_fnc_isUniqueRadio && {!(_x call acre_sys_external_fnc_isExternalRadioUsed)}};
     if (ACRE_ACTIVE_RADIO != "") then {
