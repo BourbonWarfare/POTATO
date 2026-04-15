@@ -13,7 +13,7 @@ GVAR(MissionTestingChecklistMaster) = [
             ,["Check the play area for terrain imbalances and make sure the mission maker has taken them into account (I.E. defenders need better equipment and/or more people if terrain is not in their favour",D_CHECK,MISSION_TYPE_APPLIES_TVT]
             ,["Ensure there is a signals tab, and the channel names make sense for the mission",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
             ,["Ensure that if it is a night mission it is tagged as such in the mission description on the slotting screen",D_CHECK,MISSION_TYPE_APPLIES_BOTH]
-            ,["Ensure that if Safe Start ends automatically or uses a nonstandard length in a TvT (10 minutes is standard), it is clear from the slotting screen or a plan exists to inform leadership before mission start",D_CHECK,MISSION_TYPE_APPLIES_TVT]
+            ,["Ensure that if Safe Start ends automatically or uses a nonstandard length in a TvT (10-12 minutes is standard), it is clear from the slotting screen or a plan exists to inform leadership before mission start",D_CHECK,MISSION_TYPE_APPLIES_TVT]
             ,["Ensure that if Safe Start ends automatically in a Co-op, that it has a reason that makes sense for the mission - i.e. mission has time-sensitive mechanics",D_CHECK,MISSION_TYPE_APPLIES_COOP]
         ],D_PASSFAIL,"",D_NOTEFLAG
     ]
