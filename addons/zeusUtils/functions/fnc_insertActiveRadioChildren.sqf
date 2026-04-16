@@ -11,7 +11,7 @@
  * Array of actions
  *
  * Examples:
- * [] call potato_zeusUtils_fnc_instertActiveRadioChildren;
+ * [] call potato_zeusUtils_fnc_insertActiveRadioChildren;
  *
  * Public: No
  */
