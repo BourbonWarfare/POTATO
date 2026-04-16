@@ -178,10 +178,10 @@ _openForumFinishedMissions ctrlCommit 0;
 private _missionMaker = getMissionConfigValue ["author","????"];
 private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
 private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
-private _missionVersion = getMissionConfigValue QGVAR(missionVersion);
-private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum);
-private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);
-private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
+private _missionVersion = str getMissionConfigValue QGVAR(missionVersion);
+private _missionPlayerCountMax = str getMissionConfigValue QGVAR(playerCountMaximum);
+private _missionPlayerCountMin = str getMissionConfigValue QGVAR(playerCountMinimum);
+private _missionPlayerCountRec = str getMissionConfigValue QGVAR(playerCountRecommended);
 
 private _missionSSTime = str getMissionConfigValue QGVAR(SSTimeGiven);
 private _missionSSForceEnd = ["Admin start", "Forced once SS time elapses"] select getMissionConfigValue [QEGVAR(missionTesting,SSForceEnd), false];

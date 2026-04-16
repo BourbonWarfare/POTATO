@@ -20,7 +20,7 @@ private _category = ["POTATO - User", "Go By (DUI Nametags)"];
     "LIST",
     ["Show", "When to show other's info on their DUI-Nametags."],
     _category,
-    [[0, 1, 2], ["Disabled", "During Safe-Start", "Always"], 1],
+    [[0, 1, 2], ["Disabled", "During Safe-Start", "Always"], 2],
     false,
     {
         if (hasInterface && GVAR(ready)) then {

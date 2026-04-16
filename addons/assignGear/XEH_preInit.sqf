@@ -12,6 +12,7 @@ if (GVAR(usePotato)) then {
     GVAR(loadoutCache) = createHashMap;
     GVAR(classnameCache) = createHashMap;
     GVAR(magnifiedOpticCache) = createHashMap;
+    GVAR(customLoadoutPaths) = createHashMap;
 
     GVAR(allowMagnifiedOptics) = [missionConfigFile >> "CfgLoadouts" >> "allowMagnifiedOptics"] call CFUNC(getBool);
     GVAR(allowChangeableOptics) = [missionConfigFile >> "CfgLoadouts" >> "allowChangeableOptics"] call CFUNC(getBool);
