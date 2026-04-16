@@ -453,7 +453,7 @@ class GVAR(adminMenuDialog) {
                 };
                 class RscButton_MissionRadios: RscButton {
                     idc = -1;
-                    text = "Output Current Radios"; //--- ToDo: Localize;
+                    text = "List Radio Channel Settings"; //--- ToDo: Localize;
                     x = QUOTE(0.01 * safezoneW);
                     y = QUOTE(0.22 * safezoneH);
                     w = QUOTE(0.52 * safezoneW);
