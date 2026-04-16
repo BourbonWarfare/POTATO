@@ -183,9 +183,9 @@ private _missionPlayerCountMax = getMissionConfigValue QGVAR(playerCountMaximum)
 private _missionPlayerCountMin = getMissionConfigValue QGVAR(playerCountMinimum);
 private _missionPlayerCountRec = getMissionConfigValue QGVAR(playerCountRecommended);
 
-private _missionSSTime = str getMissionConfigValue QGVAR(SSTimeGiven);
+private _missionSSTime = str ((getMissionConfigValue QGVAR(SSTimeGiven)) / 60);
 private _missionSSForceEnd = ["Admin start", "Forced once SS time elapses"] select getMissionConfigValue [QEGVAR(missionTesting,SSForceEnd), false];
-private _missionTimeLength = str getMissionConfigValue QGVAR(missionTimeLength);
+private _missionTimeLength = str ((getMissionConfigValue QGVAR(missionTimeLength)) / 60);
 
 private _missionTag1Var = getMissionConfigValue QGVAR(missionTag1);
 private _missionTag1 = if(isNil QUOTE(_missionTag1Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag1Var};

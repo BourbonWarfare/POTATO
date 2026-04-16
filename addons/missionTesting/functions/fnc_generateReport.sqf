@@ -95,7 +95,7 @@ if(_missionMaker == name ACE_player || is3DEN) then {
     _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
     S_NEWTEXTLINE ["[size=200][u][b]Mission : [color=#FF4000]%1[/color][/b][/u]   [b][u]Type : [color=#FF4000]%2[/color][/u][/b][/size]", _missionName, _missionType];
     S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%1[/color][/b][/u][/size]   [size=150][u][b]BWMF Version : [color=#FF4000]%2[/color][/b][/u][/size]",_missionVersion,_missionFrameworkDate];
-    S_NEWTEXTLINE ["[size=150]Mission Tags : [color=#FF4000]%1, %2, %3[/color]  SS Length : [color=#FF4000]%4[/color]  Mission Length : [color=#FF4000]%5[/color][/size] ",_missionTag1,_missionTag2,_missionTag3,_missionSSTime,_missionTimeLength];
+    S_NEWTEXTLINE ["[size=150]Mission Tags : [color=#FF4000]%1, %2, %3[/color]  SS Length (mins): [color=#FF4000]%4[/color]  Mission Length (mins): [color=#FF4000]%5[/color][/size] ",_missionTag1,_missionTag2,_missionTag3,ceil (_missionSSTime / 60), ceil (_missionTimeLength / 60)];
     if (isServer && name ACE_player == _missionMaker) then {
         S_NEWTEXTLINE ["[size=150][u]Mission Summary (As shown in Slotting screen, Inc of Ratio if TvT) :[/u][/size]"];
         S_NEWTEXTLINE ["[color=#FF4000]%1[/color]",_missionSummary];

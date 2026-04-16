@@ -29,7 +29,7 @@ if (_missionLength isEqualType "") then { _missionLength = parseNumber _missionL
 // };
 
 if (_missionLength <= 0) exitWith { WARNING_1("[_missionLength = %1] - ignoring",_missionLength) };
-private _missionLengthSec = _missionLength * 60;
+private _missionLengthSec = _missionLength;
 missionNamespace setVariable [QGVAR(missionstartTime), CBA_missionTime, true];
 TRACE_2("",GVAR(missionstartTime),_missionLength);
 
@@ -79,7 +79,7 @@ TRACE_2("",GVAR(missionstartTime),_missionLength);
 // Check if mission end map marker already exists.
 
 private _startTime = dayTime;
-private _endTimeDec = _startTime + (_missionLength / 60);
+private _endTimeDec = _startTime + _missionLength;
 private _endTime = [_endTimeDec] call BIS_fnc_timeToString;
 
 private _string = format ["|_USER_DEFINED missionEndMarker_0|[0,0,0.0000]|mil_warning|ICON|[1,1]|0|Solid|colorCivilian|1|Mission End Time - %1",_endTime];

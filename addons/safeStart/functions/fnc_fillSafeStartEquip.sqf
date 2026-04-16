@@ -95,24 +95,24 @@ if !(_safeStartLength isEqualType 0) then {_safeStartLength = 0};
 if !(_missionLength isEqualType 0) then {_missionLength = 0};
 switch (_missionTypeEnum) do {
     case 1: { // Coop
-        _safeStartInBounds = _safeStartLength == 15;
-        _missionLengthInBounds = _missionLength >= 60 && _missionLength <= 75;
+        _safeStartInBounds = _safeStartLength == 60 * 15;
+        _missionLengthInBounds = _missionLength >= 60 * 60 && _missionLength <= 60 * 75;
     };
     case 2: { // TvT
-        _safeStartInBounds = _safeStartLength == 10;
-        _missionLengthInBounds = _missionLength >= 30 && _missionLength <= 40;
+        _safeStartInBounds = _safeStartLength == 60 * 10;
+        _missionLengthInBounds = _missionLength >= 60 * 30 && _missionLength <= 60 * 40;
     };
 };
 // Safe start length
 if (_safeStartInBounds) then {
     _textArr pushBack format [
         QUOTE(<t color=QUOTE(STANDARD_COLOR)>Safe Start Length: %1</t>),
-        [60 * _safeStartLength, "M:SS"] call CBA_fnc_formatElapsedTime
+        [_safeStartLength, "M:SS"] call CBA_fnc_formatElapsedTime
     ];
 } else {
     _textArr pushBack format [
         QUOTE(<t color=QUOTE(ATTENTION_COLOR)>Safe Start Length: %1</t>),
-        [60 * _safeStartLength, "M:SS"] call CBA_fnc_formatElapsedTime
+        [_safeStartLength, "M:SS"] call CBA_fnc_formatElapsedTime
     ];
 };
 // Safe Start auto ends
@@ -125,12 +125,12 @@ if (EGVAR(safeStart,safeStartForceEnd)) then {
 if (_missionLengthInBounds) then {
     _textArr pushBack format [
         QUOTE(<t color=QUOTE(STANDARD_COLOR)>Mission Length: %1</t>),
-        [60 * _missionLength] call CBA_fnc_formatElapsedTime
+        [_missionLength] call CBA_fnc_formatElapsedTime
     ];
 } else {
     _textArr pushBack format [
         QUOTE(<t color=QUOTE(ATTENTION_COLOR)>Mission Length: %1</t>),
-        [60 * _missionLength] call CBA_fnc_formatElapsedTime
+        [_missionLength] call CBA_fnc_formatElapsedTime
     ];
 };
 

@@ -41,7 +41,7 @@ if (!(isServer && GVAR(enabled) && GVAR(safeStartEnabled)) ||
 
 // Check safe start "0" time or use CBA_missionTime
 private _serverStartTimePV = missionNamespace getVariable [QGVAR(startTime_PV), CBA_missionTime];
-private _safeStartLength = (getMissionConfigValue [QEGVAR(missionTesting,SSTimeGiven), 15]) * 60 + _serverStartTimePV;
+private _safeStartLength = (getMissionConfigValue [QEGVAR(missionTesting,SSTimeGiven), 60 * 15]) + _serverStartTimePV;
 
 [
     {
