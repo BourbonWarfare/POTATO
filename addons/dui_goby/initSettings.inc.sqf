@@ -9,7 +9,9 @@ private _category = ["POTATO - User", "Go By (DUI Nametags)"];
     "",
     false,
     {
-        call FUNC(syncPlayer);
+        if (hasInterface) then {
+            call FUNC(syncPlayer);
+        };
     }
 ] call CBA_fnc_addSetting;
 
@@ -19,7 +21,12 @@ private _category = ["POTATO - User", "Go By (DUI Nametags)"];
     ["Show", "When to show other's info on their DUI-Nametags."],
     _category,
     [[0, 1, 2], ["Disabled", "During Safe-Start", "Always"], 2],
-    false
+    false,
+    {
+        if (hasInterface && GVAR(ready)) then {
+            true call FUNC(updateUnit);
+        };
+    }
 ] call CBA_fnc_addSetting;
 
 [
@@ -28,7 +35,12 @@ private _category = ["POTATO - User", "Go By (DUI Nametags)"];
     ["Front Scale"],
     _category,
     [0, 20, 8, 1],
-    false
+    false,
+    {
+        if (hasInterface && GVAR(ready)) then {
+            true call FUNC(updateUnit);
+        };
+    }
 ] call CBA_fnc_addSetting;
 
 [
@@ -40,5 +52,8 @@ private _category = ["POTATO - User", "Go By (DUI Nametags)"];
     false,
     {
         GVAR(colorHex) = _this call BIS_fnc_colorRGBAtoHTML;
+        if (hasInterface && GVAR(ready)) then {
+            true call FUNC(updateUnit);
+        };
     }
 ] call CBA_fnc_addSetting;
