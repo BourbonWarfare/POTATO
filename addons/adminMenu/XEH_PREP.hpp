@@ -20,6 +20,7 @@ PREP(uihook_missionHint);
 PREP(uihook_openEndMission);
 PREP(uihook_giveAdminGun);
 PREP(uihook_handleMarkerDialogUI);
+PREP(uihook_listRadioChannels);
 PREP(uihook_tabChange);
 PREP(uihook_safeStart);
 PREP(uihook_supplySpawn);
