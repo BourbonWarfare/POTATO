@@ -7,5 +7,6 @@ PREP(drawFPS);
 PREP(drawMarkers);
 PREP(handleZeusFPSRequest);
 PREP(initLocalFPSEH);
+PREP(insertActiveRadioChildren);
 PREP(removeDraw3DEH);
 PREP(updateServerFPSList);

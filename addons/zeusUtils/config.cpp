@@ -14,5 +14,6 @@ class CfgPatches {
     };
 };
 
+#include "CfgACEActions.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgUI.hpp"
