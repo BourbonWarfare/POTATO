@@ -458,7 +458,7 @@ class GVAR(adminMenuDialog) {
                     y = QUOTE(0.22 * safezoneH);
                     w = QUOTE(0.52 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
-                    action = QUOTE(call FUNC(uihook_listRadioChannels.sqf));
+                    action = QUOTE(call FUNC(uihook_listRadioChannels));
                 };
                 class RscButton_160055444: RscButton {
                     idc = -1;
