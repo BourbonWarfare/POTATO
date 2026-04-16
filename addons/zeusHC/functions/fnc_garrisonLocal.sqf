@@ -16,6 +16,10 @@
 #include "script_component.hpp"
 TRACE_1("Params",_this);
 
+if (isNil QGVAR(lastGarrisonEnableLambs)) then {
+    GVAR(lastGarrisonEnableLambs) = false;
+};
+
 _this spawn {
     params ["_unitsToAdd","_unitPositions","_side"];
 

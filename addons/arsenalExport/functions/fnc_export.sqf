@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+#define SANATIZE_EXPORT(var) [str var, ""] select (var == "NotSet")
 
 TRACE_1("export",_this);
 
@@ -89,6 +90,11 @@ _lines pushBack format ['#define GLRIFLE_MAG %1', [GVAR(loadout_glrifle), GVAR(l
 private _glMuzzle = (getArray (configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> "muzzles")) param [1, "no2ndMuzzle"];
 private _glMags = [configFile >> "CfgWeapons" >> GVAR(loadout_glrifle) >> _glMuzzle] call CBA_fnc_compatibleMagazines;
 switch (true) do {
+    case (({"CUP_1Rnd_HE_GP25_M" == _x} count _glMags) > 0): {
+        _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "1Rnd_Smoke_GRD40_shell:2","1Rnd_SmokeRed_GRD40_shell:2"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_HE "1Rnd_HE_VOG25_shell:5"'];
+        _lines pushBack format ['#define GLRIFLE_MAG_FLARE "1Rnd_FlareYellow_Illum_VG40OP_shell:4"'];
+    };
     case (({"1Rnd_Smoke_Grenade_shell" == _x} count _glMags) > 0):{
         _lines pushBack format ['#define GLRIFLE_MAG_SMOKE "1Rnd_Smoke_Grenade_shell:2","1Rnd_SmokeRed_Grenade_shell:2"'];
         _lines pushBack format ['#define GLRIFLE_MAG_HE "1Rnd_HE_Grenade_shell:5"'];
@@ -115,46 +121,46 @@ _lines pushBack format ['#define AT "%1"', GVAR(loadout_at)];
 _lines pushBack format ['#define AT_MAG %1', [GVAR(loadout_at), GVAR(loadout_atMags), AT_ROUNDS] call _fnc_getMags];
 
 _lines pushBack format ["// MMG"];
-_lines pushBack format ['#define MMG "%1"', GVAR(loadout_mmg)];
+_lines pushBack format ['#define MMG %1', SANATIZE_EXPORT(GVAR(loadout_mmg))];
 _lines pushBack format ['#define MMG_MAG %1', [GVAR(loadout_mmg), GVAR(loadout_mmgMags), MMG_ROUNDS] call _fnc_getMags];
 
 _lines pushBack format ["// MAT"];
-_lines pushBack format ['#define MAT "%1"', GVAR(loadout_mat)];
+_lines pushBack format ['#define MAT %1', SANATIZE_EXPORT(GVAR(loadout_mat))];
 _lines pushBack format ['#define MAT_MAG %1', [GVAR(loadout_mat), GVAR(loadout_matMags), MAT_ROUNDS] call _fnc_getMags];
 _lines pushBack format ['#define MAT_OPTIC %1', [GVAR(loadout_matAttachments)] call _fnc_formatList];
 
 _lines pushBack format ["// HMG"];
-_lines pushBack format ['#define HMG "%1"', GVAR(loadout_hmg)];
-_lines pushBack format ['#define HMG_TRI_HI "%1"', GVAR(loadout_hmg_tri_1)];
-_lines pushBack format ['#define HMG_TRI_LO "%1"', [GVAR(loadout_hmg_tri_2),GVAR(loadout_hmg_tri_1)] call _fnc_default];
+_lines pushBack format ['#define HMG %1', SANATIZE_EXPORT(GVAR(loadout_hmg))];
+_lines pushBack format ['#define HMG_TRI_HI %1', SANATIZE_EXPORT(GVAR(loadout_hmg_tri_1))];
+_lines pushBack format ['#define HMG_TRI_LO %1', [SANATIZE_EXPORT(GVAR(loadout_hmg_tri_2)),SANATIZE_EXPORT(GVAR(loadout_hmg_tri_1))] call _fnc_default];
 _lines pushBack format ['#define HMG_MAG %1', [GVAR(loadout_hmg), GVAR(loadout_hmgMags), HMG_ROUNDS] call _fnc_getMags];
 
 _lines pushBack format ["// HAT"];
-_lines pushBack format ['#define HAT "%1"', GVAR(loadout_hat)];
-_lines pushBack format ['#define HAT_TRI_HI "%1"', GVAR(loadout_hat_tri_1)];
-_lines pushBack format ['#define HAT_TRI_LO "%1"', [GVAR(loadout_hat_tri_2),GVAR(loadout_hat_tri_1)] call _fnc_default];
+_lines pushBack format ['#define HAT %1', SANATIZE_EXPORT(GVAR(loadout_hat))];
+_lines pushBack format ['#define HAT_TRI_HI %1', SANATIZE_EXPORT(GVAR(loadout_hat_tri_1))];
+_lines pushBack format ['#define HAT_TRI_LO %1', [SANATIZE_EXPORT(GVAR(loadout_hat_tri_2)),SANATIZE_EXPORT(GVAR(loadout_hat_tri_1))] call _fnc_default];
 _lines pushBack format ['#define HAT_MAG %1', [GVAR(loadout_hat), GVAR(loadout_hatMags), HAT_ROUNDS] call _fnc_getMags];
 
 _lines pushBack format ["// SAM"];
-_lines pushBack format ['#define SAM "%1"', GVAR(loadout_sam)];
+_lines pushBack format ['#define SAM %1', SANATIZE_EXPORT(GVAR(loadout_sam))];
 _lines pushBack format ['#define SAM_MAG %1', [GVAR(loadout_sam), GVAR(loadout_samMags), SAM_ROUNDS] call _fnc_getMags];
 
 _lines pushBack format ["// Sniper"];
-_lines pushBack format ['#define SNIPER "%1"', GVAR(loadout_sniper)];
+_lines pushBack format ['#define SNIPER %1', SANATIZE_EXPORT(GVAR(loadout_sniper))];
 _lines pushBack format ['#define SNIPER_MAG %1', [GVAR(loadout_sniper), GVAR(loadout_sniperMags), SNIPER_ROUNDS] call _fnc_getMags];
 _lines pushBack format ['#define SNIPER_ATTACHMENTS %1', [GVAR(loadout_sniperAttachments)] call _fnc_formatList];
 
 _lines pushBack format ["// Spotter"];
-_lines pushBack format ['#define SPOTTER "%1"', GVAR(loadout_spotter)];
+_lines pushBack format ['#define SPOTTER %1', SANATIZE_EXPORT(GVAR(loadout_spotter))];
 _lines pushBack format ['#define SPOTTER_MAG %1', [GVAR(loadout_spotter), GVAR(loadout_spotterMags), RIFLE_ROUNDS] call _fnc_getMags];
 _lines pushBack format ['#define SPOTTER_ATTACHMENTS %1', [GVAR(loadout_spotterAttachments)] call _fnc_formatList];
 
 _lines pushBack format ["// SMG"];
-_lines pushBack format ['#define SMG "%1"', GVAR(loadout_smg)];
+_lines pushBack format ['#define SMG %1', SANATIZE_EXPORT(GVAR(loadout_smg))];
 _lines pushBack format ['#define SMG_MAG %1', [GVAR(loadout_smg), GVAR(loadout_smgMags), SMG_ROUNDS] call _fnc_getMags];
 
 _lines pushBack format ["// Pistol"];
-_lines pushBack format ['#define PISTOL "%1"', GVAR(loadout_pistol)];
+_lines pushBack format ['#define PISTOL %1', SANATIZE_EXPORT(GVAR(loadout_pistol))];
 _lines pushBack format ['#define PISTOL_MAG %1', [GVAR(loadout_pistol), GVAR(loadout_pistolMags), PISTOL_ROUNDS] call _fnc_getMags];
 _lines pushBack format ['#define PISTOL_ATTACHMENTS %1', [GVAR(loadout_pistolAttachments)] call _fnc_formatList];
 
