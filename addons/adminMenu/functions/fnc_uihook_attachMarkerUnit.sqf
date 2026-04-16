@@ -11,7 +11,7 @@
  * None
  *
  * Examples:
- * [] call potato_adminMenu_uihook_attachMarkerUnit;
+ * [] call potato_adminMenu_fnc_uihook_attachMarkerUnit;
  *
  * Public: No
  */

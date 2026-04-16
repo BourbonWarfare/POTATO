@@ -10,7 +10,7 @@
  * None
  *
  * Examples:
- * [] call potato_adminMenu_reloadMarkersTab;
+ * [] call potato_adminMenu_fnc_reloadMarkersTab;
  *
  * Public: No
  */

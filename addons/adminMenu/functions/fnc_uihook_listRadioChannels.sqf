@@ -11,7 +11,7 @@
 * None
 *
 * Examples:
-* [] call potato_radios_fnc_uihook_listRadioChannels.sqf
+* [] call potato_adminMenu_fnc_uihook_listRadioChannels
 *
 * Public: No
 */
