@@ -25,6 +25,8 @@ if ((isNull player) || {!alive player}) exitWith {};
 //if (!isNil QGVAR(TestRan)) exitWith {TRACE_1("Test Ran Already",_this)};
 
 private _handledClasses = [];
+private _cfgWeapons = configFile >> "CfgWeapons";
+private _cfgMagazines = configFile >> "CfgMagazines";
 
 private _fncGetWeaponInfo = {
     params ["_weaponClassname"];
@@ -32,7 +34,7 @@ private _fncGetWeaponInfo = {
     if (_weaponClassname == "throw") then {
         _unitText = _unitText + "[Thrown: ";
     };
-    private _config = configFile >> "CfgWeapons" >> _weaponClassname;
+    private _config = _cfgWeapons >> _weaponClassname;
     private _muzzles = getArray (_config >> "muzzles");
     {
         private _muzzleConfig = if (_x == "this") then {
@@ -75,7 +77,7 @@ private _fncGetWeaponInfo = {
                 };
             } forEach (magazinesAmmoFull _unit);
             if (_count > 0) then {
-                private _magPic = getText (configFile >> "CfgMagazines" >> _magazineClassname >> "picture");
+                private _magPic = getText (_cfgMagazines >> _magazineClassname >> "picture");
                 _muzzleText = _muzzleText + format ["<img image='%1' width='16' height='16'/>:%2 ", _magPic, _count];
             };
         } forEach _mags;
@@ -125,12 +127,29 @@ private _fncGetWeaponInfo = {
         [secondaryWeapon _unit] call _fncGetWeaponInfo;
         [handgunWeapon _unit] call _fncGetWeaponInfo;
         ["throw"] call _fncGetWeaponInfo;
-
+        // Medical items
+        private _items = items _unit;
         private _extraAmmo = (magazines _unit) - _usedAmmo;
+        private _uniqueMed = (_items arrayIntersect _items) select {1 == getNumber (configFile >> "CfgWeapons" >> _x >> "ACE_isMedicalItem")};
+        {
+            private _medItem = _x;
+            _uniqueMed set [_forEachIndex, [_medItem, {_x == _medItem} count _items]];
+        } forEach _uniqueMed;
+        _unitText = _unitText + "Medical:<br/>";
+        {
+            _x params ["_classname", "_count"];
+            if (_count == 0) then {continue};
+            private _class = _cfgWeapons >> _classname;
+            private _itemPic = getText (_class >> "picture");
+            _unitText = _unitText + format ["%2x <img image='%1' width='16' height='16'/>%3<br/>", _itemPic, _count, getText (_class >> "displayName")];
+        } forEach _uniqueMed;
+        _unitText = _unitText + format ["%2x <img image='%1' width='16' height='16'/>%3<br/>", getText (_cfgMagazines >> "potato_pkblister" >> "picture"), {_x == "potato_pkblister"} count _extraAmmo, getText (_cfgMagazines >> "potato_pkblister" >> "displayName")];
+        _extraAmmo = _extraAmmo - ["potato_pkblister"];
+        // Misc magazine items
         if (_extraAmmo isNotEqualTo []) then {
             _unitText = _unitText + "[Extra: ";
             {
-                private _magPic = getText (configFile >> "CfgMagazines" >> _x >> "picture");
+                private _magPic = getText (_cfgMagazines >> _x >> "picture");
                 _unitText = _unitText + format ["<img image='%1' width='16' height='16'/> ", _magPic];
             } forEach _extraAmmo;
             _unitText = _unitText + "]<br/>";
