@@ -90,6 +90,14 @@ _textArr pushBack format ["Mission Type: %1", _missionType];
 //// Timings
 private _safeStartLength = getMissionConfigValue [QEGVAR(missionTesting,SSTimeGiven), 0];
 private _missionLength = getMissionConfigValue [QEGVAR(missionTesting,missionTimeLength), 0];
+// TEMP CODE Remove cicrca 2026-10-01
+if (_safeStartLength > 0 && _safeStartLength < 30) then {
+    _safeStartLength = _safeStartLength * 60; // assume it was in minutes, convert to seconds
+};
+if (_missionLength > 0 && _missionLength < 200) then {
+    _missionLength = _missionLength * 60; // assume it was in minutes, convert to seconds
+};
+// END TEMP CODE Remove cicrca 2026-10-01
 private _safeStartInBounds = true;
 private _missionLengthInBounds = true;
 if !(_safeStartLength isEqualType 0) then {_safeStartLength = 0};

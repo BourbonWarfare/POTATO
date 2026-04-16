@@ -30,6 +30,11 @@ if (_missionLength isEqualType "") then { _missionLength = parseNumber _missionL
 
 if (_missionLength <= 0) exitWith { WARNING_1("[_missionLength = %1] - ignoring",_missionLength) };
 private _missionLengthSec = _missionLength;
+// TEMP CODE Remove cicrca 2026-10-01
+if (_missionLength > 0 && _missionLength < 200) then {
+    _missionLength = _missionLength * 60; // assume it was in minutes, convert to seconds
+};
+// END TEMP CODE Remove cicrca 2026-10-01
 missionNamespace setVariable [QGVAR(missionstartTime), CBA_missionTime, true];
 TRACE_2("",GVAR(missionstartTime),_missionLength);
 

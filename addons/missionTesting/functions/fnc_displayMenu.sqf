@@ -183,9 +183,20 @@ private _missionPlayerCountMax = str getMissionConfigValue QGVAR(playerCountMaxi
 private _missionPlayerCountMin = str getMissionConfigValue QGVAR(playerCountMinimum);
 private _missionPlayerCountRec = str getMissionConfigValue QGVAR(playerCountRecommended);
 
-private _missionSSTime = str ((getMissionConfigValue QGVAR(SSTimeGiven)) / 60);
+private _missionSSTime = (getMissionConfigValue QGVAR(SSTimeGiven)) / 60;
 private _missionSSForceEnd = ["Admin start", "Forced once SS time elapses"] select getMissionConfigValue [QEGVAR(missionTesting,SSForceEnd), false];
-private _missionTimeLength = str ((getMissionConfigValue QGVAR(missionTimeLength)) / 60);
+private _missionTimeLength = (getMissionConfigValue QGVAR(missionTimeLength)) / 60;
+
+// TEMP CODE Remove cicrca 2026-10-01
+if (_missionSSTime > 0 && _missionSSTime < 30) then {
+    _missionSSTime = _missionSSTime * 60; // assume it was in minutes, convert to seconds
+};
+_missionSSTime = str _missionSSTime;
+if (_missionTimeLength > 0 && _missionTimeLength < 200) then {
+    _missionTimeLength = _missionTimeLength * 60; // assume it was in minutes, convert to seconds
+};
+_missionTimeLength = str _missionTimeLength;
+// END TEMP CODE Remove cicrca 2026-10-01
 
 private _missionTag1Var = getMissionConfigValue QGVAR(missionTag1);
 private _missionTag1 = if(isNil QUOTE(_missionTag1Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag1Var};
