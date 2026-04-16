@@ -61,7 +61,7 @@ private _diaryBuilder = ["<font size=28 face=""PuristaBold"">Radio Channels</fon
         } forEach _channels;
         _diaryBuilder pushBack format [
             "<font size=12>%1<br/>  SR: %2 | MR: %3 | LR: %4</font>",
-            groupID _x,
+            groupId _x,
             _channels#0,
             _channels#1,
             _channels#2

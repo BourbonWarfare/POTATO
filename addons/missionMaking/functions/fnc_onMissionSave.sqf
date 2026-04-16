@@ -248,7 +248,7 @@ private _checkMedical = [];
 
 private _checkGroupIDs = [];
 {
-  private _groupID = groupID _x;
+  private _groupID = groupId _x;
   if ("-" in _groupID && {"Alpha" in _groupID || {"Bravo" in _groupID} || {"Charlie" in _groupID}} && {playableUnits arrayIntersect  units _x isNotEqualTo []}) then {
 	_checkGroupIDs pushBack _groupID;
   };
@@ -264,7 +264,7 @@ if (_checkMedical isNotEqualTo []) then {
     _problems pushBack ["Units missing medical", _checkMedical];
 };
 if (_checkGroupIDs isNotEqualTo []) then {
-    _problems pushBack ["Set group callsigns (e.g., Blufor ASL)", _checkGroupIDs];
+    _problems pushBack ["Set group callsign(s) (e.g., Blufor ASL)", _checkGroupIDs];
 };
 
 private _fortifies = (all3DENEntities select 3) select {_x isKindOf "potato_fortify_setupModule"};
