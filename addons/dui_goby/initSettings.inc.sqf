@@ -30,6 +30,20 @@ private _category = ["POTATO - User", "Go By (DUI Nametags)"];
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(fontSize),
+    "SLIDER",
+    ["Front Scale"],
+    _category,
+    [0, 20, 8, 1],
+    false,
+    {
+        if (hasInterface && GVAR(ready)) then {
+            true call FUNC(updateUnit);
+        };
+    }
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(color),
     "COLOR",
     ["Color"],

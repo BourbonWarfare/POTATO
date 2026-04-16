@@ -28,10 +28,11 @@ if (_goby == "") exitWith {
 
 // _unit setVariable ["diwako_dui_nametags_customInfo", _goby];
 
+/// using our color and size, but dui's font and shadow 
 private _data = format ["</t><t font='%1' color='%2' size='%3' shadow='%4'>%5<t>", 
     diwako_dui_nametags_fontCustomInfo, 
     GVAR(colorHex),
-    (profileNamespace getVariable ['igui_diwako_dui_nametags_h', pixelH * 64]) * diwako_dui_nametags_fontCustomInfoSize, 
+    (profileNamespace getVariable ['igui_diwako_dui_nametags_h', pixelH * 64]) * GVAR(fontSize), 
     diwako_dui_nametags_customInfoShadow,
     _goBy
 ];
