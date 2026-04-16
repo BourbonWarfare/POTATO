@@ -135,7 +135,7 @@ private _fncGetWeaponInfo = {
             private _medItem = _x;
             _uniqueMed set [_forEachIndex, [_medItem, {_x == _medItem} count _items]];
         } forEach _uniqueMed;
-        _unitText = _unitText + "Medical:<br/>";
+        _unitText = _unitText + "[Medical]<br/>";
         {
             _x params ["_classname", "_count"];
             if (_count == 0) then {continue};
