@@ -246,6 +246,14 @@ private _checkMedical = [];
 
 } forEach _allUnits;
 
+private _checkGroupIDs = [];
+{
+  private _groupID = groupID _x;
+  if ("-" in _groupID && {"Alpha" in _groupID || {"Bravo" in _groupID} || {"Charlie" in _groupID}} && {playableUnits arrayIntersect  units _x isNotEqualTo []}) then {
+	_checkGroupIDs pushBack _groupID;
+  };
+} forEach allGroups;
+
 if (_checkWeapons isNotEqualTo []) then {
     _problems pushBack ["Units missing weapons", _checkWeapons];
 };
@@ -254,6 +262,9 @@ if (_checkMagazines isNotEqualTo []) then {
 };
 if (_checkMedical isNotEqualTo []) then {
     _problems pushBack ["Units missing medical", _checkMedical];
+};
+if (_checkGroupIDs isNotEqualTo []) then {
+    _problems pushBack ["Set group callsigns (e.g., Blufor ASL)", _checkGroupIDs];
 };
 
 private _fortifies = (all3DENEntities select 3) select {_x isKindOf "potato_fortify_setupModule"};
@@ -282,7 +293,7 @@ if (_problems isEqualTo []) then {
                 _errorArray resize 5;
                 _errorArray pushBack format [" + %1 more", _errorCount - 5];
             };
-            private _msg = format ["[%1/%2] %3:%4", (_forEachIndex + 1), count _problems, _errorCode, _errorArray];
+            private _msg = format ["[%1/%2] %3: %4", (_forEachIndex + 1), count _problems, _errorCode, _errorArray];
             systemChat _msg;
             [_msg] call BIS_fnc_3DENNotification;
             INFO_1("%1",_msg);
