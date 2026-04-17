@@ -5,9 +5,11 @@
     [false] call acre_api_fnc_setSpectator;
     [-1] call acre_sys_core_fnc_handleMultiPttKeyPress;
 }, {
+    if (isNil QGVAR(wasSpec)) exitWith {};
     [-1] call acre_sys_core_fnc_handleMultiPttKeyPressUp;
     if (GVAR(wasSpec)) then {
         GVAR(wasSpec) = false;
         [true] call acre_api_fnc_setSpectator;
-    }
+    };
+    GVAR(wasSpec) = nil;
 }, [DIK_CAPSLOCK, [false, false, false]]] call CBA_fnc_addKeybind; // Default Caps Lock
