@@ -111,7 +111,7 @@ switch (true) do {
     };
     case ("coop" in toLowerANSI _missionType): { // Coop
         _safeStartInBounds = _safeStartLength == 15 * 60;
-        _missionLengthInBounds = _missionLength >= 60 * 60 && _missionLength <= 75;
+        _missionLengthInBounds = _missionLength >= 60 * 60 && _missionLength <= 75 * 60;
     };
     case ("tvt" in toLowerANSI _missionType): { // TvT
         _safeStartInBounds = _safeStartLength == 10 * 60;
