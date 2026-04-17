@@ -14,7 +14,7 @@ if (GVAR(usePotato) && hasInterface) then {
     if (GVAR(allowChangeableOptics)) then {
         ["unit", {
             params ["_player"];
-            _player setVariable [QGVAR(changeOpticsTimeLimit), CBA_missionTime + 60]; // can change for a minute after jip or respawn
+            _player setVariable [QGVAR(changeOpticsTimeLimit), CBA_missionTime + 120]; // can change for 2 minute after jip or respawn
         }, true] call CBA_fnc_addPlayerEventHandler;
 
         private _baseAction = [
