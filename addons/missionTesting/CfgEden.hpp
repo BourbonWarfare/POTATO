@@ -135,7 +135,7 @@ class Cfg3DEN {
                             defaultValue = "false";
                         };
                         class GVAR(missionTimeLength) {
-                            displayName = "Mission Length (mins):";
+                            displayName = "Mission Length:";
                             property = QGVAR(missionTimeLength);
                             control = QEGVAR(editorExtensions,sliderTime);
                             increment = 150;

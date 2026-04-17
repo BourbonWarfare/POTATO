@@ -10,7 +10,7 @@ class Cfg3DEN {
     class Attributes {
         class Default;
 
-        class Titled: Default {
+        class GVAR(titled): Default {
             class Controls {
                 class Title: ctrlStatic {
                     style = 1;
@@ -22,7 +22,7 @@ class Cfg3DEN {
             };
         };
 
-        class GVAR(sliderTime): Titled {
+        class GVAR(sliderTime): GVAR(titled) {
             attributeLoad = QUOTE(call FUNC(sliderTime_load));
             attributeSave = QUOTE(call FUNC(sliderTime_save));
             class Controls: Controls {
