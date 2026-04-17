@@ -41,7 +41,12 @@ if (!(isServer && GVAR(enabled) && GVAR(safeStartEnabled)) ||
 
 // Check safe start "0" time or use CBA_missionTime
 private _serverStartTimePV = missionNamespace getVariable [QGVAR(startTime_PV), CBA_missionTime];
-private _safeStartLength = (getMissionConfigValue [QEGVAR(missionTesting,SSTimeGiven), 15]) * 60 + _serverStartTimePV;
+private _safeStartLength = (getMissionConfigValue [QEGVAR(missionTesting,SSTimeGiven), 60 * 15]) + _serverStartTimePV;
+// TEMP CODE Remove cicrca 2026-10-01
+if (_safeStartLength > 0 && _safeStartLength < 30) then {
+    _safeStartLength = _safeStartLength * 60; // assume it was in minutes, convert to seconds
+};
+// END TEMP CODE Remove cicrca 2026-10-01
 
 [
     {

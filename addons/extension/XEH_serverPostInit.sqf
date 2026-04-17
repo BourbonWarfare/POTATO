@@ -23,7 +23,7 @@ GVAR(techOnlyTesting) = false; // can set to true to force bot to run (but not p
     TRACE_1("At mission start",count GVAR(recruitsSeen));
 }] call CBA_fnc_waitUntilAndExecute;
 
-if (getMissionConfigValue [QEGVAR(missionTesting,SSTimeGiven), 15] < 5) then {
+if (getMissionConfigValue [QEGVAR(missionTesting,SSTimeGiven), 60*15] < 60 * 5) then {
     [{time > (9 * 60)}, LINKFUNC(safeStartMessages)] call CBA_fnc_waitUntilAndExecute;
 } else {
     GVAR(safeStartEH) = ["potato_safeStartOff", LINKFUNC(safeStartMessages)] call CBA_fnc_addEventHandler;

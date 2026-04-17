@@ -1,4 +1,5 @@
 #include "..\script_component.hpp"
+#include "\z\potato\addons\missionTesting\script_macros.hpp"
 /*
  * Author: BadWolf, PabstMirror
  * This function sends the session start messages to discord and removes
@@ -51,7 +52,7 @@ GVAR(orbat) = call FUNC(getOrbat); // simple leadership orbat, for now not handl
     // Dump orbat at mission conclusion
     // params ["_side"];
     private _missionType = getMissionConfigValue [QEGVAR(missionTesting,missionType), 0];
-    if (_missionType == 0) exitWith { INFO_1("ignoring mission type %1",_missionType) };
-    private _missionTypeStr = ["Other", "COOP", "TvT"] select _missionType;
+    if (_missionType <= 0) exitWith { INFO_1("ignoring mission type %1",_missionType) };
+    private _missionTypeStr = A_MISSION_TYPE select _missionType;
     ["embed", "arma", GVAR(orbat), format ["Mission End: %1", _missionTypeStr]] call FUNC(botMessage);
 }] call CBA_fnc_addEventHandler;

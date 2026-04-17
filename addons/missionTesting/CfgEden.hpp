@@ -44,17 +44,33 @@ class Cfg3DEN {
                             defaultValue = 0;
                             typeName = "NUMBER";
                             class Values {
-                                class SELECT {
-                                    name = "SELECT";
+                                class INVALID {
+                                    name = "Select an Option";
+                                    value = -1;
+                                };
+                                class AFTER_HOURS {
+                                    name = "After-Hours/Offnight";
                                     value = 0;
                                 };
                                 class COOP {
                                     name = "COOP";
                                     value = 1;
                                 };
+                                class LONG_COOP {
+                                    name = "Long COOP";
+                                    value = 3;
+                                };
+                                class UNCONVENTIONAL_COOP {
+                                    name = "Unconventional COOP";
+                                    value = 5;
+                                };
                                 class TVT {
                                     name = "TVT";
                                     value = 2;
+                                };
+                                class UNCONVENTIONAL_TVT {
+                                    name = "Unconventional TVT";
+                                    value = 4;
                                 };
                             };
                         };
@@ -103,9 +119,11 @@ class Cfg3DEN {
                     collapsed = 0;
                     class Attributes{
                         class GVAR(SSTimeGiven) {
-                            displayName = "Safe Start Time Length (mins):";
+                            displayName = "Safe Start Length:";
                             property = QGVAR(SSTimeGiven);
-                            control = QUOTE(EditShort);
+                            control = QEGVAR(editorExtensions,sliderTime);
+                            increment = 15;
+                            maxTimeSeconds = 1800;
                             defaultValue = 0;
                             typeName = "NUMBER";
                             validate = "number";
@@ -119,7 +137,9 @@ class Cfg3DEN {
                         class GVAR(missionTimeLength) {
                             displayName = "Mission Length (mins):";
                             property = QGVAR(missionTimeLength);
-                            control = QUOTE(EditShort);
+                            control = QEGVAR(editorExtensions,sliderTime);
+                            increment = 150;
+                            maxTimeSeconds = 10800;
                             defaultValue = 0;
                             typeName = "NUMBER";
                             validate = "number";

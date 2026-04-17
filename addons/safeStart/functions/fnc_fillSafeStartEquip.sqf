@@ -1,4 +1,5 @@
 #include "..\script_component.hpp"
+#include "\z\potato\addons\missionTesting\script_macros.hpp"
 #define LASER_RANGE_FINDER ["Rangefinder", "ACE_Vector", "CUP_Vector21Nite", "CUP_Binocular_Vector", "ACE_VectorDay","gm_lp7_oli","gm_lpr1_oli","ACE_Yardage450"]
 #define STANDARD_COLOR "#bbbbbb"
 #define ATTENTION_COLOR "#ffffff"
@@ -83,42 +84,50 @@ if (_menuxPos > 0.5) then {
     private _title = _ctrlGroup controlsGroupCtrl IDC_SAFESTARTEQUIP_TITLE;
     _title ctrlSetStructuredText parseText "<t align='right'>Safe Start Info</t>"
 };
-private _missionType = ["Other","Coop","TVT","Long Coop","Unconventional TVT", "Unconventional Coop","Undefined"]#_missionTypeEnum;
+private _missionType = A_MISSION_TYPE#_missionTypeEnum;
 
 _textArr pushBack format ["Mission Type: %1", _missionType];
 //// Timings
 private _safeStartLength = getMissionConfigValue [QEGVAR(missionTesting,SSTimeGiven), 0];
 private _missionLength = getMissionConfigValue [QEGVAR(missionTesting,missionTimeLength), 0];
+// TEMP CODE Remove cicrca 2026-10-01
+if (_safeStartLength > 0 && _safeStartLength < 30) then {
+    _safeStartLength = _safeStartLength * 60; // assume it was in minutes, convert to seconds
+};
+if (_missionLength > 0 && _missionLength < 200) then {
+    _missionLength = _missionLength * 60; // assume it was in minutes, convert to seconds
+};
+// END TEMP CODE Remove cicrca 2026-10-01
 private _safeStartInBounds = true;
 private _missionLengthInBounds = true;
 if !(_safeStartLength isEqualType 0) then {_safeStartLength = 0};
 if !(_missionLength isEqualType 0) then {_missionLength = 0};
-switch (_missionTypeEnum) do {
-    case 1;
-    case 5: { // Coop
-        _safeStartInBounds = _safeStartLength == 15;
-        _missionLengthInBounds = _missionLength >= 60 && _missionLength <= 75;
+// inefficient to do substring searches, but allows for changes to mission
+// types without needing to rewrite this switch statement
+switch (true) do {
+    case ("long" in toLowerANSI _missionType): { // LC
+        _safeStartInBounds = _safeStartLength == 15 * 60;
+        _missionLengthInBounds = _missionLength >= 90 * 60 && _missionLength <= 120 * 60;
     };
-    case 3: { // LC
-        _safeStartInBounds = _safeStartLength == 15;
-        _missionLengthInBounds = _missionLength >= 90 && _missionLength <= 120;
+    case ("coop" in toLowerANSI _missionType): { // Coop
+        _safeStartInBounds = _safeStartLength == 15 * 60;
+        _missionLengthInBounds = _missionLength >= 60 * 60 && _missionLength <= 75 * 60;
     };
-    case 2;
-    case 4: { // TvT
-        _safeStartInBounds = _safeStartLength == 10;
-        _missionLengthInBounds = _missionLength >= 30 && _missionLength <= 40;
+    case ("tvt" in toLowerANSI _missionType): { // TvT
+        _safeStartInBounds = _safeStartLength == 10 * 60;
+        _missionLengthInBounds = _missionLength >= 30 * 60 && _missionLength <= 40 * 60;
     };
 };
 // Safe start length
 if (_safeStartInBounds) then {
     _textArr pushBack format [
         QUOTE(<t color=QUOTE(STANDARD_COLOR)>Safe Start Length: %1</t>),
-        [60 * _safeStartLength, "M:SS"] call CBA_fnc_formatElapsedTime
+        [_safeStartLength, "M:SS"] call CBA_fnc_formatElapsedTime
     ];
 } else {
     _textArr pushBack format [
         QUOTE(<t color=QUOTE(ATTENTION_COLOR)>Safe Start Length: %1</t>),
-        [60 * _safeStartLength, "M:SS"] call CBA_fnc_formatElapsedTime
+        [_safeStartLength, "M:SS"] call CBA_fnc_formatElapsedTime
     ];
 };
 // Safe Start auto ends
@@ -131,12 +140,12 @@ if (EGVAR(safeStart,safeStartForceEnd)) then {
 if (_missionLengthInBounds) then {
     _textArr pushBack format [
         QUOTE(<t color=QUOTE(STANDARD_COLOR)>Mission Length: %1</t>),
-        [60 * _missionLength] call CBA_fnc_formatElapsedTime
+        [_missionLength] call CBA_fnc_formatElapsedTime
     ];
 } else {
     _textArr pushBack format [
         QUOTE(<t color=QUOTE(ATTENTION_COLOR)>Mission Length: %1</t>),
-        [60 * _missionLength] call CBA_fnc_formatElapsedTime
+        [_missionLength] call CBA_fnc_formatElapsedTime
     ];
 };
 
