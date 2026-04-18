@@ -25,6 +25,10 @@ private _typeOf = typeOf _unit;
 private _unitClassname = [_typeOf] call FUNC(cleanPrefix);
 private _loadout = _unit getVariable ["F_Gear", _unitClassname]; //Check variable f_gear, otherwise default to typeof
 private _basePath = GVAR(customLoadoutPaths) getOrDefault [_faction, missionConfigFile >> "CfgLoadouts" >> _faction, true];
+if (isNull _basePath) then {
+    _basePath = missionConfigFile >> "CfgLoadouts" >> _faction;
+    GVAR(customLoadoutPaths) set [_faction, _basePath];
+};
 private _path = _basePath >> _loadout;
 
 if ((!isClass(_path)) && GVAR(useFallback)) then {
