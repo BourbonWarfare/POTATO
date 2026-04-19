@@ -13,12 +13,13 @@
 
 #include "script_component.hpp"
 
-TRACE_1("params",_this);
+params [["_unit", objNull, [objNull]]];
+TRACE_1("requestPlayerGear",_unit);
+
+_unit setVariable [QGVAR(changeOpticsTimeLimit), CBA_missionTime + 120];
 
 // if not executed on server, pass to server
 if !(isServer) exitWith { _this remoteExecCall [QFUNC(requestPlayerGear), SERVER_CLIENT_ID]; };
-
-params [["_unit", objNull, [objNull]]];
 
 if (isNull _unit) exitWith { WARNING("Provided unit is null"); };
 [_unit] call FUNC(assignGearMan);
