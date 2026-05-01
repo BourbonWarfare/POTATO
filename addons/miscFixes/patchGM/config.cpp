@@ -60,6 +60,7 @@ class CfgPatches {
 #include "CfgEventHandlers.hpp"
 #include "CfgGlasses.hpp"
 #include "CfgMagazines.hpp"
+#include "CfgMagazineWells.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
 

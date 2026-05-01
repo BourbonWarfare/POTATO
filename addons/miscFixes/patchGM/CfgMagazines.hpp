@@ -21,4 +21,17 @@ class CfgMagazines {
         modelSpecial = "\gm\gm_weapons\gm_machineguns\gm_pk\gm_100rnd_762x54mm_pk_modelspecial";
         modelSpecialIsProxy = 1;
     };
+    class gm_120Rnd_762x51mm_B_T_DM21_mg3_grn;
+    class gm_120Rnd_762x51mm_B_T_DM21_mg3_grn_wht: gm_120Rnd_762x51mm_B_T_DM21_mg3_grn {
+        ammo = "gm_bullet_762x51mm_B_T_DM21_white";
+        displayName = "7.62mm 120Rnd MG3 Ball-T DM21 Green Mag (White)";
+    };
+    class gm_120Rnd_762x51mm_B_T_DM21_mg3_grn_grn: gm_120Rnd_762x51mm_B_T_DM21_mg3_grn {
+        ammo = "gm_bullet_762x51mm_B_T_DM21_green";
+        displayName = "7.62mm 120Rnd MG3 Ball-T DM21 Green Mag (Green)";
+    };
+    class gm_120Rnd_762x51mm_B_T_DM21_mg3_grn_ylw: gm_120Rnd_762x51mm_B_T_DM21_mg3_grn {
+        ammo = "gm_bullet_762x51mm_B_T_DM21_yellow";
+        displayName = "7.62mm 120Rnd MG3 Ball-T DM21 Green Mag (Yellow)";
+    };
 };
