@@ -189,13 +189,14 @@ class CfgPatches {
 
             QGVAR(build_a_group),
             QGVAR(spawn_a_vehicle),
-            QGVAR(garrison)
+            QGVAR(garrison),
+            QGVAR(cswTeam)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
         author = "Potato";
-        authors[] = {"PabstMirror", "AACO"};
+        authors[] = {"PabstMirror", "AACO", "Lambda.Tiger"};
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
         VERSION_CONFIG;
     };

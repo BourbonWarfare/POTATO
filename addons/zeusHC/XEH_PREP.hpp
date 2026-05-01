@@ -47,6 +47,10 @@ PREP(garrisonIsFacingWall);
 PREP(garrisonDialogCheckMinMax);
 PREP(garrisonDialogControlChange);
 
+PREP(CSWTeam_Spawn);
+PREP(ui_CSWTeam);
+PREP(ui_CSWTeamUpdate);
+
 PREP(ungarrisonGroup);
 PREP(ungarrisonGroupBulk);
 PREP(ungarrisonAllGroupsZeus);

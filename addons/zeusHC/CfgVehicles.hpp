@@ -876,4 +876,14 @@ class CfgVehicles {
             };
         };
     };
+
+    class GVAR(cswTeam): GVAR(base_module) {
+        category = QGVAR(custom);
+        EGVAR(missionModules,functionHandle) = QUOTE(call FUNC(ui_CSWTeam));
+        EGVAR(missionModules,iconText)[] = {CSWTEAM_WP_TEXT};
+        scopeCurator = 2;
+        isGlobal = 1;
+        displayName = "(EXPERIMENTAL) Spawn CSW Team";
+        function = QEFUNC(missionModules,zeus_nClicKModule);
+    };
 };
