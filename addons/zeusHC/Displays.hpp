@@ -17,7 +17,7 @@ class RscSlider;
 class RscText;
 class RscCheckBox;
 class RscMapControl;
-class RscXSliderH;
+// class RscXSliderH;
 
 class GVAR(bg): IGUIBack {
     idc = BG_IDC;
