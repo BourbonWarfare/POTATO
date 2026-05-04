@@ -126,7 +126,7 @@ if (_findRoads) then {
     _x params ["_roadPosATL", "_vicDir"];
     private _wps = +_waypoints;
     (_wps#2) set [2, _forEachIndex];
-    [{[_this, QFUNC(convoySpawnVehicle)] call FUNC(hcPassthrough);},
+    [{[_this, QFUNC(reinforceSpawnVehicle)] call FUNC(hcPassthrough);},
         [_wps, [_vicType, _roadPosATL, _vicDir], _dismountCount, _lambsDismounts, _side],
         _forEachIndex * 4] call CBA_fnc_waitAndExecute;
 } forEach _posArray;

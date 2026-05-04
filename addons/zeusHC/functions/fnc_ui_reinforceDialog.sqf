@@ -50,7 +50,7 @@ if (_isClosing) then {
         _ctrl lbValue (lbCurSel _ctrl),
         cbChecked (_display displayCtrl IDC_CONVOY_LAMBS),
         _display getVariable [QGVAR(side), east]
-    ] call FUNC(convoySpawn);
+    ] call FUNC(reinforceSpawn);
 } else { // initialize the display to sync menu values
     _eventArgs params ["_display"];
     // Setup map drawing
@@ -95,7 +95,7 @@ if (_isClosing) then {
         if (_type isKindOf "air" || _side != east) then {continue};
         private _cfg = _cfgVehicles >> _type;
         _ctrl lbAdd getText (_cfg >> "displayName");
-        _ctrl lbSetToolTip [_itr, _type];
+        _ctrl lbSetTooltip [_itr, _type];
         _ctrl lbSetData [_itr, _type];
         _itr = _itr + 1;
     } forEach GVAR(vehicleList);

@@ -32,7 +32,7 @@ switch (_idcUpdate) do {
             if (_type isKindOf "AIR" || _side != _newSide) then {continue};
             private _cfg = _cfgVehicles >> _type;
             _ctrl lbAdd getText (_cfg >> "displayName");
-            _ctrl lbSetToolTip [_itr, _type];
+            _ctrl lbSetTooltip [_itr, _type];
             _ctrl lbSetData [_itr, _type];
             _itr = _itr + 1;
         } forEach GVAR(vehicleList);

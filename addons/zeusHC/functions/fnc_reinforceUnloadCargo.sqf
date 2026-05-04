@@ -23,7 +23,7 @@ params [
 ];
 if (isNull _vic || {driver _vic == _vic}) exitWith {};
 if (!local _vic) exitWith {
-	[_this] remoteExecCall [QFUNC(unloadCargo), _vic];
+	[_this] remoteExecCall [QFUNC(reinforceUnloadCargo), _vic];
 };
 if (_ignArr isEqualTo []) then {
 	_ignArr = units group driver _vic;

@@ -36,7 +36,7 @@ if (_vic isEqualType []) exitWith {
     _vic = createVehicle [_vehicleType, _posATL, [], 0, "NONE"];
     _vic setPosATL _posATL;
     _vic setDir _vicDir;
-    [{_this call FUNC(convoySpawnVehicle)},
+    [{_this call FUNC(reinforceSpawnVehicle)},
         [_waypoints, _vic, _dismountCount, _lambsDismounts, _side, _group],
         GVAR(delayBetweenUnitCreation) * (1 + random 1)] call CBA_fnc_waitAndExecute;
 };
@@ -92,12 +92,12 @@ if (isNull _group) exitWith {
     if (_dismountCount > 0) then {
         _group = createGroup [_side, true];
     };
-    [{_this call FUNC(convoySpawnVehicle)},
+    [{_this call FUNC(reinforceSpawnVehicle)},
         [_waypoints, _vic, _dismountCount, _lambsDismounts, _side, _group],
         5] call CBA_fnc_waitAndExecute;
 };
 if !(isNull leader _group || {local leader _group}) exitWith {
-    [_this] remoteExecCall [QFUNC(convoySpawnVehicle), leader _group];
+    [_this] remoteExecCall [QFUNC(reinforceSpawnVehicle), leader _group];
 };
 // Skip for just vic spawning
 if (_dismountCount > 0) then {
@@ -126,7 +126,7 @@ if (_dismountCount > 0) then {
     };
 };
 if (_dismountCount > 0) then { // recurse
-    [{call FUNC(convoySpawnVehicle)},
+    [{call FUNC(reinforceSpawnVehicle)},
         [_waypoints, _vic, _dismountCount, _lambsDismounts, _side, _group],
         GVAR(delayBetweenUnitCreation) * (1 + random 1)] call CBA_fnc_waitAndExecute;
 } else { // it's waypoint time
@@ -176,12 +176,12 @@ if (_dismountCount > 0) then { // recurse
         _wp setWaypointBehaviour "COMBAT";
         _wp setWaypointSpeed "FULL";
         _wp setWaypointStatements ["true",
-            QUOTE(if (local this) then {[vehicle this] call FUNC(unloadCargo)};)
+            QUOTE(if (local this) then {[vehicle this] call FUNC(reinforceUnloadCargo)};)
         ];
         _wp setWaypointCompletionRadius (1 + _index) * 20;
         _group addEventHandler ["CombatModeChanged", {
             systemChat format ["Convoy contact handler %1", _this];
-            [_this#0, true] call FUNC(convoyContactHandler);
+            [_this#0, true] call FUNC(reinforceContactHandler);
         }];
         if (count units _group > 1) then {
             _wp = _group addWaypoint [_dsmntPosAGL, 100];
