@@ -12,7 +12,7 @@
  *
  * Public: No
  */
-//TRACE_1("Updating Convoy UI",_this);
+TRACE_1("Updating Reinrforce UI",_this);
 params ["_args", ["_idcUpdate", -1]];
 _args params ["_ctrl", ["_newValue", 0]];
 

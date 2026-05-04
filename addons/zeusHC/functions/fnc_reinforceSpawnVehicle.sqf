@@ -180,7 +180,6 @@ if (_dismountCount > 0) then { // recurse
         ];
         _wp setWaypointCompletionRadius (1 + _index) * 20;
         _group addEventHandler ["CombatModeChanged", {
-            systemChat format ["Convoy contact handler %1", _this];
             [_this#0, true] call FUNC(reinforceContactHandler);
         }];
         if (count units _group > 1) then {

@@ -561,7 +561,7 @@ class GVAR(reinforceSpawn) {
             y = 0.2;
             w = 0.3;
             h = 0.06;
-            onLBSelChanged = QUOTE([ARR_2(_this,IDC_CONVOY_SIDE)] call FUNC(ui_ConvoyUpdate););
+            onLBSelChanged = QUOTE([ARR_2(_this,IDC_CONVOY_SIDE)] call FUNC(ui_reinforceUpdate););
             tooltip = "Side of Group";
             class Items {
                 class west {
@@ -607,7 +607,7 @@ class GVAR(reinforceSpawn) {
             y = 0.4;
             w = 0.03;
             h = 0.04;
-            onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_ADDVIC)] call FUNC(ui_ConvoyUpdate););
+            onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_ADDVIC)] call FUNC(ui_reinforceUpdate););
 	        colorBackground[] = {0,0,0,1};
             textureNoShortcut = "\a3\ui_f\data\gui\rsccommon\rschtml\arrow_right_ca.paa";
             tooltip = "Add vehicle without dismounts";
@@ -615,14 +615,14 @@ class GVAR(reinforceSpawn) {
         class RscShortcutButton_addVicCrewed: RscShortcutButton_addVic {
             idc = IDC_CONVOY_ADDVICDSMNT;
             y = 0.5;
-            onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_ADDVICDSMNT)] call FUNC(ui_ConvoyUpdate););
+            onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_ADDVICDSMNT)] call FUNC(ui_reinforceUpdate););
             textureNoShortcut = "\a3\ui_f\data\igui\rscingameui\rscunitinfo\arrow_right_ca.paa";
             tooltip = "Add vehicle with dismounts";
         };
         class RscShortcutButton_removeVic: RscShortcutButton_addVic {
             idc = IDC_CONVOY_REMOVEVIC;
             y = 0.6;
-            onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_REMOVEVIC)] call FUNC(ui_ConvoyUpdate););
+            onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_REMOVEVIC)] call FUNC(ui_reinforceUpdate););
             textureNoShortcut = "\a3\ui_f\data\gui\rsccommon\rschtml\arrow_left_ca.paa";
             tooltip = "Remove Vehicle";
         };
@@ -660,7 +660,7 @@ class GVAR(reinforceSpawn) {
             sliderPosition = 8;
             sliderRange[] = {0, 14};
             sliderStep = 1;
-            onSliderPosChanged = QUOTE([ARR_2(_this,IDC_CONVOY_DISMOUNTCNT)] call FUNC(ui_ConvoyUpdate););
+            onSliderPosChanged = QUOTE([ARR_2(_this,IDC_CONVOY_DISMOUNTCNT)] call FUNC(ui_reinforceUpdate););
         };
         class RscText_finalWP: RscText_Side {
             idc = -1;
