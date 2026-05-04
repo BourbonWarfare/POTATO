@@ -889,7 +889,7 @@ class CfgVehicles {
 
     class GVAR(spawnAIVicAssault): GVAR(cswTeam) {
         displayName = "[EXP] Spawn AI Assault";
-        EGVAR(missionModules,functionHandle) = QUOTE(call FUNC(ui_convoyDialog));
+        EGVAR(missionModules,functionHandle) = QUOTE(call FUNC(ui_reinforceDialog));
         EGVAR(missionModules,iconText)[] = {"Spawn","Unload","Move"};
     };
 };

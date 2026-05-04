@@ -23,7 +23,7 @@
 params ["_isClosing", "_eventArgs"];
 
 if !(_isClosing isEqualType false) exitWith {
-    private _display = createDialog [QGVAR(convoySpawn)];
+    private _display = createDialog [QGVAR(reinforceSpawn)];
     _display setVariable [QGVAR(wps), _isClosing];
 };
 

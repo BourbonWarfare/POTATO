@@ -510,14 +510,14 @@ class GVAR(csw_team) {
     };
 };
 
-class GVAR(convoySpawn) {
+class GVAR(reinforceSpawn) {
     idd = IDD_CONVOY_MENU;
     x = -0.3;
     y = 0.05;
     w = 1.475;
     h = 1.05;
-    onUnload = QUOTE([ARR_2(true,_this)] call FUNC(ui_convoyDialog));
-    onLoad = QUOTE([ARR_2(false,_this)] call FUNC(ui_convoyDialog));
+    onUnload = QUOTE([ARR_2(true,_this)] call FUNC(ui_reinforceDialog));
+    onLoad = QUOTE([ARR_2(false,_this)] call FUNC(ui_reinforceDialog));
     class ControlsBackground {
         class Background : RscText {
             idc = -1;
