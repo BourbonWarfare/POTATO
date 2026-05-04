@@ -8,4 +8,5 @@
     The type is defined as `-1` and will thus select the last value always.
 */
 #define A_MISSION_TYPE ["Other","COOP","TVT","Long COOP","Unconventional TVT", "Unconventional COOP", "Invalid - Don't pass"]
+#define A_MISSION_TYPE_ABBREV ["Other","COOP","TVT","Long COOP","Unconv TVT", "Unconv COOP", "Invalid - Don't pass"]
 #define A_MISSION_TAGS ["NONE","NIGHT","DAWN","MSV","TvT1","TvT2","AH","FOG","BRIEF ON MAP"]
