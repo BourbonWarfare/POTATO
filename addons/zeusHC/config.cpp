@@ -190,7 +190,8 @@ class CfgPatches {
             QGVAR(build_a_group),
             QGVAR(spawn_a_vehicle),
             QGVAR(garrison),
-            QGVAR(cswTeam)
+            QGVAR(cswTeam),
+            QGVAR(spawnAIVicAssault)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

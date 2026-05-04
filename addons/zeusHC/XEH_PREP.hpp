@@ -47,6 +47,13 @@ PREP(garrisonIsFacingWall);
 PREP(garrisonDialogCheckMinMax);
 PREP(garrisonDialogControlChange);
 
+PREP(reinforceContactHandler);
+PREP(reinforceSpawn);
+PREP(reinforceSpawnVehicle);
+PREP(reinforceUnloadCargo);
+PREP(ui_reinforceDialog);
+PREP(ui_reinforceUpdate);
+
 PREP(CSWTeam_Spawn);
 PREP(ui_CSWTeam);
 PREP(ui_CSWTeamUpdate);
