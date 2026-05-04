@@ -38,4 +38,12 @@ if (GVAR(enabled) && hasInterface) then {
             [_open] call FUNC(setRespawn);
         };
     }] call CBA_fnc_addEventHandler;
+
+    ["ace_treatmentSucceded", {
+        params ["_medic", "_patient", "", "_classname"];
+        if ((_classname != "CheckResponse") || {!alive _patient} || {_medic != ace_player}) exitWith {};
+        private _name = [_medic] call ace_common_fnc_getName;
+        _patient setVariable [QGVAR(checked), [_patient, _name], true]; // self-unit to handle respawning units copying vars
+     }] call CBA_fnc_addEventHandler;
+
 };

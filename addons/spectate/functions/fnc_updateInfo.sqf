@@ -53,6 +53,12 @@ if (GVAR(uiVisible) && GVAR(showInfo)) then {
         if (_wounded isNotEqualTo []) then {
             _killFeed = format ["%2<br/>Caused wounds on players:<br/> %1", _wounded joinString ", ", _killFeed];
         };
+        if (!alive _unit) then {
+            (_unit getVariable [QGVAR(checked), []]) params [["_checkedUnit", objNull], ["_checkedName", ""]];
+            if (_checkedUnit == _unit) then {
+                _killFeed = format ["%1<br/>Death checked by: %2", _killFeed, _checkedName];
+            };
+        };
     };
 
     if !(ctrlShown FOCUS_GROUP) then {
