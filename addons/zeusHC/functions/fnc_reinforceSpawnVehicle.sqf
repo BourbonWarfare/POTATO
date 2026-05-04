@@ -108,7 +108,7 @@ if (_dismountCount > 0) then {
         case 1: {selectRandom ["lat", "rifleman"]};
         default {selectRandom ["rifleman", "rifleman_02", "rifleman_03", "rifleman_04", "sm"]};
     };
-    if (count units _group == 0) then {_type = "sl"};
+    if (units _group isEqualTo []) then {_type = "sl"};
 
     private _unit = _group createUnit ["potato_" + _sideStr + "_" + _type, _waypoints#0, [], 0, "CAN_COLLIDE"];
 
