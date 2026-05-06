@@ -16,6 +16,8 @@ class RscEdit;
 class RscSlider;
 class RscText;
 class RscCheckBox;
+class RscMapControl;
+// class RscXSliderH;
 
 class GVAR(bg): IGUIBack {
     idc = BG_IDC;
@@ -331,6 +333,177 @@ class GVAR(garrison_dialog) {
             h = 2 * GUI_GRID_H;
             tooltip = "Maximum units to occupy a building with";
             onKillFocus = QUOTE([ARR_2(false,3)] call FUNC(garrisonDialogControlChange));
+        };
+    };
+};
+
+#undef GUI_GRID_X
+#undef GUI_GRID_Y
+#undef GUI_GRID_W
+#undef GUI_GRID_H
+#undef GUI_GRID_WAbs
+#undef GUI_GRID_HAbs
+#include "\a3\ui_f\hpp\defineCommonGrids.inc"
+#define safeZoneW_POT 2.83769
+#define safezoneH_POT 2.12733
+
+class GVAR(csw_team) {
+    idd = IDD_CSWTEAM_MENU;
+    x = 0.425;
+    y = 0.1;
+    w = 0.75;
+    h = 0.6;
+    onUnload = QUOTE([ARR_2(true,_this)] call FUNC(ui_CSWTeam));
+    onLoad = QUOTE([ARR_2(false,_this)] call FUNC(ui_CSWTeam));
+    class ControlsBackground {
+        class Background : RscText {
+            idc = -1;
+            x = QUOTE(-10 * GUI_GRID_CENTER_W);
+            y = QUOTE(GUI_GRID_CENTER_Y);
+            w = QUOTE(50 * GUI_GRID_CENTER_W);
+            h = QUOTE(28 * GUI_GRID_CENTER_H);
+            colorBackground[] = {0,0,0,0.8};
+        };
+    };
+    class Controls {
+        class RscText_title: RscText {
+            idc = -1;
+            text = "Potato CSW Team Spawner";
+            style = 2;
+            x = QUOTE(-10 * GUI_GRID_CENTER_W);
+            y = 0.05;
+            w = QUOTE(50 * GUI_GRID_CENTER_W);
+            h = 0.1;
+            sizeEx = 0.1;
+        };
+        class RscText_Side: RscText {
+            idc = -1;
+            text = "Side";
+            style = 1;
+            x = 0.45;
+            y = 0.2;
+            w = 0.28;
+            h = 0.06;
+        };
+        class RscCombo_Side: RscCombo {
+            idc = IDC_CSWTEAM_SIDE;
+            x = 0.75;
+            y = 0.2;
+            w = 0.4;
+            h = 0.06;
+            onLBSelChanged = QUOTE([ARR_2(_this,IDC_CSWTEAM_SIDE)] call FUNC(ui_CSWTeamUpdate););
+            tooltip = "Side of CSW team";
+            class Items {
+                class west {
+                    text = "BluFor";
+                    value = 0;
+                    default = 1;
+                };
+                class east {
+                    text = "OpFor";
+                    value = 1;
+                };
+                class resistance {
+                    text = "Indy";
+                    value = 2;
+                };
+            };
+        };
+        class RscText_teamType: RscText_Side {
+            text = "Team Type";
+            y = 0.3;
+        };
+        class RscCombo_teamType: RscCombo {
+            idc = IDC_CSWTEAM_MISSIONTYPE;
+            x = 0.75;
+            y = 0.3;
+            w = 0.4;
+            h = 0.06;
+            onLBSelChanged = QUOTE([ARR_2(_this,IDC_CSWTEAM_MISSIONTYPE)] call FUNC(ui_CSWTeamUpdate););
+            tooltip = "Type of CSW Team";
+            class Items {
+                class HMG {
+                    text = "HMG";
+                    value = CSWTEAM_TYPE_HMG;
+                    default = 1;
+                };
+                class HAT {
+                    text = "HAT";
+                    value = CSWTEAM_TYPE_HAT;
+                };
+                class MMG {
+                    text = "MMG (is it really CSW?)";
+                    value = CSWTEAM_TYPE_MMG;
+                };
+                class MAT {
+                    text = "MAT (is it really CSW?)";
+                    value = CSWTEAM_TYPE_MAT;
+                };
+            };
+        };
+        /*class RscText_ammo: RscText_Side {
+            idc = IDC_CSWTEAM_AMMO_TXT;
+            text = "Round Count: 200";
+            y = 0.4;
+        };
+        class RscSlider_ammo: RscXSliderH {
+            idc = IDC_CSWTEAM_AMMO_SLIDE;
+            tooltip = "Number of rounds for the CSW Team";
+            x = 0.75;
+            y = 0.41;
+            w = 0.4;
+            h = 0.04;
+            sliderPosition = 200;
+            sliderRange[] = {50, 600};
+            sliderStep = 1;
+            onSliderPosChanged = QUOTE([ARR_2(_this,IDC_CSWTEAM_AMMO_SLIDE)] call FUNC(ui_CSWTeamUpdate););
+        };*/
+        class RscButtonMenuOK_exit: RscButtonMenuOK {
+            x = 1;
+            y = 1;
+            w = 0.15;
+            h = 0.08;
+            text = "Create Team";
+            class Attributes {
+                font = "PuristaLight";
+                color = "#E5E5E5";
+                align = "center";
+                shadow = "false";
+            };
+            class TextPos {
+                bottom = 0;
+                left = QUOTE(0.25 * (((safeZoneW_POT / safezoneH_POT) min 1.2) / 40));
+                right = 0.005;
+                top = QUOTE((((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) - (((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) * 1)) / 2);
+                forceMiddle = 1;
+            };
+        };
+        class RscButtonMenuCancel_exit: RscButtonMenuCancel {
+            x = 0.45;
+            y = 1;
+            w = 0.15;
+            h = 0.08;
+            text = "Cancel";
+            class Attributes {
+                font = "PuristaLight";
+                color = "#E5E5E5";
+                align = "center";
+                shadow = "false";
+            };
+            class TextPos {
+                bottom = 0;
+                left = QUOTE(0.25 * (((safeZoneW_POT / safezoneH_POT) min 1.2) / 40));
+                right = 0.005;
+                top = QUOTE((((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) - (((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) * 1)) / 2);
+                forceMiddle = 1;
+            };
+        };
+        class RscMap_UIInterface: RscMapControl {
+            idc = IDC_CSWTEAM_MAP;
+            x = -0.275;
+            y = 0.2;
+            w = 0.6875;
+            h = 0.86;
         };
     };
 };
