@@ -23,7 +23,7 @@ TRACE_1("Running local EH",_this);
 GVAR(nClickFunc) = getText (configOf _logic >> QGVAR(functionHandle));
 GVAR(nClick_posText) = getArray (configOf _logic >> QGVAR(iconText));
 GVAR(nClickPos) = [ASLToAGL getPosASL _logic];
-GVAR(fucked) = findDisplay IDD_CURATORFRAME displayAddEventHandler ["MouseButtonDown", {call FUNC(zeus_nClickClickEH)}];
+findDisplay IDD_CURATORFRAME displayAddEventHandler ["MouseButtonDown", {call FUNC(zeus_nClickClickEH)}];
 GVAR(nClickDraw3D) = addMissionEventHandler ["Draw3D", FUNC(zeus_nClickDraw3DEH)];
 
 deleteVehicle _logic;
