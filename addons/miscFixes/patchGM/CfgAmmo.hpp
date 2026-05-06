@@ -104,4 +104,16 @@ class CfgAmmo {
     class gm_shell_artillery_Base: gm_shell_base {
         effectFly = "";
     };
+
+    // what if there were colors
+    class gm_bullet_762x51mm_B_T_DM21;
+    class gm_bullet_762x51mm_B_T_DM21_white: gm_bullet_762x51mm_B_T_DM21 {
+        model = "\A3\Weapons_f\Data\bullettracer\tracer_white";
+    };
+    class gm_bullet_762x51mm_B_T_DM21_green: gm_bullet_762x51mm_B_T_DM21 {
+        model = "\A3\Weapons_f\Data\bullettracer\tracer_green";
+    };
+    class gm_bullet_762x51mm_B_T_DM21_yellow: gm_bullet_762x51mm_B_T_DM21 {
+        model = "\A3\Weapons_f\Data\bullettracer\tracer_yellow";
+    };
 };
