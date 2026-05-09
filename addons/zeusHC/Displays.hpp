@@ -17,7 +17,9 @@ class RscSlider;
 class RscText;
 class RscCheckBox;
 class RscMapControl;
-// class RscXSliderH;
+class RscShortcutButton;
+class RscXSliderH;
+class RscListNBox;
 
 class GVAR(bg): IGUIBack {
     idc = BG_IDC;
@@ -504,6 +506,252 @@ class GVAR(csw_team) {
             y = 0.2;
             w = 0.6875;
             h = 0.86;
+        };
+    };
+};
+
+class GVAR(reinforceSpawn) {
+    idd = IDD_CONVOY_MENU;
+    x = -0.3;
+    y = 0.05;
+    w = 1.475;
+    h = 1.05;
+    onUnload = QUOTE([ARR_2(true,_this)] call FUNC(ui_reinforceDialog));
+    onLoad = QUOTE([ARR_2(false,_this)] call FUNC(ui_reinforceDialog));
+    class ControlsBackground {
+        class Background : RscText {
+            idc = -1;
+            x = -0.3;
+            y = 0.05;
+            w = 1.475;
+            h = 1.05;
+            colorBackground[] = {0,0,0,0.7};
+        };
+    };
+    class Controls {
+        class RscMap_UIInterface: RscMapControl {
+            idc = IDC_CONVOY_MAP;
+            x = -0.275;
+            y = 0.2;
+            w = 0.6875;
+            h = 0.86;
+        };
+        // fuck if I know why this conflicts with specificly  RscText_title
+        class RscText_Side: RscText {
+            text = "Side";
+            style = 1;
+            x = 0.42;
+            y = 0.2;
+            w = 0.11;
+            h = 0.06;
+        };
+        class RscText_Side2: RscText_Side {};
+        class RscText_title: RscText_Side {
+            text = "Potato Reinforcment Spawner";
+            style = 2;
+            x = QUOTE(-10*GUI_GRID_CENTER_W);
+            y = 0.05;
+            w = QUOTE(50*GUI_GRID_CENTER_W);
+            h = 0.11;
+            sizeEx = 0.1;
+        };
+        class RscCombo_Side: RscCombo {
+            idc = IDC_CONVOY_SIDE;
+            x = 0.55;
+            y = 0.2;
+            w = 0.3;
+            h = 0.06;
+            onLBSelChanged = QUOTE([ARR_2(_this,IDC_CONVOY_SIDE)] call FUNC(ui_reinforceUpdate););
+            tooltip = "Side of Group";
+            class Items {
+                class west {
+                    text = "BluFor";
+                    value = 0;
+                };
+                class east {
+                    default = 1;
+                    text = "OpFor";
+                    value = 1;
+                };
+                class resistance {
+                    text = "Indy";
+                    value = 2;
+                };
+            };
+        };
+        class RscText_findRoad: RscText_Side {
+            idc = -1;
+            text = "Find Nearest Road";
+            w = 0.23;
+            x = 0.85;
+        };
+        class RscCheckBox_findRoad: RscCheckBox {
+            checked = 1;
+            idc = IDC_CONVOY_FINDROAD;
+            h = 0.05;
+            w = 0.0375;
+            x = 1.1;
+            y = 0.205;
+        };
+        class RscText_vicList: RscListBox {
+            idc = IDC_CONVOY_VICLIST;
+            x = 0.45;
+            y = 0.3;
+            w = 0.3;
+            h = 0.5;
+            colorBackground[] = {1, 1, 1, 0.1};
+        };
+        class RscShortcutButton_addVic: RscShortcutButton {
+            idc = IDC_CONVOY_ADDVIC;
+            x = 0.76;
+            y = 0.4;
+            w = 0.03;
+            h = 0.04;
+            onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_ADDVIC)] call FUNC(ui_reinforceUpdate););
+	        colorBackground[] = {0,0,0,1};
+            textureNoShortcut = "\a3\ui_f\data\gui\rsccommon\rschtml\arrow_right_ca.paa";
+            tooltip = "Add vehicle without dismounts";
+        };
+        class RscShortcutButton_addVicCrewed: RscShortcutButton_addVic {
+            idc = IDC_CONVOY_ADDVICDSMNT;
+            y = 0.5;
+            onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_ADDVICDSMNT)] call FUNC(ui_reinforceUpdate););
+            textureNoShortcut = "\a3\ui_f\data\igui\rscingameui\rscunitinfo\arrow_right_ca.paa";
+            tooltip = "Add vehicle with dismounts";
+        };
+        class RscShortcutButton_removeVic: RscShortcutButton_addVic {
+            idc = IDC_CONVOY_REMOVEVIC;
+            y = 0.6;
+            onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_REMOVEVIC)] call FUNC(ui_reinforceUpdate););
+            textureNoShortcut = "\a3\ui_f\data\gui\rsccommon\rschtml\arrow_left_ca.paa";
+            tooltip = "Remove Vehicle";
+        };
+        class ListBackground: RscText {
+            idc = -1;
+            x = 0.8;
+            y = 0.3;
+            w = 0.35;
+            h = 0.5;
+            colorBackground[] = {1, 1, 1, 0.1};
+        };
+        class RscText_spawnList: RscListNBox {
+            idc = IDC_CONVOY_SPAWNLIST;
+            x = 0.8;
+            y = 0.3;
+            w = 0.35;
+            h = 0.5;
+            columns[] = {0, 0.6};
+            disableOverflow = 1;
+        };
+        class RscText_dismount: RscText_Side {
+            idc = IDC_CONVOY_DISMOUNTCNTTXT;
+            text = "Max Dismounts: 08";
+            x = 0.42;
+            w = 0.21;
+            y = 0.83;
+        };
+        class RscSlider_dismount: RscXSliderH {
+            idc = IDC_CONVOY_DISMOUNTCNT;
+            tooltip = "Maximum dismounts per vehicle";
+            x = 0.65;
+            y = 0.84;
+            w = 0.4;
+            h = 0.04;
+            sliderPosition = 8;
+            sliderRange[] = {0, 14};
+            sliderStep = 1;
+            onSliderPosChanged = QUOTE([ARR_2(_this,IDC_CONVOY_DISMOUNTCNT)] call FUNC(ui_reinforceUpdate););
+        };
+        class RscText_finalWP: RscText_Side {
+            idc = -1;
+            text = "Final WP";
+            style = 1;
+            x = 0.42;
+            y = 0.9;
+            w = 0.12;
+            h = 0.06;
+        };
+        class RscCombo_finalWP: RscCombo {
+            idc = IDC_CONVOY_FINALWPACT;
+            x = 0.55;
+            y = 0.9;
+            w = 0.3;
+            h = 0.06;
+            tooltip = "Final waypoint type";
+            class Items {
+                class move {
+                    text = "Move";
+                    default = 1;
+                    value = CONVOY_WPTYPE_MOVE;
+                };
+                class sad {
+                    text = "Search and Destroy";
+                    value = CONVOY_WPTYPE_SAD;
+                };
+                class garrison {
+                    text = "Garrison";
+                    value = CONVOY_WPTYPE_GARRISON;
+                };
+                class lambsQCB {
+                    text = "Clear Buildings";
+                    value = CONVOY_WPTYPE_LAMBSQCB;
+                };
+            };
+        };
+        class RscText_useLambs: RscText_Side {
+            idc = -1;
+            text = "LAMBS Dismounts";
+            y = 0.9;
+            x = 0.85;
+            w = 0.23;
+        };
+        class RscCheckBox_useLambs: RscCheckBox {
+            checked = 0;
+            idc = IDC_CONVOY_LAMBS;
+            h = 0.05;
+            w = 0.0375;
+            x = 1.1;
+            y = 0.905;
+        };
+        class RscButtonMenuOK_exit: RscButtonMenuOK {
+            x = 1;
+            y = 0.98;
+            w = 0.15;
+            h = 0.08;
+            text = "Create";
+            class Attributes {
+                font = "PuristaLight";
+                color = "#E5E5E5";
+                align = "center";
+                shadow = "false";
+            };
+            class TextPos {
+                bottom = 0;
+                left = QUOTE(0.25 * (((safeZoneW_POT / safezoneH_POT) min 1.2) / 40));
+                right = 0.005;
+                top = QUOTE((((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) - (((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) * 1)) / 2);
+                forceMiddle = 1;
+            };
+        };
+        class RscButtonMenuCancel_exit: RscButtonMenuCancel {
+            x = 0.45;
+            y = 0.98;
+            w = 0.15;
+            h = 0.08;
+            text = "Cancel";
+            class Attributes {
+                font = "PuristaLight";
+                color = "#E5E5E5";
+                align = "center";
+                shadow = "false";
+            };
+            class TextPos {
+                bottom = 0;
+                left = QUOTE(0.25 * (((safeZoneW_POT / safezoneH_POT) min 1.2) / 40));
+                right = 0.005;
+                top = QUOTE((((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) - (((((safeZoneW_POT / safezoneH_POT) min 1.2) / 1.2) / 25) * 1)) / 2);
+                forceMiddle = 1;
+            };
         };
     };
 };

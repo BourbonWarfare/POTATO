@@ -3,6 +3,9 @@ class CfgFactionClasses {
     class GVAR(custom): PREFIX {
         displayName = "POTATO HC: Custom";
     };
+    class GVAR(experimental): PREFIX {
+        displayName = "POTATO Experimental: HC ";
+    };
     class GVAR(east): PREFIX {
         displayName = "POTATO HC: East";
     };
