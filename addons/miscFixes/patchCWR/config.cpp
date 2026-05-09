@@ -63,23 +63,6 @@ class CfgVehicles {
             class MainTurret: MainTurret {
                 magazines[] = {"cwr3_2rnd_tow2","cwr3_2rnd_tow2","cwr3_2rnd_tow2","cwr3_2rnd_tow2","cwr3_2rnd_tow2","cwr3_2rnd_tow2"};
                 weapons[] = {"cwr3_vmlauncher_tow_veh_m901"};
-                class OpticsIn {
-                    class Wide {
-                        gunnerOpticsEffect[] = {"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
-                        gunnerOpticsModel = "\CUP\Weapons\CUP_Weapons_StaticWeapons\TOW_TI.p3d";
-                        initAngleX = 0;
-                        initAngleY = 0;
-                        initFov = 0.2;
-                        maxAngleX = 30;
-                        maxAngleY = 100;
-                        maxFov = 0.2;
-                        minAngleX = -30;
-                        minAngleY = -100;
-                        minFov = 0.025;
-                        thermalMode[] = {2, 3};
-                        visionMode[] = {"Normal","Ti"};
-                    };
-                };
             };
         };
     };
