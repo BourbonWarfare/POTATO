@@ -703,8 +703,7 @@ class CfgWeapons {
     class Launcher_Base_F;
     class CUP_launch_M47: Launcher_Base_F {
         modelOptics = "\z\ace\addons\dragon\models\optics_m47";
-        scope = 1;
-        scopeArsenal = 1;
+        displayName = "M47 Dragon (AI)";
         class OpticsModes {
             class  StepScope {
                 opticsZoomInit = 0.055;
@@ -717,6 +716,10 @@ class CfgWeapons {
     };
     class GVARMAIN(CUP_launch_M47_loaded): CUP_launch_M47 {
         baseWeapon = QGVARMAIN(CUP_launch_M47);
+        displayName = "$STR_CUP_DN_M47";
+        magazineReloadTime = 0;
+        scope = 1;
+        scopeArsenal = 1;
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 142.98;
         };
