@@ -1,4 +1,23 @@
 class Cfg3DEN {
+    class Attributes {
+        class Default;
+        class TitleWide: Default {
+            class Controls;
+        };
+        class AmmoBox: TitleWide {
+            class Controls: Controls {
+                class ButtonClear;
+                class CopyToClipboard: ButtonClear {
+                    idc = 20260512;
+                    text = "Copy to Clipboard";
+                    tooltip = "Copy loadout to clipboard for use with class SupplyBoxes in CfgLoadouts";
+                    onButtonClick = QUOTE(call compile preprocessFileLineNumbers QUOTE(QPATHTOF(functions\fnc_exportBox.sqf)););
+                    x = "5 * (pixelW * pixelGrid * 0.50)";
+                    w = "50 * (pixelW * pixelGrid * 0.50)";
+                };
+            };
+        };
+    };
     class EventHandlers {
         class ADDON {
             onMissionSave = QUOTE(call compile preprocessFileLineNumbers QUOTE(QPATHTOF(functions\fnc_onMissionSave.sqf)));
