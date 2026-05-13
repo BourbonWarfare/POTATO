@@ -37,8 +37,6 @@ private _cfgGlass = configFile >> "CfgGlasses";
         default {-1};
     };
 } forEach _itemHash;
-
-
 // Create the output text lines
 private _lines = [
     "class <boxClassname> {",
