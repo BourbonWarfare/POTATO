@@ -41,38 +41,38 @@ private _cfgGlass = configFile >> "CfgGlasses";
 
 // Create the output text lines
 private _lines = [
-    "    class <boxClassname> {",
-    "      boxCustomName = ""Resupply Box"";"
+    "class <boxClassname> {",
+    "  boxCustomName = ""Resupply Box"";"
 ];
 if (_weapons isNotEqualTo []) then {
-    _lines pushBack "      class TransportWeapons[] = {";
+    _lines pushBack "  class TransportWeapons[] = {";
     {
-        _lines pushBack format ["        %1,", str _x];
+        _lines pushBack format ["    %1,", str _x];
     } forEach _weapons;
-    _lines pushBack "      };";
+    _lines pushBack "  };";
 };
 if (_magazines isNotEqualTo []) then {
-    _lines pushBack "      class TransportMagazines[] = {";
+    _lines pushBack "  class TransportMagazines[] = {";
     {
-        _lines pushBack format ["        %1,", str _x];
+        _lines pushBack format ["    %1,", str _x];
     } forEach _magazines;
-    _lines pushBack "      };";
+    _lines pushBack "  };";
 };
 if (_items isNotEqualTo []) then {
-    _lines pushBack "      class TransportItems[] = {";
+    _lines pushBack "  class TransportItems[] = {";
     {
-        _lines pushBack format ["        %1,", str _x];
+        _lines pushBack format ["    %1,", str _x];
     } forEach _items;
-    _lines pushBack "      };";
+    _lines pushBack "  };";
 };
 if (_backpacks isNotEqualTo []) then {
-    _lines pushBack "      class TransportBackpacks[] = {";
+    _lines pushBack "  class TransportBackpacks[] = {";
     {
-        _lines pushBack format ["        %1,", str _x];
+        _lines pushBack format ["    %1,", str _x];
     } forEach _backpacks;
-    _lines pushBack "      };";
+    _lines pushBack "  };";
 };
-_lines pushBack "    };";
+_lines pushBack "};";
 // Use ace extensions to put it in the clipboard
 {
     "ace" callExtension ["clipboard:append", [_x + endl]];
