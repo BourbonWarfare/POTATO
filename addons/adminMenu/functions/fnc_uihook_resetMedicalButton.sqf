@@ -16,7 +16,9 @@ if (!alive _selectedUnit) exitWith {hint "No zombies!";};
 switch (_mode) do {
     case true: { // Group Heal
     {
-        [QACEGVAR(medical_treatment,fullHealLocal), [_x, _x], _x] call CBA_fnc_targetEvent;
+        if (alive _x) then {
+            [QACEGVAR(medical_treatment,fullHealLocal), [_x, _x], _x] call CBA_fnc_targetEvent;
+        };
     } forEach units group _selectedUnit;
     ["potato_adminMsg", [format ["Fully healed %1's group (%2 %3)", name _selectedUnit, side group _selectedUnit, groupId group _selectedUnit], profileName]] call CBA_fnc_globalEvent;
     };
@@ -27,5 +29,13 @@ switch (_mode) do {
     case 2: { // Stabilize
     [QGVAR(medical_stabilize), [_selectedUnit], _selectedUnit] call CBA_fnc_targetEvent;
     ["potato_adminMsg", [format ["Stabilized %1", name _selectedUnit], profileName]] call CBA_fnc_globalEvent;
+    };
+    case 3: { // Stabilize Group
+    {
+        if (alive _x) then {
+            [QGVAR(medical_stabilize), [_x], _x] call CBA_fnc_targetEvent;
+        };
+    } forEach units group _selectedUnit;
+    ["potato_adminMsg", [format ["Stabilized %1's group (%2 %3)", name _selectedUnit, side group _selectedUnit, groupId group _selectedUnit], profileName]] call CBA_fnc_globalEvent;
     };
 };
