@@ -1,12 +1,12 @@
 // Based on "A3\3den\UI\attributes\AmmoBox.sqf"
 // Gathers current box info and exports it to text
-private _attributeInvent = uinamespace getvariable ["RscAttributeInventory_cargo", [[],[]]];
+private _attributeInvent = uiNamespace getVariable ["RscAttributeInventory_cargo", [[],[]]];
 private _itemHash = (_attributeInvent#0) createHashMapFromArray (_attributeInvent#1);
 private _weapons = [];
 private _magazines = [];
 private _items = [];
 private _backpacks = [];
-private _cfgWeps = configfile >> "CfgWeapons";
+private _cfgWeps = configFile >> "CfgWeapons";
 private _cfgMags = configFile >> "CfgMagazines";
 private _cfgVics = configFile >> "CfgVehicles";
 private _cfgGlass = configFile >> "CfgGlasses";
@@ -19,22 +19,20 @@ private _cfgGlass = configFile >> "CfgGlasses";
         _x
     };
     switch (true) do {
-        case (getnumber (_cfgWeps >> _class >> "type") in [4096, 131072]): {
-            _items pushback _format;
+        case (isClass (_cfgGlass >> _class));
+        case (getNumber (_cfgWeps >> _class >> "type") in [4096, 131072]): {
+            _items pushBack _format;
         };
-        case (isclass (_cfgWeps >> _class)): {
-            _weapons pushback _format;
+        case (isClass (_cfgWeps >> _class)): {
+            _weapons pushBack _format;
         };
-        case (isclass (_cfgMags >> _class)): {
-            _magazines pushback _format;
+        case (isClass (_cfgMags >> _class)): {
+            _magazines pushBack _format;
         };
-        case (isclass (_cfgVics >> _class)): {
-            _backpacks pushback _format;
+        case (isClass (_cfgVics >> _class)): {
+            _backpacks pushBack _format;
         };
-        case (isclass (_cfgGlass >> _class)): {
-            _items pushback _format;
-        };
-        default {-1};
+        default {};
     };
 } forEach _itemHash;
 // Create the output text lines

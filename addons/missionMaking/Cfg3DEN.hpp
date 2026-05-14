@@ -9,9 +9,9 @@ class Cfg3DEN {
                 class ButtonClear;
                 class CopyToClipboard: ButtonClear {
                     idc = 20260512;
-                    text = "Copy to Clipboard";
-                    tooltip = "Copy loadout to clipboard for use with class SupplyBoxes in CfgLoadouts";
-                    onButtonClick = QUOTE(call compile preprocessFileLineNumbers QUOTE(QPATHTOF(functions\fnc_exportBox.sqf)););
+                    text = "Copy for BWMF";
+                    tooltip = "Copy loadout to clipboard for use with CfgLoadouts or a faction loadout";
+                    onButtonClick = QUOTE(call compileScript [QUOTE(QPATHTOF(functions\fnc_exportBox.sqf))];);
                     x = "5 * (pixelW * pixelGrid * 0.50)";
                     w = "50 * (pixelW * pixelGrid * 0.50)";
                 };
