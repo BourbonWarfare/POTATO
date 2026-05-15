@@ -356,6 +356,10 @@ class CfgMagazines {
         displayName = "40x46mm 6Rnd M433 (HEDP) Grenade";
         displayNameshort = "M433 HEDP";
     };
+    class CA_LauncherMagazine;
+    class CUP_Dragon_EP1_M: CA_LauncherMagazine {
+        mass = 222.01;
+    };
 };
 
 class CfgMagazineWells {
@@ -721,7 +725,7 @@ class CfgWeapons {
         scope = 1;
         scopeArsenal = 1;
         class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 142.98;
+            mass = 99.86;
         };
         class EventHandlers {
             fired = "_this call CBA_fnc_firedDisposable";
@@ -733,7 +737,7 @@ class CfgWeapons {
         scopeArsenal = 2;
         magazines[] = {"CBA_FakeLauncherMagazine"};
         class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 142.98 + 235.4;
+            mass = 99.86 + 222.01;
         };
     };
     class GVARMAIN(CUP_launch_M47_used): GVARMAIN(CUP_launch_M47_loaded) {
@@ -741,7 +745,7 @@ class CfgWeapons {
         baseWeapon = QGVARMAIN(CUP_launch_M47_Used);
         magazines[] = {"CBA_FakeLauncherMagazine"};
         class WeaponSlotsInfo: WeaponSlotsInfo {
-            mass = 142.98;
+            mass = 99.86;
         };
     };
 
