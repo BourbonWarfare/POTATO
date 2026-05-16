@@ -2551,20 +2551,6 @@ class CfgWeapons {
             aiRateOfFireDistance = 500;
         };
     };
-    class ACE_VMM3: Pistol_Base_F {
-        modes[] = {"Single"};
-        class Single: Mode_SemiAuto {
-            minRange = 2;
-            minRangeProbab = 0.3;
-            midRange = 250;
-            midRangeProbab = 0.7;
-            maxRange = 400;
-            maxRangeProbab = 0.05;
-            showToPlayer = 1;
-            aiRateOfFire = 2;
-            aiRateOfFireDistance = 500;
-        };
-    };
     class CUP_arifle_ACR_BASE_556: Rifle_Base_F {
         modes[] = {"Single","FullAuto","Single_medium_optics1","Single_far_optics2","FullAuto_medium"};
         class Single: Mode_SemiAuto {
