@@ -146,7 +146,7 @@ _diaryBuilder pushBack "<br/><font size=15>LR Radio Net (117)</font><br/>";
 _diaryBuilder pushBack "<br/><br/>Note: Subject to change.";
 
 _diaryBuilder pushBack QUOTE(<br/><br/><execute expression='[] call FUNC(reinitializeRadios);'>Reinitialize radios</execute>);
-_diaryBuilder pushBack QUOTE(<br/><br/><execute expression='if (EGVAR(safeStart,safeStartEnabled)) then{ ace_player addItem QQUOTE(ACRE_PRC148); [ARR_2(QQUOTE(potato_adminMsg),[ARR_2(format [ARR_2(QQUOTE(Adding MR radio to %1),name ace_player)],name ace_player)])] call CBA_fnc_globalEvent;};'>Add MR radio to player</execute>);
+_diaryBuilder pushBack QUOTE(<br/><br/><execute expression='if (ace_player canAddItemToBackpack QQUOTE(ACRE_PRC148)) then {ace_player addItemToBackpack QQUOTE(ACRE_PRC148)} else {ace_player addItem QQUOTE(ACRE_PRC148)}; [ARR_2(QQUOTE(potato_adminMsg),[ARR_2(format [ARR_3(QQUOTE(Adding MR radio to %1 (%2)),name ace_player,typeOf ace_player)],name ace_player)])] call CBA_fnc_globalEvent;'>Add MR radio to player</execute>);
 
 ace_player createDiaryRecord ["diary", ["SIGNALS", _diaryBuilder joinString ""]];
 ace_player setVariable [QGVAR(briefingAdded), ace_player];
