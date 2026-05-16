@@ -5,7 +5,11 @@
 class CfgPatches {
     class ADDON {
         units[] = {};
-        weapons[] = {};
+        weapons[] = {
+            QGVARMAIN(CUP_launch_M47),
+            QGVARMAIN(CUP_launch_M47_used),
+            QGVARMAIN(CUP_launch_M47_loaded)
+        };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "potato_core",
@@ -351,6 +355,10 @@ class CfgMagazines {
         descriptionShort = "Type: High Explosive Dual Purpose<br/>Rounds: 6<br/>Used in: M32 grenade launcher";
         displayName = "40x46mm 6Rnd M433 (HEDP) Grenade";
         displayNameshort = "M433 HEDP";
+    };
+    class CA_LauncherMagazine;
+    class CUP_Dragon_EP1_M: CA_LauncherMagazine {
+        mass = 222.01;
     };
 };
 
@@ -699,6 +707,7 @@ class CfgWeapons {
     class Launcher_Base_F;
     class CUP_launch_M47: Launcher_Base_F {
         modelOptics = "\z\ace\addons\dragon\models\optics_m47";
+        displayName = "M47 Dragon (AI)";
         class OpticsModes {
             class  StepScope {
                 opticsZoomInit = 0.055;
@@ -706,6 +715,37 @@ class CfgWeapons {
                 opticsZoomMin = 0.055;
                 visionMode[] = {"Normal"};
             };
+        };
+        class WeaponSlotsInfo;
+    };
+    class GVARMAIN(CUP_launch_M47_loaded): CUP_launch_M47 {
+        baseWeapon = QGVARMAIN(CUP_launch_M47);
+        displayName = "$STR_CUP_DN_M47";
+        magazineReloadTime = 0;
+        scope = 1;
+        scopeArsenal = 1;
+        class WeaponSlotsInfo: WeaponSlotsInfo {
+            mass = 99.86;
+        };
+        class EventHandlers {
+            fired = "_this call CBA_fnc_firedDisposable";
+        };
+    };
+    class GVARMAIN(CUP_launch_M47): GVARMAIN(CUP_launch_M47_loaded) {
+        baseWeapon = QGVARMAIN(CUP_launch_M47);
+        scope = 2;
+        scopeArsenal = 2;
+        magazines[] = {"CBA_FakeLauncherMagazine"};
+        class WeaponSlotsInfo: WeaponSlotsInfo {
+            mass = 99.86 + 222.01;
+        };
+    };
+    class GVARMAIN(CUP_launch_M47_used): GVARMAIN(CUP_launch_M47_loaded) {
+        displayName = "M47 Dragon (Used)";
+        baseWeapon = QGVARMAIN(CUP_launch_M47_Used);
+        magazines[] = {"CBA_FakeLauncherMagazine"};
+        class WeaponSlotsInfo: WeaponSlotsInfo {
+            mass = 99.86;
         };
     };
 
@@ -1123,3 +1163,8 @@ class gm_slotOptic_risrail: CowsSlot_Rail {
         CUP_optic_SERedDot = 1;
     };
 };
+
+class CBA_DisposableLaunchers {
+    GVARMAIN(CUP_launch_M47_loaded)[] = {QGVARMAIN(CUP_launch_M47),QGVARMAIN(CUP_launch_M47_used)};
+};
+
