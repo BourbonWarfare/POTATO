@@ -1,5 +1,19 @@
 #include "script_component.hpp"
 
+// this is in core because potato_radios will run after acre
+if (isServer) then {
+    private _list = allUnits select { !((_x getVariable ["acre_sys_radio_setup", ""]) isEqualType "") } apply { [_x, vehicleVarName _x] };
+    [{
+        {
+            _x params ["_unit", "_varName"];
+            ["potato_adminMsg", [format ["Warning: Bad acre var on slot %1 (%2)", _varName, name _unit]]] call CBA_fnc_globalEvent;
+        } forEach _this;
+    }, _list, 5] call CBA_fnc_waitAndExecute;
+};
+if (hasInterface) then {
+    player setVariable ["acre_sys_radio_setup", nil];
+};
+
 if (isServer) then {
     [QGVAR(addToCurator), LINKFUNC(addToCuratorServer)] call CBA_fnc_addEventHandler;
 };
