@@ -190,6 +190,28 @@ if !(GVAR(mapOpen) || GVAR(fullMapOpen)) then {
         GVAR(grenades) = _grenadesNew;
         END_COUNTER(drawTracers);
     };
+
+    // Draw bodies on map
+    if (GVAR(drawDeaths)) then {
+        private _cameraPosAGL = positionCameraToWorld [0,0,0];
+        {
+            _y params ["_pos", "_name", ["_side", civilian]];
+            private _color = switch (_side) do {
+                case (west): {[0, 0, 0.7, 0.5]};
+                case (east): {[0.7, 0, 0, 0.5]};
+                case (resistance): {[0, 0.7, 0, 0.5]};
+                case (civilian): {[0.5,0,0.5,0.5]};
+                default {[0.7, 0.7, 0.7, 0.5]};
+            };
+            private _k = 1 min (2 / (1 max log (_cameraPosAGL distance _pos)));
+            drawIcon3D [
+                "\A3\ui_f\data\map\markers\military\dot_CA.paa",
+                _color, _pos, 1 * _k, 1 * _k, 0, _name,
+                2, 0.04 * _k, "RobotoCondensed", "right",
+                false, 0.002 * _k, -0.023 * _k
+            ];
+        } forEach GVAR(deathHash);
+    };
 };
 
 END_COUNTER(draw3D);

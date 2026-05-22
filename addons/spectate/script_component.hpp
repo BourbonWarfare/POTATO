@@ -204,6 +204,7 @@ Player stats (default 'P') to view the selected player's stats<br/>\
 Get over (default 'V') to toggle camera speed at ground level<br/>\
 Tasks/diary (default 'J') to open/close the briefings<br/>\
 Compass (default 'K') to open/close the compass<br/>\
+Left Brace ('[') to toggle showing player death locations<br/>\
 </t>
 
 #define TAGS_VISIBLE_MODE_COUNT 3

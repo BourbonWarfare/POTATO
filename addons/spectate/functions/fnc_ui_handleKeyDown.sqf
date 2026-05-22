@@ -195,4 +195,8 @@ if ((_key == DIK_F5) && {_this select 2} && {_this select 3}) exitWith {
     call EFUNC(missionTesting,displayMenu);
 };
 
+if (_key == DIK_LBRACKET) exitWith {
+    GVAR(drawDeaths) = !GVAR(drawDeaths);
+};
+
 false // default to unhandled
