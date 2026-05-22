@@ -36,3 +36,8 @@ enabled = false
 
 [sqf.not_private]
 enabled = true
+
+[inspector]
+header_regex = "ace"
+vars_to_ignore = []
+check_function_calls = true

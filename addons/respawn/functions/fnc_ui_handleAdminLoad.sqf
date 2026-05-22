@@ -57,7 +57,7 @@ _ctrlNoMarkerCheckBox ctrlAddEventHandler ["CheckedChanged", {
 
 
 // validate user
-if (!([] call EFUNC(core,isAuthorized)) && !(ZEUS_ENABLED && !((getPlayerUID player) in BLACK_LIST_UIDS) && profileNamespace getVariable [EULA_CHECK, false])) exitWith {
+if (!([] call EFUNC(core,isAuthorized)) && !(ZEUS_ENABLED && !((getPlayerUID player) in BLACK_LIST_UIDS) && (true isEqualTo (profileNamespace getVariable [EULA_CHECK, false])))) exitWith {
     WARNING("Not authorized for respawn");
     [] call FUNC(closeAdminRespawn);
 };
