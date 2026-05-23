@@ -139,6 +139,7 @@ GVAR(drawProjectiles) = false;
 
 // init misc GVARS
 GVAR(curList) = [];
+GVAR(drawDeaths) = false;
 GVAR(mapOpen) = false;
 GVAR(fullMapOpen) = false;
 GVAR(needToAddBriefings) = true;

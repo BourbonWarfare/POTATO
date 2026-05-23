@@ -46,4 +46,12 @@ if (GVAR(enabled) && hasInterface) then {
         _patient setVariable [QGVAR(checked), [_patient, _name], true]; // self-unit to handle respawning units copying vars
      }] call CBA_fnc_addEventHandler;
 
+    // Player death
+    GVAR(deathHash) = createHashMap;
+    addMissionEventHandler ["EntityKilled", {
+        params ["_unit"];
+        if (isPlayer _unit) then {
+            GVAR(deathHash) set [name _unit + str time, [ASLToAGL getPosASL _unit, name _unit, side group _unit]];
+        };
+    }];
 };
