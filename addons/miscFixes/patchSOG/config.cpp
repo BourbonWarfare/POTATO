@@ -15,6 +15,8 @@ class CfgPatches {
     };
 };
 
+#include "display3DEN.hpp"
+
 class CfgMissions {
   class Cutscenes { // restore the load menus
         class Stratis_intro1 {
