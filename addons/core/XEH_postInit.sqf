@@ -95,3 +95,10 @@ if (hasInterface) then {
 }] call CBA_fnc_addEventHandler;
 
 call FUNC(playerJipHint);
+
+// this is in core because potato_radios will run after acre, this should run first (ref https://github.com/BourbonWarfare/POTATO/pull/888)
+if (isServer) then {
+    private _list = allUnits select { !((_x getVariable ["acre_sys_radio_setup", ""]) isEqualType "") };
+    { WARNING_2("Unit %1 (%2) has bad acre var",vehicleVarName _x,name _x); } forEach _list;
+};
+if (hasInterface) then { player setVariable ["acre_sys_radio_setup", nil]; };

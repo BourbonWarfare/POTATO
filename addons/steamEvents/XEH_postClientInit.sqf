@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-if (!hasInterface || profileNamespace getVariable [QGVAR(disable), false]) exitWith {};
+if (!hasInterface || (true isEqualTo (profileNamespace getVariable [QGVAR(disable), false]))) exitWith {};
 
 GVAR(delayedEvents) = [];
 DFUNC(addDelayedEvents) = {

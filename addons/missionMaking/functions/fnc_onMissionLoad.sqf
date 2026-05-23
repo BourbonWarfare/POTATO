@@ -30,3 +30,13 @@ if (!(_current_uuid isEqualType "") || { _current_uuid isEqualTo "" }) then {
    diag_log format["POTATO - setting mission uuid: %1", _current_uuid];
    set3DENMissionAttributes [[QEGVAR(missiontesting,missionTestingInfo), QGVAR(uuid), _current_uuid]];
 };
+
+all3DENEntities params ["_objects"];
+{
+   private _at = _x get3DENAttribute "acre_sys_radio_edenSetup";
+   if (!isNil "_at" && {_at isNotEqualTo [[]]}) then {
+      INFO_1("Removing acre attrib from object %1",_x);
+      systemChat "Cleaning up acre attrib - Make sure to save the mission after this";
+      _x clear3DENAttribute "acre_sys_radio_edenSetup";
+   };
+} forEach _objects;
