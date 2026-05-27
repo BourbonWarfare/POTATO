@@ -56,7 +56,7 @@ switch (_newStatus) do {
         ];
         _holdTime = _holdTime + CBA_missionTime;
         {
-            _x setVariable  [QGVAR(artyMission), [
+            _x setVariable [QGVAR(artyMission), [
                 _missionID,
                 ARTILLERY_MISSION_STATUS_WAIT,
                 _holdTime
@@ -70,7 +70,7 @@ switch (_newStatus) do {
         ];
         _holdTime = _holdTime + CBA_missionTime;
         {
-            _x setVariable  [QGVAR(artyMission), [
+            _x setVariable [QGVAR(artyMission), [
                 _missionID,
                 ARTILLERY_MISSION_STATUS_ASSIGN,
                 _holdTime,
@@ -105,7 +105,7 @@ switch (_newStatus) do {
             }, true]) params ["_weapon"];
             private _reloadTime = [_weapon] call FUNC(getArtyReloadTime);
             private _holdTime = CBA_missionTime + 2 * (_reloadTime + 5) * _rounds;
-            _gun setVariable  [QGVAR(artyMission), [
+            _gun setVariable [QGVAR(artyMission), [
                 _missionID,
                 ARTILLERY_MISSION_STATUS_FIRING,
                 _holdTime,
@@ -130,7 +130,7 @@ switch (_newStatus) do {
                 "_missionName", "_status", "_holdTime"
             ];
             if (_missionName == _missionID) then {
-                _x setVariable  [QGVAR(artyMission), nil];
+                _x setVariable [QGVAR(artyMission), nil];
             };
         } forEach _artyPieces;
     };
