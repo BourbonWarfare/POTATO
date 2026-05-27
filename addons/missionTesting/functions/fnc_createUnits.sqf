@@ -37,10 +37,13 @@ while {count GVAR(activeTestUnits) < _maxUnits - count _testPoints &&
         "_identifier", "_unitClass", "_v0", "_ammo", "_testNotes", "_side"
     ];
     private _posAGL = [];
-    while {_posAGL isEqualTo []} do {
+    private _itr = 100;
+    while {_posAGL isEqualTo [] && _itr > 0} do {
         _posAGL = _posASL findEmptyPosition [5, 100];
         _posAGL = _posAGL isFlatEmpty [5];
+        _itr = _itr - 1;
     };
+    if (_posAGL isEqualTo []) exitWith {};
     _posAGL = ASLToAGL _posAGL;
     for "_i" from 1 to 5 do {
         private _grp = createGroup [_side, true];
@@ -64,6 +67,15 @@ while {count GVAR(activeTestUnits) < _maxUnits - count _testPoints &&
         }, [_unit, [_unit, _ammo, _v0, _testNotes#1]], 2] call CBA_fnc_waitAndExecute;
         _maxPer = _maxPer - 1;
     };
+};
+
+if (count GVAR(activeTestUnits) < _maxUnits - count _testPoints &&
+    count GVAR(testPlan) > 0 &&
+    _maxPer > 0) exitWith {
+    GVAR(testPlan) = [];
+    GVAR(creatingUnits) = false;
+    GVAR(damageTestingResults) = createHashMap;
+    systemChat "ERROR: Space too small, exiting testing early";
 };
 
 if (GVAR(testPlan) isNotEqualTo []) then {
