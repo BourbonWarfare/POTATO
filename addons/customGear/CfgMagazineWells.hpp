@@ -32,8 +32,10 @@ class CfgMagazineWells {
         MAGWELL_ENTRY_NAME[] = {
             QMAGAZINE(96Rnd_40mm_MK19_M430A1_HEDP),
             QMAGAZINE(48Rnd_40mm_MK19_M430A1_HEDP),
+            QMAGAZINE(32Rnd_40mm_MK19_M430A1_HEDP),
             QMAGAZINE(96Rnd_40mm_MK19_M384_HE),
-            QMAGAZINE(48Rnd_40mm_MK19_M384_HE)
+            QMAGAZINE(48Rnd_40mm_MK19_M384_HE),
+            QMAGAZINE(32Rnd_40mm_MK19_M384_HE)
         };
     };
 };

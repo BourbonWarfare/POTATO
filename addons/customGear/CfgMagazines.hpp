@@ -29,6 +29,9 @@ class CfgMagazines {
     class MAGAZINE(48Rnd_40mm_MK19_M430A1_HEDP): MAGAZINE(96Rnd_40mm_MK19_M430A1_HEDP) {
         count = 48;
     };
+    class MAGAZINE(32Rnd_40mm_MK19_M430A1_HEDP): MAGAZINE(96Rnd_40mm_MK19_M430A1_HEDP) {
+        count = 32;
+    };
     class MAGAZINE(96Rnd_40mm_MK19_M384_HE): 200Rnd_40mm_G_belt {
         ammo = QAMMO(40x53mm_HE_M384);
         count = 96;
@@ -38,6 +41,9 @@ class CfgMagazines {
     };
     class MAGAZINE(48Rnd_40mm_MK19_M384_HE): MAGAZINE(96Rnd_40mm_MK19_M384_HE) {
         count = 48;
+    };
+    class MAGAZINE(32Rnd_40mm_MK19_M384_HE): MAGAZINE(96Rnd_40mm_MK19_M384_HE) {
+        count = 32;
     };
     //// HV 40x53mm grenade CSW
     class MAGAZINE(48Rnd_40mm_MK19_M430A1_HEDP_csw): MAGAZINE(48Rnd_40mm_MK19_M430A1_HEDP) {
@@ -51,6 +57,12 @@ class CfgMagazines {
         ACE_isBelt = 1;
         mass = 40;
     };
+    class MAGAZINE(32Rnd_40mm_MK19_M430A1_HEDP_csw): MAGAZINE(48Rnd_40mm_MK19_M430A1_HEDP_csw) {
+        displayName = "[CSW] 32Rnd 40x53mm M430A1 HEDP (Mk19)";
+        displayNameShort = "[CSW] 32Rnd M430A1 HEDP (Mk19)";
+        count = 32;
+        mass = 28;
+    };
     class MAGAZINE(48Rnd_40mm_MK19_M384_HE_csw): MAGAZINE(48Rnd_40mm_MK19_M384_HE) {
         displayName = "[CSW] 48Rnd 40x53mm M384 HE (Mk19)";
         displayNameShort = "[CSW] 48Rnd M384 HE (Mk19)";
@@ -61,6 +73,12 @@ class CfgMagazines {
         picture = "\z\ace\addons\csw\UI\ammoBox_50bmg_ca.paa";
         ACE_isBelt = 1;
         mass = 40;
+    };
+    class MAGAZINE(32Rnd_40mm_MK19_M384_HE_csw): MAGAZINE(48Rnd_40mm_MK19_M384_HE_csw) {
+        displayName = "[CSW] 32Rnd 40x53mm M384 HE (Mk19)";
+        displayNameShort = "[CSW] 32Rnd M384 HE (Mk19)";
+        count = 32;
+        mass = 28;
     };
     //// GP-25 magazines
     // HE rounds
