@@ -50,7 +50,7 @@ if (GVAR(enabled) && hasInterface) then {
     GVAR(deathHash) = createHashMap;
     addMissionEventHandler ["EntityKilled", {
         params ["_unit"];
-        if (isPlayer _unit) then {
+        if (isPlayer _unit && {_unit isKindOf "CAManBase"}) then {
             GVAR(deathHash) set [name _unit + str time, [ASLToAGL getPosASL _unit, name _unit, side group _unit]];
         };
     }];
