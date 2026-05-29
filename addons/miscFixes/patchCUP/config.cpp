@@ -322,14 +322,14 @@ class CfgVehicles {
                 allowTabLock = 0;
                 gunnerOpticsModel = "\z\ace\addons\dragon\models\optics_m47";
                 magazines[] = {
-                    "CUP_Dragon_EP1_AI_M",
-                    "CUP_Dragon_EP1_AI_M",
-                    "CUP_Dragon_EP1_AI_M",
-                    "CUP_Dragon_EP1_AI_M",
-                    "CUP_Dragon_EP1_AI_M",
-                    "CUP_Dragon_EP1_AI_M",
-                    "CUP_Dragon_EP1_AI_M",
-                    "CUP_Dragon_EP1_AI_M"
+                    "CUP_Dragon_EP1_M",
+                    "CUP_Dragon_EP1_M",
+                    "CUP_Dragon_EP1_M",
+                    "CUP_Dragon_EP1_M",
+                    "CUP_Dragon_EP1_M",
+                    "CUP_Dragon_EP1_M",
+                    "CUP_Dragon_EP1_M",
+                    "CUP_Dragon_EP1_M"
                 };
                 weapons[] = {QGVARMAIN(CUP_launch_M47_veh)};
                 class ViewOptics {
