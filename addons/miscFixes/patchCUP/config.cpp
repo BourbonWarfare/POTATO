@@ -297,12 +297,10 @@ class CfgVehicles {
         };
     };
     /// Hilux with Dragon (metis model)
-    class CUP_Hilux_Base: Car_F {
-        class Turrets: Turrets {};
-    };
+    class CUP_Hilux_Base;
     class CUP_Hilux_metis_Base: CUP_Hilux_Base {
         class AnimationSources;
-        class Turrets: Turrets {};
+        class Turrets;
     };
     class CUP_I_Hilux_metis_IND_G_F: CUP_Hilux_metis_Base {
         class AnimationSources: AnimationSources {
