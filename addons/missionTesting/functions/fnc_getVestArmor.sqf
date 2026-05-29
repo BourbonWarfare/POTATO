@@ -3,7 +3,8 @@
 * Author: Lambda.Tiger
 *
 * Description:
-*
+* This function is used as part of the armor testing system.
+* This function access a cache of "HitDiaphragm" values given a vest.
 *
 * Arguments:
 * _vest - The classname of the vest to check diaphragm hitpoint for(STRING)

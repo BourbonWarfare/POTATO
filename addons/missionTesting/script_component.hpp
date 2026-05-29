@@ -75,3 +75,7 @@
 #define SHOTPOS_CHEST -1
 #define SHOTPOS_HEAD 0
 #define SHOTPOS_FACE 1
+
+#define OUTPUT_NONE 0
+#define OUTPUT_CLIPBOARD 1
+#define OUTPUT_RPT 2

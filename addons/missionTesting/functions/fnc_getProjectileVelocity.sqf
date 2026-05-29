@@ -4,7 +4,14 @@
 * Author: Lambda.Tiger
 *
 * Description:
-*
+* This function is used as part of the armor testing system.
+* This function takes a friction, initial velocity and an array of distances
+* and returns an array of approximate velocities of the projectiles at the
+* given ranges. The calculation is made assuming a level initial shot and the,
+* distance as X-Y plan distance rather than full trajectory traveled.
+* This calculation will be off by a few m/s. If a projectile is too slow
+* to reach the given distances in three seconds, the result will be truncated
+* to the longest distance.
 *
 * Arguments:
 * _friction - The projectile friction (NUMBER)
@@ -45,5 +52,4 @@ while {_itr * CONST_DT < 3 && _index < _distCount} do {
 	};
 	_itr = _itr + 1;
 };
-diag_log formatText ["%1 %2 || %3 %4", _itr, _itr * CONST_DT, _index, _distCount];
 _velocities

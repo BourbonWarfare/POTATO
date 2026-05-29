@@ -3,12 +3,26 @@
 * Author: Lambda.Tiger
 *
 * Description:
-*
+* This function is used as part of the armor testing system.
+* This function creates units to be shot. It starts by confirming there's
+* enough space in the running unit list to not overload testing. If the
+* testplan isn't empty, it queues up another call in 100ms, otherwise it
+* sets the flag that it's done creating units. If there are not too many
+* groups or units, it will units until either the single creation run has
+* 100 units place OR there are no more tests that must be run
+* The units are created with each recieving their own group, parts of the AI
+* are immediately disabled, while others have to wait a frame to avoid issues
+* with the zeus AI menu clearing the params. Each unit has it's own sequence
+* of recursively called "shoot" function chain. Once either condition is
+* reached, there is a short check to see if there was a failure to create a
+* unit, which throws an error and ends the test. The function normally ends
+* by recursively calling itself spaced by 500ms
 *
 * Arguments:
 * _maxUnits - The maximum number of units to exists at once (NUMBER).
 * _testPoints - The range/hitpoint combos to shoot (ARRAY).
-* _posASL - The center position (ASL) for the units to be created (ARRAY, default getPosASL ace_player).
+* _posASL - The center position (ASL) for the units to be created
+*            (ARRAY, default getPosASL ace_player).
 *
 * Return:
 * none

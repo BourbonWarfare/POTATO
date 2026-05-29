@@ -3,16 +3,33 @@
 * Author: Lambda.Tiger
 *
 * Description:
-*
+* This function is used as part of the armor testing system.
+* This function takes two factions, a position to create the test around,
+* test points and a maximum number of units. It starts by confirming there
+* are test points and the two factions are real and retrieves the faction test
+* sets. A test plan is created so that the first factions armor is tested
+* against all of the second factions guns and visa versa. Then AI uncon is
+* enabled  and event handlers are setup to track ace medical uncon, fatalInjury
+* and death events and vanilla killed events. Finally if the create unit
+* system is not running, it starts the recursive call sequence.
 *
 * Arguments:
-*
+* _faction0 - The first of the two factions to be tested (default "potato_w")
+* _faction1 - The second of the two factions to be tested (default "potato_e")
+* _startPosASL - The starting position units should be created around in
+                ASL format (ARRAY, default [])
+* _testPoints - An array of array elements in pair form. Each pair is
+    0: Distance in meters the target should be simulated at
+    1: The place on the unit that should be shot at
+    (default [])
+* _maxUnits - The maximum number of units to create for the
+                test (NUMBER, default 100)
 *
 * Return:
-* A formatted string
+* None
 *
 * Example:
-* [vest ace_player] call potato_missionTesting_fnc_testFactionPair;
+* ["poatato_w", "poatato_e", getPosASL player] call potato_missionTesting_fnc_testFactionPair;
 *//***************************************************************************/
 params [
     ["_faction0", "poatato_w"],
@@ -24,7 +41,7 @@ params [
         [100, SHOTPOS_CHEST],
         [200, SHOTPOS_CHEST],
         [300, SHOTPOS_CHEST]
-    ], [[[]]]],
+    ], []],
     ["_maxUnits", 100, [0]]
 ];
 

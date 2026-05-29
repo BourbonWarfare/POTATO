@@ -3,10 +3,17 @@
 * Author: Lambda.Tiger
 *
 * Description:
-*
+* This function is part of the armor testing and handles when a unit dies
+* or goes unconcious. It starts by attempting to remove the unit from
+* the active tested units list and then adds test results to the
+* damageTestingResults hashmap. This unit and group is then deleted. If the
+* test is completed and the activeTestUntis array indicates there are no
+* further tests, the function will removes eventhandlers and disable AI uncon
+* In addition, the GVAR(damageTestingResults) variable is broadcast to all
+* connected clients.
 *
 * Arguments:
-* _unit - The unit that has died or gone unconcious.
+* _unit - The unit that has died or gone unconcious (default objNull).
 *
 * Return:
 * none

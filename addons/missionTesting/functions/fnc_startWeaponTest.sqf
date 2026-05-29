@@ -3,6 +3,7 @@
 * Author: Lambda.Tiger
 *
 * Description:
+* This function is used as part of the armor testing system.
 * This function spawns a group of units and occupies the building. The number
 * of units is provided as an argument.
 *

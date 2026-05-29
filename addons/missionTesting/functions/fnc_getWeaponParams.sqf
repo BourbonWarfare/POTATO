@@ -3,14 +3,24 @@
 * Author: Lambda.Tiger
 *
 * Description:
-*
+* This function is used as part of the armor testing system.
+* This function takes a weapon and magazine and uses the pair to access a
+* cache of weapon parameters. It uses the weapon and magazine classname to
+* derive information about the ammo, as well as the initial velocity the round
+* is created at. It returns a six element array of weapon params.
 *
 * Arguments:
 * _weapon - The classname of the weapon to get parameters for (STRING)
 * _magazine - The classname of the magazine to get parameters for (STRING)
 *
 * Return:
-* The diaphragm hitpoint armor
+* A weapon params array consisting of
+*  0: An identified consiting of weaponClass + | + magazineClass
+*  1: The ammo class name
+*  2: The ammo air friction
+*  3: The initial speed of the projectile
+*  4: The typical speed of the projectile (used for damage)
+*  5: The hit value of the projectile (used for damage)
 *
 * Example:
 * [vest ace_player] call potato_missionTesting_fnc_getWeaponParams;

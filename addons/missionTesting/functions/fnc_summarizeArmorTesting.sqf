@@ -1,18 +1,19 @@
 #include "..\script_component.hpp"
-#define OUTPUT_NONE 0
-#define OUTPUT_CLIPBOARD 1
-#define OUTPUT_RPT 2
 /***************************************************************************//*
 * Author: Lambda.Tiger
 *
 * Description:
-*
+* This function is used as part of the armor testing system. It takes the
+* test results array and creates a human readable formatted list of tests.
+* If the output type is set to none, it will add BB-Code formatting for use
+* with forums posts (remove this when forums die).
 *
 * Arguments:
-*
+* _output - The output mode to use, either rpt, clipboard,
+            or none (NUMBER, default OUTPUT_NONE)
 *
 * Return:
-* A formatted ARRAY
+* A formatted string joined by endl
 *
 * Example:
 * [1] call potato_missionTesting_fnc_summarizeTesting;

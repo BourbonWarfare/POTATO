@@ -7,13 +7,23 @@
 * Author: Lambda.Tiger
 *
 * Description:
-*
+* This function is used as part of the armor testing system.
+* This function creates and caches information about unique factions armor
+* and projectile/weapon for a given faction. It begins by validating faction
+* information, including whether the faction exists in both CfgLoadouts and
+* CfgFactionClasses. It then attempts to check the cache for a faction and on
+* Misses finds every unique weapon and creates a list of unique ballistics for
+* testing. It then also checks if AMA for the faction side is enabled, and if it
+* is not, gathers all the unit classnames with differing armor values.
 *
 * Arguments:
 * _faction - The faction to get the parameters for (STRING, default "potato_w")
 *
 * Return:
-* none
+* Faction info information (ARRAY)
+*  0: The classes of units to use for testing
+*  1: The classes of projectile information used for testing
+*  2: The side of unit to be created
 *
 * Example:
 * ["potato_w"] call potato_missionTesting_fnc_getFactionParams;
