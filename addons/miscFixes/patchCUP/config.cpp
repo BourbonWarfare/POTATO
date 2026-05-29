@@ -4,8 +4,11 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {};
+        units[] = {
+            QGVARMAIN(CUP_I_Hilux_dragon)
+        };
         weapons[] = {
+            QGVARMAIN(CUP_launch_M47_veh),
             QGVARMAIN(CUP_launch_M47),
             QGVARMAIN(CUP_launch_M47_used),
             QGVARMAIN(CUP_launch_M47_loaded)
@@ -290,6 +293,58 @@ class CfgVehicles {
             };
             class RightTurret: RightTurret {
                 dontCreateAI = 1;
+            };
+        };
+    };
+    /// Hilux with Dragon (metis model)
+    class CUP_Hilux_Base: Car_F {
+        class Turrets: Turrets {};
+    };
+    class CUP_Hilux_metis_Base: CUP_Hilux_Base {
+        class AnimationSources;
+        class Turrets: Turrets {
+            class MainTurret;
+        };
+    };
+    class CUP_I_Hilux_metis_IND_G_F: CUP_Hilux_metis_Base {
+        class AnimationSources: AnimationSources {
+            class Reload;
+        };
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                class ViewOptics;
+            };
+        };
+    };
+    class GVARMAIN(CUP_I_Hilux_dragon): CUP_I_Hilux_metis_IND_G_F {
+        displayName = "Hilux (Dragon)";
+        class AnimationSources: AnimationSources {
+            class Reload: Reload {
+                weapon = QGVARMAIN(CUP_launch_M47_veh);
+            };
+        };
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                allowTabLock = 0;
+                gunnerOpticsModel = "\z\ace\addons\dragon\models\optics_m47";
+                magazines[] = {
+                    "CUP_Dragon_EP1_M_AI",
+                    "CUP_Dragon_EP1_M_AI",
+                    "CUP_Dragon_EP1_M_AI",
+                    "CUP_Dragon_EP1_M_AI",
+                    "CUP_Dragon_EP1_M_AI",
+                    "CUP_Dragon_EP1_M_AI",
+                    "CUP_Dragon_EP1_M_AI",
+                    "CUP_Dragon_EP1_M_AI"
+                };
+                weapons[] = {QGVARMAIN(CUP_launch_M47_veh)};
+                class ViewOptics: ViewOptics {
+                    opticsZoomInit = 0.055;
+                    opticsZoomMax = 0.055;
+                    opticsZoomMin = 0.055;
+                    thermalMode[] = {};
+                    visionMode[] = {"Normal"};
+                };
             };
         };
     };
@@ -713,7 +768,7 @@ class CfgWeapons {
         modelOptics = "\z\ace\addons\dragon\models\optics_m47";
         displayName = "M47 Dragon (AI)";
         class OpticsModes {
-            class  StepScope {
+            class StepScope {
                 opticsZoomInit = 0.055;
                 opticsZoomMax = 0.055;
                 opticsZoomMin = 0.055;
@@ -721,6 +776,20 @@ class CfgWeapons {
             };
         };
         class WeaponSlotsInfo;
+    };
+    class CUP_Vmlauncher_AT13_single_veh;
+    class GVARMAIN(CUP_launch_M47_veh): CUP_Vmlauncher_AT13_single_veh {
+        aimTransitionSpeed = 0.4;
+        aiRateOfFire = 5;
+        aiRateOfFireDistance = 1000;
+        maxRange = 1000;
+        midRange = 600;
+        autoReload = 0;
+        displayName = "$STR_CUP_DN_M47";
+        magazines[] = {"CUP_Dragon_EP1_M","CUP_Dragon_EP1_AI_M"};
+        soundFly[] = {"CUP\Weapons\CUP_Weapons_M47\data\sfx\rocket_fly.wss","db40",1.5,700};
+        reloadTime = 10;
+        recoil = "recoil_single_titan";
     };
     class GVARMAIN(CUP_launch_M47_loaded): CUP_launch_M47 {
         baseWeapon = QGVARMAIN(CUP_launch_M47);
