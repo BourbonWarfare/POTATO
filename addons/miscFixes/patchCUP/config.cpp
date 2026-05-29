@@ -698,7 +698,11 @@ class CfgWeapons {
     };
 
     // 40mm HEDP
-    class CUP_Vhmg_AGS30_veh;
+    class GMG_20mm;
+    class CUP_Vhmg_AGS30_veh: GMG_20mm {
+        aiDispersionCoefY = 6;
+        aiDispersionCoefX = 5;
+    };
     class CUP_Vgmg_MK19_veh: CUP_Vhmg_AGS30_veh {
         magazineWell[] += {"potato_HV_40x53mm"};
     };
