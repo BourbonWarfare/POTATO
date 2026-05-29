@@ -302,18 +302,14 @@ class CfgVehicles {
     };
     class CUP_Hilux_metis_Base: CUP_Hilux_Base {
         class AnimationSources;
-        class Turrets: Turrets {
-            class MainTurret;
-        };
+        class Turrets: Turrets {};
     };
     class CUP_I_Hilux_metis_IND_G_F: CUP_Hilux_metis_Base {
         class AnimationSources: AnimationSources {
             class Reload;
         };
         class Turrets: Turrets {
-            class MainTurret: MainTurret {
-                class ViewOptics;
-            };
+            class MainTurret;
         };
     };
     class GVARMAIN(CUP_I_Hilux_dragon): CUP_I_Hilux_metis_IND_G_F {
@@ -328,20 +324,34 @@ class CfgVehicles {
                 allowTabLock = 0;
                 gunnerOpticsModel = "\z\ace\addons\dragon\models\optics_m47";
                 magazines[] = {
-                    "CUP_Dragon_EP1_M_AI",
-                    "CUP_Dragon_EP1_M_AI",
-                    "CUP_Dragon_EP1_M_AI",
-                    "CUP_Dragon_EP1_M_AI",
-                    "CUP_Dragon_EP1_M_AI",
-                    "CUP_Dragon_EP1_M_AI",
-                    "CUP_Dragon_EP1_M_AI",
-                    "CUP_Dragon_EP1_M_AI"
+                    "CUP_Dragon_EP1_AI_M",
+                    "CUP_Dragon_EP1_AI_M",
+                    "CUP_Dragon_EP1_AI_M",
+                    "CUP_Dragon_EP1_AI_M",
+                    "CUP_Dragon_EP1_AI_M",
+                    "CUP_Dragon_EP1_AI_M",
+                    "CUP_Dragon_EP1_AI_M",
+                    "CUP_Dragon_EP1_AI_M"
                 };
                 weapons[] = {QGVARMAIN(CUP_launch_M47_veh)};
-                class ViewOptics: ViewOptics {
-                    opticsZoomInit = 0.055;
-                    opticsZoomMax = 0.055;
-                    opticsZoomMin = 0.055;
+                class ViewOptics {
+                    initAngleX = 0;
+                    initAngleY = 0;
+                    initFov = 0.055;
+                    maxAngleX = 30;
+                    maxAngleY = 100;
+                    maxFov = 0.055;
+                    maxMoveX = 0;
+                    maxMoveY = 0;
+                    maxMoveZ = 0;
+                    minAngleX = -30;
+                    minAngleY = -100;
+                    minFov = 0.055;
+                    minMoveX = 0;
+                    minMoveY = 0;
+                    minMoveZ = 0;
+                    speedZoomMaxFOV = 0;
+                    speedZoomMaxSpeed = 1e+10;
                     thermalMode[] = {};
                     visionMode[] = {"Normal"};
                 };
