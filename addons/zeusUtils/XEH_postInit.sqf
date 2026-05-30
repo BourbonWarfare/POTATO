@@ -11,10 +11,3 @@ if (isServer && isMultiplayer) then {
 
 if !(hasInterface) exitWith {};
 #include "initKeybinds.inc.sqf"
-
-["CBA_SettingsInitialized", {
-    TRACE_4("CBA_SettingsInitialized EH Client",_this,GVAR(fpsDisplayEH),GVAR(fpsAvgCalcEH),GVAR(fpsAvgCalc));
-    if (isMultiplayer && GVAR(missionFPSEnable)) then {
-        [] call FUNC(initLocalFPSEH);
-    };
-}] call CBA_fnc_addEventHandler;
