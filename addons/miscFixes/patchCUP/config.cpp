@@ -795,9 +795,15 @@ class CfgWeapons {
         autoReload = 0;
         displayName = "$STR_CUP_DN_M47";
         magazines[] = {"CUP_Dragon_EP1_M","CUP_Dragon_EP1_AI_M"};
+        sound[] = {"A3\Sounds_F\weapons\Launcher\rocket_launcher_5",1,1,800};
         soundFly[] = {"CUP\Weapons\CUP_Weapons_M47\data\sfx\rocket_fly.wss","db40",1.5,700};
         reloadTime = 10;
         recoil = "recoil_single_titan";
+        class StandardSound {
+            begin1[] = {"CUP\Weapons\CUP_Weapons_M47\data\sfx\M47_1","db10",1,1200};
+            soundBegin[] = {"begin1",1};
+            weaponSoundEffect = "DefaultRifle";
+        };
     };
     class GVARMAIN(CUP_launch_M47_loaded): CUP_launch_M47 {
         baseWeapon = QGVARMAIN(CUP_launch_M47);
