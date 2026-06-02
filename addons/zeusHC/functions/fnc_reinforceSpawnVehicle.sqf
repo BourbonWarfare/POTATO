@@ -200,7 +200,7 @@ if (_dismountCount > 0) then { // recurse
             _wp setWaypointCombatMode "BLUE";
             // drive back to spawn to be deleted
             _wp = _group addWaypoint [getPosATL _vic, 0];
-            _wp setWaypointStatements ["true", "if (local this) then {private _vic = vehicle this; deleteVehicleCrew _vic; deleteVehicle _vic;};"];
+            _wp setWaypointStatements ["true", "if (local this && {alive _x} count thisList > 0) then {private _vic = vehicle this; deleteVehicleCrew _vic; deleteVehicle _vic;};"];
             _wp setWaypointCompletionRadius 20;
         };
         _vic setUnloadInCombat [false, false];
