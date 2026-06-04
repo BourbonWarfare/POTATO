@@ -65,3 +65,8 @@ parameters = [
     "-filePatching",
     "-mod=x\\cba;z\\ace;idi\\acre;"
 ]
+
+[inspector]
+header_regex = "ace"
+vars_to_ignore = []
+check_function_calls = true

@@ -115,7 +115,7 @@ class CfgAmmo {
         displayNameshort = "Flash";
         displayName = "40x46mm Flash";
         // Damage - reduced for smaller one
-        explosive = 0;
+        explosive = 1E-7;
         hit = 15;
         indirectHitRange = 0;
         maxSpeed = 250;
@@ -125,6 +125,11 @@ class CfgAmmo {
         deleteParentWhenTriggered = 0;
         submunitionAmmo = "";
         triggerOnImpact = 1;
+        class EventHandlers: EventHandlers {
+            class ADDON {
+                init = QUOTE(call ace_grenades_fnc_altFlashbangInit);
+            };
+        };
     };
 
     // M576 Buckshot
