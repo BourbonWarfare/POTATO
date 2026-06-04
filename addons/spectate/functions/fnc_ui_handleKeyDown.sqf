@@ -196,7 +196,7 @@ if ((_key == DIK_F5) && {_this select 2} && {_this select 3}) exitWith {
 };
 
 if (_key == DIK_LBRACKET) exitWith {
-    GVAR(drawDeaths) = !GVAR(drawDeaths);
+    GVAR(drawDeaths) = (GVAR(drawDeaths) + 1) mod DEATH_VISIBLE_MODE_COUNT;
 };
 
 false // default to unhandled

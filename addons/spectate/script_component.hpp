@@ -208,8 +208,13 @@ Left Brace ('[') to toggle showing player death locations<br/>\
 </t>
 
 #define TAGS_VISIBLE_MODE_COUNT 3
-#define TAGS_VISIBLE_MODE_NAMES 2
 #define TAGS_VISIBLE_MODE_MARKS 1
 #define TAGS_VISIBLE_MODE_NONE  0
+#define TAGS_VISIBLE_MODE_NAMES 2
+
+#define DEATH_VISIBLE_MODE_COUNT 3
+#define DEATH_VISIBLE_MODE_NONE 0
+#define DEATH_VISIBLE_MODE_ALL  1
+#define DEATH_VISIBLE_MODE_MARK 2
 
 #include "\z\potato\addons\core\script_macros.hpp"

@@ -192,23 +192,25 @@ if !(GVAR(mapOpen) || GVAR(fullMapOpen)) then {
     };
 
     // Draw bodies on map
-    if (GVAR(drawDeaths)) then {
+    if (GVAR(drawDeaths) != DEATH_VISIBLE_MODE_NONE) then {
+        private _drawName = GVAR(drawDeaths) == DEATH_VISIBLE_MODE_MARK;
         private _cameraPosAGL = positionCameraToWorld [0,0,0];
         {
             _y params ["_pos", "_name", ["_side", civilian]];
             private _color = switch (_side) do {
-                case (west): {[0, 0, 0.7, 0.5]};
-                case (east): {[0.7, 0, 0, 0.5]};
-                case (resistance): {[0, 0.7, 0, 0.5]};
-                case (civilian): {[0.5,0,0.5,0.5]};
-                default {[0.7, 0.7, 0.7, 0.5]};
+                case (west): {[0, 0, 0.7, 0.6]};
+                case (east): {[0.7, 0, 0, 0.6]};
+                case (resistance): {[0, 0.7, 0, 0.6]};
+                case (civilian): {[0.5,0,0.5,0.6]};
+                default {[0.7, 0.7, 0.7, 0.6]};
             };
-            private _k = 1 min (2 / (1 max log (_cameraPosAGL distance _pos)));
+            private _dist = _cameraPosAGL distance _pos;
+            private _k = 1 min (2 / (1 max log _dist));
             drawIcon3D [
-                "\A3\ui_f\data\map\markers\military\dot_CA.paa",
-                _color, _pos, 1 * _k, 1 * _k, 0, _name,
+                "\z\ace\addons\medical_gui\ui\grave.paa",
+                _color, _pos, 0.7 * _k, 0.7 * _k, 0, ["", _name] select (_drawName && _dist < 350),
                 2, 0.04 * _k, "RobotoCondensed", "right",
-                false, 0.002 * _k, -0.023 * _k
+                false, 0.002 * _k, -0.019 * _k
             ];
         } forEach GVAR(deathHash);
     };

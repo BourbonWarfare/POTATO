@@ -1,5 +1,5 @@
 //***************** Player FPS Display *********************/
-/// User settings
+// User settings
 [
     QGVAR(clientFPSEnable), "CHECKBOX",
     ["Report client FPS to Zeus", "Report your FPS to the Zanes for performance management."],
@@ -7,9 +7,15 @@
     true,
     2,
     {
-        if (GVAR(clientFPSEnable)) then {
-            [] call FUNC(initLocalFPSEH);
-        };
+        params ["_value"];
+        [{
+         !isNil QGVAR(missionFPSEnable)
+        }, {
+            params ["_value"];
+            if (_value && GVAR(missionFPSEnable)) then {
+                [] call FUNC(initLocalFPSEH);
+            };
+        }, _value, 5] call CBA_fnc_waitAndExecute;
     },
     false
 ] call CBA_fnc_addSetting;
