@@ -29,12 +29,20 @@ class CfgMagazines {
         displayName = "40x46mm 12Rnd M433 (HEDP) Grenade";
         displayNameshort = "M433 HEDP";
     };
+    class cwr3_500rnd_vickers_m;
+    class GVARMAIN(cwr3_500rnd_vickers_t): cwr3_500rnd_vickers_m {
+        tracersEvery = 1;
+    };
 };
 
 class CfgWeapons {
     class Rifle_Base_F;
     class cwr3_glaunch_mm1: Rifle_Base_F {
         magazines[] += {"potato_12Rnd_40mm_M433_HEDP"};
+    };
+    class MGun;
+    class cwr3_hmg_vickers_veh: MGun {
+        magazines[] += {QGVARMAIN(cwr3_500rnd_vickers_t)};
     };
 };
 

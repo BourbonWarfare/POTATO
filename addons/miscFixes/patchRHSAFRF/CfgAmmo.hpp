@@ -33,26 +33,31 @@ class CfgAmmo {
             enabled = 0;
         };
     };
-    
+
+    class rhs_ammo_rpgShell_base;
+    class rhs_ammo_pg9v: rhs_ammo_rpgShell_base {
+        effectsMissile = "Missile3_vanilla";
+    };
+
     // Base Classes
     class Sh_125mm_APFSDS;
     class rhs_ammo_ap_penetrator: Sh_125mm_APFSDS {};
-    
+
     // 3BM42 - used by T-72B (original)
     class rhs_ammo_3bm42_penetrator: rhs_ammo_ap_penetrator {
         hit = 520; // was 250
     };
-    
+
     // 3BM42M "Mango" - used by T-72B (1985)
     class rhs_ammo_3bm42m_penetrator: rhs_ammo_ap_penetrator {
         hit = 542.2; // was 270
     };
-    
-    // 3BM46 - used by T-72B3  
+
+    // 3BM46 - used by T-72B3
     class rhs_ammo_3bm46_penetrator: rhs_ammo_ap_penetrator {
         hit = 626.8; // was 300
     };
-    
+
     // 3BM69 - used by T90+
     class rhs_ammo_3bm69_penetrator: rhs_ammo_ap_penetrator {
         hit = 858.16; // was 300
