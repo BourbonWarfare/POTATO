@@ -84,6 +84,34 @@ class CfgAmmo {
         };
     };
 
+    class AMMO(40x53mm_FLASH): AMMO(40x53mm_HEDP_M430A1) {
+        // flashbang info
+        ACEGVAR(grenades,flashbang) = 1;
+        ACEGVAR(frag,skip) = 1;
+        dangerRadiusHit = -1;
+        suppressionRadiusHit = 20;
+        grenadeBurningSound[] = {};
+        smokeColor[] = {0,0,0,0};
+        effectsSmoke = "ACE_M84FlashbangEffect";
+        whistleDist = 0;
+        //
+        aiAmmoUsageFlags = 64;
+        fuseDistance = 15;
+        displayNameshort = "Flash";
+        displayName = "40x46mm Flash";
+        // Damage - reduced for smaller one
+        explosive = 0;
+        hit = 15;
+        indirectHitRange = 0;
+        maxSpeed = 250;
+        typicalSpeed = 241;
+        timeToLive = 25;
+        // Penetrator
+        deleteParentWhenTriggered = 0;
+        submunitionAmmo = "";
+        triggerOnImpact = 1;
+    };
+
     class AMMO(40x46mm_HEDP_M433_penetrator): ammo_Penetrator_Base {
         hit = 90; // a guess
         caliber = 4.467; // 67mm steel (should be 4.2 for 63mm, but it was under performing)
