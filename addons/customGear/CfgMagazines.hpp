@@ -17,6 +17,15 @@ class CfgMagazines {
         mass = 2.4;
     };
 
+    class MAGAZINE(1Rnd_40mm_FLASH): 1Rnd_HE_Grenade_shell {
+        ammo = QAMMO(40x46mm_FLASH);
+        count = 1;
+        displayNameShort = "FLASH";
+        displayName = "40x46mm Flash Grenade";
+        initSpeed = 269;
+        mass = 2.4;
+    };
+
     //// HV 40x53mm grenade launcher
     class 200Rnd_40mm_G_belt;
     class MAGAZINE(96Rnd_40mm_MK19_M430A1_HEDP): 200Rnd_40mm_G_belt {

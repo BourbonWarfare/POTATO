@@ -84,7 +84,22 @@ class CfgAmmo {
         };
     };
 
-    class AMMO(40x53mm_FLASH): AMMO(40x53mm_HEDP_M430A1) {
+    class AMMO(40x46mm_HEDP_M433_penetrator): ammo_Penetrator_Base {
+        hit = 90; // a guess
+        caliber = 4.467; // 67mm steel (should be 4.2 for 63mm, but it was under performing)
+        timeToLive = 0.1;
+        // fix double explosion
+        soundsetexplosion[] = {};
+    };
+    class AMMO(40x53mm_HEDP_M430A1_penetrator): ammo_Penetrator_Base {
+        hit = 90;
+        caliber = 5.067; // 76mm steel
+        timeToLive = 0.1;
+        soundsetexplosion[] = {};
+    };
+
+    // Flashbank ammo
+    class AMMO(40x46mm_FLASH): AMMO(40x46mm_HEDP_M433) {
         // flashbang info
         ACEGVAR(grenades,flashbang) = 1;
         ACEGVAR(frag,skip) = 1;
@@ -110,20 +125,6 @@ class CfgAmmo {
         deleteParentWhenTriggered = 0;
         submunitionAmmo = "";
         triggerOnImpact = 1;
-    };
-
-    class AMMO(40x46mm_HEDP_M433_penetrator): ammo_Penetrator_Base {
-        hit = 90; // a guess
-        caliber = 4.467; // 67mm steel (should be 4.2 for 63mm, but it was under performing)
-        timeToLive = 0.1;
-        // fix double explosion
-        soundsetexplosion[] = {};
-    };
-    class AMMO(40x53mm_HEDP_M430A1_penetrator): ammo_Penetrator_Base {
-        hit = 90;
-        caliber = 5.067; // 76mm steel
-        timeToLive = 0.1;
-        soundsetexplosion[] = {};
     };
 
     // M576 Buckshot
