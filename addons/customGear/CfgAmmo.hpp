@@ -101,7 +101,6 @@ class CfgAmmo {
     // Flashbank ammo
     class AMMO(40x46mm_FLASH): AMMO(40x46mm_HEDP_M433) {
         // flashbang info
-        ACEGVAR(grenades,flashbang) = 1;
         ACEGVAR(frag,skip) = 1;
         dangerRadiusHit = -1;
         suppressionRadiusHit = 20;
