@@ -70,3 +70,12 @@
 #define IDC_REPORT_L 7500
 #define IDC_REPORT_S 7501
 #define IDC_BREIFING 8000
+
+// Automating Armor Testing
+#define SHOTPOS_CHEST -1
+#define SHOTPOS_HEAD 0
+#define SHOTPOS_FACE 1
+
+#define OUTPUT_NONE 0
+#define OUTPUT_CLIPBOARD 1
+#define OUTPUT_RPT 2

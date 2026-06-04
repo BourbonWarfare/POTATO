@@ -88,6 +88,7 @@ private _unitSpecificBrief = getMissionConfigValue QGVAR(missionFlagUnitSpecific
 private _unitSpecificBriefStr = if(isNil QUOTE(_unitSpecificBrief)) then {BBFALSE} else {[_unitSpecificBrief] call _trueFalse};
 private _missionNotesForTester =  getMissionConfigValue QGVAR(missionMakerNotesForTesters);
 private _masterChecklistArray = nil;
+private _armotTestingText = call FUNC(summarizeArmorTesting);
 private _textArray = [];
 private _textArrayShort = [];
 
@@ -154,11 +155,17 @@ if(_missionMaker == name ACE_player || is3DEN) then {
     };
     hint "Reports Generated. Highlight the contents to the left of the checklist and copy it to forum.";
 } else {
-    _masterChecklistArray = GVAR(MissionTestingChecklistMaster);
+    _masterChecklistArray = +GVAR(MissionTestingChecklistMaster);
     S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%1[/color][/b][/u][/size]",_missionVersion];
     S_NEWTEXTLINE ["[size=150]Mission Tester : [color=#FF4000]%1[/color][/size]",name ACE_player];
     private _missionOverallPassFail = [_masterChecklistArray] call _overallPassFail;
     S_NEWTEXTLINE ["[size=200]Test Result : %1[/size]",_missionOverallPassFail];
+
+    if (_armotTestingText isNotEqualTo "") then {
+        private _otherConsid = _masterChecklistArray select -1;
+        _otherConsid set [3, [_otherConsid#3, _armotTestingText] joinString endl];
+        _otherConsid set [4, 1];
+    };
 
     {
         _x call _createReportSection;

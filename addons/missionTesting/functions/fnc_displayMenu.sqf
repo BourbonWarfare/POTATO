@@ -11,6 +11,7 @@
  */
 
 #include "script_component.hpp"
+#define QQUOTE(var1) QUOTE(QUOTE(var1))
 TRACE_1("Params",_this);
 
 params[""];
@@ -175,6 +176,29 @@ _openForumFinishedMissions ctrlSetURL "https://forums.bourbonwarfare.com/viewfor
 _openForumFinishedMissions ctrlSetPosition [0.34,1,0.12,0.1];
 _openForumFinishedMissions ctrlCommit 0;
 
+if !(EGVAR(spectate,running)) then {
+    private _testOpfInd = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
+    _testOpfInd ctrlSetText "Test Opf-Ind";
+    _testOpfInd ctrlSetTooltip "Test Opfor and IndFor Potato units armor. Must be in a relatively open area to make this work.";
+    _testOpfInd buttonSetAction QUOTE([ARR_2(QQUOTE(potato_e),QQUOTE(potato_i))] call FUNC(startWeaponTest));
+    _testOpfInd ctrlSetPosition [0.23,1,0.1,0.1];
+    _testOpfInd ctrlCommit 0;
+
+    private _testBluInd = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
+    _testBluInd ctrlSetText "Test Blu-Ind";
+    _testBluInd ctrlSetTooltip "Test BluFor and IndFor Potato units armor. Must be in a relatively open area to make this work.";
+    _testBluInd buttonSetAction QUOTE([ARR_2(QQUOTE(potato_w),QQUOTE(potato_i))] call FUNC(startWeaponTest));
+    _testBluInd ctrlSetPosition [0.12,1,0.1,0.1];
+    _testBluInd ctrlCommit 0;
+
+    private _testBluOpf = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscButtonMenu),-1];
+    _testBluOpf ctrlSetText "Test Blu-Opf";
+    _testBluOpf ctrlSetTooltip "Test BluFor and OpFor Potato units armor. Must be in a relatively open area to make this work.";
+    _testBluOpf buttonSetAction QUOTE([ARR_2(QQUOTE(potato_w),QQUOTE(potato_e))] call FUNC(startWeaponTest));
+    _testBluOpf ctrlSetPosition [0,1,0.105,0.1];
+    _testBluOpf ctrlCommit 0;
+};
+
 private _missionMaker = getMissionConfigValue ["author","????"];
 private _missionName = getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName","????"]];
 private _missionType = A_MISSION_TYPE select (getMissionConfigValue QGVAR(missionType));
@@ -188,11 +212,11 @@ private _missionSSForceEnd = ["Admin start", "Forced once SS time elapses"] sele
 private _missionTimeLength = (getMissionConfigValue QGVAR(missionTimeLength)) / 60;
 
 // TEMP CODE Remove cicrca 2026-10-01
-if (_missionSSTime > 0 && _missionSSTime < 30) then {
+if (_missionSSTime > 0 && _missionSSTime < 3) then {
     _missionSSTime = _missionSSTime * 60; // assume it was in minutes, convert to seconds
 };
 _missionSSTime = str _missionSSTime;
-if (_missionTimeLength > 0 && _missionTimeLength < 200) then {
+if (_missionTimeLength > 0 && _missionTimeLength < 5) then {
     _missionTimeLength = _missionTimeLength * 60; // assume it was in minutes, convert to seconds
 };
 _missionTimeLength = str _missionTimeLength;
