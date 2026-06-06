@@ -25,7 +25,7 @@
     false, // default value
     true, // isGlobal
     {
-        if (!isNil QGVAR(intraAlphaPFEH) && {GVAR(intraAlphaPFEH) >= 0}) then {
+        if !(isNil QGVAR(intraAlphaPFEH)) then {
             [GVAR(intraAlphaPFEH)] call CBA_fnc_removePerFrameHandler;
             GVAR(intraAlphaPFEH) = nil;
         };
