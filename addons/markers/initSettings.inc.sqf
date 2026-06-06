@@ -20,7 +20,7 @@
 
 [
     QGVAR(intraFireteam_occlude), "CHECKBOX",
-    ["intraFireteam - Occlude Marks"],
+    ["intraFireteam - Occlude Markers", "Occlusion and distance causes intra fireteam markers to fade"],
     ["POTATO - Mission Maker", "Markers"],
     false, // default value
     true, // isGlobal
