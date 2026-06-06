@@ -7,6 +7,15 @@
 #define BLACK_ARRAY [0,0,0,1]
 #define PINK_ARRAY [1,0.753,0.796,1]
 
+#define RED_ARRAY_A(alpha) [0.9,0,0,alpha]
+#define YELLOW_ARRAY_A(alpha) [0.9,0.9,0,alpha]
+#define GREEN_ARRAY_A(alpha) [0,0.8,0,alpha]
+#define BLUE_ARRAY_A(alpha) [0,0,1,alpha]
+#define WHITE_ARRAY_A(alpha) [1,1,1,alpha]
+#define ORANGE_ARRAY_A(alpha) [1,0.647,0,alpha]
+#define BLACK_ARRAY_A(alpha) [0,0,0,alpha]
+#define PINK_ARRAY_A(alpha) [1,0.753,0.796,alpha]
+
 #define GROUP_MARKER_ID_GROUPSTRING_GROUP(group) str side group + groupId group
 #define GROUP_MARKER_ID_GROUPSTRING_UNIT(unit) str side group unit + groupId group unit
 #define GROUP_MARKER_ID_UNITSTRING_UNIT(unit) str side unit + str unit
