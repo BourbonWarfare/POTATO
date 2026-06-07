@@ -13,8 +13,8 @@
  */
 
 #include "..\script_component.hpp"
-// acos ~35 degrees
-#define OCCLUSION_COS_ANGLE 0.8
+// acos ~50 degrees
+#define OCCLUSION_COS_ANGLE 0.7
 // 1 - 0.6 * frame time (0.1)
 #define OCCLUSION_FADE_ALPHA 0.94
 // 1 + 3 * frame time (0.1)
@@ -38,18 +38,16 @@ if (GVAR(intraFireteam_occlude) && {isNil QGVAR(intraAlphaPFEH)}) then {
             if (_x == player) then {continue};
             private _unitPosition = getPosASLVisual _x;
             private _distance = _unitPosition distance2D _posPlayerASL;
+            private _seen = _x getVariable [QGVAR(intraSeen), false];
+            if (_x getVariable [QGVAR(nextAlpha), 0] < _time) then {
+                _seen = _distance < 200 && {_distance < 100 ||
+                {OCCLUSION_COS_ANGLE < _dirVecPlayer vectorDotProduct (_posPlayerASL vectorFromTo _unitPosition)}} &&
+                {[] isEqualTo lineIntersectsObjs [_posPlayerASL, _x modelToWorldVisualWorld (_x selectionPosition  "pelvis"), _x, player, false, 20]};
+                _x setVariable [QGVAR(nextAlpha), _time + 0.4 + random 0.4];
+                _x setVariable [QGVAR(intraSeen), _seen];
+            };
             private _alpha = _x getVariable [QGVAR(intraAlpha), 1];
-            _alpha = if ( _distance > 200 || {_distance > 100 && {
-                OCCLUSION_COS_ANGLE > _dirVecPlayer vectorDotProduct (_posPlayerASL vectorFromTo _unitPosition)
-            }} || {
-                private _seen = _x getVariable [QGVAR(intraSeen), false];
-                if (_x getVariable [QGVAR(nextAlpha), 0] < _time) then {
-                    _seen = 0.2 < [_x, "GEOM", player] checkVisibility [_posPlayerASL, _x modelToWorldVisualWorld (_x selectionPosition  "pelvis")];
-                    _x setVariable [QGVAR(nextAlpha), _time + 0.6 + random 0.4];
-                    _x setVariable [QGVAR(intraSeen), _seen];
-                };
-                !_seen
-            }) then {
+            _alpha = if (!_seen) then {
                 if (_alpha < MIN_VALUE_CONSIDERED) then {
                     0
                 } else {
