@@ -15,7 +15,7 @@
             if (_value && GVAR(missionFPSEnable)) then {
                 [] call FUNC(initLocalFPSEH);
             };
-        }, _value, 5] call CBA_fnc_waitAndExecute;
+        }, _value, 5] call CBA_fnc_waitUntilAndExecute;
     },
     false
 ] call CBA_fnc_addSetting;
