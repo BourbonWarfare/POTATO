@@ -2,7 +2,8 @@ class CfgMagazineWells {
     class CBA_40mm_EGLM {
         MAGWELL_ENTRY_NAME[] = {
             QMAGAZINE(1Rnd_40mm_M433_HEDP),
-            QMAGAZINE(1Rnd_40mm_M576_MP)
+            QMAGAZINE(1Rnd_40mm_M576_MP),
+            QMAGAZINE(1Rnd_40mm_FLASH)
         };
     };
 
@@ -19,13 +20,15 @@ class CfgMagazineWells {
             QMAGAZINE(1Rnd_Flare_Illum_VG40OP_shell),
             QMAGAZINE(1Rnd_FlareRed_Illum_VG40OP_shell),
             QMAGAZINE(1Rnd_FlareGreen_Illum_VG40OP_shell),
-            QMAGAZINE(1Rnd_FlareYellow_Illum_VG40OP_shell)
+            QMAGAZINE(1Rnd_FlareYellow_Illum_VG40OP_shell),
+            QMAGAZINE(1Rnd_40mm_FLASH)
         };
     };
     class CBA_40mm_M203 {
         MAGWELL_ENTRY_NAME[] = {
             QMAGAZINE(1Rnd_40mm_M433_HEDP),
-            QMAGAZINE(1Rnd_40mm_M576_MP)
+            QMAGAZINE(1Rnd_40mm_M576_MP),
+            QMAGAZINE(1Rnd_40mm_FLASH)
         };
     };
     class MAGWELL(HV_40x53mm) {

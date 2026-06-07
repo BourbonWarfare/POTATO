@@ -98,6 +98,39 @@ class CfgAmmo {
         soundsetexplosion[] = {};
     };
 
+    // Flashbank ammo
+    class AMMO(40x46mm_FLASH): AMMO(40x46mm_HEDP_M433) {
+        // flashbang info
+        ACEGVAR(frag,skip) = 1;
+        dangerRadiusHit = -1;
+        suppressionRadiusHit = 20;
+        grenadeBurningSound[] = {};
+        smokeColor[] = {0,0,0,0};
+        effectsSmoke = "ACE_M84FlashbangEffect";
+        whistleDist = 0;
+        //
+        aiAmmoUsageFlags = 64;
+        fuseDistance = 15;
+        displayNameshort = "Flash";
+        displayName = "40x46mm Flash";
+        // Damage - reduced for smaller one
+        explosive = 1E-7;
+        hit = 15;
+        indirectHitRange = 0;
+        maxSpeed = 250;
+        typicalSpeed = 241;
+        timeToLive = 25;
+        // Penetrator
+        deleteParentWhenTriggered = 0;
+        submunitionAmmo = "";
+        triggerOnImpact = 1;
+        class EventHandlers: EventHandlers {
+            class ADDON {
+                init = QUOTE(call ace_grenades_fnc_altFlashbangInit);
+            };
+        };
+    };
+
     // M576 Buckshot
     // derived from ACE_12Gauge_Pellets_Submunition_No4_Buck_Deploy
     class B_12Gauge_Pellets_Submunition_Deploy;
