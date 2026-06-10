@@ -51,7 +51,7 @@ ace_player allowDamage false;
 if (isNil QGVAR(testingVarUpdateEH)) then {
     GVAR(testingVarUpdateEH) = true;
     QGVAR(damageTestingResults) addPublicVariableEventHandler {
-        private _testResults = (call FUNC(summarizeTesting));
+        private _testResults = call FUNC(summarizeArmorTesting);
         _testResults = ["<font size=28 face=""PuristaBold"">Damage Report</font>"] +
                         (_testResults splitString endl);
         _testResults = _testResults apply {_x regexReplace [".*(\[\*\])", "-"]};
