@@ -20,10 +20,11 @@ params ["_logic"];
 if !(local _logic) exitWith {};
 TRACE_1("Running local EH",_this);
 
-GVAR(nClickFunc) = getText (configOf _logic >> QGVAR(functionHandle));
-GVAR(nClick_posText) = getArray (configOf _logic >> QGVAR(iconText));
-GVAR(nClickPos) = [ASLToAGL getPosASL _logic];
-findDisplay IDD_CURATORFRAME displayAddEventHandler ["MouseButtonDown", {call FUNC(zeus_nClickClickEH)}];
-GVAR(nClickDraw3D) = addMissionEventHandler ["Draw3D", FUNC(zeus_nClickDraw3DEH)];
-
+if (isNil QGVAR(nClickDraw3D || {GVAR(nClickDraw3D) < 0})) then {
+    GVAR(nClickFunc) = getText (configOf _logic >> QGVAR(functionHandle));
+    GVAR(nClick_posText) = getArray (configOf _logic >> QGVAR(iconText));
+    GVAR(nClickPos) = [ASLToAGL getPosASL _logic];
+    findDisplay IDD_CURATORFRAME displayAddEventHandler ["MouseButtonDown", {call FUNC(zeus_nClickClickEH)}];
+    GVAR(nClickDraw3D) = addMissionEventHandler ["Draw3D", FUNC(zeus_nClickDraw3DEH)];
+};
 deleteVehicle _logic;
