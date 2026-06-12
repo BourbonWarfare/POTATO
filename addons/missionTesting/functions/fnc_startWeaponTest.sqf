@@ -1,4 +1,7 @@
 #include "..\script_component.hpp"
+#define INFORM_TESTER(msg) systemChat msg;\
+hint msg;\
+INFO(msg)
 /***************************************************************************//*
 * Author: Lambda.Tiger
 *
@@ -23,7 +26,10 @@ params [
 ];
 
 if (EGVAR(spectate,running)) exitWith {
-    INFO("Cannot run testing menu damage test from spectate");
+    INFORM_TESTER("Cannot run testing menu damage test from spectate");
+};
+if (EGVAR(safeStart,safeStartEnabled)) exitWith {
+    INFORM_TESTER("Cannot run testing menu damage test with safe start enabled");
 };
 private _exit = false;
 for "_i" from 1 to 5 do {
@@ -35,9 +41,46 @@ for "_i" from 1 to 5 do {
     };
 };
 if (_exit) exitWith {
-    systemChat "ERR: Cannot run damage in current location, please move to an open flat area";
+    INFORM_TESTER("ERR: Cannot run damage in current location, please move to an open flat area");
 };
 // Pretty good chance a round hits you
 ace_player allowDamage false;
 [_faction0, _faction1, getPosASL ace_player] remoteExecCall [QFUNC(testFactionPair), 2];
 [{_this allowDamage true}, ace_player, 10] call CBA_fnc_waitAndExecute;
+
+if (isNil QGVAR(testingVarUpdateEH)) then {
+    GVAR(testingVarUpdateEH) = true;
+    QGVAR(damageTestingResults) addPublicVariableEventHandler {
+        private _testResults = call FUNC(summarizeArmorTesting);
+        _testResults = ["<font size=28 face=""PuristaBold"">Damage Report</font>"] +
+                        (_testResults splitString endl);
+        _testResults = _testResults apply {_x regexReplace [".*(\[\*\])", "-"]};
+        _testResults = _testResults select {_x != "[list]" && _x !="[/list]"};
+        {
+            if ("Shooting At" in _x) then {
+                _testResults set [_forEachIndex, "<br/><font size=18>" + _x + "</font>"];
+            };
+        } forEach _testResults;
+        if !(player diarySubjectExists "POTATO") then {
+            player createDiarySubject ["POTATO", "POTATO"];
+        };
+        // find the diary
+        private _diaryEntries = player allDiaryRecords "POTATO";
+        // find and replace existing orbat pages
+        private _testMenuNotFound = true;
+        {
+            _x params ["_idx", "_title", "", "", "", "", "", "", "_record"];
+            if (_title == "Damage Report") then {
+                player setDiaryRecordText [["POTATO", _record], ["Damage Report", _testResults joinString "<br/>"]];
+                _testMenuNotFound = false;
+            };
+        } forEach _diaryEntries;
+
+        // if we didn't find and replace, add one
+        if (_testMenuNotFound) then {
+            player createDiaryRecord ["POTATO", ["Damage Report", _testResults joinString "<br/>"], taskNull, "NONE", false];
+        };
+
+        INFORM_TESTER("Test results put into diary entry (check map)");
+    };
+};
