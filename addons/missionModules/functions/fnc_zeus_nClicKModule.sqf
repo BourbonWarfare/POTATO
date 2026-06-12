@@ -20,7 +20,7 @@ params ["_logic"];
 if !(local _logic) exitWith {};
 TRACE_1("Running local EH",_this);
 
-if (isNil QGVAR(nClickDraw3D || {GVAR(nClickDraw3D) < 0})) then {
+if (isNil QGVAR(nClickDraw3D) || {GVAR(nClickDraw3D) < 0}) then {
     GVAR(nClickFunc) = getText (configOf _logic >> QGVAR(functionHandle));
     GVAR(nClick_posText) = getArray (configOf _logic >> QGVAR(iconText));
     GVAR(nClickPos) = [ASLToAGL getPosASL _logic];
