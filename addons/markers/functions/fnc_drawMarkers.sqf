@@ -13,6 +13,13 @@
  */
 
 #include "..\script_component.hpp"
+// acos ~50 degrees
+#define OCCLUSION_COS_ANGLE 0.7
+// 1 - 0.6 * frame time (0.1)
+#define OCCLUSION_FADE_ALPHA 0.94
+// 1 + 3 * frame time (0.1)
+#define OCCLUSION_DEFADE_ALPHA 1.3
+#define MIN_VALUE_CONSIDERED 5e-2
 //TRACE_1("Params",_this);
 
 BEGIN_COUNTER(drawMarkers);
@@ -20,6 +27,43 @@ BEGIN_COUNTER(drawMarkers);
 params ["_mapControl"];
 
 if ((player != player) || {!alive player} || {side player == sideLogic}) exitWith {};
+
+// Add alpha EH if needed
+if (GVAR(intraFireteam_occlude) && {isNil QGVAR(intraAlphaPFEH)}) then {
+    GVAR(intraAlphaPFEH) = [{
+        private _time = time;
+        private _posPlayerASL = eyePos player;
+        private _dirVecPlayer = eyeDirection player;
+        {
+            if (_x == player) then {continue};
+            private _unitPosition = getPosASLVisual _x;
+            private _distance = _unitPosition distance2D _posPlayerASL;
+            private _seen = _x getVariable [QGVAR(intraSeen), false];
+            if (_x getVariable [QGVAR(nextAlpha), 0] < _time) then {
+                _seen = _distance < 200 && {_distance < 100 ||
+                {OCCLUSION_COS_ANGLE < _dirVecPlayer vectorDotProduct (_posPlayerASL vectorFromTo _unitPosition)}} &&
+                {[] isEqualTo lineIntersectsObjs [_posPlayerASL, _x modelToWorldVisualWorld (_x selectionPosition  "pelvis"), _x, player, false, 20]};
+                _x setVariable [QGVAR(nextAlpha), _time + 0.4 + random 0.4];
+                _x setVariable [QGVAR(intraSeen), _seen];
+            };
+            private _alpha = _x getVariable [QGVAR(intraAlpha), 1];
+            _alpha = if (!_seen) then {
+                if (_alpha < MIN_VALUE_CONSIDERED) then {
+                    0
+                } else {
+                    0 max (_alpha * OCCLUSION_FADE_ALPHA)
+                };
+            } else {
+                if (_alpha < MIN_VALUE_CONSIDERED) then {
+                    MIN_VALUE_CONSIDERED
+                } else {;
+                    1 min (_alpha * OCCLUSION_DEFADE_ALPHA)
+                };
+            };
+            _x setVariable [QGVAR(intraAlpha), _alpha];
+        } forEach units group player;
+    }, 0.1] call CBA_fnc_addPerFrameHandler;
+};
 
 //Map's height / Screen height:
 private _mapSize = ((ctrlPosition _mapControl) select 3) / (getResolution select 4);
@@ -37,8 +81,7 @@ if (GVAR(groupAndUnitEnabled)) then {
         private _newDrawHash = createHashMap;
         private _sideArray = [] call FUNC(getSideArray);
         {
-            private _side = _y#6;
-            if (_side in _sideArray) then {
+            if ((_y#6) in _sideArray) then {
                 _newDrawHash set [_x, _y];
             };
         } forEach GVAR(markerHash);
@@ -61,8 +104,6 @@ if (GVAR(groupAndUnitEnabled)) then {
                 };
                 _y set [5, _posATL];
                 TRACE_2("Updating position",_drawObject,_posATL);
-            } else {
-                TRACE_1("Updating position, skip",_drawObject);
             };
         };
 
@@ -84,35 +125,35 @@ if (GVAR(groupAndUnitEnabled)) then {
 };
 
 if (GVAR(intraFireteamEnabled) && {(ctrlMapScale _mapControl) < 0.5}) then {
+    private _textScale = [0, 0.02 * _sizeFactor] select ((ctrlMapScale _mapControl) * _mapSize < 0.005);
+    private _size = UNIT_MARKER_SIZE * _sizeFactor;
     {
-        if !(isNull _x) then {
-            private _color = switch (assignedTeam _x) do {
-                case "RED": { RED_ARRAY };
-                case "YELLOW": { YELLOW_ARRAY };
-                case "GREEN": { GREEN_ARRAY };
-                case "BLUE": { BLUE_ARRAY };
-                default { WHITE_ARRAY };
-            };
-            if (isNil "_color") exitWith {};
+        if (isNull _x) then {continue};
+        private _alpha = _x getVariable [QGVAR(intraAlpha), 1];
 
-            private _unitPosition = position _x;
-            private _unitName = if (alive _x) then { name _x } else { "" };
-
-            _mapControl drawIcon [
-                UNIT_MARKER_ICON,
-                _color,
-                _unitPosition,
-                UNIT_MARKER_SIZE * _sizeFactor,
-                UNIT_MARKER_SIZE * _sizeFactor,
-                direction _x,
-                _unitName,
-                1,
-                (([0,0.02] select (((ctrlMapScale _mapControl) * _mapSize) < 0.005)) * _sizeFactor),
-                'TahomaB',
-                "left"
-            ];
+        private _color = switch (assignedTeam _x) do {
+            case "RED": { RED_ARRAY_A(_alpha) };
+            case "YELLOW": { YELLOW_ARRAY_A(_alpha) };
+            case "GREEN": { GREEN_ARRAY_A(_alpha) };
+            case "BLUE": { BLUE_ARRAY_A(_alpha) };
+            default { WHITE_ARRAY_A(_alpha) };
         };
-    } forEach ([units (group player), [player]] select GVAR(intraFireteam_playerOnly));
+        if (isNil "_color") then {continue};
+
+        _mapControl drawIcon [
+            UNIT_MARKER_ICON,
+            _color,
+             getPosASLVisual _x,
+            _size,
+            _size,
+            direction _x,
+            ["", name _x] select alive _x,
+            1,
+            _textScale ,
+            'TahomaB',
+            "left"
+        ];
+    } forEach units group player;
 };
 
 END_COUNTER(drawMarkers);

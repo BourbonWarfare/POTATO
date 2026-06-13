@@ -159,8 +159,8 @@ if (EGVAR(markers,groupAndUnitEnabled)) then {
 };
 // inter group markers
 if (EGVAR(markers,intraFireteamEnabled)) then {
-    if (EGVAR(markers,intraFireteam_playerOnly)) then {
-        _textArr pushBack QUOTE(<t color=QUOTE(ATTENTION_COLOR)>Unit Map Markers: Player Only</t>);
+    if (EGVAR(markers,intraFireteam_occlude)) then {
+        _textArr pushBack QUOTE(<t color=QUOTE(ATTENTION_COLOR)>Unit Map Markers: Occluded</t>);
     } else {
         _textArr pushBack QUOTE(<t color=QUOTE(STANDARD_COLOR)>Unit Map Markers: On</t>);
     };

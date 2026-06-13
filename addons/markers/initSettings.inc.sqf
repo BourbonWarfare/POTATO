@@ -19,13 +19,18 @@
 ] call CBA_fnc_addSetting;
 
 [
-    QGVAR(intraFireteam_playerOnly), "CHECKBOX",
-    ["intraFireteam - player only"],
+    QGVAR(intraFireteam_occlude), "CHECKBOX",
+    ["intraFireteam - Occlude Markers", "Occlusion and distance causes intra fireteam markers to fade"],
     ["POTATO - Mission Maker", "Markers"],
     false, // default value
     true, // isGlobal
-    {},
-    true // Needs mission restart
+    {
+        if !(isNil QGVAR(intraAlphaPFEH)) then {
+            [GVAR(intraAlphaPFEH)] call CBA_fnc_removePerFrameHandler;
+            GVAR(intraAlphaPFEH) = nil;
+        };
+    },
+    false
 ] call CBA_fnc_addSetting;
 
 [
