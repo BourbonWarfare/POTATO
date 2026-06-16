@@ -180,4 +180,27 @@ class CfgVehicles {
         displayName = "Highway Bridge (Single Collapse)";
         model = "\gm\gm_structures\gm_structures_euro_80_winter\roads\gm_euro_bridge_03_50_highway_half_win.p3d";
     };
+
+    // CH-53 but quieter?
+    class gm_helicopter_base;
+    class gm_ch53_base: gm_helicopter_base {
+        class Sounds {
+            class RotorExt {
+                volume = "0.71*camPos* (rotorSpeed *2) * (1 - (distance factor [0,250]))";
+            };
+            class RotorExt_far {
+                volume = "0.71*camPos*((rotorSpeed *2) * ((distance factor [0,250])))";
+            };
+        };
+        class SoundsExt {
+            class Sounds {
+                class RotorExt {
+                    volume = "0.71*camPos* (rotorSpeed *2) * (1 - (distance factor [0,250]))";
+                };
+                class RotorExt_far {
+                    volume = "0.71*camPos*((rotorSpeed *2) * ((distance factor [0,250])))";
+                };
+            };
+        };
+    };
 };
