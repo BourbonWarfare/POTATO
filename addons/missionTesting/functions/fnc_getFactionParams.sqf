@@ -49,12 +49,20 @@ GVAR(factionParams) getOrDefaultCall [_faction, {
         _magazines = _magazines apply {toLowerANSI ((_x splitString ":")#0)};
         if (count _weapons == 1) then {
             private _weapon = _weapons#0;
-            private _validMags = (((compatibleMagazines [_weapon, "this"]) apply {toLowerANSI _x}) arrayIntersect _magazines);
+            private _validMags = ((compatibleMagazines [_weapon, "this"]) apply {toLowerANSI _x}) arrayIntersect _magazines;
             _testPairs pushBackUnique [toLowerANSI _weapon, _validMags#0];
         } else {
-            {
-                _testPairs pushBackUnique [toLowerANSI (_x#0), toLowerANSI (((_x#1#0) splitString ":")#0)];
-            } forEach _weapons;
+            if ({_x isEqualType []} count _weapons > 0) then {
+                {
+                    _testPairs pushBackUnique [toLowerANSI (_x#0), toLowerANSI (((_x#1#0) splitString ":")#0)];
+                } forEach _weapons;
+            } else {
+                private _weapon = _weapons#0;
+                private _validMag = (((compatibleMagazines [_weapon, "this"]) apply {toLowerANSI _x}) arrayIntersect _magazines)#0;
+                {
+                    _testPairs pushBackUnique [_x, _validMag];
+                } forEach _weapons;
+            };
         };
     } forEach _unitTypes;
     // Remove test pairs that are simulation identical (same initSpeed, damage, airfriction)
