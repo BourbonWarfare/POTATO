@@ -52,6 +52,7 @@ if (isNil QGVAR(testingVarUpdateEH)) then {
     GVAR(testingVarUpdateEH) = true;
     QGVAR(damageTestingResults) addPublicVariableEventHandler {
         private _testResults = call FUNC(summarizeArmorTesting);
+        _testResults = _testResults regexReplace ["&", " "];
         _testResults = ["<font size=28 face=""PuristaBold"">Damage Report</font>"] +
                         (_testResults splitString endl);
         _testResults = _testResults apply {_x regexReplace [".*(\[\*\])", "-"]};
