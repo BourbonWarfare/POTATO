@@ -34,6 +34,7 @@ if (GVAR(intraFireteam_occlude) && {isNil QGVAR(intraAlphaPFEH)}) then {
         private _time = time;
         private _posPlayerASL = eyePos player;
         private _dirVecPlayer = eyeDirection player;
+        private _grp = units group player;
         {
             if (_x == player) then {continue};
             private _unitPosition = getPosASLVisual _x;
@@ -61,7 +62,20 @@ if (GVAR(intraFireteam_occlude) && {isNil QGVAR(intraAlphaPFEH)}) then {
                 };
             };
             _x setVariable [QGVAR(intraAlpha), _alpha];
-        } forEach units group player;
+        } forEach _grp;
+        if (diwako_dui_enable_occlusion) then {
+            private _tDUIOcclude = diwako_dui_radar_occlusion_fade_time;
+            private _tNext = _time + 1000;
+            {
+                if (_x == player) then {_x setVariable ["diwako_dui_radar_lastSeen", time]; continue};
+                private _alpha = _x getVariable [QGVAR(intraAlpha), 1];
+                _x setVariable ["diwako_dui_lastChecked", _tNext];
+                _x setVariable ["diwako_dui_radar_lastSeen",
+                    _time - linearConversion [1, 0, _alpha, 0, _tDUIOcclude, true]
+                ];
+		        _x setVariable ["diwako_dui_radar_occlusion_alpha", _alpha];
+	        } forEach _grp;
+        };
     }, 0.1] call CBA_fnc_addPerFrameHandler;
 };
 
