@@ -27,7 +27,8 @@ class CfgPatches {
             "gm_weapons_launchers_rpg18",
             "gm_weapons_launchers_strela",
             "gm_weapons_machinepistols_gm_mp2",
-            "gm_characters_ge_characters"
+            "gm_characters_ge_characters",
+            "gm_vehicles_air_helicopters_ch53"
         };
         units[] = {
             "land_gm_euro_bridge_02_20_mainroad",
