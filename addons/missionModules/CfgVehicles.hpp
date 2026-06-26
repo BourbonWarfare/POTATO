@@ -251,7 +251,7 @@ class CfgVehicles {
                     class CUP_D_Language_TK {
                         name = "Takistan? [CUP]";
                         value = "CUP_D_Language_TK";
-                        picture = "\a3\Ui_f\data\Map\Markers\Flags\csat_ca.paa";
+                        picture = "\CUP\BaseConfigs\CUP_BaseConfigs\Data\Flags\flag_tka_co.paa";
                         data[] = {"CUP_D_Male01_TK","CUP_D_Male02_TK","CUP_D_Male03_TK","CUP_D_Male04_TK","CUP_D_Male05_TK"};
                     };
                     class CUP_D_Language_CZ { // merged with CUP_D_Language_CZ_ACR
@@ -265,6 +265,18 @@ class CfgVehicles {
                         value = "gm_language_deu_male";
                         picture = "\A3\Ui_f\data\Map\Markers\Flags\germany_ca.paa";
                         data[] = {"gm_voice_male_deu_01","gm_voice_male_deu_02","gm_voice_male_deu_03","gm_voice_male_deu_04","gm_voice_male_deu_05","gm_voice_male_deu_06","gm_voice_male_deu_07","gm_voice_male_deu_08","gm_voice_male_deu_09"};
+                    };
+                    class CUP_D_Language_GB_BAF {
+                        name = "Metric BAF English [CUP]";
+                        value = "CUP_D_Language_GB_BAF";
+                        picture = "\a3\Ui_f\data\Map\Markers\Flags\uk_ca.paa";
+                        data[] = {"CUP_D_Male01_GB_BAF","CUP_D_Male02_GB_BAF","CUP_D_Male03_GB_BAF","CUP_D_Male04_GB_BAF","CUP_D_Male05_GB_BAF"};
+                    };
+                    class CUP_D_Language_GB_PMC {
+                        name = "Metric PMC English [CUP]";
+                        value = "CUP_D_Language_GB_PMC";
+                        picture = "\a3\Ui_f\data\Map\Markers\Flags\uk_ca.paa";
+                        data[] = {"CUP_D_Male01_GB_PMC","CUP_D_Male02_GB_PMC","CUP_D_Male03_GB_PMC","CUP_D_Male04_GB_PMC","CUP_D_Male05_GB_PMC"};
                     };
                 };
             };
