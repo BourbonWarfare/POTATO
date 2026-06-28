@@ -16,6 +16,7 @@
  * 10: Unit marker color <ARRAY>
  * 11: Unit marker texture <STRING>
  * 12: Unit marker size <NUMBER>
+ * 13: Unit custom radar icon <STRING>
  *
  * Return Value:
  * Nothing
@@ -41,7 +42,8 @@ params [
     ["_markerText", "", [""]],
     ["_markerColor", [0,0,0,0], [[]], 4],
     ["_markerTexture", "", [""]],
-    ["_markerSize", 16, [0]]
+    ["_markerSize", 16, [0]],
+    ["_customRadarIcon", "", [""]]
 ];
 
 // make sure respawn is closed
@@ -77,6 +79,10 @@ if ((_markerTexture != "") && {!(missionNamespace getVariable [QGVAR(noMarkers),
     _newUnit setVariable [QEGVAR(markers,markerTexture), _markerTexture, true];
     _newUnit setVariable [QEGVAR(markers,markerColor), _markerColor, true];
     _newUnit setVariable [QEGVAR(markers,markerSize), _markerSize, true];
+};
+
+if (_customRadarIcon != "") then {
+    _newUnit setVariable ["diwako_dui_radar_customIcon", _customRadarIcon, true];
 };
 
 // do the swap

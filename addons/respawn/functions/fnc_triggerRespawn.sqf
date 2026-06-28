@@ -121,12 +121,13 @@ private _delay = 0;
                         ["_unitMarkerText", "", [""]],
                         ["_unitMarkerColor", [0,0,0,0], [[]], 4],
                         ["_unitMarkerTexture", "", [""]],
-                        ["_unitMarkerSize", 16, [0]]
+                        ["_unitMarkerSize", 16, [0]],
+                        ["_customRadarIcon", "", [""]]
                     ];
 
                     [
                         {
-                            private _unit = _this deleteAt 13;
+                            private _unit = _this deleteAt 14;
                             if (isNull _unit || {!isPlayer _unit}) exitWith {}; // should only happen on DC/deletion
                             _this remoteExecCall [QFUNC(respawnClient), _unit];
                         },
@@ -144,6 +145,7 @@ private _delay = 0;
                             [_unitMarkerColor, _markerColor] select (_unitMarkerColor isEqualTo [0,0,0,0]),
                             _unitMarkerTexture,
                             _unitMarkerSize,
+                            _customRadarIcon,
                             _unit
                         ],
                         _delay

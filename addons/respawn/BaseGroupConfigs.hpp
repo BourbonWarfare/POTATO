@@ -151,6 +151,8 @@ class BaseSeniorRifleman: BaseMSVUnit {
 
     markerText = "SR";
     markerTexture = QPATHTOEF(markers,data\infantry.paa);
+
+    customRadarIcon = "\a3\ui_f\data\map\vehicleicons\iconmancommander_ca.paa";
 };
 class BaseMSVMedic: BaseMSVUnit {
     displayName = "Medic";
@@ -183,6 +185,8 @@ class BaseSection2IC: BaseCWLUnit {
 
     markerText = "2IC";
     markerTexture = QPATHTOEF(markers,data\infantry.paa);
+
+    customRadarIcon = "\a3\ui_f\data\map\vehicleicons\iconmancommander_ca.paa";
 };
 class BaseCWLMedic: BaseCWLUnit {
     displayName = "Medic";
