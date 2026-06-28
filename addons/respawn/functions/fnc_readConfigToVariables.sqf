@@ -62,6 +62,8 @@ GVAR(groupsToInfo) = createHashMap;
         _unitArray pushBack ([_x >> "markerTexture"] call CFUNC(getText));
         _unitArray pushBack ([_x >> "markerSize", 16] call CFUNC(getNumber));
 
+        _unitArray pushBack ([_x >> "customRadarIcon"] call CFUNC(getText));
+
         _unitsArray pushBack _unitArray;
     } forEach ("true" configClasses (_x >> "Units"));
     _infoArray pushBack _unitsArray;
