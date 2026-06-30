@@ -47,4 +47,10 @@ class CfgAmmo {
         model = "\A3\Weapons_F\Ammo\Rocket_02_fly_F";
         proxyShape = "\A3\Weapons_F\Ammo\Rocket_02_fly_F";
     };
+    // Make APILAS not be an infantry killing machine
+    class RocketBase;
+    class CUP_R_APILAS_AT: RocketBase {
+        indirectHit = 25;
+        indirectHitRange = 3.5;
+    };
 };
