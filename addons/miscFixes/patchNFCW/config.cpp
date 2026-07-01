@@ -1,6 +1,23 @@
 #include "\z\potato\addons\miscFixes\script_component.hpp"
 #undef COMPONENT
 #define COMPONENT miscFixes_patchNFCW
+// We have to fix their audio missing snaps
+// JSRS - REPLACE FOR JSRS2025
+#define JSRS_SONICCRACK_9x19 soundsetbulletfly[] = {"vn_bullet_flyby_soundset"};\
+soundsetsoniccrack[] = {"jsrs_sc_556x45mm_soundset"}
+#define JSRS_SONICCRACK_762x39 soundsetbulletfly[] = {"jsrs_sc_bullet_flyby_soundset"};\
+soundsetsoniccrack[] = {"jsrs_sc_762x39mm_soundset"}
+#define JSRS_SONICCRACK_762x54 soundsetbulletfly[] = {"jsrs_sc_bullet_flyby_soundset"};\
+soundsetsoniccrack[] = {"jsrs_sc_762x39mm_soundset"}
+// Sound sets need some attenuation
+#define ATTENUATE_3DB(initial) initial*10^(3/20)
+#define ATTENUATE_6DB(initial) initial*0.5
+// Silenced Soundset
+// JSRS - REPLACE FOR JSRS2025
+#define ADD_SILENCED_SOUNDSET sounds[] = {"StandardSound", "SilencedSound"};\
+class SilencedSound {\
+    soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset", "jsrs_7x62mm_sd_reverb_soundset"};\
+}
 
 class CfgPatches {
     class ADDON {
@@ -15,7 +32,9 @@ class CfgPatches {
             "potato_core",
             "NFCW_weapons_cfg",
             "NFCW_Cfg_Factions",
-            "NFCW_cfg_sound"
+            "NFCW_cfg_sound",
+            "sounds_f_vietnam_c",
+            "jsrs_soundmod_complete_edition"
         };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
@@ -38,7 +57,16 @@ class CfgAmmo {
     class B_NFCW_9x19: B_9x21_Ball {
         caliber = 0.4;
         hit = 6;
+        JSRS_SONICCRACK_9x19;
     };
+    class B_762x39_Ball_F;
+    class B_NFCW_762x39_Ball_F: B_762x39_Ball_F {JSRS_SONICCRACK_762x39;};
+    class B_762x54_Ball;
+    class B_NFCW_762x54_Ball: B_762x54_Ball {JSRS_SONICCRACK_762x54;};
+    class B_NFCW_762x54_Ball_F: B_762x54_Ball {JSRS_SONICCRACK_762x54;};
+    class B_NFCW_762x53_Ball_F: B_762x54_Ball {JSRS_SONICCRACK_762x54;};
+    class B_NFCW_762x54_Tracer: B_NFCW_762x54_Ball {JSRS_SONICCRACK_762x54;};
+    class B_NFCW_762x54_Ball_caseless: B_NFCW_762x54_Ball {JSRS_SONICCRACK_762x54;};
 };
 
 class CBA_DisposableLaunchers {
@@ -52,8 +80,6 @@ class CfgMagazines {
     };
 };
 
-#define ATTENUATE_3DB(initial) initial*10^0.15
-#define ATTENUATE_6DB(initial) initial*0.5
 class CfgSoundSets {
     class NFCW_kvkk_Shot_soundSet {
         volumeFactor = ATTENUATE_6DB(1.5);
@@ -77,12 +103,6 @@ class CfgSoundSets {
         volumeFactor = ATTENUATE_6DB(1.5);
     };
     class NFCW_rk_Tail_soundSet {
-        volumeFactor = ATTENUATE_6DB(1);
-    };
-    class NFCW_rk_TailDistant_soundSet {
-        volumeFactor = ATTENUATE_6DB(1);
-    };
-    class NFCW_rk_TailDistantInt_soundSet {
         volumeFactor = ATTENUATE_6DB(1);
     };
     class NFCW_kp31_Shot_soundSet {
@@ -364,20 +384,8 @@ class CfgWeapons {
     // Fix silencer and icons
     class Rifle_Base_F;
     class NFCW_762_RK_62: Rifle_Base_F {
-        class FullAuto: Mode_FullAuto {
-            sounds[] = {"StandardSound", "SilencedSound"};
-            class SilencedSound {
-                // JSRS - REPLACE FOR JSRS2025
-                soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset", "jsrs_7x62mm_sd_reverb_soundset"};
-            };
-        };
-        class Single: Mode_SemiAuto {
-            sounds[] = {"StandardSound", "SilencedSound"};
-            class SilencedSound {
-                // JSRS - REPLACE FOR JSRS2025
-                soundSetShot[] = {"jsrs_ak12_shot_silenced_soundset", "jsrs_7x62mm_sd_reverb_soundset"};
-            };
-        };
+        class FullAuto: Mode_FullAuto {ADD_SILENCED_SOUNDSET;};
+        class Single: Mode_SemiAuto {ADD_SILENCED_SOUNDSET;};
         class WeaponSlotsInfo {
             class CowsSlot: CowsSlot_NFCW_RK62 {
                 iconScale = 0.25;
