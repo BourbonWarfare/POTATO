@@ -107,7 +107,7 @@ switch (GVAR(setVehicleLoadouts)) do {
         private _vehicleSpace = getNumber (_path >> "minVehicleBoxSpace");
         if (_vehicleSpace > 0) then {
             private _currentVehicleSpace = _theVehicle getVariable [
-                QACEGVAR(cargo,hasCargo),
+                QACEGVAR(cargo,space),
                 getNumber (configOf _theVehicle >> QACEGVAR(cargo,space))
             ];
             [_theVehicle, _vehicleSpace max _currentVehicleSpace] call ACEFUNC(cargo,setSpace);
