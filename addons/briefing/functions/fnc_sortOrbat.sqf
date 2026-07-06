@@ -178,8 +178,8 @@ private _sides = [];
         private _keysToFind = if (_idx < 0) then {
             switch (true) do {
                 case ("1" in _leadStr): {["alpha", "bravo", "charlie"]};
-                case ("3" in _leadStr): {["delta", "echo", "foxtrot"]};
-                case ("2" in _leadStr): {["golf", "hotel", "india"]};
+                case ("2" in _leadStr): {["delta", "echo", "foxtrot"]};
+                case ("3" in _leadStr): {["golf", "hotel", "india"]};
                 default {["alpha", "bravo", "charlie"]};
             }
         } else {
