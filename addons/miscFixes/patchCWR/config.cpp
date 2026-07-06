@@ -50,6 +50,12 @@ class CfgWeapons {
         ACEGVAR(overpressure,offset) = 1.35;
         ACEGVAR(overpressure,range) = 28;
     };
+    class Launcher_Base_F;
+    class cwr3_launch_rpg75_loaded: Launcher_Base_F {
+        ACEGVAR(overpressure,angle) = 33.7; // based on czech wikipedia backblast zone
+        ACEGVAR(overpressure,offset) = 0.8;
+        ACEGVAR(overpressure,range) = 20;
+    };
 };
 
 class CfgVehicles {
