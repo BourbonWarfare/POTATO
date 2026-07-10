@@ -149,7 +149,7 @@ class CfgAmmo {
         indirectHitRange = 8;
         model = "\A3\Weapons_F_Tank\Launchers\MRAWS\rocket_MRAWS_HEAT55_F.p3d";
     };
-    class GVARMAIN(R_FFV469B_smoke): R_MRAAWS_HEAT_F {
+    class GVARMAIN(R_FFV469C_smoke): R_MRAAWS_HEAT_F {
         ACEGVAR(frag,skip) = 1;
         caliber = 0.01;
         craterEffects = "ATRocketCrater";

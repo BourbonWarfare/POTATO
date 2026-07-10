@@ -103,6 +103,7 @@ class CfgMagazines {
         descriptionShort = "Type: FFV448 HE Rocket<br />Rounds: 1<br />Used in: Carl Gustaf, MAAWS";
         displayName = "FFV448 (Programmable HE/AB) Round";
         displayNameShort = "HE";
+        mass = 57.3;
     };
     class GVARMAIN(ASM509_tb): MRAWS_HE_F {
         ammo = QGVARMAIN(R_ASM509_tb);
@@ -110,12 +111,14 @@ class CfgMagazines {
         descriptionShort = "Type: ASM-509 HE Rocket<br />Rounds: 1<br />Used in: Carl Gustaf, MAAWS";
         displayName = "ASM-509 (Thermobaric) Round";
         displayNameShort = "Thermobaric";
+        mass = 92.6;
     };
-    class GVARMAIN(FFV469B_smoke): MRAWS_HEAT55_F {
-        ammo = QGVARMAIN(R_FFV469B_smoke);
+    class GVARMAIN(FFV469C_smoke): MRAWS_HEAT55_F {
+        ammo = QGVARMAIN(R_FFV469C_smoke);
         author = "Bourbon Warfare";
-        descriptionShort = "Type: FFV469B Smoke Rocket<br />Rounds: 1<br />Used in: Carl Gustaf, MAAWS";
-        displayName = "FFV469B (Smoke) Round";
+        descriptionShort = "Type: FFV469C Smoke Rocket<br />Rounds: 1<br />Used in: Carl Gustaf, MAAWS";
+        displayName = "FFV469C (Smoke) Round";
         displayNameShort = "Smoke";
+        mass = 68.3;
     };
 };
