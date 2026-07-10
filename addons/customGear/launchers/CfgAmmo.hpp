@@ -147,15 +147,19 @@ class CfgAmmo {
         hit = 500;
         indirectHit = 40;
         indirectHitRange = 8;
+        model = "\A3\Weapons_F_Tank\Launchers\MRAWS\rocket_MRAWS_HEAT55_F.p3d";
     };
     class GVARMAIN(R_FFV469B_smoke): R_MRAAWS_HEAT_F {
         ACEGVAR(frag,skip) = 1;
         caliber = 0.01;
         craterEffects = "ATRocketCrater";
         explosive = 0.05;
+        explosionEffects = "";
+        explosionSoundEffect = "";
         hit = 24;
         indirectHit = 2;
         indirectHitRange = 1;
+        model = "\A3\Weapons_F_Tank\Launchers\MRAWS\rocket_MRAWS_HEAT55_F.p3d";
         submunitionAmmo = QGVARMAIN(carlg_SmokeShell);
         submunitionInitialOffset[] = {0,0,-1};
         submunitionInitSpeed = 0.1;
@@ -164,6 +168,7 @@ class CfgAmmo {
     // Smoke submunition
     class smokeShell;
     class GVARMAIN(carlg_SmokeShell): smokeShell {
+        model = "\A3\weapons_f\ammo\shell_smoke";
         class EventHandlers {
             class ADDON {
                 init = QUOTE(_this call FUNC(carlGSmoke));

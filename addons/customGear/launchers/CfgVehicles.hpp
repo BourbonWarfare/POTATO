@@ -17,7 +17,7 @@ class CfgVehicles {
                     class GVAR(carlG_resetLaserOffset) {
                         displayName = "Reset Offset (5m)";
                         condition = QUOTE(_player getVariable [ARR_2(QQGVAR(abCGRnd),false)]);
-                        statement = QUOTE(_player setVariable [ARR_2(QQGVAR(abOffset),5)]; [ARR_4(QQUOTE(Offset to laser set to 5m),true,5,2)] call ACEFUNC(common,displayText););
+                        statement = QUOTE(_player setVariable [ARR_2(QQGVAR(abOffset),5)]; [ARR_4('Offset to laser set to 5m',true,5,2)] call ACEFUNC(common,displayText););
                     };
                     class GVAR(carlG_DecLaserOffset) {
                         displayName = "Decrease Offset (5m)";
