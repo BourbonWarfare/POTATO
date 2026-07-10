@@ -119,25 +119,28 @@ class CfgAmmo {
     };
 
     // Carl Gustaf time
-    class R_MRAAWS_HEAT_F;
+    class RocketBase;
+    class R_MRAAWS_HEAT_F: RocketBase {
+        class EventHandlers;
+    };
     class R_MRAAWS_HE_F: R_MRAAWS_HEAT_F {
         class EventHandlers;
     };
     class GVARMAIN(R_FFV448_he): R_MRAAWS_HE_F {
+        ACEGVAR(frag,skip) = 0;
+        ACEGVAR(frag,charge) = 400; // unpublished, 2.7 kg total
+        ACEGVAR(frag,metal) = 400; // unpublished, shell casing approx
+        ACEGVAR(frag,gurney_c) = 2800;
+        ACEGVAR(frag,gurney_k) = 0.5;
+        ACEGVAR(frag,fragCount) = 5000; // ACE FRAG, when implemented reduce explosion PFX
+        ACEGVAR(frag,classes)[] = {QACEGVAR(frag,small),QACEGVAR(frag,small),QACEGVAR(frag,small),QACEGVAR(frag,medium),QACEGVAR(frag,tiny)};
+        explosionEffects = "ATMissileExplosion";
+        hit = 100;
+        indirectHit = 40;
+        indirectHitRange = 5;
         class EventHandlers: EventHandlers {
-            ACEGVAR(frag,skip) = 0;
-            ACEGVAR(frag,charge) = 400; // unpublished, 2.7 kg total
-            ACEGVAR(frag,metal) = 400; // unpublished, shell casing approx
-            ACEGVAR(frag,gurney_c) = 2800;
-            ACEGVAR(frag,gurney_k) = 0.5;
-            ACEGVAR(frag,fragCount) = 5000; // ACE FRAG, when implemented reduce explosion PFX
-            ACEGVAR(frag,classes)[] = {QACEGVAR(frag,small),QACEGVAR(frag,small),QACEGVAR(frag,small),QACEGVAR(frag,medium),QACEGVAR(frag,tiny)};
-            explosionEffects = "ATMissileExplosion";
-            hit = 100;
-            indirectHit = 40;
-            indirectHitRange = 5;
             class ADDON {
-                init = QUOTE(_this call FUNC(carlGAB_DetonateLaser));
+                fired = QUOTE(_this call FUNC(carlGAB_DetonateLaser));
             };
         };
     };
@@ -151,29 +154,25 @@ class CfgAmmo {
     };
     class GVARMAIN(R_FFV469C_smoke): R_MRAAWS_HEAT_F {
         ACEGVAR(frag,skip) = 1;
-        caliber = 0.01;
+        caliber = 0.1;
         craterEffects = "ATRocketCrater";
-        explosive = 0.05;
+        explosive = 0.5;
         explosionEffects = "";
         explosionSoundEffect = "";
-        hit = 24;
-        indirectHit = 2;
+        hit = 20;
+        indirectHit = 0.5;
         indirectHitRange = 1;
         model = "\A3\Weapons_F_Tank\Launchers\MRAWS\rocket_MRAWS_HEAT55_F.p3d";
-        submunitionAmmo = QGVARMAIN(carlg_SmokeShell);
-        submunitionInitialOffset[] = {0,0,-1};
-        submunitionInitSpeed = 0.1;
-        submunitionParentSpeedCoef = 0;
-    };
-    // Smoke submunition
-    class smokeShell;
-    class GVARMAIN(carlg_SmokeShell): smokeShell {
-        model = "\A3\weapons_f\ammo\shell_smoke";
-        class EventHandlers {
+        class EventHandlers: EventHandlers {
             class ADDON {
                 init = QUOTE(_this call FUNC(carlGSmoke));
             };
         };
+    };
+    // Smoke submunition
+    class SmokeShellArty;
+    class GVARMAIN(carlg_SmokeShell): SmokeShellArty {
+        effectsSmoke = "potato_filledSmoke_bigSmoke";
         timeToLive = 30;
     };
 };

@@ -12,7 +12,7 @@
 * This funciton will handle whether and when a carlG round should airburst
 *
 * Arguments:
-* _projectile - The projectile to airburst (OBJECT)
+* fired EH parameters
 *
 * Return:
 * None
@@ -20,20 +20,17 @@
 * Example:
 * [_projectile] call potato_customGear_launchers_fnc_carlGAB_DetonateLaser;
 *//***************************************************************************/
-params [["_projectile", objNull]];
-if !(_projectile getShotInfo 5) exitWith {};
-// private _unit = _projectile getShotInfo 9; // 2.22 syntax
-private _unit = (getShotParents _projectile)#1;
-if (isNull _unit) then {_unit = (getShotParents _projectile)#0;};
-if (!(_unit getVariable [QGVAR(abCGRnd), false]) ||
-    {typeOf _projectile != QGVARMAIN(R_FFV448_he)} ||
-    {!(toLowerANSI secondaryWeapon _unit in ["launch_mraws_green_f","launch_mraws_sand_f","launch_mraws_olive_f"])}) exitWith {};
+params ["", "_weapon", "", "", "_ammo", "", "_projectile", "_unit"];
+if (!(_projectile getShotInfo 5) ||
+    {!(_unit getVariable [QGVAR(abCGRnd), false])} ||
+    {_ammo != QGVARMAIN(R_FFV448_he)} ||
+    {!(toLowerANSI _weapon in ["launch_mraws_green_f","launch_mraws_sand_f","launch_mraws_olive_f"])}) exitWith {};
 private _distance = parseNumber ctrlText (((uiNamespace getVariable "RscUnitInfo") displayCtrl CTRL_CA_IGUI_ELEMENTS_GROUP) controlsGroupCtrl CTRL_CA_DISTANCE);
 if (_distance < 30) exitWith {};
 // TBD configurable offset
 _distance = _distance + (_unit getVariable [QGVAR(abOffset), 5]);
-private _friction = 0.05*-0.002; // Based on config'd val
-private _v = [350, 0]; // Based on config'd val
+private _friction = 0.05*-0.002; // Based on config'd vals
+private _v = [350, 0]; // Based on config'd vals
 private _r = 0;
 private _itr = 0;
 private _vMag = -1;
