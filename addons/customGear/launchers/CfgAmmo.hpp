@@ -103,7 +103,7 @@ class CfgAmmo {
         caliber = 40;
         hit = 400;
     };
-    
+
     // Custom Anti-Air Capable RPG rounds
     class CUP_R_PG7VL_AT;
     class CUP_R_PG7VM_AT;
@@ -116,5 +116,59 @@ class CfgAmmo {
     };
     class potato_R_PG7V_AA: CUP_R_PG7V_AT {
         airLock = 1;
+    };
+
+    // Carl Gustaf time
+    class R_MRAAWS_HEAT_F;
+    class R_MRAAWS_HE_F: R_MRAAWS_HEAT_F {
+        class EventHandlers;
+    };
+    class GVARMAIN(R_FFV448_he): R_MRAAWS_HE_F {
+        class EventHandlers: EventHandlers {
+            ACEGVAR(frag,skip) = 0;
+            ACEGVAR(frag,charge) = 400; // unpublished, 2.7 kg total
+            ACEGVAR(frag,metal) = 400; // unpublished, shell casing approx
+            ACEGVAR(frag,gurney_c) = 2800;
+            ACEGVAR(frag,gurney_k) = 0.5;
+            ACEGVAR(frag,fragCount) = 5000; // ACE FRAG, when implemented reduce explosion PFX
+            ACEGVAR(frag,classes)[] = {QACEGVAR(frag,small),QACEGVAR(frag,small),QACEGVAR(frag,small),QACEGVAR(frag,medium),QACEGVAR(frag,tiny)};
+            explosionEffects = "ATMissileExplosion";
+            hit = 100;
+            indirectHit = 40;
+            indirectHitRange = 5;
+            class ADDON {
+                init = QUOTE(_this call FUNC(carlGAB_DetonateLaser));
+            };
+        };
+    };
+    class GVARMAIN(R_ASM509_tb): R_MRAAWS_HE_F {
+        ACEGVAR(frag,skip) = 1; // thermobaric, no real details
+        ACEGVAR(frag,gurney_c) = 2745; // idk, PAX-42 or something
+        hit = 500;
+        indirectHit = 40;
+        indirectHitRange = 8;
+    };
+    class GVARMAIN(R_FFV469B_smoke): R_MRAAWS_HEAT_F {
+        ACEGVAR(frag,skip) = 1;
+        caliber = 0.01;
+        craterEffects = "ATRocketCrater";
+        explosive = 0.05;
+        hit = 24;
+        indirectHit = 2;
+        indirectHitRange = 1;
+        submunitionAmmo = QGVARMAIN(carlg_SmokeShell);
+        submunitionInitialOffset[] = {0,0,-1};
+        submunitionInitSpeed = 0.1;
+        submunitionParentSpeedCoef = 0;
+    };
+    // Smoke submunition
+    class smokeShell;
+    class GVARMAIN(carlg_SmokeShell): smokeShell {
+        class EventHandlers {
+            class ADDON {
+                init = QUOTE(_this call FUNC(carlGSmoke));
+            };
+        };
+        timeToLive = 30;
     };
 };

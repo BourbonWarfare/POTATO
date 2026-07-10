@@ -19,7 +19,7 @@ class CfgPatches {
         };
         magazines[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "CUP_Weapons_LoadOrder"};
+        requiredAddons[] = {  "A3_Weapons_F_Tank", "potato_core", "CUP_Weapons_LoadOrder" };
         skipWhenMissingDependencies = 1;
         author = "Potato";
         authors[] = {"AChesheireCat", "Lambda.Tiger"};
@@ -30,6 +30,8 @@ class CfgPatches {
 
 #include "CfgAmmo.hpp"
 #include "CfgDisposableLaunchers.hpp"
+#include "CfgFunctions.hpp"
 #include "CfgMagazines.hpp"
-#include "CfgWeapons.hpp"
 #include "CfgMagazineWells.hpp"
+#include "CfgVehicles.hpp"
+#include "CfgWeapons.hpp"

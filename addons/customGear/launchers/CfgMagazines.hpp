@@ -64,7 +64,7 @@ class CfgMagazines {
         initSpeed = 108;
         mass = 80.4;
     };
-    
+
     // Custom Anti-Air Capable RPG rounds
     class CUP_PG7V_M;
     class CUP_PG7VM_M;
@@ -80,5 +80,42 @@ class CfgMagazines {
     class potato_PG7VL_M: CUP_PG7VL_M {
         ammo = "potato_R_PG7V_AA";
         maxLeadSpeed = 150;
+    };
+
+    // Carl Gustaf time
+    class CA_LauncherMagazine;
+    class MRAWS_HEAT_F: CA_LauncherMagazine {
+        descriptionShort = "Type: FFV751 Tandem HEAT Rocket<br />Rounds: 1<br />Used in: MAAWS";
+        displayName = "FFV751 (Tandem HEAT) Round";
+        displayNameShort = "Tandem HEAT";
+    };
+    class MRAWS_HEAT55_F: MRAWS_HEAT_F {
+        descriptionShort = "Type: FFV551C RS HEAT Rocket<br />Rounds: 1<br />Used in: MAAWS";
+        displayName = "FFV551C RS (HEAT) Round";
+    };
+    class MRAWS_HE_F: MRAWS_HEAT_F {
+        descriptionShort = "Type: MAAWS HE 44 Rocket<br />Rounds: 1<br />Used in: MAAWS";
+        displayName = "FFV441D RS (HE) Round";
+    };
+    class GVARMAIN(FFV448_he): MRAWS_HE_F {
+        ammo = QGVARMAIN(R_FFV448_he);
+        author = "Bourbon Warfare";
+        descriptionShort = "Type: FFV448 HE Rocket<br />Rounds: 1<br />Used in: Carl Gustaf, MAAWS";
+        displayName = "FFV448 (Programmable HE/AB) Round";
+        displayNameShort = "HE";
+    };
+    class GVARMAIN(ASM509_tb): MRAWS_HE_F {
+        ammo = QGVARMAIN(R_ASM509_tb);
+        author = "Bourbon Warfare";
+        descriptionShort = "Type: ASM-509 HE Rocket<br />Rounds: 1<br />Used in: Carl Gustaf, MAAWS";
+        displayName = "ASM-509 (Thermobaric) Round";
+        displayNameShort = "Thermobaric";
+    };
+    class GVARMAIN(FFV469B_smoke): MRAWS_HEAT55_F {
+        ammo = QGVARMAIN(R_FFV469B_smoke);
+        author = "Bourbon Warfare";
+        descriptionShort = "Type: FFV469B Smoke Rocket<br />Rounds: 1<br />Used in: Carl Gustaf, MAAWS";
+        displayName = "FFV469B (Smoke) Round";
+        displayNameShort = "Smoke";
     };
 };
