@@ -41,7 +41,7 @@ class Cfg3DEN {
                             displayName = "Mission Type:";
                             property = QGVAR(missionType);
                             control = QUOTE(combo);
-                            defaultValue = 0;
+                            defaultValue = -2607;
                             typeName = "NUMBER";
                             class Values {
                                 class INVALID {
