@@ -177,14 +177,15 @@ private _addWeaponSystem = {
         private _muzzles = getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");
         private _weaponMagazines = compatibleMagazines _weapon;
 
-        ((GVAR(turretMagsArray) select _index) select 1) pushBack _weaponMagazines;
-
         {
             if (_x != "this") then {
                 _weaponMagazines append (getArray (configFile >> "CfgWeapons" >> _weapon >> _x >> "magazines"));
             };
             false
         } count _muzzles;
+
+        _weaponMagazines = _weaponMagazines arrayIntersect _weaponMagazines;
+        ((GVAR(turretMagsArray) select _index) select 1) pushBack _weaponMagazines;
 
         private _tvIndexWeapon = (_control controlsGroupCtrl 101) tvAdd [[_tvIndexTurret], _x];
         (_control controlsGroupCtrl 101) tvExpand [_tvIndexTurret, _tvIndexWeapon];
