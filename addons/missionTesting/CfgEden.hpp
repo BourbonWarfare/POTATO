@@ -51,6 +51,7 @@ class Cfg3DEN {
                                 class AFTER_HOURS {
                                     name = "After-Hours/Offnight";
                                     value = 0;
+                                    default = 1;
                                 };
                                 class COOP {
                                     name = "COOP";
