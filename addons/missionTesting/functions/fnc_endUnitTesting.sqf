@@ -1,4 +1,7 @@
 #include "..\script_component.hpp"
+#define INFORM_TESTER(msg) systemChat msg;\
+hint msg;\
+INFO(msg)
 /***************************************************************************//*
 * Author: Lambda.Tiger
 *
@@ -65,4 +68,38 @@ if (GVAR(activeTestUnits) isEqualTo [] && !GVAR(creatingUnits)) then {
     GVAR(woundRecvEH) = -1;
     GVAR(killedEH) = -1;
     publicVariable QGVAR(damageTestingResults);
+    if (is3DENPreview) then {
+        private _testResults = [OUTPUT_NONE] call FUNC(summarizeArmorTesting);
+        _testResults = _testResults regexReplace ["&", "?"];
+        _testResults = ["<font size=28 face=""PuristaBold"">Damage Report</font>"] +
+                        (_testResults splitString endl);
+        _testResults = _testResults apply {_x regexReplace [".*(\[\*\])", "-"]};
+        _testResults = _testResults select {_x != "[list]" && _x !="[/list]"};
+        {
+            if ("Shooting At" in _x) then {
+                _testResults set [_forEachIndex, "<br/><font size=18>" + _x + "</font>"];
+            };
+        } forEach _testResults;
+        if !(player diarySubjectExists "POTATO") then {
+            player createDiarySubject ["POTATO", "POTATO"];
+        };
+        // find the diary
+        private _diaryEntries = player allDiaryRecords "POTATO";
+        // find and replace existing orbat pages
+        private _testMenuNotFound = true;
+        {
+            _x params ["_idx", "_title", "", "", "", "", "", "", "_record"];
+            if (_title == "Damage Report") then {
+                player setDiaryRecordText [["POTATO", _record], ["Damage Report", _testResults joinString "<br/>"]];
+                _testMenuNotFound = false;
+            };
+        } forEach _diaryEntries;
+
+        // if we didn't find and replace, add one
+        if (_testMenuNotFound) then {
+            player createDiaryRecord ["POTATO", ["Damage Report", _testResults joinString "<br/>"], taskNull, "NONE", false];
+        };
+
+        INFORM_TESTER("Test results put into diary entry (check map)");
+    };
 };
