@@ -18,14 +18,14 @@ params[""];
 
 private _trueFalse = {
     params["_cbValue"];
-    [BBFALSE, BBTRUE] select _cbValue
+    [MDFALSE, MDTRUE] select _cbValue
 };
 
 private _checkBoxes = {
     params["_text","_cbValue","_applicable"];
     private _cbValueStr = [_cbValue] call _trueFalse;
     private _missionType = getMissionConfigValue QGVAR(missionType);
-    if (_applicable == _missionType || _applicable == 0) then {
+    if (_cbValueStr == ":x:" && {_applicable == _missionType || _applicable == 0}) then {
         S_NEWTEXTLINE_FORMATTEXT ["[*]%1 : %2",_text,_cbValueStr];
     };
 };
@@ -33,13 +33,13 @@ private _checkBoxes = {
 private _overallPassFail ={
     params["_masterChecklistArray"];
     private _failFlag = false;
-    private _text = BBPASS;
+    private _text = MDPASS;
     {
         private _sectionPassFail = _x select 2;
         if(_sectionPassFail == 0) exitWith {_failFlag = true};
     }forEach _masterChecklistArray;
     if(_failFlag) then {
-        _text = BBFAIL;
+        _text = MDFAIL;
     };
     _text;
 };
@@ -47,18 +47,12 @@ private _overallPassFail ={
 private _createReportSection = {
     params["_sectionTitle","_sectionArray","_passFailInt","_sectionNotes","_sectionNotesFlag"];
 
-    private _passFailText = BBPASSFAIL_A select _passFailInt;
-    private _notesFlatStr = BBNOTEFLAG_A select _sectionNotesFlag;
-    S_NEWTEXTLINE ["[size=150][u][color=#00BFFF]%1[/color][/u] : %2 [/size] %3",_sectionTitle,_passFailText,_notesFlatStr];
-    S_NEWTEXTLINE ["[spoiler=%1 Checklist + Notes if applicable]",_sectionTitle];
-    S_NEWTEXTLINE ["[list]"];
+    S_NEWTEXTLINE ["## __%1__: %2 ",_sectionTitle,MDPASSFAIL_A select _passFailInt];
     {_x call _checkBoxes;} forEach _sectionArray;
-    S_NEWTEXTLINE ["[/list]"];
     if(_missionMaker != name ACE_player) then {
-        S_NEWTEXTLINE ["[u][color=#FF4000][size=150]NOTES :[/size][/color][/u]"];
+        S_NEWTEXTLINE ["### __ NOTES :__"];
         S_NEWTEXTLINE ["%1",_sectionNotes];
     };
-    S_NEWTEXTLINE ["[/spoiler]"];
 };
 
 private _missionMaker = getMissionConfigValue ["author","????"];
@@ -79,13 +73,13 @@ private _missionTag2 = if(isNil QUOTE(_missionTag2Var)) then {"NONE"} else {A_MI
 private _missionTag3Var = getMissionConfigValue QGVAR(missionTag3);
 private _missionTag3 = if(isNil QUOTE(_missionTag3Var)) then {"NONE"} else {A_MISSION_TAGS select _missionTag3Var};
 private _missionCustomScripting = getMissionConfigValue QGVAR(missionFlagCustomScripting);
-private _missionCustomScriptingStr = if(isNil QUOTE(_missionCustomScripting)) then {BBFALSE} else {[_missionCustomScripting] call _trueFalse};
+private _missionCustomScriptingStr = if(isNil QUOTE(_missionCustomScripting)) then {MDCHECK} else {[_missionCustomScripting] call _trueFalse};
 private _missionCustomLoadout = getMissionConfigValue QGVAR(missionFlagCustomLoadout);
-private _missionCustomLoadoutStr = if(isNil QUOTE(_missionCustomLoadout)) then {BBFALSE} else {[_missionCustomLoadout] call _trueFalse};
+private _missionCustomLoadoutStr = if(isNil QUOTE(_missionCustomLoadout)) then {MDCHECK} else {[_missionCustomLoadout] call _trueFalse};
 private _missionCustomVicLoadout = getMissionConfigValue QGVAR(missionFlagCustomVicLoadout);
-private _missionCustomVicLoadoutStr = if(isNil QUOTE(_missionCustomVicLoadout)) then {BBFALSE} else {[_missionCustomVicLoadout] call _trueFalse};
+private _missionCustomVicLoadoutStr = if(isNil QUOTE(_missionCustomVicLoadout)) then {MDCHECK} else {[_missionCustomVicLoadout] call _trueFalse};
 private _unitSpecificBrief = getMissionConfigValue QGVAR(missionFlagUnitSpecificBriefing);
-private _unitSpecificBriefStr = if(isNil QUOTE(_unitSpecificBrief)) then {BBFALSE} else {[_unitSpecificBrief] call _trueFalse};
+private _unitSpecificBriefStr = if(isNil QUOTE(_unitSpecificBrief)) then {MDCHECK} else {[_unitSpecificBrief] call _trueFalse};
 private _missionNotesForTester =  getMissionConfigValue QGVAR(missionMakerNotesForTesters);
 private _masterChecklistArray = nil;
 private _armotTestingText = call FUNC(summarizeArmorTesting);
@@ -94,8 +88,8 @@ private _textArrayShort = [];
 
 if(_missionMaker == name ACE_player || is3DEN) then {
     _masterChecklistArray = GVAR(MissionMakerChecklistMaster);
-    S_NEWTEXTLINE ["[size=200][u][b]Mission : [color=#FF4000]%1[/color][/b][/u]   [b][u]Type : [color=#FF4000]%2[/color][/u][/b][/size]", _missionName, _missionType];
-    S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%1[/color][/b][/u][/size]   [size=150][u][b]BWMF Version : [color=#FF4000]%2[/color][/b][/u][/size]",_missionVersion,_missionFrameworkDate];
+    S_NEWTEXTLINE ["# __**Mission: %1**__   **__Type : %2__**", _missionName, _missionType];
+    S_NEWTEXTLINE ["# __**Version: %1**__   __**BWMF Version : %2**__",_missionVersion,_missionFrameworkDate];
     // TEMP CODE Remove cicrca 2026-10-01
     if (_missionSSTime > 0 && _missionSSTime < 30) then {
         _missionSSTime = _missionSSTime * 60; // assume it was in minutes, convert to seconds
@@ -104,24 +98,24 @@ if(_missionMaker == name ACE_player || is3DEN) then {
         _missionTimeLength = _missionTimeLength * 60; // assume it was in minutes, convert to seconds
     };
     // END TEMP CODE Remove cicrca 2026-10-01
-    S_NEWTEXTLINE ["[size=150]Mission Tags : [color=#FF4000]%1, %2, %3[/color]  SS Length (mins): [color=#FF4000]%4[/color]  Mission Length (mins): [color=#FF4000]%5[/color][/size] ",_missionTag1,_missionTag2,_missionTag3,ceil (_missionSSTime / 60), ceil (_missionTimeLength / 60)];
+    S_NEWTEXTLINE ["## Mission Tags : %1, %2, %3  SS Length (mins): %4  Mission Length (mins): %5 ",_missionTag1,_missionTag2,_missionTag3,ceil (_missionSSTime / 60), ceil (_missionTimeLength / 60)];
     if (isServer && name ACE_player == _missionMaker) then {
-        S_NEWTEXTLINE ["[size=150][u]Mission Summary (As shown in Slotting screen, Inc of Ratio if TvT) :[/u][/size]"];
-        S_NEWTEXTLINE ["[color=#FF4000]%1[/color]",_missionSummary];
+        S_NEWTEXTLINE ["## __Mission Summary (As shown in Slotting screen, Inc of Ratio if TvT) :__"];
+        S_NEWTEXTLINE ["%1",_missionSummary];
     };
-    S_NEWTEXTLINE ["[size=150]Player Count - MIN: [color=#FF4000]%1[/color] Recommended: [color=#FF4000]%2[/color] MAX: [color=#FF4000]%3[/color][/size]",_missionPlayerCountMin, _missionPlayerCountRec,_missionPlayerCountMax];
-    S_NEWTEXTLINE_FORMATTEXT ["[size=150]Custom Scripting : %1 Custom Loadout : %2 Custom Vic Loadout : %3  Unit Specific Briefings : %4[/size]",_missionCustomScriptingStr,_missionCustomLoadoutStr,_missionCustomVicLoadoutStr,_unitSpecificBriefStr];
+    S_NEWTEXTLINE ["## Player Count - MIN: %1 Recommended: %2 MAX: %3",_missionPlayerCountMin, _missionPlayerCountRec,_missionPlayerCountMax];
+    S_NEWTEXTLINE_FORMATTEXT ["## Custom Scripting: %1 Custom Loadout: %2 Custom Vic Loadout: %3  Unit Specific Briefings: %4",_missionCustomScriptingStr,_missionCustomLoadoutStr,_missionCustomVicLoadoutStr,_unitSpecificBriefStr];
 
-    S_NEWTEXTLINE_SHORT ["[size=150][u][b]New Version : [color=#FF4000]%1[/color][/b][/u][/size]",_missionVersion];
+    S_NEWTEXTLINE_SHORT ["## __**New Version: %1**__",_missionVersion];
 
     {
         _x call _createReportSection;
     } forEach _masterChecklistArray;
 
-    S_NEWTEXTLINE_SHORT ["[size=150][b][u]Version Changes[/u][/b][/size] :"];
+    S_NEWTEXTLINE_SHORT ["## **__Version Changes__**:"];
     S_NEWTEXTLINE_SHORT ["%1",GVAR(GeneraMissionNotesForMM)];
-    S_NEWTEXTLINE["[size=150][b][u]Any other notes for Mission Testers[/u][/b][/size] :"];
-    S_NEWTEXTLINE["[color=#FF4000]%1[/color]",GVAR(GeneraMissionNotesForMM)];
+    S_NEWTEXTLINE["## **__Any other notes for Mission Testers__**:"];
+    S_NEWTEXTLINE["%1",GVAR(GeneraMissionNotesForMM)];
 
     private _textLong = _textArray joinString (endl + endl);
     private _textShort = _textArrayShort joinString (endl + endl);
@@ -156,10 +150,10 @@ if(_missionMaker == name ACE_player || is3DEN) then {
     hint "Reports Generated. Highlight the contents to the left of the checklist and copy it to forum.";
 } else {
     _masterChecklistArray = +GVAR(MissionTestingChecklistMaster);
-    S_NEWTEXTLINE ["[size=200][u][b]Version : [color=#FF4000]%1[/color][/b][/u][/size]",_missionVersion];
-    S_NEWTEXTLINE ["[size=150]Mission Tester : [color=#FF4000]%1[/color][/size]",name ACE_player];
+    S_NEWTEXTLINE ["# __**Version: %1**__",_missionVersion];
+    S_NEWTEXTLINE ["## Mission Tester: %1",name ACE_player];
     private _missionOverallPassFail = [_masterChecklistArray] call _overallPassFail;
-    S_NEWTEXTLINE ["[size=200]Test Result : %1[/size]",_missionOverallPassFail];
+    S_NEWTEXTLINE ["# Test Result: %1",_missionOverallPassFail];
 
     if (_armotTestingText isNotEqualTo "") then {
         private _otherConsid = _masterChecklistArray select -1;
@@ -171,10 +165,10 @@ if(_missionMaker == name ACE_player || is3DEN) then {
         _x call _createReportSection;
     } forEach _masterChecklistArray;
 
-    S_NEWTEXTLINE["[size=150][b][u]General Feedback from Mission Tester[/u][/b][/size] :"];
+    S_NEWTEXTLINE["## **__General Feedback from Mission Tester__**:"];
     S_NEWTEXTLINE["%1",GVAR(GeneraMissionNotesForMM)];
 
-    private _text = _textArray joinString (endl + endl);
+    private _text = _textArray joinString endl;
     private _reportCtrl = DISPLAY_TESTMENU displayCtrl IDC_REPORT_L;
     if (isNull _reportCtrl) then {
         private _reportBackground = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscBackgroundGUI),-1];
@@ -187,5 +181,5 @@ if(_missionMaker == name ACE_player || is3DEN) then {
     } else {
         _reportCtrl ctrlSetText _text;
     };
-    hint "Report Generated. Highlight the contents to the left of the checklist and copy it to forum.";
+    hint "Report Generated. Highlight the contents to the left of the checklist and copy it to the discord forum.";
 };

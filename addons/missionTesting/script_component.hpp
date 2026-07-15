@@ -35,6 +35,15 @@
 #define BBNA "[color=#FFFF00]Not Applicable[/color]"
 #define BBPASSFAIL_A [BBFAIL,BBPASS,BBNA]
 
+// Discord Markdown Defines
+#define MDTRUE "***ERROR***"
+#define MDFALSE ":x:"
+#define MDCHECK ":white_check_mark:"
+#define MDPASS "***PASS***"
+#define MDFAIL "***FAIL***"
+#define MDNA "***Not Applicable***"
+#define MDPASSFAIL_A [MDFAIL,MDPASS,MDNA]
+
 // Report Defines
 #define S_NEWTEXTLINE _textArray pushBack format
 #define S_NEWTEXTLINE_FORMATTEXT _textArray pushBack formatText
