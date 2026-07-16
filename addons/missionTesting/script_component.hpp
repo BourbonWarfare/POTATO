@@ -36,7 +36,7 @@
 #define BBPASSFAIL_A [BBFAIL,BBPASS,BBNA]
 
 // Discord Markdown Defines
-#define MDTRUE "***ERROR***"
+#define MDTRUE ":white_check_mark:"
 #define MDFALSE ":x:"
 #define MDCHECK ":white_check_mark:"
 #define MDPASS "***PASS***"

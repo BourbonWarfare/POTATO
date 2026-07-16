@@ -147,7 +147,7 @@ if(_missionMaker == name ACE_player || is3DEN) then {
         _reportCtrlLong ctrlSetText _textLong;
         _reportCtrlShort ctrlSetText _textShort;
     };
-    hint "Reports Generated. Highlight the contents to the left of the checklist and copy it to forum.";
+    hint "Reports Generated. Highlight the contents to the left of the checklist and copy it to discord forum.";
 } else {
     _masterChecklistArray = +GVAR(MissionTestingChecklistMaster);
     S_NEWTEXTLINE ["# __**Version: %1**__",_missionVersion];
