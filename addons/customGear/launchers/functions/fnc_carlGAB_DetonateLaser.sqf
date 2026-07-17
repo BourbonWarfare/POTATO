@@ -29,25 +29,9 @@ private _distance = parseNumber ctrlText (((uiNamespace getVariable "RscUnitInfo
 if (_distance < 30) exitWith {};
 // TBD configurable offset
 _distance = _distance + (_unit getVariable [QGVAR(abOffset), 5]);
-private _friction = 0.05*-0.002; // Based on config'd vals
-private _v = [350, 0]; // Based on config'd vals
-private _r = 0;
-private _itr = 0;
-private _vMag = -1;
-private _lastV = [];
-private _dr = 0;
-while {_itr * CONST_DT < 4 && _r < _distance} do {
-    _lastV = _v;
-    _vMag = vectorMagnitude _lastV;
-    _v = [
-        (_lastV#0) + _friction * _vMag * (_lastV#0) * CONST_DT,
-        (_lastV#1) + (CONST_G + _friction * _vMag * (_lastV#1)) * CONST_DT
-    ];
-    _dr = (_lastV#0) * CONST_DT / 2;
-    _r = _r + (_v#0) * CONST_DT / 2 + _dr;
-    _itr = _itr + 1;
-};
+// We love regression!
+private _time = 2e-7 * (_distance^2) + 0.0029 * _distance - 0.0006;
 
 [{
     triggerAmmo _this;
-}, _projectile, _itr * CONST_DT] call CBA_fnc_waitAndExecute;
+}, _projectile, _time] call CBA_fnc_waitAndExecute;
