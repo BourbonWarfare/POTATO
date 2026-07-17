@@ -21,3 +21,11 @@ class CfgWeapons {
         ACEGVAR(overpressure,angle) = 45; // they overrride ace because they hate us
     };
 };
+
+class CfgMagazines {
+    class CA_LauncherMagazine;
+    class MRAWS_HEAT_F: CA_LauncherMagazine {\
+        ACEGVAR(arsenal,hide) = 0;
+        scope = 2;
+    };
+};
