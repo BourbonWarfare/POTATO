@@ -55,8 +55,6 @@ if (isNil QGVAR(testingVarUpdateEH)) then {
         _testResults = _testResults regexReplace ["&", "?"];
         _testResults = ["<font size=28 face=""PuristaBold"">Damage Report</font>"] +
                         (_testResults splitString endl);
-        _testResults = _testResults apply {_x regexReplace [".*(\[\*\])", "-"]};
-        _testResults = _testResults select {_x != "[list]" && _x !="[/list]"};
         {
             if ("Shooting At" in _x) then {
                 _testResults set [_forEachIndex, "<br/><font size=18>" + _x + "</font>"];

@@ -44,9 +44,6 @@ private _outputToMenu = OUTPUT_NONE == _output;
 		_x params ["_key", "", "_weaponClassname", "", "_unitClass"];
 		private _weaponName = getText (_cfgWeapons >> _weaponClassname >> "displayName");
 		_finalString pushBack format ["%1 => %2", _weaponName, _unitClass];
-        if (_outputToMenu) then {
-            _finalString pushBack "[list]";
-        };
 		{
 			_x params ["_range", "_hitPoint"];
 			private _hitArr = [];
@@ -70,12 +67,9 @@ private _outputToMenu = OUTPUT_NONE == _output;
 				_hitPoint,
 				_range,
 				_hitArrUnique joinString ", ",
-                ["  ", "[*] "] select _outputToMenu
+                ["  ", "- "] select _outputToMenu
 			];
 		} forEach (_damageResultHash get _key);
-        if (_outputToMenu) then {
-            _finalString pushBack "[/list]";
-        };
 	} forEach _testsets;
 } forEach _factions;
 
