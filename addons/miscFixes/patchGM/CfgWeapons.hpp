@@ -22,4 +22,8 @@ class CfgWeapons {
             };
         };
     };
+    class gm_itemAttachment_Muzzle_base;
+    class gm_itemAttachment_Bayonet_base: gm_itemAttachment_Muzzle_base {
+        IMS_Bayonet_Item = "True"; // wild it's a string
+    };
 };
