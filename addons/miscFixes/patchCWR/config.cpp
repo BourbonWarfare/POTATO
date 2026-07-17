@@ -7,7 +7,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "potato_core", "potato_customGear", "cwr3_intro", "cwr3_vehicle_m41", "cwr3_soldiers_us", "cwr3_vehicle_m113" };
+        requiredAddons[] = { "potato_core", "potato_customGear", "cwr3_intro", "cwr3_vehicle_m41", "cwr3_soldiers_us", "cwr3_vehicle_m113", "cwr3_weapon_config" };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
         authorUrl = "https://github.com/BourbonWarfare/POTATO";
@@ -43,6 +43,18 @@ class CfgWeapons {
     class MGun;
     class cwr3_hmg_vickers_veh: MGun {
         magazines[] += {QGVARMAIN(cwr3_500rnd_vickers_t)};
+    };
+    class CUP_launch_MAAWS;
+    class cwr3_launch_m67_rcl: CUP_launch_MAAWS {
+        ACEGVAR(overpressure,angle) = 60;
+        ACEGVAR(overpressure,offset) = 1.35;
+        ACEGVAR(overpressure,range) = 28;
+    };
+    class Launcher_Base_F;
+    class cwr3_launch_rpg75_loaded: Launcher_Base_F {
+        ACEGVAR(overpressure,angle) = 33.7; // based on czech wikipedia backblast zone
+        ACEGVAR(overpressure,offset) = 0.8;
+        ACEGVAR(overpressure,range) = 20;
     };
 };
 
