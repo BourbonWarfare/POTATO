@@ -24,7 +24,7 @@ class CfgWeapons {
 
 class CfgMagazines {
     class CA_LauncherMagazine;
-    class MRAWS_HEAT_F: CA_LauncherMagazine {\
+    class MRAWS_HEAT_F: CA_LauncherMagazine {
         ACEGVAR(arsenal,hide) = 0;
         scope = 2;
     };
