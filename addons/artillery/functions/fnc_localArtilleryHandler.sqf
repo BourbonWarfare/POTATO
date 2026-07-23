@@ -60,7 +60,7 @@ switch (_newStatus) do {
                 _missionID,
                 ARTILLERY_MISSION_STATUS_WAIT,
                 _holdTime
-            ]];
+            ], true];
         } forEach _artyPieces;
     };
     case ARTILLERY_MISSION_STATUS_ASSIGN: {
@@ -75,7 +75,7 @@ switch (_newStatus) do {
                 ARTILLERY_MISSION_STATUS_ASSIGN,
                 _holdTime,
                 _missionType
-            ]];
+            ], true];
         } forEach _artyPieces;
     };
     case ARTILLERY_MISSION_STATUS_FIRING: {
@@ -109,8 +109,9 @@ switch (_newStatus) do {
                 _missionID,
                 ARTILLERY_MISSION_STATUS_FIRING,
                 _holdTime,
-                _missionType
-            ]];
+                _missionType,
+                [_magazine, _rounds, _length]
+            ], true];
             if (_tofMax > 0 && _tof > 0 && _tofMax - _tof > 0) then {
                 [{call FUNC(localMissionInit)}, [
                     _gun, _offset, _missionType, _magazine, _posATL, _dispersion,
