@@ -34,47 +34,47 @@ private _finalString = [];
 private _cfgWeapons = configFile >> "CfgWeapons";
 private _outputToMenu = OUTPUT_NONE == _output;
 {
-	private _faction = _x;
-	if (_finalString isNotEqualTo []) then {
-		_finalString pushBack "";
-	};
-	_finalString pushBack format ["Shooting At: %1", _faction];
-	private _testsets = _keys select {_x#1 == _faction};
-	{
-		_x params ["_key", "", "_weaponClassname", "", "_unitClass"];
+    private _faction = _x;
+    if (_finalString isNotEqualTo []) then {
+        _finalString pushBack "";
+    };
+    _finalString pushBack format ["Shooting At: %1", _faction];
+    private _testsets = _keys select {_x#1 == _faction};
+    {
+        _x params ["_key", "", "_weaponClassname", "", "_unitClass"];
         private _weaponName = getText (_cfgWeapons >> _weaponClassname >> "displayName");
         if (_outputToMenu) then {
             _finalString pushBack format ["- %1 => %2", _weaponName, _unitClass];
         } else {
             _finalString pushBack format ["%1 => %2", _weaponName, _unitClass];
         };
-		{
-			_x params ["_range", "_hitPoint"];
-			private _hitArr = [];
-			{
-				_x params ["_hits", "_uncon", "_fatalHit"];
-				_hitArr pushBack (switch (true) do {
+        {
+            _x params ["_range", "_hitPoint"];
+            private _hitArr = [];
+            {
+                _x params ["_hits", "_uncon", "_fatalHit"];
+                _hitArr pushBack (switch (true) do {
                     case (_uncon): {format ["%1 to uncon", _hits];};
                     case (_fatalHit): {format ["%1 to kill", _hits];};
                     default {format ["%1 still standing", _hits];};
                 });
-			} forEach _y;
-			_hitpoint = switch (_hitPoint) do {
-				case SHOTPOS_HEAD: {"Head"};
-				case SHOTPOS_FACE: {"Face"};
-				default {"Chest"};
-			};
-			private _hitArrUnique = _hitArr arrayIntersect _hitArr;
-			_hitArrUnique = _hitArrUnique apply {private _str = _x; [_x, {_str == _x} count _hitArr]};
-			_hitArrUnique = _hitArrUnique apply {format ["%1 (x%2)", _x#0, _x#1]};
-			_finalString pushBack format ["%4%1 @ %2m | %3",
-				_hitPoint,
-				_range,
-				_hitArrUnique joinString ", ",
+            } forEach _y;
+            _hitpoint = switch (_hitPoint) do {
+                case SHOTPOS_HEAD: {"Head"};
+                case SHOTPOS_FACE: {"Face"};
+                default {"Chest"};
+            };
+            private _hitArrUnique = _hitArr arrayIntersect _hitArr;
+            _hitArrUnique = _hitArrUnique apply {private _str = _x; [_x, {_str == _x} count _hitArr]};
+            _hitArrUnique = _hitArrUnique apply {format ["%1 (x%2)", _x#0, _x#1]};
+            _finalString pushBack format ["%4%1 @ %2m | %3",
+                _hitPoint,
+                _range,
+                _hitArrUnique joinString ", ",
                 ["  ", " - "] select _outputToMenu
-			];
-		} forEach (_damageResultHash get _key);
-	} forEach _testsets;
+            ];
+        } forEach (_damageResultHash get _key);
+    } forEach _testsets;
 } forEach _factions;
 
 switch (_output) do {
