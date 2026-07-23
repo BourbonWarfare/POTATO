@@ -26,7 +26,7 @@ private _checkBoxes = {
     private _cbValueStr = [_cbValue] call _trueFalse;
     private _missionType = getMissionConfigValue QGVAR(missionType);
     if (_cbValueStr == ":x:" && {_applicable == _missionType || _applicable == 0}) then {
-        S_NEWTEXTLINE_FORMATTEXT ["[*]%1 : %2",_text,_cbValueStr];
+        S_NEWTEXTLINE_FORMATTEXT ["- %1 : %2",_text,_cbValueStr];
     };
 };
 
@@ -49,7 +49,7 @@ private _createReportSection = {
 
     S_NEWTEXTLINE ["## __%1__: %2 ",_sectionTitle,MDPASSFAIL_A select _passFailInt];
     {_x call _checkBoxes;} forEach _sectionArray;
-    if(_missionMaker != name ACE_player) then {
+    if(_missionMaker != name ACE_player && _sectionNotes != "") then {
         S_NEWTEXTLINE ["### __ NOTES :__"];
         S_NEWTEXTLINE ["%1",_sectionNotes];
     };
@@ -82,7 +82,7 @@ private _unitSpecificBrief = getMissionConfigValue QGVAR(missionFlagUnitSpecific
 private _unitSpecificBriefStr = if(isNil QUOTE(_unitSpecificBrief)) then {MDCHECK} else {[_unitSpecificBrief] call _trueFalse};
 private _missionNotesForTester =  getMissionConfigValue QGVAR(missionMakerNotesForTesters);
 private _masterChecklistArray = nil;
-private _armotTestingText = call FUNC(summarizeArmorTesting);
+private _armotTestingText = [OUTPUT_NONE] call FUNC(summarizeArmorTesting);
 private _textArray = [];
 private _textArrayShort = [];
 
@@ -117,8 +117,8 @@ if(_missionMaker == name ACE_player || is3DEN) then {
     S_NEWTEXTLINE["## **__Any other notes for Mission Testers__**:"];
     S_NEWTEXTLINE["%1",GVAR(GeneraMissionNotesForMM)];
 
-    private _textLong = _textArray joinString (endl + endl);
-    private _textShort = _textArrayShort joinString (endl + endl);
+    private _textLong = _textArray joinString endl;
+    private _textShort = _textArrayShort joinString endl;
     private _reportCtrlLong = DISPLAY_TESTMENU displayCtrl IDC_REPORT_L;
     private _reportCtrlShort = DISPLAY_TESTMENU displayCtrl IDC_REPORT_S;
     if (isNull _reportCtrlLong) then {
@@ -155,8 +155,8 @@ if(_missionMaker == name ACE_player || is3DEN) then {
     private _missionOverallPassFail = [_masterChecklistArray] call _overallPassFail;
     S_NEWTEXTLINE ["# Test Result: %1",_missionOverallPassFail];
 
-    if (_armotTestingText isNotEqualTo "") then {
-        private _otherConsid = _masterChecklistArray select -1;
+    private _otherConsid = _masterChecklistArray select SELECT_OTHERCONSIDERATIONS;
+    if (_armotTestingText isNotEqualTo "" && !(_otherConsid#SELECT_ARMOR_RESULTS)) then {
         _otherConsid set [3, [_otherConsid#3, _armotTestingText] joinString endl];
         _otherConsid set [4, 1];
     };

@@ -37,19 +37,19 @@ private _vIdx = [];
 private _distCount = count _distances;
 private _dr = 0;
 while {_itr * CONST_DT < 3 && _index < _distCount} do {
-	_vIdx = _v select -1;
-	_vMag = vectorMagnitude _vIdx;
-	_v pushBack [
-		(_vIdx#0) + _friction * _vMag * (_vIdx#0) * CONST_DT,
-		(_vIdx#1) + (CONST_G + _friction * _vMag * (_vIdx#1)) * CONST_DT
-	];
-	_dr = (_vIdx#0) * CONST_DT / 2;
-	_vIdx = _v select -1;
-	_r = _r + (_vIdx#0) * CONST_DT / 2 + _dr;
-	if (_r >= _distances#_index) then {
-		_velocities pushBack vectorMagnitude _vIdx;
-		_index = _index + 1;
-	};
-	_itr = _itr + 1;
+    _vIdx = _v select -1;
+    _vMag = vectorMagnitude _vIdx;
+    _v pushBack [
+        (_vIdx#0) + _friction * _vMag * (_vIdx#0) * CONST_DT,
+        (_vIdx#1) + (CONST_G + _friction * _vMag * (_vIdx#1)) * CONST_DT
+    ];
+    _dr = (_vIdx#0) * CONST_DT / 2;
+    _vIdx = _v select -1;
+    _r = _r + (_vIdx#0) * CONST_DT / 2 + _dr;
+    if (_r >= _distances#_index) then {
+        _velocities pushBack vectorMagnitude _vIdx;
+        _index = _index + 1;
+    };
+    _itr = _itr + 1;
 };
 _velocities
