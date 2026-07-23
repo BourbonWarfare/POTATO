@@ -82,7 +82,7 @@ private _unitSpecificBrief = getMissionConfigValue QGVAR(missionFlagUnitSpecific
 private _unitSpecificBriefStr = if(isNil QUOTE(_unitSpecificBrief)) then {MDCHECK} else {[_unitSpecificBrief] call _trueFalse};
 private _missionNotesForTester =  getMissionConfigValue QGVAR(missionMakerNotesForTesters);
 private _masterChecklistArray = nil;
-private _armotTestingText = call FUNC(summarizeArmorTesting);
+private _armotTestingText = [OUTPUT_NONE] call FUNC(summarizeArmorTesting);
 private _textArray = [];
 private _textArrayShort = [];
 

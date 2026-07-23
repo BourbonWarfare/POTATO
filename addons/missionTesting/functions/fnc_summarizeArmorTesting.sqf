@@ -42,8 +42,12 @@ private _outputToMenu = OUTPUT_NONE == _output;
 	private _testsets = _keys select {_x#1 == _faction};
 	{
 		_x params ["_key", "", "_weaponClassname", "", "_unitClass"];
-		private _weaponName = getText (_cfgWeapons >> _weaponClassname >> "displayName");
-		_finalString pushBack format ["%1 => %2", _weaponName, _unitClass];
+        private _weaponName = getText (_cfgWeapons >> _weaponClassname >> "displayName");
+        if (_outputToMenu) then {
+            _finalString pushBack format ["- %1 => %2", _weaponName, _unitClass];
+        } else {
+            _finalString pushBack format ["%1 => %2", _weaponName, _unitClass];
+        };
 		{
 			_x params ["_range", "_hitPoint"];
 			private _hitArr = [];
@@ -67,7 +71,7 @@ private _outputToMenu = OUTPUT_NONE == _output;
 				_hitPoint,
 				_range,
 				_hitArrUnique joinString ", ",
-                ["  ", "- "] select _outputToMenu
+                ["  ", " - "] select _outputToMenu
 			];
 		} forEach (_damageResultHash get _key);
 	} forEach _testsets;
