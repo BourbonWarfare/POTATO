@@ -4,6 +4,7 @@ PREP(checkMods);
 PREP(checkModsWriteDiary);
 PREP(endMission);
 PREP(openAdminMenu);
+PREP(newRadioMode);
 PREP(openRespawn);
 
 PREP(reloadMarkersTab);
@@ -18,6 +19,7 @@ PREP(uihook_deleteMarker);
 PREP(uihook_endMission);
 PREP(uihook_missionHint);
 PREP(uihook_openEndMission);
+PREP(uihook_radios);
 PREP(uihook_giveAdminGun);
 PREP(uihook_handleMarkerDialogUI);
 PREP(uihook_listRadioChannels);

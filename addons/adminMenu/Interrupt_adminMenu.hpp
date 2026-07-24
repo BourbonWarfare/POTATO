@@ -748,6 +748,44 @@ class GVAR(adminMenuDialog) {
                 };
             };
         };
+        class CONTROL_RADIOS: RscControlsGroup {
+            idc = 2311;
+            x = QUOTE(0.35 * safezoneW + safezoneX);
+            y = QUOTE(0.205 * safezoneH + safezoneY);
+            w = QUOTE(0.54 * safezoneW);
+            h = QUOTE(0.58 * safezoneH);
+            class controls {
+                class RestToDefault: RscButton {
+                    idc = -1;
+                    text = "Reset To Default Sim";
+                    x = QUOTE(0.01 * safezoneW);
+                    y = QUOTE(0.01 * safezoneH);
+                    w = QUOTE(0.52 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    onButtonClick = QUOTE([ARR_2(POTATO_RADIO_RESET_TO_DEFAULT,_this#0)] call FUNC(uihook_radios));
+                };
+                class onlyRun343Sim: RestToDefault {
+                    text = "Only simulate 343";
+                    y = QUOTE(0.08 * safezoneH);
+                    onButtonClick = QUOTE([ARR_2(POTATO_RADIO_ACRE_ONLY_343,_this#0)] call FUNC(uihook_radios));
+                };
+                class arcadeMode: RestToDefault {
+                    text = "Arcade mode";
+                    y = QUOTE(0.15 * safezoneH);
+                    onButtonClick = QUOTE([ARR_2(POTATO_RADIO_SWITCH_ARCADE_MODE,_this#0)] call FUNC(uihook_radios));
+                };
+                class onlyRunBasic: RestToDefault {
+                    text = "Only in-game 343 arcade";
+                    y = QUOTE(0.22 * safezoneH);
+                    onButtonClick = QUOTE([ARR_2(POTATO_RADIO_INGAME_ONLY_343,_this#0)] call FUNC(uihook_radios));
+                };
+                class nukeRadios: RestToDefault {
+                    text = "Nuke Radios";
+                    y = QUOTE(0.29 * safezoneH);
+                    onButtonClick = QUOTE([ARR_2(POTATO_RADIO_END_RADIO_SIM,_this#0)] call FUNC(uihook_radios));
+                };
+            };
+        };
     };
 };
 
