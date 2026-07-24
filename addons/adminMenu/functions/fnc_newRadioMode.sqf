@@ -1,7 +1,8 @@
 #include "script_component.hpp"
 /*
 * Author: Lambda.Tiger
-* This handles the radio change event, specifically
+* This handles the radio change event, specifically setting custom acre
+* signal functions locally.
 *
 * Arguments:
 * 0: New mode to be set to
