@@ -57,6 +57,7 @@ private _textscale = _sizeModifier * 0.8;
             ["type", ARTILLERY_MISSION_STATUS_FREE]
         ]}, true];
     if (_iconHash get "type" == _missionTypeEnum) then {
+        private _texts = _iconHash get "@texts";
         switch (_status) do {
             case ARTILLERY_MISSION_STATUS_WAIT: {
                 (_texts#1) set [0, format ["Time held: %1", _timeRemaining toFixed 0]]
