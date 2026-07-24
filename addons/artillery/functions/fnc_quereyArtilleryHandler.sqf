@@ -45,7 +45,7 @@ if (_missionName == "" || _magazine == "" || _gunCount < 1 ||
     ];
     if (_missionName == "" || (_status in [ARTILLERY_MISSION_STATUS_WAIT, ARTILLERY_MISSION_STATUS_ASSIGN] &&
      _holdTime < CBA_missionTime)) then {
-        _x setVariable [QGVAR(artyMission), nil];
+        _x setVariable [QGVAR(artyMission), nil, true];
     }
 } forEach GVAR(artilleryGunArray);
 
@@ -59,7 +59,7 @@ if (_artilleryPieces isNotEqualTo []) then {
             _missionName,
             ARTILLERY_MISSION_STATUS_WAIT,
             _holdTime
-        ]];
+        ], true];
     } forEach _artilleryPieces;
     [QGVAR(addPossiblePieces), [_missionName, _artilleryPieces]] call CBA_fnc_serverEvent;
 };

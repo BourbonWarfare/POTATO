@@ -36,7 +36,7 @@ TRACE_1("gunsToClear",_artilleryToClear);
         _missionParams set [3, ARTILLERY_MISSIONTYPE_UNDEF];
         _missionParams set [2, 420 + _missionParams#2];
     };
-    _x setVariable [QGVAR(artyMission), nil];
+    _x setVariable [QGVAR(artyMission), nil, true];
 } forEach _artilleryToClear;
 
 if (local _logic) then {

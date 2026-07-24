@@ -22,5 +22,13 @@ class RscDisplayCurator {
             onLoad = QUOTE([ARR_2(_this#0,true)] call FUNC(changeMarkerDisplayState));
             onButtonClick = QUOTE([_this#0] call FUNC(changeMarkerDisplayState));
         };
+        class GVAR(artyInfoButton): GVAR(displayMarkersButton) {
+            idc = ZEUSUTILS_IDC_DISPLAYMARKERBUTTON;
+            y = "safezoneY + safeZoneH - 56 * pixelH";
+            text = "Artillery Display";
+            tooltip = "Display potato artillery info on screen.";
+            onLoad = QUOTE([ARR_2(_this#0,true)] call FUNC(changeArtyDisplayState));
+            onButtonClick = QUOTE([_this#0] call FUNC(changeArtyDisplayState));
+        };
     };
 };
