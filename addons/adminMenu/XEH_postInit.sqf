@@ -55,7 +55,7 @@
 }] call CBA_fnc_addEventHandler;
 
 GVAR(openEndMission) = false;
-[QGVAR(endMission), { 
+[QGVAR(endMission), {
     // delay a frame to allow other scripts to complete
     [FUNC(endMission), _this] call CBA_fnc_execNextFrame;
 }] call CBA_fnc_addEventHandler;
@@ -65,28 +65,32 @@ if (isServer) then {
     // check server settings
     [QGVAR(checkSettings), {
         params ["_owner"];
-        private _hash = profileNamespace getVariable ["CBA_settings_hash", [] call CBA_fnc_hashCreate]; 
-        private _output = []; 
+        private _hash = profileNamespace getVariable ["CBA_settings_hash", [] call CBA_fnc_hashCreate];
+        private _output = [];
         [_hash, { _output pushBack format ["%1: %2", _key, _value]; }] call CBA_fnc_hashEachPair;
-        ["potato_adminMsg", [format ["%1 modified settings", count _output], "Setting"], _owner] call CBA_fnc_ownerEvent; 
-        { 
-            ["potato_adminMsg", [_x, "Setting"], _owner] call CBA_fnc_ownerEvent; 
-        } forEach _output; 
+        ["potato_adminMsg", [format ["%1 modified settings", count _output], "Setting"], _owner] call CBA_fnc_ownerEvent;
+        {
+            ["potato_adminMsg", [_x, "Setting"], _owner] call CBA_fnc_ownerEvent;
+        } forEach _output;
     }] call CBA_fnc_addEventHandler;
 };
 
 [QGVAR(medical_stabilize), {
     params [["_unit", objNull, [objNull]]];
     TRACE_1("Stabilizing unit",_unit);
-    while { (_unit getVariable ["ace_medical_woundBleeding", 0]) > 0 } do { 
-        { 
-            private _part =_x; 
-            { 
-                _x params ["", "_amountOf", "_bleeding"]; 
-                if (_amountOf * _bleeding > 0) then { 
-                    [_unit, _part, "FieldDressing"] call ace_medical_treatment_fnc_bandageLocal; 
-                }; 
-            } forEach _y; 
+    while { (_unit getVariable ["ace_medical_woundBleeding", 0]) > 0 } do {
+        {
+            private _part =_x;
+            {
+                _x params ["", "_amountOf", "_bleeding"];
+                if (_amountOf * _bleeding > 0) then {
+                    [_unit, _part, "FieldDressing"] call ace_medical_treatment_fnc_bandageLocal;
+                };
+            } forEach _y;
         } forEach (_unit getVariable ["ace_medical_openWounds", createHashMap]);
     };
 }] call CBA_fnc_addEventHandler;
+
+if (hasInterface) then {
+    [QGVAR(changeRadioSim), {call FUNC(newRadioMode)}] call CBA_fnc_addEventHandler;
+};
