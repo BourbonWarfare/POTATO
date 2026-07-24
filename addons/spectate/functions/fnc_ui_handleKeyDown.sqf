@@ -1,3 +1,4 @@
+#define CHECK_CBA_KEYBIND(var) [_key, [_shift, _ctrl, _alt]] in ((["POTATO", QGVAR(var)] call CBA_fnc_getKeybind) select 8)
 /*
  * Author: AACO
  * Function used to handle key presses
@@ -21,17 +22,19 @@
 #define MAX_VIEW_DISTANCE 3000
 
 TRACE_1("Params",_this);
+params ["_display", "_key", "_shift", "_ctrl", "_alt"];
+private _cbaBind = [_key, [_shift, _ctrl, _alt]];
 
 // handle map toggle
-if (inputAction "minimap" > 0 || {inputAction "minimapToggle" > 0}) exitWith {
+if (CHECK_CBA_KEYBIND(miniMap)) exitWith {
     [!GVAR(mapOpen), false] call FUNC(toggleMap);
-    true
+    false
 };
 
 // handle full map toggle
-if (inputAction "ShowMap" > 0 || {inputAction "HideMap" > 0}) exitWith {
+if (CHECK_CBA_KEYBIND(mainMap)) exitWith {
     [false, !GVAR(fullMapOpen)] call FUNC(toggleMap);
-    true
+    false
 };
 
 // handle interrupt
@@ -50,21 +53,21 @@ if (inputAction "ingamePause" > 0) exitWith {
 };
 
 // handle postive change in draw
-if (inputAction "zeroingUp" > 0) exitWith {
+if (CHECK_CBA_KEYBIND(incViewDist)) exitWith {
     setViewDistance ((viewDistance + 250.0) min MAX_VIEW_DISTANCE);
-    true
+    false
 };
 
 // handle negative change in draw
-if (inputAction "zeroingDown" > 0) exitWith {
+if (CHECK_CBA_KEYBIND(decViewDist)) exitWith {
     setViewDistance ((viewDistance - 250.0) max MIN_VIEW_DISTANCE);
-    true
+    false
 };
 
 // handle vision modes
-if (inputAction "nightVision" > 0) exitWith {
+if (CHECK_CBA_KEYBIND(cycleVisionMode)) exitWith {
     [] call FUNC(toggleVisionMode);
-    true
+    false
 };
 
 // if the zeus key is pressed and unit is curator, open zeus interface
@@ -84,11 +87,11 @@ if ((inputAction "CuratorInterface") > 0 && {!isNull (getAssignedCuratorLogic pl
         }
     ] call CBA_fnc_waitUntilAndExecute;
 
-    true
+    false
 };
 
 // handle spectate lights
-if (inputAction "headlights" > 0) exitWith {
+if (CHECK_CBA_KEYBIND(toggleLight)) exitWith {
     if (GVAR(camLightsOn)) then {
         { deleteVehicle _x; } forEach GVAR(camLights);
         GVAR(camLights) = [];
@@ -109,94 +112,116 @@ if (inputAction "headlights" > 0) exitWith {
 
     GVAR(camLightsOn) = !GVAR(camLightsOn);
 
-    true
+    false
 };
 
 // handle toggle projectiles
-if (inputAction "lockTarget" > 0) exitWith {
+if (CHECK_CBA_KEYBIND(toggleTraces)) exitWith {
     GVAR(drawProjectiles) = !GVAR(drawProjectiles);
-    true
+    false
 };
 
 // handle showing kill tracker
-if (inputAction "networkStats" > 0) exitWith {
+if (CHECK_CBA_KEYBIND(toggleStats)) exitWith {
     GVAR(showInfo) = !GVAR(showInfo);
     [] call FUNC(updateInfo);
-    true
+    false
 };
 
 // handle toggling cam ground speed
-if (inputAction "getOver" > 0) exitWith {
+if (CHECK_CBA_KEYBIND(toggleGroundSpeed)) exitWith {
     GVAR(surfaceSpeed) = !GVAR(surfaceSpeed);
     GVAR(cam) camCommand (["surfaceSpeed off", "surfaceSpeed on"] select GVAR(surfaceSpeed));
-    true
+    false
 };
 
 // handle showing the compass
 if (inputAction "compass" > 0) exitWith {
     COMPASS ctrlShow !(ctrlShown COMPASS);
-    true
+    false
 };
 
 // handle showing the briefing
-if (inputAction "tasks" > 0 || {inputAction "diary" > 0}) exitWith {
+if (CHECK_CBA_KEYBIND(toggleBrief)) exitWith {
     [] call FUNC(toggleBriefing);
-    true
+    false
 };
-
-private _key = _this select 1;
 
 // handle perspective changes
 if (_key == DIK_SPACE) exitWith {
     [(GVAR(currentCamIndex) + 1) % 3] call FUNC(ui_changeCamera);
-    true
+    false
 };
 
 // handle getting next focus target
 if (_key == DIK_RIGHT) exitWith {
     [true] call FUNC(switchFocus);
-    true
+    false
 };
 
 // handle getting previous focus target
 if (_key == DIK_LEFT) exitWith {
     [false] call FUNC(switchFocus);
-    true
+    false
 };
 
 // handle toggling the UI
 if (_key == DIK_BACKSPACE) exitWith {
     [] call FUNC(toggleUI);
-    true
-};
-
-// handle toggling the Tags
-if (_key == DIK_BACKSLASH) exitWith {
-    GVAR(tagsVisible) = (GVAR(tagsVisible) + 1) mod TAGS_VISIBLE_MODE_COUNT;
-    true
+    false
 };
 
 // handle displaying help
 if (_key == DIK_F1) exitWith {
     HELP ctrlShow !(ctrlShown HELP);
-    true
+    private _ctrlText = _display displayCtrl HELP_IDC;
+    private _args = [];
+    {
+        private _entry = ["Potato", _x] call CBA_fnc_getKeybind;
+        _args pushBack ((_entry#8#0 ) call CBA_fnc_localizeKey);
+    } forEach [
+        QGVAR(mainMap),
+        QGVAR(miniMap),
+        QGVAR(incViewDist),
+        QGVAR(decViewDist),
+        QGVAR(cycleVisionMode),
+        QGVAR(toggleLight),
+        QGVAR(toggleTraces),
+        QGVAR(toggleStats),
+        QGVAR(toggleGroundSpeed),
+        QGVAR(toggleBrief),
+        QGVAR(cycleGravestones),
+        QGVAR(cycleMarks)
+    ];
+    lmd_tst_var = +_args;
+    _ctrlText ctrlSetStructuredText parseText format ([QUOTE(HELP_TEXT_INSERT)] + _args);
+    false
+};
+
+// handle toggling the Tags
+if (CHECK_CBA_KEYBIND(cycleMarks)) exitWith {
+    GVAR(tagsVisible) = (GVAR(tagsVisible) + 1) mod TAGS_VISIBLE_MODE_COUNT;
+    false
 };
 
 // handle displaying help
-if ((_key == DIK_F4) && {_this select 2} && {_this select 3}) exitWith {
+if ((_key == DIK_F4) && _shift && _ctrl) exitWith {
     diag_log text format ["[POTATO] - Warning opening old cam sepctator"];
     call FUNC(exit);
     player call bis_fnc_cameraOld;
     [true] call acre_api_fnc_setSpectator;
+    false
 };
 
-if ((_key == DIK_F5) && {_this select 2} && {_this select 3}) exitWith {
+if ((_key == DIK_F5) && _shift && _ctrl) exitWith {
     diag_log text format ["[POTATO] - Opening Testing Menu"];
     call EFUNC(missionTesting,displayMenu);
+    false
 };
 
-if (_key == DIK_LBRACKET) exitWith {
+if (CHECK_CBA_KEYBIND(cycleGravestones)) exitWith {
     GVAR(drawDeaths) = (GVAR(drawDeaths) + 1) mod DEATH_VISIBLE_MODE_COUNT;
+    false
 };
 
 false // default to unhandled
