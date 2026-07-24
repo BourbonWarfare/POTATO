@@ -66,6 +66,7 @@ private _textscale = _sizeModifier * 0.8;
             };
         };
     } else {
+        _iconHash set ["type", _missionTypeEnum];
         if (ARTILLERY_MISSION_STATUS_WAIT == _status) then {
             _iconHash set ["@texts", [
                 ["Held", _sizeModifier, 0, 0, [1, 0, 0, 0.7], true],
