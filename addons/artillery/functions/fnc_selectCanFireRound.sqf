@@ -38,7 +38,7 @@ private _viableArty = GVAR(artilleryGunArray) select {
         _artyPiece addMagazineTurret [_magazine, [0], 0];
         private _canHit = true;
         {
-            _canHit = _canHit && _x inRangeOfArtillery [[_artyPiece], _magazine];
+            _canHit = _canHit && _x distance _artyPiece > 100 && _x inRangeOfArtillery [[_artyPiece], _magazine];
         } forEach _targetsAGL;
         _artyPiece removeMagazinesTurret [_magazine, [0]];
         _canHit &&
