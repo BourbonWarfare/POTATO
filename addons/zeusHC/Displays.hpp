@@ -541,7 +541,7 @@ class GVAR(reinforceSpawn) {
             text = "Side";
             style = 1;
             x = 0.42;
-            y = 0.2;
+            y = 0.15;
             w = 0.11;
             h = 0.06;
         };
@@ -558,7 +558,7 @@ class GVAR(reinforceSpawn) {
         class RscCombo_Side: RscCombo {
             idc = IDC_CONVOY_SIDE;
             x = 0.55;
-            y = 0.2;
+            y = 0.15;
             w = 0.3;
             h = 0.06;
             onLBSelChanged = QUOTE([ARR_2(_this,IDC_CONVOY_SIDE)] call FUNC(ui_reinforceUpdate););
@@ -591,12 +591,12 @@ class GVAR(reinforceSpawn) {
             h = 0.05;
             w = 0.0375;
             x = 1.1;
-            y = 0.205;
+            y = 0.155;
         };
         class RscText_vicList: RscListBox {
             idc = IDC_CONVOY_VICLIST;
             x = 0.45;
-            y = 0.3;
+            y = 0.25;
             w = 0.3;
             h = 0.5;
             colorBackground[] = {1, 1, 1, 0.1};
@@ -604,7 +604,7 @@ class GVAR(reinforceSpawn) {
         class RscShortcutButton_addVic: RscShortcutButton {
             idc = IDC_CONVOY_ADDVIC;
             x = 0.76;
-            y = 0.4;
+            y = 0.35;
             w = 0.03;
             h = 0.04;
             onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_ADDVIC)] call FUNC(ui_reinforceUpdate););
@@ -614,14 +614,14 @@ class GVAR(reinforceSpawn) {
         };
         class RscShortcutButton_addVicCrewed: RscShortcutButton_addVic {
             idc = IDC_CONVOY_ADDVICDSMNT;
-            y = 0.5;
+            y = 0.45;
             onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_ADDVICDSMNT)] call FUNC(ui_reinforceUpdate););
             textureNoShortcut = "\a3\ui_f\data\igui\rscingameui\rscunitinfo\arrow_right_ca.paa";
             tooltip = "Add vehicle with dismounts";
         };
         class RscShortcutButton_removeVic: RscShortcutButton_addVic {
             idc = IDC_CONVOY_REMOVEVIC;
-            y = 0.6;
+            y = 0.55;
             onButtonClick = QUOTE([ARR_2(_this,IDC_CONVOY_REMOVEVIC)] call FUNC(ui_reinforceUpdate););
             textureNoShortcut = "\a3\ui_f\data\gui\rsccommon\rschtml\arrow_left_ca.paa";
             tooltip = "Remove Vehicle";
@@ -629,7 +629,7 @@ class GVAR(reinforceSpawn) {
         class ListBackground: RscText {
             idc = -1;
             x = 0.8;
-            y = 0.3;
+            y = 0.25;
             w = 0.35;
             h = 0.5;
             colorBackground[] = {1, 1, 1, 0.1};
@@ -637,7 +637,7 @@ class GVAR(reinforceSpawn) {
         class RscText_spawnList: RscListNBox {
             idc = IDC_CONVOY_SPAWNLIST;
             x = 0.8;
-            y = 0.3;
+            y = 0.25;
             w = 0.35;
             h = 0.5;
             columns[] = {0, 0.6};
@@ -648,13 +648,13 @@ class GVAR(reinforceSpawn) {
             text = "Max Dismounts: 08";
             x = 0.42;
             w = 0.21;
-            y = 0.83;
+            y = 0.78;
         };
         class RscSlider_dismount: RscXSliderH {
             idc = IDC_CONVOY_DISMOUNTCNT;
             tooltip = "Maximum dismounts per vehicle";
             x = 0.65;
-            y = 0.84;
+            y = 0.79;
             w = 0.4;
             h = 0.04;
             sliderPosition = 8;
@@ -667,14 +667,14 @@ class GVAR(reinforceSpawn) {
             text = "Final WP";
             style = 1;
             x = 0.42;
-            y = 0.9;
+            y = 0.85;
             w = 0.12;
             h = 0.06;
         };
         class RscCombo_finalWP: RscCombo {
             idc = IDC_CONVOY_FINALWPACT;
             x = 0.55;
-            y = 0.9;
+            y = 0.85;
             w = 0.3;
             h = 0.06;
             tooltip = "Final waypoint type";
@@ -701,17 +701,33 @@ class GVAR(reinforceSpawn) {
         class RscText_useLambs: RscText_Side {
             idc = -1;
             text = "LAMBS Dismounts";
-            y = 0.9;
+            y = 0.85;
             x = 0.85;
             w = 0.23;
         };
         class RscCheckBox_useLambs: RscCheckBox {
-            checked = 0;
+            checked = 1;
             idc = IDC_CONVOY_LAMBS;
             h = 0.05;
             w = 0.0375;
             x = 1.1;
-            y = 0.905;
+            y = 0.855;
+        };
+        class RscText_oneWay: RscText_useLambs {
+            idc = -1;
+            text = "One Way";
+            y = 0.91;
+            x = 0.85;
+            w = 0.23;
+        };
+        class RscCheckBox_oneWay: RscCheckBox_useLambs {
+            checked = 0;
+            idc = IDC_CONVOY_ONEWAY;
+            h = 0.05;
+            w = 0.0375;
+            x = 1.1;
+            y = 0.91;
+            tooltip = "Dismount the vehicles at the waypoint final position.";
         };
         class RscButtonMenuOK_exit: RscButtonMenuOK {
             x = 1;

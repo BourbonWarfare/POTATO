@@ -29,7 +29,8 @@ params [
     ["_findRoads", false, [false]],
     ["_finalWPType", CONVOY_WPTYPE_MOVE, [CONVOY_WPTYPE_MOVE]],
     ["_lambsDismounts", false, [false]],
-    ["_side", east, [east]]
+    ["_side", east, [east]],
+    ["_oneWay", true, [true]]
 ];
 
 if (_waypoints isEqualTo [] ||
@@ -127,6 +128,6 @@ if (_findRoads) then {
     private _wps = +_waypoints;
     (_wps#2) set [2, _forEachIndex];
     [{[_this, QFUNC(reinforceSpawnVehicle)] call FUNC(hcPassthrough);},
-        [_wps, [_vicType, _roadPosATL, _vicDir], _dismountCount, _lambsDismounts, _side],
+        [_wps, [_vicType, _roadPosATL, _vicDir], _dismountCount, _lambsDismounts, _side, _oneWay],
         _forEachIndex * 4] call CBA_fnc_waitAndExecute;
 } forEach _posArray;
