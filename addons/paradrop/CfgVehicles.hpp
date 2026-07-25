@@ -82,4 +82,19 @@ class CfgVehicles {
         class Arguments {};
         class Attributes {};
     };
+    class GVAR(zeus_cargoDrop): Module_F {
+        author = QUOTE(PREFIX);
+        category = QEGVAR(zeusHC,experimental);
+        EGVAR(missionModules,functionHandle) = QUOTE(call FUNC(ui_zeusCargoDialog));
+        EGVAR(missionModules,iconText)[] = {AIRDROP_WP_TEXT};
+        displayName = "[EXP] Airdrop Resupply";
+        function = QEFUNC(missionModules,zeus_nClicKModule);
+        scope = 1;
+        scopeCurator = 2;
+        isGlobal = 1;
+        isTriggerActivated = 0;
+        curatorCost = 0;
+        class Arguments {};
+        class Attributes {};
+    };
 };

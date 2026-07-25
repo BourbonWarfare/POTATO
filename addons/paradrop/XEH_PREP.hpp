@@ -1,8 +1,12 @@
 TRACE_1("",QUOTE(ADDON));
 
+PREP(createParadrop);
+PREP(dropCargo);
+PREP(dropDynamicCargo);
+PREP(launch);
 PREP(placeIngress);
-PREP(registerIngress);
 PREP(registerDz);
 PREP(registerEgress);
-PREP(launch);
-PREP(dropCargo);
+PREP(registerIngress);
+PREP(ui_zeusCargoDialog);
+PREP(ui_zeusCargoUpdate);
