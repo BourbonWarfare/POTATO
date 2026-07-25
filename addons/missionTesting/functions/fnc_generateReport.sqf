@@ -25,7 +25,7 @@ private _checkBoxes = {
     params["_text","_cbValue","_applicable"];
     private _cbValueStr = [_cbValue] call _trueFalse;
     private _missionType = getMissionConfigValue QGVAR(missionType);
-    if (_cbValueStr == ":x:" && {_applicable == _missionType || _applicable == 0}) then {
+    if (_cbValueStr == ":x:" && {_applicable in _missionType || _applicable == 0}) then {
         S_NEWTEXTLINE_FORMATTEXT ["- %1 : %2",_text,_cbValueStr];
     };
 };
