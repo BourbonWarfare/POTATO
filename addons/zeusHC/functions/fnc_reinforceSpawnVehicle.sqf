@@ -188,9 +188,9 @@ if (_dismountCount > 0) then { // recurse
             QUOTE(if (local this) then {[vehicle this] call FUNC(reinforceUnloadCargo)};)
         ];
         _wp setWaypointCompletionRadius (1 + _index) * 20;
-        _group addEventHandler ["CombatModeChanged", {
+        /*_group addEventHandler ["CombatModeChanged", {
             [_this#0, true] call FUNC(reinforceContactHandler);
-        }];
+        }];*/
         if (count units _group > 1) then {
             if (_oneWay && !(_vic getVariable [QGVAR(armed), false])) then {
                 _wp setWaypointType "MOVE";
