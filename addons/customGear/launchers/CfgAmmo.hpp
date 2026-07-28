@@ -117,7 +117,6 @@ class CfgAmmo {
     };
 
     // Carl Gustaf time
-    class RocketBase;
     class R_MRAAWS_HEAT_F: RocketBase {
         class EventHandlers;
     };

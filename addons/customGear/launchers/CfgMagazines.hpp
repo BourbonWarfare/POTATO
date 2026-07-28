@@ -90,7 +90,6 @@ class CfgMagazines {
     };
 
     // Carl Gustaf time
-    class CA_LauncherMagazine;
     class MRAWS_HEAT_F: CA_LauncherMagazine {
         descriptionShort = "Type: FFV751 Tandem HEAT Rocket<br />Rounds: 1<br />Used in: MAAWS";
         displayName = "FFV751 (Tandem HEAT) Round";
