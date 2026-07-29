@@ -58,6 +58,5 @@ class CfgAmmo {
     class CUP_Sh_PG9_AT: ShellBase {
         tracerStartTime = 0.001;
         tracerEndTime = 12;
-        airLock = 1;
     };
 };
