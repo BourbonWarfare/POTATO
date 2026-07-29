@@ -39,6 +39,7 @@ if (isNull _attachedObject) then {
     private _ammo = getArtilleryAmmo _artilleryToAdd;
     {
         private _arty = _x;
+        _x setVariable [QACEGVAR(csw,autofire), false, true];
         {
             if ([_arty, _x] call FUNC(canFireRound)) then {
                 (GVAR(vehicleWeaponCache) getOrDefault [typeOf _arty, ["", [0]]]) params ["", "_turret"];
@@ -49,6 +50,7 @@ if (isNull _attachedObject) then {
 } else {
     if (local _attachedObject && {0 < getNumber ((configOf _attachedObject) >> "artilleryScanner")}) then {
         GVAR(artilleryGunArray) pushBackUnique _attachedObject;
+        _attachedObject setVariable [QACEGVAR(csw,autofire), false, true];
         private _ammo = getArtilleryAmmo [_attachedObject];
         private _type = typeOf _attachedObject;
         {
