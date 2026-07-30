@@ -34,3 +34,6 @@ if (GVAR(enabled)) then {
         ["potato_adminMsg", ["Warning: Spectate/Respawn Disabled (This should never happen on a BWMF mission)", "Server"]] call CBA_fnc_globalEvent;
     }, [], 5] call CBA_fnc_waitAndExecute
 };
+if (hasInterface) then {
+    #include "initKeybinds.inc.sqf"
+};

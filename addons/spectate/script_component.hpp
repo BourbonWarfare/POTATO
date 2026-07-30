@@ -206,6 +206,29 @@ Tasks/diary (default 'J') to open/close the briefings<br/>\
 Compass (default 'K') to open/close the compass<br/>\
 Left Brace ('[') to toggle showing player death locations<br/>\
 </t>
+#define HELP_TEXT_INSERT \
+<t size='0.9'>Controls:<br/><br/></t>\
+<t size='0.76'>\
+'F1' to open/close this dialog<br/>\
+'Space' to switch the current camera<br/>\
+'Right Arrow' to switch focus to the next unit<br/>\
+'Left Arrow' to switch focus to the previous unit<br/>\
+'Backspace' to toggle the UI<br/>\
+'%12' to cycle displaying unit Tags and Markers<br/>\
+'%1' to open/close the full map<br/>\
+'%2' to open/close the mini map<br/>\
+'%3' to increase client view distance<br/>\
+'%4' to decrease client view distance<br/>\
+'%5' to change vision modes<br/>\
+Open curator (default 'Y') to open the curator interface (if assigned)<br/>\
+'%6' to add local point lights<br/>\
+'%7' to add bullet tracking<br/>\
+'%8' to view the selected player's stats<br/>\
+'%9' to toggle camera speed at ground level<br/>\
+'%10' to open/close the briefings<br/>\
+Compass (default 'K') to open/close the compass<br/>\
+'%11' to toggle showing player death locations<br/>\
+</t>
 
 #define TAGS_VISIBLE_MODE_COUNT 3
 #define TAGS_VISIBLE_MODE_MARKS 1

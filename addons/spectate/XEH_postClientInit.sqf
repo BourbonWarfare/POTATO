@@ -1,6 +1,7 @@
 #include "script_component.hpp"
 
 if (GVAR(enabled) && hasInterface) then {
+    #include "initKeybinds.inc.sqf"
     // setup babel
     GVAR(availableLanguages) = (missionNamespace getVariable [QEGVAR(radios,availableLanguages), []]) apply {_x select 0};
     GVAR(classEHInstalled) = false;
