@@ -4,7 +4,7 @@ MISSION_GVAR_PREFIX = false;
 
 // Mission select menu
 GVAR(menuOptions) = createHashMapFromArray [
-    ["operationType", BW_TRAINING_OPERATION_MOUT],
+    ["operationType", BW_TRAINING_OPERATION_ZONE_DRAW],
     ["enemyType", BW_TRAINING_ENEMY_OPFOR],
     ["density", BW_TRAINING_DENSITY_UNIFORM],
     ["AIskillMin", 0.5],
@@ -32,5 +32,6 @@ GVAR(artilleryGunArray) = [];
 GVAR(artilleryParams) = createHashMap;
 GVAR(artilleryMissionMarkers) = [];
 GVAR(artilleryMissionPos) = [0, 0, 0];
+GVAR(vanillaRespawn) = 0 == getMissionConfigValue ["usePotatoRespawnSystem", 0];
 
 MISSION_GVAR_PREFIX = true;

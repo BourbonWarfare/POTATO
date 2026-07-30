@@ -20,7 +20,6 @@ params [
     ["_posATL", [0, 0, 0], [[]]],
     ["_radius", 50]
 ];
-diag_log text str _this;
 
 if (_posATL isEqualTo [0, 0, 0]) exitWith {
     [[0, 0, 0], 0]
@@ -34,5 +33,4 @@ _roads sort true;
 private _road = _roads#0#1;
 (getRoadInfo _road) params ["", "", "", "", "", "", "_begPos", "_endPos"];
 
-diag_log text str [getPosATL _road, _begPos getDir _endPos];
 [getPosATL _road, _begPos getDir _endPos]

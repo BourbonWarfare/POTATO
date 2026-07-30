@@ -13,12 +13,48 @@ private _artyMags = PGVAR(artillery,artilleryAmmoTypes);
 
 if (isServer) then {
     [] call FUNC(autoEndSession);
-    {
-        if (local _x && typeOf _x == BW_TP_FLAG_TYPE) then {
-            private _respawnIndex = [missionNamespace, _x] call BIS_fnc_addRespawnPosition;
-            _x setVariable [QGVAR(respawnIndex), _respawnIndex, true];
-        };
-    } forEach allMissionObjects "all";
+    if (GVAR(vanillaRespawn)) then {
+        {
+            if (local _x && typeOf _x == BW_TP_FLAG_TYPE) then {
+                private _respawnIndex = [missionNamespace, _x] call BIS_fnc_addRespawnPosition;
+                _x setVariable [QGVAR(respawnIndex), _respawnIndex, true];
+            };
+        } forEach allMissionObjects "all";
+    } else {
+#ifndef BW_SEEDING_POTATO_RESPAWN_POS
+        private _initPlayerPos = [] call FUNC(findPlayerCentroid);
+        private _flags = (allMissionObjects "all") select {_x isKindOf BW_TP_FLAG_TYPE};
+        if (_flags isEqualTo []) then {_flags = vehicles};
+        _flags = _flags apply {[_x distance _initPlayerPos, _x]};
+        _flags sort true;
+        GVAR(mainRallyPos) = getPosATL (_flags#0#1);
+#endif
+        missionNamespace setVariable ["potato_respawn_noMarkers", true, true];
+        [{
+            private _units = units sideLogic select {isPlayer _x};
+            if (_units isEqualTo [] || CBA_missionTime < 30) exitWith {};
+            ["potato_w","SquadLead","ASL","Squad Lead Element",[0.9 ,0,0,1],""] call PFUNC(respawn,addGroup);
+            ["potato_w","FireTeamFull","A1","Fireteam 1",[0.9,0,0,1],""] call PFUNC(respawn,addGroup);
+            ["potato_w","FireTeamFull","A2","Fireteam 2",[0.9,0,0,1],""] call PFUNC(respawn,addGroup);
+            ["potato_w","ENG","ENG1","Engineering",[0.9,0,0,1],""] call PFUNC(respawn,addGroup);
+            ["potato_w","AHGroup","AH1","AH Element",[0,0,0.9,1],""] call PFUNC(respawn,addGroup);
+            ["potato_w","THGroup","TH1","TH Element",[0,0.9,0,1],""] call PFUNC(respawn,addGroup);
+            ["potato_w","MMG","MMG1","MMG Element",[0,0.9,0,1],""] call PFUNC(respawn,addGroup);
+            ["potato_w","MAT","MAT1","MAT Element",[0,0.9,0,1],""] call PFUNC(respawn,addGroup);
+            ["potato_w","ArmorGroup","Tank1","Armor Element",[1,0.647,0,1],""] call PFUNC(respawn,addGroup);
+            [true] call PFUNC(respawn,changeRespawnState);
+            "Reinforcement wave in thirty seconds" remoteExecCall ["hintSilent", _units];
+            [{
+                private _units = units sideLogic select {isPlayer _x};
+                if (_units isNotEqualTo []) then {"Reinforcement wave in ten seconds" remoteExecCall ["hintSilent", _units];};
+            }, nil, 20] call CBA_fnc_waitAndExecute;
+#ifdef BW_SEEDING_POTATO_RESPAWN_POS
+            [{[BW_SEEDING_POTATO_RESPAWN_POS] call PFUNC(respawn,triggerRespawn); [false] call PFUNC(respawn,changeRespawnState);}, nil, 30] call CBA_fnc_waitAndExecute;
+#else
+            [{[GVAR(mainRallyPos)] call PFUNC(respawn,triggerRespawn); [false] call PFUNC(respawn,changeRespawnState);}, nil, 30] call CBA_fnc_waitAndExecute;
+#endif
+        }, 40] call CBA_fnc_addPerFrameHandler;
+    };
 
     0 spawn {{ // schedule marker creation to avoid a large lag spike
             private _mk = createMarker ["buildingMOUTMarkers" + str _forEachIndex, getPosATL _x];
@@ -29,7 +65,7 @@ if (isServer) then {
             private _bounds = 0 boundingBoxReal _x;
             _mk setMarkerSize [_bounds#0#0, _bounds#0#1];
             uiSleep 0.001;
-        } forEach ((getMissionLayerEntities  "shootHouses")#0);
+        } forEach ((getMissionLayerEntities "shootHouses")#0);
     };
     /*addMissionEventHandler ["ArtilleryShellFired", {
         params ["_vehicle", "", "", "_gunner"];
@@ -93,8 +129,10 @@ addMissionEventHandler ["EntityCreated", {
     _mk setMarkerType "mil_triangle";
     _object setVariable [QGVAR(attachedMarker), _mk, true];
     // respawn position
-    private _respawnIndex = [west, _object] call BIS_fnc_addRespawnPosition;
-    _object setVariable [QGVAR(respawnIndex), _respawnIndex, true];
+    if (GVAR(vanillaRespawn)) then {
+        private _respawnIndex = [west, _object] call BIS_fnc_addRespawnPosition;
+        _object setVariable [QGVAR(respawnIndex), _respawnIndex, true];
+    };
 }];
 
 if !(hasInterface) exitWith {

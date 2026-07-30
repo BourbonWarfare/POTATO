@@ -17,7 +17,7 @@
 * [] call bw_fnc_findPlayerCentroid;
 *//***************************************************************************/
 private _meanPos = [0, 0, 0];
-private _players = call CBA_fnc_players;
+private _players = ([] call CBA_fnc_players) select {side _x != sideLogic};
 private _playerPoses = [];
 private _countValidPlayers = 0;
 {
