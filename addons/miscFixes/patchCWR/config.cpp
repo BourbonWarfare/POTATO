@@ -21,6 +21,13 @@ class Extended_DisplayLoad_EventHandlers {
     };
 };
 
+class CfgAmmo {
+    class RocketBase;
+    class cwr3_r_carlgustaf_hedp: RocketBase {
+        thrust = 0.1;
+    };
+};
+
 class CfgMagazines {
     class cwr3_12rnd_mm1_m;
     class potato_12Rnd_40mm_M433_HEDP: cwr3_12rnd_mm1_m {
