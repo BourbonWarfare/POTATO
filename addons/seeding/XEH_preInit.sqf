@@ -33,5 +33,6 @@ GVAR(artilleryParams) = createHashMap;
 GVAR(artilleryMissionMarkers) = [];
 GVAR(artilleryMissionPos) = [0, 0, 0];
 GVAR(vanillaRespawn) = 0 == getMissionConfigValue ["usePotatoRespawnSystem", 0];
+GVAR(aiSpawnPos) = getMissionConfigValue ["aiSpawnPosition", [50, 100, 0]];
 
 MISSION_GVAR_PREFIX = true;

@@ -4,7 +4,7 @@
 #define BW_TP_FLAG_TYPE GVAR(rallyObj)
 #define BW_TP_FLAG_DIST 8.5
 #define BW_AI_MAX_SPAWN 200
-#define BW_UNIT_SPAWN_POS [12170,12190,0]
+#define BW_UNIT_SPAWN_POS GVAR(aiSpawnPos)
 #define BW_IGNORE_GARRISON_BUILDINGS ["land_nav_pier_m_1","Land_Brana02nodoor","land_nav_pier_c_t20","land_nav_pier_M_fuel","Land_A_statue02","land_nav_pier_c_big","land_nav_pier_m_end","land_nav_pier_c2_end","Land_nav_pier_m_2","Land_Wall_CBrk_5_D", "Land_Wall_CGry_5_D", "Land_Stanek_1", "Land_Stanek_1B", "Land_Misc_Cargo1Eo_EP1", "Misc_Cargo1Bo_civil", "Land_Misc_Cargo1A_EP1", "Misc_Cargo1Bo_military"]
 
 #define BW_FADE_CONTROL(display,var1,idc) var1 = display displayCtrl idc;\
