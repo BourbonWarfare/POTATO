@@ -66,24 +66,30 @@ class CfgMagazines {
     };
 
     // Custom Anti-Air Capable RPG rounds
-    class CUP_PG7V_M;
-    class CUP_PG7VM_M;
-    class CUP_PG7VL_M;
-    class potato_PG7V_M: CUP_PG7V_M {
-        ammo = "potato_R_PG7V_AA";
+    class CA_LauncherMagazine;
+    class CUP_PG7V_M: CA_LauncherMagazine {
         maxLeadSpeed = 150;
+    };
+    class CUP_PG7VM_M: CA_LauncherMagazine {
+        maxLeadSpeed = 150;
+    };
+    class CUP_PG7VL_M: CA_LauncherMagazine {
+        maxLeadSpeed = 150;
+    };
+    class potato_PG7V_M: CUP_PG7V_M {
+        scope = 1;
+        scopeArsenal = 1;
     };
     class potato_PG7VM_M: CUP_PG7VM_M {
-        ammo = "potato_R_PG7V_AA";
-        maxLeadSpeed = 150;
+        scope = 1;
+        scopeArsenal = 1;
     };
     class potato_PG7VL_M: CUP_PG7VL_M {
-        ammo = "potato_R_PG7V_AA";
-        maxLeadSpeed = 150;
+        scope = 1;
+        scopeArsenal = 1;
     };
 
     // Carl Gustaf time
-    class CA_LauncherMagazine;
     class MRAWS_HEAT_F: CA_LauncherMagazine {
         descriptionShort = "Type: FFV751 Tandem HEAT Rocket<br />Rounds: 1<br />Used in: MAAWS";
         displayName = "FFV751 (Tandem HEAT) Round";

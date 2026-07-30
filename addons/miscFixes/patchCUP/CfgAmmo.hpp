@@ -53,4 +53,10 @@ class CfgAmmo {
         indirectHit = 25;
         indirectHitRange = 3.5;
     };
+    // spg-9 and pg-15 round tracers
+    class ShellBase;
+    class CUP_Sh_PG9_AT: ShellBase {
+        tracerStartTime = 0.001;
+        tracerEndTime = 12;
+    };
 };

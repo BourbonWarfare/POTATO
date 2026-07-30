@@ -105,21 +105,18 @@ class CfgAmmo {
     };
 
     // Custom Anti-Air Capable RPG rounds
-    class CUP_R_PG7VL_AT;
-    class CUP_R_PG7VM_AT;
-    class CUP_R_PG7V_AT;
-    class potato_R_PG7VL_AA: CUP_R_PG7VL_AT {
+    class RocketBase;
+    class CUP_R_PG7VL_AT: RocketBase {
         airLock = 1;
     };
-    class potato_R_PG7VM_AA: CUP_R_PG7VM_AT {
+    class CUP_R_PG7VM_AT: RocketBase {
         airLock = 1;
     };
-    class potato_R_PG7V_AA: CUP_R_PG7V_AT {
+    class CUP_R_PG7V_AT: RocketBase {
         airLock = 1;
     };
 
     // Carl Gustaf time
-    class RocketBase;
     class R_MRAAWS_HEAT_F: RocketBase {
         class EventHandlers;
     };
