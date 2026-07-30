@@ -35,15 +35,15 @@ if (_unit getVariable [QGVAR(hits), 0] > 9) exitWith {
     _unit setVariable [QGVAR(ended), true];
 };
 private _posRelative = switch (_pos) do {
-	case (SHOTPOS_FACE): {
+    case (SHOTPOS_FACE): {
         [0, 0, -0.1] vectorAdd (_unit selectionPosition ["head", "HitPoints", "AveragePoint"])
     };
-	case (SHOTPOS_HEAD): {
+    case (SHOTPOS_HEAD): {
         _unit selectionPosition ["head", "HitPoints", "AveragePoint"]
     };
-	default {
-		_unit selectionPosition ["spine3", "HitPoints", "AveragePoint"]
-	};
+    default {
+        _unit selectionPosition ["spine3", "HitPoints", "AveragePoint"]
+    };
 };
 _posRelative = _unit modelToWorldVisual _posRelative;
 private _bullet = createVehicle [_ammo, _posRelative vectorAdd [0, -0.3, 0], [], 0, "CAN_COLLIDE"];

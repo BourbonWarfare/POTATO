@@ -6,3 +6,5 @@
 // #define ENABLE_PERFORMANCE_COUNTERS
 
 #include "\z\potato\addons\core\script_macros.hpp"
+
+#define MISSION_VALIDATION_VERSION 1

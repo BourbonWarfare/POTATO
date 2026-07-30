@@ -29,6 +29,7 @@ if (!(_current_uuid isEqualType "") || { _current_uuid isEqualTo "" } || { _curr
     _current_uuid = call CBA_fnc_createUUID;
     diag_log format["POTATO - setting mission uuid: %1", _current_uuid];
     set3DENMissionAttributes [[QEGVAR(missiontesting,missionTestingInfo), QGVAR(uuid), _current_uuid]];
+    set3DENMissionAttributes [[QEGVAR(missiontesting,missionTestingInfo), QGVAR(frameworkVersion), MISSION_VALIDATION_VERSION]];
 };
 
 private _missionType = QEGVAR(missiontesting,missionTestingInfo) get3DENMissionAttribute QEGVAR(missiontesting,missionType);
