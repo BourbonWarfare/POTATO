@@ -40,7 +40,10 @@ class CfgMagazineWells {
         cwr3_mags[] = {};
     };
     class CWR3_CARLGUSTAF {
-        cup_magazines[] = {}; // CWR3 expects a 0.1 second 280 thrust and CUP does not do that after changes we've made
+        cup_magazines[] = {"CUP_MAAWS_HEAT_M","CUP_MAAWS_HEDP_M"};
+    };
+    class potato_CUP_Carl_Gustaf {
+        cwr3_mags[] = {"cwr3_carlgustaf_hedp_m","cwr3_carlgustaf_heat_m"};
     };
 };
 

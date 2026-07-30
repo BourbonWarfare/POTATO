@@ -141,6 +141,9 @@ class CfgAmmo {
             };
         };
     };
+    class GVARMAIN(R_FFV448_he_cup): GVARMAIN(R_FFV448_he) {
+        thrust = 280;
+    };
     class GVARMAIN(R_ASM509_tb): R_MRAAWS_HE_F {
         ACEGVAR(frag,skip) = 1; // thermobaric, no real details
         ACEGVAR(frag,gurney_c) = 2745; // idk, PAX-42 or something
@@ -148,6 +151,9 @@ class CfgAmmo {
         indirectHit = 40;
         indirectHitRange = 8;
         model = "\A3\Weapons_F_Tank\Launchers\MRAWS\rocket_MRAWS_HEAT55_F.p3d";
+    };
+    class GVARMAIN(R_ASM509_tb_cup): GVARMAIN(R_ASM509_tb) {
+        thrust = 280;
     };
     class GVARMAIN(R_FFV469C_smoke): R_MRAAWS_HEAT_F {
         ACEGVAR(frag,skip) = 1;
@@ -165,6 +171,9 @@ class CfgAmmo {
                 init = QUOTE(_this call FUNC(carlGSmoke));
             };
         };
+    };
+    class GVARMAIN(R_FFV469C_smoke_cup): GVARMAIN(R_FFV469C_smoke) {
+        thrust = 280;
     };
     // Smoke submunition
     class SmokeShellArty;
