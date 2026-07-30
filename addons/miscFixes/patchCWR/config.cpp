@@ -21,13 +21,6 @@ class Extended_DisplayLoad_EventHandlers {
     };
 };
 
-class CfgAmmo {
-    class RocketBase;
-    class cwr3_r_carlgustaf_hedp: RocketBase {
-        thrust = 0.1;
-    };
-};
-
 class CfgMagazines {
     class cwr3_12rnd_mm1_m;
     class potato_12Rnd_40mm_M433_HEDP: cwr3_12rnd_mm1_m {
@@ -41,6 +34,16 @@ class CfgMagazines {
         tracersEvery = 1;
     };
 };
+
+class CfgMagazineWells {
+    class CBA_Carl_Gustaf { // Default parameter is thrust = 0.1, thrustTime = 0.1, CWR does not do this
+        cwr3_mags[] = {};
+    };
+    class CWR3_CARLGUSTAF {
+        cup_magazines[] = {}; // CWR3 expects a 0.1 second 280 thrust and CUP does not do that after changes we've made
+    };
+};
+
 
 class CfgWeapons {
     class Rifle_Base_F;
