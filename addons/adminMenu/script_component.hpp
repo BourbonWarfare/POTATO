@@ -42,9 +42,10 @@
 #define UI_TAB_MARKERS                 ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2310)
 #define UI_TAB_MARKERS_PLAYERS         ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl IDC_LISTBOX_MARKERS_PLAYERS)
 #define UI_TAB_MARKERS_MARKERS         ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl IDC_LISTBOX_MARKERS_MARKERS)
+#define UI_TAB_RADIOS                  ((uiNamespace getVariable QGVAR(adminMenuDialog)) displayCtrl 2311)
 
-#define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint",        "Player Fixes",       "Give Items",      "Markers"]
-#define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT, UI_TAB_FIX_UNIT, UI_TAB_GIVE_ITEMS, UI_TAB_MARKERS]
+#define UI_TABS_NAMES    ["Zeus",      "Supplies",     "End Mission", "Teleport",     "Safe Start",     "Tests",            "Send Hint",        "Player Fixes",       "Give Items",      "Markers",      "Radios"]
+#define UI_TABS_CONTROLS [UI_TAB_ZEUS, UI_TAB_SUPPLIES, UI_TAB_END,   UI_TAB_TELEPORT, UI_TAB_SAFESTART, UI_TAB_CHECKMODS,  UI_TAB_MISSIONHINT, UI_TAB_FIX_UNIT, UI_TAB_GIVE_ITEMS, UI_TAB_MARKERS, UI_TAB_RADIOS]
 
 #define UI_TABS_INDEX_MARKERS 9
 
@@ -60,3 +61,10 @@
 #define POTATO_MARKER_UNIT_IDC  2304
 #define POTATO_MARKER_HELP_IDC  21802
 #define POTATO_MARKER_OK_IDC    1
+
+// Radios defines
+#define POTATO_RADIO_RESET_TO_DEFAULT 0
+#define POTATO_RADIO_ACRE_ONLY_343 1
+#define POTATO_RADIO_SWITCH_ARCADE_MODE 2
+#define POTATO_RADIO_INGAME_ONLY_343 3
+#define POTATO_RADIO_END_RADIO_SIM 4

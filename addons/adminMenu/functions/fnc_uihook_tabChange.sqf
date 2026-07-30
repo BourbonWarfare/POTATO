@@ -128,7 +128,7 @@ case (3): {
         TRACE_1("showing teleport tab",_sel);
         [
             UI_TAB_TELEPORT_PERSON,
-            nil, // default to ace name
+            {[[_this] call ACEFUNC(common,getName), 0, groupId group _this]}, // default to ace name
             {alive _this}
         ] call _fnc_setListOfPlayers;
 
