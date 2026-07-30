@@ -49,8 +49,8 @@
 #define S_NEWTEXTLINE_FORMATTEXT _textArray pushBack formatText
 #define S_NEWTEXTLINE_SHORT _textArrayShort pushBack format
 #define S_NEWTEXTLINE_FORMATTEXT_SHORT _textArrayShort pushBack formatText
-#define MISSION_TYPE_APPLIES_BOTH [0,1,2,3,4]
-#define MISSION_TYPE_APPLIES_COOP [0,1,3]
+#define MISSION_TYPE_APPLIES_BOTH [0,1,2,3,4,5]
+#define MISSION_TYPE_APPLIES_COOP [0,1,3,5]
 #define MISSION_TYPE_APPLIES_TVT [0,2,4]
 
 // Menu Defines
