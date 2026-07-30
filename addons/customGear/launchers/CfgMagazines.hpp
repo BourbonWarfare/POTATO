@@ -128,28 +128,13 @@ class CfgMagazines {
         mass = 68.3;
     };
     // CUP Thrust changes
-    class GVARMAIN(carlgustaf_FFV448_he_cup): MRAWS_HE_F {
+    class GVARMAIN(carlgustaf_FFV448_he_cup): GVARMAIN(carlgustaf_FFV448_he) {
         ammo = QGVARMAIN(R_FFV448_he_cup);
-        author = "Bourbon Warfare";
-        descriptionShort = "Type: FFV448 HE Rocket<br />Rounds: 1<br />Used in: Carl Gustaf, MAAWS";
-        displayName = "FFV448 (Programmable HE/AB) Round";
-        displayNameShort = "HE";
-        mass = 57.3;
     };
-    class GVARMAIN(carlgustaf_ASM509_tb_cup): MRAWS_HE_F {
+    class GVARMAIN(carlgustaf_ASM509_tb_cup): GVARMAIN(carlgustaf_ASM509_tb) {
         ammo = QGVARMAIN(R_ASM509_tb_cup);
-        author = "Bourbon Warfare";
-        descriptionShort = "Type: ASM-509 HE Rocket<br />Rounds: 1<br />Used in: Carl Gustaf, MAAWS";
-        displayName = "ASM-509 (Thermobaric) Round";
-        displayNameShort = "Thermobaric";
-        mass = 92.6;
     };
-    class GVARMAIN(carlgustaf_FFV469C_smoke_cup): MRAWS_HEAT55_F {
+    class GVARMAIN(carlgustaf_FFV469C_smoke_cup): GVARMAIN(carlgustaf_FFV469C_smoke) {
         ammo = QGVARMAIN(R_FFV469C_smoke_cup);
-        author = "Bourbon Warfare";
-        descriptionShort = "Type: FFV469C Smoke Rocket<br />Rounds: 1<br />Used in: Carl Gustaf, MAAWS";
-        displayName = "FFV469C (Smoke) Round";
-        displayNameShort = "Smoke";
-        mass = 68.3;
     };
 };
