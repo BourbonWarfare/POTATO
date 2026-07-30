@@ -25,7 +25,7 @@ private _checkBoxes = {
     params["_text","_cbValue","_applicable"];
     private _cbValueStr = [_cbValue] call _trueFalse;
     private _missionType = getMissionConfigValue QGVAR(missionType);
-    if (_cbValueStr == ":x:" && {_applicable in _missionType || _applicable == 0}) then {
+    if (_cbValueStr == ":x:" && {_missionType in _applicable}) then {
         S_NEWTEXTLINE_FORMATTEXT ["- %1 : %2",_text,_cbValueStr];
     };
 };
@@ -156,7 +156,7 @@ if(_missionMaker == name ACE_player || is3DEN) then {
     S_NEWTEXTLINE ["# Test Result: %1",_missionOverallPassFail];
 
     private _otherConsid = _masterChecklistArray select SELECT_OTHERCONSIDERATIONS;
-    if (_armotTestingText isNotEqualTo "" && !(_otherConsid#SELECT_ARMOR_RESULTS)) then {
+    if (_armotTestingText isNotEqualTo "" && !(_otherConsid select SELECT_ARMOR_RESULTS)) then {
         _otherConsid set [3, [_otherConsid#3, _armotTestingText] joinString endl];
         _otherConsid set [4, 1];
     };

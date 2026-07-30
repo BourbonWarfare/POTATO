@@ -55,7 +55,7 @@ private _createChecklistSection  = {
             private _checked = _x select 1;
             private _itemApplicable = _x select 2;
 
-            if(_itemApplicable == (getMissionConfigValue QGVAR(missionType)) || _itemApplicable == 0) then {
+            if ((getMissionConfigValue QGVAR(missionType) in _itemApplicable)) then {
                 //Create Structure Text and Insert Text. Get hight of text and resize control appropriately.
                 private _ctrlCreateText = DISPLAY_TESTMENU ctrlCreate [QUOTE(RscStructuredText),-1,CONTROL_GROUP_L];
                 _ctrlCreateText ctrlSetStructuredText parseText _text;
