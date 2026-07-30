@@ -49,7 +49,8 @@ if (_isClosing) then {
         cbChecked (_display displayCtrl IDC_CONVOY_FINDROAD),
         _ctrl lbValue (lbCurSel _ctrl),
         cbChecked (_display displayCtrl IDC_CONVOY_LAMBS),
-        _display getVariable [QGVAR(side), east]
+        _display getVariable [QGVAR(side), east],
+        cbChecked (_display displayCtrl IDC_CONVOY_ONEWAY)
     ] call FUNC(reinforceSpawn);
 } else { // initialize the display to sync menu values
     _eventArgs params ["_display"];

@@ -13,13 +13,14 @@
 * _dismountCount - Number of units in squad (SCALAR, default 8).
 * _lambsDismounts - whether the dismounts should use LAMBS AI (BOOL, default false)
 * _side - Sie of the units (SIDE, default east)
+* _oneWay - One way movement, unarmed vehicles don't turn around (BOOL, default false)
 * _group - The group units are spawned into. Should not be passed, used for recursion (GROUP).
 *
 * Return:
 * The number of patroling units spawned
 *
 * Example:
-* ["zone_0", 3, 10, east] call potato_zeusHC_fnc_spawnReinforementSquad;
+* ["zone_0", 3, 10, east] call potato_zeusHC_fnc_reinforceSpawnVehicle;
 *//***************************************************************************/
 params [
     ["_waypoints", [], [[]]],
@@ -27,6 +28,7 @@ params [
     ["_dismountCount", 8, [8]],
     ["_lambsDismounts", false, [false]],
     ["_side", east, [east]],
+    ["_oneWay", false, [false]],
     ["_group", grpNull, [grpNull]]
 ];
 
@@ -37,7 +39,7 @@ if (_vic isEqualType []) exitWith {
     _vic setPosATL _posATL;
     _vic setDir _vicDir;
     [{_this call FUNC(reinforceSpawnVehicle)},
-        [_waypoints, _vic, _dismountCount, _lambsDismounts, _side, _group],
+        [_waypoints, _vic, _dismountCount, _lambsDismounts, _side, _oneWay, _group],
         GVAR(delayBetweenUnitCreation) * (1 + random 1)] call CBA_fnc_waitAndExecute;
 };
 private _sideStr = switch (_side) do {
@@ -70,7 +72,7 @@ if (isNull _group) exitWith {
         } forEach ("true" configClasses (_config >> "Turrets"));
     };
     _configRoot call _fnc_getCrewedTurrets;
-
+    if (_crew isEqualTo [[-1]] && _oneWay) then {_crew = [];};
     {
         [{
             params ["_group", "_vic", "_sideStr", "_turret"];
@@ -81,6 +83,7 @@ if (isNull _group) exitWith {
                 _unit moveInDriver _vic;
                 [{(_this#0) setSkill ["general", 1];}, [_unit], 2] call CBA_fnc_waitAndExecute;
             } else {
+                _vic setVariable [QGVAR(armed), true];
                 _unit assignAsTurret [_vic, _turret];
                 _unit moveInTurret [_vic, _turret];
             };
@@ -88,12 +91,16 @@ if (isNull _group) exitWith {
             _group selectLeader (effectiveCommander _vic);
         }, [_group, _vic, _sideStr, _x], GVAR(delayBetweenUnitCreation) * (0.5 + _forEachIndex)] call CBA_fnc_waitAndExecute;
     } forEach _crew;
-    _group setVariable ["lambs_danger_disableGroupAI", true];
+    if (_crew isEqualTo []) then {
+        deleteGroup _group;
+    } else {
+        _group setVariable ["lambs_danger_disableGroupAI", true];
+    };
     if (_dismountCount > 0) then {
         _group = createGroup [_side, true];
     };
     [{_this call FUNC(reinforceSpawnVehicle)},
-        [_waypoints, _vic, _dismountCount, _lambsDismounts, _side, _group],
+        [_waypoints, _vic, _dismountCount, _lambsDismounts, _side, _oneWay, _group],
         5] call CBA_fnc_waitAndExecute;
 };
 if !(isNull leader _group || {local leader _group}) exitWith {
@@ -127,11 +134,12 @@ if (_dismountCount > 0) then {
 };
 if (_dismountCount > 0) then { // recurse
     [{call FUNC(reinforceSpawnVehicle)},
-        [_waypoints, _vic, _dismountCount, _lambsDismounts, _side, _group],
+        [_waypoints, _vic, _dismountCount, _lambsDismounts, _side, _oneWay, _group],
         GVAR(delayBetweenUnitCreation) * (1 + random 1)] call CBA_fnc_waitAndExecute;
 } else { // it's waypoint time
     _waypoints params ["_posAGLSpawn", "_posAGLDismount", "_endWaypoint"];
     _endWaypoint params ["_posAGLEnd", "_wpType", "_index"];
+    _group enableAttack false;
     private _delay = 1;
     if (group driver _vic != _group) then {
         private _wp = _group addWaypoint [_posAGLDismount, 0];
@@ -160,12 +168,13 @@ if (_dismountCount > 0) then { // recurse
     } else {
         _delay = 8;
     };
+    if (_oneWay && !(_vic getVariable [QGVAR(armed), false])) then {_delay = 1;};
     if (_index > 0) then {
         _delay = _delay + 1;
     };
     _group setVariable ["lambs_danger_disableGroupAI", !_lambsDismounts];
     [{
-        params ["_vic",  "_dsmntPosAGL", "_endPosAGL", "_index"];
+        params ["_vic",  "_dsmntPosAGL", "_endPosAGL", "_index", "_oneWay", "_wpType"];
         //_vic limitSpeed 70;
         _vic setEffectiveCommander driver _vic;
         private _group = group driver _vic;
@@ -179,17 +188,42 @@ if (_dismountCount > 0) then { // recurse
             QUOTE(if (local this) then {[vehicle this] call FUNC(reinforceUnloadCargo)};)
         ];
         _wp setWaypointCompletionRadius (1 + _index) * 20;
-        _group addEventHandler ["CombatModeChanged", {
+        /*_group addEventHandler ["CombatModeChanged", {
             [_this#0, true] call FUNC(reinforceContactHandler);
-        }];
+        }];*/
         if (count units _group > 1) then {
-            _wp = _group addWaypoint [_dsmntPosAGL, 100];
-            _wp setWaypointTimeout [30, 35, 50];
-            _wp setWaypointCompletionRadius 100;
-            _wp setWaypointStatements ["true", "if (local this) then {vehicle this limitSpeed 10;};"];
-            _wp = _group addWaypoint [_endPosAGL, 50];
-            _wp setWaypointBehaviour "COMBAT";
-            _wp setWaypointSpeed "LIMITED";
+            if (_oneWay && !(_vic getVariable [QGVAR(armed), false])) then {
+                _wp setWaypointType "MOVE";
+                _wp = _group addWaypoint [_dsmntPosAGL, 0];
+                _wp setWaypointType "GETOUT";
+                _wp setWaypointCompletionRadius (1 + _index) * 20;
+                _wp = _group addWaypoint [_endPosAGL, 50];
+                _wp setWaypointCompletionRadius 100;
+                switch (_wpType) do {
+                    case CONVOY_WPTYPE_SAD: {
+                        _wp setWaypointType "SAD";
+                    };
+                    case CONVOY_WPTYPE_GARRISON: {
+                        _wp = _group addWaypoint [_endPosAGL, 50];
+                        _wp setWaypointCompletionRadius 100;
+                        _wp setWaypointScript "\x\cba\addons\ai\fnc_waypointGarrison.sqf []";
+                        _wp setWaypointType "SCRIPTED";
+                    };
+                    case CONVOY_WPTYPE_LAMBSQCB: {
+                        _wp setWaypointScript "\z\lambs\addons\wp\scripts\fnc_wpCQB.sqf";
+                        _wp setWaypointType "SCRIPTED";
+                    };
+                    default {_wp setWaypointCompletionRadius 20;}
+                };
+            } else {
+                _wp = _group addWaypoint [_dsmntPosAGL, 100];
+                _wp setWaypointTimeout [30, 35, 50];
+                _wp setWaypointCompletionRadius 100;
+                _wp setWaypointStatements ["true", "if (local this) then {vehicle this limitSpeed 10;};"];
+                _wp = _group addWaypoint [_endPosAGL, 50];
+                _wp setWaypointBehaviour "COMBAT";
+                _wp setWaypointSpeed "LIMITED";
+            };
         } else {
             // Let infantry clear the vehicles
             _wp = _group addWaypoint [_dsmntPosAGL, 0];
@@ -206,7 +240,7 @@ if (_dismountCount > 0) then { // recurse
         _vic setUnloadInCombat [false, false];
         // give the vehicle a kickstart
         _vic setVelocityModelSpace [0, 5, 0];
-    }, [_vic, _posAGLDismount, _posAGLEnd, _index], _delay] call CBA_fnc_waitAndExecute;
+    }, [_vic, _posAGLDismount, _posAGLEnd, _index, _oneWay, _wpType], _delay] call CBA_fnc_waitAndExecute;
     _vic setConvoySeparation 50;
     _group setSpeedMode "FULL";
 };

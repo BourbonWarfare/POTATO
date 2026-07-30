@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        units[] = {};
+        units[] = {QGVAR(zeus_cargoDrop)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"potato_core"};
@@ -13,6 +13,7 @@ class CfgPatches {
     };
 };
 
+#include "Displays.hpp"
 #include "CfgFactionClasses.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgEventHandlers.hpp"
