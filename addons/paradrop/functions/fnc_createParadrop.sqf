@@ -84,8 +84,9 @@ _pilot moveInDriver _dropVic;
 _dropVic setEffectiveCommander _pilot;
 _group setVariable ["lambs_danger_disableGroupAI", true];
 _pilot setVariable ["lambs_danger_disableAI", true];
-{_pilot disableAI _x} forEach ["HEARING", "AUTOCOMBAT", "CHECKVISIBLE", "AUTOTARGET", "TARGET"];
-
+// 2.22 content
+//{_pilot disableAI _x} forEach ["HEARING", "AUTOCOMBAT", "CHECKVISIBLE", "AUTOTARGET", "TARGET"];
+{_pilot disableAI _x} forEach ["AUTOCOMBAT", "CHECKVISIBLE", "AUTOTARGET", "TARGET"];
 // Add those waypoints
 private _wp = _group addWaypoint [_startDropAGL getPos [1500, _secondDir], 0];
 _wp setWaypointBehaviour "CARELESS";
