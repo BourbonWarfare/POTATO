@@ -127,4 +127,14 @@ class CfgMagazines {
         displayNameShort = "Smoke";
         mass = 68.3;
     };
+    // CUP Thrust changes
+    class GVARMAIN(carlgustaf_FFV448_he_cup): GVARMAIN(carlgustaf_FFV448_he) {
+        ammo = QGVARMAIN(R_FFV448_he_cup);
+    };
+    class GVARMAIN(carlgustaf_ASM509_tb_cup): GVARMAIN(carlgustaf_ASM509_tb) {
+        ammo = QGVARMAIN(R_ASM509_tb_cup);
+    };
+    class GVARMAIN(carlgustaf_FFV469C_smoke_cup): GVARMAIN(carlgustaf_FFV469C_smoke) {
+        ammo = QGVARMAIN(R_FFV469C_smoke_cup);
+    };
 };
