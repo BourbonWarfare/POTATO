@@ -171,6 +171,6 @@ if (["emr_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 
 
 // Lambs Danger
-if (["lambs_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [
-["lambs_main_radiodisabled", false]
-];} else { _skip pushBack "lambs_main" };
+// if (["lambs_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+// ["lambs_main_radiodisabled", false]
+// ];} else { _skip pushBack "lambs_main" };
