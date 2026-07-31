@@ -80,14 +80,14 @@ if (["WBK_MeleeMechanics"] call ACEFUNC(common,isModLoaded)) then { _settings ap
 ["ims_bluntweapon", true] // uncon instead of kill
 ];} else { _skip pushBack "WBK_MeleeMechanics" };
 
-// WBK Melee
-if (["WBK_DyingAnimationsMod"] call ACEFUNC(common,isModLoaded)) then { _settings append [
-["WBK_DeathAnimMod_Deaths_PLR", false],
-["WBK_DeathAnimMod_Hit_PLR", false],
-["WBK_DeathAnimMod_Flinch_PLR", false],
-["wbk_deathanimmod_death_chance", "0"], // why are these strings??
-["wbk_deathanimmod_hit_chance", "70"]
-];} else { _skip pushBack "WBK_DyingAnimationsMod" };
+// WBK Death Animations
+// if (["WBK_DyingAnimationsMod"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+// ["WBK_DeathAnimMod_Deaths_PLR", false],
+// ["WBK_DeathAnimMod_Hit_PLR", false],
+// ["WBK_DeathAnimMod_Flinch_PLR", false],
+// ["wbk_deathanimmod_death_chance", "0"], // why are these strings??
+// ["wbk_deathanimmod_hit_chance", "70"]
+// ];} else { _skip pushBack "WBK_DyingAnimationsMod" };
 
 
 // NIARMS (HLC)
@@ -118,6 +118,7 @@ if (["diwako_dui_main"] call ACEFUNC(common,isModLoaded)) then { _settings appen
 ["diwako_dui_distanceWarning", 5], // User-Setting
 
 ["diwako_dui_linecompass_enableShowCustomWP", false, true], // User-Setting
+["diwako_dui_linecompass_allownumericdrawbearing", false, true], // User-Setting
 
 // DUI - Squad Radar - Nametags
 ["diwako_dui_nametags_enableocclusion", false, true], // User-Setting
@@ -137,6 +138,7 @@ if (["acre_sys_core"] call ACEFUNC(common,isModLoaded)) then { _settings append 
 ];} else { _skip pushBack "acre_sys_core" };
 
 if (["tuncon_unconinfo"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["tuncon_unconinfo_enableunconinfo", true],
 ["tuncon_unconinfo_enableshowepinephrine", false],
 ["tuncon_unconinfo_enableshowbleeding", false],
 ["tuncon_unconinfo_enableshowheartrate", false],
@@ -144,9 +146,14 @@ if (["tuncon_unconinfo"] call ACEFUNC(common,isModLoaded)) then { _settings appe
 ["tuncon_unconinfo_allownearestunit", false],
 ["tuncon_unconinfo_nofriendliesnearbytext", "You are near death."],
 ["tuncon_unconinfo_enableshowdetailedtreatment", false],
-["tuncon_unconinfo_unconinfonearestunitdistance", 10]
+["tuncon_unconinfo_unconinfonearestunitdistance", 10],
+["tuncon_unconinfo_enableshowwakeupchance", false],
+["tuncon_unconinfo_enableshowcardiacarrest", true],
+["tuncon_unconinfo_enablemoan", true],
+["tuncon_unconinfo_enableshowtriage", true],
 ];} else { _skip pushBack "tuncon_unconinfo" };
 
+// OCAP (will only be on dedi-server)
 if (["OCAP_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 ["ocap_administratorlist", "[76561198029918230]"],
 ["ocap_settings_minplayercount", 10],
@@ -154,3 +161,11 @@ if (["OCAP_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 ["ocap_settings_minmissiontime", 15],
 ["ocap_settings_tracktickets", false]
 ];} else { _skip pushBack "OCAP_main" };
+
+// EnhMoveRework
+if (["emr_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["emr_main_climbingenabled", false],
+["emr_main_jumpingenabled", false],
+["emr_main_allowmidairclimbing", false]
+];} else { _skip pushBack "emr_main" };
+
