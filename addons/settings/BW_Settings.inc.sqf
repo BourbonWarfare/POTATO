@@ -169,3 +169,8 @@ if (["emr_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [
 ["emr_main_allowmidairclimbing", false]
 ];} else { _skip pushBack "emr_main" };
 
+
+// Lambs Danger
+if (["lambs_main"] call ACEFUNC(common,isModLoaded)) then { _settings append [
+["lambs_main_radiodisabled", false]
+];} else { _skip pushBack "lambs_main" };
