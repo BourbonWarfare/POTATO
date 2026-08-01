@@ -150,7 +150,7 @@ if (["tuncon_unconinfo"] call ACEFUNC(common,isModLoaded)) then { _settings appe
 ["tuncon_unconinfo_enableshowwakeupchance", false],
 ["tuncon_unconinfo_enableshowcardiacarrest", true],
 ["tuncon_unconinfo_enablemoan", true],
-["tuncon_unconinfo_enableshowtriage", true],
+["tuncon_unconinfo_enableshowtriage", true]
 ];} else { _skip pushBack "tuncon_unconinfo" };
 
 // OCAP (will only be on dedi-server)
