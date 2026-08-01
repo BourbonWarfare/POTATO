@@ -7,11 +7,11 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { 
+        requiredAddons[] = {
             "potato_core", "ace_ai",
             "hlcweapons_AUG", "hlcweapons_g3", "hlcweapons_G36", "hlcweapons_MG3s", "hlcweapons_mp5", "hlcweapons_stgw57", "hlcweapons_Johnson",
-            "rhs_main_loadorder"
-            // todo VN?
+            "rhs_main_loadorder",
+            "weapons_v_f_vietnam_04_c"
         };
         skipWhenMissingDependencies = 1;
         author = "Bourbon Warfare";
