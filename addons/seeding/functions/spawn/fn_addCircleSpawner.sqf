@@ -65,6 +65,7 @@ if (GVAR(circleSpawners) isEqualTo []) then {
     [{call FUNC(circleSpawnHandle)}, 0, 15] call CBA_fnc_waitAndExecute;
 };
 
+private _artyRoundTypes = [];
 if (_artilleryArray isNotEqualTo []) then {
     _artilleryArray params ["_artyType", "", "_artyCount"];
     //// Create vehicles
@@ -88,6 +89,11 @@ if (_artilleryArray isNotEqualTo []) then {
     for "_i" from 1 to _artyCount do {
         [[_validZones, _artyType, _attackerSide], QFUNC(createArtyGun)] call PFUNC(zeusHC,hcPassthrough);
     };
+    if (_forceDistribute) then {
+        _artyRoundTypes = [CBA_missionTime + 120, _artilleryArray#1];
+    } else {
+        _artyRoundTypes = _artilleryArray#1
+    };
 };
 
 /// Whether positions are supposed to be evenly distributed
@@ -102,7 +108,7 @@ if (_forceDistribute) then {
         _minRad,
         [_minAngle, _maxAngle, _angleStep],
         CIRCLESPAWN_VIC_STARTING,
-        [CBA_missionTime + 120, _artilleryArray#1] ,
+        +_artyRoundTypes,
         []
     ];
 } else {
@@ -116,7 +122,7 @@ if (_forceDistribute) then {
         _minRad,
         [_minAngle, _maxAngle, _angleStep],
         CIRCLESPAWN_VIC_STARTING,
-        +(_artilleryArray#1)
+        +_artyRoundTypes
     ];
 };
 
