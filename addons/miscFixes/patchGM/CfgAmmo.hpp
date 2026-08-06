@@ -104,13 +104,21 @@ class CfgAmmo {
     class gm_shell_artillery_Base: gm_shell_base {
         effectFly = "";
     };
-    class gm_shell_HE_Base: gm_shell_base {};
+    class gm_shell_AP_Base: gm_shell_base {
+        airlock = 1;
+    };
+    class gm_shell_HE_Base: gm_shell_base {
+        airlock = 1;
+    };
     class gm_shell_73mm_HE_og15v: gm_shell_HE_Base {
         model = "\a3\Weapons_F_Tank\Ammo\rocket_spg9.p3d";
+        airlock = 0;
         tracerStartTime = 0.001;
         tracerEndTime = 12;
     };
-    class gm_shell_HEAT_Base: gm_shell_HE_Base {};
+    class gm_shell_HEAT_Base: gm_shell_HE_Base {
+        airlock = 0;
+    };
     class gm_shell_73mm_HEAT_pg15v: gm_shell_HEAT_Base {
         model = "\a3\Weapons_F_Tank\Ammo\rocket_spg9.p3d";
         tracerStartTime = 0.001;
