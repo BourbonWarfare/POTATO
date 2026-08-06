@@ -12,7 +12,7 @@ private _artyMags = PGVAR(artillery,artilleryAmmoTypes);
 } forEach ["potato_e", "potato_i"];
 
 if (isServer) then {
-    [] call FUNC(autoEndSession);
+    [20] call FUNC(autoEndSession);
     if (GVAR(vanillaRespawn)) then {
         {
             if (local _x && typeOf _x == BW_TP_FLAG_TYPE) then {
