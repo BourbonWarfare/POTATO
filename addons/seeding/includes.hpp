@@ -6,6 +6,18 @@ onLoadName = "BW Seeding V6";
 allowGRADFromFlag = 1;
 allowFunctionsRecompile = 1;
 
+#ifndef BW_SEEDING_SIDE_OPFOR
+#define BW_SEEDING_SIDE_OPFOR "POTATO Seeding OpFor"
+#endif
+#ifndef BW_SEEDING_SIDE_INDY
+#define BW_SEEDING_SIDE_INDY "POTATO Seeding Indy"
+#endif
+
+#ifdef BW_SEEDING_POTATO_RESPAWN
+usePotatoRespawnSystem = 1;
+#else
+usePotatoRespawnSystem = 0;
+#endif
 
 // Extended Event Handlers:
 #include "\z\potato\addons\seeding\CfgEventHandlers.hpp"

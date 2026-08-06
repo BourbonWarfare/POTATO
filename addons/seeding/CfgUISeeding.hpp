@@ -65,7 +65,6 @@ class RscMissionSelectMenu {
                 class mout {
                     text = "MOUT";
                     value = BW_TRAINING_OPERATION_MOUT;
-                    default = 1;
                 };
                 class zoneClear {
                     text = "Zone Assault (select zone on map)";
@@ -74,6 +73,7 @@ class RscMissionSelectMenu {
                 class zoneClearDrawn {
                     text = "Zone Assault (draw on map)";
                     value = BW_TRAINING_OPERATION_ZONE_DRAW;
+                    default = 1;
                 };
                 class defendPosition {
                     text = "Defend Position (map click)";
@@ -96,12 +96,12 @@ class RscMissionSelectMenu {
             tooltip = "Select faction of enemy units";
             class Items {
                 class east {
-                    text = "Armed Forces of the Russian Federation (AK-74M)";
+                    text = BW_SEEDING_SIDE_OPFOR;
                     value = BW_TRAINING_ENEMY_OPFOR;
                     default = 1;
                 };
                 class indy {
-                    text = "Chernarus Defense Forces (AK-74N)";
+                    text = BW_SEEDING_SIDE_INDY;
                     value = BW_TRAINING_ENEMY_INDY;
                 };
             };
