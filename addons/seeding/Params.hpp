@@ -26,7 +26,7 @@ class Params {
   class GVAR(gradMode) {
     title = "GRAD - Enable Mode";
     values[] = {0, 1, 2, 3, 4};
-    texts[] = {"Disable GRAD vehicle spawn", "Normal spawn limitations", "No limits per vehicle type", "Transport Only", "Light Vehicles Only"};
+    texts[] = {"Disable GRAD vehicle spawn", "Limited all vehicle types", "No limits all vehicle types", "Transport Only", "Light Vehicles Only"};
     default = 4;
   };
 };

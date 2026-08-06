@@ -5,4 +5,10 @@ class CfgMagazineWells {
     class CBA_Carl_Gustaf {
         ADDON[] = {QGVARMAIN(carlgustaf_FFV448_he),QGVARMAIN(carlgustaf_ASM509_tb),QGVARMAIN(carlgustaf_FFV469C_smoke)};
     };
+    class potato_CUP_Carl_Gustaf {
+        ADDON[] = {QGVARMAIN(carlgustaf_FFV448_he_cup),QGVARMAIN(carlgustaf_ASM509_tb_cup),QGVARMAIN(carlgustaf_FFV469C_smoke_cup)};
+    };
+    class CWR3_CARLGUSTAF {
+        ADDON[] = {QGVARMAIN(carlgustaf_FFV448_he_cup),QGVARMAIN(carlgustaf_ASM509_tb_cup),QGVARMAIN(carlgustaf_FFV469C_smoke_cup)};
+    };
 };

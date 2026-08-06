@@ -429,6 +429,9 @@ class CfgMagazineWells {
     class CBA_40mm_M203_6rnds {
         potato_magazineWell[] = { "potato_6Rnd_40mm_M433_HEDP" };
     };
+    class CBA_Carl_Gustaf {
+        CUP_mags[] = {};
+    };
 };
 
 class Mode_SemiAuto; // inheritance for sa61 accuracy fix
@@ -784,6 +787,10 @@ class CfgWeapons {
             };
         };
         class WeaponSlotsInfo;
+    };
+    class CUP_launch_MAAWS: Launcher_Base_F {
+        magazines[] = {"CUP_MAAWS_HEAT_M","CUP_MAAWS_HEDP_M"};
+        magazineWell[] = {"potato_CUP_Carl_Gustaf"};
     };
     class CUP_Vmlauncher_AT13_single_veh;
     class GVARMAIN(CUP_launch_M47_veh): CUP_Vmlauncher_AT13_single_veh {

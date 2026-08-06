@@ -4,7 +4,7 @@ MISSION_GVAR_PREFIX = false;
 
 // Mission select menu
 GVAR(menuOptions) = createHashMapFromArray [
-    ["operationType", BW_TRAINING_OPERATION_MOUT],
+    ["operationType", BW_TRAINING_OPERATION_ZONE_DRAW],
     ["enemyType", BW_TRAINING_ENEMY_OPFOR],
     ["density", BW_TRAINING_DENSITY_UNIFORM],
     ["AIskillMin", 0.5],
@@ -26,11 +26,13 @@ GVAR(reinforceHashMap) = createHashMap;
 GVAR(missionMenuLastUpdateFrame) = -1;
 GVAR(missionMenuLastCursorPos) = [0, 0];
 GVAR(endOfMission) = false;
-GVAR(enableGRADMode) = getMissionConfigValue [QGVAR(gradMode), 1];
+GVAR(enableGRADMode) = [QGVAR(gradMode), 1] call BIS_fnc_getParamValue;
 GVAR(rallyObj) = getText (missionConfigFile >> "CfgLoadouts" >> "potato_w" >> "rallyObject");
 GVAR(artilleryGunArray) = [];
 GVAR(artilleryParams) = createHashMap;
 GVAR(artilleryMissionMarkers) = [];
 GVAR(artilleryMissionPos) = [0, 0, 0];
+GVAR(vanillaRespawn) = 0 == getMissionConfigValue ["usePotatoRespawnSystem", 0];
+GVAR(aiSpawnPos) = getMissionConfigValue ["aiSpawnPosition", [50, 100, 0]];
 
 MISSION_GVAR_PREFIX = true;

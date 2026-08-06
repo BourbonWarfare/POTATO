@@ -35,6 +35,19 @@ class CfgMagazines {
     };
 };
 
+class CfgMagazineWells {
+    class CBA_Carl_Gustaf { // Default parameter is thrust = 0.1, thrustTime = 0.1, CWR does not do this
+        cwr3_mags[] = {};
+    };
+    class CWR3_CARLGUSTAF {
+        cup_magazines[] = {"CUP_MAAWS_HEAT_M","CUP_MAAWS_HEDP_M"};
+    };
+    class potato_CUP_Carl_Gustaf {
+        cwr3_mags[] = {"cwr3_carlgustaf_hedp_m","cwr3_carlgustaf_heat_m"};
+    };
+};
+
+
 class CfgWeapons {
     class Rifle_Base_F;
     class cwr3_glaunch_mm1: Rifle_Base_F {
