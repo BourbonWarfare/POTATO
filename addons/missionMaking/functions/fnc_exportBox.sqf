@@ -41,28 +41,28 @@ private _lines = [
     "  boxCustomName = ""Resupply Box"";"
 ];
 if (_weapons isNotEqualTo []) then {
-    _lines pushBack "  class TransportWeapons[] = {";
+    _lines pushBack "  TransportWeapons[] = {";
     {
         _lines pushBack format ["    %1,", str _x];
     } forEach _weapons;
     _lines pushBack "  };";
 };
 if (_magazines isNotEqualTo []) then {
-    _lines pushBack "  class TransportMagazines[] = {";
+    _lines pushBack "  TransportMagazines[] = {";
     {
         _lines pushBack format ["    %1,", str _x];
     } forEach _magazines;
     _lines pushBack "  };";
 };
 if (_items isNotEqualTo []) then {
-    _lines pushBack "  class TransportItems[] = {";
+    _lines pushBack "  TransportItems[] = {";
     {
         _lines pushBack format ["    %1,", str _x];
     } forEach _items;
     _lines pushBack "  };";
 };
 if (_backpacks isNotEqualTo []) then {
-    _lines pushBack "  class TransportBackpacks[] = {";
+    _lines pushBack "  TransportBackpacks[] = {";
     {
         _lines pushBack format ["    %1,", str _x];
     } forEach _backpacks;
