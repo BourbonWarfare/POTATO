@@ -34,11 +34,15 @@ if (_isSessionDay && _hour < 19) then {
     _second = 60 - _second - 5;
     private _secondsToEnd = 0 max (_hour * 3600 + _minute * 60 + _second);
     [{
+        diag_log formatText ["[SEED] Running pre-end notification at +[%1]", [CBA_missionTime] call CBA_fnc_formatElapsedTime];
         params ["_extraMinutesBeforeSession", "_sessionEndTime"];
         private _deltaMinutes = round ((_sessionEndTime - CBA_missionTime) / 60);
         [parseText format ["%1 minutes until session.<br/>Ending in %2 minutes", _extraMinutesBeforeSession + _deltaMinutes, _deltaMinutes]] remoteExecCall ["hint"];
         remoteExecCall [QFUNC(autoEndSessionAI)];
         }, [_minutesBeforeSession, _secondsToEnd + CBA_missionTime], 0 max (_secondsToEnd - 600)] call CBA_fnc_waitAndExecute;
-    [{remoteExecCall [QFUNC(endMission)]}, [], _secondsToEnd] call CBA_fnc_waitAndExecute;
+    [{
+        diag_log formatText ["[SEED] Running end script at +[%1]", [CBA_missionTime] call CBA_fnc_formatElapsedTime];
+        remoteExecCall [QFUNC(endMission)];
+    }, [], _secondsToEnd] call CBA_fnc_waitAndExecute;
     diag_log formatText ["[SEED] End mission %1 minutes before session (in %2).", _minutesBeforeSession, [_secondsToEnd] call CBA_fnc_formatElapsedTime];
 };

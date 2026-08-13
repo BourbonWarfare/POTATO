@@ -215,6 +215,8 @@ switch (_operationType) do {
         };
     };
     case BW_TRAINING_OPERATION_DEFEND: {
+        private _arty = getArray (missionConfigFile >> "CfgLoadouts" >> (["potato_i", "potato_e"] select (_enemySide == east)) >> "artilleryArray");
+        if (_arty isNotEqualTo []) then {_arty = selectRandom _arty;};
         deleteMarker _marker;
         [
             [_markerPos, 300 min (0.35 * _minBuildingGarrison), _minBuildingGarrison, _settingHash getOrDefault ["option3", -180], _settingHash getOrDefault ["option4", 180]],
@@ -224,7 +226,7 @@ switch (_operationType) do {
             CBA_missionTime + (_settingHash getOrDefault ["option2", 900]),
             _enemySide,
             west,
-            selectRandom (getArray (missionConfigFile >> "CfgLoadouts" >> (["potato_i", "potato_e"] select (_enemySide == east)) >> "artilleryArray"))
+            _arty
         ] call FUNC(addCircleSpawner);
     };
 };
