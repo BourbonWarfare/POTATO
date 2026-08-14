@@ -13,3 +13,8 @@ class CfgPatches {
 };
 
 #include "Cfg3DEN.hpp"
+class Extended_DisplayLoad_EventHandlers {
+    class Display3DENEditAttributes {
+        ADDON = QUOTE(call compileScript [QUOTE(QPATHTOF(functions\fnc_displayLoad_intel.sqf))]);
+    };
+};
