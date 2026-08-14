@@ -4,9 +4,6 @@ options.allow_no_extension = true
 [stringtables.usage]
 options.ignore_unused = true
 
-[sqf]
-enabled = true
-
 [sqf.banned_macros]
 options.release = [
     "DISABLE_COMPILE_CACHE", "ENABLE_PERFORMANCE_COUNTERS" #"DEBUG_MODE_FULL",

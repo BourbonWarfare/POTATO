@@ -37,7 +37,7 @@ if (_createOrginalVersionInfo) then {
         TRACE_1("broadcasting our versions",count GVAR(pvModVersions));
         sleep 1;
     };
-    [[false], QFUNC(checkMods), true] call BIS_fnc_MP;
+    [false] remoteExec [QFUNC(checkMods), 0, true];
 } else {
     if (!isNil QGVAR(modCheckRun)) exitWith {};
     GVAR(modCheckRun) = true;

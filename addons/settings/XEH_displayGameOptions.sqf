@@ -13,9 +13,16 @@ TRACE_1("",_display);
 
 if (!is3DEN) exitWith {};
 
+
+#define IDC_ADDONS_GROUP 4301
+#define IDC_TXT_OVERWRITE_CLIENT 9040
+
+private _posG = ctrlPosition (_display displayCtrl IDC_ADDONS_GROUP);
+private _posOC = ctrlPosition (_display displayCtrl IDC_TXT_OVERWRITE_CLIENT);
+
 private _infoBar = _display ctrlCreate ["RscText", -1];
 _infoBar ctrlSetBackgroundColor [1,0,0,0.25];
-_infoBar ctrlSetPosition [POS_X(31.8), POS_Y(0), POS_W(2.5), POS_H(20.3)];
+_infoBar ctrlSetPosition [_posG#0 + _posOC#0, POS_Y(0), POS_W(2.5), POS_H(18.5+3.1)];
 _infoBar ctrlCommit 0;
 
 private _infoText = _display ctrlCreate ["RscText", -1];
