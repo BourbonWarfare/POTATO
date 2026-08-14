@@ -47,5 +47,8 @@ switch (_ehType) do {
     case ZEUSUTILS_DEH_MARKERS: {
         GVAR(draw3DFunctions) set [QGVAR(markerEH), {call FUNC(drawMarkers)}];
     };
+    case ZEUSUTILS_DEH_ARTY: {
+        GVAR(draw3DFunctions) set [QGVAR(artyEH), {call FUNC(drawArty)}];
+    };
     default {};
 };

@@ -96,7 +96,7 @@ if (_cleanUp && _targets isEqualTo []) then {
             _missionParams set [3, ARTILLERY_MISSIONTYPE_UNDEF];
             _missionParams set [2, 420 + _missionParams#2];
         } else {
-            _artillery setVariable [QGVAR(artyMission), nil];
+            _artillery setVariable [QGVAR(artyMission), nil, true];
         };
         _artillery removeMagazinesTurret [_magazine, _turret];
 

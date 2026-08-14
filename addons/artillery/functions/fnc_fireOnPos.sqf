@@ -98,7 +98,7 @@ _artillery addMagazineTurret [_magazine, _turret, 1];
 if (_rounds <= 1) then {
     [{ // free gun
         params ["_artillery", "_magazine", "_turret"];
-        _artillery setVariable [QGVAR(artyMission), nil];
+        _artillery setVariable [QGVAR(artyMission), nil, true];
         _artillery removeMagazinesTurret [_magazine, _turret];
     }, [_artillery, _magazine, _turret], 7 max _reloadTime] call CBA_fnc_waitAndExecute;
 } else {

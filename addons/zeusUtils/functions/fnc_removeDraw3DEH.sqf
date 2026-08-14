@@ -31,6 +31,9 @@ switch (_ehType) do {
     case ZEUSUTILS_DEH_MARKERS: {
         GVAR(draw3DFunctions) deleteAt QGVAR(markerEH);
     };
+    case ZEUSUTILS_DEH_ARTY: {
+        GVAR(draw3DFunctions) deleteAt QGVAR(artyEH);
+    };
     default {};
 };
 
