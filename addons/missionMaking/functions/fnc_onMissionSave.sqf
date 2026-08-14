@@ -99,6 +99,10 @@ if (_fog > 0.25) then {
 
 
 // Check briefing/author/onLoad attributies:
+private _briefingName = ("Scenario" get3DENMissionAttribute "IntelbriefingName");
+if (_briefingName != "") then {
+    _problems pushBackUnique ["Remove Title (let it just use the filename of the pbo)", ["Attributes -> General -> Title"]];
+};
 private _author = "Scenario" get3DENMissionAttribute "author";
 if (_author == "*** Insert author name here. ***") then {
     _problems pushBackUnique ["Need to set author", ["Attributes -> General -> Author"]];
