@@ -63,8 +63,14 @@ case ("mmg"): {
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_mmg), GVAR(loadout_mmgMags)];
     };
 case ("at"): {
-        GVAR(loadout_at) = secondaryWeapon _unit;
-        GVAR(loadout_atMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_at)] call CBA_fnc_compatibleMagazines);
+        private _secondary = secondaryWeapon _unit;
+        if (isArray (configFile >> "CBA_DisposableLaunchers" >> _secondary)) then {
+            GVAR(loadout_at) = (getArray (configFile >> "CBA_DisposableLaunchers" >> _secondary))#0;
+            GVAR(loadout_atMags) = "";
+        } else {
+            GVAR(loadout_at) = _secondary;
+            GVAR(loadout_atMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_at)] call CBA_fnc_compatibleMagazines);
+        };
         systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_at), GVAR(loadout_atMags)];
     };
 case ("mat"): {
