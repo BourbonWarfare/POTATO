@@ -94,3 +94,15 @@ if (isServer) then {
 if (hasInterface) then {
     [QGVAR(changeRadioSim), {call FUNC(newRadioMode)}] call CBA_fnc_addEventHandler;
 };
+
+[QGVAR(fixSpeaker), {
+    params [["_unit", objNull, [objNull]], ["_mode", "server", ["server","client"]]];
+    if (isNull _unit) exitWith {WARNING_1("Bad unit [%1] disconnect?",_unit);};
+    if (_mode == "server") then {
+        ["potato_adminMsg", [format ["- sees [%1]", speaker _unit], "server"]] call CBA_fnc_globalEvent;
+    } else {
+        ["potato_adminMsg", [format ["- sees [%1] and attempting fix", speaker _unit], profileName]] call CBA_fnc_globalEvent;
+        [ACE_player, "isPlayer"] call ace_common_fnc_unmuteUnit;
+        [ACE_player, "isPlayer"] call ace_common_fnc_muteUnit;
+    };
+}] call CBA_fnc_addEventHandler;

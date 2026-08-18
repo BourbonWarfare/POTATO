@@ -17,6 +17,7 @@ PREP(uihook_checkSettings);
 PREP(uihook_detachMarker);
 PREP(uihook_deleteMarker);
 PREP(uihook_endMission);
+PREP(uihook_fixSpeaker);
 PREP(uihook_missionHint);
 PREP(uihook_openEndMission);
 PREP(uihook_radios);
