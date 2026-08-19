@@ -65,3 +65,17 @@ addUserActionEventHandler ["toggleRaiseWeapon","Activate",{
         };
     }, [_nAnim], 0.5] call CBA_fnc_waitAndExecute;
 }];
+
+
+// Clear webknight melee: hide weapon keybind (key 0)
+if (hasInterface) then {
+    private _action = "webknight's melee$ims_weapononback";
+    private _registry = profileNamespace getVariable "cba_keybinding_registry_v3";
+    if (isNil "_registry") exitWith {};
+
+    private _keybinds = [_registry, _action] call CBA_fnc_hashGet;
+    if (isNil "_keybinds" || { _keybinds isEqualTo [[11,[false,false,false]]] }) then {
+        INFO("wiping webknight bad bind");
+        [_registry, _action, []] call CBA_fnc_hashSet; // updates by ref
+    };
+};
