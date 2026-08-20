@@ -100,5 +100,9 @@ call FUNC(playerJipHint);
 if (isServer) then {
     private _list = allUnits select { !((_x getVariable ["acre_sys_radio_setup", ""]) isEqualType "") };
     { WARNING_2("Unit %1 (%2) has bad acre var",vehicleVarName _x,name _x); } forEach _list;
+    ["potato_serverLog", {
+        params ["_addon", "_message", ["_user", "??"]];
+        diag_log formatText ["[POTATO|%1] Logging [%2]: %3", _addon, _user, _message];
+    }] call CBA_fnc_addEventHandler;
 };
 if (hasInterface) then { player setVariable ["acre_sys_radio_setup", nil]; };

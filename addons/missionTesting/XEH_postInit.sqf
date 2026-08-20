@@ -38,6 +38,7 @@ GVAR(MissionTestingChecklistMaster) = [
     ,["COOP CHECKLIST",
         [
             ["Talk to the Zeus/mission-maker about their intent.",D_CHECK,MISSION_TYPE_APPLIES_COOP]
+            ,["Make sure there is resupply for loadouts (medical, AT, rifles, etc.) or another gameplay element in place.",D_CHECK,MISSION_TYPE_APPLIES_COOP]
             ,["Make sure the humans can kill whatever Zeus intends to spawn in.",D_CHECK,MISSION_TYPE_APPLIES_COOP]
             ,["Make sure that no heavy scripts are killing server FPS/CPS",D_CHECK,MISSION_TYPE_APPLIES_COOP]
             ,["Talk about the objectives and make a call on if they are doable within the time frame of 75-80 minutes assuming ideal player conditions. Essentially is it likely that we will have all objectives completed or nearing completion around the 90 minute mark (including Safe Start).",D_CHECK,MISSION_TYPE_APPLIES_COOP]

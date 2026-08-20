@@ -22,6 +22,8 @@ GVAR(howToUse) = createHashMapFromArray [  //IGNORE_PRIVATE_WARNING ["_player", 
 ,
 #include "guides\launcher_m136.inc.sqf"
 ,
+#include "guides\launcher_maawsMk4Mod1.inc.sqf"
+,
 #include "guides\launcher_rpg7-pgo.inc.sqf"
 ];
 GVAR(showAll) = false;
