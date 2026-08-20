@@ -529,6 +529,7 @@ class GVAR(adminMenuDialog) {
             w = QUOTE(0.54 * safezoneW);
             h = QUOTE(0.58 * safezoneH);
             class controls {
+#define FIX_BUTTONS_YOFFSET(INDEX) ((0.01 + INDEX * 0.06) * safezoneH)
                 class PlayerList: RscListBox {
                     idc = 2180;
                     x = QUOTE(0.01 * safezoneW);
@@ -541,7 +542,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Reset Gear";
                     x = QUOTE(0.255 * safezoneW);
-                    y = QUOTE(0.52 * safezoneH);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(5));
                     w = QUOTE(0.125 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_resetGearButton));
@@ -549,7 +550,7 @@ class GVAR(adminMenuDialog) {
                 class ResetGearList: RscCombo {
                     idc = 2181;
                     x = QUOTE(0.387 * safezoneW);
-                    y = QUOTE(0.52 * safezoneH);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(5));
                     w = QUOTE(0.12 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                 };
@@ -557,7 +558,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Reset Spectator";
                     x = QUOTE(0.255 * safezoneW);
-                    y = QUOTE(0.32 * safezoneH);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(3));
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_resetSpectateButton));
@@ -566,7 +567,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Reset Medical (Full Heal)";
                     x = QUOTE(0.255 * safezoneW);
-                    y = QUOTE(0.02 * safezoneH);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(0));
                     w = QUOTE(0.2 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([false] call FUNC(uihook_resetMedicalButton));
@@ -576,7 +577,7 @@ class GVAR(adminMenuDialog) {
                     text = "Stabilize";
                     tooltip = "Stops bleeding by bandaging wounds. Does not heal damage/pain.";
                     x = QUOTE((0.255 + 0.2) * safezoneW);
-                    y = QUOTE(0.02 * safezoneH);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(0));
                     w = QUOTE(0.06 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([2] call FUNC(uihook_resetMedicalButton));
@@ -585,7 +586,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Reset Medical Group (Full Heal)";
                     x = QUOTE(0.255 * safezoneW);
-                    y = QUOTE(0.12 * safezoneH);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(1));
                     w = QUOTE(0.2 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     tooltip = "Heal all group members of the selected unit.";
@@ -596,7 +597,7 @@ class GVAR(adminMenuDialog) {
                     text = "Stabilize Group";
                     tooltip = "Stops bleeding by bandaging wounds for full group. Does not heal damage/pain.";
                     x = QUOTE((0.255 + 0.2) * safezoneW);
-                    y = QUOTE(0.12 * safezoneH);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(1));
                     w = QUOTE(0.06 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([3] call FUNC(uihook_resetMedicalButton));
@@ -605,7 +606,7 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Reset Markers";
                     x = QUOTE(0.255 * safezoneW);
-                    y = QUOTE(0.22 * safezoneH);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(2));
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([UI_TAB] call FUNC(uihook_resetMarkersButton));
@@ -614,10 +615,20 @@ class GVAR(adminMenuDialog) {
                     idc = -1;
                     text = "Add Map/Compass/Watch";
                     x = QUOTE(0.255 * safezoneW);
-                    y = QUOTE(0.42 * safezoneH);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(4));
                     w = QUOTE(0.26 * safezoneW);
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_addBaseLinked));
+                };
+                class FixSpeaker: RscButton {
+                    idc = -1;
+                    text = "Fix Speaker/Voice Callouts";
+                    tooltip = "Attempts to fix player doing AI callouts";
+                    x = QUOTE(0.255 * safezoneW);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(6));
+                    w = QUOTE(0.26 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_fixSpeaker));
                 };
             };
         };
