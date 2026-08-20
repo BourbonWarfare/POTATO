@@ -34,4 +34,8 @@ class CfgMagazines {
         ammo = "gm_bullet_762x51mm_B_T_DM21_yellow";
         displayName = "7.62mm 120Rnd MG3 Ball-T DM21 Green Mag (Yellow)";
     };
+    class gm_vehicleMagazine_Base;
+    class gm_vehicleMagazine_cannon_Base: gm_vehicleMagazine_Base {
+        maxLeadSpeed = 30;
+    };
 };
