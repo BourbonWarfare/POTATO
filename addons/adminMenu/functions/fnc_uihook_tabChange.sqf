@@ -206,8 +206,24 @@ case (7): {
             ["eng", "Logistics Engineer"],
             ["fac", ""],
             ["rifleman_02", ""],
+            ["rifleman_03", ""],
+            ["rifleman_04", ""],
             ["artl", "Artillery Leader"],
-            ["artg", "Artillery Gunner"]
+            ["artg", "Artillery Gunner"],
+            ["hmgg", "HMG Gunner"],
+            ["hmgag", "HMG Spotter/Ammo Bearer"],
+            ["hmgl", "HMG Lead"],
+            ["hatg", "HAT Gunner"],
+            ["hatag", "HAT Spotter/Ammo Bearer"],
+            ["hatl", "HAT Lead"],
+            ["sf_rifleman", "SF Rifle"],
+            ["sf_rifleman_02", "SF Rifle 2"],
+            ["sf_aar", "SF AAR"],
+            ["sf_ar", "SF AR"],
+            ["sf_lat", "SF RAT"],
+            ["sf_sl", "SF SL"],
+            ["sf_ftl", "SF FTL"],
+            ["sf_sm", "SF SM"]
         ];
         private _listGear = UI_TAB_FIX_UNIT_GEAR;
         lbClear _listGear;
