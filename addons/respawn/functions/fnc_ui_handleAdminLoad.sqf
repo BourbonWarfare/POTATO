@@ -46,19 +46,20 @@ _ctrlNoMarkerFrame ctrlSetText "No Markers";
 
 _ctrlNoMarkerCheckBox ctrlSetPosition [0.69 * safeZoneW + safeZoneX, 0.23 * safeZoneH + safeZoneY, 0.02 * safeZoneW, 4/3 * 0.02 * safeZoneW];
 _ctrlNoMarkerCheckBox ctrlCommit 0;
-_ctrlNoMarkerCheckBox ctrlSetTooltip "Secret Respawn";
+_ctrlNoMarkerCheckBox ctrlSetTooltip "Secret Reinforce";
 _ctrlNoMarkerCheckBox cbSetChecked (missionNamespace getVariable [QGVAR(noMarkers), false]);
 _ctrlNoMarkerCheckBox ctrlAddEventHandler ["CheckedChanged", {
     params ["", "_checked"];
     _checked = [false, true] select _checked;
     missionNamespace setVariable [QGVAR(noMarkers), _checked, true];
-    systemChat format ["Respawn No-Markers: %1", _checked];
+    systemChat format ["Reinforce No-Markers: %1", _checked];
+    ["potato_serverLog", [QCOMPONENT, format ["%1 reinforce markers", ["Enabling", "Disabling"] select _checked], profileName]] call CBA_fnc_serverEvent;
 }];
 
 
 // validate user
 if (!([] call EFUNC(core,isAuthorized)) && !(ZEUS_ENABLED && !((getPlayerUID player) in BLACK_LIST_UIDS) && (true isEqualTo (profileNamespace getVariable [EULA_CHECK, false])))) exitWith {
-    WARNING("Not authorized for respawn");
+    WARNING("Not authorized for Reinforce");
     [] call FUNC(closeAdminRespawn);
 };
 
