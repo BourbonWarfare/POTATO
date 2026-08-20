@@ -18,8 +18,12 @@ TRACE_1("Params",_this);
 params [["_set", false, [false]]];
 
 {
-    _x enableChannel _set;
+    _x enableChannel [_set, false, _set, _set];
 } forEach ([
     [GLOBAL_CHANNEL_INDEX, SIDE_CHANNEL_INDEX, COMMAND_CHANNEL_INDEX, VEHICLE_CHANNEL_INDEX, DIRECT_CHANNEL_INDEX],
     [SIDE_CHANNEL_INDEX, COMMAND_CHANNEL_INDEX, VEHICLE_CHANNEL_INDEX, DIRECT_CHANNEL_INDEX]
 ] select (call CFUNC(isAuthorized)));
+
+if (channelEnabled SIDE_CHANNEL_INDEX) then {
+    setCurrentChannel SIDE_CHANNEL_INDEX;
+};
