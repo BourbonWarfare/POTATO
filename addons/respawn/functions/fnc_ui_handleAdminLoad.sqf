@@ -77,7 +77,7 @@ private _allFactions = createHashMap;
 } forEach allUnits;
 
 {
-    (GVAR(factionsToInfo) get _x) params ["_displayName", "", "_factionClassname"];
+    _y params ["_displayName", "", "_factionClassname"];
     private _count = _allFactions getOrDefault [_factionClassname, 0];
     if (_count > 0) then { _displayName = _displayName + format [" [%1]", _count]; };
 
@@ -86,7 +86,7 @@ private _allFactions = createHashMap;
         lbSetPicture [ADMIN_FACTION_COMBO_IDC, _index, getText (configFile >> "CfgFactionClasses" >> _factionClassname >> "icon")];
     };
     lbSetData [ADMIN_FACTION_COMBO_IDC, _index, _x];
-} forEach (keys GVAR(factionsToInfo));
+} forEach GVAR(factionsToInfo);
 
 private _factionIndex = if (isNil QGVAR(lastFactionIndex)) then {
     0
