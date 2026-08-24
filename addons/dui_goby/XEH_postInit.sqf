@@ -14,4 +14,7 @@ if (!hasInterface) exitWith {};
         if ((_setting != "diwako_dui_nametags_fontCustomInfo") && (_setting != "diwako_dui_nametags_customInfoShadow")) exitWith {};
         true call FUNC(updateUnit)  // update on dui-setting change for font and shadow
     }] call CBA_fnc_addEventHandler;
+    if (CBA_settings_client getVariable ["diwako_dui_compassRange", -1] < 0) then {
+        diwako_dui_compassRange = 50;
+    };
 }] call CBA_fnc_addEventHandler;
