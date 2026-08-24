@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 #include "\z\potato\addons\missionTesting\script_macros.hpp"
-#define LASER_RANGE_FINDER ["Rangefinder", "ACE_Vector", "CUP_Vector21Nite", "CUP_Binocular_Vector", "ACE_VectorDay","gm_lp7_oli","gm_lpr1_oli","ACE_Yardage450"]
+#define LASER_RANGE_FINDER ["rangefinder", "ace_vector", "cup_vector21nite", "cup_binocular_vector", "ace_vectorday","gm_lp7_oli","gm_lpr1_oli","ace_yardage450"]
 #define STANDARD_COLOR "#bbbbbb"
 #define ATTENTION_COLOR "#ffffff"
 #define HIGH_ATTENTION_COLOR "#febf62"
@@ -49,22 +49,23 @@ private _flashLights = [];
 private _nvgs = [];
 private _explosives = [];
 private _cfgWeapons = configFile >> "CfgWeapons";
+private _cfgMagazines = configFile >> "CfgMagazines";
 {
     private _gearArray = [];
     {
         {
             (_x splitString ":") params ["_item"];
-            _gearArray pushBack _item;
+            _gearArray pushBack toLowerANSI _item;
         } forEach flatten getArray _x;
     } forEach configProperties [_x];
     _gearArray = _gearArray arrayIntersect _gearArray;
     {
-        private _cfgPath = _cfgWeapons >> _x;
+		if (getText (_cfgMagazines >> _x >> QACEGVAR(explosives,setupObject)) != "") then {
+			_explosives pushBackUnique _x;
+			continue;
+		};
+		private _cfgPath = _cfgWeapons >> _x;
         if (!isClass _cfgPath) then {continue};
-        if (getText (_cfgPath >> ACEGVAR(explosives,setupObjects)) != "") then {
-            _explosives pushBackUnique _x;
-            continue;
-        };
         if ("NVG" in (getText (_cfgPath >> "simulation"))) then {
             _nvgs pushBackUnique _x;
             continue;
@@ -172,16 +173,17 @@ if (EGVAR(markers,intraFireteamEnabled)) then {
 _textArr pushBack "<t font='PuristaBold' size='1'>Equipment</t>";
 // Radios
 private _itemBoolArray = [
-    "ACRE_PRC343" in (_unitHash getOrDefault ["rifleman", []]),
-    "ACRE_PRC343" in (_unitHash getOrDefault ["flt", []]),
-    "ACRE_PRC148" in (_unitHash getOrDefault ["sl", []]),
-    "ACRE_PRC148" in (_unitHash getOrDefault ["plt", []]),
-    "ACRE_PRC148" in (_unitHash getOrDefault ["sm", []])
+    "acre_prc343" in (_unitHash getOrDefault ["rifleman", []]),
+    "acre_prc343" in (_unitHash getOrDefault ["ftl", []]),
+    "acre_prc343" in (_unitHash getOrDefault ["sl", []]),
+    "acre_prc148" in (_unitHash getOrDefault ["sl", []]),
+    "acre_prc148" in (_unitHash getOrDefault ["plt", []]),
+    "acre_prc148" in (_unitHash getOrDefault ["sm", []])
 ];
 private _subString = switch (true) do {
-    case (_itemBoolArray#0 && _itemBoolArray#2): {"Full"};
-    case (_itemBoolArray#1 && _itemBoolArray#2): {"FTL+"};
-    case (_itemBoolArray#2): {"SL+"};
+    case (_itemBoolArray#0 && _itemBoolArray#3): {"Full"};
+    case (_itemBoolArray#1 && _itemBoolArray#2 && _itemBoolArray#3): {"FTL+"};
+    case (_itemBoolArray#3): {"SL+"};
     default {"None"};
 };
 _textArr pushBack format ["<t color=""%1"">Radios: " + _subString +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_subString == "full")];
@@ -189,13 +191,13 @@ _textArr pushBack format ["<t color=""%1"">Medical Net: " + (["None", "Yes"] sel
 
 // GPS, MicroDAGR
 _itemBoolArray = [
-    "ACE_microDAGR" in (_unitHash getOrDefault ["sl", []]),
-    "ACE_microDAGR" in (_unitHash getOrDefault ["plt", []]),
-    "ACE_microDAGR" in (_unitHash getOrDefault ["artl", []]),
-    "ItemGPS" in (_unitHash getOrDefault ["ftl", []]),
-    "ItemGPS" in (_unitHash getOrDefault ["sl", []]),
-    "ItemGPS" in (_unitHash getOrDefault ["plt", []]),
-    "ACE_microDAGR" in (_unitHash getOrDefault ["ftl", []])
+    "ace_microdagr" in (_unitHash getOrDefault ["sl", []]),
+    "ace_microdagr" in (_unitHash getOrDefault ["plt", []]),
+    "ace_microdagr" in (_unitHash getOrDefault ["artl", []]),
+    "itemgps" in (_unitHash getOrDefault ["ftl", []]),
+    "itemgps" in (_unitHash getOrDefault ["sl", []]),
+    "itemgps" in (_unitHash getOrDefault ["plt", []]),
+    "ace_microdagr" in (_unitHash getOrDefault ["ftl", []])
 ];
 _subString = switch (true) do {
     case (_itemBoolArray#0 && _itemBoolArray#1 && _itemBoolArray#6): {"FTL+"};
@@ -227,12 +229,12 @@ _textArr pushBack format ["<t color=""%1"">Laser Rangefinder: " + _subString +"<
 
 // Shovels
 _itemBoolArray = [
-    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["plt", []]),
-    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["sl", []]),
-    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["ftl", []]),
-    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["aar", []]),
-    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["mmgag", []]),
-    "ACE_EntrenchingTool" in (_unitHash getOrDefault ["rifleman", []])
+    "ace_entrenchingtool" in (_unitHash getOrDefault ["plt", []]),
+    "ace_entrenchingtool" in (_unitHash getOrDefault ["sl", []]),
+    "ace_entrenchingtool" in (_unitHash getOrDefault ["ftl", []]),
+    "ace_entrenchingtool" in (_unitHash getOrDefault ["aar", []]),
+    "ace_entrenchingtool" in (_unitHash getOrDefault ["mmgag", []]),
+    "ace_entrenchingtool" in (_unitHash getOrDefault ["rifleman", []])
 ];
 _subString = switch (true) do {
     case (_itemBoolArray#5 && _itemBoolArray#3 && _itemBoolArray#2): {"Yes"};
