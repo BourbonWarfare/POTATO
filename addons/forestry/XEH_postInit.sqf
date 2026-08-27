@@ -11,15 +11,6 @@ if (hasInterface) then {
             call FUNC(doChop)
         }
     ] call CBA_fnc_addKeybind;
-
-/*
-    [["Potato", "Forestry"],
-        "potato_forestry_id_2", //replace with BW specific
-        ["Flatten Grass", "Commit nature abuse"],
-        "",
-        {call FUNC(doFlatten)}
-    ] call CBA_fnc_addKeybind;
-*/
 };
 
 // Server Event
