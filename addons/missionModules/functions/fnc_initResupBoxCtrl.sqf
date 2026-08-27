@@ -49,7 +49,7 @@ private _fnc_showObj = {
         ["_searchSubClasses", false, [false]]
     ];
 
-    if (isNull _configPath) exitWith {[]};
+    if (isNull _configPath) exitWith {false};
     private _return = false;
     if (_searchSubClasses) then {
         {

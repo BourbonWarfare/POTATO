@@ -2,7 +2,7 @@
 
 #define MAINPREFIX z
 #define PREFIX potato
-
+#define QCOMPONENT QUOTE(COMPONENT)
 #include "script_version.hpp"
 
 #define VERSION MAJOR.MINOR
