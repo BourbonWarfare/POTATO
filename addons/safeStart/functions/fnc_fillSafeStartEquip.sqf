@@ -176,12 +176,14 @@ private _itemBoolArray = [
     "ACRE_PRC343" in (_unitHash getOrDefault ["flt", []]),
     "ACRE_PRC148" in (_unitHash getOrDefault ["sl", []]),
     "ACRE_PRC148" in (_unitHash getOrDefault ["plt", []]),
-    "ACRE_PRC148" in (_unitHash getOrDefault ["sm", []])
+    "ACRE_PRC148" in (_unitHash getOrDefault ["sm", []]),
+    "ACRE_PRC148" in (_unitHash getOrDefault ["srto", []])
 ];
 private _subString = switch (true) do {
     case (_itemBoolArray#0 && _itemBoolArray#2): {"Full"};
     case (_itemBoolArray#1 && _itemBoolArray#2): {"FTL+"};
     case (_itemBoolArray#2): {"SL+"};
+    case (_itemBoolArray#5): {"RTO"};
     default {"None"};
 };
 _textArr pushBack format ["<t color=""%1"">Radios: " + _subString +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_subString == "full")];

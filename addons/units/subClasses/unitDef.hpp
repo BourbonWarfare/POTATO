@@ -141,6 +141,9 @@ class FACTION_MACRO(xo): FACTION_MACRO(coy) {\
     displayName = "Company Executive Officer";\
     editorSubcategory = "Company";\
 };\
+class FACTION_MACRO(crto): FACTION_MACRO(xo) {\
+    displayName = "Company Radio Operator";\
+};\
 class FACTION_MACRO(uav): FACTION_MACRO(coy) {\
     displayName = "Company UAV Operator";\
 };\
@@ -156,6 +159,9 @@ class FACTION_MACRO(sgt): FACTION_MACRO(coy) {\
     displayName = "Platoon Sergent";\
     editorSubcategory = "Platoon";\
 };\
+class FACTION_MACRO(prto): FACTION_MACRO(sgt) {\
+    displayName = "Platoon Radio Operator";\
+};\
 class FACTION_MACRO(sl): FACTION_MACRO(rifleman) {\
     displayName = "Squad Leader";\
     icon = "iconManLeader";\
@@ -164,6 +170,9 @@ class FACTION_MACRO(sl): FACTION_MACRO(rifleman) {\
 class FACTION_MACRO(sf_sl): FACTION_MACRO(sl) {\
     displayName = "Special Forces Squad Leader";\
     editorSubcategory = "SF";\
+};\
+class FACTION_MACRO(srto): FACTION_MACRO(sl) {\
+    displayName = "Squad Radio Operator";\
 };\
 class FACTION_MACRO(mmgl): FACTION_MACRO(sl) {\
     displayName = "MMG Leader";\
