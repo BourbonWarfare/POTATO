@@ -19,4 +19,7 @@ if !(_allowOtherSides) then {
     private _side = side ace_player;
     _targets = _targets select {side _x == _side};
 };
-[QGVAR(recieveMarkers), [true] call FUNC(collectMarkers), _targets] call CBA_fnc_targetEvent;
+private _marks = [true] call FUNC(collectMarkers);
+if (_marks != "{}") then {
+    [QGVAR(recieveMarkers), _marks, _targets] call CBA_fnc_targetEvent;
+};
