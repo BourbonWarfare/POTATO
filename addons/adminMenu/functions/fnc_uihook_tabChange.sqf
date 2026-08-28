@@ -99,8 +99,9 @@ case (1): {
         {
             if ( ({(isPlayer _x)&&{alive _x}} count (units _x)) > 0) then {
                 GVAR(groupsArray) pushBack _x;
-                private _grpMembers = "";
-                {_grpMembers = _grpMembers + format ["%1, ", (name _x)];} forEach (units _x);
+                private _grpMembers = [];
+                {_grpMembers pushBack name _x;} forEach (units _x);
+                _grpMembers = _grpMembers joinString ", ";
                 private _txt = format ["%1 [%2]", _x, _grpMembers];
                 private _index = UI_TAB_SUPPLIES_GROUP lbAdd _txt;
                 UI_TAB_SUPPLIES_GROUP lbSetTooltip [_index, _grpMembers];
@@ -137,8 +138,9 @@ case (3): {
         {
             if ( ({(isPlayer _x)&&(alive _x)} count (units _x)) != 0) then {
                 GVAR(groupsArray) pushBack _x;
-                private _grpMembers = "";
-                {_grpMembers = _grpMembers + format ["%1, ", (name _x)];} forEach (units _x);
+                private _grpMembers = [];
+                {_grpMembers pushBack name _x;} forEach (units _x);
+                _grpMembers = _grpMembers joinString ", ";
                 private _txt = format ["%1 [%2]", _x, _grpMembers];
                 private _index = UI_TAB_TELEPORT_GROUP lbAdd _txt;
                 UI_TAB_TELEPORT_GROUP lbSetTooltip [_index, _grpMembers];
