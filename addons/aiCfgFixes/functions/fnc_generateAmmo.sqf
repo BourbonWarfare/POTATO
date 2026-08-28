@@ -40,7 +40,7 @@ private _baseClasses = [];
 {
     // _x = ammo_config
     if (((toLower configName _x) find "potato_bullet") == 0) then { continue; };
-    if (!([toLower configName _x] call _fnc_filter)) then { continue; }; 
+    if (!([toLower configName _x] call _fnc_filter)) then { continue; };
     if ((configProperties[_x, SEARCH_CONFIG, false]) isNotEqualTo []) then {
         private _inherited = inheritsFrom(_x);
         private _prevInherited = [];
@@ -82,7 +82,7 @@ private _retAmmo = [];
         } else {
             private _newValue = [[_x, configName(_x)]];
             private _newData = [];
-            
+
             private _currentAmmo = _x;
             {
                 if (count configProperties[_currentAmmo, "configName(_x) isEqualTo 'potato_aiCfgFixes_macroUsed'", false] <= 0) then {
@@ -93,7 +93,7 @@ private _retAmmo = [];
                     _newData pushBack ["GVAR(macroUsed)", str(_macro)];
                 };
             } forEach configProperties[_x, SEARCH_CONFIG, false];
-            
+
             _newValue pushBack _newData;
             _retAmmo pushBack _newValue;
         };
@@ -104,21 +104,21 @@ diag_log text format ["_retAmmo = %1", count _retAmmo];
 diag_log text "Setting usage flags...";
 private _setAiUsageFlags = {
     params["_retAmmo"];
-    
+
     private _setUsageFlags = {
         params["_retAmmo", "_ammo", "_flags", ["_extra", []]];
-        
+
         if (!([toLower _ammo] call _fnc_filter)) exitWith { _retAmmo };
 
-        private _ammoUsageFlags = '"';
+        private _ammoUsageFlags = ['"'];
         {
-            _ammoUsageFlags = _ammoUsageFlags + str(_x);
+            _ammoUsageFlags pushBack str(_x);
             if (_foreachindex != (count _flags) - 1) then {
                 _ammoUsageFlags = _ammoUsageFlags + " + ";
             };
         } forEach _flags;
-        _ammoUsageFlags = _ammoUsageFlags + '"';
-        
+        _ammoUsageFlags pushBack ['"'];
+        _ammoUsageFlags = _ammoUsageFlags joinString "";
         private _pos = _retAmmo findIf { ((_x select 0) select 1) isEqualTo _ammo };
         if (_pos < 0) then {
             if ((_retAmmo findIf {((_x select 0) select 1) isEqualTo configName(inheritsFrom(configFile >> "CfgAmmo" >> _ammo)) }) < 0) then {
@@ -127,21 +127,21 @@ private _setAiUsageFlags = {
             _retAmmo pushBack [[configFile >> "CfgAmmo" >> _ammo, _ammo], []];
             _pos = (count _retAmmo) - 1;
         };
-                
+
         ((_retAmmo select _pos) select 1) pushBack ["aiAmmoUsageFlags", _ammoUsageFlags];
         ((_retAmmo select _pos) select 1) pushBack ["allowAgainstInfantry", "1"];
-        
+
         {
             ((_retAmmo select _pos) select 1) pushBack [_x select 0, _x select 1];
         } forEach _extra;
-        
+
         _retAmmo;
     };
-    
+
     _retAmmo = [_retAmmo, "potato_aiCfgFixes_he_rocket",    [64, 128, 512],         [["cost", "100"]]] call _setUsageFlags;
     _retAmmo = [_retAmmo, "CUP_R_70mm_Hydra_HE",            [64, 128, 512],         [["cost", "100"]]] call _setUsageFlags;
     _retAmmo = [_retAmmo, "rhs_rpg26_rocket",               [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
-    
+
     _retAmmo = [_retAmmo, "CUP_R_SMAW_HEDP_N",              [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
     _retAmmo = [_retAmmo, "CUP_R_RPG18_AT",                 [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
     _retAmmo = [_retAmmo, "CUP_R_MEEWS_HEDP",               [64, 128, 256, 512],    [["cost", "150"]]] call _setUsageFlags;
@@ -155,7 +155,7 @@ private _setAiUsageFlags = {
     _retAmmo = [_retAmmo, "CUP_R_PG7VL_AT",                 [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
     _retAmmo = [_retAmmo, "CUP_R_57mm_HE",                  [64, 128, 256, 512],    [["cost", "150"]]] call _setUsageFlags;
     _retAmmo = [_retAmmo, "CUP_R_M72A6_AT",                 [64, 128, 256, 512],    [["cost", "50"]]] call _setUsageFlags;
-    
+
     _retAmmo
 };
 
@@ -173,7 +173,7 @@ diag_log text "Printing modified classes...";
 {
     _x params ["_ammoArr", "_printValues"];
     _ammoArr params["_ammoCfg", "_ammoName"];
-    
+
     private _inherit = ": " + configName(inheritsFrom(_ammoCfg));
     private _classText = INDENT + "class " + _ammoName;
     if ((count _printValues) > 0) then {
