@@ -29,4 +29,7 @@ class CfgEditorSubcategories {
     class Demo {
         displayName = "Demolitions";
     };
+    class Utility {
+        displayName = "Utility";
+    };
 };

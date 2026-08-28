@@ -178,16 +178,18 @@ private _itemBoolArray = [
     "acre_prc343" in (_unitHash getOrDefault ["sl", []]),
     "acre_prc148" in (_unitHash getOrDefault ["sl", []]),
     "acre_prc148" in (_unitHash getOrDefault ["plt", []]),
-    "acre_prc148" in (_unitHash getOrDefault ["sm", []])
+    "acre_prc148" in (_unitHash getOrDefault ["sm", []]),
+    "acre_prc148" in (_unitHash getOrDefault ["rto", []])
 ];
 private _subString = switch (true) do {
     case (_itemBoolArray#0 && _itemBoolArray#3): {"Full"};
     case (_itemBoolArray#1 && _itemBoolArray#2 && _itemBoolArray#3): {"FTL+"};
     case (_itemBoolArray#3): {"SL+"};
+    case (_itemBoolArray#6): {"RTO"};
     default {"None"};
 };
 _textArr pushBack format ["<t color=""%1"">Radios: " + _subString +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_subString == "full")];
-_textArr pushBack format ["<t color=""%1"">Medical Net: " + (["None", "Yes"] select (_itemBoolArray#4)) +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_itemBoolArray#4)];
+_textArr pushBack format ["<t color=""%1"">Medical Net: " + (["None", "Yes"] select (_itemBoolArray#5)) +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_itemBoolArray#4)];
 
 // GPS, MicroDAGR
 _itemBoolArray = [
