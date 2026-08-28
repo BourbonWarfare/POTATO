@@ -17,8 +17,17 @@ TRACE_1("Params",_this);
 
 params [["_set", false, [false]]];
 
+private _disableMarkers = if (isNil QEGVAR(mapMarkers,disableNetwork)) then {
+    false
+} else {
+    EGVAR(mapMarkers,disableNetwork)
+};
 {
-    _x enableChannel _set;
+    if (_disableMarkers) then {
+        _x enableChannel [_set, false, false, false];
+    } else {
+        _x enableChannel [_set, false];
+    };
 } forEach ([
     [GLOBAL_CHANNEL_INDEX, SIDE_CHANNEL_INDEX, COMMAND_CHANNEL_INDEX, VEHICLE_CHANNEL_INDEX, DIRECT_CHANNEL_INDEX],
     [SIDE_CHANNEL_INDEX, COMMAND_CHANNEL_INDEX, VEHICLE_CHANNEL_INDEX, DIRECT_CHANNEL_INDEX]
