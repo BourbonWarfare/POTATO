@@ -19,7 +19,10 @@ params ["_logic", "", "_activated"];
 if (!_activated || !hasInterface) exitWith {
     TRACE_3("leaving markerInit early",_logic,_activated,hasInterface);
 };
-
+if !(isNil QGVAR(disableNetwork)) exitWith {
+    ERROR_MSG_1("[%1] Attempt to initialize group teleport, only one module per mission",_logic);
+};
+GVAR(disableNetwork) = false;
 private _disableNetwork = _logic getVariable [QUOTE(disableNetwork), true];
 private _enableShare = _logic getVariable [QUOTE(enableShare), true];
 private _enableCopyFrom = _logic getVariable [QUOTE(enableCopyFrom), true];
