@@ -1,13 +1,15 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function is run by a module on init. It takes the configured
- * radio parameters, adds relevant events and ACE actions, and configures
- * local variables for marker sharing
+ * This function handles sending markers to a request array of players.
+ * It takes an array of players and a boolean of whether to share across sides.
+ * It then filters by side from ace_player side if the boolean is true, and
+ * then collects map markers and sends a target event if there are markers to
+ * send.
  *
  * Arguments:
- * 0: The module being initialized
- * 2: Whether the module is active
+ * _targets - An array of units that markers should be shared with (ARRAY, default [])
+ * _allowOtherSides - Allow copying maps between different sides (BOOL, default false)
  *
  * Return:
  * None

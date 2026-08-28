@@ -1,13 +1,11 @@
 #include "..\script_component.hpp"
 /*
  * Author: Lambda.Tiger
- * This function is run by a module on init. It takes the configured
- * radio parameters, adds relevant events and ACE actions, and configures
- * local variables for marker sharing
+ * This function takes in a JSON'd hashmap, converts it to a hashmap and
+ * then uses it to create a number of local markers.
  *
  * Arguments:
- * 0: The module being initialized
- * 2: Whether the module is active
+ * _jsonMarkers - A jsonified hashmap of markers ("STRING", default "{}")
  *
  * Examples:
  * Should be called by module init
