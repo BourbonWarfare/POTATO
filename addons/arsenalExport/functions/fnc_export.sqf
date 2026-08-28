@@ -18,15 +18,15 @@ TRACE_1("export",_this);
 private _fnc_formatList = {
     params ["_list"];
     if (!(_list isEqualType [])) exitWith {""};
-    private _return = "";
+    private _return = [];
     _list = _list select {_x != ""};
     {
-        _return = _return + format ['"%1"', _x];
-        if (_forEachIndex < ((count _list) -1)) then {_return = _return + ", ";};
+        _return pushBack ['"%1"', _x];
+        if (_forEachIndex < ((count _list) -1)) then {_return pushBack ", ";};
     } forEach _list;
-    if (_return == "") then {_return = '""';};
+    if (_return isEqualTo []) then {_return = ['""'];};
     TRACE_2("formatList",_list,_return);
-    _return
+    _return joinString ""
 };
 private _fnc_default = {
     params ["_gvar",["_default",""]];
