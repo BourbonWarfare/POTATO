@@ -20,6 +20,10 @@ private _markers = fromJSON _jsonMarkers;
 if (isNil {_markers} || {_markers isEqualTo createHashMap}) exitWith {
     TRACE_1("Bad JSON sent",_jsonMarkers);
 };
+if (ace_player getSlotItemName 608 == "") exitWith {
+    ["You tried to copy someone's markers but you don't have a map.", true, 5] call ACEFUNC(common,displayText);
+};
+
 ["Markers copied to map.", true, 5] call ACEFUNC(common,displayText);
 {
     if (_y#0) then {

@@ -63,7 +63,7 @@ if (_enableShare) then {
             [format ["Sharing markers in a %1m radius.", _shareRadius], true, 5] call ACEFUNC(common,displayText);
             [_players, _shareAcrossSides] call FUNC(sendMarks);
         };
-    }, {true}, {}, [_shareRadius, _enableCopyFromEnemy]] call ACEFUNC(interact_menu,createAction);
+    }, {_player getSlotItemName 608 != ""}, {}, [_shareRadius, _enableCopyFromEnemy]] call ACEFUNC(interact_menu,createAction);
     ["CAManBase", 1, ["ACE_SelfActions", "ACE_Equipment"], _action, true] call ACEFUNC(interact_menu,addActionToClass);
 };
 
@@ -73,7 +73,7 @@ if (_enableCopyFrom) then { // handle copy from enemy (alive)
         QGVAR(copyFromUnit), "Copy Map Markers",
         "\a3\ui_f\data\GUI\Rsc\RscDisplayArsenal\map_ca.paa", {
         [QGVAR(requestMarkers), [_player], _target] call CBA_fnc_targetEvent;
-    }, {side _target == side _player || _actionParams},
+    }, {isPlayer _target && alive _target && {side _target == side _player || _actionParams}},
     {}, _enableCopyFromEnemy] call ACEFUNC(interact_menu,createAction);
     ["CAManBase", 0, ["ACE_MainActions"], _action, true] call ACEFUNC(interact_menu,addActionToClass);
 };
