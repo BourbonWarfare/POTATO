@@ -5,8 +5,8 @@
 
 class CfgPatches {
 	class ADDON	{
-		units[] = {"POTATO_I_LT_01_HAT_F"};
-		weapons[] =	{"POTATO_LAHAT"};
+		units[] = {"potato_I_LT_01_HAT_F"};
+		weapons[] =	{"potato_LAHAT"};
 		magazines[] = {"2Rnd_120mm_LG_missiles"};
 		requiredAddons[] = { "potato_core" };
 		requiredVersion = REQUIRED_VERSION;

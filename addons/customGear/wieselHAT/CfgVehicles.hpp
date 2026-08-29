@@ -3,7 +3,7 @@ class SensorTemplateDataLink;
 
 class CfgVehicles {
 	class I_LT_01_AT_F;
-	class POTATO_I_LT_01_HAT_base: I_LT_01_AT_F {
+	class potato_I_LT_01_HAT_base: I_LT_01_AT_F {
 		scope = 1;
 		author = "Blah2355";
 		class Components;
@@ -21,7 +21,7 @@ class CfgVehicles {
 		class AnimationSources;
 	};
 	
-	class POTATO_I_LT_01_HAT_F: POTATO_I_LT_01_HAT_base {
+	class potato_I_LT_01_HAT_F: potato_I_LT_01_HAT_base {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "Wiesel 2 (HAT)";
@@ -49,7 +49,7 @@ class CfgVehicles {
 		
 		class Turrets: TurretsBase {
 			class MainTurret: MainTurretBase {
-				weapons[] = {"SmokeLauncher", "HMG_127", "POTATO_LAHAT"};
+				weapons[] = {"SmokeLauncher", "HMG_127", "potato_LAHAT"};
 				magazines[] = {"SmokeLauncherMag", "100Rnd_127x99_mag_Tracer_Red", "100Rnd_127x99_mag_Tracer_Red", "100Rnd_127x99_mag_Tracer_Red", "100Rnd_127x99_mag_Tracer_Red", "2Rnd_120mm_LG_missiles", "2Rnd_120mm_LG_missiles", "2Rnd_120mm_LG_missiles"};
 				
 				class Components: ComponentsTurret {
@@ -90,11 +90,11 @@ class CfgVehicles {
 		class AnimationSources: AnimationSources {
 			class Missiles_revolving {
 				source="revolving";
-				weapon="POTATO_LAHAT";
+				weapon="potato_LAHAT";
 			};
 			class Missiles_reloadMagazine {
 				source="reloadMagazine";
-				weapon="POTATO_LAHAT";
+				weapon="potato_LAHAT";
 			};
 		};
 	};

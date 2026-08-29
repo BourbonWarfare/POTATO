@@ -5,6 +5,6 @@ class CfgMagazines {
 		displayName = "2Rnd 120mm Laser Guided ATGM";
 		displayNameShort = "ATGM LG";
 		count = 2;
-		ammo = "POTATO_M_120mm_cannon_ATGM_LG";
+		ammo = "potato_M_120mm_cannon_ATGM_LG";
 	};
 };
