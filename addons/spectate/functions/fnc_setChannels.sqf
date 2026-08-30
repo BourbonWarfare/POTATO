@@ -26,7 +26,7 @@ private _disableMarkers = if (isNil QEGVAR(mapMarkers,disableNetwork)) then {
     if (_disableMarkers) then {
         _x enableChannel [_set, false, false, false];
     } else {
-        _x enableChannel [_set, false];
+        _x enableChannel _set;
     };
 } forEach ([
     [GLOBAL_CHANNEL_INDEX, SIDE_CHANNEL_INDEX, COMMAND_CHANNEL_INDEX, VEHICLE_CHANNEL_INDEX, DIRECT_CHANNEL_INDEX],
