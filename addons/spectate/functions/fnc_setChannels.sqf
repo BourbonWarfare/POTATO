@@ -1,5 +1,5 @@
 /*
- * Author: AACO
+ * Author: AACO, Lambda.Tiger
  * Function used to set chat channels, allows global for admins (group cannot be turned off)
  *
  * Arguments:
@@ -33,6 +33,6 @@ private _disableMarkers = if (isNil QEGVAR(mapMarkers,disableNetwork)) then {
     [SIDE_CHANNEL_INDEX, COMMAND_CHANNEL_INDEX, VEHICLE_CHANNEL_INDEX, DIRECT_CHANNEL_INDEX]
 ] select (call CFUNC(isAuthorized)));
 
-if (channelEnabled SIDE_CHANNEL_INDEX) then {
+if ((channelEnabled SIDE_CHANNEL_INDEX)#2) then {
     setCurrentChannel SIDE_CHANNEL_INDEX;
 };
