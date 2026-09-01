@@ -24,6 +24,9 @@ if (ace_player getSlotItemName 608 == "") exitWith {
 
 ["Markers copied to map.", true, 5] call ACEFUNC(common,displayText);
 {
+    if (getMarkerPos _x isNotEqualTo [0, 0, 0]) then {
+        deleteMarkerLocal _x;
+    };
     if (_y#0) then {
         _y params ["", "_color", "_pts"];
         private _marker = createMarkerLocal [_x, [_pts#0, _pts#1, 0]];
