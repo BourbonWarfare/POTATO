@@ -32,4 +32,8 @@ class CfgWeapons {
         // not right, but gets rid of the error
         picture = "\A3\Weapons_F\launchers\RPG32\data\UI\gear_RPG32_X_CA.paa";
     };
+    class JAM_AE_Launch_PF98_base: Launcher_Base_f {};
+    class JAM_AE_Launch_PF98_oli: JAM_AE_Launch_PF98_base {
+        picture = "\A3\Weapons_F\launchers\RPG32\data\UI\gear_RPG32_X_CA.paa";
+    };
 };
