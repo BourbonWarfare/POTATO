@@ -174,6 +174,7 @@ switch (_missionType) do {
             ]
         ], _gunsToUse apply {_x#0}] call CBA_fnc_targetEvent;
     };
+    case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_WALK;
     case ARTILLERY_MISSIONTYPE_QUICK_LAZY_WALK: {
         private _holdGuns = (_gunsToUse select [1]) apply {_x#1}; // selects all but first element
         private _bracketGun = _gunsToUse#0#1;
