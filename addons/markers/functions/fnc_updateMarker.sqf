@@ -10,7 +10,7 @@
  * Arguments:
  * 0: Hashkey of marker <STRING>
  * 1: Marker text <STRING>
- * 2: Marker icon size DEFAULT_MARKER_SIZE <SCALAR>
+ * 2: Marker icon size DEFAULT_MARKER_SIZE <NUMBER>
  * 3: Color array of the  or default color array index <ARRAY><NUMBER>
  *      (OPTIONAL, default -1 or no change)
  * 4: Icon of the marker to show or default marker array index <STRING><NUMBER>

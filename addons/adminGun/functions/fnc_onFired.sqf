@@ -4,14 +4,14 @@
  * Called when a player fires their gun. Calls functions relevant to ammo type used
  *
  * Arguments:
- * 0: Unit that fired
- * 1: Weapon that fired
- * 2: Muzzle
- * 3: Mode
- * 4: Ammo used
- * 5: Magazine used
- * 6: Projectile
- * 7: Gunner whose weapon fired
+ * 0: Unit that fired <OBJECT>
+ * 1: Weapon that fired <STRING>
+ * 2: Muzzle <STRING>
+ * 3: Mode <STRING>
+ * 4: Ammo used <STRING>
+ * 5: Magazine used <STRING>
+ * 6: Projectile <OBJECT>
+ * 7: Gunner whose weapon fired <OBJECT>
  *
  * Examples:
  * _this call potato_adminGun_fnc_onFired;

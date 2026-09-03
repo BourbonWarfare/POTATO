@@ -1,6 +1,14 @@
-// #define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+/*
+ * Arguments:
+ * Array of object <ARRAY>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [objects] call potato_core_fnc_addToCuratorServer
+ */
 TRACE_1("addToCuratorServer",_this);
 
 {

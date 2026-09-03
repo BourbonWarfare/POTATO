@@ -5,8 +5,7 @@
  * CfgLoadouts configured vehicle and supply box classes.
  *
  * Arguments:
- * 0: The control group that is being populated
- * 1: The vlast saved value to the control
+ * 0: The control group that is being populated <CONTROL>
  *
  * Examples:
  * Should be called by module init

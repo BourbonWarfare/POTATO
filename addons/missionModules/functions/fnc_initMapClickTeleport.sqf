@@ -4,7 +4,9 @@
  * This function initializes teleports available in the ACE self-interact menu.
  *
  * Arguments:
- * 0: The module being initialized
+ * 0: The module being initialized <OBJECT>
+ * 1: The objects syncronized to the object <ARRAY>
+ * 2: Whether the module is active <BOOL>
  *
  * Examples:
  * Should be called by module init

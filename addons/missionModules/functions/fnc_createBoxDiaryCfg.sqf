@@ -7,8 +7,9 @@
  * module should not be automatically deleted.
  *
  * Arguments:
- * 0: The module being initialized
- * 2: Whether the module is active
+ * 0: The module being initialized <OBJECT>
+ * 1: The objects syncronized to the object <ARRAY>
+ * 2: Whether the module is active <BOOL>
  *
  * Examples:
  * Should be called by module init

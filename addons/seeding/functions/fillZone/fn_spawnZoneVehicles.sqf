@@ -9,10 +9,10 @@
 *
 * Arguments:
 * _posATL - center of position of region to garrison (ARRAY).
-* _radius - radius of area to garrison (SCALAR, default 50 m).
+* _radius - radius of area to garrison <NUMBER> (default 50 m).
 * _marker - Marker that sets bounds for buildings to be garrisoned (STRING, default "").
-* _fillCount - The number of vehicles to spawn (SCALAR, default 3).
-* _fillIntensity - Force composition strength, i.e. technicals or APCs, or IFVs (SCALAR, default 0.4).
+* _fillCount - The number of vehicles to spawn <NUMBER> (default 3).
+* _fillIntensity - Force composition strength, i.e. technicals or APCs, or IFVs <NUMBER> (default 0.4).
 * _sideVehicles - Side of the garrison units (SIDE, east).
 *
 * Return:

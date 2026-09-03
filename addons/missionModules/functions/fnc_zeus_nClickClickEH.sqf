@@ -7,8 +7,11 @@
  * module should not be automatically deleted.
  *
  * Arguments:
- * 0: The module being initialized
- * 2: Whether the module is active
+ * 0: Display <DISPLAY>
+ * 1: Button <NUMBER>
+ * 2: X position of the click <NUMBER>
+ * 3: Y position of the click <NUMBER>
+ * 4: Shift key pressed <BOOL>
  *
  * Examples:
  * Should be called by module init

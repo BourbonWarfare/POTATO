@@ -6,8 +6,7 @@
  * is already off, or disabled for the mission, this function exits.
  *
  * Arguments:
- * 0: The minimum amount of time to delay before adding a Safe Start
- *    event (NUMBER).
+ * 0: The minimum amount of time to delay before adding a Safe Start event <NUMBER>
  *
  * Return Value:
  * None

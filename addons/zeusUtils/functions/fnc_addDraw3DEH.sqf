@@ -9,7 +9,7 @@
  *
  *
  * Arguments:
- * 0: The eventhandler tpye (SCALAR, default ZEUSUTILS_DEH_INVALID)
+ * 0: The eventhandler tpye <NUMBER> (default ZEUSUTILS_DEH_INVALID)
  *
  * Return Value:
  * None

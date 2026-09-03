@@ -8,12 +8,12 @@
 *
 * Arguments:
 * _marker - The marker zone (STRING).
-* _squadsToSpawn - The number of reinforcment squads to spawn (SCALAR, default 2)
-* _armedVehicles - Whether the vehicles to be spawned are armed or not (BOOL, default false)
+* _squadsToSpawn - The number of reinforcment squads to spawn <NUMBER> (default 2)
+* _armedVehicles - Whether the vehicles to be spawned are armed or not <BOOL> (default false)
 * _sideHolding - The side holding the zone at the start (SIDE, default east)
 * _startingUnits - The nunmber of units holding the zone, if < 0 then the
-*                  number is calculated after the hold off time (SCALAR, default -1)
-* _initHoldOff - How long to wait in seconds before checking the sector (SCALAR, default 0)
+*                  number is calculated after the hold off time <NUMBER> (default -1)
+* _initHoldOff - How long to wait in seconds before checking the sector <NUMBER> (default 0)
 *
 * Return:
 * none

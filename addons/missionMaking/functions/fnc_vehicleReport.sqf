@@ -1,4 +1,13 @@
 #include "script_component.hpp"
+/*Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [] call potato_missionMaking_fnc_vehicleReport
+ */
 
 private _vehicles = (all3DENEntities select 0) select {(_x isKindOf "LandVehicle") || {_x isKindOf "Air"} || {_x isKindOf "Ship"}};
 

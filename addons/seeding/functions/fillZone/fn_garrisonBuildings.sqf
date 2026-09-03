@@ -14,19 +14,19 @@
 *
 * Arguments:
 * _posATL - center of position of region to garrison (ARRAY).
-* _radius - radius of area to garrison (SCALAR, default 50 m).
+* _radius - radius of area to garrison <NUMBER> (default 50 m).
 * _marker - Marker that sets bounds for buildings to be garrisoned (STRING, default "").
 * _minToOccupy - The minimum units to put in a building (SCALAR< default 2).
 * _occupyBounds - Min and max count of units per building, if < 1 then ratio of building (ARRAY, default [2, 6]).
-* _chanceToMove - Chance that any one garrisoned unit will leave their position and move (SCALAR, default 0.1).
-* _canSkipBuildings - Whether to skip buildings under the bar (BOOL, default true).
+* _chanceToMove - Chance that any one garrisoned unit will leave their position and move <NUMBER> (default 0.1).
+* _canSkipBuildings - Whether to skip buildings under the bar <BOOL> (default true).
 * _sideGarrison - Side of the garrison units (SIDE, east).
 * _allowMovementOnShot - When shot near, allow a unit to move (BOOL, true).
 *
 * Return:
 * Returns an array cotaining:
-*  0: Time until the buildings will be occupied (SCALAR)
-*  1: The number of units that will be spawned (SCALAR)
+*  0: Time until the buildings will be occupied <NUMBER>
+*  1: The number of units that will be spawned <NUMBER>
 *
 * Example:
 * [getPosATL player, 50, "zone_0", [1, 1], [0, 100], 0.1] call bw_fnc_garrisonBuildings;

@@ -8,13 +8,13 @@
 *
 *
 * Arguments:
-* _vehicle - A vehicle suffering a cook-off or engine fire event
+* 0: _vehicle - A vehicle suffering a cook-off or engine fire event
 *
 * Return:
 * None
 *
 * Example:
-* [_vehicle] call potato_vehicleCoasting_fnc_driverDeathHandle;
+* [_vehicle] call potato_vehicleCoasting_fnc_forceBail;
 *//***************************************************************************/
 params [["_vehicle", objNull, [objNull]]];
 

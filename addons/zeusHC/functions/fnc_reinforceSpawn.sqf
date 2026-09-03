@@ -12,9 +12,9 @@
 *
 * Arguments:
 * _waypoints - Position to head to (ARRAY, default [0, 0, 0]).
-* _vehicleArray - Number of units in reinforcing squads (SCALAR, default 5).
-* _numberOfSquads - Number of squads to create (SCALAR, default 2).
-* _vicType - Should the reinforcement vehicles be a BRM-1 (BOOL, default false).
+* _vehicleArray - Number of units in reinforcing squads <NUMBER> (default 5).
+* _numberOfSquads - Number of squads to create <NUMBER> (default 2).
+* _vicType - Should the reinforcement vehicles be a BRM-1 <BOOL> (default false).
 *
 * Return:
 * The number of patroling units spawned

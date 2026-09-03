@@ -9,7 +9,7 @@
  * Arguments:
  * 0: The object ammo or boxes will be added to <OBJECT>
  * 1: The config path to the box contents to fill <CONFIG>
- * 2: Max recusion depth (Default, 1) <SCALAR>
+ * 2: Max recusion depth (Default, 1) <NUMBER>
  * 3: Name format string (Default, "%1") <STRING>
  *
  * Return Value:

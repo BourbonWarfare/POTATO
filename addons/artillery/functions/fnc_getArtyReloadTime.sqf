@@ -4,10 +4,10 @@
  * Cache function that checks a weapon's minimum reload time
  *
  * Arguments:
- * _weaponType - CfgWeapons class for the artillery piece, STRING
+ * _weaponType - CfgWeapons class for the artillery piece, <STRING>
  *
  * Return:
- * SCALAR - Minimum reload time
+ * <NUMBER> - Minimum reload time
  *
  * Example:
  * ["CUP_Vcannon_D30_veh"] call potato_artillery_fnc_getArtyReloadTime;

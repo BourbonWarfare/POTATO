@@ -1,4 +1,14 @@
 #include "script_component.hpp"
+/*Arguments:
+ * 0: Vehicle <OBJECT>
+ * 1: Loadout Value <STRING>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_vehicle, _loadoutValue] call potato_setVehicleAmmo_fnc_initVehicle
+ */
 
 params ["_vehicle", "_loadoutValue"];
 TRACE_2("params",_vehicle,_loadoutValue);

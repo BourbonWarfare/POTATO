@@ -5,8 +5,8 @@
  * requesting to be provided player frame rates for monitoring.
  *
  * Arguments:
- * 0: The Zeus's machine network ID (SCALAR)
- * 1: Whether a client wants to recieve FPS data (BOOL)
+ * 0: The Zeus's machine network ID <NUMBER>
+ * 1: Whether a client wants to recieve FPS data <BOOL>
  *
  * Return Value:
  * None
