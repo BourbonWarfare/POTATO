@@ -200,32 +200,6 @@ switch (_missionType) do {
             ]
         ], _holdGuns] call CBA_fnc_targetEvent;
     };
-    case ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_WALK: {
-        private _holdGuns = (_gunsToUse select [1]) apply {_x#1}; // selects all but first element
-        private _bracketGun = _gunsToUse#0#1;
-        [QGVAR(issueArty), [
-            _missionID,
-           [[_bracketGun, 30]],
-            ARTILLERY_MISSION_STATUS_FIRING, [
-                ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_WALK,
-                _magazine,
-                _centerPosATL,
-                _roundCount,
-                _avoidPlayers,
-                _dispersion,
-                _rotation
-            ]
-        ], _bracketGun] call CBA_fnc_targetEvent;
-
-        [QGVAR(issueArty), [
-            _missionID,
-            _holdGuns,
-            ARTILLERY_MISSION_STATUS_ASSIGN, [
-                ARTILLERY_MISSIONTYPE_SLOW_QUICK_LAZY_BARRAGE,
-                200 // we force the mission to take 30-45 secs per round
-            ]
-        ], _holdGuns] call CBA_fnc_targetEvent;
-    };
     case ARTILLERY_MISSIONTYPE_LAZY_WALK: {
         private _holdGuns = (_gunsToUse select [1]) apply {_x#1}; // selects all but first element
         private _bracketGun = _gunsToUse#0#1;
