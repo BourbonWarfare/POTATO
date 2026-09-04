@@ -26,13 +26,20 @@ if (ace_player getSlotItemName 608 == "") exitWith {
 {
     if (_y#0) then {
         _y params ["", "_color", "_pts"];
-        private _marker = createMarkerLocal [_x, [_pts#0, _pts#1, 0]];
+        if (getMarkerPos _x isNotEqualTo [0, 0, 0]) then {
+            deleteMarkerLocal _x;
+        };
+        createMarkerLocal [_x, [_pts#0, _pts#1, 0]];
         _x setMarkerShapeLocal "POLYLINE";
         _x setMarkerColorLocal _color;
         _x setMarkerPolylineLocal _pts;
     } else {
         _y params ["", "_color", "_pos", "_dir", "_size", "_type", "_text"];
-        private _marker = createMarkerLocal [_x, _pos];
+        if (getMarkerPos _x isNotEqualTo [0, 0, 0]) then {
+            createMarkerLocal [_x, _pos];
+        } else {
+            _x setMarkerPosLocal _pos;
+        };
         _x setMarkerColorLocal _color;
         _x setMarkerDirLocal _dir;
         _x setMarkerSizeLocal _size;
