@@ -4,11 +4,11 @@
  * Author: Lambda.Tiger
  * This function is used to modify an action name to be <take weapon gun name>.
  * It takes the default modifierFunction arguments and whether the weapon is a
- * primary or not and uses them to change the name of the action (boolean).
+ * primary or not and uses them to change the name of the action <BOOL>).
  *
  * Arguments:
- * 0: (ACE Interact Framework modifierFunction ARGS) (ARRAY)
- * 1: Whether the weapon is a primary or not (BOOL)
+ * 0: (ACE Interact Framework modifierFunction ARGS) <ARRAY>
+ * 1: Whether the weapon is a primary or not <BOOL>
  *
  * Return Value:
  * None

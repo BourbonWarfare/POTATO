@@ -1,4 +1,13 @@
 #include "script_component.hpp"
+/*Arguments:
+ * 0: <CONTROL>
+ *
+ * Return Value:
+ * <STRING>
+ *
+ * Example:
+ * [_control] call potato_setVehicleAmmo_fnc_attributeSave
+ */
 
 params ["_control"];
 TRACE_1("params",_control);

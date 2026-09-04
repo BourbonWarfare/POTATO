@@ -7,12 +7,12 @@
 * of units is provided as an argument.
 *
 * Arguments:
-* _building - The building to occupy (OBJECT).
-* _forceSize - Number of units to spawn (SCALAR, default 4).
-* _chanceToMove - Chance a unit will be static when garrisoned (SCALAR| [0, 1], default 0.1)
-* _sideGarrison - Side of the buildings garrison (SIDE, default east).
-* _allowMovementOnShot - When shot near, allow a unit to move (BOOL, true).
-* _group - The group units are spawned into. Should not be passed, used for recursion (GROUP).
+* _building - The building to occupy <OBJECT>
+* _forceSize - Number of units to spawn <NUMBER> (default 4).
+* _chanceToMove - Chance a unit will be static when garrisoned <NUMBER| [0, 1]> (default 0.1)
+* _sideGarrison - Side of the buildings garrison <SIDE> (default east).
+* _allowMovementOnShot - When shot near, allow a unit to move <BOOL> (true).
+* _group - The group units are spawned into. Should not be passed, used for recursion <GROUP>.
 *
 * Return:
 * none

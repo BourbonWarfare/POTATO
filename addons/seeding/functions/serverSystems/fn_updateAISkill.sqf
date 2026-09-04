@@ -6,8 +6,8 @@
 * Updates skill for units that will be spawned.
 *
 * Arguments:
-* _minSkill - Min skill setting (SCALAR, default 0.5)
-* _maxSkill - Max skill setting (SCALAR, default 0.5)
+* _minSkill - Min skill setting <NUMBER> (default 0.5)
+* _maxSkill - Max skill setting <NUMBER> (default 0.5)
 *
 * Return:
 * none

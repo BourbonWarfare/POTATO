@@ -8,8 +8,8 @@
  * of messages.
  *
  * Arguments:
- * 0: The object to check, default player (OBJECT)
- * 1: Whether to send the array of marker info, default false (BOOL)
+ * 0: The object to check, default player <OBJECT>
+ * 1: Whether to send the array of marker info, default false <BOOL>
  *
  * Return Value:
  * None

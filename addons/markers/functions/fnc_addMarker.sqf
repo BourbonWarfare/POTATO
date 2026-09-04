@@ -5,15 +5,14 @@
  * the local machine's marker hash.
  *
  * Arguments:
- * 0: Hashkey of marker, we send the event because the object
- *     may change over time <STRING>
+ * 0: Hashkey of marker, we send the event because the object may change over time <STRING>
  * 1: Position ATL of the marker <ARRAY>
  * 2: Object marker is attached to <OBJECT>
  * 3: Side of the marker <SIDE>
  * 4: Marker text <STRING>
  * 5: Color array of the  or default color array index <ARRAY><NUMBER>
  * 6: Icon of the marker to show or default marker array index <STRING><NUMBER>
- * 7: Marker icon size DEFAULT_MARKER_SIZE <SCALAR>
+ * 7: Marker icon size DEFAULT_MARKER_SIZE <NUMBER>
  *
  * Example:
  * [GROUP_MARKER_ID_GROUPSTRING_UNIT(player), getPosATL player, player, side player, "Yar"] call potato_markers_fnc_addMarker;

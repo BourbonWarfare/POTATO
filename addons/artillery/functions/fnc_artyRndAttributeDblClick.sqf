@@ -5,8 +5,8 @@
  * magazine for use in mission as part of the artillery array.
  *
  * Arguments:
- * _ctrl - The listbox control. CONTROL
- * _row - The row index that was double clicked on. SCALAR
+ * _ctrl - The listbox control. <CONTROL>
+ * _row - The row index that was double clicked on. <NUMBER>
  *
  * Example:
  * [_controlGroup, 5] call potato_artillery_fnc_artyRndAttributeDblClick;

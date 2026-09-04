@@ -4,10 +4,10 @@
  *
  *
  * Arguments:
- * 0: An array of poses (AGL) for spawn, move, and aim points
- * 1: The side units should be on
- * 2: The type of weapons team
- * 3: The number of rounds the static weapon should have
+ * 0: An array of poses (AGL) for spawn, move, and aim points <ARRAY>
+ * 1: The side units should be on <SIDE>
+ * 2: The type of weapons team <NUMBER> (0 = HMG, 1 = HAT, 2 = MMG, 3 = MAT)
+ * 3: The number of rounds the static weapon should have <NUMBER>
  *
  * TODO:
  * Implement custom, non LAMBS CSW setup so we can modify ammo and not have it

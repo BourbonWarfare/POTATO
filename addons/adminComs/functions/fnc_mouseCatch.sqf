@@ -1,6 +1,14 @@
-//potato_adminComs_fnc_mouseCatch
-
 #include "script_component.hpp"
+/*
+ * Arguments:
+ * 0: Display <DISPLAY>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [d] call potato_adminComs_fnc_mouseCatch
+ */
 TRACE_1("params",_this);
 
 disableSerialization;

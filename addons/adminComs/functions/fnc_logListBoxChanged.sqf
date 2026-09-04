@@ -1,5 +1,14 @@
 #include "script_component.hpp"
-
+/*
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [] call potato_adminComs_fnc_logListBoxChanged
+ */
 TRACE_1("params",_this);
 
 disableSerialization;

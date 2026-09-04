@@ -8,9 +8,8 @@
  * Arguments:
  * 0: The unit to add the diary entries to <OBJECT>
  * 1: The box name to show in the diary entries <STRING>
- * 2: The type of loadout to use whether a supply box, vehicle,
- *      or boxese of boxes <SCALAR>
- * 3: An array containing arrays of ammo contents. Each array is expected to
+ * 2: The type of loadout to use whether a supply box, vehicle, or boxese of boxes <NUMBER>
+ * 3: An array containing arrays of ammo contents. <ARRAY> Each array is expected to
  *      be formatted as "Magazine:# of magazines", no combining will be done
  *      if magazines are not properly reduced
  *   0: Backapcks <ARRAY>

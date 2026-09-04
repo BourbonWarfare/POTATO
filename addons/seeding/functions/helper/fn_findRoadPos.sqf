@@ -7,8 +7,8 @@
 * of the closest road within a radius (default 50 m) of the given position.
 *
 * Arguments:
-* 0: Position ATL to search around (default [0, 0, 0])
-* 1: Radius in meters to search (default 50 m)
+* 0: Position ATL to search around <ARRAY> (default [0, 0, 0])
+* 1: Radius in meters to search <NUMBER> (default 50)
 *
 * Return:
 * Road position ATL and road direction

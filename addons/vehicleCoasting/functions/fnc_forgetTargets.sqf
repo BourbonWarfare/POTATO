@@ -8,8 +8,8 @@
 *
 *
 * Arguments:
-* _vehicle - A vehicle suffering a cook-off or engine fire event
-* _unit - A unit in a vehicle that should bail out.
+* 0: _vehicle - A vehicle suffering a cook-off or engine fire event <OBJECT>
+* 1: _unit - A unit in a vehicle that should bail out. <OBJECT>
 *
 * Return:
 * None

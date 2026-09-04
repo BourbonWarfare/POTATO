@@ -9,7 +9,7 @@
 *
 * Arguments:
 * ace self interact menu params
-* 0: Increase the offset
+* 0: Increase the offset <BOOL>
 *
 * Return:
 * None

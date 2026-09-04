@@ -10,10 +10,10 @@
  * marker color, position, direction, size, type, and text.
  *
  * Arguments:
- * 0: Whether the output should be converted to JSON (BOOL, default false)
+ * 0: Whether the output should be converted to JSON <BOOL> (default false)
  *
  * Return:
- * Either a hashmap of all user markers OR the hashmap toJSON'd
+ * <HASHMAP or STRING> Either a hashmap of all user markers OR the hashmap toJSON'd
  *
  * Public: No
  */
