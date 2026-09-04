@@ -9,6 +9,7 @@ class CfgPatches {
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
+            "cba_jr",
             "potato_miscFixes",
             "gm_structures_euro_80",
             "gm_structures_euro_80_winter",
@@ -67,17 +68,26 @@ class CfgPatches {
 
 class asdg_OpticRail;
 class asdg_OpticSideMount: asdg_OpticRail {
-    class compatibleItems {};
+    class compatibleItems;
 };
 class asdg_OpticSideRail_AKSVD: asdg_OpticSideMount {
     class compatibleItems: compatibleItems {
-        gm_nspu_dovetail_blk = 1;
         gm_nspu_dovetail_gry = 1;
-        gm_pka_dovetail_blk = 1;
+        gm_nspu_dovetail_blk = 1;
+        gm_pgo7v_blk = 1;
         gm_pka_dovetail_gry = 1;
-        gm_pso6x36_1_dovetail_blk = 1;
-        gm_pso6x36_1_dovetail_gry = 1;
-        gm_pso1_dovetail_blk = 1;
-        gm_pso1_dovetail_gry = 1;
+        gm_pka_dovetail_blk = 1;
+        gm_zfk4x25_blk = 1;
+        gm_zln1k_ir_dovetail_gry = 1;
+        gm_zln1k_grn_dovetail_gry = 1;
+        gm_zln1k_ir_dovetail_blk = 1;
+        gm_zln1k_grn_dovetail_blk = 1;
     };
 };
+
+class asdg_OpticRail1913;
+delete gm_slotOptic_risrail;
+class gm_slotOptic_risrail: asdg_OpticRail1913 {};
+
+delete gm_slotOptic_akrail;
+class gm_slotOptic_akrail: asdg_OpticSideRail_AKSVD {};
