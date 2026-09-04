@@ -220,10 +220,11 @@ case ("grenades"): {
 
 {
     private _ctrlText = _x;
-    private _output = "";
+    private _output = [];
     {
-        _output = _output + format ["%1 ", missionNamespace getVariable [_x, "err"]];
+        _output pushBack (missionNamespace getVariable [_x, "err"]);
     } forEach (_ctrlText getVariable [QGVAR(vars), []]);
+    _output = _output joinString " ";
     _ctrlText ctrlSetText _output;
     _ctrlText ctrlSetTooltip _output;
 } forEach (_display getVariable [QGVAR(ctrlsToUpdate), []]);
