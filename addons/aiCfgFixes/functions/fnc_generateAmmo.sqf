@@ -114,7 +114,7 @@ private _setAiUsageFlags = {
         {
             _ammoUsageFlags pushBack str(_x);
             if (_foreachindex != (count _flags) - 1) then {
-                _ammoUsageFlags = _ammoUsageFlags + " + ";
+                _ammoUsageFlags pushBack " + ";
             };
         } forEach _flags;
         _ammoUsageFlags pushBack ['"'];
