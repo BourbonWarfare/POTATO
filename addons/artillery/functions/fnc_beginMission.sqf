@@ -257,18 +257,12 @@ switch (_missionType) do {
 
 if (_clientID > 2 || is3DENPreview) then {
     private _missionTypeStr = switch (_missionType) do {
-        case ARTILLERY_MISSIONTYPE_POINT;
-        case ARTILLERY_MISSIONTYPE_POINT;
-        case ARTILLERY_MISSIONTYPE_POINT;
         case ARTILLERY_MISSIONTYPE_POINT: {"Area Barrage"};
         case ARTILLERY_MISSIONTYPE_LAZY_WALK: {"Lazy Walk onto target"};
-        case ARTILLERY_MISSIONTYPE_BRACKET_SHOTS;
         case ARTILLERY_MISSIONTYPE_BRACKET_SHOTS: {"Bracketing Rounds"};
         case ARTILLERY_MISSIONTYPE_LINEAR: {"Linear Barrage"};
         case ARTILLERY_MISSIONTYPE_CREEPING: {"Creeping Barrage"};
-        case ARTILLERY_MISSIONTYPE_SLOW;
         case ARTILLERY_MISSIONTYPE_SLOW: {"Slow Barrage"};
-        case ARTILLERY_MISSIONTYPE_QUICK_LAZY_WALK;
         case ARTILLERY_MISSIONTYPE_QUICK_LAZY_WALK: {"Lazy Walk (Quick) onto target"};
         default {"Err"};
     };
