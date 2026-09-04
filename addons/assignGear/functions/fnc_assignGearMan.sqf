@@ -54,7 +54,11 @@ if ((!isClass _path) && {(_typeOf select [0,7]) == "potato_"}) then {
         _faction ="potato_msv";
         _converstionType = 2;
     };
-    if (_converstionType == 0) exitWith { INFO_1("No BWC Factions %1",_typeOf); };
+    if (_converstionType == 0) exitWith {
+        if !(_unit isKindOf QEGVAR(spectate,spectator)) then {
+            INFO_1("No BWC Factions %1",_typeOf);
+        };
+    };
     private _unitRole = toLower _typeOf select [9]; // simple because potato_x_ is const length
     switch (_converstionType) do {
         case (1): {
@@ -81,7 +85,6 @@ if ((!isClass _path) && {(_typeOf select [0,7]) == "potato_"}) then {
                 case "matg": {"soldier_AT_F"};
                 case "matag": {"Soldier_AAT_F"};
                 case "pilot": {"Helipilot_F"};
-                case "demo": {"soldier_exp_F"};
                 case "vicc";
                 case "vicl": {"crew_F"};
                 case "cc";
@@ -102,7 +105,6 @@ if ((!isClass _path) && {(_typeOf select [0,7]) == "potato_"}) then {
             _loadout = switch (_unitRole) do {
                 case "rifleman": {"potato_msv_rifleman"};
                 case "ftl": {"potato_msv_sr"};
-                case "coy";
                 case "xo";
                 case "sl": {"potato_msv_plt"};
                 case "coy": {"potato_msv_coy"};
