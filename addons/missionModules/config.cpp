@@ -30,6 +30,7 @@ class CfgPatches {
 
 #include "CfgEden.hpp"
 #include "CfgEventHandlers.hpp"
+#include "CfgMarkerBrushes.hpp"
 #include "CfgNotifications.hpp"
 #include "CfgSounds.hpp"
 #include "CfgVehicles.hpp"
