@@ -43,4 +43,14 @@ if(hasInterface) then {
 
         _markerStr call BIS_fnc_stringToMarkerLocal;
     }] call CBA_fnc_addEventHandler;
+    if (getMissionConfigValue ["bwmfDate", ""] != "") then { // non-bwmf missions don't need the timer
+        private _ctrl = (findDisplay 12) displayCtrl IDC_MAPTIME_CLOCK;
+        uiNamespace setVariable [QGVAR(missionClock), _ctrl];
+        _ctrl ctrlSetBackgroundColor [0,0,0,0.7];
+        _ctrl ctrlSetText "00:00:00";
+        _ctrl ctrlSetPositionW (ctrlTextWidth _ctrl);
+        _ctrl ctrlSetPositionH (ctrlTextHeight _ctrl);
+        _ctrl ctrlCommit 0;
+        GVAR(mapTimerID) = [FUNC(updateMapTimer), 0.25, []] call CBA_fnc_addPerFrameHandler;
+    };
 };
