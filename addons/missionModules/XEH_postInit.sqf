@@ -22,6 +22,16 @@ GVAR(ehAdded) = false;
 
 ["CBA_settingsInitialized", {
     TRACE_1("CBA_settingsInitialized eh",GVAR(aiSkill_set));
+
+    // marker-minefield init
+    if (isServer) then {
+        GVAR(minefield_previousExplosions) = [];
+        [QGVAR(minefield_steppedInIt), { call FUNC(minefield_steppedInIt) }] call CBA_fnc_addEventHandler;
+    };
+    if (hasInterface) then {
+        call FUNC(minefield_clientInit);
+    };
+
     if (GVAR(aiSkill_set)) then {
         [QGVAR(updateAISettings), []] call CBA_fnc_localEvent;
     };
