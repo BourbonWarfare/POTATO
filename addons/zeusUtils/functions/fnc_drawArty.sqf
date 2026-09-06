@@ -54,9 +54,9 @@ private _textscale = _sizeModifier * 0.8;
             ["@shadow", 4],
             ["@dynamic", true],
             ["@texts", []],
-            ["type", ARTILLERY_MISSION_STATUS_FREE]
+            ["status", -1000]
         ]}, true];
-    if (_iconHash get "type" == _missionTypeEnum) then {
+    if (_iconHash get "status" == _status) then {
         private _texts = _iconHash get "@texts";
         switch (_status) do {
             case ARTILLERY_MISSION_STATUS_WAIT: {
@@ -67,7 +67,7 @@ private _textscale = _sizeModifier * 0.8;
             };
         };
     } else {
-        _iconHash set ["type", _missionTypeEnum];
+        _iconHash set ["status", _status];
         if (ARTILLERY_MISSION_STATUS_WAIT == _status) then {
             _iconHash set ["@texts", [
                 ["Held", _sizeModifier, 0, 0, [1, 0, 0, 0.7], true],
