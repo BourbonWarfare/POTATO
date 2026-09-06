@@ -2,6 +2,15 @@
 /*
  * Author: PabstMirror
  * Handles player jipping, sends hint on last group
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [] call potato_core_fnc_playerJipHint
  */
 
 

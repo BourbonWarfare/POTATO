@@ -4,7 +4,11 @@
  * 0: Type <NUMBER> - 0: Bar, 1: Text
  * 1: Stat data array <ARRAY>
  *
- * Public: No
+ * Return Value:
+ * <NUMBER or STRING>
+ *
+ * Examples:
+ * [0, _statData] call potato_core_fnc_statRecoil
  */
 
 params ["_type", "_statData"];

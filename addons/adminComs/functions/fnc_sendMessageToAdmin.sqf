@@ -1,6 +1,14 @@
-//potato_adminMenu_fnc_sendMessageToAdmin
-
 #include "script_component.hpp"
+/*
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [] call potato_adminComs_fnc_sendMessageToAdmin
+ */
 TRACE_1("params",_this);
 
 disableSerialization;

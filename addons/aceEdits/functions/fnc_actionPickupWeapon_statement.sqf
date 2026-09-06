@@ -6,7 +6,7 @@
  * is a primary (not a seoconday).
  *
  * Arguments:
- * 0: Whether the weapon is a primary or not (BOOL)
+ * 0: Whether the weapon is a primary or not <BOOL>
  *
  * Return Value:
  * None

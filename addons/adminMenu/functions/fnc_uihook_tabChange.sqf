@@ -1,5 +1,14 @@
 #include "script_component.hpp"
-
+/* Arguments:
+ * 0: Not used <ANY>
+ * 1: newly selected tab index <NUMBER>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [] call potato_adminMenu_fnc_uihook_tabChange
+ */
 params ["", "_sel"];
 TRACE_1("tabchange",_sel);
 

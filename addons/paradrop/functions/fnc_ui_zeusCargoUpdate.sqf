@@ -4,8 +4,8 @@
  * This is run when controls are updated in the zeus cargo drop dialog
  *
  * Arguments:
- * 0: The UI changed control
- * 1: The UI elements IDC
+ * 0: The UI changed control <CONTROL>
+ * 1: The UI elements IDC <NUMBER>
  *
  * Examples:
  * Should be called by module callback

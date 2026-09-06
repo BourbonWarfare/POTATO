@@ -8,7 +8,7 @@
 * of control..
 *
 * Arguments:
-* _unit - A unit that died
+* 0: _unit - A unit that died
 *
 * Return:
 * None

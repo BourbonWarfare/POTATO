@@ -6,9 +6,9 @@
  * by sending the air vehicle away and then deleting it.
  *
  * Arguments:
- * 0: Vehicle to start dropping (OBJECT, default objNull)
- * 1: Time between drops (SCALAR, default 3)
- * 2: Final direction to head on exfil (SCALAR, default 0)
+ * 0: Vehicle to start dropping <OBJECT> (default objNull)
+ * 1: Time between drops <NUMBER> (default 3)
+ * 2: Final direction to head on exfil <NUMBER> (default 0)
  *
  * Return Value:
  * Nothing

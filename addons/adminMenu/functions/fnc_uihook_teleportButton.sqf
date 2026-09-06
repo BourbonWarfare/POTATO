@@ -1,5 +1,13 @@
 #include "script_component.hpp"
-
+/* Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [] call potato_adminMenu_fnc_uihook_teleportButton
+ */
 TRACE_1("params",_this);
 
 private _selectedUnit = missionNamespace getVariable [

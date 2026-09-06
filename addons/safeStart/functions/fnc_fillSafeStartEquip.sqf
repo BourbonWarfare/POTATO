@@ -13,7 +13,7 @@
 * settings like group markers. This setting does expect to find
 *
 * Arguments:
-* 0: The safeStartEquip display (Display)
+* 0: The safeStartEquip ctrl group <CONTROL>
 *
 * Return:
 * None

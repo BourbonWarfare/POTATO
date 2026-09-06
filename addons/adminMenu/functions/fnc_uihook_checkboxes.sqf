@@ -6,9 +6,9 @@
  * the control's IDC. If the setting should be propagated to other clients.
  *
  * Arguments:
- * 0: The control or the control ID of the check box checked (NUMBER/CONTROL)
- * 1: Whether the box was checked, 1 for checked and 0 for not (NUMBER)
- * 2: Should this change propagate to the rest of the users (BOOL)
+ * 0: The control or the control ID of the check box checked <CONTROL or NUMBER>
+ * 1: Whether the box was checked, 1 for checked and 0 for not <NUMBER>
+ * 2: Should this change propagate to the rest of the users <BOOL>
  *
  * Return Value:
  * None

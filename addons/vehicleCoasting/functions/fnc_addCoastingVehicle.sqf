@@ -7,8 +7,8 @@
 * vehicle and eventually stop it all together.
 *
 * Arguments:
-* _vehicle - The uncontrolled vehicle (OBJECT)
-* _driver - The vehicle's driver (OBJECT)
+* 0: _vehicle - The uncontrolled vehicle (OBJECT)
+* 1: _driver - The vehicle's driver (OBJECT)
 *
 * Return:
 * None

@@ -4,8 +4,8 @@
  * This function is run by opening the CSW Team dialogue
  *
  * Arguments:
- * 0: Whether the module is opening or closing, in some cases an array of WPs
- * 1: Arguments provided for the event
+ * 0: Whether the module is opening or closing, in some cases an array of WPs <BOOL or ARRAY>
+ * 1: Arguments provided for the event <ARRAY>
  *
  *
  * Examples:

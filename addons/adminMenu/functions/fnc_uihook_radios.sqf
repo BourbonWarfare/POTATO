@@ -4,8 +4,8 @@
 * This calls events to reset or set different radio modes
 *
 * Arguments:
-* 0: New mode to be set
-* 1: The control of the button
+* 0: New mode to be set <NUMBER>
+* 1: The control of the button <CONTROL>
 *
 * Return Value:
 * None

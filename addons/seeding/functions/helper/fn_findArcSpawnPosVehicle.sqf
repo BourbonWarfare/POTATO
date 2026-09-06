@@ -8,7 +8,10 @@
 * settings like group markers. This setting does expect to find
 *
 * Arguments:
-* 0: The center of
+* 0: The center of <ARRAY>
+* 1: Hide from <SIDE>
+* 2: The radius to search <NUMBER>
+* 3: Angle parameters [min, max, step] <ARRAY>
 *
 * Return:
 * None

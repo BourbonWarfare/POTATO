@@ -8,8 +8,8 @@
  * markers used by other sides not configured to show to the player.
  *
  * Arguments:
- * 0: The control that an event happens to
- * 1: Whether the function is called by a load event (BOOL, default false)
+ * 0: The control that an event happens to <CONTROL>
+ * 1: Whether the function is called by a load event <BOOL> (default false)
  *
  * Return Value:
  * None

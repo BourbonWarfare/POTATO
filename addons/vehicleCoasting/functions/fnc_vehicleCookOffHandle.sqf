@@ -8,7 +8,7 @@
 *
 *
 * Arguments:
-* _vehicle - A vehicle suffering a cook-off or engine fire event
+* 0: _vehicle - A vehicle suffering a cook-off or engine fire event <OBJECT>
 *
 * Return:
 * None

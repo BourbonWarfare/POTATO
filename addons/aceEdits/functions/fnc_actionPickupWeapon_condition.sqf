@@ -6,7 +6,7 @@
  * is shown to the player.
  *
  * Arguments:
- * 0: Whether the weapon is a primary or not (BOOL)
+ * 0: Whether the weapon is a primary or not <BOOL>
  *
  * Return Value:
  * Whether to show the action or not (BOOL)

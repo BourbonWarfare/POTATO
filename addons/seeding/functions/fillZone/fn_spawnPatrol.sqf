@@ -11,8 +11,8 @@
 * _marker - Marker that sets bounds for buildings to be garrisoned (STRING, default "").
 * _patrolSize - Number of units in the patrol (SCALAR, 5).
 * _sidePatrol - Side of the buildings garrison (SIDE, default east).
-* _perimiterOffset - Parametric offset around the perimiter (SCALAR, default 0).
-* _patrolPerimeter - Should the patrol walk around the perimieter (BOOL, default false).
+* _perimiterOffset - Parametric offset around the perimiter <NUMBER> (default 0).
+* _patrolPerimeter - Should the patrol walk around the perimieter <BOOL> (default false).
 * _group - The group units are spawned into. Should not be passed, used for recursion (GROUP).
 *
 * Return:

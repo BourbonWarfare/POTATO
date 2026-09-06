@@ -8,9 +8,9 @@
  * Shift+A adds all entries, Shift+C clears all entries.
  *
  * Arguments:
- * _display - The display containing the magazine control group. DISPLAY
- * _keyCode - The keycode for the key being pressed. SCALAR
- * _shift - Whether shift is held down. BOOLEAN
+ * _display - The display containing the magazine control group. <DISPLAY>
+ * _keyCode - The keycode for the key being pressed. <NUMBER>
+ * _shift - Whether shift is held down. <BOOL>
  *
  * Example:
  * Called via BIS EH

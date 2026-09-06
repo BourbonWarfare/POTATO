@@ -6,9 +6,9 @@
  * debug messages depending on an event enum
  *
  * Arguments:
- * 0: Event enum, default -1 (NUMBER)
- * 1: The client owner number, between 2 and a large number, default 0 (NUMBER)
- * 2: Event params array, default [] (Array)
+ * 0: Event enum, default -1 <NUMBER>
+ * 1: The client owner number, between 2 and a large number, default 0 <NUMBER>
+ * 2: Event params array  <ARRAY> (default [])
  *
  * Return Value:
  * None

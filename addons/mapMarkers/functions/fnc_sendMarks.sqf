@@ -9,7 +9,7 @@
  *
  * Arguments:
  * _targets - An array of units that markers should be shared with (ARRAY, default [])
- * _allowOtherSides - Allow copying maps between different sides (BOOL, default false)
+ * _allowOtherSides - Allow copying maps between different sides <BOOL> (default false)
  *
  * Return:
  * None

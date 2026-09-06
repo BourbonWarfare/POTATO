@@ -7,7 +7,7 @@
 *
 * Arguments:
 * _posASL - Center point to defend (Array, default [0, 0, 0]).
-* _radius - Radius to search within to delete spawners (Scalar, default 200m).
+* _radius - Radius to search within to delete spawners <NUMBER> (default 200m).
 *
 * Return:
 * None

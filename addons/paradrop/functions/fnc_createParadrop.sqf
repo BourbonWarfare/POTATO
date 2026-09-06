@@ -9,15 +9,15 @@
  * "virtually." The pilot is finally given waypoints
  *
  * Arguments:
- * 0: _dropVic - Cfg vehicles type of the drop vic (STRING, default "")
- * 1: _wps - Array of 4 waypoints giving: (ARRAY, default [])
- *   0: Inbound direction position AGL
- *   1: Drop start position AGL
- *   2: Drop direction position AGL
- *   3: Efil direction position AGL
- * 2: _side - The side of the vehicle/pilot (SIDE, default side ace_player)
- * 3: _groupTypes - Array of types of groups (ARRAY, default [])
- * 4: _vicTypes - Array of vehicle types and whether the drop fails (ARRAY, default [])
+ * 0: _dropVic - Cfg vehicles type of the drop vic <STRING> (default "")
+ * 1: _wps - Array of 4 waypoints giving: <ARRAY> (default [])
+ *   0: Inbound direction position AGL <ARRAY>
+ *   1: Drop start position AGL <ARRAY>
+ *   2: Drop direction position AGL <ARRAY>
+ *   3: Efil direction position AGL <ARRAY>
+ * 2: _side - The side of the vehicle/pilot <SIDE> (default side ace_player)
+ * 3: _groupTypes - Array of types of groups <ARRAY> (default [])
+ * 4: _vicTypes - Array of vehicle types and whether the drop fails <ARRAY> (default [])
  *
  * Return Value:
  * Nothing

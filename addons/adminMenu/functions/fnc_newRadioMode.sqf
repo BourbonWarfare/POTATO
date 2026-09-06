@@ -5,7 +5,7 @@
 * signal functions locally.
 *
 * Arguments:
-* 0: New mode to be set to
+* 0: New mode to be set to <NUMBER>
 *
 * Return Value:
 * None

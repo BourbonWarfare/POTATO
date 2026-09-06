@@ -19,10 +19,9 @@
 * by recursively calling itself spaced by 500ms
 *
 * Arguments:
-* _maxUnits - The maximum number of units to exists at once (NUMBER).
-* _testPoints - The range/hitpoint combos to shoot (ARRAY).
-* _posASL - The center position (ASL) for the units to be created
-*            (ARRAY, default getPosASL ace_player).
+* _maxUnits - The maximum number of units to exists at once <NUMBER>
+* _testPoints - The range/hitpoint combos to shoot <ARRAY>
+* _posASL - The center position (ASL) for the units to be created <ARRAY> (default getPosASL ace_player).
 *
 * Return:
 * none

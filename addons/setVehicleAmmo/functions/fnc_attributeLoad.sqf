@@ -1,4 +1,14 @@
 #include "script_component.hpp"
+/*Arguments:
+ * 0: <CONTROL>
+ * 1: Data <STRING or BOOL>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_control, _loadoutValue] call potato_setVehicleAmmo_fnc_attributeLoad
+ */
 
 params ["_control", "_loadoutValue"];
 TRACE_2("params",_control,_loadoutValue);

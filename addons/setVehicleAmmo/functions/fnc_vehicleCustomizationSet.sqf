@@ -1,4 +1,14 @@
 #include "script_component.hpp"
+/*Arguments:
+ * 0: Vehicle <OBJECT>
+ * 1: GM Customization <BOOL>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_vehicle, _gmCustomization] call potato_setVehicleAmmo_fnc_vehicleCustomizationSet
+ */
 
 params ["_vehicle", ["_gmCustomization", false, [false]]];
 TRACE_3("vehicleCustomizationSet",_vehicle,typeOf _vehicle,_gmCustomization);

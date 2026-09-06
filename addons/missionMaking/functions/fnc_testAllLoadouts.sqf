@@ -1,7 +1,17 @@
 #include "script_component.hpp"
+/* Script to test all loadouts from a custom mission config (see python script)
+* Arguments:
+ * 0: Test index <NUMBER>
+ * 1: Ignore list <ARRAY>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [] call compileScript ["\z\potato\addons\missionMaking\functions\fnc_testAllLoadouts.sqf"]
+ * [-1, [0,3,4]] call compileScript ["\z\potato\addons\missionMaking\functions\fnc_testAllLoadouts.sqf"]
+ */
 
-// [] call compileScript ["\z\potato\addons\missionMaking\functions\fnc_testAllLoadouts.sqf"]
-// [-1, [0,3,4]] call compileScript ["\z\potato\addons\missionMaking\functions\fnc_testAllLoadouts.sqf"]
 
 params [["_testIndex", -1, [0]], ["_ignore", [], [[]]]];
 private _loadouts = "true" configClasses (missionConfigFile >> "potato_checkLoadouts");

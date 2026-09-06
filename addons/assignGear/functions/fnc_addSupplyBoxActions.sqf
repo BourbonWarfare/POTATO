@@ -7,7 +7,7 @@
  *
  * Arguments:
  * 0: Box <OBJECT>
- * 1: Marking level <SCALAR>
+ * 1: Marking level <NUMBER>
  *    >=1 allows smoke and chem lights to be added
  *    >=2 allows for a map marker to be placed/updated
  *

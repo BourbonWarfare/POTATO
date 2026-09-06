@@ -14,9 +14,9 @@
 * to the longest distance.
 *
 * Arguments:
-* _friction - The projectile friction (NUMBER)
-* _v0 - The projectile initial velocity (NUMBER)
-* _distance - (ARRAY, default [50, 100, 200, 300, 500])
+* _friction - The projectile friction <NUMBER>
+* _v0 - The projectile initial velocity <NUMBER>
+* _distance - <ARRAY> (default [50, 100, 200, 300, 500])
 *
 * Return:
 * Array of velocities matching each distance

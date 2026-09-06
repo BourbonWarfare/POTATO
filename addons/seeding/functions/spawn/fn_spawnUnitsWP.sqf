@@ -8,7 +8,7 @@
 * Arguments:
 * _endPosATL - End position to aim for (Array, default [0, 0, 0]).
 * _startPosATL - Starting position of the group (Array, default [0, 0, 0]).
-* _squadSize - Number of units in reinforcing squads (SCALAR, default 10).
+* _squadSize - Number of units in reinforcing squads <NUMBER> (default 10).
 * _side - The side of the attacking forces (SIDE, default LMD_ENMY_SIDE).
 * _group - The group units are spawned into. Should not be passed, used for recursion (GROUP).
 *

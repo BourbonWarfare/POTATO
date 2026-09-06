@@ -6,7 +6,7 @@
  * on the correct side.
  *
  * Arguments:
- * 0: The module being initialized
+ * 0: The module being initialized <OBJECT>
  *
  * Examples:
  * Should be called by module init

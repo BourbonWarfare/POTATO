@@ -1,3 +1,14 @@
+#include "script_component.hpp"
+/* Arguments:
+ * None
+ *
+ * Return Value:
+ * <BOOL>
+ *
+ * Example:
+ * [] call potato_adminMenu_fnc_isDebugConsoleAllowed
+ */
+
 private _enableDebugConsole = [
     "DebugConsole",
     getMissionConfigValue ["enableDebugConsole", 0]

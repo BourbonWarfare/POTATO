@@ -8,8 +8,8 @@
 *
 * Arguments:
 * _marker - Zone to reinforce (STRING, default "").
-* _squadSize - Number of units in reinforcing squads (SCALAR, default 10).
-* _numberOfSquads - Number of squads to create (SCALAR, default 2).
+* _squadSize - Number of units in reinforcing squads <NUMBER> (default 10).
+* _numberOfSquads - Number of squads to create <NUMBER> (default 2).
 * _sideReinforcement - Side reinforcements are spawned on (SIDE, default east).
 * _armedVehicles - Should the reinforcement vehicles be armed (BOOL, false).
 *

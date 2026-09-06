@@ -10,10 +10,10 @@
 * _waypoints - Set of (Array, default []).
 * _vic - Either a vehicle object, or the first pass, an array to initialize
 *        the vehicle (default, objNull)
-* _dismountCount - Number of units in squad (SCALAR, default 8).
-* _lambsDismounts - whether the dismounts should use LAMBS AI (BOOL, default false)
+* _dismountCount - Number of units in squad <NUMBER> (default 8).
+* _lambsDismounts - whether the dismounts should use LAMBS AI <BOOL> (default false)
 * _side - Sie of the units (SIDE, default east)
-* _oneWay - One way movement, unarmed vehicles don't turn around (BOOL, default false)
+* _oneWay - One way movement, unarmed vehicles don't turn around <BOOL> (default false)
 * _group - The group units are spawned into. Should not be passed, used for recursion (GROUP).
 *
 * Return:

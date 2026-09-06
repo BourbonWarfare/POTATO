@@ -4,8 +4,8 @@
  * This is run when IDCs are updated in the CSW team dialogue
  *
  * Arguments:
- * 0: The UI changed control
- * 1: The UI elements IDC
+ * 0: The UI changed control and new value <ARRAY>
+ * 1: The UI elements IDC <NUMBER>
  *
  * Examples:
  * Should be called by module callback
