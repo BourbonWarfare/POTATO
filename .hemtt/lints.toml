@@ -33,3 +33,6 @@ enabled = false
 
 [sqf.not_private]
 enabled = true
+
+[sqf.string_concat_in_loop]
+enabled = "pedantic"

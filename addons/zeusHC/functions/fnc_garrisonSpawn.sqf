@@ -72,9 +72,9 @@ diag_log text format ["[POTATO] Garrison Running With Max [%1]", _unitLimit];
     private _unitsAdded = 0;
 
     {
-        if (({side _x == _side} count allGroups) > GVAR(maxGroupCountPerSide)) exitWith { //Don't loop to close to max group limit of 144
+        if ((_side countSide allGroups) > GVAR(maxGroupCountPerSide)) exitWith { //Don't loop to close to max group limit of 144
             [
-                text format ["Stopping Garrision because of group limit. %1 groups for side %2", {side _x == _side} count allGroups, _side]
+                text format ["Stopping Garrision because of group limit. %1 groups for side %2", _side countSide allGroups, _side]
             ] call FUNC(sendCuratorHint);
         };
 

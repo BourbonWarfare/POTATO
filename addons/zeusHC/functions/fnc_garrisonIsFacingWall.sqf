@@ -28,4 +28,4 @@ private _positionASL = eyePos _unit;
 private _relativePosition = _unit getRelPos [_distance, _direction];
 private _intersects = lineIntersectsObjs [_positionASL, ATLToASL _relativePosition];
 
-(({_x isKindOf "house"} count _intersects) > 0)
+("house" countType _intersects) > 0
