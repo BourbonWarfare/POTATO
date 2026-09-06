@@ -96,13 +96,20 @@ if (hasInterface) then {
 };
 
 [QGVAR(fixSpeaker), {
-    params [["_unit", objNull, [objNull]], ["_mode", "server", ["server","client"]]];
-    if (isNull _unit) exitWith {WARNING_1("Bad unit [%1] disconnect?",_unit);};
-    if (_mode == "server") then {
-        ["potato_adminMsg", [format ["- sees [%1]", speaker _unit], "server"]] call CBA_fnc_globalEvent;
-    } else {
-        ["potato_adminMsg", [format ["- sees [%1] and attempting fix", speaker _unit], profileName]] call CBA_fnc_globalEvent;
-        [ACE_player, "isPlayer"] call ace_common_fnc_unmuteUnit;
-        [ACE_player, "isPlayer"] call ace_common_fnc_muteUnit;
-    };
+    params [["_unit", objNull, [objNull]]];
+    if (!alive _unit || {_unit != ACE_player}) exitWith {WARNING_1("Bad unit [%1]",_unit);};
+    ["potato_adminMsg", [format ["- sees speaker [%1] and attempting fix", speaker _unit], profileName]] call CBA_fnc_globalEvent;
+    [ACE_player, "isPlayer"] call ace_common_fnc_unmuteUnit;
+    [ACE_player, "isPlayer"] call ace_common_fnc_muteUnit;
 }] call CBA_fnc_addEventHandler;
+
+// attempt to auto-fix
+["unit", {
+    [{
+        private _unit = ACE_player;
+        if (!alive _unit || {_unit isKindOf "VirtualMan_F"}) exitWith {};
+        private _speaker = speaker _unit;
+        if (_speaker == "ACE_NoVoice") exitWith {};
+        [QGVAR(fixSpeaker), [_unit]] call CBA_fnc_localEvent;
+    }, [], 60] call CBA_fnc_waitAndExecute;
+}] call CBA_fnc_addPlayerEventHandler; // only after respawn
