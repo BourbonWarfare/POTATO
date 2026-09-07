@@ -36,5 +36,6 @@ PREP(uihook_weaponTest);
 PREP(uihook_unitGroupSideBrief);
 PREP(uihook_zeusConnectPlayer);
 PREP(uihook_enableMissionTesting);
+PREP(uihook_whitelistMember);
 
 PREP(zeusConnectCurator);
