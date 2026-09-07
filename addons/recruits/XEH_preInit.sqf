@@ -21,4 +21,20 @@ if (hasInterface) then {
     }] call CBA_fnc_addEventHandler;
 };
 
+if (isNil QGVAR(overriddenTagMembers)) then {
+    GVAR(overriddenTagMembers) = [];
+};
+
+if (isServer) then {
+    GVAR(overriddenTagMembers) = profileNamespace getVariable [QGVAR(overriddenTagMembers), []];
+    publicVariable QGVAR(overriddenTagMembers);
+
+    [QGVAR(whitelistMember), {
+        params ["_steamId"];
+        GVAR(overriddenTagMembers) pushBackUnique _steamId;
+        profileNamespace setVariable [QGVAR(overriddenTagMembers), GVAR(overriddenTagMembers)];
+        publicVariable QGVAR(overriddenTagMembers);
+    }] call CBA_fnc_addEventHandler;
+};
+
 ADDON = true;
