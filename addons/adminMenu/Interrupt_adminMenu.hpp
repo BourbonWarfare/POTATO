@@ -630,6 +630,16 @@ class GVAR(adminMenuDialog) {
                     h = QUOTE(0.05 * safezoneH);
                     action = QUOTE([] call FUNC(uihook_fixSpeaker));
                 };
+                class WhitelistUser: RscButton {
+                    idc = -1;
+                    text = "Whitelist Member Tag";
+                    tooltip = "Allows the player to have non-BW tags and not be a recruit.";
+                    x = QUOTE(0.255 * safezoneW);
+                    y = QUOTE(FIX_BUTTONS_YOFFSET(7));
+                    w = QUOTE(0.26 * safezoneW);
+                    h = QUOTE(0.05 * safezoneH);
+                    action = QUOTE([] call FUNC(uihook_whitelistMember));
+                };
             };
         };
         class CONTROL_GIVE_ITEMS: RscControlsGroup {
