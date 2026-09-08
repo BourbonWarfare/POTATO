@@ -16,6 +16,8 @@ TRACE_1("Params",_this);
 
 params ["_unit"];
 
+if ((GVAR(overriddenTagMembers) find getPlayerUID _unit) >= 0) exitWith { false };
+
 private _squadParams = squadParams _unit;
 
 if (_squadParams isEqualTo []) exitWith { true };
