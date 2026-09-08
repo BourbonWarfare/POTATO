@@ -16,6 +16,9 @@ TRACE_1("Params",_this);
 
 params ["_unit"];
 
+private _id = getPlayerUID _unit;
+if (_id != "" && {_id in GVAR(memebers)}) exitWith { false };
+
 private _squadParams = squadParams _unit;
 
 if (_squadParams isEqualTo []) exitWith { true };
