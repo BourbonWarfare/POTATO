@@ -189,7 +189,7 @@ private _subString = switch (true) do {
     default {"None"};
 };
 _textArr pushBack format ["<t color=""%1"">Radios: " + _subString +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_subString == "full")];
-_textArr pushBack format ["<t color=""%1"">Medical Net: " + (["None", "Yes"] select (_itemBoolArray#5)) +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_itemBoolArray#4)];
+_textArr pushBack format ["<t color=""%1"">Medical Net: " + (["None", "Yes"] select (_itemBoolArray#5)) +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_itemBoolArray#5)];
 
 // GPS, MicroDAGR
 _itemBoolArray = [
