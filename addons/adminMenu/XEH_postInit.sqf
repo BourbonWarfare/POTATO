@@ -98,7 +98,7 @@ if (hasInterface) then {
 [QGVAR(fixSpeaker), {
     params [["_unit", objNull, [objNull]]];
     if (!alive _unit || {_unit != ACE_player}) exitWith {WARNING_1("Bad unit [%1]",_unit);};
-    ["potato_adminMsg", [format ["- sees speaker [%1] and attempting fix", speaker _unit], profileName]] call CBA_fnc_globalEvent;
+    ["potato_serverLog", [QCOMPONENT,format ["fixSpeaker [%1:%2]", typeOf _unit, speaker _unit], profileName]] call CBA_fnc_serverEvent;
     [ACE_player, "isPlayer"] call ace_common_fnc_unmuteUnit;
     [ACE_player, "isPlayer"] call ace_common_fnc_muteUnit;
 }] call CBA_fnc_addEventHandler;
