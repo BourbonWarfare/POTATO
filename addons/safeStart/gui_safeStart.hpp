@@ -123,3 +123,28 @@ class RscTitles {
         };
     };
 };
+
+// Map timer
+class RscDisplayMainMap {
+    class controls {
+        class GVARMAIN(missionClock): RscText {
+            color[] = {0,0,0,1};
+            idc = IDC_MAPTIME_CLOCK;
+            y = "1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + safezoneY";
+            style = 0;
+            shadow = 0;
+            font = "RobotoCondensedLight";
+            x = "safezoneX + safezoneW - (4.9 * (((safezoneW / safezoneH) min 1.2) / 40))";
+            w = "3.05 * (((safezoneW / safezoneH) min 1.2) / 40)";
+            h = "(((safezoneW / safezoneH) min 1.2) / 1.2) / 25";
+            colorText[] = {1,1,1,1};
+            colorBackground[] = {0,0,0,0}; // normally hidden
+            fixedWidth = 0;
+            colorShadow[] = {0,0,0,0.5};
+            linespacing = 1;
+            tooltipColorText[] = {1,1,1,1};
+            tooltipColorBox[] = {1,1,1,1};
+            tooltipColorShade[] = {0,0,0,0.65};
+        };
+    };
+};

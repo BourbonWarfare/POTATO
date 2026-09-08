@@ -12,6 +12,7 @@ PREP_RECOMPILE_END;
 GVAR(safeStartEnabled) = true;
 GVAR(safeStartForceEnd) = getMissionConfigValue [QEGVAR(missionTesting,SSForceEnd), false];
 GVAR(safeStartSafetyOn) = false;
+GVAR(endTime) = -1000;
 
 // Register events
 ["potato_safeStartOn", {
@@ -32,11 +33,5 @@ GVAR(safeStartSafetyOn) = false;
 [QGVAR(curatorHint_TimeKeeper_end), {
     ["Time Keeper", "Mission Time has expired", 30] call BIS_fnc_curatorHint;
 }] call CBA_fnc_addEventHandler;
-
-// Remove me after a few months, just need to reset the box size since it's getting saved???
-if (profileNamespace getVariable [QUOTE(TRIPLES(igui,GVAR(grid),w)), -1] > 0) then {
-    profileNamespace setVariable [QUOTE(TRIPLES(igui,GVAR(grid),w)), nil];
-    profileNamespace setVariable [QUOTE(TRIPLES(igui,GVAR(grid),h)), nil];
-};
 
 ADDON = true;

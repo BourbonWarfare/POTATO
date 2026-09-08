@@ -25,6 +25,7 @@ if (_makeSafe) then {
     ["potato_safeStartOn"] call CBA_fnc_globalEvent;
 } else {
     missionNamespace setVariable [QGVAR(startTime_PV), -1, true];
+    missionNamespace setVariable [QGVAR(endTime), CBA_missionTime, true];
     GVAR(safeStartSafetyOn) = false;
     ["potato_safeStartOff"] call CBA_fnc_globalEvent;
 };
