@@ -41,6 +41,6 @@ if (speed _vehicle < 4 || alive _driver ||
     !(_vehicle isKindOf "LandVehicle")) exitWith {
     TRACE_3("invalid vehicle",speed _vehicle,alive _driver,typeOf _vehicle);
 };
-TRACE_3("Continuing",_unit,_vehicle,speed _vehicle);
+TRACE_3("Continuing",_driver,_vehicle,speed _vehicle);
 [_vehicle, _driver] call FUNC(addCoastingVehicle);
 [_vehicle] call FUNC(forceBail);

@@ -31,7 +31,7 @@ if (GVAR(mapOpen) && {!_openMap}) then {
         MAP_GROUP ctrlShow true;
 
         MAP_TITLE ctrlSetText (getMissionConfigValue ["onLoadName", getMissionConfigValue ["briefingName", "???"]]);
-        MAP_SPEC_COUNT ctrlSetText str ({_x isKindOf QGVAR(spectator)} count allPlayers);
+        MAP_SPEC_COUNT ctrlSetText str (QGVAR(spectator) countType allPlayerss);
 
         MAP_DISPLAY ctrlMapAnimAdd [0, 0.05, positionCameraToWorld [0,0,0]];
         ctrlMapAnimCommit MAP_DISPLAY;
