@@ -241,7 +241,7 @@ _itemBoolArray = [
 _subString = switch (true) do {
     case (_itemBoolArray#5 && _itemBoolArray#3 && _itemBoolArray#2): {"Yes"};
     case (_itemBoolArray#0 && _itemBoolArray#1 && _itemBoolArray#2): {"FTL+"};
-    case (_itemBoolArray#3 && _itemBoolArray#4): {"Assistants"};
+    case (_itemBoolArray#3 || _itemBoolArray#4): {"Assistants"};
     default {"None"};
 };
 _textArr pushBack format ["<t color=""%1"">Entrenching Tool: " + _subString +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_subString == "Yes")];

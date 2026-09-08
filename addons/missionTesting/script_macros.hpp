@@ -9,4 +9,4 @@
 */
 #define A_MISSION_TYPE ["Other","COOP","TVT","Long COOP","Unconventional TVT", "Unconventional COOP", "Invalid - Don't pass"]
 #define A_MISSION_TYPE_ABBREV ["Other","COOP","TVT","Long COOP","Unconv TVT", "Unconv COOP", "Invalid - Don't pass"]
-#define A_MISSION_TAGS ["NONE","NIGHT","DAWN","MSV","TvT1","TvT2","AH","FOG","BRIEF ON MAP"]
+#define A_MISSION_TAGS ["NONE","NIGHT","DAWN/DUSK","MSV","TvT1","TvT2","AH","FOG","BRIEF ON MAP"]
