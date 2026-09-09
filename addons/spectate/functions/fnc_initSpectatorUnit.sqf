@@ -18,7 +18,7 @@ TRACE_1("Params",_this);
 if (!hasInterface) exitWith {};
 
 [
-    {player == player && {time > 0}},
+    {player == player && {time > 0} && {!isNull findDisplay 46}},
     {
         if (player == (_this select 0)) then {
             [FUNC(setup), _this, 1] call CBA_fnc_waitAndExecute;
