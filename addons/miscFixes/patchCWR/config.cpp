@@ -99,6 +99,104 @@ class CfgVehicles {
             };
         };
     };
+    // HMD for ESS UH-60 - move to potato_hmd on introduction
+    #define HMD_SIZE 0.1
+    class cwr3_uh60_4xesss_dynamic_base;
+    class cwr3_b_uh60_x4_esss: cwr3_uh60_4xesss_dynamic_base {
+        class MFD {
+            helmetMountedDisplay = 1;
+            class ADDON {
+                helmetMountedDisplay = 1;
+                class Bones {
+                    class ImpactPoint {
+                        type = "vector";
+                        source = "impactpointtoview";
+                        pos0[] = {0.5, 0.5};
+						pos10[]= {0.774, 0.77};
+                    };
+                    class ImpactPoint1 {
+                        type = "vector";
+                        source = "impactpointtoview";
+                        pos0[] = {0.5, 0.5};
+						pos10[]= {0.774, 0.77};
+                    };
+                    class WeaponAim {
+                        type = "vector";
+                        source = "weapontoview";
+                        pos0[] = {0.5, 0.5};
+						pos10[]= {0.774, 0.77};
+                    };
+                };
+                color[] = {0,1,0,0.2};
+                turret[] = {-1};
+                alpha = "51 - (nvg * 15)";
+                topLeft = "";
+                topRight = "";
+                bottomLeft = "";
+                borderLeft = 0;
+                borderRight = 0;
+                borderTop = 0;
+                borderBottom = 0;
+                helmetPosition[] = {-HMD_SIZE/2, HMD_SIZE/2, 0.1};
+                helmetRight[] = {HMD_SIZE, 0.0, 0.0};
+                helmetDown[] = {0.0, -HMD_SIZE, 0.0};
+                class Draw {
+                    class MGun {
+                        type = "group";
+                        condition = "mgun";
+                        class Target {
+                            type = "line";
+                            width = 0.5;
+                            points[] = {
+                                {"ImpactPoint",{0.005,0},1},
+                                {"ImpactPoint",{-0.005,0},1},
+                                {},
+                                {"ImpactPoint",{0,0.005},1},
+                                {"ImpactPoint",{0,-0.005},1},
+                            };
+                        };
+                    };
+                    class Rocket {
+                        type = "group";
+                        condition = "rocket";
+                        class Target {
+                            type = "line";
+                            width = 1;
+                            points[] = {
+                                {"ImpactPoint1",{0.01,0},1},
+                                {"ImpactPoint1",{-0.01,0},1},
+                                {},
+                                {"ImpactPoint1",{0,0.01},1},
+                                {"ImpactPoint1",{0,-0.01},1},
+                            };
+                        };
+                    };
+                    class Missile { // From our CUP A10 MFD, may be from CUP
+                        type = "group";
+                        condition = "missile";
+                        class Circle {
+                            type = "line";
+                            points[] = {
+                                {"WeaponAim",{0,-0.198},1},
+                                {"WeaponAim",{0.09,-0.17226},1},
+                                {"WeaponAim",{0.1566,-0.099},1},
+                                {"WeaponAim",{0.18,0},1},
+                                {"WeaponAim",{0.1566,0.099},1},
+                                {"WeaponAim",{0.09,0.17226},1},
+                                {"WeaponAim",{0,0.198},1},
+                                {"WeaponAim",{-0.09,0.17226},1},
+                                {"WeaponAim",{-0.1566,0.099},1},
+                                {"WeaponAim",{-0.18,0},1},
+                                {"WeaponAim",{-0.1566,-0.099},1},
+                                {"WeaponAim",{-0.09,-0.17226},1},
+                                {"WeaponAim",{0,-0.198},1}
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
 };
 
 class CfgWorlds {
