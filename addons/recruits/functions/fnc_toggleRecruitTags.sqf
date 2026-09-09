@@ -17,8 +17,6 @@ TRACE_1("Params",_this);
 
 params ["_enable"];
 
-if ([player] call FUNC(isNotMember)) exitWith { LOG("Player not in squad.xml, exiting"); };
-
 if (_enable) then {
     if !(isNil QGVAR(drawId)) exitWith { LOG("Tried to start drawing the recruit tags while it was already running"); };
 

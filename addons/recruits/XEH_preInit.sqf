@@ -21,4 +21,7 @@ if (hasInterface) then {
     }] call CBA_fnc_addEventHandler;
 };
 
+GVAR(memebers) = createHashMap;
+[QGVAR(addMember), { GVAR(memebers) set [_this, true]; }] call CBA_fnc_addEventHandler;
+
 ADDON = true;

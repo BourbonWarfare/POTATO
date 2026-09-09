@@ -19,6 +19,8 @@
 
 TRACE_1("Params",_this);
 
+if ([player] call FUNC(isNotMember)) exitWith {};
+
 BEGIN_COUNTER(GVAR(tags));
 if (GVAR(showTags)) then {
     private _playerPos = getPosVisual player;

@@ -13,6 +13,8 @@
 
 TRACE_1("Params",_this);
 
+if ([player] call FUNC(isNotMember)) exitWith {};
+
 BEGIN_COUNTER(GVAR(message));
 if !(isNull MESSAGE_DISPLAY) then {
 
