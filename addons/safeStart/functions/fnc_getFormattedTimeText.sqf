@@ -20,5 +20,5 @@ TRACE_1("Params",_this);
 
 format [
     "<t align='center'>Safe Start Enabled<br/><img image='\A3\UI_F\data\IGUI\Cfg\Actions\settimer_ca.paa'/> %1</t>",
-    [CBA_missionTime - (_this select 0)] call CFUNC(getTimeText)
+    [GVARMAIN(missionTime) - (_this select 0)] call CFUNC(getTimeText)
 ]

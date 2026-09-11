@@ -20,7 +20,7 @@ class CfgUIGrids {
             class GVAR(grid) {
                 displayName = "Potato Safe Start";
                 description = "Potato Safe start info card location. Adjust what's shown in CBA Settings.";
-                preview = QPATHTOF(data\ui\safeStartMenu_ca.paa); // ToDo Make Preview
+                preview = QPATHTOF(data\ui\safeStartMenu_ca.paa);
                 saveToProfile[] = {0, 1};
                 canResize = 0;
             };

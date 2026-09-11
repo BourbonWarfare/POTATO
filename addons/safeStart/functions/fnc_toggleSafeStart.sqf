@@ -21,11 +21,11 @@ if !(isServer) exitWith {};
 params [["_makeSafe", true, [true]]];
 
 if (_makeSafe) then {
-    missionNamespace setVariable [QGVAR(startTime_PV), CBA_missionTime, true];
+    missionNamespace setVariable [QGVAR(startTime_PV), GVARMAIN(missionTime), true];
     ["potato_safeStartOn"] call CBA_fnc_globalEvent;
 } else {
     missionNamespace setVariable [QGVAR(startTime_PV), -1, true];
-    missionNamespace setVariable [QGVAR(endTime), CBA_missionTime, true];
+    missionNamespace setVariable [QGVAR(endTime), GVARMAIN(missionTime), true];
     GVAR(safeStartSafetyOn) = false;
     ["potato_safeStartOff"] call CBA_fnc_globalEvent;
 };
