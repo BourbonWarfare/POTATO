@@ -19,7 +19,6 @@ GVARMAIN(missionTime) = 0;
 if (isMultiplayer) then {
     if (isServer) then { // just broadcast CBA_missionTime every N seconds
         GVAR(lastSend) = -10;
-        GVARMAIN(missionTime) = CBA_missionTime;
         [QFUNC(missionTimeServer), {
             GVARMAIN(missionTime) = CBA_missionTime;
             if (GVARMAIN(missionTime) - GVAR(lastSend) >= POTATO_TIME_UPDATERATE) then {
@@ -29,7 +28,6 @@ if (isMultiplayer) then {
         }] call CBA_fnc_compileFinal;
         [{call FUNC(missionTimeServer)}, 10] call CBA_fnc_addPerFrameHandler;
     } else {
-        GVARMAIN(missionTime) = CBA_missionTime;
         GVAR(MTUpdate) = time;
         GVAR(MTLast) = diag_tickTime;
         [QFUNC(missionTimeClient), {
