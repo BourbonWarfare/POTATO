@@ -31,7 +31,7 @@ if (isMultiplayer) then {
         GVAR(MTUpdate) = time;
         GVAR(MTLast) = diag_tickTime;
         [QFUNC(missionTimeClient), {
-            if (time > GVAR(MTLast)) then {
+            if (time > GVAR(MTUpdate)) then {
                 //IGNORE_PRIVATE_WARNING ["_tickTime"];
                 GVARMAIN(missionTime) = GVARMAIN(missionTime) + _tickTime - GVAR(MTLast);
                 GVAR(MTUpdate) = time;
