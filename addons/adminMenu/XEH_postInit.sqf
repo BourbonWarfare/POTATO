@@ -38,16 +38,6 @@
     [_unit] call EFUNC(spectate,setup);
 }] call CBA_fnc_addEventHandler;
 
-[QGVAR(resetMarkers), {
-    params [["_unit", objNull, [objNull]]];
-
-    diag_log text format ["[POTATO] Resetting markers on %1 [%2]", (name _unit), _unit];
-    if (isNull _unit || {!local _unit}) exitWith {};
-
-    diag_log text format ["[POTATO] Calling %1", QEFUNC(markers,reinitMarkerHash)];
-    [] call EFUNC(markers,reinitMarkerHash);
-}] call CBA_fnc_addEventHandler;
-
 [QGVAR(missionTestingAddAction), {
     private _displayChecklist = ["displayChecklist", "Testing Menu", "", {[] call EFUNC(missionTesting,displayMenu)}, {!isNull getAssignedCuratorLogic player}, {}, [], [], 0] call ace_interact_menu_fnc_createAction;
     ["CAManBase", 1, ["ACE_SelfActions"], _displayChecklist, true] call ace_interact_menu_fnc_addActionToClass;
