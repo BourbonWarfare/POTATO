@@ -6,6 +6,13 @@
     true
 ] call cba_settings_fnc_init;
 [
+    QGVAR(showTechNotifcations),
+    "CHECKBOX",
+    ["Show #tech info", "Show more techincal/debug info in chat"],
+    ["POTATO - User", "Admin Chat"],
+    false
+] call cba_settings_fnc_init;
+[
     QGVAR(hideSystemPlayerConnecting),
     "CHECKBOX",
     ["Hide system player connection messages", "Hides ""Player is losing connection"" type messages"],
