@@ -63,7 +63,7 @@ if (GVAR(enabled) && hasInterface) then {
         ["@fade", [50, 200]]
     ];
     // always run this so it's ready to show, won't be that many placed in a mission
-    [QEGVAR(explosives,timerStarted), {
+    [QACEGVAR(explosives,timerStarted), {
         params ["_explosive", "_delay"]; // bombs will either explode or be defused (either way becoming null)
         if (isNil "_explosive" || {isNull _explosive}) exitWith {};
         GVAR(timedExplosives) pushBack [_explosive, CBA_missionTime + _delay];
