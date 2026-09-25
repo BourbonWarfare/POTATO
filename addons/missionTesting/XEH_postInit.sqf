@@ -71,7 +71,7 @@ GVAR(GeneraMissionNotesForMM) = "";
 if (hasInterface) then { // Change briefing map's "Continue" button to red "BRIEF ON MAP" if it has the tag
     {
         private _missionTagVar = getMissionConfigValue _x;
-        private _missionTag = if(isNil QUOTE(_missionTagVar)) then {"NONE"} else {A_MISSION_TAGS select _missionTagVar};
+        private _missionTag = if (isNil QUOTE(_missionTagVar) || {_missionTagVar < 0 || _missionTagVar >= count A_MISSION_TAGS}) then {"NONE"} else {A_MISSION_TAGS select _missionTagVar};
         if (_missionTag == "BRIEF ON MAP") exitWith {
             INFO("brief on map");
             [{
