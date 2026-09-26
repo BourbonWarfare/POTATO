@@ -11,7 +11,7 @@ class RscEdit;
 class RscShortcutButton;
 class RscButtonMenuCancel;
 class RscButtonMenuOK;
-class RscCheckbox;
+class RscCheckBox;
 
 #define QQUOTE(var1) QUOTE(QUOTE(var1))
 #define SEND_ADMIN_MSG(msg) [ARR_2(QQUOTE(potato_adminMsg),[ARR_2(QQUOTE(msg),profileName)])] call CBA_fnc_globalEvent;
@@ -1027,7 +1027,7 @@ class GVAR(markerDialog) {
             tooltip = "Should the marker be attached to the unit or unit's group";
             y = QUOTE(0.51 * safezoneH + safezoneY);
         };
-        class markerUnit_RscCheckBox: RscCheckbox {
+        class markerUnit_RscCheckBox: RscCheckBox {
             idc = POTATO_MARKER_UNIT_IDC;
             tooltip = "Should the marker be attached to the unit or unit's group";
             x = QUOTE(0.525 * safezoneW + safezoneX);

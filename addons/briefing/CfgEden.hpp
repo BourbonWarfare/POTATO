@@ -18,7 +18,7 @@ class GVAR(setAttribute): ctrlToolbox {
     values[] = {0, 1};
 };
 
-class display3DEN {
+class Display3DEN {
     class Controls {
         class MenuStrip: ctrlMenuStrip {
             class Items {

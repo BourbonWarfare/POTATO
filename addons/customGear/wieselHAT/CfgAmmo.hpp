@@ -1,4 +1,4 @@
-class cfgAmmo {
+class CfgAmmo {
 	class M_120mm_cannon_ATGM_LG;
 	class potato_M_120mm_cannon_ATGM_LG: M_120mm_cannon_ATGM_LG {
 		flightProfiles[] = {"TopDown", "Direct"};

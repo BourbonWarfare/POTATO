@@ -21,7 +21,6 @@ TRACE_1("params",_this);
 params ["", "_index"];
 
 private _lookUp = lbData [ADMIN_FACTION_COMBO_IDC, _index];
-GVAR(setupFaction) = _lookUp;
 
 lbClear ADMIN_GROUP_COMBO_IDC;
 

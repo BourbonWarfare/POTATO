@@ -65,7 +65,6 @@ if (GVAR(activeTestUnits) isEqualTo [] && !GVAR(creatingUnits)) then {
     removeMissionEventHandler ["EntityKilled", GVAR(killedEH)];
     GVAR(fatalInjuryEH) = -1;
     GVAR(unconEH) = -1;
-    GVAR(woundRecvEH) = -1;
     GVAR(killedEH) = -1;
     publicVariable QGVAR(damageTestingResults);
     if (is3DENPreview) then {

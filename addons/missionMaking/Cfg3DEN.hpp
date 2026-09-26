@@ -50,7 +50,7 @@ class Cfg3DEN {
 
 class ctrlMenu;
 class ctrlMenuStrip;
-class display3DEN {
+class Display3DEN {
     class Controls {
         class MenuStrip: ctrlMenuStrip {
             class Items {

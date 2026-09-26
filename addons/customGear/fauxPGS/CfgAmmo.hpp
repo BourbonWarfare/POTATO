@@ -14,7 +14,7 @@ class CfgAmmo {
         indirectHitRange = 3;
     };
     class GVAR(airburst): GVAR(he) {
-        class Eventhandlers {
+        class EventHandlers {
             fired = QUOTE(call ace_xm157_fnc_airburst_ammoFired);
         };
     };

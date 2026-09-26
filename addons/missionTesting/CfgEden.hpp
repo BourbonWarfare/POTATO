@@ -5,7 +5,7 @@
 class ctrlMenuStrip;
 
 // Adds the menu item to the POTATO Drop down in EDEN.
-class display3DEN {
+class Display3DEN {
     class Controls {
         class MenuStrip: ctrlMenuStrip {
             class Items {
