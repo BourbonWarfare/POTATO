@@ -2,6 +2,7 @@
 
 if (isServer) then {
     [QGVAR(addToCurator), LINKFUNC(addToCuratorServer)] call CBA_fnc_addEventHandler;
+    call FUNC(init_serverScriptErrors);
 };
 
 GVAR(playerStartingSide) = sideUnknown;
@@ -69,6 +70,7 @@ if (hasInterface) then {
     params ["_msg", ["_from", "?"], ["_to", ""]];
     if (hasInterface) then {
         if ((_to == profileName) || {_to == "#ALL"} || {(GVAR(showNotifcations)) && {[] call FUNC(isAuthorized)}}) then {
+            if (_to == "#TECH" && {!GVAR(showTechNotifcations)}) exitWith {};
             systemChat format ["POTATO [%1>%2]: %3", _from, _to, _msg];
         };
     };
