@@ -41,12 +41,15 @@ if (isNil QGVAR(factionParams)) then {
 
 GVAR(factionParams) getOrDefaultCall [_faction, {
     // Gather initial testing pairs
+    private _cfgWeaps = configFile >> "CfgWeapons";
     private _unitTypes = "inheritsFrom (_x >> ""weapons"") == _x" configClasses _cfgFaction;
     private _testPairs = [];
     {
         private _weapons = getArray (_x >> "weapons");
         private _magazines = getArray (_x >> "magazines");
         _magazines = _magazines apply {toLowerANSI ((_x splitString ":")#0)};
+        TRACE_2("weapons and mags",_weapons,_magazines);
+        _weapons = _weapons select {isClass (_cfgWeaps >> _x)};
         if (count _weapons == 1) then {
             private _weapon = _weapons#0;
             private _validMags = ((compatibleMagazines [_weapon, "this"]) apply {toLowerANSI _x}) arrayIntersect _magazines;
@@ -54,7 +57,9 @@ GVAR(factionParams) getOrDefaultCall [_faction, {
         } else {
             if ({_x isEqualType []} count _weapons > 0) then {
                 {
-                    _testPairs pushBackUnique [toLowerANSI (_x#0), toLowerANSI (((_x#1#0) splitString ":")#0)];
+                    _magazines = (_x#1) apply {toLowerANSI ((_x splitString ":")#0)};
+                    private _validMag = (((compatibleMagazines [_x, "this"]) apply {toLowerANSI _x}) arrayIntersect _magazines)#0;
+                    _testPairs pushBackUnique [toLowerANSI (_x#0), _validMag#0];
                 } forEach _weapons;
             } else {
                 private _weapon = _weapons#0;
@@ -70,6 +75,7 @@ GVAR(factionParams) getOrDefaultCall [_faction, {
     private _omitClassName = [];
     {
         private _params = _x call FUNC(getWeaponParams);
+        TRACE_2("test pair and params",_x,_params);
         private _paramsOmit = +_params;
         _paramsOmit deleteAt 0;
         _paramsOmit deleteAt 0;
