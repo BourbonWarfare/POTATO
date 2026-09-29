@@ -77,7 +77,7 @@ class GVAR(bableSelect): ctrlListNBox {
     disableOverflow = 1;
 };
 
-class display3DEN {
+class Display3DEN {
     class Controls {
         class MenuStrip: ctrlMenuStrip {
             class Items {

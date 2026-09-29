@@ -148,8 +148,8 @@ class Cfg3DEN {
         };
 
         class GVAR(sideMarkerDir): Slider {
-            onLoad = "_ctrlGroup = _this select 0; [_ctrlGroup controlsgroupctrl 100,_ctrlGroup controlsgroupctrl 101,'°'] call bis_fnc_initSliderValue;";
-            attributeLoad = "_ctrlGroup = _this; [_ctrlGroup controlsgroupctrl 100,_ctrlGroup controlsgroupctrl 101,'°',_value] call bis_fnc_initSliderValue;";
+            onLoad = "private _ctrlGroup = _this select 0; [_ctrlGroup controlsGroupCtrl 100,_ctrlGroup controlsGroupCtrl 101,'°'] call bis_fnc_initSliderValue;";
+            attributeLoad = "private _ctrlGroup = _this; [_ctrlGroup controlsGroupCtrl 100,_ctrlGroup controlsGroupCtrl 101,'°',_value] call bis_fnc_initSliderValue;";
             class Controls: Controls {
                 class Edit: Edit {};
                 class Title: Title {};

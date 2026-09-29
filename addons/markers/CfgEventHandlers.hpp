@@ -3,7 +3,7 @@ class Extended_DisplayLoad_EventHandlers {
         ADDON = QUOTE([ARR_2(_this select 0,MAP_IDC)] call FUNC(addMarkersToDisplay););
     };
     class RscCustomInfoMiniMap {
-        ADDON = QUOTE(diag_log text '[POTATO] (markers) Adding draw EH to RscCustomInfoMiniMap'; ((_this select 0) displayCtrl GPS_IDC) ctrlAddEventHandler [ARR_2('draw',{_this call FUNC(drawMarkers)})];);
+        ADDON = QUOTE(diag_log text '[POTATO] (markers) Adding draw EH to RscCustomInfoMiniMap'; ((_this select 0) displayCtrl GPS_IDC) ctrlAddEventHandler [ARR_2('Draw',{_this call FUNC(drawMarkers)})];);
     };
 };
 
