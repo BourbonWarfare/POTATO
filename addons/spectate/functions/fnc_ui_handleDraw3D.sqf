@@ -188,6 +188,17 @@ if !(GVAR(mapOpen) || GVAR(fullMapOpen)) then {
             nil
         }  count GVAR(grenades); // count used here for speed, ensure nil above this line
         GVAR(grenades) = _grenadesNew;
+
+        GVAR(timedExplosives) = GVAR(timedExplosives) select {
+            _x params ["_explosive", "_detTime"];
+            if (isNull _explosive) then { false } else {
+                private _timeStr = (_detTime - CBA_missionTime) toFixed 1;
+                private _hash = ["@position", "@texts"] createHashMapFromArray [[_explosive, 0.1], [[_timeStr]]];
+                _hash merge GVAR(timedExplosivesDrawHash);
+                drawIcon3D _hash;
+                true
+            };
+        };
         END_COUNTER(drawTracers);
     };
 
