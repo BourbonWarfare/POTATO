@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-
+#define POTATO_TIME_SYNC_RATE 10
 ADDON = false;
 
 PREP_RECOMPILE_START;
@@ -19,15 +19,15 @@ if (isMultiplayer && isServer) then {
     GVARMAIN(missionTime) = 0;
     if (isMultiplayer) then {
         if (isServer) then {
-            GVAR(lastSend) = -10;
+            GVAR(lastSend) = -POTATO_TIME_SYNC_RATE;
             [QFUNC(missionTimeServer), {
                 GVARMAIN(missionTime) = CBA_missionTime;
-                if (GVARMAIN(missionTime) - GVAR(lastSend) >= 10) then {
+                if (GVARMAIN(missionTime) - GVAR(lastSend) >= POTATO_TIME_SYNC_RATE) then {
                     publicVariable QGVARMAIN(missionTime);
                     GVAR(lastSend) = GVARMAIN(missionTime);
                 };
             }] call CBA_fnc_compileFinal;
-            [{call FUNC(missionTimeServer)}, 10] call CBA_fnc_addPerFrameHandler;
+            [{call FUNC(missionTimeServer)}] call CBA_fnc_addPerFrameHandler;
         } else {
             GVAR(MTUpdate) = time;
             GVAR(MTLast) = diag_tickTime;
