@@ -19,12 +19,12 @@ if (isMultiplayer && isServer) then {
     GVARMAIN(missionTime) = 0;
     if (isMultiplayer) then {
         if (isServer) then {
-            potato_core_lastSend = -10;
+            GVAR(lastSend) = -10;
             [QFUNC(missionTimeServer), {
                 GVARMAIN(missionTime) = CBA_missionTime;
-                if (GVARMAIN(missionTime) - potato_core_lastSend >= 10) then {
+                if (GVARMAIN(missionTime) - GVAR(lastSend) >= 10) then {
                     publicVariable QGVARMAIN(missionTime);
-                    potato_core_lastSend = GVARMAIN(missionTime);
+                    GVAR(lastSend) = GVARMAIN(missionTime);
                 };
             }] call CBA_fnc_compileFinal;
             [{call FUNC(missionTimeServer)}, 10] call CBA_fnc_addPerFrameHandler;
