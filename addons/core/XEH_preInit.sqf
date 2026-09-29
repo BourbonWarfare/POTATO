@@ -14,7 +14,7 @@ if (isMultiplayer && isServer) then {
     }] call CBA_fnc_waitUntilAndExecute;
 };
 // potato_time - network syncronized CBA_missionTime
-// Based on in part CBA Common adoon's init_perFrameHandler.sqf - GNU GPLv2
+// Based on in part CBA Common addon's init_perFrameHandler.sqf - GNU GPLv2
 0 spawn {isNil {
     GVARMAIN(missionTime) = 0;
     if (isMultiplayer) then {
