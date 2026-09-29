@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 #include "\z\potato\addons\missionTesting\script_macros.hpp"
-#define LASER_RANGE_FINDER ["rangefinder", "ace_vector", "cup_vector21nite", "cup_binocular_vector", "ace_vectorday","gm_lp7_oli","gm_lpr1_oli","ace_yardage450"]
+#define LASER_RANGE_FINDER ["rangefinder", "ace_vector", "cup_vector21nite", "cup_binocular_vector", "ace_vectorday","gm_lp7_oli","gm_lpr1_oli","ace_yardage450","cup_soflam"]
 #define STANDARD_COLOR "#bbbbbb"
 #define ATTENTION_COLOR "#ffffff"
 #define HIGH_ATTENTION_COLOR "#febf62"
@@ -33,7 +33,6 @@ if (GVAR(showTimer) != 2) exitWith {
 _ctrlGroup ctrlShow true;
 private _ctrlGroupParent = ctrlParentControlsGroup _ctrlGroup;
 (_ctrlGroupParent controlsGroupCtrl IDC_SAFESTARTEQUIP_BACKGROUND) ctrlShow true;
-
 /// Loadouts for your sides units into hashmap
 private _configRoot = missionConfigFile >> "CfgLoadouts" >> (
     switch (side player) do {
@@ -44,12 +43,28 @@ private _configRoot = missionConfigFile >> "CfgLoadouts" >> (
         default {"potato_w"};
     }
 );
+private _cfgWeapons = configFile >> "CfgWeapons";
+private _cfgMagazines = configFile >> "CfgMagazines";
+private _fnc_isFlashlight = {
+    params ["_cfgPath", ["_initialConfig", configNull]];
+    private _isFlashlight = false;
+    { // is flashlight
+        if (isClass (_x >> "Attenuation")) exitWith {
+            _isFlashlight = true;
+        };
+    } forEach configClasses [_cfgPath >> "ItemInfo", 0, true, false];
+    if !(_isFlashlight) then { // is an alt-class flashlight
+        private _nextClass = _cfgWeapons >> (getText (_cfgPath >> "MRT_SwitchItemNextClass"));
+        if (_nextClass != _initialConfig && !isNull _nextClass) then {
+            _isFlashlight = [_nextClass, _cfgPath] call _fnc_isFlashlight;
+        };
+    };
+    _isFlashlight
+};
 private _unitHash = createHashMap;
 private _flashLights = [];
 private _nvgs = [];
 private _explosives = [];
-private _cfgWeapons = configFile >> "CfgWeapons";
-private _cfgMagazines = configFile >> "CfgMagazines";
 {
     private _gearArray = [];
     {
@@ -60,17 +75,17 @@ private _cfgMagazines = configFile >> "CfgMagazines";
     } forEach configProperties [_x];
     _gearArray = _gearArray arrayIntersect _gearArray;
     {
-		if (getText (_cfgMagazines >> _x >> QACEGVAR(explosives,setupObject)) != "") then {
-			_explosives pushBackUnique _x;
-			continue;
-		};
-		private _cfgPath = _cfgWeapons >> _x;
+        if (getText (_cfgMagazines >> _x >> QACEGVAR(explosives,setupObject)) != "") then {
+            _explosives pushBackUnique _x;
+            continue;
+        };
+        private _cfgPath = _cfgWeapons >> _x;
         if (!isClass _cfgPath) then {continue};
         if ("NVG" in (getText (_cfgPath >> "simulation"))) then {
             _nvgs pushBackUnique _x;
             continue;
         };
-        if (isClass (_cfgPath >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then {
+        if (!(_x in _flashLights) && {[_cfgPath] call _fnc_isFlashlight}) then {
             _flashLights pushBackUnique _x;
         };
     } forEach _gearArray;
@@ -276,7 +291,7 @@ if (_itemBoolArray#0) then {
 if (_subString == "") then {_subString = "None"};
 _textArr pushBack format ["<t color=""%1"">Demo: " + _subString +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_subString == "None")];
 
-// Night utilities (NVG & flashlight)
+// NVGs
 _itemBoolArray = [
     (_nvgs arrayIntersect (_unitHash getOrDefault ["rifleman", []])) isNotEqualTo [],
     (_nvgs arrayIntersect (_unitHash getOrDefault ["ftl", []])) isNotEqualTo [],
@@ -291,7 +306,21 @@ _subString = switch (true) do {
     default {"None"};
 };
 _textArr pushBack format ["<t color=""%1"">Night Vision: " + _subString +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_subString == "None")];
-_textArr pushBack format ["<t color=""%1"">Flashlights: " + (["Yes</t>", "None</t>"] select (_flashLights isEqualTo [])) +"</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_flashLights isEqualTo [])];
+// Flashlight
+_itemBoolArray = [
+    (_flashLights arrayIntersect (_unitHash getOrDefault ["rifleman", []])) isNotEqualTo [],
+    (_flashLights arrayIntersect (_unitHash getOrDefault ["ar", []])) isNotEqualTo [],
+    (_flashLights arrayIntersect (_unitHash getOrDefault ["lat", []])) isNotEqualTo [],
+    (_flashLights arrayIntersect (_unitHash getOrDefault ["ftl", []])) isNotEqualTo []
+];
+_subString = switch (true) do {
+    case (_itemBoolArray#0 && _itemBoolArray#1 && _itemBoolArray#2 && _itemBoolArray#3): {"All"};
+    case (_itemBoolArray#0 && _itemBoolArray#2 && _itemBoolArray#3): {"All but AR"};
+    case (_itemBoolArray#0 && _itemBoolArray#1 && _itemBoolArray#2): {"All but FTL+"};
+    case (_itemBoolArray#0 && _itemBoolArray#1): {"All but AR/FTL+"};
+    default {"None"};
+};
+_textArr pushBack format ["<t color=""%1"">Flashlights: " + _subString + "</t>", [ATTENTION_COLOR, STANDARD_COLOR] select (_subString == "None")];
 
 private _control = _ctrlGroup controlsGroupCtrl IDC_SAFESTARTEQUIP_TEXT;
 _control ctrlSetStructuredText parseText (_textArr joinString "<br/>");
