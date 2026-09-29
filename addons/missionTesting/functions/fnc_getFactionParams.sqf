@@ -103,7 +103,7 @@ GVAR(factionParams) getOrDefaultCall [_faction, {
         _omitClassName = [];
         { // filter out vests with the same armor
             private _armor = [_x] call FUNC(getVestArmor);
-            if (_omitClassName pushBackUnique _armor >= 0) then {
+            if (_omitClassName pushBackUnique _armor >= 0 && {isClass (_cfgWeaps >> _x)}) then {
                 _finalVests pushBack _x;
             };
         } forEach (_vests arrayIntersect _vests);
