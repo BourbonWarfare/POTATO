@@ -15,8 +15,8 @@ if (isMultiplayer && isServer) then {
 };
 // potato_time - network syncronized CBA_missionTime
 // Based on in part CBA Common addon's init_perFrameHandler.sqf - GNU GPLv2
+GVARMAIN(missionTime) = 0;
 0 spawn {isNil {
-    GVARMAIN(missionTime) = 0;
     if (isMultiplayer) then {
         if (isServer) then {
             GVAR(lastSend) = -POTATO_TIME_SYNC_RATE;
