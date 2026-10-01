@@ -26,11 +26,11 @@ lbClear ADMIN_SPEC_LIST_IDC;
 {
     private _deathTime = _x getVariable QEGVAR(spectate,timeOfDeath);
     if (isNil "_deathTime") then {
-        _deathTime = CBA_missionTime;
+        _deathTime = GVARMAIN(missionTime);
         _x setVariable [QEGVAR(spectate,timeOfDeath), _deathTime, true];
     };
 
-    private _elapsedTime = CBA_missionTime - _deathTime;
+    private _elapsedTime = GVARMAIN(missionTime) - _deathTime;
 
     private _index = lbAdd [ADMIN_SPEC_LIST_IDC, [_x] call EFUNC(spectate,getName)];
     lbSetTooltip [ADMIN_SPEC_LIST_IDC, _index, format ["Dead for: %1m %2s", floor (_elapsedTime / 60), floor (_elapsedTime % 60)]];

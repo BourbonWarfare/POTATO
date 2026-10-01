@@ -27,7 +27,7 @@ if (!(isServer && GVAR(enabled) && GVAR(safeStartEnabled)) ||
     TRACE_2("Did not initialize force end safe start",isServer,GVAR(enabled));
     // Send message to admins
     private _missionType = getMissionConfigValue[QEGVAR(missionTesting,missionType), 0];
-    if (isServer && isMultiplayer && !(is3DEN || is3DENPreview) && _missionType == 2) then {
+    if (isServer && isMultiplayer && !(is3DEN || is3DENPreview) && _missionType in [1, 3]) then {
         [
             "potato_adminMsg",
             [

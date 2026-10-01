@@ -25,7 +25,7 @@ if !(isNull _unit) then {
     _unit enableSimulation false;
     _unit allowDamage false;
     _unit setVariable [QACEGVAR(medical,allowDamage), false];
-    _unit setVariable [QGVAR(timeOfDeath), CBA_missionTime];
+    _unit setVariable [QGVAR(timeOfDeath), GVARMAIN(missionTime)];
 
     if (isServer) then {
         _unit hideObjectGlobal true;
@@ -39,7 +39,7 @@ if !(isNull _unit) then {
         _oldUnit setVariable ["diwako_dui_main_customName", _name, true];
 
         private _side = [[configOf _oldUnit >> "side", 7] call CFUNC(getNumber)] call CFUNC(toSide);
-        private _sideColor = if (_side != sideLogic) then { 
+        private _sideColor = if (_side != sideLogic) then {
             [_side] call BIS_fnc_sideColor
         } else {
             [0.7,0.6,0,1]
