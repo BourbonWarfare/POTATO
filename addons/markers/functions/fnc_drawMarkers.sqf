@@ -15,10 +15,10 @@
 #include "..\script_component.hpp"
 // acos ~50 degrees
 #define OCCLUSION_COS_ANGLE 0.7
-// 1 - 0.6 * frame time (0.1)
-#define OCCLUSION_FADE_ALPHA 0.94
-// 1 + 3 * frame time (0.1)
-#define OCCLUSION_DEFADE_ALPHA 1.3
+// 1 - 0.4 * frame time (0.1)
+#define OCCLUSION_FADE_ALPHA 0.96
+// 1 + 5 * frame time (0.1)
+#define OCCLUSION_DEFADE_ALPHA 1.5
 #define MIN_VALUE_CONSIDERED 5e-2
 //TRACE_1("Params",_this);
 
@@ -43,7 +43,7 @@ if (GVAR(intraFireteam_occlude) && {isNil QGVAR(intraAlphaPFEH)}) then {
             if (_x getVariable [QGVAR(nextAlpha), 0] < _time) then {
                 _seen = _distance < 200 && {_distance < 100 ||
                 {OCCLUSION_COS_ANGLE < _dirVecPlayer vectorDotProduct (_posPlayerASL vectorFromTo _unitPosition)}} &&
-                {[] isEqualTo lineIntersectsObjs [_posPlayerASL, _x modelToWorldVisualWorld (_x selectionPosition  "pelvis"), _x, player, false, 20]};
+                {[] isEqualTo lineIntersectsObjs [_posPlayerASL, _x modelToWorldVisualWorld (_x selectionPosition  "spine3"), _x, player, false, 20]};
                 _x setVariable [QGVAR(nextAlpha), _time + 0.4 + random 0.4];
                 _x setVariable [QGVAR(intraSeen), _seen];
             };
