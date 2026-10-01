@@ -66,12 +66,12 @@ case ("at"): {
         private _secondary = secondaryWeapon _unit;
         if (isArray (configFile >> "CBA_DisposableLaunchers" >> _secondary)) then {
             GVAR(loadout_at) = (getArray (configFile >> "CBA_DisposableLaunchers" >> _secondary))#0;
-            GVAR(loadout_atMags) = "";
+            GVAR(loadout_atMags) = [""];
         } else {
             GVAR(loadout_at) = _secondary;
-            GVAR(loadout_atMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_at)] call CBA_fnc_compatibleMagazines);
+            GVAR(loadout_atMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([_secondary] call CBA_fnc_compatibleMagazines);
         };
-        systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_at), GVAR(loadout_atMags)];
+        systemChat format ["[Set %1]: %2 %3", _fncString, _secondary, GVAR(loadout_atMags)];
     };
 case ("mat"): {
         GVAR(loadout_mat) = secondaryWeapon _unit;
@@ -164,9 +164,15 @@ case ("hat_tri_2"): {
         systemChat format ["[Set %1]: %2", _fncString, GVAR(loadout_hat_tri_2)];
     };
 case ("sam"): {
-        GVAR(loadout_sam) = secondaryWeapon _unit;
-        GVAR(loadout_samMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([GVAR(loadout_sam)] call CBA_fnc_compatibleMagazines);
-        systemChat format ["[Set %1]: %2 %3", _fncString, GVAR(loadout_sam), GVAR(loadout_samMags)];
+        private _secondary = secondaryWeapon _unit;
+        if (isArray (configFile >> "CBA_DisposableLaunchers" >> _secondary)) then {
+            GVAR(loadout_sam) = (getArray (configFile >> "CBA_DisposableLaunchers" >> _secondary))#0;
+            GVAR(loadout_samMags) = [""];
+        } else {
+            GVAR(loadout_sam) = _secondary;
+            GVAR(loadout_samMags) = ((secondaryWeaponMagazine _unit) + (magazines _unit)) arrayIntersect ([_secondary] call CBA_fnc_compatibleMagazines);
+        };
+        systemChat format ["[Set %1]: %2 %3", _fncString, _secondary, GVAR(loadout_samMags)];
     };
 case ("sniper"): {
         GVAR(loadout_sniper) = primaryWeapon _unit;

@@ -84,7 +84,7 @@ private _fnc_getMags = {
 
 switch (_boxType) do {
     case "FT": {
-        if ((getArray (configFile >> "CBA_DisposableLaunchers" >> GVAR(loadout_at))) isNotEqualTo []) then {
+        if (GVAR(loadout_atMags) isEqualTo [""]) then {
             _transWeaps = [GVAR(loadout_at) + QUOTE(:LAT_ROUNDS)];
         } else {
             {
