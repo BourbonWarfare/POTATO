@@ -179,10 +179,11 @@ if (_classesNone isNotEqualTo []) then {
 
 // go thru entire cfgLoadout and look for missing items
 private _notFound = [];
-private _searchHash = ["potato_w_", "potato_e_", "potato_i_", "potato_nolambs_w_", "potato_nolambs_e_", "potato_nolambs_i_"] createHashMapFromArray []; 
+private _searchHash = ["potato_w_", "potato_e_", "potato_i_", "potato_nolambs_w_", "potato_nolambs_e_", "potato_nolambs_i_"] createHashMapFromArray [];
 private _fnc_check = {
     private _item = _this;
-    if (_item isEqualType configNull && {isText _item}) then { 
+    if (_item isEqualType configNull && {isText _item}) then {
+        if ((toLowerANSI configName _item) in ["boxcustomname", "author", "description"]) exitWith {};
         _item = getText _item; // and continue
     };
     if (_item isEqualType "") exitWith {
