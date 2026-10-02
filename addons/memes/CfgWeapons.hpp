@@ -2,6 +2,7 @@ class CfgWeapons {
     class CBA_MiscItem_ItemInfo;
     class ACE_ItemCore;
     class potato_cheezItBox: ACE_ItemCore {
+        author = "Potato";
         scope = 2;
         model = QPATHTOF(data\cheezItBox.p3d);
         picture = QPATHTOF(ui\cheezItBox_ca.paa);
@@ -12,6 +13,7 @@ class CfgWeapons {
         };
     };
     class potato_serverBox: ACE_ItemCore {
+        author = "Potato";
         scope = 2;
         model = QPATHTOF(data\server.p3d);
         picture = QPATHTOF(ui\server_ca.paa);
@@ -22,11 +24,22 @@ class CfgWeapons {
         };
     };
     class potato_gamestop: ACE_ItemCore {
+        author = "Potato";
         scope = 2;
         model = "\A3\Structures_F\Items\Luggage\Suitcase_F.p3d";
         picture = QPATHTOF(ui\gamestop_ca.paa);
         displayName = "GME Stock";
         descriptionShort = "1 Million Gamestop Bearer Bonds";
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 1;
+        };
+    };
+    class potato_whistle: ACE_ItemCore {
+        author = "Potato";
+        scope = 2;
+        picture = QPATHTOF(ui\whistle_ca.paa);
+        displayName = "Whistle";
+        descriptionShort = "Signal Whistle.<br/>Use: ACE Self-Interact->Equipment";
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 1;
         };
