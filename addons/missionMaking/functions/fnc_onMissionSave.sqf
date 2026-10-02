@@ -177,6 +177,34 @@ if (_classesNone isNotEqualTo []) then {
 };
 
 
+// go thru entire cfgLoadout and look for missing items
+private _notFound = [];
+private _searchHash = ["potato_w_", "potato_e_", "potato_i_", "potato_nolambs_w_", "potato_nolambs_e_", "potato_nolambs_i_"] createHashMapFromArray [];
+private _fnc_check = {
+    private _item = _this;
+    if (_item isEqualType configNull && {isText _item}) then {
+        if ((toLowerANSI configName _item) in ["boxcustomname", "author", "description"]) exitWith {};
+        _item = getText _item; // and continue
+    };
+    if (_item isEqualType "") exitWith {
+        if (_item == "") exitWith {};
+        (_item splitString ":") params ["_split"];
+        _searchHash getOrDefaultCall [_split, {
+            private _cfg = _split call CBA_fnc_getItemConfig;
+            if (isNull _cfg) then { _notFound pushBackUnique _item; };
+            true
+        }, true]
+    };
+    if (_item isEqualType []) exitWith { {_x call _fnc_check} forEach _item; };
+    if (isClass _item) exitWith { {_x call _fnc_check} forEach (configProperties [_item]); };
+    if (isArray _item) exitWith { {_x call _fnc_check} forEach (getArray _item); };
+};
+(missionConfigFile >> "CfgLoadouts") call _fnc_check;
+if (_notFound isNotEqualTo []) then {
+    _problems pushBack ["Items not found in CfgLoadouts", _notFound];
+};
+
+
 // Verify units have weapons and enough magazines:
 private _checkWeapons = [];
 private _checkMagazines = [];
@@ -284,7 +312,7 @@ INFO_2("Finished test with %1 problems in %2 ms:",count _problems,((diag_tickTim
 if (_problems isEqualTo []) then {
     private _msg = "Saved: No Problems Detected!";
     systemChat _msg;
-    [_msg] call BIS_fnc_3DENNotification;
+    [_msg, nil, nil, nil, 0.05] call BIS_fnc_3DENNotification; // quiet (1st beep is still normal from the base save notif)
     INFO_1("%1",_msg);
 } else {
     [_problems] spawn {
@@ -299,7 +327,7 @@ if (_problems isEqualTo []) then {
             };
             private _msg = format ["[%1/%2] %3: %4", (_forEachIndex + 1), count _problems, _errorCode, _errorArray];
             systemChat _msg;
-            [_msg] call BIS_fnc_3DENNotification;
+            [_msg, nil, nil, nil, 0.05] call BIS_fnc_3DENNotification;
             INFO_1("%1",_msg);
             uiSleep 1.5;
         } forEach _problems;
