@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+#include "/z/potato/addons/missionTesting/script_macros.hpp"
 
 // Used in reset loadout button to import config without full save output
 if (!isNil QGVAR(skipSaveTest) && {GVAR(skipSaveTest)}) exitWith {nil};
@@ -17,7 +18,7 @@ private _sideCounts = [west, east, resistance] apply {
 };
 private _sortedCounts = +_sideCounts;
 _sortedCounts sort false;
-private _isTVT = (_sortedCounts select 1) > 10;
+private _isTVT = "coop" in toLowerANSI (A_MISSION_TYPE select (getMissionConfigValue QEGVAR(missionTesting,missionType)));
 INFO_3("Placed on mission: [Units: %1] [Non-unit Objects: %2][Playable Slots: %3]",count _allUnits,(count _allMissionObjects) - (count _allUnits),_sideCounts);
 
 private _bwmfDate = getText (missionConfigFile >> "bwmfDate");
