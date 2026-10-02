@@ -30,6 +30,10 @@ private _enableCopyFrom = _logic getVariable [QUOTE(enableCopyFrom), true];
 private _enableCopyFromEnemy = _enableCopyFrom && (_logic getVariable [QUOTE(enableCopyFromEnemy), false]);
 //private _enableCopyFromCorpse = _enableCopyFrom && (_logic getVariable [QUOTE(enableCopyFromCorpse), false]);
 private _shareRadius = 15 min (_logic getVariable [QUOTE(shareRadius), 5]);
+["potato_adminMsg", [
+    format ["Marker sharing system | Disable side [%1] Share [%2] Copy [%3], Cross side [%4], Radius [%5]", _disableNetwork, _enableShare, _enableCopyFrom, _enableCopyFromEnemy, _shareRadius],
+    "Mission", ["#ALL", "#TECH"] select (count call CBA_fnc_players > 4)]
+] call CBA_fnc_globalEvent;
 
 [QGVAR(requestMarkers), {
     [_this,  _thisArgs] call FUNC(sendMarks);
