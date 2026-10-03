@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-#include "/z/potato/addons/missionTesting/script_macros.hpp"
+#include "\z\potato\addons\missionTesting\script_macros.hpp"
 
 // Used in reset loadout button to import config without full save output
 if (!isNil QGVAR(skipSaveTest) && {GVAR(skipSaveTest)}) exitWith {nil};
