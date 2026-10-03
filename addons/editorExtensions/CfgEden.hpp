@@ -83,8 +83,9 @@ class Cfg3DEN {
         };
 
         class GVAR(editTable): Default {
-            attributeLoad = QUOTE(call FUNC(editTable_load));
-            attributeSave = QUOTE(call FUNC(editTable_save));
+            // ToDo
+            // attributeLoad = QUOTE(call FUNC(editTable_load));
+            // attributeSave = QUOTE(call FUNC(editTable_save));
             class Controls {
                 class Container: ctrlListNBox {
                     idc = IDC_EDIT_TABLE_LISTBOX;
