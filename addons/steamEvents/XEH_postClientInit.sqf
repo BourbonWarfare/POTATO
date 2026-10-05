@@ -9,10 +9,13 @@ DFUNC(addDelayedEvents) = {
         private _relativeTime = _time - diag_tickTime; // negative time
         steamGameRecordingEvent [_event, 0, _params, _relativeTime];
     } forEach GVAR(delayedEvents);
+    INFO_1("Added [%1] Steam Events",count GVAR(delayedEvents));
     GVAR(delayedEvents) = [];
-    INFO("Added Steam Events");
 };
 addMissionEventHandler ["Ended", FUNC(addDelayedEvents)];
+[{!isNull findDisplay 46}, { // Add events on disconnect
+    (findDisplay 46) displayAddEventHandler ["Unload", { call FUNC(addDelayedEvents) }];
+}] call CBA_fnc_waitUntilAndExecute;
 
 ["ace_unconscious", {
     params ["_unit", "_uncon"];
