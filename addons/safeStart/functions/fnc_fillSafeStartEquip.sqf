@@ -4,6 +4,7 @@
 #define STANDARD_COLOR "#bbbbbb"
 #define ATTENTION_COLOR "#ffffff"
 #define HIGH_ATTENTION_COLOR "#febf62"
+#define CFG_WEAPONS_SMALL_ITEM_MIN 131072
 /***************************************************************************
 * Author: Lambda.Tiger
 *
@@ -46,7 +47,8 @@ private _configRoot = missionConfigFile >> "CfgLoadouts" >> (
 private _cfgWeapons = configFile >> "CfgWeapons";
 private _cfgMagazines = configFile >> "CfgMagazines";
 private _fnc_isFlashlight = {
-    params ["_cfgPath", ["_initialConfig", configNull]];
+    params ["_cfgPath", ["_initialConfig", _cfgPath]];
+    TRACE_3("flashlight",_cfgPath,configName _cfgPath,getText (_cfgPath >> "MRT_SwitchItemNextClass"));
     private _isFlashlight = false;
     { // is flashlight
         if (isClass (_x >> "Attenuation")) exitWith {
@@ -55,8 +57,9 @@ private _fnc_isFlashlight = {
     } forEach configClasses [_cfgPath >> "ItemInfo", 0, true, false];
     if !(_isFlashlight) then { // is an alt-class flashlight
         private _nextClass = _cfgWeapons >> (getText (_cfgPath >> "MRT_SwitchItemNextClass"));
+        TRACE_2("flashlight recursion",isNull _nextClass,_nextClass != _initialConfig);
         if (_nextClass != _initialConfig && !isNull _nextClass) then {
-            _isFlashlight = [_nextClass, _cfgPath] call _fnc_isFlashlight;
+            _isFlashlight = [_nextClass, _initialConfig] call _fnc_isFlashlight;
         };
     };
     _isFlashlight
@@ -65,6 +68,8 @@ private _unitHash = createHashMap;
 private _flashLights = [];
 private _nvgs = [];
 private _explosives = [];
+private _equipmentCheck = createHashMap;
+private _flashLightTestHash = createHashMap;
 {
     private _gearArray = [];
     {
@@ -75,19 +80,23 @@ private _explosives = [];
     } forEach configProperties [_x];
     _gearArray = _gearArray arrayIntersect _gearArray;
     {
-        if (getText (_cfgMagazines >> _x >> QACEGVAR(explosives,setupObject)) != "") then {
-            _explosives pushBackUnique _x;
-            continue;
-        };
-        private _cfgPath = _cfgWeapons >> _x;
-        if (!isClass _cfgPath) then {continue};
-        if ("NVG" in (getText (_cfgPath >> "simulation"))) then {
-            _nvgs pushBackUnique _x;
-            continue;
-        };
-        if (!(_x in _flashLights) && {[_cfgPath] call _fnc_isFlashlight}) then {
-            _flashLights pushBackUnique _x;
-        };
+        _equipmentCheck getOrDefaultCall [_x, {
+            if (getText (_cfgMagazines >> _x >> QACEGVAR(explosives,setupObject)) != "") exitWith {
+                _explosives pushBackUnique _x;
+                0
+            };
+            private _cfgPath = _cfgWeapons >> _x;
+            if (!isClass _cfgPath) then {continue};
+            if ("NVG" in (getText (_cfgPath >> "simulation"))) exitWith {
+                _nvgs pushBackUnique _x;
+                1
+            };
+            if (!(_x in _flashLights) && {_flashLightTestHash getOrDefaultCall [_x, {[_cfgPath] call _fnc_isFlashlight}, true]}) exitWith {
+                _flashLights pushBackUnique _x;
+                2
+            };
+            -1
+        }, true];
     } forEach _gearArray;
     _unitHash set [configName _x, _gearArray];
 } forEach configProperties [_configRoot, "isClass _x"];
