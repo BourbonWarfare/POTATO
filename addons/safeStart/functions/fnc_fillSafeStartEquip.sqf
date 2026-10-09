@@ -1,6 +1,7 @@
 #include "..\script_component.hpp"
 #include "\z\potato\addons\missionTesting\script_macros.hpp"
 #define LASER_RANGE_FINDER ["rangefinder", "ace_vector", "cup_vector21nite", "cup_binocular_vector", "ace_vectorday","gm_lp7_oli","gm_lpr1_oli","ace_yardage450","cup_soflam"]
+#define CLASSES_TO_CHECK ["rifleman", "ftl", "sl", "plt", "sm", "rto", "artl", "aar", "mmgag", "lat", "ar"]
 #define STANDARD_COLOR "#bbbbbb"
 #define ATTENTION_COLOR "#ffffff"
 #define HIGH_ATTENTION_COLOR "#febf62"
@@ -98,8 +99,8 @@ private _flashLightTestHash = createHashMap;
             -1
         }, true];
     } forEach _gearArray;
-    _unitHash set [configName _x, _gearArray];
-} forEach configProperties [_configRoot, "isClass _x"];
+    _unitHash set [toLowerANSI configName _x, _gearArray];
+} forEach (CLASSES_TO_CHECK apply {_configRoot >> _x});
 
 /// Settings
 private _textArr = ["<t align='left' size='0.85'><t font='PuristaBold' size='1'>Mission</t>"];
