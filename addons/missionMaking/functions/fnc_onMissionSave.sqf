@@ -18,7 +18,7 @@ private _sideCounts = [west, east, resistance] apply {
 };
 private _sortedCounts = +_sideCounts;
 _sortedCounts sort false;
-private _isTVT = "coop" in toLowerANSI (A_MISSION_TYPE select (getMissionConfigValue QEGVAR(missionTesting,missionType)));
+private _isTVT = "tvt" in toLowerANSI (A_MISSION_TYPE select (getMissionConfigValue [QEGVAR(missionTesting,missionType), -1]));
 INFO_3("Placed on mission: [Units: %1] [Non-unit Objects: %2][Playable Slots: %3]",count _allUnits,(count _allMissionObjects) - (count _allUnits),_sideCounts);
 
 private _bwmfDate = getText (missionConfigFile >> "bwmfDate");
