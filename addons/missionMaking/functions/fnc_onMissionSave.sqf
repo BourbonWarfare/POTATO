@@ -129,6 +129,9 @@ if (_missionLength isEqualType "") then { _missionLength = parseNumber _missionL
 if (_missionLength == 0) then {
     _problems pushBackUnique ["Need to set mission length value", ["POTATO -> Mission Testing Attributes -> Mission Length"]];
 };
+if !("Scenario" get3DENMissionAttribute "SaveBinarized") then {
+    _problems pushBackUnique ["Please binarize your scenario file before export", ["Attributes -> General -> Misc -> Binarize the Scenario File"]];
+};
 
 // Check if cleanup.bat still exists
 if (fileExists "cleanup.bat") then {
