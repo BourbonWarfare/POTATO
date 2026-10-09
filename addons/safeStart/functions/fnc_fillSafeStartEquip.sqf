@@ -5,6 +5,7 @@
 #define ATTENTION_COLOR "#ffffff"
 #define HIGH_ATTENTION_COLOR "#febf62"
 #define CFG_WEAPONS_SMALL_ITEM_MIN 131072
+#define MAX_RECURSE_DEPTH 5
 /***************************************************************************
 * Author: Lambda.Tiger
 *
@@ -47,8 +48,8 @@ private _configRoot = missionConfigFile >> "CfgLoadouts" >> (
 private _cfgWeapons = configFile >> "CfgWeapons";
 private _cfgMagazines = configFile >> "CfgMagazines";
 private _fnc_isFlashlight = {
-    params ["_cfgPath", ["_initialConfig", _cfgPath]];
-    TRACE_3("flashlight",_cfgPath,configName _cfgPath,getText (_cfgPath >> "MRT_SwitchItemNextClass"));
+    params ["_cfgPath", ["_initialConfig", _cfgPath], ["_depth", 1]];
+    if (_depth > MAX_RECURSE_DEPTH) exitWith {false};
     private _isFlashlight = false;
     { // is flashlight
         if (isClass (_x >> "Attenuation")) exitWith {
@@ -57,9 +58,8 @@ private _fnc_isFlashlight = {
     } forEach configClasses [_cfgPath >> "ItemInfo", 0, true, false];
     if !(_isFlashlight) then { // is an alt-class flashlight
         private _nextClass = _cfgWeapons >> (getText (_cfgPath >> "MRT_SwitchItemNextClass"));
-        TRACE_2("flashlight recursion",isNull _nextClass,_nextClass != _initialConfig);
         if (_nextClass != _initialConfig && !isNull _nextClass) then {
-            _isFlashlight = [_nextClass, _initialConfig] call _fnc_isFlashlight;
+            _isFlashlight = [_nextClass, _initialConfig, _depth + 1] call _fnc_isFlashlight;
         };
     };
     _isFlashlight
