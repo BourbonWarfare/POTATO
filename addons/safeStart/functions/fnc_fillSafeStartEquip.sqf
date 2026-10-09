@@ -1,9 +1,12 @@
 #include "..\script_component.hpp"
 #include "\z\potato\addons\missionTesting\script_macros.hpp"
 #define LASER_RANGE_FINDER ["rangefinder", "ace_vector", "cup_vector21nite", "cup_binocular_vector", "ace_vectorday","gm_lp7_oli","gm_lpr1_oli","ace_yardage450","cup_soflam"]
+#define CLASSES_TO_CHECK ["rifleman", "ftl", "sl", "plt", "sm", "rto", "artl", "aar", "mmgag", "lat", "ar"]
 #define STANDARD_COLOR "#bbbbbb"
 #define ATTENTION_COLOR "#ffffff"
 #define HIGH_ATTENTION_COLOR "#febf62"
+#define CFG_WEAPONS_SMALL_ITEM_MIN 131072
+#define MAX_RECURSE_DEPTH 5
 /***************************************************************************
 * Author: Lambda.Tiger
 *
@@ -46,7 +49,8 @@ private _configRoot = missionConfigFile >> "CfgLoadouts" >> (
 private _cfgWeapons = configFile >> "CfgWeapons";
 private _cfgMagazines = configFile >> "CfgMagazines";
 private _fnc_isFlashlight = {
-    params ["_cfgPath", ["_initialConfig", configNull]];
+    params ["_cfgPath", ["_initialConfig", _cfgPath], ["_depth", 1]];
+    if (_depth > MAX_RECURSE_DEPTH) exitWith {false};
     private _isFlashlight = false;
     { // is flashlight
         if (isClass (_x >> "Attenuation")) exitWith {
@@ -56,7 +60,7 @@ private _fnc_isFlashlight = {
     if !(_isFlashlight) then { // is an alt-class flashlight
         private _nextClass = _cfgWeapons >> (getText (_cfgPath >> "MRT_SwitchItemNextClass"));
         if (_nextClass != _initialConfig && !isNull _nextClass) then {
-            _isFlashlight = [_nextClass, _cfgPath] call _fnc_isFlashlight;
+            _isFlashlight = [_nextClass, _initialConfig, _depth + 1] call _fnc_isFlashlight;
         };
     };
     _isFlashlight
@@ -65,6 +69,8 @@ private _unitHash = createHashMap;
 private _flashLights = [];
 private _nvgs = [];
 private _explosives = [];
+private _equipmentCheck = createHashMap;
+private _flashLightTestHash = createHashMap;
 {
     private _gearArray = [];
     {
@@ -75,22 +81,26 @@ private _explosives = [];
     } forEach configProperties [_x];
     _gearArray = _gearArray arrayIntersect _gearArray;
     {
-        if (getText (_cfgMagazines >> _x >> QACEGVAR(explosives,setupObject)) != "") then {
-            _explosives pushBackUnique _x;
-            continue;
-        };
-        private _cfgPath = _cfgWeapons >> _x;
-        if (!isClass _cfgPath) then {continue};
-        if ("NVG" in (getText (_cfgPath >> "simulation"))) then {
-            _nvgs pushBackUnique _x;
-            continue;
-        };
-        if (!(_x in _flashLights) && {[_cfgPath] call _fnc_isFlashlight}) then {
-            _flashLights pushBackUnique _x;
-        };
+        _equipmentCheck getOrDefaultCall [_x, {
+            if (getText (_cfgMagazines >> _x >> QACEGVAR(explosives,setupObject)) != "") exitWith {
+                _explosives pushBackUnique _x;
+                0
+            };
+            private _cfgPath = _cfgWeapons >> _x;
+            if (!isClass _cfgPath) then {continue};
+            if ("NVG" in (getText (_cfgPath >> "simulation"))) exitWith {
+                _nvgs pushBackUnique _x;
+                1
+            };
+            if (!(_x in _flashLights) && {_flashLightTestHash getOrDefaultCall [_x, {[_cfgPath] call _fnc_isFlashlight}, true]}) exitWith {
+                _flashLights pushBackUnique _x;
+                2
+            };
+            -1
+        }, true];
     } forEach _gearArray;
-    _unitHash set [configName _x, _gearArray];
-} forEach configProperties [_configRoot, "isClass _x"];
+    _unitHash set [toLowerANSI configName _x, _gearArray];
+} forEach (CLASSES_TO_CHECK apply {_configRoot >> _x});
 
 /// Settings
 private _textArr = ["<t align='left' size='0.85'><t font='PuristaBold' size='1'>Mission</t>"];
