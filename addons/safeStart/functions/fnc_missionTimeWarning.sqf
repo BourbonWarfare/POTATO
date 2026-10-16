@@ -37,6 +37,7 @@ if (_missionLengthSec > 0 && _missionLengthSec < 200) then {
 // END TEMP CODE Remove cicrca 2026-10-01
 missionNamespace setVariable [QGVAR(missionstartTime), CBA_missionTime, true];
 TRACE_2("",GVAR(missionstartTime),_missionLengthSec);
+estimatedTimeLeft _missionLengthSec;
 
 // 15 min Warning
 [
