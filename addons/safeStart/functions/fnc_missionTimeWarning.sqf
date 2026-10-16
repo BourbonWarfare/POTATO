@@ -84,7 +84,7 @@ TRACE_2("",GVAR(missionstartTime),_missionLengthSec);
 // Check if mission end map marker already exists.
 
 private _startTime = dayTime; // dayTime is in hours
-private _endTimeDec = _startTime + (_missionLengthSec / 3600);
+private _endTimeDec = _startTime + (timeMultiplier * _missionLengthSec / 3600);
 private _endTime = [_endTimeDec] call BIS_fnc_timeToString;
 
 private _string = format ["|_USER_DEFINED missionEndMarker_0|[0,0,0.0000]|mil_warning|ICON|[1,1]|0|Solid|colorCivilian|1|Mission End Time - %1",_endTime];

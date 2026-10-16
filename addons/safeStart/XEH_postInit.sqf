@@ -57,7 +57,7 @@ if(hasInterface) then {
             GVAR(mapClockLast) = -1;
             private _map = (findDisplay 12) displayCtrl 51;
             _map ctrlAddEventHandler ["Draw", {
-                private _time = floor (dayTime * 3600); // synchronize clocks
+                private _time = floor (dayTime * 3600 / timeMultiplier); // synchronize clocks
                 if (_time == GVAR(mapClockLast)) exitWith {};
                 call FUNC(updateMapTimer);
                 GVAR(mapClockLast) = _time;
