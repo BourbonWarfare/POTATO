@@ -26,13 +26,10 @@ BEGIN_COUNTER(drawMap);
 params ["_map"];
 
 // piggy back to update timer
-private _timer = TIMER;
-_timer ctrlSetPositionW 0.4;
-_timer ctrlCommit 0;
 if (missionNamespace getVariable [QEGVAR(safeStart,startTime_PV), -1] == -1) then {
-    _timer ctrlSetText format ["%1 | +%2 | Safe Start +%3", [dayTime * 3600] call CFUNC(getTimeText), [GVARMAIN(missionTime)] call CFUNC(getTimeText),  [GVARMAIN(missionTime) - EGVAR(safeStart,endTime)] call CFUNC(getTimeText)];
+    TIMER ctrlSetText format ["%1 | +%2 | Safe Start +%3", [dayTime * 3600] call CFUNC(getTimeText), [GVARMAIN(missionTime)] call CFUNC(getTimeText),  [GVARMAIN(missionTime) - EGVAR(safeStart,endTime)] call CFUNC(getTimeText)];
 } else {
-    _timer ctrlSetText format ["%1 | +%2", [dayTime * 3600] call CFUNC(getTimeText), [GVARMAIN(missionTime)] call CFUNC(getTimeText)];
+    TIMER ctrlSetText format ["%1 | +%2", [dayTime * 3600] call CFUNC(getTimeText), [GVARMAIN(missionTime)] call CFUNC(getTimeText)];
 };
 // Track nearest unit
 private _loc = _map ctrlMapScreenToWorld getMousePosition;
