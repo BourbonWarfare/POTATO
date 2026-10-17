@@ -21,6 +21,9 @@ if (CBA_missionTime < 1) then { // we want it to be a string for code reuse, etc
         TRACE_1("copy loadout",_vehicle getVariable [ARR_2(QGVAR(copy),false)]);
         if (_vehicle getVariable [QGVAR(copy), false]) then {
             private _vicCust = GVAR(vehicleCustomization) getOrDefault [typeOf _vehicle, [], true];
+            if (count _vicCust == 3) then {
+                WARNING_3("overwriting existing copied loadout [%1] [new:%2] [old:%3]",typeOf _vehicle,_loadoutStr,_vicCust#2);
+            };
             _vicCust set [2, [_loadoutStr, _vehicle getVariable ["ace_rearm_scriptedLoadout", false]]];
         };
     }, [_vehicle, _loadoutValue]] call CBA_fnc_execNextFrame;
