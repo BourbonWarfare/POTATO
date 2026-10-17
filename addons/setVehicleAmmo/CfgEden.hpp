@@ -81,6 +81,16 @@ class Cfg3DEN {
                         condition = "objectVehicle";
                         defaultValue = "(false)";
                     };
+                    class GVAR(copy) {
+                        displayName = "Copy Custom Vehicle Ammo";
+                        tooltip = "Copy the custom loadout and ACE-Rearm settings to placed vehicles";
+                        property = QGVAR(copy);
+                        control = "Checkbox";
+                        expression = QUOTE(if (_value) then { _this setVariable [ARR_2(QQGVAR(copy),true)] });
+                        typeName = "BOOL";
+                        condition = "objectVehicle";
+                        defaultValue = "(false)";
+                    };
                     class ADDON {
                         displayName = "Set Vehicle Ammo";
                         tooltip = "";

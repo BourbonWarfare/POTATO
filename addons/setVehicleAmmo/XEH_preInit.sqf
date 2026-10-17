@@ -11,9 +11,9 @@ PREP_RECOMPILE_END;
 //
 if (isServer) then {
     GVAR(vehicleCustomization) = createHashMap;
-     [{
+    [{
         publicVariable QGVAR(vehicleCustomization);
-     }, [], 1] call CBA_fnc_waitAndExecute;
+    }, [], 1] call CBA_fnc_waitAndExecute;
 };
 [{
     if (isNil QGVAR(vehicleCustomization)) exitWith { ERROR("hash nil?") };
@@ -35,6 +35,11 @@ if (isServer) then {
                 params ["_vehicle"];
                 if ((!alive _vehicle) || {!local _vehicle}) exitWith {};
                 private _customization = GVAR(vehicleCustomization) getOrDefault [typeOf _vehicle, []];
+                if (count _customization > 2) then {
+                    (_customization select 2) params ["_loadoutStr", ["_save", false]];
+                    if (_save) then {_vehicle setVariable ["ace_rearm_scriptedLoadout", true, true];};
+                    [_vehicle, _loadoutStr] call FUNC(initVehicle);
+                };
                 private _ret = [_vehicle, _customization select 0, _customization select 1] call bis_fnc_initVehicle;
                 TRACE_3("applied",typeOf _vehicle,_ret,_customization);
             }, false, nil, true] call CBA_fnc_addClassEventHandler; // no inheritance, apply retro
