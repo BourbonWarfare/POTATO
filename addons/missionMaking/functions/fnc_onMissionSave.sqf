@@ -187,7 +187,7 @@ private _searchHash = ["potato_w_", "potato_e_", "potato_i_", "potato_nolambs_w_
 private _fnc_check = {
     private _item = _this;
     if (_item isEqualType configNull && {isText _item}) then {
-        if ((toLowerANSI configName _item) in ["boxcustomname", "author", "description"]) exitWith {};
+        if ((toLowerANSI configName _item) in ["boxcustomname", "author", "description", "init"]) exitWith {};
         _item = getText _item; // and continue
     };
     if (_item isEqualType "") exitWith {
