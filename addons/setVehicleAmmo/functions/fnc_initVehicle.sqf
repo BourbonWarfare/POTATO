@@ -12,9 +12,22 @@
 
 params ["_vehicle", "_loadoutValue"];
 TRACE_2("params",_vehicle,_loadoutValue);
-
+if (_vehicle getVariable [QGVAR(ammoInit), false]) exitWith {TRACE_1("ammoinit",_vehicle getVariable [ARR_2(QGVAR(ammoInit),false)])};
 if (!(_loadoutValue isEqualType "")) exitWith {TRACE_1("not string",_loadoutValue)};
 if (_loadoutValue == "") exitWith {TRACE_1("default",_loadoutValue);};
+if (CBA_missionTime < 1) then { // we want it to be a string for code reuse, etc.
+    [{
+        params ["_vehicle", "_loadoutStr"];
+        TRACE_1("copy loadout",_vehicle getVariable [ARR_2(QGVAR(copy),false)]);
+        if (_vehicle getVariable [QGVAR(copy), false]) then {
+            private _vicCust = GVAR(vehicleCustomization) getOrDefault [typeOf _vehicle, [], true];
+            if (count _vicCust == 3) then {
+                WARNING_3("overwriting existing copied loadout [%1] [new:%2] [old:%3]",typeOf _vehicle,_loadoutStr,_vicCust#2);
+            };
+            _vicCust set [2, [_loadoutStr, _vehicle getVariable ["ace_rearm_scriptedLoadout", false]]];
+        };
+    }, [_vehicle, _loadoutValue]] call CBA_fnc_execNextFrame;
+};
 _loadoutValue = call compile _loadoutValue;
 if (!(_loadoutValue isEqualType [])) exitWith {TRACE_1("not array",_loadoutValue)};
 
@@ -41,5 +54,6 @@ TRACE_3("veh",typeOf _vehicle,local _vehicle,magazines _vehicle);
         };
     };
 } forEach _loadoutValue;
+_vehicle setVariable [QGVAR(ammoInit), true];
 
 TRACE_1("veh",magazines _vehicle);
