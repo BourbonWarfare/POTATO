@@ -37,8 +37,14 @@ _ctrlGroup ctrlShow true;
 private _ctrlGroupParent = ctrlParentControlsGroup _ctrlGroup;
 (_ctrlGroupParent controlsGroupCtrl IDC_SAFESTARTEQUIP_BACKGROUND) ctrlShow true;
 /// Loadouts for your sides units into hashmap
+private _sidePlayer = if (playerSide == sideLogic) then { // specs see the most populous side
+    private _unitCounts = [west, east, resistance, civilian] apply {{isPlayer _x && alive _X} count units _x};
+    [west, east, resistance, civilian] select (_unitCounts find (selectMax _unitCounts))
+} else {
+    playerSide
+};
 private _configRoot = missionConfigFile >> "CfgLoadouts" >> (
-    switch (side player) do {
+    switch (_sidePlayer) do {
         case west: {"potato_w"};
         case east: {"potato_e"};
         case resistance: {"potato_i"};
