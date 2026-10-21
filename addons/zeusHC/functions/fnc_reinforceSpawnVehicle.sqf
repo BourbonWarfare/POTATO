@@ -188,6 +188,10 @@ if (_dismountCount > 0) then { // recurse
             QUOTE(if (local this) then {[vehicle this] call FUNC(reinforceUnloadCargo)};)
         ];
         _wp setWaypointCompletionRadius (1 + _index) * 20;
+        (driver _vic) addEventHandler ["Killed", {
+            private _vic = vehicle (_this#0);
+            [_vic, [gunner _vic]] call FUNC(reinforceUnloadCargo);
+        }];
         /*_group addEventHandler ["CombatModeChanged", {
             [_this#0, true] call FUNC(reinforceContactHandler);
         }];*/
