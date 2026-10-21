@@ -56,7 +56,23 @@ class CfgAmmo {
     // spg-9 and pg-15 round tracers
     class ShellBase;
     class CUP_Sh_PG9_AT: ShellBase {
-        tracerStartTime = 0.001;
-        tracerEndTime = 12;
+        airFriction = 0.225; // orig: -0.00045
+        //tracerStartTime = 0.001;
+        //tracerEndTime = 12;
+        effectsmissileinit = "RocketBackEffectsStaticRPG";
+        effectsMissile = "Missile3_vanilla";
+        fuseDistance = 12;
+        initTime = 0.15;
+        visibleFireTime = 20;
+        sideAirFriction = 0.01;
+        simulation = "shotRocket";
+        timeToLive = 8;
+        thrustTime = 0.35;
+        thrust = 0.001;
+        deflecting = 5;
+        soundFly[] = {"A3\Sounds_F\arsenal\weapons_static\Missile_Launcher\rocket_fly",1.1,0.7,250};
+    };
+    class CUP_Sh_OG9_HE: CUP_Sh_PG9_AT {
+        airFriction = 0.225; // orig: -0.00045
     };
 };
