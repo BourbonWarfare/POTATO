@@ -18,5 +18,8 @@
 params ["_module"];
 if (is3DEN || !local _module) exitWith {};
 //IGNORE_PRIVATE_WARNING["_value"];
+if !(isNil QGVAR(artilleryAmmoTypes)) exitWith {
+    ERROR_MSG_1("[%1] Multiple Add Artillery Magazines modules initializing artillery rounds, only one module per mission",_module);
+};
 missionNamespace setVariable [QGVAR(artilleryAmmoTypes), +_value, true];
 deleteVehicle _module;
