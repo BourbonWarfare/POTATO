@@ -4,17 +4,19 @@
 * Author: Lambda.Tiger
 *
 * Description:
-* Spawn a number of squads in vehicles to move to a zone under attack.
-* The squads are given some kind of vehicles and then waypointed along with
-* vehicles. This function find positions for the vehicles, decides how many
-* dismounts are in each vehicle and assigns each to a HC, run on client, called
-* by the
+* Spawn a number of vehicles with dismounts to move to a few waypoints,
+* dismount, and compelte a waypoint. Vehicles may drop off dismounts and return,
+* or support them.
 *
 * Arguments:
-* _waypoints - Position to head to (ARRAY, default [0, 0, 0]).
-* _vehicleArray - Number of units in reinforcing squads <NUMBER> (default 5).
-* _numberOfSquads - Number of squads to create <NUMBER> (default 2).
-* _vicType - Should the reinforcement vehicles be a BRM-1 <BOOL> (default false).
+* _waypoints - Array of positions to drive through, second to last is dismount <ARRAY> (default, [[]]).
+* _vehicleArray - array of vehicles to create with subarray elements of classname and dismount count <ARRAY> (default, [[]]).
+* _maxDismountCount - Number of units to create at most <NUMBER> (default, 8).
+* _findRoads - Place units on a road or not, false results in vehicles in a column <BOOL> (default false).
+* _finalWPType - The type of waypoint to use for the final waypoint, see CONVOY_WPTYPE defines <NUMBER> (default, CONVOY_WPTYPE_MOVE).
+* _lambsDismounts - Whether the dismounts, if added, should use lambs AI behaviours <BOOL> (default, false).
+* _side - The side of the units in the vehicle spawn <SIDE> (default, east).
+* _oneWay - Whether unarmed vehicles should return to the start position, if false the dismounts take the vehicle <BOOL> (default, false).
 *
 * Return:
 * The number of patroling units spawned
