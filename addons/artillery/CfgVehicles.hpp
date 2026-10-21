@@ -23,7 +23,7 @@ class CfgVehicles {
     };
     class GVAR(registerArtillery): Module_F {
         author = QUOTE(PREFIX);
-        scope = 2;
+        scope = 1;
         scopeCurator = 2;
         displayName = "Register Nearby Artillery (50m)";
         category = QGVAR(modules);
