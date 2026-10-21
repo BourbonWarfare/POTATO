@@ -4,6 +4,7 @@ if (isServer) then {
     [QGVAR(addToCurator), LINKFUNC(addToCuratorServer)] call CBA_fnc_addEventHandler;
     call FUNC(init_serverScriptErrors);
 };
+call FUNC(init_stats);
 
 GVAR(playerStartingSide) = sideUnknown;
 GVAR(playerAuth) = false;

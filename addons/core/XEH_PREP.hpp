@@ -13,6 +13,7 @@ PREP(getNumber);
 PREP(getText);
 PREP(getTimeText);
 PREP(init_serverScriptErrors);
+PREP(init_stats);
 PREP(isAuthorized);
 PREP(isTech);
 PREP(parseBool);
