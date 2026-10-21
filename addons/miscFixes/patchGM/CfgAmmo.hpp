@@ -107,14 +107,38 @@ class CfgAmmo {
     class gm_shell_HE_Base: gm_shell_base {};
     class gm_shell_73mm_HE_og15v: gm_shell_HE_Base {
         model = "\a3\Weapons_F_Tank\Ammo\rocket_spg9.p3d";
-        tracerStartTime = 0.001;
-        tracerEndTime = 12;
+        airfriction = 0.644966 / 2; // originally -0.000644966;
+        effectsMissile = "Missile3_vanilla";
+        deleteParentWhenTriggered = 0;
+        maxSpeed = 500;
+        fuseDistance = 12;
+        initTime = 0.15;
+        visibleFireTime = 20;
+        sideAirFriction = 0.01;
+        simulation = "shotRocket";
+        timeToLive = 8;
+        thrustTime = 0.35;
+        thrust = 0.0001;
+        deflecting = 5;
+        soundFly[] = {"A3\Sounds_F\arsenal\weapons_static\Missile_Launcher\rocket_fly",1.1,0.7,250};
     };
     class gm_shell_HEAT_Base: gm_shell_HE_Base {};
     class gm_shell_73mm_HEAT_pg15v: gm_shell_HEAT_Base {
+        airfriction = 0.515649 / 2; // originally -0.000515649;
         model = "\a3\Weapons_F_Tank\Ammo\rocket_spg9.p3d";
-        tracerStartTime = 0.001;
-        tracerEndTime = 12;
+        effectsMissile = "Missile3_vanilla";
+        deleteParentWhenTriggered = 0;
+        maxSpeed = 500;
+        fuseDistance = 12;
+        initTime = 0.15;
+        visibleFireTime = 20;
+        sideAirFriction = 0.01;
+        simulation = "shotRocket";
+        timeToLive = 8;
+        thrustTime = 0.35;
+        thrust = 0.0001;
+        deflecting = 5;
+        soundFly[] = {"A3\Sounds_F\arsenal\weapons_static\Missile_Launcher\rocket_fly",1.1,0.7,250};
     };
 
     // what if there were colors
