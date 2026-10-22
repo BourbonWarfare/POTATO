@@ -9,7 +9,7 @@
  * 1: The array the diary entry for the orbat is built from <ARRAY>
  *
  * Examples:
- * [_orbatHash, []] call potato_briefing_fnc_addOrbat;
+ * [_orbatHash, []] call potato_briefing_fnc_sortOrbat
  *
  * TODO:
  * - Fix multiple friendly factions display overwriting eachother
@@ -172,8 +172,9 @@ private _sides = [];
             continue;
         };
         private _roleDescript = (_sideOrbatToSort get _leadKey)#0;
+        if (_roleDescript == "") then { WARNING_2("no description for %1: %2",_leadKey,_sideOrbatToSort get _leadKey); _roleDescript = _leadKey };
         _roleDescript = (toLowerANSI _roleDescript) splitString "@";
-        _roleDescript = _roleDescript#(count _roleDescript - 1);
+        _roleDescript = _roleDescript#-1;
         private _idx = _roleDescript find "(";
         private _keysToFind = if (_idx < 0) then {
             switch (true) do {
