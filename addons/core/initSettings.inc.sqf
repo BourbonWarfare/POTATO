@@ -22,7 +22,7 @@
 [
     QGVAR(showPlayerStats),
     "LIST",
-    ["Show player stats at end of mission", "Show some bonus stats like distance walked and medical actions [Setting change takes effect next mission]"],
+    ["Show Player Stats", "Show some bonus stats like distance walked and medical actions [Setting change takes effect next mission]"],
     ["POTATO - User", "Admin Chat"],
     [[0, 1, 2], ["Disabled", "Enabled (Show At Bottom)", "Enabled (Show At Top)"], 0], // opt-in to give in a few sessions to test
     true, // isGlobal
