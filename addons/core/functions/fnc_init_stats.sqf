@@ -90,7 +90,7 @@ GVAR(stats_lastVic) = objNull;
 DFUNC(stats_distanceFunc) = {
     private _unit = ace_player;
     private _vehicle = vehicle _unit;
-    if (!alive _unit) then {
+    if (!alive _unit || {_unit isKindOf "VirtualMan_F"}) then {
         GVAR(stats_lastPos) = [];
         GVAR(stats_lastVic) = objNull;
     } else {
@@ -105,7 +105,7 @@ DFUNC(stats_distanceFunc) = {
                 if (_distance > 30) exitWith {};
                 GVAR(stats_distanceWalked) = GVAR(stats_distanceWalked) + _distance;
             } else {
-                if (_distance > 400) exitWith {};
+                if (_distance > 500) exitWith {};
                 GVAR(stats_distanceVehicle) = GVAR(stats_distanceVehicle) + _distance;
             };
         };
