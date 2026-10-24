@@ -1,11 +1,17 @@
 #include "..\script_component.hpp"
 
-GVAR(stats_all) = [];
 if (!hasInterface) exitWith {};
+if (GVAR(showPlayerStats) == 0) exitWith {};
 
+// func called everytime setting is changed, so only init once
+if (missionNamespace getVariable [QGVAR(stats_initialized), false]) exitWith {};
+missionNamespace setVariable [QGVAR(stats_initialized), true];
+
+GVAR(stats_all) = [];
 [QEGVAR(adminMenu,endMission), {
+    if (GVAR(showPlayerStats) == 0) exitWith {}; // in-case it changed mid-mission
     if (isNil "acex_killTracker_outputText") exitWith {};
-    private _killFeed = acex_killTracker_outputText;
+    private _killFeed = [];
 
     // Add players we wounded (from potato_specate)
     private _wounded = [];
@@ -21,7 +27,7 @@ if (!hasInterface) exitWith {};
         } forEach _wounds;
     } forEach allPlayers;
     if (_wounded isNotEqualTo []) then {
-        _killFeed = format ["Caused wounds on players:<br/> %1<br/>%2", _wounded joinString ", ", _killFeed];
+        _killFeed pushBack format ["Caused wounds on players:<br/> %1", _wounded joinString ", "];
     };
 
     // private _values = [];
@@ -38,11 +44,21 @@ if (!hasInterface) exitWith {};
         };
     } select {_x != ""} joinString "<br/>";
     if (_stats != "") then {
-        _killFeed = format ["%1<br/>%2", _stats, _killFeed];
+        _killFeed pushBack _stats;
     };
     // [QGVAR(compareStats), [profileName, _values]] call CBA_fnc_serverEvent;
 
-    GVAR(stats_killFeedOverride) = _killFeed;
+    switch GVAR(showPlayerStats) do {
+        case 1: {  // Show At Bottom
+            _killFeed = [acex_killTracker_outputText] + _killFeed;
+        };
+        case 2: {
+            _killFeed pushBack acex_killTracker_outputText
+        };
+    };
+
+
+    GVAR(stats_killFeedOverride) = _killFeed joinString "<br/>";
     addMissionEventHandler ["EachFrame", { // override kill feed with this output (even if player dies in last 0.5 second)
         acex_killTracker_outputText = GVAR(stats_killFeedOverride);
     }];
@@ -207,3 +223,5 @@ GVAR(stats_all) pushBack [QGVAR(stats_fortify_objectPlaced), "Fortify Objects Pl
     if (_unit != ace_player) exitWith {};
     GVAR(stats_fortify_objectPlaced) = GVAR(stats_fortify_objectPlaced) + 1;
 }] call CBA_fnc_addEventHandler;
+
+INFO_1("[Temp]: Player stats initialized: %1",count GVAR(stats_all));
