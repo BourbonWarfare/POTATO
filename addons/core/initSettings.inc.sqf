@@ -19,3 +19,12 @@
     ["POTATO - User", "Admin Chat"],
     false
 ] call cba_settings_fnc_init;
+[
+    QGVAR(showPlayerStats),
+    "LIST",
+    ["Show Player Stats", "Show some bonus stats like distance walked and medical actions [Setting change takes effect next mission]"],
+    ["POTATO - User", "Admin Chat"],
+    [[0, 1, 2], ["Disabled", "Enabled (Show At Bottom)", "Enabled (Show At Top)"], 0], // opt-in to give in a few sessions to test
+    true, // isGlobal
+    { call FUNC(init_stats); } // on change
+] call cba_settings_fnc_init;
