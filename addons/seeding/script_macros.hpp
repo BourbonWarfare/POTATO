@@ -16,6 +16,7 @@
 // Variable functions
 #define GVAR(var1)   DOUBLES(MISSION_GVAR_PREFIX,var1)
 #define QGVAR(var1)  QUOTE(DOUBLES(MISSION_GVAR_PREFIX,var1))
+#define QQGVAR(var1)  QUOTE(QGVAR(var1))
 #define DGVAR(var1)  DOUBLES(MISSION_PREFIX,var1)
 #define QDGVAR(var1) QUOTE(DOUBLES(MISSION_PREFIX,var1))
 #define FUNC(var1)   TRIPLES(PREFIX,fnc,var1)
