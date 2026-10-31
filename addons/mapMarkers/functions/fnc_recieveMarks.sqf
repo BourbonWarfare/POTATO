@@ -35,7 +35,7 @@ if (ace_player getSlotItemName 608 == "") exitWith {
         _x setMarkerPolylineLocal _pts;
     } else {
         _y params ["", "_color", "_pos", "_dir", "_size", "_type", "_text"];
-        if (getMarkerPos _x isNotEqualTo [0, 0, 0]) then {
+        if (getMarkerPos _x isEqualTo [0, 0, 0]) then {
             createMarkerLocal [_x, _pos];
         } else {
             _x setMarkerPosLocal _pos;

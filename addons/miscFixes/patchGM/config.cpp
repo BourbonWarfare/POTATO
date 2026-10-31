@@ -29,10 +29,7 @@ class CfgPatches {
             "gm_weapons_launchers_strela",
             "gm_weapons_machinepistols_gm_mp2",
             "gm_characters_ge_characters",
-            "gm_weapons_cannons_73mm_2a28",
-            "gm_vehicles_air_helicopters_ch53",
-            "gm_vehicles_land_wheeled_uaz469",
-            "gm_vehicles_land_wheeled_uaz469_gc_army_uaz469"
+            "gm_vehicles_air_helicopters_ch53"
         };
         units[] = {
             "land_gm_euro_bridge_02_20_mainroad",

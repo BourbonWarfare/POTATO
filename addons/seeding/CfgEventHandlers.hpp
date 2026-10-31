@@ -28,3 +28,9 @@ class Extended_InitPost_EventHandlers {
     class BWMF_DisableThermals { init = "(_this select 0) disableTIEquipment true;"; };
   };
 };
+class Extended_DisplayLoad_EventHandlers {
+    class RscDisplayCurator {
+        ADDON = QUOTE({if !(PGVAR(core,playerAuth) || missionNamespace getVariable [ARR_2(QQGVAR(allowCurator),false)]) then {[getAssignedCuratorLogic player] remoteExecCall [ARR_2(QQUOTE(unassignCurator),2)]; (_this#0) closeDisplay -1;};});
+    };
+};
+

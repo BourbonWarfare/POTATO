@@ -203,23 +203,4 @@ class CfgVehicles {
             };
         };
     };
-
-    // UAZ SPG-9 turret fixes
-    class gm_wheeled_car_base;
-    class gm_uaz469_base: gm_wheeled_car_base {
-        class Turrets;
-    };
-    class gm_uaz469_armed_base: gm_uaz469_base {
-        class Turrets: Turrets {
-            class MainTurret;
-        };
-    };
-    class gm_uaz469_spg9_base: gm_uaz469_armed_base {
-        class Turrets: Turrets {
-            class MainTurret: MainTurret {
-                missileBeg = "MachineGunTurret_01_Gun_dir";
-                missileEnd = "MachineGunTurret_01_Gun_pos";
-            };
-        };
-    };
 };
