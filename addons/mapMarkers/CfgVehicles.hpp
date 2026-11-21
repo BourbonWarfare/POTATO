@@ -59,7 +59,7 @@ class CfgVehicles {
     class CAManBase: Man {
         class ACE_SelfActions {
             class ADDON {
-                condition = QUOTE(visibleMap && GVAR(allowImport) && {!(missionNamespace getVariable [ARR_2(QQGVAR(disableNetwork),false)]) && EGVAR(safeStart,safeStartEnabled) && {leader _target == _target}});
+                condition = QUOTE(visibleMap && {EGVAR(safeStart,safeStartEnabled) && GVAR(allowImport) && leader _target == _target});
                 displayName = "Load or Save Markers";
                 exceptions[] = {"isNotDragging","notOnMap","isNotInside","isNotSitting"};
                 icon = "\a3\ui_f\data\GUI\Rsc\RscDisplayArsenal\map_ca.paa";

@@ -52,6 +52,7 @@ class GVAR(saveMarkersDialog) {
             shadow = 0;
             style = 2;
             text = "Clear Map";
+            tooltip = "Clear the map of all markers placed by the user or loaded by this interface.";
             class Attributes {
                 font = "PuristaLight";
                 color = "#E5E5E5";
@@ -70,23 +71,27 @@ class GVAR(saveMarkersDialog) {
             idc = IDC_RECALL_MARKERS_BUTTON_LOAD;
             x = 0.3 + 0.12 + 0.01 * 2;
             text = "Load Save";
+            tooltip = "Load saved markers to the current map, uses your current set channel.";
         };
         class RscButton_save: RscButton_clear {
             idc = IDC_RECALL_MARKERS_BUTTON_SAVE;
             x = 0.3 + 0.12 * 2 + 0.01 * 3;
             text = "Save";
+            tooltip = "Save the current markers to the selected entry.";
         };
         class RscButton_delete: RscButton_clear {
             idc = IDC_RECALL_MARKERS_BUTTON_DELETE;
             x = 0.3 + 0.12 + 0.01 * 2;
             y = 0.2 + 0.6 - 0.01 - 0.05;
             text = "Delete Save";
+            tooltip = "Delete the selected saved marker set.";
         };
         class RscButton_saveas: RscButton_clear {
             idc = IDC_RECALL_MARKERS_BUTTON_SAVEAS;
             x = 0.3 + 0.12 * 2 + 0.01 * 3;
             y = 0.2 + 0.6 - 0.01 - 0.05;
             text = "Save As";
+            tooltip = "Save the current markers as a name you will enter.";
         };
         class RscButtonMenuCancel_exit: RscButtonMenuCancel {
             colorBackground[] = {0,0,0,0.7};
@@ -96,6 +101,7 @@ class GVAR(saveMarkersDialog) {
             h = 0.05;
             style = 2;
             text = "Close";
+            tooltip = "Close the interface.";
             class Attributes {
                 font = "PuristaLight";
                 color = "#E5E5E5";
