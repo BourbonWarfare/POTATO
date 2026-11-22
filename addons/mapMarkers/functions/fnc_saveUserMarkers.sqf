@@ -14,8 +14,9 @@
  * Public: No
  */
 params [["_saveName", "DEFAULT_SAVE_NAME", [""]]];
-private _markers = [true] call FUNC(collectMarkers); // JSON markers use a lot less space
+private _markers = [false] call FUNC(collectMarkers); // JSON markers use a lot less space
+_markers = values _markers;
 private _savedMarkers = profileNamespace getVariable [QGVAR(savedMarkers), createHashMap];
 private _terrainHash = _savedMarkers getOrDefault [worldName, createHashMap, true];
-_terrainHash set [_saveName, _markers];
+_terrainHash set [_saveName, str _markers];
 profileNamespace setVariable [QGVAR(savedMarkers), _savedMarkers];
