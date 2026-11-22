@@ -21,7 +21,7 @@ private _fnc_formatList = {
     private _return = [];
     _list = _list select {_x != ""};
     {
-        _return pushBack ['"%1"', _x];
+        _return pushBack format ['"%1"', _x];
         if (_forEachIndex < ((count _list) -1)) then {_return pushBack ", ";};
     } forEach _list;
     if (_return isEqualTo []) then {_return = ['""'];};
