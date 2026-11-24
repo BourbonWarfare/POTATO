@@ -30,7 +30,7 @@ class Extended_InitPost_EventHandlers {
 };
 class Extended_DisplayLoad_EventHandlers {
     class RscDisplayCurator {
-        ADDON = QUOTE({if !(PGVAR(core,playerAuth) || missionNamespace getVariable [ARR_2(QQGVAR(allowCurator),false)]) then {[getAssignedCuratorLogic player] remoteExecCall [ARR_2(QQUOTE(unassignCurator),2)]; (_this#0) closeDisplay -1;};});
+        ADDON = QUOTE(if !(PGVAR(core,playerAuth) || missionNamespace getVariable [ARR_2(QQGVAR(allowCurator),false)]) then {[getAssignedCuratorLogic player] remoteExecCall [ARR_2(QQUOTE(unassignCurator),2)]; (_this#0) closeDisplay -1;};);
     };
 };
 

@@ -79,7 +79,7 @@ GVAR(factionParams) getOrDefaultCall [_faction, {
         private _paramsOmit = +_params;
         _paramsOmit deleteAt 0;
         _paramsOmit deleteAt 0;
-        if (_omitClassName pushBackUnique _paramsOmit >=0) then {
+        if (_omitClassName pushBackUnique _paramsOmit >= 0) then {
             _finalWeaponPairs pushBack _params;
         };
     } forEach _testPairs;

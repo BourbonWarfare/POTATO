@@ -25,6 +25,8 @@ class CfgMagazines {
         initSpeed = 120;
     };
     class CUP_Dragon_EP1_AI_M: CUP_Dragon_EP1_M {
+        scope = 1;
+        scopeArsenal = 1;
         displayName = "M47 Missile (AI)";
         ammo = "CUP_M_47_AT_EP1";
     };
@@ -33,6 +35,6 @@ class CfgMagazines {
 class CfgWeapons {
     class Launcher_Base_F;
     class CUP_launch_M47: Launcher_Base_F {
-        magazines[] = {"CUP_Dragon_EP1_M", "CUP_Dragon_EP1_AI_M"};
+        magazines[] = {"CUP_Dragon_EP1_AI_M", "CUP_Dragon_EP1_M"};
     };
 };
