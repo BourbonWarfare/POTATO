@@ -54,4 +54,17 @@ class CfgVehicles {
             };
         };
     };
+    // ACE self interact action
+    class Man;
+    class CAManBase: Man {
+        class ACE_SelfActions {
+            class ADDON {
+                condition = QUOTE(visibleMap && {EGVAR(safeStart,safeStartEnabled) && GVAR(allowImport) && leader _target == _target});
+                displayName = "Load or Save Markers";
+                exceptions[] = {"isNotDragging","notOnMap","isNotInside","isNotSitting"};
+                icon = "\a3\ui_f\data\GUI\Rsc\RscDisplayArsenal\map_ca.paa";
+                statement = QUOTE(createDialog [QQGVAR(saveMarkersDialog)]);
+            };
+        };
+    };
 };

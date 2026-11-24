@@ -1,4 +1,10 @@
 PREP(collectMarkers);
+PREP(loadUserMarkers);
 PREP(module_shareMarkerInit);
 PREP(recieveMarks);
+PREP(saveUserMarkers);
 PREP(sendMarks);
+PREP(ui_saveMarkersAsBox);
+PREP(ui_saveMarkersButton);
+PREP(ui_saveMarkersConfirmBox);
+PREP(ui_saveMarkersUpdateList);
